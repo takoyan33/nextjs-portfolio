@@ -9,13 +9,22 @@ export default function Header() {
     <header class="pc">
       <div class="header_flx">
         <h1>
-          <a href="index.html">To You Design</a>
+          <Link href="/" >
+          To You Design
+          </Link>
         </h1>
         <nav class="pc-nav">
           <ul>
-            <li><a href="portfolio.html">ポートフォリオ</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html" class="">お問い合わせ</a></li>
+            <li><Link href="Portfolio">
+              ポートフォリオ
+              </Link></li>
+            <li><Link href="News">
+              News
+             </Link> 
+              </li>
+            <li><Link href="Contact">
+            お問い合わせ
+              </Link></li>
           </ul>
         </nav>
       </div>
