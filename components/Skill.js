@@ -12,8 +12,7 @@ return (
   </p>
 <p className="code_title">{skill_name} </p>
 <p className="code_title">{skill_rank}</p>
-<p className="code_title">{skill_tag}</p>          
-
+<p className="code_title">{skill_tag}</p>        
 </div>
 
 )

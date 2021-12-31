@@ -27,13 +27,13 @@ export default function Footer() {
                 News
               </p>
            </Link>
-          </div>
-          <div className="flx_el">
-          <Link href="/Contact" >
+           <Link href="/Contact" >
               <p className="footer_list">
                 お問い合わせ
               </p>
             </Link>
+            <div className="flx_el">
+            </div>
           </div>
         </div>
       </ul>

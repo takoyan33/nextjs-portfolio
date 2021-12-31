@@ -48,43 +48,43 @@ export default function Main() {
       skill_name: 'HTML',
       skill_rank: '★★★★',
       skill_tag: '経験年数：1年半',
-      skill_icon: 'faHtml5'
+      skill_icon: faHtml5
     },
     {
       skill_name: 'CSS(SCSS)',
       skill_rank: '★★★★',
       skill_tag: '経験年数：1年半',
-      skill_icon: 'faCss3'
+      skill_icon: faCss3
     },
     {
       skill_name: 'JavaScript(jQuery)',
       skill_rank: '★★★',
       skill_tag: '経験年数：1年',
-      skill_icon: 'faJs'
+      skill_icon: faJs
     },
     {
       skill_name: 'Ruby on Rails',
       skill_rank: '★★',
       skill_tag: '経験年数：4ヶ月',
-      skill_icon: 'faGem'
+      skill_icon: faGem
     },
     {
       skill_name: 'React/Next.js',
       skill_rank: '★★★',
       skill_tag: '経験年数：6ヶ月',
-      skill_icon: 'faReact'
+      skill_icon: faReact
     },
     {
       skill_name: 'WordPress',
       skill_rank: '★★★',
       skill_tag: '経験年数：1年',
-      skill_icon: 'faWordpress'
+      skill_icon: faWordpress
     },
     {
       skill_name: 'PhotoShop/Illustrator',
       skill_rank: '★★★',
       skill_tag: '経験年数：1年半',
-      skill_icon: 'faCamera'
+      skill_icon: faCamera
     },
   ]
 
@@ -135,7 +135,7 @@ export default function Main() {
     <h3 className="main__subtitle"  data-aos="fade-right">ポートフォリオ</h3>
     <div className="flx padding" data-aos="fade-up">
     { portfolios.map((portfolio,index) => 
-<Portfolio 
+<Portfolio
  key={index}
   portfolio_name={portfolio.portfolio_name}
   portfolio_date={portfolio.portfolio_date}
@@ -160,8 +160,6 @@ export default function Main() {
     <h3 className="main__subtitle"  data-aos="fade-right">スキルセット</h3>
 
     <div className="flx" data-aos="fade-up">
-
-      
     { skills.map((skill,index) => 
 <Skill 
   key={index}
@@ -171,83 +169,6 @@ export default function Main() {
   skill_icon={skill.skill_icon}
 />
 )}
-      
-
-       {/* <div className="flx_el">
-          <p className="tac">
-            <FontAwesomeIcon icon={faHtml5} className="size" />
-          </p>
-        <p className="code_title">HTML</p>
-        <p className="code_title">★★★★</p>
-        <p className="code_title">経験年数：1年半</p>        
-
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faCss3}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">CSS</p>
-        <p className="code_title">★★★★</p>
-        <p className="code_title">経験年数：1年半</p>      
-
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faGem}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">Ruby on Rails</p>
-        <p className="code_title">★★</p>
-        <p className="code_title">経験年数：4ヶ月</p>      
-
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faReact}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">React/Next.js</p>
-        <p className="code_title">★★★</p>
-        <p className="code_title">経験年数：6ヶ月</p>      
-
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faJs}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">JavaScript</p>
-        <p className="code_title">★★★★</p>
-        <p className="code_title">経験年数：1年半</p>      
-
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faWordpress}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">WordPress</p>
-        <p className="code_title">★★★★</p>
-        <p className="code_title">経験年数：1年半</p>  
-
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faCamera}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">PhotoShop/Illustrator</p>
-        <p className="code_title">★★★</p>
-        <p className="code_title">経験年数：1年</p>  
-
-      </div> */}
     </div>
 
   </div>
