@@ -95,7 +95,7 @@ export default function Main() {
      {/* <!-- ここからfv -->*/}
 <div className="fv" data-aos="fade-up">
   <div className="max_width">
-    <h2 className="fv__title">To aYou Design</h2>
+    <h2 className="fv__title">To You Design</h2>
     <h3 className="fv__subtitle">ポートフォリオサイト</h3>
   </div>
 </div>

@@ -10,30 +10,30 @@ export default function Footer() {
       <ul className="flx_footer">
         <div className="flx">
           <div className="flx_el">
-            <a href="index.html">
+          <Link href="/" >
               <p className="footer_logo">
                 To You Design
               </p>
-            </a>
+          </Link>
           </div>
           <div className="flx_el">
-            <a href="archive-portfolio.html">
+          <Link href="/Portfolio" >
               <p className="footer_list">
                 ポートフォリオ
               </p>
-            </a>
-            <a href="archive-news.html">
+            </Link>
+            <Link href="/News" >
               <p className="footer_list">
                 News
               </p>
-            </a>
+           </Link>
           </div>
           <div className="flx_el">
-            <a href="contact.html">
+          <Link href="/Contact" >
               <p className="footer_list">
                 お問い合わせ
               </p>
-            </a>
+            </Link>
           </div>
         </div>
       </ul>
