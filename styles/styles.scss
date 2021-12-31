@@ -3,6 +3,7 @@
 $main-color: #6499FF;
 $tag-color-1:#D50303;
 $tag-color-2:#00A339;
+$tag-color-3:#ce61c8;
 $white:#FFFF;
 $back-color:#F7F7F7;
 * {
@@ -435,13 +436,15 @@ a:hover {
     display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content:space-between;
     margin: 50px auto;
+    flex-wrap: wrap;
+
 }
 
 .flx_el {
   margin: 0px;
-  width: 50%;
+  width: 33%;
 }
 
 .flx_el_footer {
@@ -548,6 +551,12 @@ color: $main-color;
 }
 .portfoli__tag--color3{
   background-color: $tag-color-2;
+  color: $white;
+  padding: 5px 10px;
+}
+
+.portfoli__tag--color4{
+  background-color: $tag-color-3;
   color: $white;
   padding: 5px 10px;
 }

@@ -425,13 +425,15 @@ a:hover {
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 50px auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .flx_el {
   margin: 0px;
-  width: 50%;
+  width: 33%;
 }
 
 .flx_el_footer {
@@ -539,6 +541,12 @@ a:hover {
 
 .portfoli__tag--color3 {
   background-color: #00A339;
+  color: #FFFF;
+  padding: 5px 10px;
+}
+
+.portfoli__tag--color4 {
+  background-color: #ce61c8;
   color: #FFFF;
   padding: 5px 10px;
 }

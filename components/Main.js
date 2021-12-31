@@ -3,10 +3,91 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHtml5, faCss3, faReact, faJs, faWordpress  } from "@fortawesome/free-brands-svg-icons";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
-import { faCamera, faForward } from "@fortawesome/free-solid-svg-icons";
-
+import { faCamera} from "@fortawesome/free-solid-svg-icons";
+import Portfolio from "./Portfolio.js"
+import Skill from "./Skill.js"
 
 export default function Main() {
+  const portfolios = [
+    {
+      portfolio_name: '三菱レンタカー下層ページ　コーディング',
+      portfolio_date: '2021.09.01',
+      portfolio_tag: 'コーディング',
+      portfolio_img: '/images/portfolio_1.png',
+      portfolio_url: 'https://www.mmc-dia-finance.com/rental/',
+      portfolio_color: "portfoli__tag--color1",
+
+    },
+    {
+      portfolio_name: 'Lutena デザイン＋コーディング',
+      portfolio_date: '2021.09.01',
+      portfolio_tag: 'Wordpress',
+      portfolio_img: '/images/portfolio_3.png',
+      portfolio_url: 'https://lutena.net/',
+      portfolio_color: "portfoli__tag--color2"
+    },
+    {
+      portfolio_name: 'Railsチュートリアル',
+      portfolio_date: '2021.11.31',
+      portfolio_tag: 'Ruby on Rails',
+      portfolio_img: '/images/portfolio_2.png',
+      portfolio_url: 'https://sleepy-plains-55156.herokuapp.com/',
+      portfolio_color: "portfoli__tag--color3"
+    },
+    {
+      portfolio_name: 'Todoサイト',
+      portfolio_date: '2021.11.31',
+      portfolio_tag: 'React',
+      portfolio_img: '/images/portfolio_4.png',
+      portfolio_url: 'https://takoyan33.github.io/todo-react-app/',
+      portfolio_color: "portfoli__tag--color4"
+    },
+  ];
+  const skills = [
+    {
+      skill_name: 'HTML',
+      skill_rank: '★★★★',
+      skill_tag: '経験年数：1年半',
+      skill_icon: 'faHtml5'
+    },
+    {
+      skill_name: 'CSS(SCSS)',
+      skill_rank: '★★★★',
+      skill_tag: '経験年数：1年半',
+      skill_icon: 'faCss3'
+    },
+    {
+      skill_name: 'JavaScript(jQuery)',
+      skill_rank: '★★★',
+      skill_tag: '経験年数：1年',
+      skill_icon: 'faJs'
+    },
+    {
+      skill_name: 'Ruby on Rails',
+      skill_rank: '★★',
+      skill_tag: '経験年数：4ヶ月',
+      skill_icon: 'faGem'
+    },
+    {
+      skill_name: 'React/Next.js',
+      skill_rank: '★★★',
+      skill_tag: '経験年数：6ヶ月',
+      skill_icon: 'faReact'
+    },
+    {
+      skill_name: 'WordPress',
+      skill_rank: '★★★',
+      skill_tag: '経験年数：1年',
+      skill_icon: 'faWordpress'
+    },
+    {
+      skill_name: 'PhotoShop/Illustrator',
+      skill_rank: '★★★',
+      skill_tag: '経験年数：1年半',
+      skill_icon: 'faCamera'
+    },
+  ]
+
   return (
     <nav className="container">
     <div style={{ textAlign: "center", padding: 50 }}>
@@ -53,52 +134,17 @@ export default function Main() {
     <h2 className="main__title" data-aos="fade-right">Portfolio</h2>
     <h3 className="main__subtitle"  data-aos="fade-right">ポートフォリオ</h3>
     <div className="flx padding" data-aos="fade-up">
-      <div className="flx_el">
-        <a href="https://www.mmc-dia-finance.com/rental/" target="_blank" >
-          <p className="tac">
-          <p className="tac">
-             <Image
-             src="/images/portfolio_1.png" 
-             className="about_img" 
-             alt="ポートフォリオ画像"
-             width={300}
-             height={150} 
-               /></p></p>
-        </a>
-        <p className="portfoli__date">2021.09.01<span className="portfoli__tag--color1">Webサイト</span></p>
-        <p> 三菱レンタカー<br></br>下層ページ　コーディング </p>
-
-      </div>
-      <div className="flx_el">
-        <a href="https://lutena.net/" target="_blank" >
-          <p className="tac">
-             <Image
-             src="/images/portfolio_3.png" 
-             className="about_img"
-             alt="ポートフォリオ画像"
-             width={300}
-             height={150} 
-               /></p>
-        </a>
-        <p className="portfoli__date">2020.08.01<span className="portfoli__tag--color2">Wordpress</span></p>
-        <p>Lutena デザイン＋コーディング</p>
-
-      </div>
-      <div className="flx_el">
-        <a href="https://sleepy-plains-55156.herokuapp.com/" target="_blank" >
-          <p className="tac">
-             <Image
-              src="/images/portfolio_2.png" 
-              className="about_img"  
-              alt="ポートフォリオ画像"
-              width={300}
-              height={150} 
-              /></p>
-        </a>
-        <p className="portfoli__date">2021.11.31<span className="portfoli__tag--color3">Ruby</span></p>
-        <p>Rails チュートリアル</p>
-
-      </div>
+    { portfolios.map((portfolio,index) => 
+<Portfolio 
+ key={index}
+  portfolio_name={portfolio.portfolio_name}
+  portfolio_date={portfolio.portfolio_date}
+  portfolio_tag={portfolio.portfolio_tag}
+  portfolio_img={portfolio.portfolio_img}
+  portfolio_url={portfolio.portfolio_url}
+  portfolio_color={portfolio.portfolio_color}
+/>
+)}
     </div>
     {/* <a href="archive-portfolio.html">
       <h2 className="main__btn" data-aos="fade-up">READ MORE <img src="images/button-icon.png" className="main__btn--icon" /></h2>
@@ -114,15 +160,26 @@ export default function Main() {
     <h3 className="main__subtitle"  data-aos="fade-right">スキルセット</h3>
 
     <div className="flx" data-aos="fade-up">
-      <div className="flx_el">
-        <a href="">
+
+      
+    { skills.map((skill,index) => 
+<Skill 
+ key={index}
+  skill_name={skill.skill_name}
+  skill_date={skill.skill_rank}
+  skill_tag={skill.skill_tag}
+  skill_icon={skill.skill_icon}
+/>
+)}
+      
+
+      {/* <div className="flx_el">
           <p className="tac">
             <FontAwesomeIcon icon={faHtml5} className="size" />
           </p>
-        </a>
         <p className="code_title">HTML</p>
         <p className="code_title">★★★★</p>
-        <p className="code_title">経験年数：2年</p>        
+        <p className="code_title">経験年数：1年半</p>        
 
       </div>
       <div className="flx_el">
@@ -133,7 +190,7 @@ export default function Main() {
         </a>
         <p className="code_title">CSS</p>
         <p className="code_title">★★★★</p>
-        <p className="code_title">経験年数：2年</p>      
+        <p className="code_title">経験年数：1年半</p>      
 
       </div>
       <div className="flx_el">
@@ -143,8 +200,8 @@ export default function Main() {
           </p>
         </a>
         <p className="code_title">Ruby on Rails</p>
-        <p className="code_title">★★★</p>
-        <p className="code_title">経験年数：6ヶ月</p>      
+        <p className="code_title">★★</p>
+        <p className="code_title">経験年数：4ヶ月</p>      
 
       </div>
       <div className="flx_el">
@@ -153,14 +210,11 @@ export default function Main() {
             <FontAwesomeIcon icon={faReact}  className="size" />
           </p>
         </a>
-        <p className="code_title">React</p>
+        <p className="code_title">React/Next.js</p>
         <p className="code_title">★★★</p>
         <p className="code_title">経験年数：6ヶ月</p>      
 
       </div>
-    </div>
-
-    <div className="flx" data-aos="fade-up">
       <div className="flx_el">
         <a href="">
           <p className="tac">
@@ -193,18 +247,7 @@ export default function Main() {
         <p className="code_title">★★★</p>
         <p className="code_title">経験年数：1年</p>  
 
-      </div>
-      <div className="flx_el">
-        <a href="">
-          <p className="tac">
-            <FontAwesomeIcon icon={faForward}  className="size" />
-          </p>
-        </a>
-        <p className="code_title">Next.js</p>
-        <p className="code_title">★★</p>
-        <p className="code_title">経験年数：3ヶ月</p>  
-
-      </div>
+      </div> */}
     </div>
 
   </div>
