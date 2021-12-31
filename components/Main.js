@@ -164,16 +164,16 @@ export default function Main() {
       
     { skills.map((skill,index) => 
 <Skill 
- key={index}
+  key={index}
   skill_name={skill.skill_name}
-  skill_date={skill.skill_rank}
+  skill_rank={skill.skill_rank}
   skill_tag={skill.skill_tag}
   skill_icon={skill.skill_icon}
 />
 )}
       
 
-      {/* <div className="flx_el">
+       {/* <div className="flx_el">
           <p className="tac">
             <FontAwesomeIcon icon={faHtml5} className="size" />
           </p>
