@@ -14,7 +14,7 @@ export default function Header() {
           </Link>
         </h1>
         <nav class="pc-nav">
-          <ul>
+          {/* <ul>
             <li><Link href="Portfolio">
               ポートフォリオ
               </Link></li>
@@ -25,7 +25,7 @@ export default function Header() {
             <li><Link href="Contact">
             お問い合わせ
               </Link></li>
-          </ul>
+          </ul> */}
         </nav>
       </div>
     </header>

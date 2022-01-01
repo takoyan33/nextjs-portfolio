@@ -16,7 +16,7 @@ export default function Footer() {
               </p>
           </Link>
           </div>
-          <div className="flx_el">
+          {/* <div className="flx_el">
           <Link href="/Portfolio" >
               <p className="footer_list">
                 ポートフォリオ
@@ -34,7 +34,7 @@ export default function Footer() {
             </Link>
             <div className="flx_el">
             </div>
-          </div>
+          </div> */}
         </div>
       </ul>
     </div>
