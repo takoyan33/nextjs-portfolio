@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>To You Design</title>
         <link rel="icon" href="/favicon.ico" />
   <script src="https://kit.fontawesome.com/bb61864944.js" crossorigin="anonymous" ></script>
   <meta name="google" content="nositelinkssearchbox" key="sitelinks" />

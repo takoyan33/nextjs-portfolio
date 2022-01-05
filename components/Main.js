@@ -109,7 +109,7 @@ export default function Main() {
         <a href="apply.html">
           <h2 className="main__title"  data-aos="fade-right">About</h2>
           <h3 className="main__subtitle"  data-aos="fade-right">To You Designについて</h3>
-          <p className="about__text">To You Designのポートフォリオです。大学生１年生から約1年間サイト作成のインターンの経験があり、WordPressを用いたサイト作成やRuby on railsやReactを用いてサイト作成も行います。</p>
+          <p className="about__text">To You Designのポートフォリオです。大学生１年生から約1年間サイト作成のインターンの経験があり、WordPressを用いたサイト作成や現在は、Ruby on railsやReactの勉強をしています。</p>
         </a>
       </div>
       <div className="flx_el">
