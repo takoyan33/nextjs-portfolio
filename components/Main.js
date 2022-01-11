@@ -45,7 +45,7 @@ export default function Main() {
       portfolio_date: "2021.11.31",
       portfolio_tag: "React",
       portfolio_img: "/images/portfolio_4.png",
-      portfolio_url: "https://takoyan33.github.io/todo-react-app/",
+      portfolio_url: "https://todo-app-react-30d63.firebaseapp.com/",
       portfolio_color: "portfoli__tag--color4",
     },
   ];
