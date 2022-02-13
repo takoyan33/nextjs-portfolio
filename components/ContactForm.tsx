@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 // import { Grid, TextField } from "@material-ui/core";
 import Grid from "@mui/material/Grid";
 import { init, sendForm, send } from "emailjs-com";
+import { title } from "process";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
@@ -53,7 +54,7 @@ const Contact: React.FC = () => {
   return (
     <div className="contact-page">
       <p className="contact-top">Contact</p>
-      <Grid container alignItems="center" justify="center">
+      <Grid>
         <Grid item xs={8}>
           <form onSubmit={onSubmit}>
             <TextField
@@ -107,3 +108,7 @@ const Contact: React.FC = () => {
   );
 };
 export default Contact;
+function setTitle(value: string) {
+  throw new Error("Function not implemented.");
+}
+
