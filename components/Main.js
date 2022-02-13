@@ -1,15 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import Portfolio from "./Portfolio.js";
+import Portfolio from "./Portfolio.tsx";
 import Skill from "./Skill.js";
-import { portfolios, skills } from "./data.js"
+import { portfolios, skills } from "./data.tsx";
 import { init, emailjs } from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
 export default function Main() {
-
   return (
     <nav className="container">
       <div style={{ textAlign: "center", padding: 50 }}></div>

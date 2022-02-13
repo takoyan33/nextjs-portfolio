@@ -1,8 +1,10 @@
-import Link from 'next/link'
-import Head from 'next/head'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import Main from '../components/Main'
+import Link from "next/link";
+import Head from "next/head";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Main from "../components/Main";
+
+
 
 
 
@@ -12,19 +14,19 @@ export default function Home() {
       <Head>
         <title>To You Design</title>
         <link rel="icon" href="/favicon.ico" />
-  <script src="https://kit.fontawesome.com/bb61864944.js" crossorigin="anonymous" ></script>
-  <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <script
+          src="https://kit.fontawesome.com/bb61864944.js"
+          crossorigin="anonymous"
+        ></script>
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
       </Head>
       <Header />
       <Main />
       <Footer />
-
     </div>
-  )
+  );
 }
-
-
 
 // import Head from 'next/head'
 // import Layout, { siteTitle } from '../components/layout'
