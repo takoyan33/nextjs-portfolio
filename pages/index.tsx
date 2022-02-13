@@ -16,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <script
           src="https://kit.fontawesome.com/bb61864944.js"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
