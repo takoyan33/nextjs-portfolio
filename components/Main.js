@@ -1,10 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import Portfolio from "./Portfolio.tsx";
 import Skill from "./Skill.js";
 import { portfolios, skills } from "./data.tsx";
-import { init, emailjs } from "emailjs-com";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Main() {
   return (

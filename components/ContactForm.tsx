@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
   );
 };
 export default Contact;
+
 function setTitle(value: string) {
   throw new Error("Function not implemented.");
 }
-

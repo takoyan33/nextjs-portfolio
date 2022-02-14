@@ -47,7 +47,7 @@ header {
   height: 100px;
   top: 0;
   width: 100%;
-  background-color: #FFFF;
+  background-color: #ffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,12 +74,12 @@ header ul {
 }
 
 header li {
-  margin: 0 0 0 15px;
-  font-size: 14px;
+  margin-bottom: 0px;
+  font-size: 16px;
 }
 
 header nav {
-  margin: 35px 0 0 auto;
+  margin: 35 0 0 auto;
 }
 
 .header__inner {
@@ -95,7 +95,7 @@ header nav {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #FFFF;
+  background-color: #ffff;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -263,7 +263,7 @@ header nav {
     width: 100vw;
     height: 100vh;
     padding: 0;
-    background-color: #FFFF;
+    background-color: #ffff;
   }
   .hamburger__list {
     font-size: 16px;
@@ -334,7 +334,7 @@ li {
 }
 
 footer {
-  background-color: #6499FF;
+  background-color: #6499ff;
 }
 
 .flx_footer {
@@ -453,7 +453,7 @@ a:hover {
 .fv {
   height: 800px;
   width: 100%;
-  background-color: #6499FF;
+  background-color: #6499ff;
   z-index: -1;
 }
 
@@ -465,7 +465,7 @@ a:hover {
   position: relative;
   top: 220px;
   font-family: futura-pt-bold, sans-serif;
-  color: #FFFF;
+  color: #ffff;
   letter-spacing: 4px;
   margin-right: auto;
 }
@@ -477,7 +477,7 @@ a:hover {
   position: relative;
   top: 220px;
   font-family: futura-pt-bold, sans-serif;
-  color: #FFFF;
+  color: #ffff;
   letter-spacing: 4px;
 }
 
@@ -485,14 +485,14 @@ a:hover {
   font-size: 60px;
   text-align: left;
   margin: 0;
-  color: #6499FF;
+  color: #6499ff;
 }
 
 .main__subtitle {
   font-size: 20px;
   text-align: left;
   margin: 0;
-  color: #6499FF;
+  color: #6499ff;
 }
 
 .main__title--white {
@@ -519,35 +519,35 @@ a:hover {
 }
 
 .portfolio {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 .portfoli__date {
   font-size: 14px;
-  color: #6499FF;
+  color: #6499ff;
 }
 
 .portfoli__tag--color1 {
-  background-color: #6499FF;
-  color: #FFFF;
+  background-color: #6499ff;
+  color: #ffff;
   padding: 5px 10px;
 }
 
 .portfoli__tag--color2 {
-  background-color: #D50303;
-  color: #FFFF;
+  background-color: #d50303;
+  color: #ffff;
   padding: 5px 10px;
 }
 
 .portfoli__tag--color3 {
-  background-color: #00A339;
-  color: #FFFF;
+  background-color: #00a339;
+  color: #ffff;
   padding: 5px 10px;
 }
 
 .portfoli__tag--color4 {
   background-color: #ce61c8;
-  color: #FFFF;
+  color: #ffff;
   padding: 5px 10px;
 }
 
@@ -577,8 +577,8 @@ footer {
 }
 
 .main__btn {
-  background-color: #6499FF;
-  color: #FFFF;
+  background-color: #6499ff;
+  color: #ffff;
   padding: 10px 0px;
   width: 400px;
   margin: 60px auto;
@@ -598,7 +598,7 @@ footer {
 }
 
 .news__list {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 .size {
@@ -606,11 +606,11 @@ footer {
   height: 200px;
   width: 200px;
   font-size: 8em;
-  color: #6499FF;
+  color: #6499ff;
 }
 
 .code_title {
-  color: #6499FF;
+  color: #6499ff;
   font-weight: bold;
 }
 
@@ -625,8 +625,8 @@ footer {
 
 @media screen and (max-width: 580px) {
   .main__btn {
-    background-color: #6499FF;
-    color: #FFFF;
+    background-color: #6499ff;
+    color: #ffff;
     padding: 10px 0px;
     width: 100%;
     margin: 40px auto;
@@ -638,7 +638,7 @@ footer {
     height: 200px;
     width: 200px;
     font-size: 8em;
-    color: #6499FF;
+    color: #6499ff;
   }
   .section_title {
     margin: 10px auto;
@@ -651,7 +651,7 @@ footer {
   }
   .first_text {
     font-size: 14px;
-    line-height: 2.0;
+    line-height: 2;
   }
   .border_company {
     background-color: white;

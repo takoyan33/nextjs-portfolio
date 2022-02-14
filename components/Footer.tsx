@@ -19,9 +19,9 @@ export default function Footer() {
                 <Link href="/News">
                   <p className="footer_list">News</p>
                 </Link>
-                <Link href="/Contact">
+                {/* <Link href="/Contact">
                   <p className="footer_list">お問い合わせ</p>
-                </Link>
+                </Link> */}
                 <div className="flx_el"></div>
               </div>
             </div>

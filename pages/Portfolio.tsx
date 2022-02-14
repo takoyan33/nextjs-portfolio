@@ -1,14 +1,14 @@
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-export default function Portfolio () {
-  return(
+export default function Portfolio() {
+  return (
     <>
-<Header />
+      <Header />
 
-  <h1>Portfolio</h1>
+      <h1>Portfolio</h1>
 
-  <Footer />
-  </>
+      <Footer />
+    </>
   );
 }
