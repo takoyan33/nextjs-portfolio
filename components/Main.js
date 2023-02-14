@@ -2,8 +2,6 @@ import Image from "next/image";
 import Portfolio from "./Portfolio.tsx";
 import Skill from "./Skill.js";
 import { portfolios, skills } from "./data.tsx";
-import { init, emailjs } from "emailjs-com";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Main() {
   return (
@@ -13,7 +11,7 @@ export default function Main() {
       <div className="fv" data-aos="fade-up">
         <div className="max_width">
           <h2 className="fv__title">To You Design</h2>
-          <h3 className="fv__subtitle">阿部舜平のポートフォリオサイト</h3>
+          <h3 className="fv__subtitle">ポートフォリオサイト</h3>
         </div>
       </div>
       {/* <!-- ここまでfv --*/}
@@ -23,26 +21,22 @@ export default function Main() {
         <div className="max_width">
           <div className="flx" data-aos="fade-up">
             <div className="flx_el">
-              <a href="apply.html">
+              <a href="">
                 <h2 className="main__title" data-aos="fade-right">
                   About
                 </h2>
                 <h3 className="main__subtitle" data-aos="fade-right">
-                  阿部舜平について
+                  To You Designについて
                 </h3>
-                <ul className="about__text">
-                  <li>名前　阿部舜平</li>
-                  <li>年齢　21歳、大学3年生</li>
-                  <li>出身　群馬県</li>
-                  <li>趣味　写真撮影、ピアノ</li>
-                  <br></br>
-                  阿部舜平のポートフォリオです。大学生１年生から約1年間サイト作成のインターンの経験があり、WordPressを用いたサイト作成や現在は、Ruby
+                <p className="about__text">
+                  To You
+                  Designのポートフォリオです。大学生１年生から約1年間サイト作成のインターンの経験があり、WordPressを用いたサイト作成や現在は、Ruby
                   on railsやReactの勉強をしています。
-                </ul>
+                </p>
               </a>
             </div>
             <div className="flx_el">
-              <div className="tac">
+              <p className="tac">
                 <Image
                   src="/images/myphoto.jpg"
                   className="about_img"
@@ -50,7 +44,7 @@ export default function Main() {
                   width={300}
                   height={300}
                 />
-              </div>
+              </p>
             </div>
           </div>
         </div>
@@ -70,12 +64,15 @@ export default function Main() {
             {portfolios.map((portfolio, index) => (
               <Portfolio
                 key={index}
-                portfolio_name={portfolio.portfolio_name}
-                portfolio_date={portfolio.portfolio_date}
-                portfolio_tag={portfolio.portfolio_tag}
-                portfolio_img={portfolio.portfolio_img}
-                portfolio_url={portfolio.portfolio_url}
-                portfolio_color={portfolio.portfolio_color}
+                portfolio_name={portfolio.name}
+                portfolio_date={portfolio.date}
+                portfolio_tag={portfolio.tag}
+                portfolio_img={portfolio.img}
+                portfolio_url={portfolio.url}
+                portfolio_color={portfolio.color}
+                portfolio_time={portfolio.time}
+                portfolio_about={portfolio.about}
+                portfolio_skill={portfolio.skill}
               />
             ))}
           </div>
@@ -110,18 +107,6 @@ export default function Main() {
         </div>
       </div>
       {/*!-- ここまでSkill-->*/}
-
-      <div className="portfolio">
-        <div className="max_width">
-          <h2 className="main__title" data-aos="fade-right">
-            Intern
-          </h2>
-          <h3 className="main__subtitle" data-aos="fade-right">
-            インターン
-          </h3>
-          <div className="flx padding" data-aos="fade-up"></div>
-        </div>
-      </div>
 
       {/*<!-- ここからcontact-->*/}
       <div className="contact padding">

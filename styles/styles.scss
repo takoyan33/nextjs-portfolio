@@ -4,16 +4,10 @@ $main-color: #6499ff;
 $tag-color-1: #d50303;
 $tag-color-2: #00a339;
 $tag-color-3: #ce61c8;
-<<<<<<< HEAD
-$white: #ffff;
-$back-color: #f7f7f7;
-=======
 $tag-color-4: #063997;
 $tag-color-5: #fd6d39;
 $white: #ffff;
 $back-color: #f7f7f7;
-
->>>>>>> aef4cbd (最新に更新)
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -86,6 +80,34 @@ header ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.bg-white {
+  background-color: white;
+  width: 1000px;
+  height: 600px;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+  padding: 10px auto;
+  padding-top: 30px;
+}
+
+.modal-text {
+  margin-left: 20px;
+}
+
+.modal-button {
+  text-align: center;
+  padding: 10px 30px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  border-radius: 5px;
+  background-color: $tag-color-4;
+  color: white;
 }
 
 header li {
@@ -558,7 +580,6 @@ a:hover {
   color: $white;
   padding: 5px 10px;
 }
-
 
 .portfoli__tag--color5 {
   background-color: $tag-color-4;

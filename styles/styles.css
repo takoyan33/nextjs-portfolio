@@ -73,6 +73,34 @@ header ul {
   display: flex;
 }
 
+.bg-white {
+  background-color: white;
+  width: 1000px;
+  height: 600px;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+  padding: 10px auto;
+  padding-top: 30px;
+}
+
+.modal-text {
+  margin-left: 20px;
+}
+
+.modal-button {
+  text-align: center;
+  padding: 10px 30px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  border-radius: 5px;
+  background-color: #063997;
+  color: white;
+}
+
 header li {
   margin-bottom: 0px;
   font-size: 16px;
