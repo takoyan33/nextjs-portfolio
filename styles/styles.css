@@ -657,6 +657,50 @@ footer {
   padding: 50px 0 !important;
 }
 
+dl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+dl dt {
+  text-align: left;
+  width: 8.5em;
+  padding: 0.5em 1em 0.5em 0.5em;
+  position: relative;
+}
+
+dl dt::after {
+  content: "●";
+  position: absolute;
+  right: -0.55em;
+  top: 5px;
+  font-size: 22px;
+  color: #6499ff;
+}
+
+dl dd {
+  width: calc(100% - 8.5em);
+  padding: 0.5em 2em 3em;
+  border-left: 2px solid #ccc;
+}
+
+dl p {
+  text-align: left;
+}
+
+dl dd h2 {
+  font-size: 22px;
+  text-align: left;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
 @media screen and (max-width: 580px) {
   .main__btn {
     background-color: #6499ff;

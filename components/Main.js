@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Portfolio from "./Portfolio.tsx";
-import Skill from "./Skill.js";
+import Skill from "./Skill.tsx";
 import { portfolios, skills } from "./data.tsx";
 
 export default function Main() {
@@ -83,6 +83,57 @@ export default function Main() {
       </div>
       {/*  {/*<!-- ここまでポートフォリオ-->*/}
 
+      {/* <!-- ここからインターンの経験-->*/}
+      <div className="about padding">
+        <div className="max_width">
+          <div className="flx" data-aos="fade-up">
+            <div className="flx_el">
+              <h2 className="main__title" data-aos="fade-right">
+                TimeLine
+              </h2>
+              <h3 className="main__subtitle" data-aos="fade-right">
+                過去の経歴
+              </h3>
+            </div>
+            <dl>
+              <dt>2020年3月</dt>
+              <dd>
+                <h2>市立札幌大通高等学校　卒業</h2>
+              </dd>
+              <dt>2020年4月</dt>
+              <dd>
+                <h2>北星学園大学　経済学部　経営情報学科　入学</h2>
+              </dd>
+              <dt>2021年1月</dt>
+              <dd>
+                <h2>JBA日本ビジネスアート株式会社　長期インターン</h2>
+                <p>
+                  　Wordpressサイトの修正やhtml,cssのコーディングやPhotoshopなどのWebデザインの制作を半年間行う
+                </p>
+              </dd>
+              <dt>2022年4月</dt>
+              <dd>
+                <h2>株式会社conexio　長期インターン</h2>
+                <p>Railsアプリの開発を行う。2022年12月まで行った</p>
+              </dd>
+              <dt>2022年9月</dt>
+              <dd>
+                <h2>株式会社メディアライツ　長期インターン</h2>
+                <p>Unityなどを用いたゲーム開発を行っている</p>
+              </dd>
+              <dt>2023年2月</dt>
+              <dd>
+                <h2>株式会社Poteto　長期インターン</h2>
+                <p>
+                  Reactのサービスの開発を行う。バックエンドがPython,インフラがAWSなど使った事がない技術が多くあり、参考になった。
+                </p>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      {/* !-- ここまでインターンの経験-->*/}
+
       {/*!-- ここからSKill-->*/}
       <div className="skill padding">
         <div className="max_width">
@@ -97,10 +148,10 @@ export default function Main() {
             {skills.map((skill, index) => (
               <Skill
                 key={index}
-                skill_name={skill.skill_name}
-                skill_rank={skill.skill_rank}
-                skill_tag={skill.skill_tag}
-                skill_icon={skill.skill_icon}
+                name={skill.name}
+                rank={skill.rank}
+                tag={skill.tag}
+                icon={skill.icon}
               />
             ))}
           </div>
@@ -133,6 +184,31 @@ export default function Main() {
             </a>
           </div>
         </div>
+
+        {/*!-- ここからSNS-->*/}
+        {/* <div className="skill padding">
+        <div className="max_width">
+          <h2 className="main__title" data-aos="fade-right">
+            SNS
+          </h2>
+          <h3 className="main__subtitle" data-aos="fade-right">
+            各種SNS
+          </h3>
+
+          <div className="flx" data-aos="fade-up">
+            {skills.map((skill, index) => (
+              <Skill
+                key={index}
+                skill_name={skill.skill_name}
+                skill_rank={skill.skill_rank}
+                skill_tag={skill.skill_tag}
+                skill_icon={skill.skill_icon}
+              />
+            ))}
+          </div>
+        </div>
+      </div> */}
+        {/*!-- ここまでSkill-->*/}
       </div>
     </nav>
   );

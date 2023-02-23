@@ -93,9 +93,89 @@ export const portfolios = [
   //   portfolio_url: "https://sleepy-plains-55156.herokuapp.com/",
   //   portfolio_color: "portfoli__tag--color3",
   // },
+  // {
+  //   portfolio_name: "Python",
+  //   portfolio_date: "2021.11.31",
+  //   portfolio_tag: "Ruby on Rails",
+  //   portfolio_img: "/images/portfolio_2.png",
+  //   portfolio_url: "https://sleepy-plains-55156.herokuapp.com/",
+  //   portfolio_color: "portfoli__tag--color3",
+  // },
+  // {
+  //   portfolio_name: "ハッカソン",
+  //   portfolio_date: "2021.11.31",
+  //   portfolio_tag: "Ruby on Rails",
+  //   portfolio_img: "/images/portfolio_2.png",
+  //   portfolio_url: "https://sleepy-plains-55156.herokuapp.com/",
+  //   portfolio_color: "portfoli__tag--color3",
+  // },
 ];
 
 export const skills = [
+  {
+    name: "HTML",
+    rank: "★★★★",
+    tag: "経験年数：3年",
+    icon: faHtml5,
+  },
+  {
+    name: "CSS(SCSS)",
+    rank: "★★★★",
+    tag: "経験年数：3年",
+    icon: faCss3,
+  },
+  {
+    name: "JavaScript,TypeScript(jQuery)",
+    rank: "★★★",
+    tag: "経験年数：2年",
+    icon: faJs,
+  },
+  {
+    name: "Ruby on Rails",
+    rank: "★★",
+    tag: "経験年数：1年",
+    icon: faGem,
+  },
+  {
+    name: "React/Next.js",
+    rank: "★★★",
+    tag: "経験年数：1年",
+    icon: faReact,
+  },
+  {
+    name: "Vue.js/Nuxt.js",
+    rank: "★",
+    tag: "経験年数：1ヶ月",
+    icon: faVuejs,
+  },
+  {
+    name: "Unity",
+    rank: "★★",
+    tag: "経験年数：3ヶ月",
+    icon: faUnity,
+  },
+  // {
+  //   name: "Golang",
+  //   rank: "★★",
+  //   tag: "経験年数：3ヶ月",
+  //   icon: faGolang,
+  // },
+  {
+    skill_name: "WordPress",
+    skill_rank: "★★★",
+    skill_tag: "経験年数：1年",
+    skill_icon: faWordpress,
+  },
+  {
+    skill_name: "PhotoShop/Illustrator",
+    skill_rank: "★★★",
+    skill_tag: "経験年数：1年半",
+    skill_icon: faCamera,
+  },
+];
+
+
+export const timelines = [
   {
     skill_name: "HTML",
     skill_rank: "★★★★",

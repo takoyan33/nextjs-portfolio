@@ -51,7 +51,7 @@ export default function Portfolio({
           <p className="modal-text">使用技術：{portfolio_skill}</p>
           <p className="modal-text">概要：{portfolio_about}</p>
           <p className="modal-text">
-            URL <a href={portfolio_url}>{portfolio_url}</a>
+            URL： <a href={portfolio_url}>{portfolio_url}</a>
           </p>
           {/* <p className="modal-text">
             リポジトリ<a href={portfolio_url}>{portfolio_url}</a>
