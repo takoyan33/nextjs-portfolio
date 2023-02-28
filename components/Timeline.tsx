@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { useModal } from "react-hooks-use-modal";
 
 export default function Timeline({ title, date, body }) {
   return (

@@ -74,6 +74,7 @@ export default function Main() {
                 portfolio_time={portfolio.time}
                 portfolio_about={portfolio.about}
                 portfolio_skill={portfolio.skill}
+                portfolio_github={portfolio.github}
               />
             ))}
           </div>

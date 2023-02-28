@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useModal } from "react-hooks-use-modal";
+import usePortfolioModal from "./Parts/usePortfolioModal";
 
 export default function Portfolio({
   portfolio_name,
@@ -7,14 +7,14 @@ export default function Portfolio({
   portfolio_tag,
   portfolio_img,
   portfolio_url,
+  portfolio_github,
   portfolio_color,
   portfolio_time,
   portfolio_about,
   portfolio_skill,
 }) {
-  const [Modal, open, close, isOpen] = useModal("__next", {
-    preventScroll: true,
-  });
+  const [Modal, open, close, isOpen] = usePortfolioModal();
+
   return (
     <div className="flx_el">
       <a onClick={open} target="_blank">
@@ -53,9 +53,9 @@ export default function Portfolio({
           <p className="modal-text">
             URL： <a href={portfolio_url}>{portfolio_url}</a>
           </p>
-          {/* <p className="modal-text">
-            リポジトリ<a href={portfolio_url}>{portfolio_url}</a>
-          </p> */}
+          <p className="modal-text">
+            Github<a href={portfolio_github}>{portfolio_github}</a>
+          </p>
           <button onClick={close} className="modal-button">
             閉じる
           </button>
