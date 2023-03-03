@@ -8,36 +8,33 @@ export default function Main() {
   return (
     <nav className="container">
       <div style={{ textAlign: "center", padding: 50 }}></div>
-      {/* <!-- ここからfv -->*/}
-      <div className="fv" data-aos="fade-up">
+      {/* ここからfv */}
+      <div className="fv">
         <div className="max_width">
           <h2 className="fv__title">To You Design</h2>
           <h3 className="fv__subtitle">ポートフォリオサイト</h3>
         </div>
       </div>
-      {/* <!-- ここまでfv --*/}
 
-      {/* <!-- ここからabout -->*/}
+      {/* ここからabout */}
       <div className="about padding">
         <div className="max_width">
-          <div className="flx" data-aos="fade-up">
+          <div className="flx">
             <div className="flx_el">
-              <a href="">
-                <h2 className="main__title" data-aos="fade-right">
-                  About
-                </h2>
-                <h3 className="main__subtitle" data-aos="fade-right">
-                  To You Designについて
-                </h3>
-                <p className="about__text">
-                  To You
-                  Designのポートフォリオです。大学生１年生から約1年間サイト作成のインターンの経験があり、WordPressを用いたサイト作成や現在は、Ruby
-                  on railsやReactの勉強をしています。
-                </p>
-              </a>
+              <h2 className="main__title">About</h2>
+              <h3 className="main__subtitle">To You Designについて</h3>
+              <p className="about__text">
+                To You Designのポートフォリオです。
+                <br />
+                現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
+                <br />
+                名前：阿部舜平 大学：北星学園大学　経済学部　経営情報学科3年生
+                <br />
+                趣味：写真撮影・旅行
+              </p>
             </div>
             <div className="flx_el">
-              <p className="tac">
+              <div className="tac">
                 <Image
                   src="/images/myphoto.jpg"
                   className="about_img"
@@ -45,23 +42,18 @@ export default function Main() {
                   width={300}
                   height={300}
                 />
-              </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* !-- ここまでabout -->*/}
 
-      {/* !-- ここからポートフォリオ-->*/}
+      {/*  ここからポートフォリオ*/}
       <div className="portfolio">
         <div className="max_width">
-          <h2 className="main__title" data-aos="fade-right">
-            Portfolio
-          </h2>
-          <h3 className="main__subtitle" data-aos="fade-right">
-            ポートフォリオ
-          </h3>
-          <div className="flx padding" data-aos="fade-up">
+          <h2 className="main__title">Portfolio</h2>
+          <h3 className="main__subtitle">ポートフォリオ</h3>
+          <div className="flx padding">
             {portfolios.map((portfolio, index) => (
               <Portfolio
                 key={index}
@@ -79,23 +71,18 @@ export default function Main() {
             ))}
           </div>
           {/* <a href="archive-portfolio.html">
-      <h2 className="main__btn" data-aos="fade-up">READ MORE <img src="images/button-icon.png" className="main__btn--icon" /></h2>
+      <h2 className="main__btn">READ MORE <img src="images/button-icon.png" className="main__btn--icon" /></h2>
     </a> */}
         </div>
       </div>
-      {/*  {/*<!-- ここまでポートフォリオ-->*/}
 
-      {/* <!-- ここからインターンの経験-->*/}
+      {/*ここからインターンの経験*/}
       <div className=" padding">
         <div className="max_width">
-          <div className="flx" data-aos="fade-up">
+          <div className="flx">
             <div className="flx_el">
-              <h2 className="main__title" data-aos="fade-right">
-                TimeLine
-              </h2>
-              <h3 className="main__subtitle" data-aos="fade-right">
-                過去の経歴
-              </h3>
+              <h2 className="main__title">TimeLine</h2>
+              <h3 className="main__subtitle">過去の経歴</h3>
             </div>
             <dl>
               {timelines.map((timeline, index) => (
@@ -110,19 +97,14 @@ export default function Main() {
           </div>
         </div>
       </div>
-      {/* !-- ここまでインターンの経験-->*/}
 
-      {/*!-- ここからSKill-->*/}
+      {/* ここからSKill*/}
       <div className="skill padding">
         <div className="max_width">
-          <h2 className="main__title" data-aos="fade-right">
-            Skill
-          </h2>
-          <h3 className="main__subtitle" data-aos="fade-right">
-            スキルセット
-          </h3>
+          <h2 className="main__title">Skill</h2>
+          <h3 className="main__subtitle">スキルセット</h3>
 
-          <div className="flx" data-aos="fade-up">
+          <div className="flx">
             {skills.map((skill, index) => (
               <Skill
                 key={index}
@@ -135,24 +117,19 @@ export default function Main() {
           </div>
         </div>
       </div>
-      {/*!-- ここまでSkill-->*/}
 
-      {/*<!-- ここからcontact-->*/}
+      {/* ここからcontact*/}
       <div className="contact padding">
         <div className="max_width">
           <div className="padding">
-            <h2 className="main__title" data-aos="fade-right">
-              Contact
-            </h2>
-            <h3 className="main__subtitle" data-aos="fade-right">
-              お問い合わせ
-            </h3>
+            <h2 className="main__title">Contact</h2>
+            <h3 className="main__subtitle">お問い合わせ</h3>
             <br></br>
-            <p className="contact__text" data-aos="fade-up">
+            <p className="contact__text">
               お問い合わせの方は、下記のメールアドレスからお願いします。
             </p>
             <a href="mailto:harrier2070@gmail.com" target="_blank">
-              <h2 className="main__btn" data-aos="fade-up">
+              <h2 className="main__btn">
                 harrier2070@gmail.com
                 <img
                   src="/images/button-icon.png"
@@ -163,17 +140,17 @@ export default function Main() {
           </div>
         </div>
 
-        {/*!-- ここからSNS-->*/}
+        {/* ここからSNS*/}
         {/* <div className="skill padding">
         <div className="max_width">
-          <h2 className="main__title" data-aos="fade-right">
+          <h2 className="main__title">
             SNS
           </h2>
-          <h3 className="main__subtitle" data-aos="fade-right">
+          <h3 className="main__subtitle">
             各種SNS
           </h3>
 
-          <div className="flx" data-aos="fade-up">
+          <div className="flx">
             {skills.map((skill, index) => (
               <Skill
                 key={index}
@@ -186,7 +163,6 @@ export default function Main() {
           </div>
         </div>
       </div> */}
-        {/*!-- ここまでSkill-->*/}
       </div>
     </nav>
   );

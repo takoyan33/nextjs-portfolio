@@ -109,10 +109,18 @@ export const portfolios = [
   // },
   // {
   //   portfolio_name: "ハッカソン",
-  //   portfolio_date: "2021.11.31",
-  //   portfolio_tag: "Ruby on Rails",
+  //   portfolio_date: "2022.11.31",
+  //   portfolio_tag: "React",
   //   portfolio_img: "/images/portfolio_2.png",
   //   portfolio_url: "https://sleepy-plains-55156.herokuapp.com/",
+  //   portfolio_color: "portfoli__tag--color3",
+  // },
+  // {
+  //   portfolio_name: "Unityのカーレース",
+  //   portfolio_date: "2023.3.10",
+  //   portfolio_tag: "Unity",
+  //   portfolio_img: "/images/portfolio_2.png",
+  //   portfolio_url: "",
   //   portfolio_color: "portfoli__tag--color3",
   // },
 ];
