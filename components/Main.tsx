@@ -137,6 +137,16 @@ export default function Main() {
                 />
               </h2>
             </a>
+            <p className="contact__text">Qiita記事</p>
+            <a href="https://qiita.com/harrier2070" target="_blank">
+              <h2 className="main__btn">
+                Qiita
+                <img
+                  src="/images/button-icon.png"
+                  className="main__btn--icon"
+                />
+              </h2>
+            </a>
           </div>
         </div>
 

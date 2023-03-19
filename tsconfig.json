@@ -23,6 +23,6 @@
     "pages/505.tsx",
     "pages/404.tsx",
     "pages/500.tsx"
-  ],
+, "pages/posts/[id].js"  ],
   "exclude": ["node_modules"]
 }
