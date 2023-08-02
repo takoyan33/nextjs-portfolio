@@ -2,7 +2,7 @@ import Image from "next/image";
 import Portfolio from "./Portfolio";
 import Skill from "./Skill";
 import Timeline from "./Timeline";
-import { portfolios, skills, timelines } from "./data";
+import { PORTFOLIO_LIST, SKILL_LIST, TIMELINE } from "./data";
 
 export default function Main() {
   return (
@@ -54,7 +54,7 @@ export default function Main() {
           <h2 className="main__title">Portfolio</h2>
           <h3 className="main__subtitle">ポートフォリオ</h3>
           <div className="flx padding">
-            {portfolios.map((portfolio, index) => (
+            {PORTFOLIO_LIST.map((portfolio, index) => (
               <Portfolio
                 key={index}
                 portfolio_name={portfolio.name}
@@ -85,7 +85,7 @@ export default function Main() {
               <h3 className="main__subtitle">過去の経歴</h3>
             </div>
             <dl>
-              {timelines.map((timeline, index) => (
+              {TIMELINE.map((timeline, index) => (
                 <Timeline
                   key={index}
                   title={timeline.title}
@@ -105,7 +105,7 @@ export default function Main() {
           <h3 className="main__subtitle">スキルセット</h3>
 
           <div className="flx">
-            {skills.map((skill, index) => (
+            {SKILL_LIST.map((skill, index) => (
               <Skill
                 key={index}
                 name={skill.name}
@@ -161,7 +161,7 @@ export default function Main() {
           </h3>
 
           <div className="flx">
-            {skills.map((skill, index) => (
+            {SKILL_LIST.map((skill, index) => (
               <Skill
                 key={index}
                 skill_name={skill.skill_name}

@@ -10,17 +10,17 @@ import {
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
-export const portfolios = [
+export const PORTFOLIO_LIST = [
   {
-    name: "Nuxttodoサイト",
-    date: "2022.1.12",
+    name: "NuxtTodoサイト",
+    date: "2023.1.12",
     tag: "Vue",
     img: "/images/portfolio_8.png",
     url: "https://vuejs-app-front.web.app/",
     github: "https://github.com/takoyan33/nuxt3-firestore-front",
-    color: "portfoli__tag--color3",
-    about: "vueについて学びたく、Todoサイトを作りました",
-    skill: "Nuxt.js, firebase hosting, firestore",
+    color: "portfolio__tag--color3",
+    about: "Vueについて学びたく、Todoサイトを作りました",
+    skill: "Nuxt.js, firebase hosting, Firestore",
     time: "2週間",
   },
   {
@@ -30,9 +30,9 @@ export const portfolios = [
     img: "/images/portfolio_6.png",
     url: "https://attandance-peer.vercel.app/",
     github: "https://github.com/takoyan33/attandance_peer",
-    color: "portfoli__tag--color5",
+    color: "portfolio__tag--color5",
     about: "サークルの出席管理ができるアプリです。",
-    skill: "React, Next.js, firestore",
+    skill: "React, Next.js, Firestore",
     time: "2週間",
   },
   {
@@ -42,22 +42,22 @@ export const portfolios = [
     img: "/images/portfolio_7.png",
     url: "https://rails-react-app-front.vercel.app/",
     github: "https://github.com/takoyan33/rails-react-app-front",
-    color: "portfoli__tag--color5",
+    color: "portfolio__tag--color5",
     about: "サークルのメンバー管理ができるアプリです。",
     skill: "フロントエンド React バックエンド Ruby on Rails",
     time: "1ヶ月",
   },
   {
     name: "Manga Study",
-    date: "2021.10.31",
+    date: "2022.10.31",
     tag: "React",
     img: "/images/portfolio_5.png",
-    url: "https://todo-app-react-30d63.firebaseapp.com/",
+    url: "https://manga-kousatu-net.vercel.app/",
     github: "https://github.com/takoyan33/manga-kousatu.net",
-    color: "portfoli__tag--color5",
+    color: "portfolio__tag--color5",
     about: "漫画の考察記事を投稿できるサイトです",
     skill: "React, Next.js, firestore",
-    time: "2ヶ月",
+    time: "3ヶ月",
   },
   {
     name: "Todoサイト",
@@ -66,7 +66,7 @@ export const portfolios = [
     img: "/images/portfolio_4.png",
     url: "https://todo-app-react-30d63.firebaseapp.com/",
     github: "",
-    color: "portfoli__tag--color5",
+    color: "portfolio__tag--color5",
     about: "Todoサイトです。",
     skill: "React",
     time: "1ヶ月",
@@ -78,7 +78,7 @@ export const portfolios = [
     img: "/images/portfolio_1.png",
     url: "https://www.mmc-dia-finance.com/rental/",
     github: "",
-    color: "portfoli__tag--color1",
+    color: "portfolio__tag--color1",
     about: "案件として、三菱レンタカー下層ページを3-4ページ実装しました。",
     skill: "html,css",
     time: "1ヶ月",
@@ -125,7 +125,7 @@ export const portfolios = [
   // },
 ];
 
-export const skills = [
+export const SKILL_LIST = [
   {
     name: "HTML",
     rank: "★★★★",
@@ -188,7 +188,7 @@ export const skills = [
   },
 ];
 
-export const timelines = [
+export const TIMELINE = [
   {
     title: "市立札幌大通高等学校　卒業",
     date: "2020年3月",

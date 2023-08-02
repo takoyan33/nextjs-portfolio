@@ -28,7 +28,7 @@ export default function Portfolio({
           />
         </div>
 
-        <p className="portfoli__date">
+        <p className="portfolio__date">
           {portfolio_date}
           <span className={portfolio_color}>{portfolio_tag}</span>
         </p>

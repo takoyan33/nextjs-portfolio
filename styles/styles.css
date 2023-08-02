@@ -550,43 +550,39 @@ a:hover {
   background-color: #f7f7f7;
 }
 
-.portfoli__date {
+.portfolio__date {
   font-size: 14px;
   color: #6499ff;
 }
 
-.portfoli__tag--color1 {
+.portfolio__tag--color1 {
   background-color: #6499ff;
   color: #ffff;
   padding: 5px 10px;
 }
 
-.portfoli__tag--color2 {
+.portfolio__tag--color2 {
   background-color: #d50303;
   color: #ffff;
   padding: 5px 10px;
 }
 
-.portfoli__tag--color3 {
+.portfolio__tag--color3 {
   background-color: #00a339;
   color: #ffff;
   padding: 5px 10px;
 }
 
-.portfoli__tag--color4 {
+.portfolio__tag--color4 {
   background-color: #ce61c8;
   color: #ffff;
   padding: 5px 10px;
 }
 
-.portfoli__tag--color5 {
+.portfolio__tag--color5 {
   background-color: #063997;
   color: #ffff;
   padding: 5px 10px;
-}
-
-li {
-  text-align: left;
 }
 
 footer {
@@ -605,7 +601,7 @@ footer {
   margin: 0 auto;
 }
 
-.aroow {
+.arrow {
   width: 30px;
   margin-bottom: 10px;
 }
