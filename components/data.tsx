@@ -20,7 +20,7 @@ export const PORTFOLIO_LIST = [
     github: "https://github.com/takoyan33/nuxt3-firestore-front",
     color: "portfolio__tag--color3",
     about: "Vueについて学びたく、Todoサイトを作りました",
-    skill: "Nuxt.js, firebase hosting, Firestore",
+    skill: "Nuxt3, firebase hosting, Firestore",
     time: "2週間",
   },
   {
@@ -44,7 +44,7 @@ export const PORTFOLIO_LIST = [
     github: "https://github.com/takoyan33/rails-react-app-front",
     color: "portfolio__tag--color5",
     about: "サークルのメンバー管理ができるアプリです。",
-    skill: "フロントエンド React バックエンド Ruby on Rails",
+    skill: "フロントエンド：React(vite) バックエンド Ruby on Rails 6",
     time: "1ヶ月",
   },
   {
@@ -56,7 +56,7 @@ export const PORTFOLIO_LIST = [
     github: "https://github.com/takoyan33/manga-kousatu.net",
     color: "portfolio__tag--color5",
     about: "漫画の考察記事を投稿できるサイトです",
-    skill: "React, Next.js, firestore",
+    skill: "React, Next.js14, FireStore, Cloudfront",
     time: "3ヶ月",
   },
   {
@@ -153,13 +153,13 @@ export const SKILL_LIST = [
   {
     name: "React/Next.js",
     rank: "★★★",
-    tag: "経験年数：1年",
+    tag: "経験年数：2年",
     icon: faReact,
   },
   {
     name: "Vue.js/Nuxt.js",
     rank: "★",
-    tag: "経験年数：1ヶ月",
+    tag: "経験年数：半年",
     icon: faVuejs,
   },
   {
@@ -218,5 +218,10 @@ export const TIMELINE = [
     title: "株式会社Poteto　長期インターン",
     date: "2023年2月",
     body: "Reactのサービスの開発を行う。バックエンドがPython,インフラがAWSなど使った事がない技術が多くあり、勉強になっている。",
+  },
+  {
+    title: "株式会社GACCI　長期インターン",
+    date: "2023年10月",
+    body: "Reactのサービスの開発を行う。バックエンドがPHP",
   },
 ];
