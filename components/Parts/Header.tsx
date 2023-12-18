@@ -10,21 +10,17 @@ export default function Header() {
     <React.Fragment>
       <header id="header" className={styles.header}>
         <div className={styles.logo}>
-          <Link href="/">
-            <a className={styles.logo}>To You Design</a>
-          </Link>
+          <a className={styles.logo} href="/">
+            To You Design
+          </a>
         </div>
         <nav>
           <ul>
             <li>
-              <Link href="Portfolio">
-                <a>ポートフォリオ</a>
-              </Link>
+              <a href="Portfolio">ポートフォリオ</a>
             </li>
             <li>
-              <Link href="News">
-                <a>News</a>
-              </Link>
+              <a href="News">News</a>
             </li>
           </ul>
         </nav>
@@ -48,17 +44,13 @@ export default function Header() {
           </div>
           <li>
             <Link href="Portfolio">
-              <a>
-                <p className={styles.mainTitle}>ポートフォリオ</p>
-              </a>
+              <p className={styles.mainTitle}>ポートフォリオ</p>
             </Link>
           </li>
           <li>
             <Link href="News">
-              <a>
-                <p className={styles.mainTitle}>News</p>
-                {/* <p className={styles.subTitle}>私のメニュー</p> */}
-              </a>
+              <p className={styles.mainTitle}>News</p>
+              {/* <p className={styles.subTitle}>私のメニュー</p> */}
             </Link>
           </li>
         </ul>
