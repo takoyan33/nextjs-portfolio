@@ -40,7 +40,6 @@ export default function Header() {
           <div className={styles.close} onClick={() => menuFunction()}>
             <span></span>
             <span></span>
-            <p>Close</p>
           </div>
           <li>
             <Link href="Portfolio">

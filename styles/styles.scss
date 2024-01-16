@@ -196,6 +196,14 @@ header nav {
   .nav {
     display: none;
   }
+  .bg-white {
+    background-color: white;
+    width: 90%;
+    margin: 0 auto;
+    height: 700px;
+    padding: 20px;
+    overflow-wrap: break-word;
+  }
 }
 
 .nav__list {
@@ -471,6 +479,7 @@ a:hover {
 .flx_el {
   margin: 0px;
   width: 33%;
+  overflow-wrap: break-word;
 }
 
 .flx_el_footer {
@@ -688,6 +697,12 @@ dl {
   }
 }
 
+.licence {
+  ul {
+    text-align: left;
+  }
+}
+
 @media screen and (max-width: 580px) {
   .main__btn {
     background-color: $main-color;
@@ -863,7 +878,13 @@ dl {
   img {
     width: 100%;
   }
-
+  dl {
+    dd {
+      width: calc(100%);
+      padding: 0.5em 2em 3em;
+      border-left: 2px solid #ccc;
+    }
+  }
   /* 480px以下に適用されるCSS（スマホ用） */
   .pc {
     display: none;

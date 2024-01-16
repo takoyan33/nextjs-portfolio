@@ -111,6 +111,7 @@ header nav {
   justify-content: space-between;
   align-items: center;
   background-color: white;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 99;
@@ -708,6 +709,7 @@ dl dd h2 {
   header {
     padding: 0px;
     height: 50px;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     width: 100%;
@@ -835,7 +837,17 @@ dl dd h2 {
   border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
   border-left: 1.1em solid #000081;
   transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
   animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @keyframes load8 {
   0% {

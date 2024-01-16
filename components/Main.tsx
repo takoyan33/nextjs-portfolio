@@ -119,9 +119,9 @@ export default function Main() {
       </div>
 
       {/* ここからSKill*/}
-      <div className="skill padding">
+      <div className="licence padding">
         <div className="max_width">
-          <h2 className="main__title">Qualification</h2>
+          <h2 className="main__title">Licence</h2>
           <h3 className="main__subtitle">資格</h3>
 
           <ul>
@@ -151,26 +151,26 @@ export default function Main() {
                 />
               </button>
             </a>
-            <p className="contact__text">Qiita</p>
-            <a href="https://qiita.com/harrier2070" target="_blank">
-              <button className="main__btn">
-                Qiita
-                <img
-                  src="/images/button-icon.png"
-                  className="main__btn--icon"
-                />
-              </button>
-            </a>
-            <p className="contact__text">Zenn</p>
-            <a href="https://zenn.dev/643866" target="_blank">
-              <button className="main__btn">
-                Zenn
-                <img
-                  src="/images/button-icon.png"
-                  className="main__btn--icon"
-                />
-              </button>
-            </a>
+            <div className="flx">
+              <a href="https://qiita.com/harrier2070" target="_blank">
+                <button className="main__btn">
+                  Qiita
+                  <img
+                    src="/images/button-icon.png"
+                    className="main__btn--icon"
+                  />
+                </button>
+              </a>
+              <a href="https://zenn.dev/643866" target="_blank">
+                <button className="main__btn">
+                  Zenn
+                  <img
+                    src="/images/button-icon.png"
+                    className="main__btn--icon"
+                  />
+                </button>
+              </a>
+            </div>
           </div>
         </div>
 
