@@ -28,9 +28,9 @@ export default function Main() {
                 <br />
                 現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
                 <br />
-                名前：阿部舜平 大学：北星学園大学　経済学部　経営情報学科3年生
+                名前：阿部舜平 大学：北星学園大学　経済学部　経営情報学科4年生
                 <br />
-                趣味：写真撮影・旅行
+                趣味：写真撮影・旅行・Youtube運営
               </p>
             </div>
             <div className="flx_el">
@@ -118,6 +118,20 @@ export default function Main() {
         </div>
       </div>
 
+      {/* ここからSKill*/}
+      <div className="skill padding">
+        <div className="max_width">
+          <h2 className="main__title">Qualification</h2>
+          <h3 className="main__subtitle">資格</h3>
+
+          <ul>
+            <li>・実用英語検定２級</li>
+            <li>・日本漢字能力検定２級</li>
+            <li>・普通自動車免許</li>
+          </ul>
+        </div>
+      </div>
+
       {/* ここからcontact*/}
       <div className="contact padding">
         <div className="max_width">
@@ -129,23 +143,33 @@ export default function Main() {
               お問い合わせの方は、下記のメールアドレスからお願いします。
             </p>
             <a href="mailto:harrier2070@gmail.com" target="_blank">
-              <h2 className="main__btn">
+              <button className="main__btn">
                 harrier2070@gmail.com
                 <img
                   src="/images/button-icon.png"
                   className="main__btn--icon"
                 />
-              </h2>
+              </button>
             </a>
-            <p className="contact__text">Qiita記事</p>
+            <p className="contact__text">Qiita</p>
             <a href="https://qiita.com/harrier2070" target="_blank">
-              <h2 className="main__btn">
+              <button className="main__btn">
                 Qiita
                 <img
                   src="/images/button-icon.png"
                   className="main__btn--icon"
                 />
-              </h2>
+              </button>
+            </a>
+            <p className="contact__text">Zenn</p>
+            <a href="https://zenn.dev/643866" target="_blank">
+              <button className="main__btn">
+                Zenn
+                <img
+                  src="/images/button-icon.png"
+                  className="main__btn--icon"
+                />
+              </button>
             </a>
           </div>
         </div>

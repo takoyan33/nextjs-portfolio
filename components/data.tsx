@@ -72,6 +72,18 @@ export const PORTFOLIO_LIST = [
     time: "1ヶ月",
   },
   {
+    name: "株式会社セルフ・ヒーリング実践研究会 サイト構築",
+    date: "2022.09.01",
+    tag: "html",
+    img: "/images/portfolio_9.png",
+    url: "https://self-healing.co.jp/",
+    github: "",
+    color: "portfolio__tag--color1",
+    about: "案件として、10-20ページのサイトをWordPressで構築しました。",
+    skill: "html,css",
+    time: "3ヶ月",
+  },
+  {
     name: "三菱レンタカー下層ページ　コーディング",
     date: "2021.09.01",
     tag: "html",
@@ -223,5 +235,10 @@ export const TIMELINE = [
     title: "株式会社GACCI　長期インターン",
     date: "2023年10月",
     body: "Reactのサービスの開発を行う。バックエンドがPHP",
+  },
+  {
+    title: "株式会社ノースディテール　新卒",
+    date: "2024年3月",
+    body: "フロントエンドの開発を行う予定",
   },
 ];

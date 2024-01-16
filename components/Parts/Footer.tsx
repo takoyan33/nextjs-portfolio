@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="container">
       <footer className="footer" data-aos="fade-up">
@@ -28,7 +29,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <p className="footer_text">© 2021 To You Design</p>
+        <p className="footer_text">© {currentYear} To You Design</p>
       </footer>
     </div>
   );
