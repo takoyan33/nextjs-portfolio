@@ -1,5 +1,5 @@
 import Image from "next/image";
-import usePortfolioModal from "./Parts/usePortfolioModal";
+import usePortfolioModal from "../parts/usePortfolioModal";
 
 export default function Portfolio({
   portfolio_name,

@@ -1,5 +1,5 @@
-import Header from "../components/Parts/Header";
-import Footer from "../components/Parts/Footer";
+import Header from "../components/Components/ui/Header";
+import Footer from "../components/Components/ui/Footer";
 
 export default function Portfolio() {
   return (
@@ -13,4 +13,3 @@ export default function Portfolio() {
     </>
   );
 }
-

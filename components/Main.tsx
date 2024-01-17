@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Portfolio from "./Portfolio";
-import Skill from "./Skill";
-import Timeline from "./Timeline";
-import { PORTFOLIO_LIST, SKILL_LIST, TIMELINE } from "./data";
+import Portfolio from "./Components/ui/Portfolio";
+import Skill from "./Components/ui/Skill";
+import Timeline from "./Components/ui/Timeline";
+import { PORTFOLIO_LIST, SKILL_LIST, TIMELINE } from "./Components/data/data";
 
 export default function Main() {
   return (
@@ -24,13 +24,16 @@ export default function Main() {
               <h2 className="main__title">About</h2>
               <h3 className="main__subtitle">To You Designについて</h3>
               <p className="about__text">
-                To You Designのポートフォリオです。
+                To You
+                Designのポートフォリオです。2021年からプログラミングを学習しています。
                 <br />
                 現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
                 <br />
-                名前：阿部舜平 大学：北星学園大学　経済学部　経営情報学科4年生
+                名前：阿部 舜平
                 <br />
-                趣味：写真撮影・旅行・Youtube運営
+                大学：北星学園大学　経済学部　経営情報学科4年生
+                <br />
+                趣味：写真撮影・旅行
               </p>
             </div>
             <div className="flx_el">
@@ -77,7 +80,7 @@ export default function Main() {
       </div>
 
       {/*ここからインターンの経験*/}
-      <div className=" padding">
+      <div className="padding">
         <div className="max_width">
           <div className="flx">
             <div className="flx_el">
@@ -112,6 +115,7 @@ export default function Main() {
                 rank={skill.rank}
                 tag={skill.tag}
                 icon={skill.icon}
+                about={skill.about}
               />
             ))}
           </div>
@@ -142,47 +146,51 @@ export default function Main() {
             <p className="contact__text">
               お問い合わせの方は、下記のメールアドレスからお願いします。
             </p>
-            <a href="mailto:harrier2070@gmail.com" target="_blank">
-              <button className="main__btn">
-                harrier2070@gmail.com
-                <img
-                  src="/images/button-icon.png"
-                  className="main__btn--icon"
-                />
-              </button>
+            <a
+              href="mailto:harrier2070@gmail.com"
+              target="_blank"
+              className="main__btn__long"
+            >
+              harrier2070@gmail.com
             </a>
-            <div className="flx">
-              <a href="https://qiita.com/harrier2070" target="_blank">
-                <button className="main__btn">
-                  Qiita
-                  <img
-                    src="/images/button-icon.png"
-                    className="main__btn--icon"
-                  />
-                </button>
-              </a>
-              <a href="https://zenn.dev/643866" target="_blank">
-                <button className="main__btn">
-                  Zenn
-                  <img
-                    src="/images/button-icon.png"
-                    className="main__btn--icon"
-                  />
-                </button>
-              </a>
-            </div>
           </div>
         </div>
-
-        {/* ここからSNS*/}
-        {/* <div className="skill padding">
+      </div>
+      {/* ここからSNS*/}
+      <div className="sns padding">
         <div className="max_width">
-          <h2 className="main__title">
-            SNS
-          </h2>
-          <h3 className="main__subtitle">
-            各種SNS
-          </h3>
+          <h2 className="main__title">SNS</h2>
+          <h3 className="main__subtitle">SNS</h3>
+          <br></br>
+          <div className="flx">
+            <a
+              href="https://qiita.com/harrier2070"
+              target="_blank"
+              className="main__btn"
+            >
+              Qiita
+            </a>
+
+            <a
+              href="https://zenn.dev/643866"
+              target="_blank"
+              className="main__btn"
+            >
+              Zenn
+            </a>
+
+            <a
+              href="https://github.com/takoyan33"
+              target="_blank"
+              className="main__btn"
+            >
+              Github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 
 
           <div className="flx">
             {SKILL_LIST.map((skill, index) => (
@@ -197,7 +205,6 @@ export default function Main() {
           </div>
         </div>
       </div> */}
-      </div>
     </nav>
   );
 }

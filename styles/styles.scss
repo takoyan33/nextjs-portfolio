@@ -499,12 +499,17 @@ a:hover {
 .fv {
   height: 800px;
   width: 100%;
-  background-color: $main-color;
+  background-image: linear-gradient(135deg, #41bbe0 10%, #6e92fe 100%);
+  // background-image: repeating-linear-gradient(
+  //   45deg,
+  //   $main-color 0% 10%,
+  //   transparent 10% 20%
+  // );
   z-index: -1;
 }
 
 .fv__title {
-  font-size: 40px;
+  font-size: 70px;
   line-height: 90px;
   text-align: left;
   margin: 0 auto;
@@ -513,11 +518,13 @@ a:hover {
   font-family: futura-pt-bold, sans-serif;
   color: $white;
   letter-spacing: 4px;
+  text-shadow: 3px 2px 1px #6499ff;
   margin-right: auto;
 }
 .fv__subtitle {
   font-size: 40px;
   text-align: left;
+  text-shadow: 3px 2px 1px #6499ff;
   margin: 0 auto;
   position: relative;
   top: 220px;
@@ -618,19 +625,56 @@ footer {
   margin-bottom: 10px;
 }
 
-.main__btn {
-  background-color: $main-color;
-  color: #ffff;
-  padding: 10px 0px;
-  width: 400px;
-  margin: 60px auto;
+.main__btn__long {
+  display: block;
+  border: none;
   text-align: center;
-  font-size: 18px;
+  vertical-align: middle;
+  text-decoration: none;
+  width: 260px;
+  margin: auto;
+  padding: 10px;
+  font-weight: bold;
+  color: $main-color;
+  border-bottom: 2px solid $main-color;
+  border-radius: 100vh;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
 }
 
-.main__btn--icon {
-  width: 25px;
+.main__btn__long:hover {
+  color: #fff;
+  background: $main-color;
+  border-bottom: 2px solid #fff;
+  transform: translateY(3px);
 }
+
+.main__btn {
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  width: 160px;
+  margin: auto;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  color: $main-color;
+  border-bottom: 2px solid $main-color;
+  border-radius: 100vh;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+}
+
+.main__btn:hover {
+  color: #fff;
+  background: $main-color;
+  border-bottom: 2px solid #fff;
+  transform: translateY(3px);
+}
+
 .blue_bg {
   background-color: #000081;
   color: white;
@@ -705,8 +749,6 @@ dl {
 
 @media screen and (max-width: 580px) {
   .main__btn {
-    background-color: $main-color;
-    color: #ffff;
     padding: 10px 0px;
     width: 100%;
     margin: 40px auto;
