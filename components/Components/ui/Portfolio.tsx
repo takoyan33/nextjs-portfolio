@@ -56,7 +56,7 @@ export default function Portfolio({
           <p className="modal-text">
             Github<a href={portfolio_github}>{portfolio_github}</a>
           </p>
-          <button onClick={close} className="main__btn">
+          <button onClick={close} className="main__btn w-100">
             閉じる
           </button>
         </div>

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import usePortfolioModal from "../parts/usePortfolioModal";
+import CommonButton from "../ui/CommonButton";
 
 export default function Skill({ name, rank, tag, icon, about }) {
   const [Modal, open, close, isOpen] = usePortfolioModal();
@@ -7,7 +8,7 @@ export default function Skill({ name, rank, tag, icon, about }) {
     <>
       <div className="flx_el">
         <a onClick={open} target="_blank">
-          <FontAwesomeIcon icon={icon} className="size tac" />
+          <FontAwesomeIcon icon={icon} className="tac fa-5x size" />
           <p className="code_title">{name} </p>
           <p className="code_title">{rank}</p>
           <p className="code_title">{tag}</p>
@@ -15,16 +16,14 @@ export default function Skill({ name, rank, tag, icon, about }) {
       </div>
       <Modal>
         <div className="bg-white">
-          <h2 className="text-center">{name}</h2>
+          <h2 className="code_title">{name}</h2>
           <div className="tac">
-            <FontAwesomeIcon icon={icon} className="size tac" />
+            <FontAwesomeIcon icon={icon} className="fa-10x size" />
           </div>
           <p className="modal-text">技術力：{rank}</p>
           <p className="modal-text">使用技術：{tag}</p>
           <p className="modal-text">概要：{about}</p>
-          <button onClick={close} className="main__btn">
-            閉じる
-          </button>
+          <CommonButton text="閉じる" className="w-8" handleClick={close} />
         </div>
       </Modal>
     </>

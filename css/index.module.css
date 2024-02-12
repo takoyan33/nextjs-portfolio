@@ -46,6 +46,7 @@
   right: 40px;
   z-index: 100;
   padding: 5px !important;
+  padding-top: 8px !important;
 }
 .humburger span {
   background-color: white;
@@ -135,10 +136,10 @@
   .close span {
     background-color: white;
     width: 30px;
-    height: 1px;
+    height: 2px;
     display: block;
     margin-bottom: 10px;
-    margin: 0 0 10px auto;
+    margin: 0 8px 10px auto;
   }
   .close span:first-child {
     transform: translateY(6px) rotate(150deg);

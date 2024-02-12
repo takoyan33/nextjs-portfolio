@@ -122,12 +122,11 @@ export default function Main() {
         </div>
       </div>
 
-      {/* ここからSKill*/}
+      {/* ここからLicense*/}
       <div className="licence padding">
         <div className="max_width">
-          <h2 className="main__title">Licence</h2>
+          <h2 className="main__title">License</h2>
           <h3 className="main__subtitle">資格</h3>
-
           <ul>
             <li>・実用英語検定２級</li>
             <li>・日本漢字能力検定２級</li>
@@ -189,22 +188,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-
-      {/* 
-
-          <div className="flx">
-            {SKILL_LIST.map((skill, index) => (
-              <Skill
-                key={index}
-                skill_name={skill.skill_name}
-                skill_rank={skill.skill_rank}
-                skill_tag={skill.skill_tag}
-                skill_icon={skill.skill_icon}
-              />
-            ))}
-          </div>
-        </div>
-      </div> */}
     </nav>
   );
 }

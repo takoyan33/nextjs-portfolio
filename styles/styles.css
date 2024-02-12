@@ -172,7 +172,7 @@ header nav {
   }
   .bg-white {
     background-color: white;
-    width: 90%;
+    width: 300px;
     margin: 0 auto;
     height: 700px;
     padding: 20px;
@@ -611,14 +611,15 @@ footer {
 
 .size {
   margin-top: 40px;
-  height: 200px;
-  width: 200px;
-  font-size: 8em;
   color: #6499ff;
 }
 
 .code_title {
   color: #6499ff;
+  width: 80%;
+  text-align: center;
+  margin: 5px auto;
+  margin-bottom: 15px;
   font-weight: bold;
 }
 
@@ -672,16 +673,12 @@ dl dd h2 {
 @media screen and (max-width: 580px) {
   .main__btn {
     padding: 10px 0px;
-    width: 100%;
     margin: 40px auto;
     text-align: center;
     font-size: 16px;
   }
   .size {
     margin-top: 20px;
-    height: 200px;
-    width: 200px;
-    font-size: 8em;
     color: #6499ff;
   }
   .section_title {
