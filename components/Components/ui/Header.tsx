@@ -17,10 +17,10 @@ export default function Header() {
         <nav>
           <ul>
             <li>
-              <a href="Portfolio">ポートフォリオ</a>
+              <Link href="PortfolioPage">ポートフォリオ</Link>
             </li>
             <li>
-              <a href="News">News</a>
+              <Link href="News">News</Link>
             </li>
           </ul>
         </nav>
@@ -42,7 +42,7 @@ export default function Header() {
             <span></span>
           </div>
           <li>
-            <Link href="Portfolio">
+            <Link href="PortfolioPage">
               <p className={styles.mainTitle}>ポートフォリオ</p>
             </Link>
           </li>

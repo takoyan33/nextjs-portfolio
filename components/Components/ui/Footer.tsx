@@ -14,7 +14,7 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="flx_el">
-                <Link href="/Portfolio">
+                <Link href="/PortfolioPage">
                   <p className="footer_list">ポートフォリオ</p>
                 </Link>
                 <Link href="/News">
