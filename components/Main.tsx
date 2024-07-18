@@ -31,8 +31,6 @@ export default function Main() {
                 <br />
                 名前：阿部 舜平
                 <br />
-                大学：北星学園大学　経済学部　経営情報学科4年生
-                <br />
                 趣味：写真撮影、旅行、ギター
               </p>
             </div>
