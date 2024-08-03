@@ -52,7 +52,7 @@ export const PORTFOLIO_LIST = [
     date: "2022.10.31",
     tag: "React",
     img: "/images/portfolio_5.png",
-    url: "https://manga-kousatu-net-ng5i.vercel.app/",
+    url: "https://manga-kousatu-net.vercel.app/",
     github: "https://github.com/takoyan33/manga--kousatu--net/",
     color: "portfolio__tag--color5",
     about: "漫画の考察記事を投稿できるサイトです",
