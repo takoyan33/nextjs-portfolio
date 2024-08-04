@@ -6,7 +6,7 @@ export default function Footer() {
     <div className="container">
       <footer className="footer" data-aos="fade-up">
         <div className="max_width">
-          <ul className="flx_footer">
+          <ul className="footer_flx">
             <div className="flx">
               <div className="flx_el">
                 <Link href="/">

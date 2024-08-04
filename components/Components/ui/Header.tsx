@@ -7,23 +7,25 @@ export default function Header() {
     setOpenMenu(!openMenu);
   };
   return (
-    <React.Fragment>
+    <>
       <header id="header" className={styles.header}>
-        <div className={styles.logo}>
-          <a className={styles.logo} href="/">
-            To You Design
-          </a>
+        <div className={styles.header_flx}>
+          <div>
+            <a className={styles.logo} href="/">
+              To You Design
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <Link href="PortfolioPage">ポートフォリオ</Link>
+              </li>
+              <li>
+                <Link href="News">News</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav>
-          <ul>
-            <li>
-              <Link href="PortfolioPage">ポートフォリオ</Link>
-            </li>
-            <li>
-              <Link href="News">News</Link>
-            </li>
-          </ul>
-        </nav>
         <div className={styles.container}>
           <div className={styles.humburger} onClick={() => menuFunction()}>
             <span className={openMenu ? styles.open : undefined}></span>
@@ -54,6 +56,6 @@ export default function Header() {
           </li>
         </ul>
       </div>
-    </React.Fragment>
+    </>
   );
 }

@@ -121,7 +121,7 @@ export default function Main() {
       </div>
 
       {/* ここからLicense*/}
-      <div className="licence padding">
+      <div className="license padding">
         <div className="max_width">
           <h2 className="main__title">License</h2>
           <h3 className="main__subtitle">資格</h3>

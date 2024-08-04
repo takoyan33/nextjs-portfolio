@@ -69,20 +69,12 @@ a :hover {
   padding-top: 30px;
 }
 
-.margin-flx {
-  margin: 30px auto !important;
-}
-
 .nav {
   margin-left: auto;
 }
 
 .pc-nav a {
   font-weight: bold;
-}
-
-.tal {
-  text-align: left;
 }
 
 .flx {
@@ -179,9 +171,6 @@ header nav {
 }
 
 @media screen and (max-width: 559px) {
-  .flx_colm {
-    flex-direction: column-reverse !important;
-  }
   .section_img {
     width: 70%;
     margin: 0;
@@ -202,16 +191,6 @@ header nav {
     overflow-wrap: break-word;
   }
 }
-.nav__list {
-  display: inline-block;
-  margin-right: 1vw;
-}
-
-.div_tac {
-  margin: 0 auto;
-  text-align: center;
-}
-
 .hamburger-btn__parts {
   display: block;
   width: 100%;
@@ -313,8 +292,11 @@ li {
   text-align: center;
 }
 
-.padding_bottom {
-  margin-top: 50px !important;
+.about,
+.portfolio,
+.news,
+.contact {
+  padding: 60px 0;
 }
 
 .title-border-right {
@@ -411,6 +393,13 @@ li {
   padding: 5px 10px;
 }
 
+.footer_flx {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  padding: 30px 0;
+  color: white;
+}
 .footer_list {
   text-align: left;
   color: white;
@@ -427,7 +416,6 @@ li {
   font-size: 16px;
   text-align: center;
   padding: 10px;
-  background-color: #333333;
   color: white;
   margin: 0;
   width: 100%;
@@ -438,27 +426,6 @@ footer {
 }
 footer li {
   color: white;
-}
-
-.flx_footer {
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-  padding: 30px 0;
-  color: white;
-}
-.flx_footer_2 {
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-}
-
-.about,
-.portfolio,
-.news,
-.contact {
-  padding: 60px 0;
 }
 
 .about .tac {
@@ -490,18 +457,6 @@ footer li {
   z-index: -1;
 }
 
-.blue_bg {
-  background-color: #000081;
-  color: white;
-  height: 400px;
-}
-
-.cta_title {
-  text-align: center;
-  padding: 50px 0;
-  margin: 0 auto;
-}
-
 .arrow {
   width: 30px;
   margin-bottom: 10px;
@@ -510,7 +465,6 @@ footer li {
 .main__btn {
   display: block;
   text-align: center;
-  vertical-align: middle;
   text-decoration: none;
   width: 160px;
   margin: auto;
@@ -528,7 +482,6 @@ footer li {
   display: block;
   border: none;
   text-align: center;
-  vertical-align: middle;
   text-decoration: none;
   width: 260px;
   margin: auto;
@@ -547,12 +500,6 @@ footer li {
   border-bottom: 2px solid #fff;
   transform: translateY(3px);
 }
-.main__btn .blue_bg {
-  background-color: #000081;
-  color: white;
-  height: 400px;
-  text-align: center;
-}
 
 .main__btn__long:hover {
   color: #fff;
@@ -566,7 +513,7 @@ footer li {
   color: #6499ff;
 }
 
-.code_title {
+.skill_text {
   color: #6499ff;
   width: 80%;
   text-align: center;
@@ -618,7 +565,7 @@ dl dd h2 {
   margin: 0 0 5px;
 }
 
-.licence ul {
+.license ul {
   text-align: left;
 }
 
@@ -642,10 +589,6 @@ dl dd h2 {
     font-style: normal;
     color: #007111;
   }
-  .first_text {
-    font-size: 14px;
-    line-height: 2;
-  }
   .border_company {
     background-color: white;
     margin-left: 0px;
@@ -653,35 +596,15 @@ dl dd h2 {
   .border_company {
     box-shadow: -5px 5px 0px 5px #000081;
   }
-  .gray_bg1 h1 {
-    font-size: 26px;
-  }
-  .about .padding_bottom {
-    margin-top: 0px !important;
-  }
-  .gray_bg1 {
-    background-color: #dfdfdf;
-    color: black;
-    width: 100%;
-    padding-top: 0px;
-  }
   footer ul {
     margin-left: 30px;
   }
-  .flx_el_footer {
-    width: 30%;
-  }
-  .flx_footer {
+  .footer_flx {
     display: flex;
     flex-direction: column;
     color: white;
     text-align: center;
     width: 76%;
-  }
-  .blue_bg {
-    background-color: #000081;
-    color: white;
-    height: 550px;
   }
   header {
     padding: 0px;
@@ -717,10 +640,6 @@ dl dd h2 {
     margin: 10px auto;
     font-size: 22px;
   }
-  .about_al_name {
-    text-align: center;
-    margin: 10px auto;
-  }
   .about_img {
     width: 100%;
     margin: 0 auto;
@@ -733,22 +652,6 @@ dl dd h2 {
   }
   .about .tac {
     margin-top: 0;
-  }
-  .number {
-    margin-top: 150px;
-    text-align: left;
-  }
-  .work_title {
-    margin: 30px auto;
-    font-size: 22px;
-    border-bottom: 1px solid black;
-    padding: 5px 0;
-  }
-  .gray_bg {
-    background-color: #dfdfdf;
-    color: black;
-    width: 100%;
-    padding: 50px 0;
   }
   p {
     text-align: center;
@@ -765,7 +668,6 @@ dl dd h2 {
     padding: 0.5em 2em 3em;
     border-left: 2px solid #ccc;
   }
-  /* 480px以下に適用されるCSS（スマホ用） */
   .pc {
     display: none;
   }
@@ -776,9 +678,6 @@ dl dd h2 {
     width: 90%;
   }
   .flx {
-    flex-direction: column;
-  }
-  .header_flx {
     flex-direction: column;
   }
   .flx_el {
@@ -792,6 +691,9 @@ dl dd h2 {
   .flx_el_feature {
     width: 100%;
     margin: 20px auto;
+  }
+  .header_flx {
+    flex-direction: column;
   }
 }
 .loader {
@@ -850,13 +752,11 @@ dl dd h2 {
   left: 0;
   z-index: 1;
 }
-
 .c-modal_bg {
   background: rgba(0, 0, 0, 0.6);
   height: 100vh;
   width: 100%;
 }
-
 .c-modal_content {
   background: #fff;
   left: 50%;

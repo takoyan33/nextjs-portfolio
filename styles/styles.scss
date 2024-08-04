@@ -85,20 +85,12 @@ a {
   padding-top: 30px;
 }
 
-.margin-flx {
-  margin: 30px auto !important;
-}
-
 .nav {
   margin-left: auto;
 }
 
 .pc-nav a {
   font-weight: bold;
-}
-
-.tal {
-  text-align: left;
 }
 
 .flx {
@@ -229,10 +221,6 @@ header {
 }
 
 @media screen and (max-width: 559px) {
-  .flx_colm {
-    flex-direction: column-reverse !important;
-  }
-
   .section {
     &_img {
       width: 70%;
@@ -255,16 +243,6 @@ header {
     padding: 20px;
     overflow-wrap: break-word;
   }
-}
-
-.nav__list {
-  display: inline-block;
-  margin-right: 1vw;
-}
-
-.div_tac {
-  margin: 0 auto;
-  text-align: center;
 }
 
 // ハンバーガーメニュー
@@ -392,8 +370,11 @@ li {
   text-align: center;
 }
 
-.padding_bottom {
-  margin-top: 50px !important;
+.about,
+.portfolio,
+.news,
+.contact {
+  padding: 60px 0;
 }
 
 .title-border-right {
@@ -441,7 +422,7 @@ li {
   }
 }
 
-// メインビジュアル
+// 共通スタイル
 .main {
   &__title {
     font-size: 60px;
@@ -508,6 +489,17 @@ li {
 
 //フッター
 .footer {
+  &_flx {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0px auto;
+    padding: 30px 0;
+    color: white;
+  }
   &_list {
     text-align: left;
     color: white;
@@ -526,7 +518,6 @@ li {
     font-size: 16px;
     text-align: center;
     padding: 10px;
-    background-color: #333333;
     color: white;
     margin: 0;
     width: 100%;
@@ -538,36 +529,6 @@ footer {
   li {
     color: white;
   }
-}
-
-.flx_footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 0px auto;
-  padding: 30px 0;
-
-  &_2 {
-    width: 20%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin: 0px auto;
-  }
-  color: white;
-}
-
-.about,
-.portfolio,
-.news,
-.contact {
-  padding: 60px 0;
 }
 
 // aboutページ
@@ -606,18 +567,6 @@ footer {
   z-index: -1;
 }
 
-.blue_bg {
-  background-color: #000081;
-  color: white;
-  height: 400px;
-}
-
-.cta_title {
-  text-align: center;
-  padding: 50px 0;
-  margin: 0 auto;
-}
-
 .arrow {
   width: 30px;
   margin-bottom: 10px;
@@ -626,7 +575,6 @@ footer {
 .main__btn {
   display: block;
   text-align: center;
-  vertical-align: middle;
   text-decoration: none;
   width: 160px;
   margin: auto;
@@ -643,7 +591,6 @@ footer {
     display: block;
     border: none;
     text-align: center;
-    vertical-align: middle;
     text-decoration: none;
     width: 260px;
     margin: auto;
@@ -662,12 +609,6 @@ footer {
     border-bottom: 2px solid #fff;
     transform: translateY(3px);
   }
-  .blue_bg {
-    background-color: #000081;
-    color: white;
-    height: 400px;
-    text-align: center;
-  }
 }
 .main__btn__long:hover {
   color: #fff;
@@ -680,7 +621,8 @@ footer {
   margin-top: 40px;
   color: $main-color;
 }
-.code_title {
+
+.skill_text {
   color: $main-color;
   width: 80%;
   text-align: center;
@@ -732,7 +674,7 @@ dl {
   }
 }
 
-.licence {
+.license {
   ul {
     text-align: left;
   }
@@ -762,11 +704,6 @@ dl {
     color: #007111;
   }
 
-  .first_text {
-    font-size: 14px;
-    line-height: 2;
-  }
-
   .border {
     &_company {
       background-color: white;
@@ -779,30 +716,11 @@ dl {
     }
   }
 
-  .gray_bg1 h1 {
-    font-size: 26px;
-  }
-
-  .about .padding_bottom {
-    margin-top: 0px !important;
-  }
-
-  .gray_bg1 {
-    background-color: #dfdfdf;
-    color: black;
-    width: 100%;
-    padding-top: 0px;
-  }
-
   footer ul {
     margin-left: 30px;
   }
 
-  .flx_el_footer {
-    width: 30%;
-  }
-
-  .flx_footer {
+  .footer_flx {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -813,12 +731,6 @@ dl {
     color: white;
     text-align: center;
     width: 76%;
-  }
-
-  .blue_bg {
-    background-color: #000081;
-    color: white;
-    height: 550px;
   }
 
   header {
@@ -861,11 +773,6 @@ dl {
       font-size: 22px;
     }
 
-    &_al_name {
-      text-align: center;
-      margin: 10px auto;
-    }
-
     &_img {
       width: 100%;
       margin: 0 auto;
@@ -880,25 +787,6 @@ dl {
     .tac {
       margin-top: 0;
     }
-  }
-
-  .number {
-    margin-top: 150px;
-    text-align: left;
-  }
-
-  .work_title {
-    margin: 30px auto;
-    font-size: 22px;
-    border-bottom: 1px solid black;
-    padding: 5px 0;
-  }
-
-  .gray_bg {
-    background-color: #dfdfdf;
-    color: black;
-    width: 100%;
-    padding: 50px 0;
   }
 
   p {
@@ -920,7 +808,6 @@ dl {
       border-left: 2px solid #ccc;
     }
   }
-  /* 480px以下に適用されるCSS（スマホ用） */
   .pc {
     display: none;
   }
@@ -938,24 +825,24 @@ dl {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    &_el {
+      width: 100%;
+      margin: 10px auto;
+      &_3 {
+        width: 100%;
+        margin: 20px auto;
+      }
+      &_feature {
+        width: 100%;
+        margin: 20px auto;
+      }
+    }
   }
   .header_flx {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-  }
-  .flx_el {
-    width: 100%;
-    margin: 10px auto;
-    &_3 {
-      width: 100%;
-      margin: 20px auto;
-    }
-    &_feature {
-      width: 100%;
-      margin: 20px auto;
-    }
   }
 }
 
@@ -1029,22 +916,20 @@ dl {
   top: 0;
   left: 0;
   z-index: 1;
-}
-
-.c-modal_bg {
-  background: rgba(0, 0, 0, 0.6);
-  height: 100vh;
-  width: 100%;
-}
-
-.c-modal_content {
-  background: #fff;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
+  &_bg {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+    width: 100%;
+  }
+  &_content {
+    background: #fff;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+  }
 }
 
 .c-modal_content._sm {

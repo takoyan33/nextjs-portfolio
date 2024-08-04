@@ -9,14 +9,14 @@ export default function Skill({ name, rank, tag, icon, about }) {
       <div className="flx_el">
         <a onClick={open} target="_blank">
           <FontAwesomeIcon icon={icon} className="tac fa-5x size" />
-          <p className="code_title">{name} </p>
-          <p className="code_title">{rank}</p>
-          <p className="code_title">{tag}</p>
+          <p className="skill_text">{name} </p>
+          <p className="skill_text">{rank}</p>
+          <p className="skill_text">{tag}</p>
         </a>
       </div>
       <Modal>
         <div className="bg-white">
-          <h2 className="code_title">{name}</h2>
+          <h2 className="skill_text">{name}</h2>
           <div className="tac">
             <FontAwesomeIcon icon={icon} className="fa-10x size" />
           </div>
