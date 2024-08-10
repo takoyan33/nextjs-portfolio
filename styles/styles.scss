@@ -681,6 +681,44 @@ dl {
   }
 }
 
+// モーダル
+.modalBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 50px;
+  align-items: center;
+  border-radius: 20px;
+  &_btn {
+    margin-left: auto;
+    display: block;
+    width: 46px;
+    background-color: white;
+    border: 0px solid;
+    position: relative;
+    top: 20px;
+    margin-right: 10px;
+  }
+  &__element {
+    width: 45%;
+    &__img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      border: 1px solid gray;
+    }
+    &__text {
+    }
+    &__link {
+      color: $tag-color-4;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+//スマホ版
 @media screen and (max-width: 580px) {
   .main__btn {
     padding: 10px 0px;
@@ -931,29 +969,6 @@ dl {
     transform: translate(-50%, -50%);
     border-radius: 5px;
   }
-}
-
-.c-modal_content._sm {
-  width: 30%;
-}
-
-.c-modal_content._md {
-  width: 50%;
-}
-
-.c-modal_content._lg {
-  width: 70%;
-}
-
-.c-modal_content_inner {
-  position: relative;
-  padding: 24px;
-}
-
-.c-modal_close {
-  position: absolute;
-  top: 13px;
-  right: 10px;
 }
 
 .Form {

@@ -37,28 +37,57 @@ export default function Portfolio({
 
       <Modal>
         <div className="bg-white">
-          <h2 className="text-center">{portfolio_name}</h2>
-          <div className="tac">
-            <Image
-              src={portfolio_img}
-              className="about_img"
-              alt="ポートフォリオ画像"
-              width={300}
-              height={150}
+          <button onClick={close} className="modalBox_btn w-100">
+            <img
+              src="/images/close-icon.svg"
+              alt="閉じる"
             />
-          </div>
-          <p className="modal-text">制作期間：{portfolio_time}</p>
-          <p className="modal-text">使用技術：{portfolio_skill}</p>
-          <p className="modal-text">概要：{portfolio_about}</p>
-          <p className="modal-text">
-            URL： <a href={portfolio_url}>{portfolio_url}</a>
-          </p>
-          <p className="modal-text">
-            Github<a href={portfolio_github}>{portfolio_github}</a>
-          </p>
-          <button onClick={close} className="main__btn w-100">
-            閉じる
           </button>
+          <div className="modalBox">
+            <div className="modalBox__element">
+              <img
+                src={portfolio_img}
+                className="modalBox__element__img"
+                alt="ポートフォリオ画像"
+              />
+            </div>
+
+            <div className="modalBox__element">
+              <h3 className="modalBox__element__text">{portfolio_name}</h3>
+              <p className="modalBox__element__text">
+                制作期間<br></br>
+                {portfolio_time}
+              </p>
+              <p className="modalBox__element__text">
+                使用技術<br></br>
+                {portfolio_skill}
+              </p>
+              <p className="modalBox__element__text">
+                概要<br></br>
+                {portfolio_about}
+              </p>
+              <p className="modalBox__element__text">
+                URL
+                <a
+                  href={portfolio_url}
+                  className="modalBox__element__link"
+                  target="_blank"
+                >
+                  {portfolio_url}
+                </a>
+              </p>
+              <p className="modalBox__element__text">
+                Github
+                <a
+                  href={portfolio_github}
+                  className="modalBox__element__link"
+                  target="_blank"
+                >
+                  {portfolio_github}
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </Modal>
     </div>
