@@ -17,7 +17,7 @@ export default function Footer() {
                 <Link href="/About">
                   <p className="footer_list">About</p>
                 </Link>
-                <Link href="/PortfolioPage">
+                <Link href="/Portfolio">
                   <p className="footer_list">ポートフォリオ</p>
                 </Link>
                 {/* <Link href="/News">

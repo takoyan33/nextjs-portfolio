@@ -2,6 +2,7 @@ import Head from "next/head";
 import Footer from "../components/Components/ui/Footer";
 import Header from "../components/Components/ui/Header";
 import Main from "../components/Main";
+import MoonLoader from "react-spinners/MoonLoader";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <meta name="google" content="notranslate" key="notranslate" />
       </Head>
       <Header />
+      {/* <MoonLoader /> */}
       <Main />
       <Footer />
     </div>

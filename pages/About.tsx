@@ -7,10 +7,21 @@ import {
   LICENSE_LIST,
 } from "../components/Components/data/data";
 import React, { useState } from "react";
+import Head from "next/head";
 
 export default function History() {
   return (
     <>
+      <Head>
+        <title>To You Design - About</title>
+        <link rel="icon" href="/favicon.ico" />
+        <script
+          src="https://kit.fontawesome.com/bb61864944.js"
+          crossOrigin="anonymous"
+        ></script>
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <meta name="google" content="notranslate" key="notranslate" />
+      </Head>
       <Header />
       <nav className="container">
         <div style={{ textAlign: "center", padding: 50 }}></div>

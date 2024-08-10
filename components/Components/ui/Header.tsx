@@ -21,7 +21,7 @@ export default function Header() {
                 <Link href="About">About</Link>
               </li>
               <li>
-                <Link href="PortfolioPage">ポートフォリオ</Link>
+                <Link href="Portfolio">ポートフォリオ</Link>
               </li>
               {/* <li>
                 <Link href="News">News</Link>
@@ -52,7 +52,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="PortfolioPage">
+            <Link href="Portfolio">
               <p className={styles.mainTitle}>ポートフォリオ</p>
             </Link>
           </li>

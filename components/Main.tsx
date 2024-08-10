@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Portfolio from "./Components/ui/Portfolio";
+import Portfolio from "./Components/ui/PortfolioItem";
 import Skill from "./Components/ui/Skill";
 import Timeline from "./Components/ui/Timeline";
 import {
@@ -79,7 +79,7 @@ export default function Main() {
               />
             ))}
           </div>
-          <a href="PortfolioPage" className="main__btn">
+          <a href="Portfolio" className="main__btn">
             more
           </a>
         </div>

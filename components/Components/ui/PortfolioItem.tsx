@@ -1,7 +1,7 @@
 import Image from "next/image";
 import usePortfolioModal from "../parts/usePortfolioModal";
 
-export default function Portfolio({
+export default function PortfolioItem({
   portfolio_name,
   portfolio_date,
   portfolio_tag,
@@ -38,10 +38,7 @@ export default function Portfolio({
       <Modal>
         <div className="bg-white">
           <button onClick={close} className="modalBox_btn w-100">
-            <img
-              src="/images/close-icon.svg"
-              alt="閉じる"
-            />
+            <img src="/images/close-icon.svg" alt="閉じる" />
           </button>
           <div className="modalBox">
             <div className="modalBox__element">
