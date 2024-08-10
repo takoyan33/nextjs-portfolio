@@ -4,7 +4,10 @@ import Skill from "./Components/ui/Skill";
 import Timeline from "./Components/ui/Timeline";
 import {
   PORTFOLIO_LIST,
-  SKILL_LIST,
+  FRONT_SKILL_LIST,
+  BACK_SKILL_LIST,
+  INFRA_SKILL_LIST,
+  OTHER_SKILL_LIST,
   HISTORY_LIST,
   LICENSE_LIST,
 } from "./Components/data/data";
@@ -113,8 +116,48 @@ export default function Main() {
           <h2 className="main__title">Skill</h2>
           <h3 className="main__subtitle">スキルセット</h3>
 
-          <div className="flx">
-            {SKILL_LIST.map((skill, index) => (
+          <h4 className="skill__title">Frontend</h4>
+          <div className="skill__flx">
+            {FRONT_SKILL_LIST.map((skill, index) => (
+              <Skill
+                key={index}
+                name={skill.name}
+                rank={skill.rank}
+                tag={skill.tag}
+                icon={skill.icon}
+                about={skill.about}
+              />
+            ))}
+          </div>
+          <h4 className="skill__title">Backend</h4>
+          <div className="skill__flx">
+            {BACK_SKILL_LIST.map((skill, index) => (
+              <Skill
+                key={index}
+                name={skill.name}
+                rank={skill.rank}
+                tag={skill.tag}
+                icon={skill.icon}
+                about={skill.about}
+              />
+            ))}
+          </div>
+          <h4 className="skill__title">Infra</h4>
+          <div className="skill__flx">
+            {INFRA_SKILL_LIST.map((skill, index) => (
+              <Skill
+                key={index}
+                name={skill.name}
+                rank={skill.rank}
+                tag={skill.tag}
+                icon={skill.icon}
+                about={skill.about}
+              />
+            ))}
+          </div>
+          <h4 className="skill__title">Other</h4>
+          <div className="skill__flx">
+            {OTHER_SKILL_LIST.map((skill, index) => (
               <Skill
                 key={index}
                 name={skill.name}

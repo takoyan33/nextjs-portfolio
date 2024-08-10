@@ -5,10 +5,15 @@ import {
   faVuejs,
   faUnity,
   faJs,
+  faPhp,
+  faAws,
+  faGithub,
+  faBitbucket,
+  faFigma,
   faWordpress,
 } from "@fortawesome/free-brands-svg-icons";
 import { faGem } from "@fortawesome/free-regular-svg-icons";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faFire } from "@fortawesome/free-solid-svg-icons";
 
 // ポートフォリオ
 export const PORTFOLIO_LIST = [
@@ -138,9 +143,8 @@ export const PORTFOLIO_LIST = [
   // },
 ];
 
-//skill
-
-export const SKILL_LIST = [
+//frontend
+export const FRONT_SKILL_LIST = [
   {
     name: "HTML",
     rank: "★★★★",
@@ -156,18 +160,18 @@ export const SKILL_LIST = [
     icon: faCss3,
   },
   {
-    name: "JavaScript,TypeScript(jQuery)",
+    name: "JavaScript",
     rank: "★★★",
     tag: "経験年数：2年",
     about: "ホームページ制作やReactなどで使用",
     icon: faJs,
   },
   {
-    name: "Ruby on Rails",
-    rank: "★★",
+    name: "TypeScript",
+    rank: "★★★",
     tag: "経験年数：1年",
-    about: "システム構築で利用。",
-    icon: faGem,
+    about: "ホームページ制作やReactなどで使用",
+    icon: faJs,
   },
   {
     name: "React/Next.js",
@@ -178,24 +182,70 @@ export const SKILL_LIST = [
   },
   {
     name: "Vue.js/Nuxt.js",
-    rank: "★",
-    tag: "経験年数：半年",
+    rank: "★★",
+    tag: "経験年数：1年",
     about: "フロントを実装する際に利用。現在学習中",
     icon: faVuejs,
   },
   {
-    name: "Unity",
+    name: "WordPress",
+    rank: "★★★",
+    tag: "経験年数：1年",
+    about:
+      "ホームページ制作などで使用。ブログ機能やカスタムフィールドなども実装可能。WordPressAPIの実装経験有り",
+    icon: faWordpress,
+  },
+];
+
+//backend
+export const BACK_SKILL_LIST = [
+  {
+    name: "Firestore",
+    rank: "★★★★",
+    tag: "経験年数：3年",
+    about: "システム構築のバックエンドで利用。認証やデプロイの経験も有り",
+    icon: faFire,
+  },
+  {
+    name: "Ruby",
+    rank: "★★★",
+    tag: "経験年数：1年",
+    about: "システム構築のバックエンドで利用。",
+    icon: faGem,
+  },
+  {
+    name: "PHP",
     rank: "★★",
     tag: "経験年数：3ヶ月",
-    about: "ゲーム制作などで使用。時間がある時にさらに極めたい",
-    icon: faUnity,
+    about: "システム構築のバックエンドで利用。",
+    icon: faPhp,
   },
-  // {
-  //   name: "Golang",
-  //   rank: "★★",
-  //   tag: "経験年数：3ヶ月",
-  //   icon: faGolang,
-  // },
+  {},
+  {},
+];
+//infra
+export const INFRA_SKILL_LIST = [
+  {
+    name: "AWS",
+    rank: "★★★★",
+    tag: "経験年数：3年",
+    about: "インターンなどで利用。S3, CloudFront, Cognitoなどを使用",
+    icon: faAws,
+  },
+  {
+    name: "Vercel",
+    rank: "★★★★",
+    tag: "経験年数：3年",
+    about: "ReactやVueのデプロイで利用",
+    icon: faCamera,
+  },
+  {},
+  {},
+  {},
+];
+
+//other
+export const OTHER_SKILL_LIST = [
   {
     name: "WordPress",
     rank: "★★★",
@@ -205,11 +255,32 @@ export const SKILL_LIST = [
     icon: faWordpress,
   },
   {
-    name: "PhotoShop/Illustrator",
+    name: "Figma",
     rank: "★★★",
     tag: "経験年数：1年半",
-    about: "デザイン制作などで使用",
+    about: "デザイン制作やコーディングなどで使用",
+    icon: faFigma,
+  },
+  {
+    name: "Github",
+    rank: "★★★",
+    tag: "経験年数：1年半",
+    about: "個人開発や仕事でのソース管理で利用",
+    icon: faGithub,
+  },
+  {
+    name: "Adobe",
+    rank: "★★★",
+    tag: "経験年数：1年半",
+    about: "PhotoShop/Illustratorなどをデザイン制作などで使用",
     icon: faCamera,
+  },
+  {
+    name: "Bitbucket",
+    rank: "★★",
+    tag: "経験年数：1年半",
+    about: "仕事のソース管理で利用",
+    icon: faBitbucket,
   },
 ];
 

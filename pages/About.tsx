@@ -64,27 +64,6 @@ export default function History() {
           </div>
         </div>
 
-        {/* ここからSKill*/}
-        <div className="skill padding">
-          <div className="max_width">
-            <h2 className="main__title">Skill</h2>
-            <h3 className="main__subtitle">スキルセット</h3>
-
-            <div className="flx">
-              {SKILL_LIST.map((skill, index) => (
-                <Skill
-                  key={index}
-                  name={skill.name}
-                  rank={skill.rank}
-                  tag={skill.tag}
-                  icon={skill.icon}
-                  about={skill.about}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* ここからLicense*/}
         <section className="license padding max_width">
           <h2 className="main__title">License</h2>

@@ -368,29 +368,39 @@ li {
   color: #6499ff;
 }
 .portfolio__tag--color1 {
-  background-color: #6499ff;
-  color: white;
+  border: 1px solid #6499ff;
+  border-radius: 20px;
   padding: 5px 10px;
+  margin-left: 2px;
+  color: #6499ff;
 }
 .portfolio__tag--color2 {
-  background-color: #d50303;
-  color: white;
+  border: 1px solid #d50303;
+  border-radius: 20px;
   padding: 5px 10px;
+  margin-left: 2px;
+  color: #d50303;
 }
 .portfolio__tag--color3 {
-  background-color: #00a339;
-  color: white;
+  border: 1px solid #00a339;
+  border-radius: 20px;
   padding: 5px 10px;
+  margin-left: 2px;
+  color: #00a339;
 }
 .portfolio__tag--color4 {
-  background-color: #ce61c8;
-  color: white;
+  border: 1px solid #ce61c8;
+  border-radius: 20px;
   padding: 5px 10px;
+  margin-left: 2px;
+  color: #ce61c8;
 }
 .portfolio__tag--color5 {
-  background-color: #063997;
-  color: white;
+  border: 1px solid #063997;
+  border-radius: 20px;
   padding: 5px 10px;
+  margin-left: 2px;
+  color: #063997;
 }
 
 .footer_flx {
@@ -513,6 +523,18 @@ footer li {
   color: #6499ff;
 }
 
+.skill__title {
+  text-align: left;
+}
+.skill__flx {
+  display: flex;
+  margin: 0 auto;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+.skill__flx_el {
+  width: 20%;
+}
 .skill_text {
   color: #6499ff;
   width: 80%;
@@ -525,10 +547,6 @@ footer li {
 .padding {
   margin: 80px auto;
   padding: 80px 0;
-}
-
-.max_width .padding {
-  padding: 50px 0 !important;
 }
 
 dl {
@@ -689,6 +707,26 @@ dl dd h2 {
   }
   p {
     text-align: center;
+  }
+  .skill__title {
+    text-align: left;
+  }
+  .skill__flx {
+    display: flex;
+    margin: 0 auto;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+  .skill__flx_el {
+    width: 50%;
+  }
+  .skill_text {
+    color: #6499ff;
+    width: 80%;
+    text-align: center;
+    margin: 5px auto;
+    margin-bottom: 15px;
+    font-weight: bold;
   }
   .logo_sns {
     width: 50%;

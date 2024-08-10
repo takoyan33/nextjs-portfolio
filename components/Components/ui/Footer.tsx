@@ -14,12 +14,15 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="flx_el">
+                <Link href="/About">
+                  <p className="footer_list">About</p>
+                </Link>
                 <Link href="/PortfolioPage">
                   <p className="footer_list">ポートフォリオ</p>
                 </Link>
-                <Link href="/News">
+                {/* <Link href="/News">
                   <p className="footer_list">News</p>
-                </Link>
+                </Link> */}
                 {/* <Link href="/Contact">
                   <p className="footer_list">お問い合わせ</p>
                 </Link> */}

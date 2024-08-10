@@ -461,29 +461,39 @@ li {
   }
   &__tag {
     &--color1 {
-      background-color: $main-color;
-      color: $white;
+      border: 1px solid $main-color;
+      border-radius: 20px;
       padding: 5px 10px;
+      margin-left: 2px;
+      color: $main-color;
     }
     &--color2 {
-      background-color: $tag-color-1;
-      color: $white;
+      border: 1px solid $tag-color-1;
+      border-radius: 20px;
       padding: 5px 10px;
+      margin-left: 2px;
+      color: $tag-color-1;
     }
     &--color3 {
-      background-color: $tag-color-2;
-      color: $white;
+      border: 1px solid $tag-color-2;
+      border-radius: 20px;
       padding: 5px 10px;
+      margin-left: 2px;
+      color: $tag-color-2;
     }
     &--color4 {
-      background-color: $tag-color-3;
-      color: $white;
+      border: 1px solid $tag-color-3;
+      border-radius: 20px;
       padding: 5px 10px;
+      margin-left: 2px;
+      color: $tag-color-3;
     }
     &--color5 {
-      background-color: $tag-color-4;
-      color: $white;
+      border: 1px solid $tag-color-4;
+      border-radius: 20px;
       padding: 5px 10px;
+      margin-left: 2px;
+      color: $tag-color-4;
     }
   }
 }
@@ -573,6 +583,7 @@ footer {
   margin-bottom: 10px;
 }
 
+// 共通ボタン
 .main__btn {
   display: block;
   text-align: center;
@@ -623,22 +634,33 @@ footer {
   color: $main-color;
 }
 
-.skill_text {
-  color: $main-color;
-  width: 80%;
-  text-align: center;
-  margin: 5px auto;
-  margin-bottom: 15px;
-  font-weight: bold;
+// skill
+.skill {
+  &__title {
+    text-align: left;
+  }
+  &__flx {
+    display: flex;
+    margin: 0 auto;
+    justify-content: start;
+    flex-wrap: wrap;
+    &_el {
+      width: 20%;
+    }
+  }
+  &_text {
+    color: $main-color;
+    width: 80%;
+    text-align: center;
+    margin: 5px auto;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
 }
 
 .padding {
   margin: 80px auto;
   padding: 80px 0;
-}
-
-.max_width .padding {
-  padding: 50px 0 !important;
 }
 
 dl {
@@ -830,6 +852,29 @@ dl {
 
   p {
     text-align: center;
+  }
+
+  .skill {
+    &__title {
+      text-align: left;
+    }
+    &__flx {
+      display: flex;
+      margin: 0 auto;
+      justify-content: start;
+      flex-wrap: wrap;
+      &_el {
+        width: 50%;
+      }
+    }
+    &_text {
+      color: $main-color;
+      width: 80%;
+      text-align: center;
+      margin: 5px auto;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
   }
 
   .logo_sns {
