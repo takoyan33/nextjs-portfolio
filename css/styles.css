@@ -36,6 +36,7 @@ a {
   color: black;
   text-decoration: none;
   display: block;
+  cursor: pointer;
 }
 a :hover {
   opacity: 0.7;

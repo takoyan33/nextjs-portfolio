@@ -2,7 +2,12 @@ import Image from "next/image";
 import Portfolio from "./Components/ui/Portfolio";
 import Skill from "./Components/ui/Skill";
 import Timeline from "./Components/ui/Timeline";
-import { PORTFOLIO_LIST, SKILL_LIST, TIMELINE } from "./Components/data/data";
+import {
+  PORTFOLIO_LIST,
+  SKILL_LIST,
+  HISTORY_LIST,
+  LICENSE_LIST,
+} from "./Components/data/data";
 
 export default function Main() {
   return (
@@ -71,31 +76,34 @@ export default function Main() {
               />
             ))}
           </div>
-          {/* <a href="PortfolioPage" className="main__btn mb-10">
-            READ MORE
-          </a> */}
+          <a href="PortfolioPage" className="main__btn">
+            more
+          </a>
         </div>
       </div>
 
-      {/*ここからインターンの経験*/}
+      {/*ここから学歴*/}
       <div className="padding">
         <div className="max_width">
           <div className="flx">
             <div className="flx_el">
-              <h2 className="main__title">TimeLine</h2>
+              <h2 className="main__title">History</h2>
               <h3 className="main__subtitle">過去の経歴</h3>
             </div>
             <dl>
-              {TIMELINE.map((timeline, index) => (
+              {HISTORY_LIST.map((history, index) => (
                 <Timeline
                   key={index}
-                  title={timeline.title}
-                  date={timeline.date}
-                  body={timeline.body}
+                  title={history.title}
+                  date={history.date}
+                  body={history.body}
                 />
               ))}
             </dl>
           </div>
+          <a href="About" className="main__btn">
+            more
+          </a>
         </div>
       </div>
 

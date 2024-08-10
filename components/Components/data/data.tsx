@@ -10,6 +10,7 @@ import {
 import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
+// ポートフォリオ
 export const PORTFOLIO_LIST = [
   {
     name: "NuxtTodoサイト",
@@ -40,11 +41,11 @@ export const PORTFOLIO_LIST = [
     date: "2022.11.30",
     tag: "React",
     img: "/images/portfolio_7.png",
-    url: "https://rails-react-app-front.vercel.app/",
+    // url: "https://rails-react-app-front.vercel.app/",
     github: "https://github.com/takoyan33/rails-react-app-front",
     color: "portfolio__tag--color5",
     about: "サークルのメンバー管理ができるアプリです。",
-    skill: "フロントエンド：React(vite) バックエンド Ruby on Rails 6",
+    skill: "フロントエンド:React(vite) バックエンド Ruby on Rails 6",
     time: "1ヶ月",
   },
   {
@@ -137,6 +138,8 @@ export const PORTFOLIO_LIST = [
   // },
 ];
 
+//skill
+
 export const SKILL_LIST = [
   {
     name: "HTML",
@@ -210,7 +213,9 @@ export const SKILL_LIST = [
   },
 ];
 
-export const TIMELINE = [
+//学歴
+
+export const HISTORY_LIST = [
   {
     title: "市立札幌大通高等学校　卒業",
     date: "2020年3月",
@@ -221,6 +226,15 @@ export const TIMELINE = [
     date: "2020年4月",
     body: "大学では主にマーケティングや経営学を学ぶ。2024年3月に卒業",
   },
+  {
+    title: "株式会社ノースディテール　入社",
+    date: "2024年3月",
+    body: "フロントエンドの開発を行う",
+  },
+];
+
+//職歴
+export const JOB_LIST = [
   {
     title: "JBA日本ビジネスアート株式会社　長期インターン",
     date: "2020年3月",
@@ -247,8 +261,28 @@ export const TIMELINE = [
     body: "バックエンドがPHPで、フロントのReactのサービスの開発を行う。2024年3月まで",
   },
   {
-    title: "株式会社ノースディテール　新卒",
+    title: "株式会社ノースディテール　正社員",
     date: "2024年3月",
     body: "フロントエンドの開発を行う",
+  },
+];
+
+// 資格
+export const LICENSE_LIST = [
+  {
+    title: "実用英語検定２級",
+    date: "2020年3月",
+  },
+  {
+    title: "日本漢字能力検定２級",
+    date: "2020年6月",
+  },
+  {
+    title: "普通自動車免許",
+    date: "2024年1月",
+  },
+  {
+    title: "基本情報技術者試験",
+    date: "2024年6月",
   },
 ];

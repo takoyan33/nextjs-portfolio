@@ -18,11 +18,14 @@ export default function Header() {
           <nav>
             <ul>
               <li>
-                <Link href="PortfolioPage">ポートフォリオ</Link>
+                <Link href="About">About</Link>
               </li>
               <li>
-                <Link href="News">News</Link>
+                <Link href="PortfolioPage">ポートフォリオ</Link>
               </li>
+              {/* <li>
+                <Link href="News">News</Link>
+              </li> */}
             </ul>
           </nav>
         </div>
@@ -44,16 +47,21 @@ export default function Header() {
             <span></span>
           </div>
           <li>
+            <Link href="About">
+              <p className={styles.mainTitle}>About</p>
+            </Link>
+          </li>
+          <li>
             <Link href="PortfolioPage">
               <p className={styles.mainTitle}>ポートフォリオ</p>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="News">
               <p className={styles.mainTitle}>News</p>
-              {/* <p className={styles.subTitle}>私のメニュー</p> */}
+              {/* <p className={styles.subTitle}>私のメニュー</p> 
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </>
