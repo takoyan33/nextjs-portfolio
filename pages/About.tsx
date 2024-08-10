@@ -1,12 +1,7 @@
 import Header from "../components/Components/ui/Header";
 import Footer from "../components/Components/ui/Footer";
-import Image from "next/image";
-import Portfolio from "../components/Components/ui/Portfolio";
-import Skill from "../components/Components/ui/Skill";
 import Timeline from "../components/Components/ui/Timeline";
 import {
-  PORTFOLIO_LIST,
-  SKILL_LIST,
   HISTORY_LIST,
   JOB_LIST,
   LICENSE_LIST,
