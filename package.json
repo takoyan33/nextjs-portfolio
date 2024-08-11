@@ -29,6 +29,7 @@
     "remark": "^14.0.1",
     "remark-html": "^15.0.0",
     "sass": "^1.49.7",
+    "swiper": "^11.1.9",
     "three": "^0.167.1"
   },
   "devDependencies": {

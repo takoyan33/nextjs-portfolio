@@ -11,6 +11,12 @@ import {
   HISTORY_LIST,
   LICENSE_LIST,
 } from "./Components/data/data";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export default function Main() {
   return (
@@ -62,22 +68,56 @@ export default function Main() {
         <div className="max_width">
           <h2 className="main__title">Portfolio</h2>
           <h3 className="main__subtitle">ポートフォリオ</h3>
-          <div className="flx padding">
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            className="flx padding swiper"
+            spaceBetween={30}
+            breakpoints={{
+              1920: {
+                slidesPerView: 3.4,
+              },
+              480: {
+                slidesPerView: 1.3,
+              },
+            }}
+            navigation={{
+              nextEl: ".next-button",
+              prevEl: ".prev-button",
+            }}
+            // pagination={{ clickable: true }}
+          >
             {PORTFOLIO_LIST.map((portfolio, index) => (
-              <Portfolio
-                key={index}
-                portfolio_name={portfolio.name}
-                portfolio_date={portfolio.date}
-                portfolio_tag={portfolio.tag}
-                portfolio_img={portfolio.img}
-                portfolio_url={portfolio.url}
-                portfolio_color={portfolio.color}
-                portfolio_time={portfolio.time}
-                portfolio_about={portfolio.about}
-                portfolio_skill={portfolio.skill}
-                portfolio_github={portfolio.github}
-              />
+              <SwiperSlide key={index}>
+                <Portfolio
+                  portfolio_name={portfolio.name}
+                  portfolio_date={portfolio.date}
+                  portfolio_tag={portfolio.tag}
+                  portfolio_img={portfolio.img}
+                  portfolio_url={portfolio.url}
+                  portfolio_color={portfolio.color}
+                  portfolio_time={portfolio.time}
+                  portfolio_about={portfolio.about}
+                  portfolio_skill={portfolio.skill}
+                  portfolio_github={portfolio.github}
+                />
+              </SwiperSlide>
             ))}
+          </Swiper>
+          <div className="navigation-container">
+            <div className="prev-button">
+              <img
+                src="/images/prev-arrow.svg"
+                className=""
+                alt="プロフィール画像"
+              />
+            </div>
+            <div className="next-button">
+              <img
+                src="/images/next-arrow.svg"
+                className=""
+                alt="プロフィール画像"
+              />
+            </div>
           </div>
           <a href="Portfolio" className="main__btn">
             more
