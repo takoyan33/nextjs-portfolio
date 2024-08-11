@@ -19,6 +19,15 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export default function Main() {
+  const breakpoints = {
+    0: {
+      slidesPerView: 1.5,
+    },
+    768: {
+      slidesPerView: 3.5,
+    },
+  };
+
   return (
     <nav className="container">
       <div style={{ textAlign: "center", padding: 50 }}></div>
@@ -72,19 +81,12 @@ export default function Main() {
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             className="flx padding swiper"
             spaceBetween={30}
-            breakpoints={{
-              1920: {
-                slidesPerView: 3.4,
-              },
-              480: {
-                slidesPerView: 1.3,
-              },
-            }}
+            slidesPerView={3.5}
+            breakpoints={breakpoints}
             navigation={{
               nextEl: ".next-button",
               prevEl: ".prev-button",
             }}
-            // pagination={{ clickable: true }}
           >
             {PORTFOLIO_LIST.map((portfolio, index) => (
               <SwiperSlide key={index}>
