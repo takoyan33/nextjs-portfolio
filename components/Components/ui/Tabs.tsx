@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { css } from "@emotion/react";
+// import { css } from "@emotion/react";
 import React from "react";
 
 type TabProps = {
@@ -15,10 +15,10 @@ const Tabs = ({ tabs }: TabProps) => {
         <button
           key={tab}
           onClick={() => setActiveTab(tab)}
-          css={css`
-            background-color: ${tab === activeTab ? "blue" : "white"};
-            color: ${tab === activeTab ? "white" : "black"};
-          `}
+          // css={css`
+          //   background-color: ${tab === activeTab ? "blue" : "white"};
+          //   color: ${tab === activeTab ? "white" : "black"};
+          // `}
         >
           {tab}
         </button>
