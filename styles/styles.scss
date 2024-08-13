@@ -89,7 +89,7 @@ a {
 .max_width {
   max-width: 1100px;
   width: 100%;
-  margin: 0px auto;
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -619,25 +619,28 @@ footer {
 
 // aboutページ
 .about {
-  .tac {
-    margin-top: 70px;
-    color: #000081;
-    font-family: railroad-gothic-atf, sans-serif;
-    font-size: 42px;
-  }
-  &_text {
-    text-align: center;
-    line-height: 1.6;
-    font-size: 16px;
-    margin: 40px auto;
+  &__title {
+    text-align: left;
+    font-size: rem(26);
+    margin: rem(10) auto;
   }
   &__text {
     text-align: left;
-    margin: 50px 0;
+    line-height: 1.6;
+    font-size: 16px;
   }
   &_img {
     width: 300px;
     object-fit: cover;
+  }
+  &_snsLogo {
+    width: 30px;
+    margin: 0 rem(10);
+  }
+  &__flx {
+    display: flex;
+    justify-content: start;
+    margin-bottom: rem(10);
   }
 }
 
@@ -760,9 +763,22 @@ dl {
   }
 }
 
+// 資格
 .license {
   ul {
     text-align: left;
+  }
+  &__table {
+    margin-top: rem(20);
+    font-size: rem(18);
+    &__th {
+    }
+    &__tr {
+    }
+    &__td {
+      text-align: left;
+      padding: rem(10);
+    }
   }
 }
 

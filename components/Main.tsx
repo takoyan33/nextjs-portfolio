@@ -30,7 +30,6 @@ export default function Main() {
 
   return (
     <nav className="container">
-      <div style={{ textAlign: "center", padding: 50 }}></div>
       {/* ここからfv */}
       <div className="fv">
         <div className="max_width">
@@ -42,31 +41,59 @@ export default function Main() {
       {/* ここからabout */}
       <div className="about padding">
         <div className="max_width">
+          <h2 className="main__title">About</h2>
+          <h3 className="main__subtitle">To You Designについて</h3>
           <div className="flx">
             <div className="flx_el">
-              <h2 className="main__title">About</h2>
-              <h3 className="main__subtitle">To You Designについて</h3>
-              <p className="about__text">
-                To You
-                Designのポートフォリオです。2021年からプログラミングを学習しています。
-                <br />
-                現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
-                <br />
-                名前：阿部 舜平
-                <br />
-                趣味：写真撮影、旅行、ギター
-              </p>
-            </div>
-            <div className="flx_el">
               <div className="tac">
-                <Image
-                  src="/images/myphoto.jpg"
+                <img
+                  src="/images/myphoto.png"
                   className="about_img"
                   alt="プロフィール画像"
-                  width={300}
-                  height={300}
                 />
               </div>
+            </div>
+            <div className="flx_el">
+              <h4 className="about__title">阿部 舜平</h4>
+              <div className="about__flx">
+                <a
+                  href="https://qiita.com/harrier2070"
+                  target="_blank"
+                >
+                  <img
+                    src="/images/github-logo.png"
+                    className="about_snsLogo"
+                    alt="sns"
+                  />
+                </a>
+
+                <a
+                  href="https://zenn.dev/643866"
+                  target="_blank"
+                >
+                  <img
+                    src="/images/qiita-logo.png"
+                    className="about_snsLogo"
+                    alt="sns"
+                  />
+                </a>
+
+                <a
+                  href="https://github.com/takoyan33"
+                  target="_blank"
+                >
+                  <img
+                    src="/images/logo-only.svg"
+                    className="about_snsLogo"
+                    alt="sns"
+                  />
+                </a>
+              </div>
+              <p className="about__text">
+                フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
+              </p>
+              <p className="about__text"> 趣味：旅行、ギター</p>
             </div>
           </div>
         </div>
@@ -243,39 +270,6 @@ export default function Main() {
               className="main__btn__long"
             >
               harrier2070@gmail.com
-            </a>
-          </div>
-        </div>
-      </div>
-      {/* ここからSNS*/}
-      <div className="sns padding">
-        <div className="max_width">
-          <h2 className="main__title">SNS</h2>
-          <h3 className="main__subtitle">SNS</h3>
-          <br></br>
-          <div className="flx">
-            <a
-              href="https://qiita.com/harrier2070"
-              target="_blank"
-              className="main__btn"
-            >
-              Qiita
-            </a>
-
-            <a
-              href="https://zenn.dev/643866"
-              target="_blank"
-              className="main__btn"
-            >
-              Zenn
-            </a>
-
-            <a
-              href="https://github.com/takoyan33"
-              target="_blank"
-              className="main__btn"
-            >
-              Github
             </a>
           </div>
         </div>

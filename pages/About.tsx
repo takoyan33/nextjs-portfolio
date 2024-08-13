@@ -1,12 +1,13 @@
 import Header from "../components/Components/ui/Header";
 import Footer from "../components/Components/ui/Footer";
 import Timeline from "../components/Components/ui/Timeline";
+import Tabs from "../components/Components/ui/Tabs";
 import {
   HISTORY_LIST,
   JOB_LIST,
   LICENSE_LIST,
 } from "../components/Components/data/data";
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 
 export default function History() {
@@ -33,6 +34,7 @@ export default function History() {
               <div className="flx_el">
                 <h2 className="main__title">History</h2>
                 <h3 className="main__subtitle">過去の経歴</h3>
+                <Tabs tabs={["Tab1", "Tab2", "Tab3"]} />
               </div>
               <dl>
                 {HISTORY_LIST.map((history, index) => (
@@ -77,13 +79,13 @@ export default function History() {
           <table className="license__table">
             <tbody>
               <tr>
-                <th>日付</th>
-                <th>資格名</th>
+                <th className="license__table__th">日付</th>
+                <th className="license__table__th">資格名</th>
               </tr>
               {LICENSE_LIST.map((license, index) => (
-                <tr key={index}>
-                  <td>{license.date}</td>
-                  <td>{license.title}</td>
+                <tr key={index} className="license__table__tr">
+                  <td className="license__table__td">{license.date}</td>
+                  <td className="license__table__td">{license.title}</td>
                 </tr>
               ))}
             </tbody>

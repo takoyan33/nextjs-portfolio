@@ -45,7 +45,7 @@ a :hover {
 .max_width {
   max-width: 1100px;
   width: 100%;
-  margin: 0px auto;
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -486,26 +486,29 @@ footer li {
   color: white;
 }
 
-.about .tac {
-  margin-top: 70px;
-  color: #000081;
-  font-family: railroad-gothic-atf, sans-serif;
-  font-size: 42px;
-}
-.about_text {
-  text-align: center;
-  line-height: 1.6;
-  font-size: 16px;
-  margin: 40px auto;
+.about__title {
+  text-align: left;
+  font-size: 1.625rem;
+  margin: 0.625rem auto;
 }
 .about__text {
   text-align: left;
-  margin: 50px 0;
+  line-height: 1.6;
+  font-size: 16px;
 }
 .about_img {
   width: 300px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.about_snsLogo {
+  width: 30px;
+  margin: 0 0.625rem;
+}
+.about__flx {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 0.625rem;
 }
 
 .arrow {
@@ -626,6 +629,14 @@ dl dd h2 {
 
 .license ul {
   text-align: left;
+}
+.license__table {
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+}
+.license__table__td {
+  text-align: left;
+  padding: 0.625rem;
 }
 
 .modalBox {
