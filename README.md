@@ -6,21 +6,29 @@ To You Design Portfolio
 # Features
  これは、自分のポートフォリオサイトです。<br>
  特徴としては、next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
-また、 Tailwind CSS,FontAwesome などを用いてます。
+ また、 Tailwind CSS,FontAwesome などを用いてます。
 
-# Requirement
-    next.js "latest
-    react 17.0.2
+# 使用言語、環境
+
+- 使用言語：TypeScript
+
+- フレームワーク：React,Next.js
+
+- リンター：ESLint, Prettier, husky, lint-staged
+
+- サーバー：Vercel
+
+- ライブラリ：Swiper
  
 # Installation
 
-TaiwlndCss
+- TaiwlndCss
 <br> 
 https://tailwindcss.com/docs/guides/create-react-app
 <br>
 上記の手順でインストール
 
-FontAwesome
+- FontAwesome
 <br>
 https://qiita.com/stin_dev/items/5755e14805e60718620c
 <br>
