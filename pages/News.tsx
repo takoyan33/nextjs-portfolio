@@ -1,5 +1,6 @@
-import Header from "../components/Components/ui/Header";
-import Footer from "../components/Components/ui/Footer";
+import Header from '../components/Components/ui/Header'
+import Footer from '../components/Components/ui/Footer'
+import React from 'react'
 
 export default function News() {
   return (
@@ -11,5 +12,5 @@ export default function News() {
 
       <Footer />
     </>
-  );
+  )
 }

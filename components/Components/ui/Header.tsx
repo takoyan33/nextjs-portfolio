@@ -1,27 +1,27 @@
-import styles from "../../index.module.scss";
-import Link from "next/link";
-import React, { useState } from "react";
+import styles from '../../index.module.scss'
+import Link from 'next/link'
+import React, { useState } from 'react'
 export default function Header() {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false)
   const menuFunction = () => {
-    setOpenMenu(!openMenu);
-  };
+    setOpenMenu(!openMenu)
+  }
   return (
     <>
-      <header id="header" className={styles.header}>
+      <header id='header' className={styles.header}>
         <div className={styles.header_flx}>
           <div>
-            <a className={styles.logo} href="/">
+            <a className={styles.logo} href='/'>
               To You Design
             </a>
           </div>
           <nav>
             <ul>
               <li>
-                <Link href="About">About</Link>
+                <Link href='About'>About</Link>
               </li>
               <li>
-                <Link href="Portfolio">ポートフォリオ</Link>
+                <Link href='Portfolio'>ポートフォリオ</Link>
               </li>
               {/* <li>
                 <Link href="News">News</Link>
@@ -38,21 +38,19 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <div
-        className={`${styles.drawerMenu} ${openMenu ? styles.open : undefined}`}
-      >
+      <div className={`${styles.drawerMenu} ${openMenu ? styles.open : undefined}`}>
         <ul>
           <div className={styles.close} onClick={() => menuFunction()}>
             <span></span>
             <span></span>
           </div>
           <li>
-            <Link href="About">
+            <Link href='About'>
               <p className={styles.mainTitle}>About</p>
             </Link>
           </li>
           <li>
-            <Link href="Portfolio">
+            <Link href='Portfolio'>
               <p className={styles.mainTitle}>ポートフォリオ</p>
             </Link>
           </li>
@@ -65,5 +63,5 @@ export default function Header() {
         </ul>
       </div>
     </>
-  );
+  )
 }

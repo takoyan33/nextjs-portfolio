@@ -1,4 +1,3 @@
-
 export default function Timeline({ title, date, body }) {
   return (
     <>
@@ -8,5 +7,5 @@ export default function Timeline({ title, date, body }) {
         <p>{body}</p>
       </dd>
     </>
-  );
+  )
 }

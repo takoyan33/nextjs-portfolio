@@ -1,6 +1,6 @@
-import Header from "../components/Components/ui/Header";
-import Footer from "../components/Components/ui/Footer";
-import ContactForm from "../components/Components/ui/ContactForm";
+import Header from '../components/Components/ui/Header'
+import Footer from '../components/Components/ui/Footer'
+import ContactForm from '../components/Components/ui/ContactForm'
 
 export default function Contact() {
   return (
@@ -13,5 +13,5 @@ export default function Contact() {
 
       <Footer />
     </>
-  );
+  )
 }

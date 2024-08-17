@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react'
 // import { css } from "@emotion/react";
-import React from "react";
+import React from 'react'
 
 type TabProps = {
-  tabs: string[];
-};
+  tabs: string[]
+}
 
 const Tabs = ({ tabs }: TabProps) => {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [activeTab, setActiveTab] = useState(tabs[0])
 
   return (
     <div>
@@ -25,7 +25,7 @@ const Tabs = ({ tabs }: TabProps) => {
       ))}
       <div>{activeTab} content</div>
     </div>
-  );
-};
+  )
+}
 
-export default Tabs;
+export default Tabs

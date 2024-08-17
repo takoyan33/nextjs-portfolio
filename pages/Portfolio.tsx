@@ -1,29 +1,26 @@
-import Header from "../components/Components/ui/Header";
-import Footer from "../components/Components/ui/Footer";
-import PortfolioItem from "../components/Components/ui/PortfolioItem";
-import { PORTFOLIO_LIST } from "../components/Components/data/data";
-import Head from "next/head";
-import React from "react";
+import Header from '../components/Components/ui/Header'
+import Footer from '../components/Components/ui/Footer'
+import PortfolioItem from '../components/Components/ui/PortfolioItem'
+import { PORTFOLIO_LIST } from '../components/Components/data/data'
+import Head from 'next/head'
+import React from 'react'
 
 export default function Portfolio() {
   return (
     <>
       <Head>
         <title>To You Design - Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
-        <script
-          src="https://kit.fontawesome.com/bb61864944.js"
-          crossOrigin="anonymous"
-        ></script>
-        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
-        <meta name="google" content="notranslate" key="notranslate" />
+        <link rel='icon' href='/favicon.ico' />
+        <script src='https://kit.fontawesome.com/bb61864944.js' crossOrigin='anonymous'></script>
+        <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
+        <meta name='google' content='notranslate' key='notranslate' />
       </Head>
       <Header />
-      <div className="">
-        <div className="max_width">
-          <h2 className="main__title">Portfolio</h2>
-          <h3 className="main__subtitle">ポートフォリオ</h3>
-          <div className="flx padding">
+      <div className=''>
+        <div className='max_width'>
+          <h2 className='main__title'>Portfolio</h2>
+          <h3 className='main__subtitle'>ポートフォリオ</h3>
+          <div className='flx padding'>
             {PORTFOLIO_LIST.map((portfolio, index) => (
               <PortfolioItem
                 key={index}
@@ -45,5 +42,5 @@ export default function Portfolio() {
 
       <Footer />
     </>
-  );
+  )
 }

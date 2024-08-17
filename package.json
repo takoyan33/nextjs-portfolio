@@ -3,7 +3,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -19,9 +23,12 @@
     "@types/three": "^0.167.1",
     "date-fns": "^2.11.1",
     "emailjs-com": "^3.2.0",
+    "eslint": "^9.9.0",
     "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
     "gray-matter": "^4.0.2",
     "next": "^14.0.4",
+    "prettier": "^3.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hooks-use-modal": "^3.3.1",
@@ -33,8 +40,13 @@
     "three": "^0.167.1"
   },
   "devDependencies": {
-    "@types/node": "^17.0.17",
+    "@eslint/js": "^9.9.0",
+    "@types/node": "^20.0.0",
     "@types/react": "^17.0.39",
-    "typescript": "^4.5.5"
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
+    "husky": "^9.1.4",
+    "typescript": "^4.5.5",
+    "typescript-eslint": "^8.1.0"
   }
 }

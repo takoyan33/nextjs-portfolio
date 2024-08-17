@@ -226,7 +226,9 @@ header nav {
   height: 0.125rem;
   background-color: black;
   position: absolute;
-  transition: transform 0.5s, opacity 0.5s;
+  transition:
+    transform 0.5s,
+    opacity 0.5s;
 }
 
 .hamburger-btn__parts.-top {
@@ -334,7 +336,7 @@ li {
 }
 .title-border-right :after {
   border-top: 1px solid;
-  content: "";
+  content: '';
   flex-grow: 1;
   margin-left: 1rem;
 }
@@ -499,7 +501,7 @@ footer li {
 .about_img {
   width: 300px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .about_snsLogo {
   width: 30px;
@@ -605,7 +607,7 @@ dl dt {
   position: relative;
 }
 dl dt::after {
-  content: "●";
+  content: '●';
   position: absolute;
   right: -0.55em;
   top: 0.3125rem;
@@ -664,7 +666,7 @@ dl dd h2 {
   width: 100%;
   height: 300px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   border: 1px solid gray;
 }
 .modalBox__element__link {
@@ -855,7 +857,7 @@ dl dd h2 {
     width: 100%;
     height: 200px;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     border: 1px solid gray;
   }
   .modalBox__element__text {
