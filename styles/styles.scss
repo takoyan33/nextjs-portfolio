@@ -828,6 +828,47 @@ dl {
   }
 }
 
+// [id]ページ
+.portfolioDetail {
+  width: 100%;
+  margin-top: 50px;
+  border-radius: rem(20);
+  &_btn {
+    margin-left: auto;
+    display: block;
+    width: 46px;
+    background-color: white;
+    border: 0px solid;
+    position: relative;
+    top: rem(20);
+    margin-right: rem(10);
+  }
+  &__element {
+    width: 45%;
+    &__img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      border: 1px solid gray;
+    }
+    &__title {
+      text-align: left;
+    }
+    &__subtitle {
+      text-align: left;
+    }
+    &__text {
+      text-align: left;
+    }
+    &__link {
+      color: $tag-color-4;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
 //スマホ版
 @media screen and (max-width: 580px) {
   .main__btn {

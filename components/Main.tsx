@@ -68,7 +68,8 @@ export default function Main() {
                 フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
                 現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
               </p>
-              <p className='about__text'> 趣味：旅行、ギター</p>
+              <p className='about__text'>趣味：旅行、ギター</p>
+              <p className='about__text'>資格：基本情報技術者試験</p>
             </div>
           </div>
         </div>
@@ -93,26 +94,22 @@ export default function Main() {
             {PORTFOLIO_LIST.map((portfolio, index) => (
               <SwiperSlide key={index}>
                 <Portfolio
+                  portfolio_id={portfolio.id}
                   portfolio_name={portfolio.name}
                   portfolio_date={portfolio.date}
                   portfolio_tag={portfolio.tag}
-                  portfolio_img={portfolio.img}
-                  portfolio_url={portfolio.url}
+                  portfolio_topImg={portfolio.topImg}
                   portfolio_color={portfolio.color}
-                  portfolio_time={portfolio.time}
-                  portfolio_about={portfolio.about}
-                  portfolio_skill={portfolio.skill}
-                  portfolio_github={portfolio.github}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
           <div className='navigation-container'>
             <div className='prev-button'>
-              <img src='/images/prev-arrow.svg' className='' alt='プロフィール画像' />
+              <img src='/images/prev-arrow.svg' className='' alt='スライドショーのナビゲーション' />
             </div>
             <div className='next-button'>
-              <img src='/images/next-arrow.svg' className='' alt='プロフィール画像' />
+              <img src='/images/next-arrow.svg' className='' alt='スライドショーのナビゲーション' />
             </div>
           </div>
           <a href='Portfolio' className='main__btn'>

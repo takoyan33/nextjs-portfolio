@@ -21,7 +21,7 @@ export default function Portfolio() {
           <h2 className='main__title'>Portfolio</h2>
           <h3 className='main__subtitle'>ポートフォリオ</h3>
           <div className='flx padding'>
-            {PORTFOLIO_LIST.map((portfolio, index) => (
+            {/* {PORTFOLIO_LIST.map((portfolio, index) => (
               <PortfolioItem
                 key={index}
                 portfolio_name={portfolio.name}
@@ -35,7 +35,7 @@ export default function Portfolio() {
                 portfolio_skill={portfolio.skill}
                 portfolio_github={portfolio.github}
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
