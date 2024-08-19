@@ -7,7 +7,7 @@ import { PORTFOLIO_LIST } from '../../components/Components/data/data'
 
 const Post = () => {
   const router = useRouter()
-  const { id } = router.query
+  const { id }: any = router.query
 
   // const matchPortfolio = PORTFOLIO_LIST.find((portfolioItem) => portfolioItem.id === id)
   return (
@@ -28,10 +28,17 @@ const Post = () => {
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
-
-            <h2 className='portfolioDetail__element__title'>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].name}
-            </h2>
+            <div className='portfolioDetail__element__text'>
+              <h2 className='portfolioDetail__element__title'>
+                {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].name}
+              </h2>
+              {PORTFOLIO_LIST[id - 1] &&
+                PORTFOLIO_LIST[id - 1].front_skill.map((skill, index) => (
+                  <li className='portfolioDetail__element__tag' key={index}>
+                    {skill}
+                  </li>
+                ))}
+            </div>
             <h3 className='portfolioDetail__element__subtitle'>About</h3>
             <img
               src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
@@ -56,47 +63,40 @@ const Post = () => {
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
-            <p className='portfolioDetail__element__text'>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appeal}
-            </p>
-
-            <p className='portfolioDetail__element__text'>
-              制作期間<br></br>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].time}
-            </p>
             <div className='portfolioDetail__element__text'>
-              使用技術<br></br>
-              <p>フロントエンド</p>
+              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appeal}
+            </div>
+
+            <div className='portfolioDetail__element__text'>
+              <h3 className='portfolioDetail__element__subtitle'>制作期間</h3>
+              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].time}
+            </div>
+            <div className='portfolioDetail__element__text'>
+              <h3 className='portfolioDetail__element__subtitle'>使用技術</h3>
+              <h4>フロントエンド</h4>
               {PORTFOLIO_LIST[id - 1] &&
                 PORTFOLIO_LIST[id - 1].front_skill.map((skill, index) => (
-                  <li className={PORTFOLIO_LIST[id - 1].color} key={index}>
+                  <li className='portfolioDetail__element__tag' key={index}>
                     {skill}
                   </li>
                 ))}
-              <p>バックエンド</p>
+              <h4>バックエンド</h4>
               {PORTFOLIO_LIST[id - 1] &&
                 PORTFOLIO_LIST[id - 1].back_skill.map((skill, index) => (
-                  <li className={PORTFOLIO_LIST[id - 1].color} key={index}>
+                  <li className='portfolioDetail__element__tag' key={index}>
                     {skill}
                   </li>
                 ))}
-              <p>インフラ</p>
+              <h4>インフラ</h4>
               {PORTFOLIO_LIST[id - 1] &&
                 PORTFOLIO_LIST[id - 1].infra_skill.map((skill, index) => (
-                  <li
-                    className={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].color}
-                    key={index}
-                  >
+                  <li className='portfolioDetail__element__tag' key={index}>
                     {skill}
                   </li>
                 ))}
             </div>
-            <p className='portfolioDetail__element__text'>
-              概要<br></br>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].about}
-            </p>
-            <p className='portfolioDetail__element__text'>
-              URL
+            <div className='portfolioDetail__element__text'>
+              <h3 className='portfolioDetail__element__subtitle'>URL</h3>
               <a
                 href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
                 className='portfolioDetail__element__link'
@@ -104,9 +104,9 @@ const Post = () => {
               >
                 {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
               </a>
-            </p>
-            <p className='portfolioDetail__element__text'>
-              Github
+            </div>
+            <div className='portfolioDetail__element__text'>
+              <h3 className='portfolioDetail__element__subtitle'>Github</h3>
               <a
                 href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
                 className='portfolioDetail__element__link'
@@ -114,7 +114,7 @@ const Post = () => {
               >
                 {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
               </a>
-            </p>
+            </div>
           </section>
         </div>
       </nav>

@@ -1,7 +1,5 @@
 import Image from 'next/image'
-import usePortfolioModal from '../parts/usePortfolioModal'
 import Link from 'next/link'
-import { Button } from '@mui/material'
 
 export default function PortfolioItem({
   portfolio_id,

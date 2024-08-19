@@ -849,7 +849,6 @@ dl {
       width: 100%;
       height: 300px;
       object-fit: contain;
-      border: 1px solid gray;
     }
     &__title {
       text-align: left;
@@ -859,6 +858,14 @@ dl {
     }
     &__text {
       text-align: left;
+    }
+    &__tag {
+      border: 1px solid $main-color;
+      color: $main-color;
+      border-radius: 20px;
+      display: inline;
+      padding: 5px 10px;
+      margin: 0px 10px;
     }
     &__link {
       color: $tag-color-4;

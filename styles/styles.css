@@ -697,7 +697,6 @@ dl dd h2 {
   height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid gray;
 }
 .portfolioDetail__element__title {
   text-align: left;
@@ -707,6 +706,14 @@ dl dd h2 {
 }
 .portfolioDetail__element__text {
   text-align: left;
+}
+.portfolioDetail__element__tag {
+  border: 1px solid #6499ff;
+  color: #6499ff;
+  border-radius: 20px;
+  display: inline;
+  padding: 5px 10px;
+  margin: 0px 10px;
 }
 .portfolioDetail__element__link {
   color: #063997;
