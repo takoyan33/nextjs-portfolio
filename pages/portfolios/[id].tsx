@@ -41,7 +41,7 @@ const Post = () => {
             </div>
             <h3 className='portfolioDetail__element__subtitle'>About</h3>
             <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
+              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].aboutImg}
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
@@ -50,7 +50,7 @@ const Post = () => {
             </p>
             <h3 className='portfolioDetail__element__subtitle'>機能一覧</h3>
             <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
+              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].functionImg}
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
@@ -59,7 +59,7 @@ const Post = () => {
             </p>
             <h3 className='portfolioDetail__element__subtitle'>アピール</h3>
             <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
+              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appealImg}
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />

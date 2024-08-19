@@ -539,46 +539,26 @@ li {
 .portfolio {
   background-color: $back-color;
 
+  &__flex {
+    display: flex;
+    justify-content: center;
+  }
   &__date {
     font-size: rem(14);
     color: $main-color;
   }
   &__tag {
-    &--color1 {
-      border: 1px solid $main-color;
-      border-radius: rem(20);
-      padding: rem(5) rem(10);
-      margin-left: rem(2);
-      color: $main-color;
-    }
-    &--color2 {
-      border: 1px solid $tag-color-1;
-      border-radius: rem(20);
-      padding: rem(5) rem(10);
-      margin-left: rem(2);
-      color: $tag-color-1;
-    }
-    &--color3 {
-      border: 1px solid $tag-color-2;
-      border-radius: rem(20);
-      padding: rem(5) rem(10);
-      margin-left: rem(2);
-      color: $tag-color-2;
-    }
-    &--color4 {
-      border: 1px solid $tag-color-3;
-      border-radius: rem(20);
-      padding: rem(5) rem(10);
-      margin-left: rem(2);
-      color: $tag-color-3;
-    }
-    &--color5 {
-      border: 1px solid $tag-color-4;
-      border-radius: rem(20);
-      padding: rem(5) rem(10);
-      margin-left: rem(2);
-      color: $tag-color-4;
-    }
+    border: 1px solid $main-color;
+    color: $main-color;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 14px;
+    margin: 11px 2px;
+    height: 25px;
+  }
+  &__title {
+    margin-top: 0px;
   }
 }
 

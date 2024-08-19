@@ -21,15 +21,15 @@ export default function PortfolioItem({
             height={150}
           />
         </div>
-        <div className='portfolio__date'>
-          {portfolio_date}
+        <div className='portfolio__flex'>
+          <p className='portfolio__date'>{portfolio_date}</p>
           {portfolio_tag.map((tag, index) => (
-            <li className={portfolio_color} key={index}>
+            <li className='portfolio__tag' key={index}>
               {tag}
             </li>
           ))}
         </div>
-        <p> {portfolio_name} </p>
+        <p className='portfolio__title'> {portfolio_name} </p>
       </Link>
     </div>
   )
