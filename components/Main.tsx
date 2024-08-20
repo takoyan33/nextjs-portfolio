@@ -99,7 +99,6 @@ export default function Main() {
                   portfolio_date={portfolio.date}
                   portfolio_tag={portfolio.tag}
                   portfolio_topImg={portfolio.topImg}
-                  portfolio_color={portfolio.color}
                 />
               </SwiperSlide>
             ))}
@@ -201,20 +200,6 @@ export default function Main() {
               />
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* ここからLicense*/}
-      <div className='license padding'>
-        <div className='max_width'>
-          <h2 className='main__title'>License</h2>
-          <h3 className='main__subtitle'>資格</h3>
-          <ul>
-            <li>2020年3月 実用英語検定２級</li>
-            <li>2020年6月 日本漢字能力検定２級</li>
-            <li>2024年1月 普通自動車免許</li>
-            <li>2024年6月 基本情報技術者試験</li>
-          </ul>
         </div>
       </div>
 

@@ -33,7 +33,7 @@ const Post = () => {
                 {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].name}
               </h2>
               {PORTFOLIO_LIST[id - 1] &&
-                PORTFOLIO_LIST[id - 1].front_skill.map((skill, index) => (
+                PORTFOLIO_LIST[id - 1].tag.map((skill, index) => (
                   <li className='portfolioDetail__element__tag' key={index}>
                     {skill}
                   </li>
@@ -45,27 +45,36 @@ const Post = () => {
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
-            <p className='portfolioDetail__element__text'>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].about}
-            </p>
+            <div
+              className='portfolioDetail__element__text'
+              dangerouslySetInnerHTML={{
+                __html: PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].about,
+              }}
+            ></div>
             <h3 className='portfolioDetail__element__subtitle'>機能一覧</h3>
             <img
               src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].functionImg}
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
-            <p className='portfolioDetail__element__text'>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].function}
-            </p>
+            <div
+              className='portfolioDetail__element__text'
+              dangerouslySetInnerHTML={{
+                __html: PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].function,
+              }}
+            ></div>
             <h3 className='portfolioDetail__element__subtitle'>アピール</h3>
             <img
               src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appealImg}
               className='portfolioDetail__element__img'
               alt='ポートフォリオ画像'
             />
-            <div className='portfolioDetail__element__text'>
-              {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appeal}
-            </div>
+            <div
+              className='portfolioDetail__element__text'
+              dangerouslySetInnerHTML={{
+                __html: PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appeal,
+              }}
+            ></div>
 
             <div className='portfolioDetail__element__text'>
               <h3 className='portfolioDetail__element__subtitle'>制作期間</h3>
@@ -80,13 +89,20 @@ const Post = () => {
                     {skill}
                   </li>
                 ))}
-              <h4>バックエンド</h4>
               {PORTFOLIO_LIST[id - 1] &&
-                PORTFOLIO_LIST[id - 1].back_skill.map((skill, index) => (
-                  <li className='portfolioDetail__element__tag' key={index}>
-                    {skill}
-                  </li>
-                ))}
+                PORTFOLIO_LIST[id - 1].back_skill &&
+                PORTFOLIO_LIST[id - 1].back_skill.length > 0 && (
+                  <div>
+                    <h4>バックエンド</h4>
+                    <ul className='portfolioDetail__element__tagList'>
+                      {PORTFOLIO_LIST[id - 1].back_skill.map((skill, index) => (
+                        <li className='portfolioDetail__element__tag' key={index}>
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               <h4>インフラ</h4>
               {PORTFOLIO_LIST[id - 1] &&
                 PORTFOLIO_LIST[id - 1].infra_skill.map((skill, index) => (
@@ -95,26 +111,30 @@ const Post = () => {
                   </li>
                 ))}
             </div>
-            <div className='portfolioDetail__element__text'>
-              <h3 className='portfolioDetail__element__subtitle'>URL</h3>
-              <a
-                href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
-                className='portfolioDetail__element__link'
-                target='_blank'
-              >
-                {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
-              </a>
-            </div>
-            <div className='portfolioDetail__element__text'>
-              <h3 className='portfolioDetail__element__subtitle'>Github</h3>
-              <a
-                href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
-                className='portfolioDetail__element__link'
-                target='_blank'
-              >
-                {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
-              </a>
-            </div>
+            {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url.length > 0 && (
+              <div className='portfolioDetail__element__text'>
+                <h3 className='portfolioDetail__element__subtitle'>URL</h3>
+                <a
+                  href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
+                  className='portfolioDetail__element__link'
+                  target='_blank'
+                >
+                  {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
+                </a>
+              </div>
+            )}
+            {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github.length > 0 && (
+              <div className='portfolioDetail__element__text'>
+                <h3 className='portfolioDetail__element__subtitle'>Github</h3>
+                <a
+                  href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
+                  className='portfolioDetail__element__link'
+                  target='_blank'
+                >
+                  {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
+                </a>
+              </div>
+            )}
           </section>
         </div>
       </nav>

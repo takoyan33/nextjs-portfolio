@@ -835,9 +835,13 @@ dl {
     }
     &__subtitle {
       text-align: left;
+      margin: 30px 0;
     }
     &__text {
       text-align: left;
+      li {
+        list-style: square;
+      }
     }
     &__tag {
       border: 1px solid $main-color;

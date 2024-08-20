@@ -7,7 +7,6 @@ export default function PortfolioItem({
   portfolio_date,
   portfolio_tag,
   portfolio_topImg,
-  portfolio_color,
 }) {
   return (
     <div className='flx_el'>
