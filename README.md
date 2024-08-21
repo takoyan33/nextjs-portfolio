@@ -14,7 +14,7 @@ To You Design Portfolio
 
 - フレームワーク：React,Next.js
 
-- リンター：ESLint, Prettier, husky, lint-staged
+- リンター：ESLint, Prettier, Stylelint, husky, lint-staged
 
 - サーバー：Vercel
 

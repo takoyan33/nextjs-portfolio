@@ -14,8 +14,8 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
-  line-height: 1.6;
   font-size: 18px;
+  line-height: 1.6;
 }
 
 * {
@@ -32,6 +32,6 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }

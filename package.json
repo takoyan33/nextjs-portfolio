@@ -9,7 +9,9 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint:style": "stylelint '**/*.{css,scss,sass}'",
+    "lint:style:fix": "stylelint --fix '**/*.{css,scss,sass}'"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -37,7 +39,11 @@
     "react-spinners": "^0.14.1",
     "remark": "^14.0.1",
     "remark-html": "^15.0.0",
-    "sass": "^1.49.7",
+    "sass": "^1.77.8",
+    "stylelint": "^16.8.2",
+    "stylelint-config-recess-order": "^5.1.0",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "swiper": "^11.1.9",
     "three": "^0.167.1"
   },
