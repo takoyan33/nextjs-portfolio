@@ -11,14 +11,8 @@ export default function PortfolioItem({
   return (
     <div className='flx_el'>
       <Link href={`portfolios/${portfolio_id}`}>
-        <div className='tac'>
-          <Image
-            src={portfolio_topImg}
-            className='about_img'
-            alt='ポートフォリオ画像'
-            width={300}
-            height={150}
-          />
+        <div className='portfolio__img'>
+          <Image src={portfolio_topImg} alt='ポートフォリオ画像' fill />
         </div>
         <div className='portfolio__flex'>
           <p className='portfolio__date'>{portfolio_date}</p>

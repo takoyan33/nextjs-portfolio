@@ -4,6 +4,7 @@ import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { PORTFOLIO_LIST } from '../../components/Components/data/data'
+import Image from 'next/image'
 
 const Post = () => {
   const router = useRouter()
@@ -23,11 +24,13 @@ const Post = () => {
       <nav className='container max_width'>
         <div style={{ textAlign: 'center', padding: 50 }}>
           <section className='portfolioDetail'>
-            <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
-              className='portfolioDetail__element__img'
-              alt='ポートフォリオ画像'
-            />
+            <div className='portfolioDetail__element__topImg'>
+              <Image
+                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
+                fill
+                alt='ポートフォリオ画像'
+              />
+            </div>
             <div className='portfolioDetail__element__text'>
               <h2 className='portfolioDetail__element__title'>
                 {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].name}
@@ -40,11 +43,14 @@ const Post = () => {
                 ))}
             </div>
             <h3 className='portfolioDetail__element__subtitle'>About</h3>
-            <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].aboutImg}
-              className='portfolioDetail__element__img'
-              alt='ポートフォリオ画像'
-            />
+            <div className='portfolioDetail__element__img'>
+              <Image
+                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].aboutImg}
+                className='portfolioDetail__element__img'
+                alt='ポートフォリオ画像'
+                fill
+              />
+            </div>
             <div
               className='portfolioDetail__element__text'
               dangerouslySetInnerHTML={{
@@ -52,11 +58,14 @@ const Post = () => {
               }}
             ></div>
             <h3 className='portfolioDetail__element__subtitle'>機能一覧</h3>
-            <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].functionImg}
-              className='portfolioDetail__element__img'
-              alt='ポートフォリオ画像'
-            />
+            <div className='portfolioDetail__element__img'>
+              <Image
+                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].functionImg}
+                className='portfolioDetail__element__img'
+                alt='ポートフォリオ画像'
+                fill
+              />
+            </div>
             <div
               className='portfolioDetail__element__text'
               dangerouslySetInnerHTML={{
@@ -64,11 +73,14 @@ const Post = () => {
               }}
             ></div>
             <h3 className='portfolioDetail__element__subtitle'>アピール</h3>
-            <img
-              src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appealImg}
-              className='portfolioDetail__element__img'
-              alt='ポートフォリオ画像'
-            />
+            <div className='portfolioDetail__element__img'>
+              <Image
+                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appealImg}
+                className='portfolioDetail__element__img'
+                alt='ポートフォリオ画像'
+                fill
+              />
+            </div>
             <div
               className='portfolioDetail__element__text'
               dangerouslySetInnerHTML={{

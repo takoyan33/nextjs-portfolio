@@ -41,27 +41,47 @@ export default function Main() {
       {/* ここからabout */}
       <div className='about padding'>
         <div className='max_width'>
-          <h2 className='main__title'>About</h2>
+          <h2 className='main__title' data-ja='To You Designについて'>
+            About
+          </h2>
           <h3 className='main__subtitle'>To You Designについて</h3>
           <div className='flx'>
             <div className='flx_el'>
-              <div className='tac'>
-                <img src='/images/myphoto.png' className='about_img' alt='プロフィール画像' />
+              <div className='about_img'>
+                <Image src='/images/myphoto.png' className='' alt='プロフィール画像' fill />
               </div>
             </div>
             <div className='flx_el'>
               <h4 className='about__title'>阿部 舜平</h4>
               <div className='about__flx'>
                 <a href='https://qiita.com/harrier2070' target='_blank'>
-                  <img src='/images/github-logo.png' className='about_snsLogo' alt='sns' />
+                  <Image
+                    src='/images/github-logo.png'
+                    className='about_snsLogo'
+                    alt='sns'
+                    height={30}
+                    width={30}
+                  />
                 </a>
 
                 <a href='https://zenn.dev/643866' target='_blank'>
-                  <img src='/images/qiita-logo.png' className='about_snsLogo' alt='sns' />
+                  <Image
+                    src='/images/qiita-logo.png'
+                    className='about_snsLogo'
+                    alt='sns'
+                    height={30}
+                    width={30}
+                  />
                 </a>
 
                 <a href='https://github.com/takoyan33' target='_blank'>
-                  <img src='/images/logo-only.svg' className='about_snsLogo' alt='sns' />
+                  <Image
+                    src='/images/logo-only.svg'
+                    className='about_snsLogo'
+                    alt='sns'
+                    height={30}
+                    width={30}
+                  />
                 </a>
               </div>
               <p className='about__text'>
@@ -78,7 +98,9 @@ export default function Main() {
       {/*  ここからポートフォリオ*/}
       <div className='portfolio'>
         <div className='max_width'>
-          <h2 className='main__title'>Portfolio</h2>
+          <h2 className='main__title' data-ja='ポートフォリオ'>
+            Portfolio
+          </h2>
           <h3 className='main__subtitle'>ポートフォリオ</h3>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -122,7 +144,9 @@ export default function Main() {
         <div className='max_width'>
           <div className='flx'>
             <div className='flx_el'>
-              <h2 className='main__title'>History</h2>
+              <h2 className='main__title' data-ja='過去の経歴'>
+                History
+              </h2>
               <h3 className='main__subtitle'>過去の経歴</h3>
             </div>
             <dl>
@@ -145,7 +169,9 @@ export default function Main() {
       {/* ここからSKill*/}
       <div className='skill padding'>
         <div className='max_width'>
-          <h2 className='main__title'>Skill</h2>
+          <h2 className='main__title' data-ja='スキルセット'>
+            Skill
+          </h2>
           <h3 className='main__subtitle'>スキルセット</h3>
 
           <h4 className='skill__title'>Frontend</h4>
@@ -207,7 +233,9 @@ export default function Main() {
       <div className='contact padding'>
         <div className='max_width'>
           <div className='padding'>
-            <h2 className='main__title'>Contact</h2>
+            <h2 className='main__title' data-ja='お問い合わせ'>
+              Contact
+            </h2>
             <h3 className='main__subtitle'>お問い合わせ</h3>
             <br></br>
             <p className='contact__text'>

@@ -21,21 +21,16 @@ export default function Portfolio() {
           <h2 className='main__title'>Portfolio</h2>
           <h3 className='main__subtitle'>ポートフォリオ</h3>
           <div className='flx padding'>
-            {/* {PORTFOLIO_LIST.map((portfolio, index) => (
+            {PORTFOLIO_LIST.map((portfolio, index) => (
               <PortfolioItem
                 key={index}
+                portfolio_id={portfolio.id}
                 portfolio_name={portfolio.name}
                 portfolio_date={portfolio.date}
                 portfolio_tag={portfolio.tag}
-                portfolio_img={portfolio.img}
-                portfolio_url={portfolio.url}
-                portfolio_color={portfolio.color}
-                portfolio_time={portfolio.time}
-                portfolio_about={portfolio.about}
-                portfolio_skill={portfolio.skill}
-                portfolio_github={portfolio.github}
+                portfolio_topImg={portfolio.topImg}
               />
-            ))} */}
+            ))}
           </div>
         </div>
       </div>
