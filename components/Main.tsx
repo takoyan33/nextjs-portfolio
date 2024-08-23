@@ -9,7 +9,6 @@ import {
   INFRA_SKILL_LIST,
   OTHER_SKILL_LIST,
   HISTORY_LIST,
-  LICENSE_LIST,
 } from './Components/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
@@ -48,7 +47,14 @@ export default function Main() {
           <div className='flx'>
             <div className='flx_el'>
               <div className='about_img'>
-                <Image src='/images/myphoto.png' className='' alt='プロフィール画像' fill />
+                <Image
+                  src='/images/myphoto.png'
+                  className=''
+                  alt='プロフィール画像'
+                  fill
+                  priority
+                  sizes='(min-width: 768px) 50vw, 100vw'
+                />
               </div>
             </div>
             <div className='flx_el'>
@@ -127,10 +133,20 @@ export default function Main() {
           </Swiper>
           <div className='navigation-container'>
             <div className='prev-button'>
-              <img src='/images/prev-arrow.svg' className='' alt='スライドショーのナビゲーション' />
+              <Image
+                src='/images/prev-arrow.svg'
+                width={50}
+                height={50}
+                alt='スライドショーのナビゲーション'
+              />
             </div>
             <div className='next-button'>
-              <img src='/images/next-arrow.svg' className='' alt='スライドショーのナビゲーション' />
+              <Image
+                src='/images/next-arrow.svg'
+                width={50}
+                height={50}
+                alt='スライドショーのナビゲーション'
+              />
             </div>
           </div>
           <a href='Portfolio' className='main__btn'>

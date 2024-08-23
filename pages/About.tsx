@@ -11,10 +11,6 @@ export default function History() {
     <>
       <Head>
         <title>To You Design - About</title>
-        <link rel='icon' href='/favicon.ico' />
-        <script src='https://kit.fontawesome.com/bb61864944.js' crossOrigin='anonymous'></script>
-        <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
-        <meta name='google' content='notranslate' key='notranslate' />
       </Head>
       <Header />
       <nav className='container'>

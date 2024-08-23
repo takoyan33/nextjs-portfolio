@@ -162,13 +162,11 @@ a {
 .prev-button {
   bottom: -500px;
   left: -60px;
-  width: rem(30);
 }
 
 .next-button {
   right: -60px;
   bottom: -500px;
-  width: rem(30);
 }
 
 // ヘッダー
@@ -636,7 +634,7 @@ footer {
   }
   &__flx {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: rem(10);
   }
 }
@@ -705,7 +703,7 @@ footer {
   &__flx {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 0 auto;
     &_el {
       width: 20%;
@@ -998,7 +996,7 @@ dl {
     &__flx {
       display: flex;
       flex-wrap: wrap;
-      justify-content: start;
+      justify-content: flex-start;
       margin: 0 auto;
       &_el {
         width: 50%;

@@ -15,10 +15,6 @@ const Post = () => {
     <>
       <Head>
         <title>To You Design - ポートフォリオ</title>
-        <link rel='icon' href='/favicon.ico' />
-        <script src='https://kit.fontawesome.com/bb61864944.js' crossOrigin='anonymous'></script>
-        <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
-        <meta name='google' content='notranslate' key='notranslate' />
       </Head>
       <Header />
       <nav className='container max_width'>
@@ -28,6 +24,8 @@ const Post = () => {
               <Image
                 src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
                 fill
+                sizes='(min-width: 768px) 50vw, 100vw'
+                priority
                 alt='ポートフォリオ画像'
               />
             </div>
@@ -49,6 +47,7 @@ const Post = () => {
                 className='portfolioDetail__element__img'
                 alt='ポートフォリオ画像'
                 fill
+                sizes='(min-width: 768px) 50vw, 100vw'
               />
             </div>
             <div
@@ -64,6 +63,7 @@ const Post = () => {
                 className='portfolioDetail__element__img'
                 alt='ポートフォリオ画像'
                 fill
+                sizes='(min-width: 768px) 50vw, 100vw'
               />
             </div>
             <div
@@ -79,6 +79,7 @@ const Post = () => {
                 className='portfolioDetail__element__img'
                 alt='ポートフォリオ画像'
                 fill
+                sizes='(min-width: 768px) 50vw, 100vw'
               />
             </div>
             <div
@@ -115,13 +116,19 @@ const Post = () => {
                     </ul>
                   </div>
                 )}
-              <h4>インフラ</h4>
               {PORTFOLIO_LIST[id - 1] &&
-                PORTFOLIO_LIST[id - 1].infra_skill.map((skill, index) => (
-                  <li className='portfolioDetail__element__tag' key={index}>
-                    {skill}
-                  </li>
-                ))}
+                PORTFOLIO_LIST[id - 1].infra_skill &&
+                PORTFOLIO_LIST[id - 1].infra_skill.length > 0 && (
+                  <div>
+                    <h4>インフラ</h4>
+                    {PORTFOLIO_LIST[id - 1] &&
+                      PORTFOLIO_LIST[id - 1].infra_skill.map((skill, index) => (
+                        <li className='portfolioDetail__element__tag' key={index}>
+                          {skill}
+                        </li>
+                      ))}
+                  </div>
+                )}
             </div>
             {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url.length > 0 && (
               <div className='portfolioDetail__element__text'>
