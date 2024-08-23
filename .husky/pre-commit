@@ -1,4 +1,4 @@
 yarn format
 yarn test
-#yarn build
-#yarn commitmsg
+yarn build
+yarn commitmsg
