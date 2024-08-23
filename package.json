@@ -11,9 +11,12 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:style": "stylelint '**/*.{css,scss,sass}'",
-    "lint:style:fix": "stylelint --fix '**/*.{css,scss,sass}'"
+    "lint:style:fix": "stylelint --fix '**/*.{css,scss,sass}'",
+    "commitmsg": "commitlint --edit"
   },
   "dependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
