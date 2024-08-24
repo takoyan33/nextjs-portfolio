@@ -34,8 +34,8 @@ export default function Main() {
       {/* ここからfv */}
       <div className='fv'>
         <div className='max_width'>
-          <h2 className='fv__title'>To You Design</h2>
-          <h3 className='fv__subtitle'>ポートフォリオサイト</h3>
+          <h2 className='fv__title slide__in__right'>To You Design</h2>
+          <h3 className='fv__subtitle slide__in__right'>ポートフォリオサイト</h3>
         </div>
       </div>
 
