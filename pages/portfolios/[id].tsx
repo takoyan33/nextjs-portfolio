@@ -26,7 +26,7 @@ const Post = () => {
                 <Image
                   src={PORTFOLIO_LIST[id - 1].topImg}
                   fill
-                  sizes='(min-width: 768px) 50vw, 100vw'
+                  sizes='(min-width: 768px) 50vw'
                   priority
                   alt='ポートフォリオ画像'
                 />
@@ -103,12 +103,14 @@ const Post = () => {
             <div className='portfolioDetail__element__text'>
               <h3 className='portfolioDetail__element__subtitle'>使用技術</h3>
               <h4>フロントエンド</h4>
-              {PORTFOLIO_LIST[id - 1] &&
-                PORTFOLIO_LIST[id - 1].front_skill.map((skill, index) => (
-                  <li className='portfolioDetail__element__tag' key={index}>
-                    {skill}
-                  </li>
-                ))}
+              <ul className='portfolioDetail__element__tagList'>
+                {PORTFOLIO_LIST[id - 1] &&
+                  PORTFOLIO_LIST[id - 1].front_skill.map((skill, index) => (
+                    <li className='portfolioDetail__element__tag' key={index}>
+                      {skill}
+                    </li>
+                  ))}
+              </ul>
               {PORTFOLIO_LIST[id - 1] &&
                 PORTFOLIO_LIST[id - 1].back_skill &&
                 PORTFOLIO_LIST[id - 1].back_skill.length > 0 && (
@@ -128,12 +130,14 @@ const Post = () => {
                 PORTFOLIO_LIST[id - 1].infra_skill.length > 0 && (
                   <div>
                     <h4>インフラ</h4>
-                    {PORTFOLIO_LIST[id - 1] &&
-                      PORTFOLIO_LIST[id - 1].infra_skill.map((skill, index) => (
-                        <li className='portfolioDetail__element__tag' key={index}>
-                          {skill}
-                        </li>
-                      ))}
+                    <ul className='portfolioDetail__element__tagList'>
+                      {PORTFOLIO_LIST[id - 1] &&
+                        PORTFOLIO_LIST[id - 1].infra_skill.map((skill, index) => (
+                          <li className='portfolioDetail__element__tag' key={index}>
+                            {skill}
+                          </li>
+                        ))}
+                    </ul>
                   </div>
                 )}
             </div>

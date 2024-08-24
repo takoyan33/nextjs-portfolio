@@ -1,0 +1,169 @@
+// 共通クラスや変数
+// 色の定義
+$main-color: #6499ff;
+$tag-color-1: #d50303;
+$tag-color-2: #00a339;
+$tag-color-3: #ce61c8;
+$tag-color-4: #063997;
+$tag-color-5: #fd6d39;
+$white: #ffff;
+$back-color: #f7f7f7;
+
+// remの設定
+$baseFontSize: 16;
+@function rem($pixels) {
+  @return $pixels / $baseFontSize * 1rem;
+}
+
+//sp版の設定
+$breakpoints: (
+  'xs': (
+    min-width: 0,
+  ),
+  'sm': (
+    min-width: 576px,
+  ),
+  'md': (
+    min-width: 768px,
+  ),
+  'lg': (
+    min-width: 992px,
+  ),
+  'xl': (
+    min-width: 1200px,
+  ),
+  'xxl': (
+    min-width: 1400px,
+  ),
+) !default;
+
+// 共通スタイル
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div {
+  padding: 0px !important;
+}
+
+body {
+  margin: 0;
+  font-family: noto-sans-cjk-jp, sans-serif;
+  font-size: 0.625rem;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.section {
+  &__ttl {
+    font-size: 18px;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+  &__inner {
+    padding: 0 4vw;
+    margin: 0 auto;
+  }
+}
+
+a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+
+  :hover {
+    opacity: 0.7;
+  }
+}
+
+.max_width {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.pc {
+  display: block;
+}
+
+.sp {
+  display: none;
+}
+
+.bg-white {
+  width: 1000px;
+  height: rem(600);
+  padding: rem(20);
+  background-color: white;
+}
+
+.text-center {
+  padding: rem(10) auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.pc-nav a {
+  font-weight: bold;
+}
+
+.flx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: rem(50) auto;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  &_el {
+    width: 33%;
+    margin: 0px;
+    overflow-wrap: break-word;
+
+    &_footer {
+      margin: rem(10);
+    }
+  }
+}
+
+.swiper .flx_el {
+  width: 100%;
+}
+
+.navigation-container {
+  position: relative;
+  z-index: 1;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.prev-button {
+  bottom: -500px;
+  left: -60px;
+}
+
+.next-button {
+  right: -60px;
+  bottom: -500px;
+}

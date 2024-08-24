@@ -35,7 +35,16 @@ export default function Main() {
       <div className='fv'>
         <div className='max_width'>
           <h2 className='fv__title slide__in__right'>To You Design</h2>
-          <h3 className='fv__subtitle slide__in__right'>ポートフォリオサイト</h3>
+          <div className='content'>
+            <div className='content__container'>
+              <ul className='content__container__list'>
+                <li className='content__container__list__item slide__in__right'>Portfolio</li>
+                <li className='content__container__list__item'>Frontend</li>
+                <li className='content__container__list__item'>Shumpei abe</li>
+                <li className='content__container__list__item'>Hello world</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 

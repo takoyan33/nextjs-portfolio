@@ -23,7 +23,7 @@ export default function History() {
               <div className='flx_el'>
                 <h2 className='main__title'>History</h2>
                 <h3 className='main__subtitle'>過去の経歴</h3>
-                <Tabs tabs={['Tab1', 'Tab2', 'Tab3']} />
+                {/* <Tabs tabs={['Tab1', 'Tab2', 'Tab3']} /> */}
               </div>
               <dl>
                 {HISTORY_LIST.map((history, index) => (
