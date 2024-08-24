@@ -234,7 +234,9 @@ header nav {
   width: 100%;
   height: 0.125rem;
   background-color: black;
-  transition: transform 0.5s, opacity 0.5s;
+  transition:
+    transform 0.5s,
+    opacity 0.5s;
 }
 
 .hamburger-btn__parts.-top {
@@ -347,7 +349,7 @@ li {
 .title-border-right ::after {
   flex-grow: 1;
   margin-left: 1rem;
-  content: "";
+  content: '';
   border-top: 1px solid;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -360,7 +362,7 @@ li {
   background: linear-gradient(135deg, #41bbe0 10%, #646adf 100%) fixed;
   background-size: 800% 800%;
   -webkit-animation: GradietionAnimation 9s ease infinite;
-          animation: GradietionAnimation 9s ease infinite;
+  animation: GradietionAnimation 9s ease infinite;
 }
 .fv__title {
   position: relative;
@@ -465,7 +467,7 @@ li {
   margin: 0 auto;
   height: 150px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .footer_flx {
@@ -520,7 +522,7 @@ footer li {
   width: 400px;
   height: 300px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .about_snsLogo {
   width: 30px;
@@ -629,7 +631,7 @@ dl dt::after {
   right: -0.55em;
   font-size: 22px;
   color: #6499ff;
-  content: "●";
+  content: '●';
 }
 dl dd {
   width: calc(100% - 8.5em);
@@ -683,7 +685,7 @@ dl dd h2 {
   width: 100%;
   height: 300px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   border: 1px solid gray;
 }
 .modalBox__element__link {
@@ -717,7 +719,7 @@ dl dd h2 {
   height: 500px;
   margin: 0 auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .portfolioDetail__element__img {
   position: relative;
@@ -725,7 +727,7 @@ dl dd h2 {
   height: 400px;
   margin: 0 auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .portfolioDetail__element__title {
   text-align: left;
@@ -939,7 +941,7 @@ dl dd h2 {
     width: 100%;
     height: 200px;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     border: 1px solid gray;
   }
   .modalBox__element__text {
