@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { PORTFOLIO_LIST } from '../../components/Components/data/data'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Post = () => {
   const router = useRouter()
@@ -139,25 +140,25 @@ const Post = () => {
             {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url.length > 0 && (
               <div className='portfolioDetail__element__text'>
                 <h3 className='portfolioDetail__element__subtitle'>URL</h3>
-                <a
+                <Link
                   href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
                   className='portfolioDetail__element__link'
                   target='_blank'
                 >
                   {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].url}
-                </a>
+                </Link>
               </div>
             )}
             {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github.length > 0 && (
               <div className='portfolioDetail__element__text'>
                 <h3 className='portfolioDetail__element__subtitle'>Github</h3>
-                <a
+                <Link
                   href={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
                   className='portfolioDetail__element__link'
                   target='_blank'
                 >
                   {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].github}
-                </a>
+                </Link>
               </div>
             )}
           </section>

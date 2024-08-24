@@ -1,6 +1,7 @@
 import styles from '../../index.module.scss'
 import Link from 'next/link'
 import React, { useState } from 'react'
+
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
   const menuFunction = () => {
@@ -11,9 +12,9 @@ export default function Header() {
       <header id='header' className={styles.header}>
         <div className={styles.header_flx}>
           <div>
-            <a className={styles.logo} href='/'>
+            <Link className={styles.logo} href='/'>
               To You Design
-            </a>
+            </Link>
           </div>
           <nav>
             <ul>
