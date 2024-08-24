@@ -15,17 +15,6 @@
     overflow: hidden;
     height: 40px;
 
-    // &:before {
-    //   content: '[';
-    //   left: 0;
-    // }
-
-    // &:after {
-    //   content: ']';
-    //   position: absolute;
-    //   right: 0;
-    // }
-
     &:after,
     &:before {
       position: absolute;
@@ -329,31 +318,6 @@ header {
   }
 }
 
-@media screen and (max-width: 559px) {
-  .section {
-    &_img {
-      width: 70%;
-      margin: 0;
-      &_left {
-        width: 70%;
-        margin: 0;
-      }
-    }
-  }
-
-  .nav {
-    display: none;
-  }
-  .bg-white {
-    width: 90%;
-    height: 100%;
-    padding: rem(30);
-    margin: 0 auto;
-    overflow-wrap: break-word;
-    background-color: white;
-  }
-}
-
 // ハンバーガーメニュー
 .hamburger-btn__parts {
   position: absolute;
@@ -516,10 +480,8 @@ li {
 .fv {
   z-index: -1;
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(135deg, #41bbe0 10%, #646adf 100%) fixed;
-  background-size: 800% 800%;
-  animation: GradietionAnimation 9s ease infinite;
+  height: 70vh;
+  background: #13b0df;
   &__title {
     position: relative;
     top: rem(220);
@@ -530,7 +492,6 @@ li {
     line-height: 90px;
     color: $white;
     text-align: left;
-    text-shadow: 3px rem(2) 1px #6499ff;
     letter-spacing: 4px;
   }
   &__subtitle {
@@ -541,7 +502,6 @@ li {
     font-size: rem(40);
     color: $white;
     text-align: left;
-    text-shadow: 3px rem(2) 1px #6499ff;
     letter-spacing: 4px;
   }
 }
@@ -584,6 +544,18 @@ li {
       text-align: left;
     }
   }
+}
+
+.wave__bg__top {
+  position: relative;
+  top: 40px;
+  z-index: -1;
+}
+
+.wave__bg__bottom {
+  position: relative;
+  bottom: 40px;
+  z-index: -1;
 }
 
 // ポートフォリオ
@@ -933,54 +905,9 @@ dl {
 
 //スマホ版
 @media screen and (max-width: 580px) {
-  .main__btn {
-    padding: rem(10) 0px;
-    //width: 100%;
-    margin: 30px auto;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .main {
-    &__title {
-      margin: 0;
-      font-size: rem(34);
-      color: $main-color;
-      text-align: left;
-      &--white {
-        margin: 0;
-        font-size: rem(60);
-        color: white;
-        text-align: left;
-      }
-    }
-    &__subtitle {
-      margin: 0;
-      font-size: rem(18);
-      color: $main-color;
-      text-align: left;
-      &--white {
-        margin: 0;
-        font-size: rem(20);
-        color: white;
-        text-align: left;
-      }
-    }
-  }
-
   .size {
     margin-top: rem(20);
     color: $main-color;
-  }
-
-  .section_title {
-    margin: rem(10) auto;
-    font-family: futura-pt-bold, sans-serif;
-    font-size: rem(20);
-    font-style: normal;
-    font-weight: 700;
-    color: #007111;
-    text-align: center;
   }
 
   .border {
@@ -1117,54 +1044,11 @@ dl {
     }
   }
 
-  .pc {
-    display: none;
-  }
-
-  .sp {
-    display: block;
-  }
-
-  .max_width {
-    width: 90%;
-  }
-
-  .flx {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin: rem(20) auto;
-    &_el {
-      width: 100%;
-      margin: rem(10) auto;
-      &_3 {
-        width: 100%;
-        margin: rem(20) auto;
-      }
-      &_feature {
-        width: 100%;
-        margin: rem(20) auto;
-      }
-    }
-  }
   .header_flx {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-  }
-
-  .prev-button {
-    bottom: -500px;
-    left: -20px;
-    width: rem(30);
-  }
-
-  .next-button {
-    right: -20px;
-    bottom: -500px;
-    width: rem(30);
   }
 
   // モーダル
@@ -1269,6 +1153,18 @@ dl {
         }
       }
     }
+  }
+
+  .wave__bg__top {
+    position: relative;
+    top: 10px;
+    z-index: -1;
+  }
+
+  .wave__bg__bottom {
+    position: relative;
+    bottom: 10px;
+    z-index: -1;
   }
 }
 

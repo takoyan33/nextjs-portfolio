@@ -51,20 +51,19 @@
   right: 40px;
   z-index: 100;
   display: none;
-  padding: 10px 5px 0 5px;
-  padding: 5px !important;
-  padding-top: 8px !important;
+  padding: 16px 10px !important;
+  border-radius: 100px;
   color: white;
   cursor: pointer;
   background-color: #6499ff;
   span {
     display: block;
-    width: 40px;
+    width: 36px;
     height: 2px;
     margin-bottom: 7px;
     background-color: white;
     &:nth-child(1) {
-      width: 40px;
+      width: 36px;
       height: 2px;
       margin-left: 0px;
     }
@@ -138,8 +137,8 @@
     color: white;
   }
   .close {
-    padding-right: 5px;
-    margin-top: 28px;
+    padding-right: 3px;
+    margin-top: 32px;
     cursor: pointer;
     span {
       display: block;

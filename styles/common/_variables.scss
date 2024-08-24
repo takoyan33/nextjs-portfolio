@@ -167,3 +167,115 @@ a {
   right: -60px;
   bottom: -500px;
 }
+
+@media screen and (max-width: 580px) {
+  .section_title {
+    margin: rem(10) auto;
+    font-family: futura-pt-bold, sans-serif;
+    font-size: rem(20);
+    font-style: normal;
+    font-weight: 700;
+    color: #007111;
+    text-align: center;
+  }
+
+  .main__btn {
+    padding: rem(10) 0px;
+    margin-inline: auto;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .main {
+    &__title {
+      margin: 0;
+      font-size: rem(34);
+      color: $main-color;
+      text-align: left;
+      &--white {
+        margin: 0;
+        font-size: rem(60);
+        color: white;
+        text-align: left;
+      }
+    }
+    &__subtitle {
+      margin: 0;
+      font-size: rem(18);
+      color: $main-color;
+      text-align: left;
+      &--white {
+        margin: 0;
+        font-size: rem(20);
+        color: white;
+        text-align: left;
+      }
+    }
+  }
+
+  .section {
+    &_img {
+      width: 70%;
+      margin: 0;
+      &_left {
+        width: 70%;
+        margin: 0;
+      }
+    }
+  }
+
+  .nav {
+    display: none;
+  }
+  .bg-white {
+    width: 90%;
+    height: 100%;
+    padding: rem(30);
+    margin: 0 auto;
+    overflow-wrap: break-word;
+    background-color: white;
+  }
+  .max_width {
+    width: 90%;
+  }
+
+  .flx {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: rem(20) auto;
+    &_el {
+      width: 100%;
+      margin: rem(10) auto;
+      &_3 {
+        width: 100%;
+        margin: rem(20) auto;
+      }
+      &_feature {
+        width: 100%;
+        margin: rem(20) auto;
+      }
+    }
+  }
+
+  .pc {
+    display: none;
+  }
+
+  .sp {
+    display: block;
+  }
+
+  .prev-button {
+    bottom: -500px;
+    left: -20px;
+    width: rem(30);
+  }
+
+  .next-button {
+    right: -20px;
+    bottom: -500px;
+    width: rem(30);
+  }
+}

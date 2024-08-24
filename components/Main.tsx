@@ -47,9 +47,18 @@ export default function Main() {
           </div>
         </div>
       </div>
+      <div className='wave__bg__bottom'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
+          <path
+            fill='#13b0df'
+            fill-opacity='1'
+            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
+          ></path>
+        </svg>
+      </div>
 
       {/* ここからabout */}
-      <div className='about padding'>
+      <div className='about'>
         <div className='max_width'>
           <ScrollComponent>
             <h2 className='main__title' data-ja='To You Designについて'>
@@ -117,6 +126,15 @@ export default function Main() {
       </div>
 
       {/*  ここからポートフォリオ*/}
+      <div className='wave__bg__top'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
+          <path
+            fill='#f7f7f7'
+            fill-opacity='1'
+            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'
+          ></path>
+        </svg>
+      </div>
       <div className='portfolio'>
         <div className='max_width'>
           <ScrollComponent>
@@ -128,7 +146,7 @@ export default function Main() {
           <ScrollComponent>
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
-              className='flx padding swiper'
+              className='flx swiper'
               spaceBetween={30}
               slidesPerView={3.5}
               breakpoints={breakpoints}
@@ -173,9 +191,18 @@ export default function Main() {
           </Link>
         </div>
       </div>
+      <div className='wave__bg__bottom'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
+          <path
+            fill='#f7f7f7'
+            fill-opacity='1'
+            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
+          ></path>
+        </svg>
+      </div>
 
       {/*ここから学歴*/}
-      <div className='padding'>
+      <div>
         <div className='max_width'>
           <div className='flx'>
             <div className='flx_el'>
@@ -204,7 +231,16 @@ export default function Main() {
       </div>
 
       {/* ここからSKill*/}
-      <div className='skill padding'>
+      <div className='wave__bg__top'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
+          <path
+            fill='#f7f7f7'
+            fill-opacity='1'
+            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'
+          ></path>
+        </svg>
+      </div>
+      <div className='skill'>
         <div className='max_width'>
           <ScrollComponent>
             <h2 className='main__title' data-ja='スキルセット'>
@@ -267,9 +303,18 @@ export default function Main() {
           </div>
         </div>
       </div>
+      <div className='wave__bg__bottom'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
+          <path
+            fill='#f7f7f7'
+            fill-opacity='1'
+            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
+          ></path>
+        </svg>
+      </div>
 
       {/* ここからcontact*/}
-      <div className='contact padding'>
+      <div className='contact'>
         <div className='max_width'>
           <div className='padding'>
             <ScrollComponent>
