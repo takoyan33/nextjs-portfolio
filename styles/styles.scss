@@ -1178,6 +1178,33 @@ dl {
   }
 }
 
+
+
+// svgアイコン
+.skill__svg {
+  height: 160px;
+}
+
+.svg-inline--fa.fa-w-12 {
+  width: 70px !important;
+}
+
+.svg-inline--fa.fa-w-14 {
+  width: 90px !important;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 100px !important;
+}
+
+.svg-inline--fa.fa-w-18 {
+  width: 100px !important;
+}
+
+.svg-inline--fa.fa-w-20 {
+  width: 100px !important;
+}
+
 // お問い合わせフォーム
 
 .Form {
@@ -1185,18 +1212,6 @@ dl {
   margin-top: 80px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.svg-inline--fa.fa-w-12 {
-  width: 200px !important;
-}
-
-.svg-inline--fa.fa-w-14 {
-  width: 200px !important;
-}
-
-.svg-inline--fa.fa-w-16 {
-  width: 200px !important;
 }
 @media screen and (max-width: 480px) {
   .Form {

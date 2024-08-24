@@ -14,7 +14,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { faGem } from '@fortawesome/free-regular-svg-icons'
 import { faCamera, faFire } from '@fortawesome/free-solid-svg-icons'
-import { id } from 'date-fns/locale'
 
 // ポートフォリオ
 export const PORTFOLIO_LIST = [
@@ -93,11 +92,11 @@ export const PORTFOLIO_LIST = [
     // url: "https://rails-react-app-front.vercel.app/",
     github: 'https://github.com/takoyan33/rails-react-app-front',
     color: 'portfolio__tag--color5',
-    about: '<p>',
+    about: '<p>サークルのメンバー情報などを管理するアプリを作成</p>',
     aboutImg: '/images/portfolio_7.png',
-    function: '<p>',
+    function: '<p>サークルのメンバー情報などを管理するアプリを作成</p>',
     functionImg: '/images/portfolio_7.png',
-    appeal: '<p>',
+    appeal: '<p>サークルのメンバー情報などを管理するアプリを作成</p>',
     appealImg: '/images/portfolio_7.png',
     front_skill: ['Nuxt3', 'Vue'],
     back_skill: ['Ruby on Rails'],

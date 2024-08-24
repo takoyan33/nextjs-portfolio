@@ -21,18 +21,18 @@ const Post = () => {
         <div style={{ textAlign: 'center', padding: 50 }}>
           <section className='portfolioDetail'>
             <div className='portfolioDetail__element__topImg'>
-              <Image
-                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].topImg}
-                fill
-                sizes='(min-width: 768px) 50vw, 100vw'
-                priority
-                alt='ポートフォリオ画像'
-              />
+              {PORTFOLIO_LIST[id - 1]?.topImg && (
+                <Image
+                  src={PORTFOLIO_LIST[id - 1].topImg}
+                  fill
+                  sizes='(min-width: 768px) 50vw, 100vw'
+                  priority
+                  alt='ポートフォリオ画像'
+                />
+              )}
             </div>
             <div className='portfolioDetail__element__text'>
-              <h2 className='portfolioDetail__element__title'>
-                {PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].name}
-              </h2>
+              <h2 className='portfolioDetail__element__title'>{PORTFOLIO_LIST[id - 1]?.name}</h2>
               {PORTFOLIO_LIST[id - 1] &&
                 PORTFOLIO_LIST[id - 1].tag.map((skill, index) => (
                   <li className='portfolioDetail__element__tag' key={index}>
@@ -42,29 +42,33 @@ const Post = () => {
             </div>
             <h3 className='portfolioDetail__element__subtitle'>About</h3>
             <div className='portfolioDetail__element__img'>
-              <Image
-                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].aboutImg}
-                className='portfolioDetail__element__img'
-                alt='ポートフォリオ画像'
-                fill
-                sizes='(min-width: 768px) 50vw, 100vw'
-              />
+              {PORTFOLIO_LIST[id - 1]?.aboutImg && (
+                <Image
+                  src={PORTFOLIO_LIST[id - 1].aboutImg}
+                  className='portfolioDetail__element__img'
+                  alt='ポートフォリオ画像'
+                  fill
+                  sizes='(min-width: 768px) 50vw, 100vw'
+                />
+              )}
             </div>
             <div
               className='portfolioDetail__element__text'
               dangerouslySetInnerHTML={{
-                __html: PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].about,
+                __html: PORTFOLIO_LIST[id - 1]?.about,
               }}
             ></div>
             <h3 className='portfolioDetail__element__subtitle'>機能一覧</h3>
             <div className='portfolioDetail__element__img'>
-              <Image
-                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].functionImg}
-                className='portfolioDetail__element__img'
-                alt='ポートフォリオ画像'
-                fill
-                sizes='(min-width: 768px) 50vw, 100vw'
-              />
+              {PORTFOLIO_LIST[id - 1]?.functionImg && (
+                <Image
+                  src={PORTFOLIO_LIST[id - 1].functionImg}
+                  className='portfolioDetail__element__img'
+                  alt='ポートフォリオ画像'
+                  fill
+                  sizes='(min-width: 768px) 50vw, 100vw'
+                />
+              )}
             </div>
             <div
               className='portfolioDetail__element__text'
@@ -74,13 +78,15 @@ const Post = () => {
             ></div>
             <h3 className='portfolioDetail__element__subtitle'>アピール</h3>
             <div className='portfolioDetail__element__img'>
-              <Image
-                src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appealImg}
-                className='portfolioDetail__element__img'
-                alt='ポートフォリオ画像'
-                fill
-                sizes='(min-width: 768px) 50vw, 100vw'
-              />
+              {PORTFOLIO_LIST[id - 1]?.appealImg && (
+                <Image
+                  src={PORTFOLIO_LIST[id - 1] && PORTFOLIO_LIST[id - 1].appealImg}
+                  className='portfolioDetail__element__img'
+                  alt='ポートフォリオ画像'
+                  fill
+                  sizes='(min-width: 768px) 50vw, 100vw'
+                />
+              )}
             </div>
             <div
               className='portfolioDetail__element__text'

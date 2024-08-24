@@ -1,6 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import usePortfolioModal from '../parts/usePortfolioModal'
-import CommonButton from '../ui/CommonButton'
+import {
+  faHtml5,
+  faCss3,
+  faReact,
+  faVuejs,
+  faUnity,
+  faJs,
+  faPhp,
+  faAws,
+  faGithub,
+  faBitbucket,
+  faFigma,
+  faWordpress,
+} from '@fortawesome/free-brands-svg-icons'
+import { faGem } from '@fortawesome/free-regular-svg-icons'
+import { faCamera, faFire } from '@fortawesome/free-solid-svg-icons'
 
 export default function Skill({ name, rank, tag, icon, about }) {
   const [Modal, open, close, isOpen] = usePortfolioModal()
@@ -8,7 +23,9 @@ export default function Skill({ name, rank, tag, icon, about }) {
     <>
       <div className='skill__flx_el'>
         <a onClick={open} target='_blank'>
-          <FontAwesomeIcon icon={icon} className='tac fa-5x size' />
+          <div className='skill__svg'>
+            <FontAwesomeIcon icon={icon && icon} className='tac fa-5x size' />
+          </div>
           <p className='skill_text'>{name} </p>
           <p className='skill_text'>{rank}</p>
         </a>
