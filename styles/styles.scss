@@ -530,6 +530,18 @@ li {
   z-index: -1;
 }
 
+.back__btn {
+  position: fixed;
+  background-color: #6499ff;
+  padding: 15px 12px;
+  color: white;
+  border: 0px solid;
+  font-size: rem(20);
+  bottom: 0;
+  z-index: 10;
+  right: 0;
+}
+
 // ポートフォリオ
 .portfolio {
   background-color: $back-color;
