@@ -66,7 +66,6 @@ export default function Main() {
             <h2 className='main__title' data-ja='To You Designについて'>
               About
             </h2>
-            <h3 className='main__subtitle'>To You Designについて</h3>
           </ScrollComponent>
           <ScrollComponent>
             <div className='flx'>
@@ -135,7 +134,6 @@ export default function Main() {
             <h2 className='main__title' data-ja='ポートフォリオ'>
               Portfolio
             </h2>
-            <h3 className='main__subtitle'>ポートフォリオ</h3>
           </ScrollComponent>
           <ScrollComponent>
             <Swiper
@@ -195,7 +193,6 @@ export default function Main() {
               <h2 className='main__title' data-ja='過去の経歴'>
                 History
               </h2>
-              <h3 className='main__subtitle'>過去の経歴</h3>
             </ScrollComponent>
           </div>
           <dl>
@@ -217,7 +214,6 @@ export default function Main() {
             <h2 className='main__title' data-ja='スキルセット'>
               Skill
             </h2>
-            <h3 className='main__subtitle'>スキルセット</h3>
           </ScrollComponent>
 
           <h4 className='skill__title'>Frontend</h4>
@@ -283,9 +279,7 @@ export default function Main() {
             <h2 className='main__title' data-ja='お問い合わせ'>
               Contact
             </h2>
-            <h3 className='main__subtitle'>お問い合わせ</h3>
           </ScrollComponent>
-          <br></br>
           <p className='contact__text'>
             お問い合わせの方は、下記のメールアドレスからお願いします。
           </p>

@@ -4,18 +4,15 @@ const ScrollComponent = ({ children }) => {
   const ref = useRef(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-          } else {
-            entry.target.classList.remove('is-visible')
-          }
-        })
-      },
-      { rootMargin: '-100px' },
-    )
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+        } else {
+          entry.target.classList.remove('is-visible')
+        }
+      })
+    })
 
     if (ref.current) {
       observer.observe(ref.current)

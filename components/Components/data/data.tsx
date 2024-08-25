@@ -87,7 +87,7 @@ export const PORTFOLIO_LIST = [
     id: 4,
     name: 'サークル管理App',
     date: '2022.11.30',
-    tag: ['React', 'Ruby on Rails'],
+    tag: ['React', 'Ruby'],
     topImg: '/images/portfolio_7.png',
     url: '',
     github: 'https://github.com/takoyan33/rails-react-app-front',

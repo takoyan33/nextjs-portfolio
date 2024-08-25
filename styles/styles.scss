@@ -518,34 +518,6 @@ li {
   }
 }
 
-// 共通スタイル
-.main {
-  &__title {
-    margin: 0;
-    font-size: rem(60);
-    color: $main-color;
-    text-align: left;
-    &--white {
-      margin: 0;
-      font-size: rem(60);
-      color: white;
-      text-align: left;
-    }
-  }
-  &__subtitle {
-    margin: 0;
-    font-size: rem(20);
-    color: $main-color;
-    text-align: left;
-    &--white {
-      margin: 0;
-      font-size: rem(20);
-      color: white;
-      text-align: left;
-    }
-  }
-}
-
 .wave__bg__top {
   position: relative;
   top: 40px;
@@ -663,57 +635,6 @@ footer {
     justify-content: flex-start;
     margin-bottom: rem(10);
   }
-}
-
-.arrow {
-  width: 30px;
-  margin-bottom: rem(10);
-}
-
-// 共通ボタン
-.main__btn {
-  display: block;
-  width: 160px;
-  padding: rem(10);
-  margin: auto;
-  font-weight: bold;
-  color: $main-color;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-bottom: rem(2) solid $main-color;
-  border-radius: 100vh;
-  -webkit-box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-  transition: 0.5s;
-  &__long {
-    display: block;
-    width: 260px;
-    padding: rem(10);
-    margin: auto;
-    font-weight: bold;
-    color: $main-color;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-bottom: rem(2) solid $main-color;
-    border-radius: 100vh;
-    -webkit-box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-    transition: 0.5s;
-  }
-  :hover {
-    color: #fff;
-    background: $main-color;
-    border-bottom: rem(2) solid #fff;
-    transform: translateY(3px);
-  }
-}
-.main__btn__long:hover {
-  color: #fff;
-  background: $main-color;
-  border-bottom: rem(2) solid #fff;
-  transform: translateY(3px);
 }
 
 .size {
@@ -1262,7 +1183,7 @@ dl {
 /* 下からアニメーション */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px); /* 初期位置を少し下にする */
+  transform: translateY(20px);
   transition:
     opacity 0.5s ease-in-out,
     transform 0.5s ease-in-out;
