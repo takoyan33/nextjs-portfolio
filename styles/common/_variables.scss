@@ -127,7 +127,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  margin: rem(50) auto;
+  margin: rem(10) auto;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &_el {
@@ -159,13 +159,17 @@ a {
 }
 
 .prev-button {
-  bottom: -500px;
-  left: -60px;
+  bottom: rem(-440);
+  left: rem(-30);
 }
 
 .next-button {
-  right: -60px;
-  bottom: -500px;
+  bottom: rem(-440);
+  right: rem(-30);
+}
+
+.padding-bottom {
+  margin-bottom: 50px !important;
 }
 
 @media screen and (max-width: 580px) {

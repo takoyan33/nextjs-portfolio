@@ -82,7 +82,7 @@ a :hover {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  margin: 3.125rem auto;
+  margin: 0.625rem auto;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 }
@@ -846,6 +846,10 @@ dl dd h2 {
 .license__table__td {
   padding: 0.625rem;
   text-align: left;
+}
+
+.swiper-horizontal {
+  width: 0%;
 }
 
 .modalBox {

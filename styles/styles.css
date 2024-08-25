@@ -82,7 +82,7 @@ a :hover {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  margin: 3.125rem auto;
+  margin: 0.625rem auto;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 }
@@ -113,13 +113,17 @@ a :hover {
 }
 
 .prev-button {
-  bottom: -500px;
-  left: -60px;
+  bottom: -27.5rem;
+  left: -1.875rem;
 }
 
 .next-button {
-  right: -60px;
-  bottom: -500px;
+  bottom: -27.5rem;
+  right: -1.875rem;
+}
+
+.padding-bottom {
+  margin-bottom: 50px !important;
 }
 
 @media screen and (max-width: 580px) {
@@ -804,6 +808,10 @@ dl dd h2 {
 .license__table__td {
   padding: 0.625rem;
   text-align: left;
+}
+
+.swiper-horizontal {
+  width: 90%;
 }
 
 .modalBox {

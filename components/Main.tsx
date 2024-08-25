@@ -18,6 +18,8 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import ScrollComponent from './hooks/useFadeIn'
 import Link from 'next/link'
+import WaveBgTop from './Components/ui/WaveBgTop'
+import WaveBgBottom from './Components/ui/WaveBgBottom'
 
 export default function Main() {
   const breakpoints = {
@@ -83,7 +85,7 @@ export default function Main() {
               <div className='flx_el'>
                 <h4 className='about__title'>阿部 舜平</h4>
                 <div className='about__flx'>
-                  <Link href='https://qiita.com/harrier2070' target='_blank'>
+                  <Link href='https://github.com/takoyan33' target='_blank'>
                     <Image
                       src='/images/github-logo.png'
                       className='about_snsLogo'
@@ -93,7 +95,7 @@ export default function Main() {
                     />
                   </Link>
 
-                  <Link href='https://zenn.dev/643866' target='_blank'>
+                  <Link href='https://qiita.com/harrier2070' target='_blank'>
                     <Image
                       src='/images/qiita-logo.png'
                       className='about_snsLogo'
@@ -103,7 +105,7 @@ export default function Main() {
                     />
                   </Link>
 
-                  <Link href='https://github.com/takoyan33' target='_blank'>
+                  <Link href='https://zenn.dev/643866 ' target='_blank'>
                     <Image
                       src='/images/logo-only.svg'
                       className='about_snsLogo'
@@ -126,15 +128,7 @@ export default function Main() {
       </div>
 
       {/*  ここからポートフォリオ*/}
-      <div className='wave__bg__top'>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-          <path
-            fill='#f7f7f7'
-            fill-opacity='1'
-            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'
-          ></path>
-        </svg>
-      </div>
+      <WaveBgTop />
       <div className='portfolio'>
         <div className='max_width'>
           <ScrollComponent>
@@ -191,55 +185,32 @@ export default function Main() {
           </Link>
         </div>
       </div>
-      <div className='wave__bg__bottom'>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-          <path
-            fill='#f7f7f7'
-            fill-opacity='1'
-            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
-          ></path>
-        </svg>
-      </div>
+      <WaveBgBottom />
 
       {/*ここから学歴*/}
-      <div>
-        <div className='max_width'>
-          <div className='flx'>
-            <div className='flx_el'>
-              <ScrollComponent>
-                <h2 className='main__title' data-ja='過去の経歴'>
-                  History
-                </h2>
-                <h3 className='main__subtitle'>過去の経歴</h3>
-              </ScrollComponent>
-            </div>
-            <dl>
-              {HISTORY_LIST.map((history, index) => (
-                <Timeline
-                  key={index}
-                  title={history.title}
-                  date={history.date}
-                  body={history.body}
-                />
-              ))}
-            </dl>
+      <div className='max_width'>
+        <div className='flx'>
+          <div className='flx_el'>
+            <ScrollComponent>
+              <h2 className='main__title' data-ja='過去の経歴'>
+                History
+              </h2>
+              <h3 className='main__subtitle'>過去の経歴</h3>
+            </ScrollComponent>
           </div>
-          <Link href='About' className='main__btn'>
-            more
-          </Link>
+          <dl>
+            {HISTORY_LIST.map((history, index) => (
+              <Timeline key={index} title={history.title} date={history.date} body={history.body} />
+            ))}
+          </dl>
         </div>
+        <Link href='About' className='main__btn'>
+          more
+        </Link>
       </div>
 
       {/* ここからSKill*/}
-      <div className='wave__bg__top'>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-          <path
-            fill='#f7f7f7'
-            fill-opacity='1'
-            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'
-          ></path>
-        </svg>
-      </div>
+      <WaveBgTop />
       <div className='skill'>
         <div className='max_width'>
           <ScrollComponent>
@@ -303,36 +274,30 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <div className='wave__bg__bottom'>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
-          <path
-            fill='#f7f7f7'
-            fill-opacity='1'
-            d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
-          ></path>
-        </svg>
-      </div>
+      <WaveBgBottom />
 
       {/* ここからcontact*/}
-      <div className='contact'>
-        <div className='max_width'>
-          <div className='padding'>
-            <ScrollComponent>
-              <h2 className='main__title' data-ja='お問い合わせ'>
-                Contact
-              </h2>
-              <h3 className='main__subtitle'>お問い合わせ</h3>
-            </ScrollComponent>
-            <br></br>
-            <p className='contact__text'>
-              お問い合わせの方は、下記のメールアドレスからお願いします。
-            </p>
-            <ScrollComponent>
-              <Link href='mailto:harrier2070@gmail.com' target='_blank' className='main__btn__long'>
-                harrier2070@gmail.com
-              </Link>
-            </ScrollComponent>
-          </div>
+      <div className='contact max_width'>
+        <div>
+          <ScrollComponent>
+            <h2 className='main__title' data-ja='お問い合わせ'>
+              Contact
+            </h2>
+            <h3 className='main__subtitle'>お問い合わせ</h3>
+          </ScrollComponent>
+          <br></br>
+          <p className='contact__text'>
+            お問い合わせの方は、下記のメールアドレスからお願いします。
+          </p>
+          <ScrollComponent>
+            <Link
+              href='mailto:harrier2070@gmail.com'
+              target='_blank'
+              className='main__btn__long padding-bottom'
+            >
+              harrier2070@gmail.com
+            </Link>
+          </ScrollComponent>
         </div>
       </div>
     </nav>
