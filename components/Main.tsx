@@ -20,6 +20,7 @@ import ScrollComponent from './hooks/useFadeIn'
 import Link from 'next/link'
 import WaveBgTop from './Components/ui/WaveBgTop'
 import WaveBgBottom from './Components/ui/WaveBgBottom'
+import React, { useState, useEffect } from 'react'
 
 export default function Main() {
   const breakpoints = {
@@ -30,6 +31,18 @@ export default function Main() {
       slidesPerView: 3.5,
     },
   }
+
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3000/api/portfolio')
+      console.log(await response.json())
+      setData(data)
+    }
+    fetchData()
+    console.log(data)
+  }, [])
 
   return (
     <nav className='container'>
