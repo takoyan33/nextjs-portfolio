@@ -2,11 +2,38 @@ import Header from '../components/Components/ui/Header'
 import Footer from '../components/Components/ui/Footer'
 import Timeline from '../components/Components/ui/Timeline'
 import Tabs from '../components/Components/ui/Tabs'
-import { HISTORY_LIST, JOB_LIST, LICENSE_LIST } from '../components/Components/data/data'
-import React from 'react'
+import { JOB_LIST, LICENSE_LIST } from '../components/Components/data/data'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 
 export default function History() {
+  const [jobs, setJobs] = useState(null)
+  const [histories, setHistories] = useState(null)
+  const [licenses, setLicenses] = useState(null)
+
+  const fetchHistory = async () => {
+    const response = await fetch('http://localhost:3000/api/history')
+    const data = await response.json()
+    await setHistories(data)
+  }
+
+  const fetchJob = async () => {
+    const response = await fetch('http://localhost:3000/api/job')
+    const data = await response.json()
+    await setJobs(data)
+  }
+
+  const fetchLicenses = async () => {
+    const response = await fetch('http://localhost:3000/api/license')
+    const data = await response.json()
+    await setLicenses(data)
+  }
+
+  useEffect(() => {
+    fetchHistory()
+    fetchJob()
+    fetchLicenses()
+  }, [])
   return (
     <>
       <Head>
@@ -21,19 +48,21 @@ export default function History() {
           <div className='max_width'>
             <div className='flx'>
               <div className='flx_el'>
-                <h2 className='main__title'>History</h2>
-                <h3 className='main__subtitle'>過去の経歴</h3>
+                <h2 className='main__title' data-ja='過去の経歴'>
+                  History
+                </h2>
                 {/* <Tabs tabs={['Tab1', 'Tab2', 'Tab3']} /> */}
               </div>
               <dl>
-                {HISTORY_LIST.map((history, index) => (
-                  <Timeline
-                    key={index}
-                    title={history.title}
-                    date={history.date}
-                    body={history.body}
-                  />
-                ))}
+                {histories &&
+                  histories.history.map((history, index) => (
+                    <Timeline
+                      key={index}
+                      title={history.title}
+                      date={history.date}
+                      body={history.body}
+                    />
+                  ))}
               </dl>
             </div>
           </div>
@@ -44,13 +73,15 @@ export default function History() {
           <div className='max_width'>
             <div className='flx'>
               <div className='flx_el'>
-                <h2 className='main__title'>Job</h2>
-                <h3 className='main__subtitle'>過去の経歴</h3>
+                <h2 className='main__title' data-ja='過去の職歴'>
+                  Job
+                </h2>
               </div>
               <dl>
-                {JOB_LIST.map((job, index) => (
-                  <Timeline key={index} title={job.title} date={job.date} body={job.body} />
-                ))}
+                {jobs &&
+                  jobs.job.map((job, index) => (
+                    <Timeline key={index} title={job.title} date={job.date} body={job.body} />
+                  ))}
               </dl>
             </div>
           </div>
@@ -58,20 +89,22 @@ export default function History() {
 
         {/* ここからLicense*/}
         <section className='license padding max_width'>
-          <h2 className='main__title'>License</h2>
-          <h3 className='main__subtitle'>資格</h3>
+          <h2 className='main__title' data-ja='資格'>
+            License
+          </h2>
           <table className='license__table'>
             <tbody>
               <tr>
                 <th className='license__table__th'>日付</th>
                 <th className='license__table__th'>資格名</th>
               </tr>
-              {LICENSE_LIST.map((license, index) => (
-                <tr key={index} className='license__table__tr'>
-                  <td className='license__table__td'>{license.date}</td>
-                  <td className='license__table__td'>{license.title}</td>
-                </tr>
-              ))}
+              {licenses &&
+                licenses.license.map((license, index) => (
+                  <tr key={index} className='license__table__tr'>
+                    <td className='license__table__td'>{license.date}</td>
+                    <td className='license__table__td'>{license.title}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </section>

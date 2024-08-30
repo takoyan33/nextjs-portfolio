@@ -1,11 +1,21 @@
 import Header from '../components/Components/ui/Header'
 import Footer from '../components/Components/ui/Footer'
 import PortfolioItem from '../components/Components/ui/PortfolioItem'
-import { PORTFOLIO_LIST } from '../components/Components/data/data'
 import Head from 'next/head'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Portfolio() {
+  const [portfolios, setPortfolios] = useState(null)
+  const fetchPortfolios = async () => {
+    const response = await fetch('http://localhost:3000/api/portfolio')
+    const data = await response.json()
+    await setPortfolios(data)
+  }
+
+  useEffect(() => {
+    fetchPortfolios()
+  }, [])
+
   return (
     <>
       <Head>
@@ -17,16 +27,17 @@ export default function Portfolio() {
           <h2 className='main__title'>Portfolio</h2>
           <h3 className='main__subtitle'>ポートフォリオ</h3>
           <div className='flx padding'>
-            {PORTFOLIO_LIST.map((portfolio, index) => (
-              <PortfolioItem
-                key={index}
-                portfolio_id={portfolio.id}
-                portfolio_name={portfolio.name}
-                portfolio_date={portfolio.date}
-                portfolio_tag={portfolio.tag}
-                portfolio_topImg={portfolio.topImg}
-              />
-            ))}
+            {portfolios &&
+              portfolios.portfolio.map((portfolio, index) => (
+                <PortfolioItem
+                  key={index}
+                  portfolio_id={portfolio.id}
+                  portfolio_name={portfolio.name}
+                  portfolio_date={portfolio.date}
+                  portfolio_tag={portfolio.tag}
+                  portfolio_topImg={portfolio.topImg}
+                />
+              ))}
           </div>
         </div>
       </div>
