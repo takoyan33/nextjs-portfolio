@@ -32,16 +32,16 @@ export default function Main() {
     },
   }
 
-  const [data, setData] = useState(null)
+  const [portfolios, setPortfolios] = useState(null)
+
+  const fetchPortfolios = async () => {
+    const response = await fetch('http://localhost:3000/api/portfolio')
+    const data = await response.json()
+    await setPortfolios(data)
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/api/portfolio')
-      console.log(await response.json())
-      setData(data)
-    }
-    fetchData()
-    console.log(data)
+    fetchPortfolios()
   }, [])
 
   return (
@@ -160,17 +160,18 @@ export default function Main() {
                 prevEl: '.prev-button',
               }}
             >
-              {PORTFOLIO_LIST.map((portfolio, index) => (
-                <SwiperSlide key={index}>
-                  <Portfolio
-                    portfolio_id={portfolio.id}
-                    portfolio_name={portfolio.name}
-                    portfolio_date={portfolio.date}
-                    portfolio_tag={portfolio.tag}
-                    portfolio_topImg={portfolio.topImg}
-                  />
-                </SwiperSlide>
-              ))}
+              {portfolios &&
+                portfolios.portfolio.map((portfolio, index) => (
+                  <SwiperSlide key={index}>
+                    <Portfolio
+                      portfolio_id={portfolio.id}
+                      portfolio_name={portfolio.name}
+                      portfolio_date={portfolio.date}
+                      portfolio_tag={portfolio.tag}
+                      portfolio_topImg={portfolio.topImg}
+                    />
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </ScrollComponent>
           <div className='navigation-container'>
