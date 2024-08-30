@@ -3,12 +3,10 @@ import Portfolio from './Components/ui/PortfolioItem'
 import Skill from './Components/ui/Skill'
 import Timeline from './Components/ui/Timeline'
 import {
-  PORTFOLIO_LIST,
   FRONT_SKILL_LIST,
   BACK_SKILL_LIST,
   INFRA_SKILL_LIST,
   OTHER_SKILL_LIST,
-  HISTORY_LIST,
 } from './Components/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
@@ -33,6 +31,7 @@ export default function Main() {
   }
 
   const [portfolios, setPortfolios] = useState(null)
+  const [histories, setHistories] = useState(null)
 
   const fetchPortfolios = async () => {
     const response = await fetch('http://localhost:3000/api/portfolio')
@@ -40,8 +39,15 @@ export default function Main() {
     await setPortfolios(data)
   }
 
+  const fetchHistory = async () => {
+    const response = await fetch('http://localhost:3000/api/history')
+    const data = await response.json()
+    await setHistories(data)
+  }
+
   useEffect(() => {
     fetchPortfolios()
+    fetchHistory()
   }, [])
 
   return (
@@ -210,9 +216,15 @@ export default function Main() {
             </ScrollComponent>
           </div>
           <dl>
-            {HISTORY_LIST.map((history, index) => (
-              <Timeline key={index} title={history.title} date={history.date} body={history.body} />
-            ))}
+            {histories &&
+              histories.history.map((history, index) => (
+                <Timeline
+                  key={index}
+                  title={history.title}
+                  date={history.date}
+                  body={history.body}
+                />
+              ))}
           </dl>
         </div>
         <Link href='About' className='main__btn'>

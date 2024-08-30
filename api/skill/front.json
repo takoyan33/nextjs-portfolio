@@ -1,0 +1,51 @@
+[
+  {
+    "name": "HTML",
+    "rank": "★★★★",
+    "tag": "経験年数：3年",
+    "about": "ホームページ制作などで使用",
+    "icon": "fa-brands fa-html5"
+  },
+  {
+    "name": "CSS(SCSS)",
+    "rank": "★★★★",
+    "tag": "経験年数：3年",
+    "about": "ホームページ制作などで使用",
+    "icon": "faCss3"
+  },
+  {
+    "name": "JavaScript",
+    "rank": "★★★",
+    "tag": "経験年数：2年",
+    "about": "ホームページ制作やReactなどで使用",
+    "icon": "faJs"
+  },
+  {
+    "name": "TypeScript",
+    "rank": "★★★",
+    "tag": "経験年数：1年",
+    "about": "ホームページ制作やReactなどで使用",
+    "icon": "faJs"
+  },
+  {
+    "name": "React/Next.js",
+    "rank": "★★★",
+    "tag": "経験年数：2年",
+    "about": "フロントを実装する際に利用。一番好きな技術",
+    "icon": "faReact"
+  },
+  {
+    "name": "Vue.js/Nuxt.js",
+    "rank": "★★",
+    "tag": "経験年数：1年",
+    "about": "フロントを実装する際に利用。現在学習中",
+    "icon": "faVuejs"
+  },
+  {
+    "name": "WordPress",
+    "rank": "★★★",
+    "tag": "経験年数：1年",
+    "about": "ホームページ制作などで使用。ブログ機能やカスタムフィールドなども実装可能。WordPressAPIの実装経験有り",
+    "icon": "faWordpress"
+  }
+]
