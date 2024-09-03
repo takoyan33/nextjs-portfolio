@@ -19,6 +19,7 @@ import Link from 'next/link'
 import WaveBgTop from './Components/ui/WaveBgTop'
 import WaveBgBottom from './Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Main() {
   const breakpoints = {
@@ -32,6 +33,10 @@ export default function Main() {
 
   const [portfolios, setPortfolios] = useState(null)
   const [histories, setHistories] = useState(null)
+  const [frontSkills, setFrontSkills] = useState(null)
+  const [backSkills, setBackSkills] = useState(null)
+  const [infraSkills, setInfraSkills] = useState(null)
+  const [otherSkills, setOtherSkills] = useState(null)
 
   const fetchPortfolios = async () => {
     const response = await fetch('http://localhost:3000/api/portfolio')
@@ -45,9 +50,36 @@ export default function Main() {
     await setHistories(data)
   }
 
+  const fetchFrontSkills = async () => {
+    const response = await fetch('http://localhost:3000/api/skill/front')
+    const data = await response.json()
+    await setFrontSkills(data)
+  }
+
+  const fetchBackSkills = async () => {
+    const response = await fetch('http://localhost:3000/api/skill/back')
+    const data = await response.json()
+    await setBackSkills(data)
+  }
+
+  const fetchInfraSkills = async () => {
+    const response = await fetch('http://localhost:3000/api/skill/infra')
+    const data = await response.json()
+    await setInfraSkills(data)
+  }
+
+  const fetchOtherSkills = async () => {
+    const response = await fetch('http://localhost:3000/api/skill/other')
+    const data = await response.json()
+    await setOtherSkills(data)
+  }
   useEffect(() => {
     fetchPortfolios()
     fetchHistory()
+    fetchFrontSkills()
+    fetchBackSkills()
+    fetchInfraSkills()
+    fetchOtherSkills()
   }, [])
 
   return (
@@ -77,7 +109,6 @@ export default function Main() {
           ></path>
         </svg>
       </div>
-
       {/* ここからabout */}
       <div className='about'>
         <div className='max_width'>
@@ -144,7 +175,6 @@ export default function Main() {
           </ScrollComponent>
         </div>
       </div>
-
       {/*  ここからポートフォリオ*/}
       <WaveBgTop />
       <div className='portfolio'>
@@ -204,7 +234,6 @@ export default function Main() {
         </div>
       </div>
       <WaveBgBottom />
-
       {/*ここから学歴*/}
       <div className='max_width'>
         <div className='flx'>
@@ -231,7 +260,6 @@ export default function Main() {
           more
         </Link>
       </div>
-
       {/* ここからSKill*/}
       <WaveBgTop />
       <div className='skill'>
@@ -244,60 +272,63 @@ export default function Main() {
 
           <h4 className='skill__title'>Frontend</h4>
           <div className='skill__flx'>
-            {FRONT_SKILL_LIST.map((skill, index) => (
-              <Skill
-                key={index}
-                name={skill.name}
-                rank={skill.rank}
-                tag={skill.tag}
-                icon={skill.icon}
-                about={skill.about}
-              />
-            ))}
+            {frontSkills &&
+              frontSkills.skill.map((skill, index) => (
+                <Skill
+                  key={index}
+                  name={skill.name}
+                  rank={skill.rank}
+                  tag={skill.tag}
+                  icon={skill.icon}
+                  about={skill.about}
+                />
+              ))}
           </div>
           <h4 className='skill__title'>Backend</h4>
           <div className='skill__flx'>
-            {BACK_SKILL_LIST.map((skill, index) => (
-              <Skill
-                key={index}
-                name={skill.name}
-                rank={skill.rank}
-                tag={skill.tag}
-                icon={skill.icon}
-                about={skill.about}
-              />
-            ))}
+            {backSkills &&
+              backSkills.skill.map((skill, index) => (
+                <Skill
+                  key={index}
+                  name={skill.name}
+                  rank={skill.rank}
+                  tag={skill.tag}
+                  icon={skill.icon}
+                  about={skill.about}
+                />
+              ))}
           </div>
           <h4 className='skill__title'>Infra</h4>
           <div className='skill__flx'>
-            {INFRA_SKILL_LIST.map((skill, index) => (
-              <Skill
-                key={index}
-                name={skill.name}
-                rank={skill.rank}
-                tag={skill.tag}
-                icon={skill.icon}
-                about={skill.about}
-              />
-            ))}
+            {infraSkills &&
+              infraSkills.skill.map((skill, index) => (
+                <Skill
+                  key={index}
+                  name={skill.name}
+                  rank={skill.rank}
+                  tag={skill.tag}
+                  icon={skill.icon}
+                  about={skill.about}
+                />
+              ))}
           </div>
           <h4 className='skill__title'>Other</h4>
           <div className='skill__flx'>
-            {OTHER_SKILL_LIST.map((skill, index) => (
-              <Skill
-                key={index}
-                name={skill.name}
-                rank={skill.rank}
-                tag={skill.tag}
-                icon={skill.icon}
-                about={skill.about}
-              />
-            ))}
+            {otherSkills &&
+              otherSkills.skill.map((skill, index) => (
+                <Skill
+                  key={index}
+                  name={skill.name}
+                  rank={skill.rank}
+                  tag={skill.tag}
+                  icon={skill.icon}
+                  about={skill.about}
+                />
+              ))}
           </div>
         </div>
       </div>
       <WaveBgBottom />
-
       {/* ここからcontact*/}
       <div className='contact max_width'>
         <div>

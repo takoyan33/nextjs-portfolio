@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Figma",
+    "rank": "★★★",
+    "tag": "経験年数：1年半",
+    "about": "デザイン制作やコーディングなどで使用",
+    "icon": "/images/skill/figma.svg"
+  },
+  {
+    "name": "Github",
+    "rank": "★★★",
+    "tag": "経験年数：1年半",
+    "about": "個人開発や仕事でのソース管理で利用",
+    "icon": "/images/skill/github.svg"
+  },
+  {
+    "name": "Adobe",
+    "rank": "★★★",
+    "tag": "経験年数：1年半",
+    "about": "PhotoShop/Illustratorなどをデザイン制作などで使用",
+    "icon": "/images/skill/laptop.svg"
+  },
+  {
+    "name": "Bitbucket",
+    "rank": "★★",
+    "tag": "経験年数：1年半",
+    "about": "仕事のソース管理で利用",
+    "icon": "/images/skill/bitbucket.svg"
+  }
+]

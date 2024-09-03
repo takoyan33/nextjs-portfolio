@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import usePortfolioModal from '../parts/usePortfolioModal'
 import ScrollComponent from '../../hooks/useFadeIn'
+import Image from 'next/image'
 
 export default function Skill({ name, rank, tag, icon, about }) {
   const [Modal, open, close, isOpen] = usePortfolioModal()
@@ -10,7 +11,13 @@ export default function Skill({ name, rank, tag, icon, about }) {
         <ScrollComponent>
           <a onClick={open} target='_blank'>
             <div className='skill__svg'>
-              <FontAwesomeIcon icon={icon} className='tac fa-5x size' />
+              <Image
+                src={icon}
+                alt='ポートフォリオ画像'
+                fill
+                className='skill__svg'
+                sizes='(min-width: 768px)'
+              />
             </div>
             <p className='skill_text'>{name} </p>
             <p className='skill_text'>{rank}</p>
