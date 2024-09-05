@@ -16,7 +16,7 @@
   justify-content: space-around;
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 .header nav {
   margin-left: auto;
@@ -108,11 +108,11 @@
   .drawerMenu ul {
     width: 90%;
     padding: 0px;
-    margin: 0 auto;
+    margin-inline: auto;
   }
   .drawerMenu ul li {
     margin-bottom: 25px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 200;
     opacity: 0.8;
   }

@@ -342,11 +342,11 @@ export default function Main() {
           </p>
           <ScrollComponent>
             <Link
-              href='mailto:harrier2070@gmail.com'
+              href='mailto:harrier2070%40gmail.com'
               target='_blank'
               className='main__btn__long padding-bottom'
             >
-              harrier2070@gmail.com
+              お問い合わせ
             </Link>
           </ScrollComponent>
         </div>

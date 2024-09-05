@@ -69,7 +69,7 @@ img {
   }
   &__inner {
     padding: 0 4vw;
-    margin: 0 auto;
+    margin-inline: auto;
   }
 }
 
@@ -312,7 +312,7 @@ a {
     width: 90%;
     height: 100%;
     padding: rem(30);
-    margin: 0 auto;
+    margin-inline: auto;
     overflow-wrap: break-word;
     background-color: white;
   }

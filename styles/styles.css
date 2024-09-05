@@ -28,7 +28,7 @@ img {
 }
 .section__inner {
   padding: 0 4vw;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
 a {
@@ -253,7 +253,7 @@ a :hover {
     width: 90%;
     height: 100%;
     padding: 1.875rem;
-    margin: 0 auto;
+    margin-inline: auto;
     overflow-wrap: break-word;
     background-color: white;
   }
@@ -377,7 +377,7 @@ header {
   align-items: center;
   width: 100%;
   height: 100px;
-  margin: 0 auto;
+  margin-inline: auto;
   background-color: white;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -412,7 +412,7 @@ header nav {
   justify-content: space-between;
   width: 100%;
   padding: 4% 4vw;
-  margin: 0 auto;
+  margin-inline: auto;
   background-color: white;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -588,7 +588,7 @@ li {
 .fv__title {
   position: relative;
   top: 13.75rem;
-  margin: 0 auto;
+  margin-inline: auto;
   margin-right: auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 4.375rem;
@@ -600,7 +600,7 @@ li {
 .fv__subtitle {
   position: relative;
   top: 13.75rem;
-  margin: 0 auto;
+  margin-inline: auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 2.5rem;
   color: white;
@@ -670,7 +670,7 @@ li {
 .portfolio__img {
   position: relative;
   width: 250px;
-  margin: 0 auto;
+  margin-inline: auto;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -755,7 +755,7 @@ footer li {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 .skill__flx_el {
   width: 20%;
@@ -881,7 +881,7 @@ dl dd h2 {
   position: relative;
   width: 80%;
   height: 500px;
-  margin: 0 auto;
+  margin-inline: auto;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -889,7 +889,7 @@ dl dd h2 {
   position: relative;
   width: 70%;
   height: 400px;
-  margin: 0 auto;
+  margin-inline: auto;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -963,7 +963,7 @@ dl dd h2 {
     display: inline-block;
     width: 100%;
     height: 600px;
-    margin: 0 auto;
+    margin-inline: auto;
   }
   .fv__title {
     font-size: 2.375rem;
@@ -983,7 +983,7 @@ dl dd h2 {
   }
   .about_img {
     width: 100%;
-    margin: 0 auto;
+    margin-inline: auto;
   }
   .about_text {
     margin: 40px auto;
@@ -1004,7 +1004,7 @@ dl dd h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: 0 auto;
+    margin-inline: auto;
   }
   .skill__flx_el {
     width: 50%;
@@ -1019,7 +1019,7 @@ dl dd h2 {
   }
   .logo_sns {
     width: 50%;
-    margin: 0 auto;
+    margin-inline: auto;
   }
   img {
     width: 100%;
@@ -1095,7 +1095,7 @@ dl dd h2 {
     position: relative;
     width: 80%;
     height: 300px;
-    margin: 0 auto;
+    margin-inline: auto;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1103,7 +1103,7 @@ dl dd h2 {
     position: relative;
     width: 70%;
     height: 300px;
-    margin: 0 auto;
+    margin-inline: auto;
     -o-object-fit: contain;
        object-fit: contain;
   }

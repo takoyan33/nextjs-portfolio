@@ -34,7 +34,13 @@ export default function Skill({ name, rank, tag, icon, about }) {
             <div className='modalBox__element'>
               <h2 className='skill_text'>{name}</h2>
               <p className='tac'>
-                <FontAwesomeIcon icon={icon} className='fa-10x size' />
+                <Image
+                  src={icon}
+                  alt='ポートフォリオ画像'
+                  fill
+                  className='skill__svg'
+                  sizes='(min-width: 768px)'
+                />
               </p>
             </div>
 

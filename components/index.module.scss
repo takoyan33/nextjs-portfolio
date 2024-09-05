@@ -16,7 +16,7 @@
     justify-content: space-around;
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
+    margin-inline: auto;
   }
 
   nav {
@@ -110,7 +110,7 @@
     ul {
       width: 90%;
       padding: 0px;
-      margin: 0 auto;
+      margin-inline: auto;
       li {
         margin-bottom: 25px;
         font-family: 'Josefin Sans', sans-serif;
