@@ -2,12 +2,6 @@ import Image from 'next/image'
 import Portfolio from './Components/ui/PortfolioItem'
 import Skill from './Components/ui/Skill'
 import Timeline from './Components/ui/Timeline'
-import {
-  FRONT_SKILL_LIST,
-  BACK_SKILL_LIST,
-  INFRA_SKILL_LIST,
-  OTHER_SKILL_LIST,
-} from './Components/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import 'swiper/css'
@@ -19,7 +13,6 @@ import Link from 'next/link'
 import WaveBgTop from './Components/ui/WaveBgTop'
 import WaveBgBottom from './Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Main() {
   const breakpoints = {
@@ -38,38 +31,40 @@ export default function Main() {
   const [infraSkills, setInfraSkills] = useState(null)
   const [otherSkills, setOtherSkills] = useState(null)
 
+  const url = 'https://nextjs-portfolio-puce.vercel.app/'
+
   const fetchPortfolios = async () => {
-    const response = await fetch('http://localhost:3000/api/portfolio')
+    const response = await fetch(`${url}api/portfolio`)
     const data = await response.json()
     await setPortfolios(data)
   }
 
   const fetchHistory = async () => {
-    const response = await fetch('http://localhost:3000/api/history')
+    const response = await fetch(`${url}api/history`)
     const data = await response.json()
     await setHistories(data)
   }
 
   const fetchFrontSkills = async () => {
-    const response = await fetch('http://localhost:3000/api/skill/front')
+    const response = await fetch(`${url}api/skill/front`)
     const data = await response.json()
     await setFrontSkills(data)
   }
 
   const fetchBackSkills = async () => {
-    const response = await fetch('http://localhost:3000/api/skill/back')
+    const response = await fetch(`${url}api/skill/back`)
     const data = await response.json()
     await setBackSkills(data)
   }
 
   const fetchInfraSkills = async () => {
-    const response = await fetch('http://localhost:3000/api/skill/infra')
+    const response = await fetch(`${url}api/skill/infra`)
     const data = await response.json()
     await setInfraSkills(data)
   }
 
   const fetchOtherSkills = async () => {
-    const response = await fetch('http://localhost:3000/api/skill/other')
+    const response = await fetch(`${url}api/skill/other`)
     const data = await response.json()
     await setOtherSkills(data)
   }
