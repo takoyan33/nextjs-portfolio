@@ -10,21 +10,21 @@ export default function History() {
   const [jobs, setJobs] = useState(null)
   const [histories, setHistories] = useState(null)
   const [licenses, setLicenses] = useState(null)
-
+  const url = 'https://nextjs-portfolio-puce.vercel.app/'
   const fetchHistory = async () => {
-    const response = await fetch('http://localhost:3000/api/history')
+    const response = await fetch(`${url}api/history`)
     const data = await response.json()
     await setHistories(data)
   }
 
   const fetchJob = async () => {
-    const response = await fetch('http://localhost:3000/api/job')
+    const response = await fetch(`${url}api/job`)
     const data = await response.json()
     await setJobs(data)
   }
 
   const fetchLicenses = async () => {
-    const response = await fetch('http://localhost:3000/api/license')
+    const response = await fetch(`${url}api/license`)
     const data = await response.json()
     await setLicenses(data)
   }

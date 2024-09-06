@@ -5,9 +5,10 @@ import Head from 'next/head'
 import React, { useState, useEffect } from 'react'
 
 export default function Portfolio() {
+  const url = 'https://nextjs-portfolio-puce.vercel.app/'
   const [portfolios, setPortfolios] = useState(null)
   const fetchPortfolios = async () => {
-    const response = await fetch('http://localhost:3000/api/portfolio')
+    const response = await fetch(`${url}api/portfolio`)
     const data = await response.json()
     await setPortfolios(data)
   }
