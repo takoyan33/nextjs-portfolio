@@ -47,6 +47,10 @@ div {
   padding: 0px !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: noto-sans-cjk-jp, sans-serif;

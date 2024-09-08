@@ -485,14 +485,13 @@ li {
   &__title {
     position: relative;
     top: rem(220);
-    margin-inline: auto;
-    margin-right: auto;
     font-family: futura-pt-bold, sans-serif;
     font-size: rem(70);
     line-height: 90px;
     color: $white;
     text-align: left;
     letter-spacing: 4px;
+    margin: rem(10) auto;
   }
   &__subtitle {
     position: relative;
@@ -533,13 +532,17 @@ li {
 .back__btn {
   position: fixed;
   background-color: #6499ff;
-  padding: 15px 12px;
+  padding: 25px 22px;
   color: white;
   border: 0px solid;
   font-size: rem(20);
   bottom: 0;
   z-index: 10;
   right: 0;
+}
+
+.back__btn:hover {
+  opacity: 0.7;
 }
 
 // ポートフォリオ
@@ -779,6 +782,10 @@ dl {
   }
 }
 
+.portfolioDetail__element__tagList {
+  padding: 0;
+}
+
 // [id]ページ
 .portfolioDetail {
   width: 100%;
@@ -981,6 +988,10 @@ dl {
     }
   }
 
+  .back__btn {
+    padding: 15px 12px;
+  }
+
   .header_flx {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1170,6 +1181,16 @@ dl {
 // svgアイコン
 .skill__svg {
   height: 160px !important;
+}
+
+// svgアイコン
+.modalBox__skill__svg {
+  width: 160px !important;
+  height: 160px !important;
+  position: initial !important;
+  text-align: center;
+  display: block;
+  margin-inline: auto;
 }
 
 /* 下からアニメーション */

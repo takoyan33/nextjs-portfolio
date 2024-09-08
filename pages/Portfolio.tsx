@@ -5,6 +5,7 @@ import Head from 'next/head'
 import React, { useState, useEffect } from 'react'
 
 export default function Portfolio() {
+  //const url = 'https://localhost:3000/'
   const url = 'https://nextjs-portfolio-puce.vercel.app/'
   const [portfolios, setPortfolios] = useState(null)
   const fetchPortfolios = async () => {

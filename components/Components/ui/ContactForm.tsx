@@ -41,17 +41,30 @@ const Contact: React.FC = () => {
     setMessage(e.target.value)
   }
 
-  const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log('push submit')
-    sendEmail()
+  const onSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
+    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    //emailjsを初期化する
+
+    if (userId && serviceId && templateId) {
+      init(userId)
+
+      const params = {
+        name: name,
+        email: mail,
+        content: message,
+      }
+
+      await send(serviceId, templateId, params)
+    }
   }
 
   return (
-    <div className='contact-page'>
-      <p className='contact-top'>Contact</p>
+    <div className='contact-page max_width container'>
       <Grid>
         <Grid item xs={8}>
+          <h2 className='contact-top'>Contact</h2>
           <form onSubmit={onSubmit}>
             <TextField
               className='contact-name'

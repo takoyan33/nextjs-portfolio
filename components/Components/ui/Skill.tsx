@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import usePortfolioModal from '../parts/usePortfolioModal'
 import ScrollComponent from '../../hooks/useFadeIn'
 import Image from 'next/image'
@@ -33,13 +32,13 @@ export default function Skill({ name, rank, tag, icon, about }) {
           <div className='modalBox'>
             <div className='modalBox__element'>
               <h2 className='skill_text'>{name}</h2>
-              <p className='tac'>
+              <p className='tac modalBox__skill__svg'>
                 <Image
                   src={icon}
                   alt='ポートフォリオ画像'
                   fill
-                  className='skill__svg'
-                  sizes='(min-width: 768px)'
+                  className='modalBox__skill__svg'
+                  sizes='(min-width: 768px) width: 100%'
                 />
               </p>
             </div>

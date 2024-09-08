@@ -31,6 +31,7 @@ export default function Main() {
   const [infraSkills, setInfraSkills] = useState(null)
   const [otherSkills, setOtherSkills] = useState(null)
 
+  // const url = 'http://localhost:3000/'
   const url = 'https://nextjs-portfolio-puce.vercel.app/'
 
   const fetchPortfolios = async () => {

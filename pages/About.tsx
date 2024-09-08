@@ -2,7 +2,6 @@ import Header from '../components/Components/ui/Header'
 import Footer from '../components/Components/ui/Footer'
 import Timeline from '../components/Components/ui/Timeline'
 import Tabs from '../components/Components/ui/Tabs'
-import { JOB_LIST, LICENSE_LIST } from '../components/Components/data/data'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 
@@ -10,6 +9,7 @@ export default function History() {
   const [jobs, setJobs] = useState(null)
   const [histories, setHistories] = useState(null)
   const [licenses, setLicenses] = useState(null)
+  //const url = 'https://localhost:3000/'
   const url = 'https://nextjs-portfolio-puce.vercel.app/'
   const fetchHistory = async () => {
     const response = await fetch(`${url}api/history`)
