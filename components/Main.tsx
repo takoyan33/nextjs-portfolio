@@ -31,7 +31,7 @@ export default function Main() {
   const [infraSkills, setInfraSkills] = useState(null)
   const [otherSkills, setOtherSkills] = useState(null)
 
-  // const url = 'http://localhost:3000/'
+  //const url = 'http://localhost:3000/'
   const url = 'https://nextjs-portfolio-puce.vercel.app/'
 
   const fetchPortfolios = async () => {
@@ -180,7 +180,15 @@ export default function Main() {
               Portfolio
             </h2>
           </ScrollComponent>
-          <ScrollComponent>
+          <div className='portfolio-content'>
+            <div className='prev-button'>
+              <Image
+                src='/images/prev-arrow.svg'
+                width={50}
+                height={50}
+                alt='スライドショーのナビゲーション'
+              />
+            </div>
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               className='flx swiper'
@@ -205,16 +213,6 @@ export default function Main() {
                   </SwiperSlide>
                 ))}
             </Swiper>
-          </ScrollComponent>
-          <div className='navigation-container'>
-            <div className='prev-button'>
-              <Image
-                src='/images/prev-arrow.svg'
-                width={50}
-                height={50}
-                alt='スライドショーのナビゲーション'
-              />
-            </div>
             <div className='next-button'>
               <Image
                 src='/images/next-arrow.svg'

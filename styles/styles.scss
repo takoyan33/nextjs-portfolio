@@ -1114,6 +1114,42 @@ dl {
     bottom: 10px;
     z-index: -1;
   }
+
+  // ポートフォリオ
+  .portfolio {
+    background-color: $back-color;
+
+    &__flex {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &__date {
+      font-size: rem(14);
+      color: $main-color;
+      margin: 6px 0px;
+    }
+    &__tag {
+      display: inline-block;
+      height: 25px;
+      padding: 2px 5px;
+      margin: 4px 2px;
+      font-size: 14px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 20px;
+    }
+    &__title {
+      margin-top: 0px;
+    }
+    &__img {
+      position: relative;
+      width: 190px;
+      margin-inline: auto;
+      height: 130px;
+      object-fit: cover;
+    }
+  }
 }
 
 // ローディング

@@ -154,21 +154,23 @@ a {
   z-index: 1;
 }
 
+.portfolio-content {
+  display: grid;
+  grid-template-columns: rem(30) 1fr rem(30);
+}
+
 .prev-button,
 .next-button {
-  position: absolute;
-  top: 50%;
   cursor: pointer;
-  transform: translateY(-50%);
 }
 
 .prev-button {
-  bottom: rem(-440);
+  margin-top: rem(60);
   left: rem(-30);
 }
 
 .next-button {
-  bottom: rem(-440);
+  margin-top: rem(60);
   right: rem(-30);
 }
 
@@ -353,14 +355,14 @@ a {
   }
 
   .prev-button {
-    bottom: -500px;
-    left: -20px;
+    left: px;
     width: rem(30);
+    height: rem(30);
   }
 
   .next-button {
-    right: -20px;
-    bottom: -500px;
+    right: 0px;
     width: rem(30);
+    height: rem(30);
   }
 }

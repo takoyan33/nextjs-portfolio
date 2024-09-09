@@ -108,21 +108,23 @@ a :hover {
   z-index: 1;
 }
 
+.portfolio-content {
+  display: grid;
+  grid-template-columns: 1.875rem 1fr 1.875rem;
+}
+
 .prev-button,
 .next-button {
-  position: absolute;
-  top: 50%;
   cursor: pointer;
-  transform: translateY(-50%);
 }
 
 .prev-button {
-  bottom: -27.5rem;
+  margin-top: 3.75rem;
   left: -1.875rem;
 }
 
 .next-button {
-  bottom: -27.5rem;
+  margin-top: 3.75rem;
   right: -1.875rem;
 }
 
@@ -287,14 +289,14 @@ a :hover {
     display: block;
   }
   .prev-button {
-    bottom: -500px;
-    left: -20px;
+    left: px;
     width: 1.875rem;
+    height: 1.875rem;
   }
   .next-button {
-    right: -20px;
-    bottom: -500px;
+    right: 0px;
     width: 1.875rem;
+    height: 1.875rem;
   }
 }
 .content {
@@ -1163,6 +1165,40 @@ dl dd h2 {
     position: relative;
     bottom: 10px;
     z-index: -1;
+  }
+  .portfolio {
+    background-color: #f7f7f7;
+  }
+  .portfolio__flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .portfolio__date {
+    font-size: 0.875rem;
+    color: #6499ff;
+    margin: 6px 0px;
+  }
+  .portfolio__tag {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 5px;
+    margin: 4px 2px;
+    font-size: 14px;
+    color: #6499ff;
+    border: 1px solid #6499ff;
+    border-radius: 20px;
+  }
+  .portfolio__title {
+    margin-top: 0px;
+  }
+  .portfolio__img {
+    position: relative;
+    width: 190px;
+    margin-inline: auto;
+    height: 130px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 .loader {
