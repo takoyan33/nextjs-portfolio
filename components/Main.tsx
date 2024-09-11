@@ -13,6 +13,11 @@ import Link from 'next/link'
 import WaveBgTop from './Components/ui/WaveBgTop'
 import WaveBgBottom from './Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
+// import { useRecoilValue, useRecoilState } from 'recoil'
+// import { todoState } from '../atoms/todoState'
+// import { portfolioState } from '../atoms/portfolioState'
+// import { RecoilEnv } from 'recoil'
+// RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
 
 export default function Main() {
   const breakpoints = {
@@ -31,7 +36,9 @@ export default function Main() {
   const [infraSkills, setInfraSkills] = useState(null)
   const [otherSkills, setOtherSkills] = useState(null)
 
-  //const url = 'http://localhost:3000/'
+  // const data = useRecoilValue(portfolioState)
+
+  // const url = 'http://localhost:3000/'
   const url = 'https://nextjs-portfolio-puce.vercel.app/'
 
   const fetchPortfolios = async () => {
@@ -71,6 +78,7 @@ export default function Main() {
   }
   useEffect(() => {
     fetchPortfolios()
+    //setPortfolios(data)
     fetchHistory()
     fetchFrontSkills()
     fetchBackSkills()
@@ -78,6 +86,11 @@ export default function Main() {
     fetchOtherSkills()
   }, [])
 
+  // const todos = useRecoilValue(todoState)
+  // console.log(todos)
+
+  // // const portfolioData = useRecoilValue(portfolioState)
+  // // console.log(portfolioData)
   return (
     <nav className='container'>
       {/* ここからfv */}
@@ -100,7 +113,7 @@ export default function Main() {
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
           <path
             fill='#13b0df'
-            fill-opacity='1'
+            fillOpacity='1'
             d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
           ></path>
         </svg>
