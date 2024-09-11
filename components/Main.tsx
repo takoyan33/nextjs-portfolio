@@ -13,11 +13,11 @@ import Link from 'next/link'
 import WaveBgTop from './Components/ui/WaveBgTop'
 import WaveBgBottom from './Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
-// import { useRecoilValue, useRecoilState } from 'recoil'
-// import { todoState } from '../atoms/todoState'
-// import { portfolioState } from '../atoms/portfolioState'
-// import { RecoilEnv } from 'recoil'
-// RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
+import { useRecoilValue, useRecoilState } from 'recoil'
+import { todoState } from '../atoms/todoState'
+import { portfolioState } from '../atoms/portfolioState'
+import { RecoilEnv } from 'recoil'
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
 
 export default function Main() {
   const breakpoints = {
@@ -86,8 +86,8 @@ export default function Main() {
     fetchOtherSkills()
   }, [])
 
-  // const todos = useRecoilValue(todoState)
-  // console.log(todos)
+  const todos = useRecoilValue(todoState)
+  console.log(todos)
 
   // // const portfolioData = useRecoilValue(portfolioState)
   // // console.log(portfolioData)
