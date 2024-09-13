@@ -7,6 +7,21 @@ export default function Header() {
   const menuFunction = () => {
     setOpenMenu(!openMenu)
   }
+
+  const MENU_ITEMS = [
+    {
+      title: 'About',
+      link: 'About',
+    },
+    {
+      title: 'ポートフォリオ',
+      link: 'Portfolio',
+    },
+    {
+      title: 'ブログ',
+      link: 'Blog',
+    },
+  ]
   return (
     <>
       <header id='header' className={styles.header}>
@@ -18,15 +33,11 @@ export default function Header() {
           </div>
           <nav>
             <ul>
-              <li>
-                <Link href='About'>About</Link>
-              </li>
-              <li>
-                <Link href='Portfolio'>ポートフォリオ</Link>
-              </li>
-              {/* <li>
-                <Link href="News">News</Link>
-              </li> */}
+              {MENU_ITEMS.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.link}>{item.title}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -45,22 +56,13 @@ export default function Header() {
             <span></span>
             <span></span>
           </div>
-          <li>
-            <Link href='About'>
-              <p className={styles.mainTitle}>About</p>
-            </Link>
-          </li>
-          <li>
-            <Link href='Portfolio'>
-              <p className={styles.mainTitle}>ポートフォリオ</p>
-            </Link>
-          </li>
-          {/* <li>
-            <Link href="News">
-              <p className={styles.mainTitle}>News</p>
-              {/* <p className={styles.subTitle}>私のメニュー</p> 
-            </Link>
-          </li> */}
+          {MENU_ITEMS.map((item, index) => (
+            <li key={index}>
+              <Link href={item.link}>
+                <p className={styles.mainTitle}>{item.title}</p>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </>

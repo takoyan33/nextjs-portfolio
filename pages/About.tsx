@@ -4,27 +4,27 @@ import Timeline from '../components/Components/ui/Timeline'
 import Tabs from '../components/Components/ui/Tabs'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { API_URL } from '../utils/data'
 
-export default function History() {
+export default function About() {
   const [jobs, setJobs] = useState(null)
   const [histories, setHistories] = useState(null)
   const [licenses, setLicenses] = useState(null)
-  //const url = 'https://localhost:3000/'
-  const url = 'https://nextjs-portfolio-puce.vercel.app/'
+
   const fetchHistory = async () => {
-    const response = await fetch(`${url}api/history`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
     const data = await response.json()
     await setHistories(data)
   }
 
   const fetchJob = async () => {
-    const response = await fetch(`${url}api/job`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
     const data = await response.json()
     await setJobs(data)
   }
 
   const fetchLicenses = async () => {
-    const response = await fetch(`${url}api/license`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
     const data = await response.json()
     await setLicenses(data)
   }

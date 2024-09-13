@@ -25,8 +25,8 @@ export default function Portfolio() {
       <Header />
       <div className=''>
         <div className='max_width'>
-          <h2 className='main__title' data-ja='制作物'>
-            Portfolio
+          <h2 className='main__title' data-ja='ブログ'>
+            Blog
           </h2>
           <div className='flx padding'>
             {portfolios &&

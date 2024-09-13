@@ -2,6 +2,21 @@ import Link from 'next/link'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const MENU_ITEMS = [
+    {
+      title: 'About',
+      link: 'About',
+    },
+    {
+      title: 'ポートフォリオ',
+      link: 'Portfolio',
+    },
+    {
+      title: 'ブログ',
+      link: 'Blog',
+    },
+  ]
   return (
     <div className='container'>
       <footer className='footer' data-aos='fade-up'>
@@ -14,19 +29,11 @@ export default function Footer() {
                 </Link>
               </div>
               <div className='flx_el'>
-                <Link href='/About'>
-                  <p className='footer_list'>About</p>
-                </Link>
-                <Link href='/Portfolio'>
-                  <p className='footer_list'>ポートフォリオ</p>
-                </Link>
-                {/* <Link href="/News">
-                  <p className="footer_list">News</p>
-                </Link> */}
-                {/* <Link href="/Contact">
-                  <p className="footer_list">お問い合わせ</p>
-                </Link> */}
-                <div className='flx_el'></div>
+                {MENU_ITEMS.map((item, index) => (
+                  <Link href={item.link} key={index}>
+                    <p className='footer_list'>{item.title}</p>
+                  </Link>
+                ))}
               </div>
             </div>
           </ul>

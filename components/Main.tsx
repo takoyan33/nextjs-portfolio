@@ -15,9 +15,10 @@ import WaveBgBottom from './Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import { todoState } from '../atoms/todoState'
-import { portfolioState } from '../atoms/portfolioState'
-import { RecoilEnv } from 'recoil'
-RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
+import { API_URL } from '../utils/data'
+//import { portfolioState } from '../atoms/portfolioState'
+// import { RecoilEnv } from 'recoil'
+// RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
 
 export default function Main() {
   const breakpoints = {
@@ -37,42 +38,38 @@ export default function Main() {
   const [otherSkills, setOtherSkills] = useState(null)
 
   // const data = useRecoilValue(portfolioState)
-
-  // const url = 'http://localhost:3000/'
-  const url = 'https://nextjs-portfolio-puce.vercel.app/'
-
   const fetchPortfolios = async () => {
-    const response = await fetch(`${url}api/portfolio`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
     const data = await response.json()
     await setPortfolios(data)
   }
 
   const fetchHistory = async () => {
-    const response = await fetch(`${url}api/history`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
     const data = await response.json()
     await setHistories(data)
   }
 
   const fetchFrontSkills = async () => {
-    const response = await fetch(`${url}api/skill/front`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/front`)
     const data = await response.json()
     await setFrontSkills(data)
   }
 
   const fetchBackSkills = async () => {
-    const response = await fetch(`${url}api/skill/back`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/back`)
     const data = await response.json()
     await setBackSkills(data)
   }
 
   const fetchInfraSkills = async () => {
-    const response = await fetch(`${url}api/skill/infra`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/infra`)
     const data = await response.json()
     await setInfraSkills(data)
   }
 
   const fetchOtherSkills = async () => {
-    const response = await fetch(`${url}api/skill/other`)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/other`)
     const data = await response.json()
     await setOtherSkills(data)
   }
@@ -88,9 +85,6 @@ export default function Main() {
 
   const todos = useRecoilValue(todoState)
   console.log(todos)
-
-  // // const portfolioData = useRecoilValue(portfolioState)
-  // // console.log(portfolioData)
   return (
     <nav className='container'>
       {/* ここからfv */}
