@@ -3,14 +3,17 @@ import TextField from '@mui/material/TextField'
 // import { Grid, TextField } from "@material-ui/core";
 import Grid from '@mui/material/Grid'
 import { init, sendForm, send } from 'emailjs-com'
+import emailJs from 'emailjs-com'
 import { title } from 'process'
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('')
   const [mail, setMail] = useState('')
+  const [title, setTitle] = useState('')
   const [message, setMessage] = useState('')
 
-  const sendEmail = () => {
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault() // ページのリロードを防ぐ
     const user_id = process.env.REACT_APP_USER_ID
     const service_id = process.env.REACT_APP_SERVICE_ID
     const template_id = process.env.REACT_APP_TEMPLATE_ID
@@ -41,24 +44,39 @@ const Contact: React.FC = () => {
     setMessage(e.target.value)
   }
 
-  const onSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-    //emailjsを初期化する
+  // const onSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault() // ページのリロードを防ぐ
+  //   const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+  //   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  //   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+  //   //emailjsを初期化する
 
-    if (userId && serviceId && templateId) {
-      init(userId)
+  //   console.log(userId)
+  //   if (userId && serviceId && templateId) {
+  //     init(userId)
 
-      const params = {
-        name: name,
-        email: mail,
-        content: message,
-      }
+  //     console.log(userId)
+  //     console.log(templateId)
+  //     console.log(serviceId)
 
-      await send(serviceId, templateId, params)
-    }
-  }
+  //     const params = {
+  //       name: name,
+  //       email: mail,
+  //       content: message,
+  //     }
+
+  //     emailJs
+  //       .send(serviceId ?? '', templateId ?? '', params, userId)
+  //       .then((res) => {
+  //         console.log(res)
+  //         alert('送信完了しました')
+  //       })
+  //       .catch((err) => {
+  //         console.log(err)
+  //         alert('送信に失敗しました')
+  //       })
+  //   }
+  // }
 
   return (
     <div className='contact-page max_width container'>
@@ -75,7 +93,6 @@ const Contact: React.FC = () => {
               margin='normal'
               onChange={onChangeName}
               value={name}
-              InputProps={{ disableUnderline: true }}
             />
             <TextField
               className='contact-mail'
@@ -86,7 +103,6 @@ const Contact: React.FC = () => {
               margin='normal'
               onChange={onChangeMail}
               value={mail}
-              InputProps={{ disableUnderline: true }}
             />
             <TextField
               className='contact-title'
@@ -96,7 +112,6 @@ const Contact: React.FC = () => {
               margin='normal'
               onChange={onChangeTitle}
               value={title}
-              InputProps={{ disableUnderline: true }}
             />
             <TextField
               className='contact-message'
@@ -107,9 +122,10 @@ const Contact: React.FC = () => {
               margin='normal'
               onChange={onChangeMessage}
               value={message}
-              InputProps={{ disableUnderline: true }}
             />
-            <input className='contact-submit' type='submit' />
+            <button className='contact-submit' onClick={onSubmit}>
+              送信
+            </button>
           </form>
         </Grid>
       </Grid>
@@ -117,7 +133,3 @@ const Contact: React.FC = () => {
   )
 }
 export default Contact
-
-function setTitle(value: string) {
-  throw new Error('Function not implemented.')
-}

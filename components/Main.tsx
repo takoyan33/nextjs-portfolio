@@ -15,8 +15,8 @@ import WaveBgBottom from './Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import { todoState } from '../atoms/todoState'
-import { API_URL } from '../utils/data'
-//import { portfolioState } from '../atoms/portfolioState'
+
+// import { portfolioState } from '../atoms/portfolioState'
 // import { RecoilEnv } from 'recoil'
 // RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false
 
@@ -38,6 +38,7 @@ export default function Main() {
   const [otherSkills, setOtherSkills] = useState(null)
 
   // const data = useRecoilValue(portfolioState)
+  // console.log(data)
   const fetchPortfolios = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
     const data = await response.json()
