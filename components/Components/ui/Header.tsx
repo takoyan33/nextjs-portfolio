@@ -11,15 +11,15 @@ export default function Header() {
   const MENU_ITEMS = [
     {
       title: 'About',
-      link: 'About',
+      link: 'about',
     },
     {
       title: 'ポートフォリオ',
-      link: 'Portfolio',
+      link: 'portfolio',
     },
     {
       title: 'ブログ',
-      link: 'Blog',
+      link: 'blog',
     },
   ]
   return (

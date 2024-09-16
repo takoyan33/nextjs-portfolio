@@ -2,32 +2,30 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function ZennArticleItem({
-  portfolio_id,
-  portfolio_name,
-  portfolio_date,
-  portfolio_tag,
-  portfolio_topImg,
+  zenn_id,
+  zenn_title,
+  zenn_published_at,
+  zenn_article_type,
+  zenn_emoji,
+  zenn_path,
 }) {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0') // 月は0ベースなので+1
+    const day = String(date.getDate()).padStart(2, '0')
+
+    return `${year}-${month}-${day}`
+  }
   return (
-    <div className='flx_el'>
-      <Link href={`portfolios/${portfolio_id}`}>
-        <div className='portfolio__img'>
-          <Image
-            src={portfolio_topImg}
-            alt='ポートフォリオ画像'
-            fill
-            sizes='(min-width: 768px) 50vw, 100vw'
-          />
+    <div className='flx_el' key={zenn_id}>
+      <Link href={`https://zenn.dev${zenn_path}`} target='_blank'>
+        <div className='zenn__emoji'>{zenn_emoji}</div>
+        <div className='zenn__flex'>
+          <p className='zenn__date'>{formatDate(zenn_published_at)}</p>
+          <li className='zenn__tag'>{zenn_article_type}</li>
         </div>
-        <div className='portfolio__flex'>
-          <p className='portfolio__date'>{portfolio_date}</p>
-          {portfolio_tag.map((tag, index) => (
-            <li className='portfolio__tag' key={index}>
-              {tag}
-            </li>
-          ))}
-        </div>
-        <p className='portfolio__title'> {portfolio_name} </p>
+        <p className='zenn__title'> {zenn_title} </p>
       </Link>
     </div>
   )

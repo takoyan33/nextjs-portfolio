@@ -32,13 +32,11 @@ const Index: NextPage = () => {
 
   return (
     <div className='m-8 flex justify-center items-center flex-col'>
-      <div className='text-5xl'>Contact</div>
-
       <div className='md:m-10 md:w-3/4 w-11/12 '>
         <form onSubmit={onSubmit}>
           <div className='m-5'>
             <label htmlFor='name' className='block'>
-              name
+              名前
             </label>
             <input
               type='text'
@@ -51,7 +49,7 @@ const Index: NextPage = () => {
 
           <div className='m-5'>
             <label htmlFor='email' className='block'>
-              email
+              メールアドレス
             </label>
             <input
               type='text'
@@ -64,7 +62,7 @@ const Index: NextPage = () => {
 
           <div className='m-5'>
             <label htmlFor='message' className='block'>
-              message
+              メッセージ
             </label>
             <textarea
               id='message'

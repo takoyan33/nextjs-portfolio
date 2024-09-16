@@ -1,10 +1,10 @@
-import Header from '../components/Components/ui/Header'
-import Footer from '../components/Components/ui/Footer'
-import Timeline from '../components/Components/ui/Timeline'
-import Tabs from '../components/Components/ui/Tabs'
+import Header from '../../components/Components/ui/Header'
+import Footer from '../../components/Components/ui/Footer'
+import Timeline from '../../components/Components/ui/Timeline'
+import Tabs from '../../components/Components/ui/Tabs'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { API_URL } from '../utils/data'
+import { API_URL } from '../../utils/data'
 
 export default function About() {
   const [jobs, setJobs] = useState(null)

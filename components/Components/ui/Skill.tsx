@@ -37,6 +37,7 @@ export default function Skill({ name, rank, tag, icon, about }) {
                   src={icon}
                   alt='ポートフォリオ画像'
                   fill
+                  priority
                   className='modalBox__skill__svg'
                   sizes='(min-width: 768px) width: 100%'
                 />

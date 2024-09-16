@@ -1,9 +1,9 @@
-import Header from '../components/Components/ui/Header'
-import Footer from '../components/Components/ui/Footer'
-import PortfolioItem from '../components/Components/ui/PortfolioItem'
+import Header from '../../components/Components/ui/Header'
+import Footer from '../../components/Components/ui/Footer'
+import PortfolioItem from '../../components/Components/ui/PortfolioItem'
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react'
-import { API_URL } from '../utils/data'
+import { API_URL } from '../../utils/data'
 
 export default function Portfolio() {
   const [portfolios, setPortfolios] = useState(null)

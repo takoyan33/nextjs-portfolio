@@ -70,7 +70,7 @@
     "tag": ["React", "Ruby"],
     "topImg": "/images/portfolio_7.png",
     "front_github": "https://github.com/takoyan33/rails-react-app-front",
-    "back_github": "https://github.com/takoyan33/rails-react-app-front",
+    "back_github": "https://github.com/takoyan33/rails-react-app-backend",
     "color": "portfolio__tag--color5",
     "about": "<p>サークルのメンバー情報などを管理するアプリを作成</p>",
     "aboutImg": "/images/portfolio_7.png",
@@ -82,8 +82,8 @@
     "back_skill": ["Ruby on Rails"],
     "infra_skill": ["Vercel", "Render"],
     "time": "1ヶ月",
-    "front_url": "",
-    "back_url": ""
+    "front_url": "https://rails-react-app-front.vercel.app/",
+    "back_url": "https://rails-react-app-backend.onrender.com/"
   },
   {
     "id": 5,

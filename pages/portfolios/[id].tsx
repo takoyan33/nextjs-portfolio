@@ -17,7 +17,6 @@ const Post = () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
       const data = await response.json()
       const filteredPortfolio = data.portfolio.find((portfolio) => portfolio.id == id)
-      console.log(filteredPortfolio)
       await setPortfolios(filteredPortfolio)
     } catch (error) {
       console.error('Error fetching portfolios:', error)

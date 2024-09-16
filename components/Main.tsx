@@ -85,7 +85,6 @@ export default function Main() {
   }, [])
 
   const todos = useRecoilValue(todoState)
-  console.log(todos)
   return (
     <nav className='container'>
       {/* ここからfv */}
@@ -230,7 +229,7 @@ export default function Main() {
               />
             </div>
           </div>
-          <Link href='Portfolio' className='main__btn'>
+          <Link href='portfolio' className='main__btn'>
             more
           </Link>
         </div>
@@ -258,7 +257,7 @@ export default function Main() {
               ))}
           </dl>
         </div>
-        <Link href='About' className='main__btn'>
+        <Link href='about' className='main__btn'>
           more
         </Link>
       </div>
@@ -341,7 +340,7 @@ export default function Main() {
           </ScrollComponent>
           <p className='contact__text'>お問い合わせの方は、フォームを記入してください。</p>
           <ScrollComponent>
-            <Link href='Contact' className='main__btn__long padding-bottom'>
+            <Link href='contact' className='main__btn__long padding-bottom'>
               お問い合わせ
             </Link>
           </ScrollComponent>
