@@ -12,7 +12,7 @@ import ScrollComponent from './hooks/useFadeIn'
 import Link from 'next/link'
 import WaveBgTop from './Components/ui/WaveBgTop'
 import WaveBgBottom from './Components/ui/WaveBgBottom'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import { todoState } from '../atoms/todoState'
 
@@ -339,15 +339,9 @@ export default function Main() {
               Contact
             </h2>
           </ScrollComponent>
-          <p className='contact__text'>
-            お問い合わせの方は、下記のメールアドレスからお願いします。
-          </p>
+          <p className='contact__text'>お問い合わせの方は、フォームを記入してください。</p>
           <ScrollComponent>
-            <Link
-              href='mailto:harrier2070%40gmail.com'
-              target='_blank'
-              className='main__btn__long padding-bottom'
-            >
+            <Link href='Contact' className='main__btn__long padding-bottom'>
               お問い合わせ
             </Link>
           </ScrollComponent>

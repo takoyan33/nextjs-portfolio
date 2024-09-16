@@ -16,6 +16,10 @@ export default function Footer() {
       title: 'ブログ',
       link: 'Blog',
     },
+    {
+      title: 'お問い合わせ',
+      link: 'Contact',
+    },
   ]
   return (
     <div className='container'>

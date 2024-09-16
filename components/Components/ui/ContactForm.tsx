@@ -1,135 +1,89 @@
-import React, { useState } from 'react'
-import TextField from '@mui/material/TextField'
-// import { Grid, TextField } from "@material-ui/core";
-import Grid from '@mui/material/Grid'
-import { init, sendForm, send } from 'emailjs-com'
-import emailJs from 'emailjs-com'
-import { title } from 'process'
+import { ChangeEvent, useState } from 'react'
+import type { NextPage } from 'next'
+import { emailjsConfig } from '../../../utils/Emailjs'
+import { send } from 'emailjs-com'
 
-const Contact: React.FC = () => {
-  const [name, setName] = useState('')
-  const [mail, setMail] = useState('')
-  const [title, setTitle] = useState('')
-  const [message, setMessage] = useState('')
+const Index: NextPage = () => {
+  const [name, setName] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [message, setMessage] = useState<string>('')
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault() // ページのリロードを防ぐ
-    const user_id = process.env.REACT_APP_USER_ID
-    const service_id = process.env.REACT_APP_SERVICE_ID
-    const template_id = process.env.REACT_APP_TEMPLATE_ID
-    if (user_id != undefined && service_id != undefined && template_id != undefined) {
-      init(user_id)
-
+  const sendMail = () => {
+    if (emailjsConfig.serviceId !== undefined && emailjsConfig.templateId !== undefined) {
       const template_param = {
         to_name: name,
-        email: mail,
+        from_email: email,
         message: message,
       }
 
-      send(service_id, template_id, template_param).then(() => {
-        console.log('success to send email')
+      send(emailjsConfig.serviceId, emailjsConfig.templateId, template_param).then(() => {
+        window.alert('お問い合わせを送信致しました。')
+        setName('')
+        setEmail('')
+        setMessage('')
       })
     }
   }
-  const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value)
+
+  const onSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    sendMail()
   }
-  const onChangeMail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMail(e.target.value)
-  }
-  const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value)
-  }
-  const onChangeMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMessage(e.target.value)
-  }
-
-  // const onSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault() // ページのリロードを防ぐ
-  //   const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID
-  //   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-  //   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-  //   //emailjsを初期化する
-
-  //   console.log(userId)
-  //   if (userId && serviceId && templateId) {
-  //     init(userId)
-
-  //     console.log(userId)
-  //     console.log(templateId)
-  //     console.log(serviceId)
-
-  //     const params = {
-  //       name: name,
-  //       email: mail,
-  //       content: message,
-  //     }
-
-  //     emailJs
-  //       .send(serviceId ?? '', templateId ?? '', params, userId)
-  //       .then((res) => {
-  //         console.log(res)
-  //         alert('送信完了しました')
-  //       })
-  //       .catch((err) => {
-  //         console.log(err)
-  //         alert('送信に失敗しました')
-  //       })
-  //   }
-  // }
 
   return (
-    <div className='contact-page max_width container'>
-      <Grid>
-        <Grid item xs={8}>
-          <h2 className='contact-top'>Contact</h2>
-          <form onSubmit={onSubmit}>
-            <TextField
-              className='contact-name'
+    <div className='m-8 flex justify-center items-center flex-col'>
+      <div className='text-5xl'>Contact</div>
+
+      <div className='md:m-10 md:w-3/4 w-11/12 '>
+        <form onSubmit={onSubmit}>
+          <div className='m-5'>
+            <label htmlFor='name' className='block'>
+              name
+            </label>
+            <input
               type='text'
-              required
-              label='氏名(必須)'
-              fullWidth
-              margin='normal'
-              onChange={onChangeName}
+              id='name'
+              className='border-solid border border-black rounded w-full p-2'
               value={name}
+              onChange={(e) => setName(e.target.value)}
             />
-            <TextField
-              className='contact-mail'
+          </div>
+
+          <div className='m-5'>
+            <label htmlFor='email' className='block'>
+              email
+            </label>
+            <input
               type='text'
-              required
-              label='メールアドレス(必須)'
-              fullWidth
-              margin='normal'
-              onChange={onChangeMail}
-              value={mail}
+              id='email'
+              className='border-solid border border-black rounded w-full p-2'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <TextField
-              className='contact-title'
-              type='text'
-              label='件名'
-              fullWidth
-              margin='normal'
-              onChange={onChangeTitle}
-              value={title}
-            />
-            <TextField
-              className='contact-message'
-              type='text'
-              required
-              label='お問い合わせ内容(必須)'
-              fullWidth
-              margin='normal'
-              onChange={onChangeMessage}
+          </div>
+
+          <div className='m-5'>
+            <label htmlFor='message' className='block'>
+              message
+            </label>
+            <textarea
+              id='message'
+              className='border-solid border border-black rounded w-full p-2'
+              rows={5}
               value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
-            <button className='contact-submit' onClick={onSubmit}>
+          </div>
+
+          <div className='text-center'>
+            <button className='border-solid border rounded p-2 bg-green-500 text-white text-xl hover:opacity-70'>
               送信
             </button>
-          </form>
-        </Grid>
-      </Grid>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
-export default Contact
+
+export default Index

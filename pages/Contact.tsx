@@ -11,9 +11,9 @@ export default function Contact() {
       </Head>
       <Header />
 
-      <h1>Contact</h1>
-
-      <ContactForm />
+      <div className='contact max_width'>
+        <ContactForm />
+      </div>
 
       <Footer />
     </>
