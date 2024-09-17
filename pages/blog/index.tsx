@@ -1,22 +1,8 @@
 import Header from '../../components/Components/ui/Header'
 import Footer from '../../components/Components/ui/Footer'
-import PortfolioItem from '../../components/Components/ui/PortfolioItem'
 import ZennArticleItem from '../../components/Components/ui/ZennArticleItem'
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react'
-import { API_URL } from '../../utils/data'
-
-// zenn
-export async function getServerSideProps() {
-  const res = await fetch('https://zenn.dev/api/articles?username=643866')
-  const zennArticles = await res.json()
-
-  return {
-    props: {
-      zennArticles,
-    },
-  }
-}
 
 export default function Blog({ zennArticles }) {
   const [qiitaArticles, setQiitaArticles] = useState(null)
@@ -79,4 +65,16 @@ export default function Blog({ zennArticles }) {
       <Footer />
     </>
   )
+}
+
+// zenn
+export async function getServerSideProps() {
+  const res = await fetch('https://zenn.dev/api/articles?username=643866')
+  const zennArticles = await res.json()
+
+  return {
+    props: {
+      zennArticles,
+    },
+  }
 }

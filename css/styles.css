@@ -313,7 +313,8 @@ a :hover {
   overflow: hidden;
   height: 40px;
 }
-.content__container:after, .content__container:before {
+.content__container:after,
+.content__container:before {
   position: absolute;
   top: 0;
   color: #ffffff;
@@ -350,7 +351,8 @@ a :hover {
 }
 
 @-webkit-keyframes opacity {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
@@ -358,27 +360,35 @@ a :hover {
   }
 }
 @-webkit-keyframes change {
-  0%, 12.66%, 100% {
+  0%,
+  12.66%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
-  16.66%, 29.32% {
+  16.66%,
+  29.32% {
     transform: translate3d(0, -25%, 0);
   }
-  33.32%, 45.98% {
+  33.32%,
+  45.98% {
     transform: translate3d(0, -50%, 0);
   }
-  49.98%, 62.64% {
+  49.98%,
+  62.64% {
     transform: translate3d(0, -75%, 0);
   }
-  66.64%, 79.3% {
+  66.64%,
+  79.3% {
     transform: translate3d(0, -50%, 0);
   }
-  83.3%, 95.96% {
+  83.3%,
+  95.96% {
     transform: translate3d(0, -25%, 0);
   }
 }
 @keyframes opacity {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
@@ -386,22 +396,29 @@ a :hover {
   }
 }
 @keyframes change {
-  0%, 12.66%, 100% {
+  0%,
+  12.66%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
-  16.66%, 29.32% {
+  16.66%,
+  29.32% {
     transform: translate3d(0, -25%, 0);
   }
-  33.32%, 45.98% {
+  33.32%,
+  45.98% {
     transform: translate3d(0, -50%, 0);
   }
-  49.98%, 62.64% {
+  49.98%,
+  62.64% {
     transform: translate3d(0, -75%, 0);
   }
-  66.64%, 79.3% {
+  66.64%,
+  79.3% {
     transform: translate3d(0, -50%, 0);
   }
-  83.3%, 95.96% {
+  83.3%,
+  95.96% {
     transform: translate3d(0, -25%, 0);
   }
 }
@@ -496,7 +513,9 @@ header nav {
   width: 100%;
   height: 0.125rem;
   background-color: black;
-  transition: transform 0.5s, opacity 0.5s;
+  transition:
+    transform 0.5s,
+    opacity 0.5s;
 }
 
 .hamburger-btn__parts.-top {
@@ -609,7 +628,7 @@ li {
 .title-border-right ::after {
   flex-grow: 1;
   margin-left: 1rem;
-  content: "";
+  content: '';
   border-top: 1px solid;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -724,7 +743,7 @@ li {
   margin-inline: auto;
   height: 150px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .zenn {
@@ -807,7 +826,7 @@ footer li {
   width: 400px;
   height: 300px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .about_snsLogo {
   width: 30px;
@@ -870,7 +889,7 @@ dl dt::after {
   right: -0.55em;
   font-size: 22px;
   color: #6499ff;
-  content: "●";
+  content: '●';
 }
 dl dd {
   width: calc(100% - 8.5em);
@@ -928,7 +947,7 @@ dl dd h2 {
   width: 100%;
   height: 300px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   border: 1px solid gray;
 }
 .modalBox__element__link {
@@ -966,7 +985,7 @@ dl dd h2 {
   height: 500px;
   margin-inline: auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .portfolioDetail__element__img {
   position: relative;
@@ -974,7 +993,7 @@ dl dd h2 {
   height: 400px;
   margin-inline: auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .portfolioDetail__element__title {
   text-align: left;
@@ -1148,7 +1167,7 @@ dl dd h2 {
     width: 100%;
     height: 200px;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     border: 1px solid gray;
   }
   .modalBox__element__text {
@@ -1184,7 +1203,7 @@ dl dd h2 {
     height: 300px;
     margin-inline: auto;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .portfolioDetail__element__img {
     position: relative;
@@ -1192,7 +1211,7 @@ dl dd h2 {
     height: 300px;
     margin-inline: auto;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
   .portfolioDetail__element__title {
     text-align: left;
@@ -1269,7 +1288,7 @@ dl dd h2 {
     margin-inline: auto;
     height: 130px;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }
 .loader {
@@ -1336,7 +1355,9 @@ dl dd h2 {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
 }
 
 .is-visible {
@@ -1367,10 +1388,10 @@ dl dd h2 {
 }
 .slide__in__right {
   -webkit-animation-name: slide__in__right;
-          animation-name: slide__in__right;
+  animation-name: slide__in__right;
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
 }
 /*# sourceMappingURL=styles.css.map */

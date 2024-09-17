@@ -1,39 +1,9 @@
 import Header from '../../components/Components/ui/Header'
 import Footer from '../../components/Components/ui/Footer'
 import Timeline from '../../components/Components/ui/Timeline'
-import Tabs from '../../components/Components/ui/Tabs'
-import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { API_URL } from '../../utils/data'
 
-export default function About() {
-  const [jobs, setJobs] = useState(null)
-  const [histories, setHistories] = useState(null)
-  const [licenses, setLicenses] = useState(null)
-
-  const fetchHistory = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
-    const data = await response.json()
-    await setHistories(data)
-  }
-
-  const fetchJob = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
-    const data = await response.json()
-    await setJobs(data)
-  }
-
-  const fetchLicenses = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
-    const data = await response.json()
-    await setLicenses(data)
-  }
-
-  useEffect(() => {
-    fetchHistory()
-    fetchJob()
-    fetchLicenses()
-  }, [])
+export default function About({ jobs, histories, licenses }) {
   return (
     <>
       <Head>
@@ -51,7 +21,6 @@ export default function About() {
                 <h2 className='main__title' data-ja='過去の経歴'>
                   History
                 </h2>
-                {/* <Tabs tabs={['Tab1', 'Tab2', 'Tab3']} /> */}
               </div>
               <dl>
                 {histories &&
@@ -112,4 +81,28 @@ export default function About() {
       <Footer />
     </>
   )
+}
+
+// サーバーサイドでデータを取得する
+export async function getStaticProps() {
+  // 履歴データの取得
+  const historyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
+  const histories = await historyRes.json()
+
+  // 職歴データの取得
+  const jobRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
+  const jobs = await jobRes.json()
+
+  // 資格データの取得
+  const licenseRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
+  const licenses = await licenseRes.json()
+
+  return {
+    props: {
+      jobs, // 職歴データ
+      histories, // 学歴データ
+      licenses, // 資格データ
+    },
+    revalidate: 60, // 60秒ごとに再生成
+  }
 }
