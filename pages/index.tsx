@@ -205,7 +205,7 @@ export default function Home({
                 />
               </div>
             </div>
-            <Link href='portfolio' className='main__btn'>
+            <Link href='/portfolio' className='main__btn'>
               more
             </Link>
           </div>
@@ -233,7 +233,7 @@ export default function Home({
                 ))}
             </dl>
           </div>
-          <Link href='about' className='main__btn'>
+          <Link href='/about' className='main__btn'>
             more
           </Link>
         </div>
@@ -316,7 +316,7 @@ export default function Home({
             </ScrollComponent>
             <p className='contact__text'>お問い合わせの方は、フォームを記入してください。</p>
             <ScrollComponent>
-              <Link href='contact' className='main__btn__long padding-bottom'>
+              <Link href='/contact' className='main__btn__long padding-bottom'>
                 お問い合わせ
               </Link>
             </ScrollComponent>

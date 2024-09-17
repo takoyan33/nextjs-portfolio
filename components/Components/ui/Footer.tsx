@@ -6,19 +6,19 @@ export default function Footer() {
   const MENU_ITEMS = [
     {
       title: 'About',
-      link: 'about',
+      link: '/about',
     },
     {
       title: 'ポートフォリオ',
-      link: 'portfolio',
+      link: '/portfolio',
     },
     {
       title: 'ブログ',
-      link: 'blog',
+      link: '/blog',
     },
     {
       title: 'お問い合わせ',
-      link: 'contact',
+      link: '/contact',
     },
   ]
   return (
