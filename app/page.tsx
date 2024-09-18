@@ -1,9 +1,7 @@
+'use client'
 import Head from 'next/head'
-import Footer from '../components/Components/ui/Footer'
-import Header from '../components/Components/ui/Header'
 import Script from 'next/script'
 import Image from 'next/image'
-// import MoonLoader from 'react-spinners/MoonLoader'
 import Portfolio from '../components/Components/ui/PortfolioItem'
 import Skill from '../components/Components/ui/Skill'
 import Timeline from '../components/Components/ui/Timeline'
@@ -17,18 +15,12 @@ import ScrollComponent from '../components/hooks/useFadeIn'
 import Link from 'next/link'
 import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
+import { PortfolioProps, historyProps, skillProps } from '../utils/type'
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
 
-export default function Home({
-  portfolios,
-  histories,
-  frontSkills,
-  backSkills,
-  infraSkills,
-  otherSkills,
-}) {
+export default function Home() {
   const breakpoints = {
     0: {
       slidesPerView: 1.5,
@@ -37,6 +29,63 @@ export default function Home({
       slidesPerView: 3.5,
     },
   }
+
+  const [portfolios, setPortfolios] = useState<PortfolioProps>()
+  const [histories, setHistories] = useState<historyProps>()
+  const [frontSkills, setFrontSkills] = useState<skillProps>()
+  const [backSkills, setBackSkills] = useState<skillProps>()
+  const [infraSkills, setInfraSkills] = useState<skillProps>()
+  const [otherSkills, setOtherSkills] = useState<skillProps>()
+
+  // const data = useRecoilValue(portfolioState)
+  // console.log(data)
+  const fetchPortfolios = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
+    const data = await response.json()
+    await setPortfolios(data)
+  }
+
+  const fetchHistory = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
+    const data = await response.json()
+    await setHistories(data)
+  }
+
+  const fetchFrontSkills = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/front`)
+    const data = await response.json()
+    await setFrontSkills(data)
+  }
+
+  const fetchBackSkills = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/back`)
+    const data = await response.json()
+    await setBackSkills(data)
+  }
+
+  const fetchInfraSkills = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/infra`)
+    const data = await response.json()
+    await setInfraSkills(data)
+  }
+
+  const fetchOtherSkills = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/other`)
+    const data = await response.json()
+    await setOtherSkills(data)
+  }
+  useEffect(() => {
+    fetchPortfolios()
+    //setPortfolios(data)
+    fetchHistory()
+    fetchFrontSkills()
+    fetchBackSkills()
+    fetchInfraSkills()
+    fetchOtherSkills()
+  }, [])
+
+  // const todos = useRecoilValue(todoState)
+  // console.log(todos)
 
   const [showBackButton, setShowBackButton] = useState(false)
   const handleScroll = () => {
@@ -60,7 +109,6 @@ export default function Home({
         <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
         <meta name='google' content='notranslate' key='notranslate' />
       </Head>
-      <Header />
       {/* <MoonLoader /> */}
       <nav className='container'>
         {/* ここからfv */}
@@ -333,42 +381,6 @@ export default function Home({
           <Image src='/images/top-arrow.svg' height={30} width={30} alt='arrow' />
         </button>
       )}
-      <Footer />
     </div>
   )
-}
-
-// サーバーサイドでデータを取得
-export async function getStaticProps() {
-  // APIエンドポイントからデータを取得
-  const portfolioRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
-  const portfolios = await portfolioRes.json()
-
-  const historyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
-  const histories = await historyRes.json()
-
-  const frontSkillsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/front`)
-  const frontSkills = await frontSkillsRes.json()
-
-  const backSkillsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/back`)
-  const backSkills = await backSkillsRes.json()
-
-  const infraSkillsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/infra`)
-  const infraSkills = await infraSkillsRes.json()
-
-  const otherSkillsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/other`)
-  const otherSkills = await otherSkillsRes.json()
-
-  // 取得したデータを`props`として返す
-  return {
-    props: {
-      portfolios,
-      histories,
-      frontSkills,
-      backSkills,
-      infraSkills,
-      otherSkills,
-    },
-    revalidate: 60, // 60秒ごとに再生成
-  }
 }

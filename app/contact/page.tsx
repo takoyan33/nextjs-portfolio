@@ -1,7 +1,7 @@
-import Header from '../../components/Components/ui/Header'
-import Footer from '../../components/Components/ui/Footer'
+'use client'
 import ContactForm from '../../components/Components/ui/ContactForm'
 import Head from 'next/head'
+import React from 'react'
 
 export default function Contact() {
   return (
@@ -9,7 +9,6 @@ export default function Contact() {
       <Head>
         <title>To You Design - Contact</title>
       </Head>
-      <Header />
 
       <div className='contact max_width'>
         <h2 className='main__title' data-ja='contact'>
@@ -17,8 +16,6 @@ export default function Contact() {
         </h2>
         <ContactForm />
       </div>
-
-      <Footer />
     </>
   )
 }

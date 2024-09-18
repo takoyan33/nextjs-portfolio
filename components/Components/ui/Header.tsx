@@ -1,3 +1,4 @@
+'use client'
 import styles from '../../index.module.scss'
 import Link from 'next/link'
 import React, { useState } from 'react'

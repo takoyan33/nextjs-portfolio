@@ -1,11 +1,17 @@
-import Header from '../../components/Components/ui/Header'
-import Footer from '../../components/Components/ui/Footer'
+'use client'
 import ZennArticleItem from '../../components/Components/ui/ZennArticleItem'
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react'
 
-export default function Blog({ zennArticles }) {
+export default function Blog() {
+  const [zennArticles, setZennArticles] = useState(null)
   const [qiitaArticles, setQiitaArticles] = useState(null)
+  // zenn
+  // const fetchZenn = async () => {
+  //   const response = await fetch('https://zenn.dev/api/articles?username=643866')
+  //   const data = await response.json()
+  //   await setZennArticles(data)
+  // }
 
   // qiita
   const fetchQiita = async () => {
@@ -15,8 +21,8 @@ export default function Blog({ zennArticles }) {
   }
 
   useEffect(() => {
-    //fetchZenn()
-    //fetchQiita()
+    // fetchZenn()
+    fetchQiita()
   }, [])
 
   return (
@@ -24,7 +30,6 @@ export default function Blog({ zennArticles }) {
       <Head>
         <title>To You Design - Blog</title>
       </Head>
-      <Header />
       <div className=''>
         <div className='max_width'>
           <h2 className='main__title' data-ja='ブログ'>
@@ -32,7 +37,7 @@ export default function Blog({ zennArticles }) {
           </h2>
           <h2>Zenn</h2>
           <div className='flx padding'>
-            {zennArticles &&
+            {/* {zennArticles &&
               zennArticles.articles.map((articles, index) => (
                 <ZennArticleItem
                   key={index}
@@ -43,7 +48,7 @@ export default function Blog({ zennArticles }) {
                   zenn_emoji={articles.emoji}
                   zenn_path={articles.path}
                 />
-              ))}
+              ))} */}
           </div>
           {/* <h2>Qiita</h2>
           <div className='flx padding'>
@@ -61,20 +66,6 @@ export default function Blog({ zennArticles }) {
           </div> */}
         </div>
       </div>
-
-      <Footer />
     </>
   )
-}
-
-// zenn
-export async function getServerSideProps() {
-  const res = await fetch('https://zenn.dev/api/articles?username=643866')
-  const zennArticles = await res.json()
-
-  return {
-    props: {
-      zennArticles,
-    },
-  }
 }

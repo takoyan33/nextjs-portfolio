@@ -1,16 +1,16 @@
-import Header from '../../components/Components/ui/Header'
-import Footer from '../../components/Components/ui/Footer'
+'use client'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Portfolio } from '../../../utils/type'
 
 const Post = () => {
-  const router = useRouter()
-  const { id } = router.query
+  const params = useParams()
+  const id: any | null = params?.id ?? params?.id
 
-  const [portfolios, setPortfolios] = useState(null)
+  const [portfolios, setPortfolios] = useState<Portfolio>()
 
   const fetchPortfolios = async (id) => {
     try {
@@ -34,7 +34,6 @@ const Post = () => {
       <Head>
         <title>To You Design - ポートフォリオ</title>
       </Head>
-      <Header />
       {portfolios ? (
         <nav className='container max_width'>
           <div style={{ textAlign: 'center', padding: 50 }}>
@@ -206,7 +205,6 @@ const Post = () => {
       ) : (
         <p>Loading...</p>
       )}
-      <Footer />
     </>
   )
 }

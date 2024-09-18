@@ -1,5 +1,4 @@
 import '../styles/styles.css'
-// import '../styles/global.css'
 import React from 'react'
 import { RecoilRoot } from 'recoil'
 
