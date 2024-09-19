@@ -1,4 +1,12 @@
 import React from 'react'
-export default function Loading() {
-  return <div className='flex justify-center items-center h-screen font-bold'>ローディング中</div>
+import { MoonLoader } from 'react-spinners'
+
+const Loading = () => {
+  return (
+    <div className='loading'>
+      <MoonLoader size={150} color='#fff' />
+    </div>
+  )
 }
+
+export default Loading

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PATH } from '../../../utils/path'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -6,19 +7,19 @@ export default function Footer() {
   const MENU_ITEMS = [
     {
       title: 'About',
-      link: '/about',
+      link: PATH.ABOUT,
     },
     {
       title: 'ポートフォリオ',
-      link: '/portfolio',
+      link: PATH.PORTFOLIO,
     },
     {
       title: 'ブログ',
-      link: '/blog',
+      link: PATH.BLOG,
     },
     {
       title: 'お問い合わせ',
-      link: '/contact',
+      link: PATH.CONTACT,
     },
   ]
   return (

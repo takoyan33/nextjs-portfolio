@@ -17,6 +17,8 @@ import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
 import { PortfolioProps, historyProps, skillProps } from '../utils/type'
+import { PATH } from '../utils/path'
+
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
 
@@ -253,7 +255,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <Link href='/portfolio' className='main__btn'>
+            <Link href={PATH.PORTFOLIO} className='main__btn'>
               more
             </Link>
           </div>
@@ -281,7 +283,7 @@ export default function Home() {
                 ))}
             </dl>
           </div>
-          <Link href='/about' className='main__btn'>
+          <Link href={PATH.ABOUT} className='main__btn'>
             more
           </Link>
         </div>
@@ -364,7 +366,7 @@ export default function Home() {
             </ScrollComponent>
             <p className='contact__text'>お問い合わせの方は、フォームを記入してください。</p>
             <ScrollComponent>
-              <Link href='/contact' className='main__btn__long padding-bottom'>
+              <Link href={PATH.CONTACT} className='main__btn__long padding-bottom'>
                 お問い合わせ
               </Link>
             </ScrollComponent>

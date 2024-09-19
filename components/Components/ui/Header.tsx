@@ -2,6 +2,7 @@
 import styles from '../../index.module.scss'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { PATH } from '../../../utils/path'
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
@@ -12,15 +13,15 @@ export default function Header() {
   const MENU_ITEMS = [
     {
       title: 'About',
-      link: '/about',
+      link: PATH.ABOUT,
     },
     {
       title: 'ポートフォリオ',
-      link: '/portfolio',
+      link: PATH.PORTFOLIO,
     },
     {
       title: 'ブログ',
-      link: '/blog',
+      link: PATH.BLOG,
     },
   ]
   return (

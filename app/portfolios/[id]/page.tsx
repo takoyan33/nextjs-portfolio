@@ -8,7 +8,7 @@ import { Portfolio } from '../../../utils/type'
 
 const Post = () => {
   const params = useParams()
-  const id: any | null = params?.id ?? params?.id
+  const id: any | null = params?.id
 
   const [portfolios, setPortfolios] = useState<Portfolio>()
 
