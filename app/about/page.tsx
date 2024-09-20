@@ -1,37 +1,31 @@
 'use client'
 import Timeline from '../../components/Components/ui/Timeline'
 import Head from 'next/head'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { licenseProps, jobProps, historyProps } from '../../utils/type'
 
-export default function About() {
-  const [jobs, setJobs] = useState<jobProps>()
-  const [histories, setHistories] = useState<historyProps>()
-  const [licenses, setLicenses] = useState<licenseProps>()
+const fetchHistory = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
+  const data = await response.json()
+  return data
+}
 
-  const fetchHistory = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
-    const data = await response.json()
-    await setHistories(data)
-  }
+const fetchJob = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
+  const data = await response.json()
+  return data
+}
 
-  const fetchJob = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
-    const data = await response.json()
-    await setJobs(data)
-  }
+const fetchLicenses = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
+  const data = await response.json()
+  return data
+}
+export default async function About() {
+  const jobs = await fetchJob()
+  const histories = await fetchHistory()
+  const licenses = await fetchLicenses()
 
-  const fetchLicenses = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
-    const data = await response.json()
-    await setLicenses(data)
-  }
-
-  useEffect(() => {
-    fetchHistory()
-    fetchJob()
-    fetchLicenses()
-  }, [])
   return (
     <>
       <Head>

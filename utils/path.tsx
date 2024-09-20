@@ -3,5 +3,5 @@ export const PATH = {
   ABOUT: '/about',
   PORTFOLIO: '/portfolio',
   BLOG: '/blog',
-  CONTACT: '/',
+  CONTACT: '/contact',
 } as const

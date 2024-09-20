@@ -1,21 +1,18 @@
 'use client'
 import PortfolioItem from '../../components/Components/ui/PortfolioItem'
 import Head from 'next/head'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { PortfolioProps } from '../../utils/type'
 
-export default function Portfolio() {
-  const [portfolios, setPortfolios] = useState<PortfolioProps>()
-  const fetchPortfolios = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
-    const data = await response.json()
-    await setPortfolios(data)
-  }
+const fetchPortfolios = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
+  const data = await response.json()
+  return data
+}
 
-  console.log(portfolios)
-  useEffect(() => {
-    fetchPortfolios()
-  }, [])
+export default async function Portfolio() {
+  const portfolios = await fetchPortfolios()
+
   return (
     <>
       <Head>
