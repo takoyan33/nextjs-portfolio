@@ -3,12 +3,7 @@ import PortfolioItem from '../../components/Components/ui/PortfolioItem'
 import Head from 'next/head'
 import React from 'react'
 import { PortfolioProps } from '../../utils/type'
-
-const fetchPortfolios = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
-  const data = await response.json()
-  return data
-}
+import { fetchPortfolios } from '../../hooks/fetch'
 
 export default async function Portfolio() {
   const portfolios = await fetchPortfolios()

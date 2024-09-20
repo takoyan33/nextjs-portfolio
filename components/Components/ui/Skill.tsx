@@ -1,5 +1,5 @@
 import usePortfolioModal from '../parts/usePortfolioModal'
-import ScrollComponent from '../../hooks/useFadeIn'
+import ScrollComponent from '../../../hooks/useFadeIn'
 import Image from 'next/image'
 
 export default function Skill({ name, rank, tag, icon, about }) {

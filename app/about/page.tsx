@@ -3,24 +3,8 @@ import Timeline from '../../components/Components/ui/Timeline'
 import Head from 'next/head'
 import React from 'react'
 import { licenseProps, jobProps, historyProps } from '../../utils/type'
+import { fetchHistory, fetchJob, fetchLicenses } from '../../hooks/fetch'
 
-const fetchHistory = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
-  const data = await response.json()
-  return data
-}
-
-const fetchJob = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
-  const data = await response.json()
-  return data
-}
-
-const fetchLicenses = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
-  const data = await response.json()
-  return data
-}
 export default async function About() {
   const jobs = await fetchJob()
   const histories = await fetchHistory()

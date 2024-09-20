@@ -11,7 +11,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import ScrollComponent from '../components/hooks/useFadeIn'
+import ScrollComponent from '../hooks/useFadeIn'
 import Link from 'next/link'
 import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
@@ -31,6 +31,13 @@ export default function Home() {
       slidesPerView: 3.5,
     },
   }
+
+  // const portfolios = await fetchPortfolios()
+  // const histories = await fetchHistory()
+  // const frontSkills = await fetchFrontSkills()
+  // const backSkills = await fetchBackSkills()
+  // const infraSkills = await fetchInfraSkills()
+  // const otherSkills = await fetchOtherSkills()
 
   const [portfolios, setPortfolios] = useState<PortfolioProps>()
   const [histories, setHistories] = useState<historyProps>()
@@ -98,6 +105,30 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const socialLinks = [
+    {
+      href: 'https://github.com/takoyan33',
+      src: '/images/github-logo.png',
+      alt: 'GitHub',
+      height: 30,
+      width: 30,
+    },
+    {
+      href: 'https://qiita.com/harrier2070',
+      src: '/images/qiita-logo.png',
+      alt: 'Qiita',
+      height: 30,
+      width: 30,
+    },
+    {
+      href: 'https://zenn.dev/643866',
+      src: '/images/logo-only.svg',
+      alt: 'Zenn',
+      height: 30,
+      width: 30,
+    },
+  ]
   return (
     <div className='container'>
       <Head>
@@ -163,35 +194,17 @@ export default function Home() {
                 <div className='flx_el'>
                   <h4 className='about__title'>阿部 舜平</h4>
                   <div className='about__flx'>
-                    <Link href='https://github.com/takoyan33' target='_blank'>
-                      <Image
-                        src='/images/github-logo.png'
-                        className='about_snsLogo'
-                        alt='sns'
-                        height={30}
-                        width={30}
-                      />
-                    </Link>
-
-                    <Link href='https://qiita.com/harrier2070' target='_blank'>
-                      <Image
-                        src='/images/qiita-logo.png'
-                        className='about_snsLogo'
-                        alt='sns'
-                        height={30}
-                        width={30}
-                      />
-                    </Link>
-
-                    <Link href='https://zenn.dev/643866 ' target='_blank'>
-                      <Image
-                        src='/images/logo-only.svg'
-                        className='about_snsLogo'
-                        alt='sns'
-                        height={30}
-                        width={30}
-                      />
-                    </Link>
+                    {socialLinks.map((link) => (
+                      <Link key={link.href} href={link.href} target='_blank'>
+                        <Image
+                          src={link.src}
+                          className='about_snsLogo'
+                          alt={link.alt}
+                          height={link.height}
+                          width={link.width}
+                        />
+                      </Link>
+                    ))}
                   </div>
                   <p className='about__text'>
                     フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
