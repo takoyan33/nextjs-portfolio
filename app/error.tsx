@@ -1,10 +1,10 @@
 'use client'
 import React from 'react'
 
-// エラー時に表示する画面
 const Error = ({ error }) => {
   return (
-    <div>
+    <div className='max_width'>
+      <h2>Error</h2>
       <p>{error.message}</p>
     </div>
   )
