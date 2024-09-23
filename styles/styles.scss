@@ -1182,6 +1182,11 @@ dl {
   }
 }
 
+.bread__title {
+  text-align: left;
+  display: flex;
+}
+
 // ローディング
 .loader {
   position: relative;

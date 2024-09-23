@@ -33,4 +33,3 @@ export const FVSUBTITLE = [
     text: 'Hello world',
   },
 ]
-

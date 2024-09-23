@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Portfolio } from '../../../utils/type'
+import { PATH } from '../../../utils/path'
 
 const Post = () => {
   const params = useParams()
@@ -37,6 +38,10 @@ const Post = () => {
       {portfolios ? (
         <nav className='container max_width'>
           <div style={{ textAlign: 'center', padding: 50 }}>
+            <p className='bread__title'>
+              <Link href='/'>トップ</Link> ＞
+              <Link href={PATH.PORTFOLIO}>Portfolio ＞ {portfolios.name}</Link>
+            </p>
             <section className='portfolioDetail'>
               <div className='portfolioDetail__element__topImg'>
                 {portfolios.topImg && (

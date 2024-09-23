@@ -3,6 +3,8 @@ import Head from 'next/head'
 import React from 'react'
 import Header from '../../components/Components/ui/Header'
 import Footer from '../../components/Components/ui/Footer'
+import Link from 'next/link'
+import { PATH } from '../../utils/path'
 
 export async function getServerSideProps() {
   try {
@@ -40,8 +42,11 @@ export default function Blog({ zennArticles, error }) {
         <title>To You Design - Blog</title>
       </Head>
       <Header />
-      <div className=''>
+      <div>
         <div className='max_width'>
+          <p className='bread__title'>
+            <Link href='/'>トップ</Link> ＞ <Link href={PATH.BLOG}>ブログ</Link>
+          </p>
           <h2 className='main__title' data-ja='ブログ'>
             Blog
           </h2>

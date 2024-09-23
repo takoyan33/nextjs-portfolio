@@ -1265,6 +1265,11 @@ dl dd h2 {
        object-fit: cover;
   }
 }
+.bread__title {
+  text-align: left;
+  display: flex;
+}
+
 .loader {
   position: relative;
   margin: 60px auto;

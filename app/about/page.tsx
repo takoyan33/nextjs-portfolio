@@ -2,8 +2,10 @@
 import Timeline from '../../components/Components/ui/Timeline'
 import Head from 'next/head'
 import React from 'react'
+import Link from 'next/link'
 import { licenseProps, jobProps, historyProps } from '../../utils/type'
 import { fetchHistory, fetchJob, fetchLicenses } from '../../hooks/fetch'
+import { PATH } from '../../utils/path'
 
 export default async function About() {
   const jobs = await fetchJob()
@@ -21,24 +23,23 @@ export default async function About() {
         {/*ここから学歴*/}
         <div className='padding'>
           <div className='max_width'>
-            <div className='flx'>
-              <div className='flx_el'>
-                <h2 className='main__title' data-ja='過去の経歴'>
-                  History
-                </h2>
-              </div>
-              <dl>
-                {histories &&
-                  histories.history.map((history, index) => (
-                    <Timeline
-                      key={index}
-                      title={history.title}
-                      date={history.date}
-                      body={history.body}
-                    />
-                  ))}
-              </dl>
-            </div>
+            <p className='bread__title'>
+              <Link href='/'>トップ</Link> ＞ <Link href={PATH.ABOUT}>About</Link>
+            </p>
+            <h2 className='main__title' data-ja='過去の経歴'>
+              About
+            </h2>
+            <dl>
+              {histories &&
+                histories.history.map((history, index) => (
+                  <Timeline
+                    key={index}
+                    title={history.title}
+                    date={history.date}
+                    body={history.body}
+                  />
+                ))}
+            </dl>
           </div>
         </div>
 

@@ -4,6 +4,8 @@ import Head from 'next/head'
 import React from 'react'
 import { PortfolioProps } from '../../utils/type'
 import { fetchPortfolios } from '../../hooks/fetch'
+import Link from 'next/link'
+import { PATH } from '../../utils/path'
 
 export default async function Portfolio() {
   const portfolios = await fetchPortfolios()
@@ -16,6 +18,9 @@ export default async function Portfolio() {
 
       <div>
         <div className='max_width'>
+          <p className='bread__title'>
+            <Link href='/'>トップ</Link> ＞ <Link href={PATH.PORTFOLIO}>Portfolio</Link>
+          </p>
           <h2 className='main__title' data-ja='制作物'>
             Portfolio
           </h2>
