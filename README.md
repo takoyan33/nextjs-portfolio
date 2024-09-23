@@ -18,16 +18,30 @@ To You Design Portfolio
 
 - リンター：ESLint, Prettier, Stylelint, husky, lint-staged
 
+- テスト：Vitest, React Testing Library
+
 - サーバー：Vercel
 
 - ライブラリ：Swiper
  
-# Installation
- 
-```bash
-git clone https://github.com/takoyan33/nextjs-portfolio
-cd nextjs-portfolio
-npm run dev
+### ディレクトリ構成
+
+```
+.
+├── api             #APIの記載
+├── components      #コンポーネントの記載
+├── app
+│   ├── about      #Aboutページ
+│   ├── contact    #お問い合わせページ
+│   ├── portfolio  #ポートフォリオページ
+│   ├── portfolios #ポートフォリオ個別ページ
+│   ├── skills     #スキルページ
+├── public          #画像
+├── stories         #storybook
+├── styles          #cssの設定
+├── hooks           #カスタムフック
+├── utils           #共通関数
+├── types           #型定義
 ```
  
 # Author

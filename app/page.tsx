@@ -18,6 +18,7 @@ import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
 import { PortfolioProps, historyProps, skillProps } from '../utils/type'
 import { PATH } from '../utils/path'
+import { socialLinks, FVSUBTITLE } from '../utils/data'
 
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
@@ -106,29 +107,6 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const socialLinks = [
-    {
-      href: 'https://github.com/takoyan33',
-      src: '/images/github-logo.png',
-      alt: 'GitHub',
-      height: 30,
-      width: 30,
-    },
-    {
-      href: 'https://qiita.com/harrier2070',
-      src: '/images/qiita-logo.png',
-      alt: 'Qiita',
-      height: 30,
-      width: 30,
-    },
-    {
-      href: 'https://zenn.dev/643866',
-      src: '/images/logo-only.svg',
-      alt: 'Zenn',
-      height: 30,
-      width: 30,
-    },
-  ]
   return (
     <div className='container'>
       <Head>
@@ -152,9 +130,11 @@ export default function Home() {
               <div className='content__container'>
                 <ul className='content__container__list'>
                   <li className='content__container__list__item slide__in__right'>Portfolio</li>
-                  <li className='content__container__list__item'>Frontend</li>
-                  <li className='content__container__list__item'>Shumpei abe</li>
-                  <li className='content__container__list__item'>Hello world</li>
+                  {FVSUBTITLE.map((title, index) => (
+                    <li key={index} className='content__container__list__item'>
+                      {title.text}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
