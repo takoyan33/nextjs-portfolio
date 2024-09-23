@@ -31,55 +31,53 @@ const Index: NextPage = () => {
   }
 
   return (
-    <div className='m-8 flex justify-center items-center flex-col'>
-      <div className='md:m-10 md:w-3/4 w-11/12 '>
-        <form onSubmit={onSubmit}>
-          <div className='m-5'>
-            <label htmlFor='name' className='block'>
-              名前
-            </label>
-            <input
-              type='text'
-              id='name'
-              className='border-solid border border-black rounded w-full p-2'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
+    <div className='form'>
+      <form onSubmit={onSubmit}>
+        <div className='form-box'>
+          <label htmlFor='name' className='form-box-label'>
+            名前<span className='form-box-label-required'>必須</span>
+          </label>
+          <input
+            type='text'
+            id='name'
+            placeholder='山田 太郎'
+            className='form-box-textarea'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
 
-          <div className='m-5'>
-            <label htmlFor='email' className='block'>
-              メールアドレス
-            </label>
-            <input
-              type='text'
-              id='email'
-              className='border-solid border border-black rounded w-full p-2'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+        <div className='form-box'>
+          <label htmlFor='email' className='form-box-label'>
+            メールアドレス<span className='form-box-label-required'>必須</span>
+          </label>
+          <input
+            type='text'
+            id='email'
+            placeholder='sample@email.com'
+            className='form-box-textarea'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-          <div className='m-5'>
-            <label htmlFor='message' className='block'>
-              メッセージ
-            </label>
-            <textarea
-              id='message'
-              className='border-solid border border-black rounded w-full p-2'
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </div>
+        <div className='form-box'>
+          <label htmlFor='message' className='form-box-label'>
+            メッセージ<span className='form-box-label-required'>必須</span>
+          </label>
+          <textarea
+            id='message'
+            className='form-box-textarea'
+            rows={5}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
 
-          <div className='text-center'>
-            <button className='border-solid border rounded p-2 bg-green-500 text-white text-xl hover:opacity-70'>
-              送信
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className='text-center'>
+          <button className='form-box-btn'>送信</button>
+        </div>
+      </form>
     </div>
   )
 }

@@ -37,16 +37,3 @@ export default async function Portfolio() {
     </>
   )
 }
-
-// // サーバーサイドでデータを取得する
-// export async function getStaticProps() {
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
-//   const portfolios = await res.json()
-
-//   return {
-//     props: {
-//       portfolios,
-//     },
-//     revalidate: 60, // 60秒ごとに再生成
-//   }
-// }
