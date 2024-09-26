@@ -28,9 +28,10 @@ To You Design Portfolio
 
 ```
 .
-├── api             #APIの記載
+├── api             #APIのデータ
 ├── components      #コンポーネントの記載
 ├── app
+│   ├── api        #APIの取得
 │   ├── about      #Aboutページ
 │   ├── contact    #お問い合わせページ
 │   ├── portfolio  #ポートフォリオページ

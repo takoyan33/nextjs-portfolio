@@ -16,7 +16,15 @@ import Link from 'next/link'
 import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
-import { PortfolioProps, historyProps, skillProps } from '../utils/type'
+import { portfolioType, history, skill } from '../utils/type'
+// import {
+//   fetchPortfolios,
+//   fetchHistory,
+//   fetchFrontSkills,
+//   fetchBackSkills,
+//   fetchInfraSkills,
+//   fetchOtherSkills,
+// } from '../hooks/fetch'
 import { PATH } from '../utils/path'
 import { socialLinks, FVSUBTITLE } from '../utils/data'
 
@@ -40,15 +48,14 @@ export default function Home() {
   // const infraSkills = await fetchInfraSkills()
   // const otherSkills = await fetchOtherSkills()
 
-  const [portfolios, setPortfolios] = useState<PortfolioProps>()
-  const [histories, setHistories] = useState<historyProps>()
-  const [frontSkills, setFrontSkills] = useState<skillProps>()
-  const [backSkills, setBackSkills] = useState<skillProps>()
-  const [infraSkills, setInfraSkills] = useState<skillProps>()
-  const [otherSkills, setOtherSkills] = useState<skillProps>()
+  const [portfolios, setPortfolios] = useState<portfolioType[]>()
+  const [histories, setHistories] = useState<history[]>()
+  const [frontSkills, setFrontSkills] = useState<skill[]>()
+  const [backSkills, setBackSkills] = useState<skill[]>()
+  const [infraSkills, setInfraSkills] = useState<skill[]>()
+  const [otherSkills, setOtherSkills] = useState<skill[]>()
 
   // const data = useRecoilValue(portfolioState)
-  // console.log(data)
   const fetchPortfolios = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
     const data = await response.json()
@@ -95,7 +102,6 @@ export default function Home() {
   }, [])
 
   // const todos = useRecoilValue(todoState)
-  // console.log(todos)
 
   const [showBackButton, setShowBackButton] = useState(false)
   const handleScroll = () => {
@@ -227,7 +233,7 @@ export default function Home() {
                 }}
               >
                 {portfolios &&
-                  portfolios.portfolio.map((portfolio, index) => (
+                  portfolios.map((portfolio, index) => (
                     <SwiperSlide key={index}>
                       <Portfolio
                         portfolio_id={portfolio.id}
@@ -266,7 +272,7 @@ export default function Home() {
             </div>
             <dl>
               {histories &&
-                histories.history.map((history, index) => (
+                histories.map((history, index) => (
                   <Timeline
                     key={index}
                     title={history.title}
@@ -293,7 +299,7 @@ export default function Home() {
             <h4 className='skill__title'>Frontend</h4>
             <div className='skill__flx'>
               {frontSkills &&
-                frontSkills.skill.map((skill, index) => (
+                frontSkills.map((skill, index) => (
                   <Skill
                     key={index}
                     name={skill.name}
@@ -307,7 +313,7 @@ export default function Home() {
             <h4 className='skill__title'>Backend</h4>
             <div className='skill__flx'>
               {backSkills &&
-                backSkills.skill.map((skill, index) => (
+                backSkills.map((skill, index) => (
                   <Skill
                     key={index}
                     name={skill.name}
@@ -321,7 +327,7 @@ export default function Home() {
             <h4 className='skill__title'>Infra</h4>
             <div className='skill__flx'>
               {infraSkills &&
-                infraSkills.skill.map((skill, index) => (
+                infraSkills.map((skill, index) => (
                   <Skill
                     key={index}
                     name={skill.name}
@@ -335,7 +341,7 @@ export default function Home() {
             <h4 className='skill__title'>Other</h4>
             <div className='skill__flx'>
               {otherSkills &&
-                otherSkills.skill.map((skill, index) => (
+                otherSkills.map((skill, index) => (
                   <Skill
                     key={index}
                     name={skill.name}

@@ -22,7 +22,6 @@ export async function getServerSideProps() {
       },
     }
   } catch (error) {
-    console.error(error)
     return {
       props: {
         error: 'Failed to fetch articles',

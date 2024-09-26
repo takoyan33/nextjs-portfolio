@@ -39,7 +39,7 @@ export type skillProps = {
   skill: skill[]
 }
 
-export type Portfolio = {
+export type portfolioType = {
   id: number
   name: string
   date: string
@@ -63,5 +63,5 @@ export type Portfolio = {
 }
 
 export type PortfolioProps = {
-  portfolio: Portfolio[]
+  portfolio: portfolioType[]
 }

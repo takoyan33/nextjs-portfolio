@@ -4,6 +4,10 @@ import Head from 'next/head'
 import React from 'react'
 import { PATH } from '../../utils/path'
 import Link from 'next/link'
+import BreadList from '../../components/Components/ui/BreadList'
+
+// SSGとしてレンダリングされる
+export const dynamic = 'force-static'
 
 export default function Contact() {
   return (
@@ -13,9 +17,7 @@ export default function Contact() {
       </Head>
 
       <div className='contact max_width'>
-        <p className='bread__title'>
-          <Link href='/'>トップ</Link> ＞ <Link href={PATH.CONTACT}>お問い合わせ</Link>
-        </p>
+        <BreadList name='お問い合わせ' link={PATH.CONTACT} />
         <h2 className='main__title' data-ja='contact'>
           お問い合わせ
         </h2>

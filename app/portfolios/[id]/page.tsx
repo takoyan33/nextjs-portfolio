@@ -4,20 +4,20 @@ import Head from 'next/head'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Portfolio } from '../../../utils/type'
+import { portfolioType } from '../../../utils/type'
 import { PATH } from '../../../utils/path'
 
 const Post = () => {
   const params = useParams()
   const id: any | null = params?.id
 
-  const [portfolios, setPortfolios] = useState<Portfolio>()
+  const [portfolios, setPortfolios] = useState<portfolioType>()
 
   const fetchPortfolios = async (id) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
       const data = await response.json()
-      const filteredPortfolio = data.portfolio.find((portfolio) => portfolio.id == id)
+      const filteredPortfolio = data.find((portfolio) => portfolio.id == id)
       await setPortfolios(filteredPortfolio)
     } catch (error) {
       console.error('Error fetching portfolios:', error)

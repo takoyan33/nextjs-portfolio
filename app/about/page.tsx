@@ -1,4 +1,3 @@
-'use client'
 import Timeline from '../../components/Components/ui/Timeline'
 import Head from 'next/head'
 import React from 'react'
@@ -6,6 +5,7 @@ import Link from 'next/link'
 import { licenseProps, jobProps, historyProps } from '../../utils/type'
 import { fetchHistory, fetchJob, fetchLicenses } from '../../hooks/fetch'
 import { PATH } from '../../utils/path'
+import BreadList from '../../components/Components/ui/BreadList'
 
 export default async function About() {
   const jobs = await fetchJob()
@@ -23,15 +23,13 @@ export default async function About() {
         {/*ここから学歴*/}
         <div className='padding'>
           <div className='max_width'>
-            <p className='bread__title'>
-              <Link href='/'>トップ</Link> ＞ <Link href={PATH.ABOUT}>About</Link>
-            </p>
+            <BreadList name='About' link={PATH.ABOUT} />
             <h2 className='main__title' data-ja='過去の経歴'>
               About
             </h2>
             <dl>
-              {histories &&
-                histories.history.map((history, index) => (
+              {Array.isArray(histories) &&
+                histories.map((history, index) => (
                   <Timeline
                     key={index}
                     title={history.title}
@@ -53,8 +51,8 @@ export default async function About() {
                 </h2>
               </div>
               <dl>
-                {jobs &&
-                  jobs.job.map((job, index) => (
+                {Array.isArray(jobs) &&
+                  jobs.map((job, index) => (
                     <Timeline key={index} title={job.title} date={job.date} body={job.body} />
                   ))}
               </dl>
@@ -73,8 +71,8 @@ export default async function About() {
                 <th className='license__table__th'>日付</th>
                 <th className='license__table__th'>資格名</th>
               </tr>
-              {licenses &&
-                licenses.license.map((license, index) => (
+              {Array.isArray(licenses) &&
+                licenses.map((license, index) => (
                   <tr key={index} className='license__table__tr'>
                     <td className='license__table__td'>{license.date}</td>
                     <td className='license__table__td'>{license.title}</td>
