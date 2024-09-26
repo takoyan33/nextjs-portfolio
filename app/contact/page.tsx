@@ -12,10 +12,6 @@ export const dynamic = 'force-static'
 export default function Contact() {
   return (
     <>
-      <Head>
-        <title>To You Design - Contact</title>
-      </Head>
-
       <div className='contact max_width'>
         <BreadList name='お問い合わせ' link={PATH.CONTACT} />
         <h2 className='main__title' data-ja='contact'>

@@ -12,10 +12,6 @@ export default async function Portfolio() {
 
   return (
     <>
-      <Head>
-        <title>To You Design - Portfolio</title>
-      </Head>
-
       <div>
         <div className='max_width'>
           <BreadList name='Portfolio' link={PATH.PORTFOLIO} />

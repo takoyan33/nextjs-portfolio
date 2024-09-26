@@ -32,9 +32,6 @@ const Post = () => {
 
   return (
     <>
-      <Head>
-        <title>To You Design - ポートフォリオ</title>
-      </Head>
       {portfolios ? (
         <nav className='container max_width'>
           <div style={{ textAlign: 'center', padding: 50 }}>

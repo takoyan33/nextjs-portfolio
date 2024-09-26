@@ -14,9 +14,6 @@ export default async function About() {
 
   return (
     <>
-      <Head>
-        <title>To You Design - About</title>
-      </Head>
       <nav className='container'>
         <div style={{ textAlign: 'center', padding: 50 }}></div>
 
