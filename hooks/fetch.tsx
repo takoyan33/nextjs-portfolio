@@ -1,6 +1,7 @@
 export const fetchHistory = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
   const data = await response.json()
+  console.log(data)
   return data
 }
 

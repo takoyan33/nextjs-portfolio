@@ -1,5 +1,5 @@
+'use client'
 import PortfolioItem from '../../components/Components/ui/PortfolioItem'
-import Head from 'next/head'
 import React from 'react'
 import { PortfolioProps } from '../../utils/type'
 import { fetchPortfolios } from '../../hooks/fetch'

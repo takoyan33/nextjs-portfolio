@@ -1,7 +1,6 @@
+'use client'
 import Timeline from '../../components/Components/ui/Timeline'
-import Head from 'next/head'
 import React from 'react'
-import Link from 'next/link'
 import { licenseProps, jobProps, historyProps } from '../../utils/type'
 import { fetchHistory, fetchJob, fetchLicenses } from '../../hooks/fetch'
 import { PATH } from '../../utils/path'
@@ -11,7 +10,7 @@ export default async function About() {
   const jobs = await fetchJob()
   const histories = await fetchHistory()
   const licenses = await fetchLicenses()
-
+  console.log(jobs)
   return (
     <>
       <nav className='container'>
