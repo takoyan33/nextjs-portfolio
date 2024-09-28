@@ -127,7 +127,6 @@ const Home = () => {
         <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
         <meta name='google' content='notranslate' key='notranslate' />
       </Head>
-      {/* <MoonLoader /> */}
       <nav className='container'>
         {/* ここからfv */}
         <div className='fv'>

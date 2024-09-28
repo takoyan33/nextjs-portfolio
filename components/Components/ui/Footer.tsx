@@ -4,7 +4,12 @@ import { PATH } from '../../../utils/path'
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const MENU_ITEMS = [
+  type MenuItem = {
+    title: string
+    link: string
+  }
+
+  const MENU_ITEMS: MenuItem[] = [
     {
       title: 'About',
       link: PATH.ABOUT,

@@ -4,7 +4,7 @@ import type { NextPage } from 'next'
 
 const Loading = () => {
   return (
-    <div className='loading'>
+    <div className='loading max-width'>
       <MoonLoader size={150} color='#fff' />
     </div>
   )

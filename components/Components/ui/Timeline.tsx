@@ -1,4 +1,10 @@
-export default function Timeline({ title, date, body }) {
+type TimelineProps = {
+  title: string
+  date: string
+  body: string
+}
+
+export default function Timeline({ title, date, body }: TimelineProps) {
   return (
     <>
       <dt>{date}</dt>
