@@ -2,7 +2,15 @@ import usePortfolioModal from '../parts/usePortfolioModal'
 import ScrollComponent from '../../../hooks/useFadeIn'
 import Image from 'next/image'
 
-export default function Skill({ name, rank, tag, icon, about }) {
+type SkillProps = {
+  name: string
+  rank: string
+  tag: string
+  icon: string
+  about: string
+}
+
+export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
   const [Modal, open, close, isOpen] = usePortfolioModal()
   return (
     <>

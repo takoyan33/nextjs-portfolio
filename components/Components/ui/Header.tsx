@@ -5,12 +5,17 @@ import React, { useState } from 'react'
 import { PATH } from '../../../utils/path'
 
 export default function Header() {
-  const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState<boolean>(false)
   const menuFunction = () => {
     setOpenMenu(!openMenu)
   }
 
-  const MENU_ITEMS = [
+  type MenuItem = {
+    title: string
+    link: string
+  }
+
+  const MENU_ITEMS: MenuItem[] = [
     {
       title: 'About',
       link: PATH.ABOUT,

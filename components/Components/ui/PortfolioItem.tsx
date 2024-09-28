@@ -1,13 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+type PortfolioItemProps = {
+  portfolio_id: number
+  portfolio_name: string
+  portfolio_date: string
+  portfolio_tag: string[]
+  portfolio_topImg: string
+}
+
 export default function PortfolioItem({
   portfolio_id,
   portfolio_name,
   portfolio_date,
   portfolio_tag,
   portfolio_topImg,
-}) {
+}: PortfolioItemProps) {
   return (
     <div className='flx_el'>
       <Link href={`portfolios/${portfolio_id}`}>

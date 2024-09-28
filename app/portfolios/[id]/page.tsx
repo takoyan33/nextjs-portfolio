@@ -1,6 +1,5 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import Head from 'next/head'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,11 +9,11 @@ import type { NextPage } from 'next'
 
 const Post = () => {
   const params = useParams()
-  const id: any | null = params?.id
+  const id: any = params?.id
 
   const [portfolios, setPortfolios] = useState<portfolioType>()
 
-  const fetchPortfolios = async (id) => {
+  const fetchPortfolios = async (id: any) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
       const data = await response.json()

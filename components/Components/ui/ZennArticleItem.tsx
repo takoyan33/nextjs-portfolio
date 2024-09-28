@@ -1,6 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+type ZennArticleItemProps = {
+  zenn_id: number
+  zenn_title: string
+  zenn_published_at: Date
+  zenn_article_type: string
+  zenn_emoji: string
+  zenn_path: string
+}
+
 export default function ZennArticleItem({
   zenn_id,
   zenn_title,
@@ -8,7 +17,7 @@ export default function ZennArticleItem({
   zenn_article_type,
   zenn_emoji,
   zenn_path,
-}) {
+}: ZennArticleItemProps) {
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     const year = date.getFullYear()
