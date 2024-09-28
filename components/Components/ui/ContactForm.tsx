@@ -1,12 +1,18 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 import type { NextPage } from 'next'
 import { emailjsConfig } from '../../../utils/Emailjs'
 import { send } from 'emailjs-com'
+import { useForm } from 'react-hook-form'
 
 const Index: NextPage = () => {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
   const sendMail = () => {
     if (emailjsConfig.serviceId !== undefined && emailjsConfig.templateId !== undefined) {
@@ -22,17 +28,18 @@ const Index: NextPage = () => {
         setEmail('')
         setMessage('')
       })
+    } else {
+      window.alert('お問い合わせを送信失敗しました。')
     }
   }
 
-  const onSubmit = (event: ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const onSubmit = () => {
     sendMail()
   }
 
   return (
     <div className='form'>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form-box'>
           <label htmlFor='name' className='form-box-label'>
             名前<span className='form-box-label-required'>必須</span>
@@ -43,8 +50,10 @@ const Index: NextPage = () => {
             placeholder='山田 太郎'
             className='form-box-textarea'
             value={name}
+            {...register('name', { required: '名前を入力してください' })}
             onChange={(e) => setName(e.target.value)}
           />
+          {errors.name && <p className='form-box-error'>{errors.name.message}</p>}
         </div>
 
         <div className='form-box'>
@@ -56,9 +65,17 @@ const Index: NextPage = () => {
             id='email'
             placeholder='sample@email.com'
             className='form-box-textarea'
+            {...register('email', {
+              required: 'メールアドレスを入力してください',
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: '有効なメールアドレスを入力してください',
+              },
+            })}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {errors.email && <p className='form-box-error'>{errors.email.message}</p>}
         </div>
 
         <div className='form-box'>
@@ -68,10 +85,12 @@ const Index: NextPage = () => {
           <textarea
             id='message'
             className='form-box-textarea'
+            {...register('message', { required: 'メッセージを入力してください' })}
             rows={5}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
+          {errors.message && <p className='form-box-error'>{errors.message.message}</p>}
         </div>
 
         <div className='text-center'>

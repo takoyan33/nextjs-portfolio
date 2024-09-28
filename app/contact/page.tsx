@@ -1,15 +1,11 @@
 'use client'
 import ContactForm from '../../components/Components/ui/ContactForm'
-import Head from 'next/head'
 import React from 'react'
 import { PATH } from '../../utils/path'
-import Link from 'next/link'
 import BreadList from '../../components/Components/ui/BreadList'
+import type { NextPage } from 'next'
 
-// SSGとしてレンダリングされる
-export const dynamic = 'force-static'
-
-export default function Contact() {
+const Contact = () => {
   return (
     <>
       <div className='contact max_width'>
@@ -22,3 +18,5 @@ export default function Contact() {
     </>
   )
 }
+
+export default Contact

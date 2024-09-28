@@ -6,7 +6,7 @@
   &-box {
     display: grid;
     grid-template-columns: 0.2fr 0.6fr;
-    grid-gap: 10px;
+    grid-gap: 5px auto;
     margin: 40px 0;
     &-label {
       text-align: left;
@@ -33,6 +33,10 @@
       &:hover {
         background-color: rgb(0, 0, 255, 0.8);
       }
+    }
+    &-error {
+      color: red;
+      font-size: 14px;
     }
   }
 }

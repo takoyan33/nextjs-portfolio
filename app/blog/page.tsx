@@ -4,7 +4,7 @@ import { PATH } from '../../utils/path'
 import React from 'react'
 import BreadList from '../../components/Components/ui/BreadList'
 
-export default async function Blog() {
+const Blog = async () => {
   let zennArticles: any
   let error = ''
 
@@ -45,3 +45,5 @@ export default async function Blog() {
     </div>
   )
 }
+
+export default Blog

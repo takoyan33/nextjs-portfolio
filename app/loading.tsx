@@ -1,5 +1,6 @@
 import React from 'react'
 import { MoonLoader } from 'react-spinners'
+import type { NextPage } from 'next'
 
 const Loading = () => {
   return (

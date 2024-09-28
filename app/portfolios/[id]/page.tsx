@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { portfolioType } from '../../../utils/type'
 import { PATH } from '../../../utils/path'
+import type { NextPage } from 'next'
 
 const Post = () => {
   const params = useParams()
