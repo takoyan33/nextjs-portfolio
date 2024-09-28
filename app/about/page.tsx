@@ -5,8 +5,9 @@ import { licenseProps, jobProps, historyProps } from '../../utils/type'
 import { fetchHistory, fetchJob, fetchLicenses } from '../../hooks/fetch'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
+import type { NextPage } from 'next'
 
-export default async function About() {
+const About = async () => {
   const jobs = await fetchJob()
   const histories = await fetchHistory()
   const licenses = await fetchLicenses()
@@ -81,3 +82,5 @@ export default async function About() {
     </>
   )
 }
+
+export default About

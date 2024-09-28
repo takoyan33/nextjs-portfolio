@@ -305,7 +305,7 @@ a :hover {
 .form-box {
   display: grid;
   grid-template-columns: 0.2fr 0.6fr;
-  grid-gap: 10px;
+  grid-gap: 5px auto;
   margin: 40px 0;
 }
 .form-box-label {
@@ -333,6 +333,10 @@ a :hover {
 }
 .form-box-btn:hover {
   background-color: rgba(0, 0, 255, 0.8);
+}
+.form-box-error {
+  color: red;
+  font-size: 14px;
 }
 
 .content {

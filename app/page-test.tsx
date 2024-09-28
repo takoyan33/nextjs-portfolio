@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function PageTest() {
+const PageTest = () => {
   return (
     <div>
       <h1>Home</h1>
@@ -9,3 +9,5 @@ export default function PageTest() {
     </div>
   )
 }
+
+export default PageTest

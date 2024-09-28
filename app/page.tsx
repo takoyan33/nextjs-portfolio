@@ -27,11 +27,12 @@ import { portfolioType, history, skill } from '../utils/type'
 // } from '../hooks/fetch'
 import { PATH } from '../utils/path'
 import { socialLinks, FVSUBTITLE } from '../utils/data'
+import type { NextPage } from 'next'
 
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
 
-export default function Home() {
+const Home = () => {
   const breakpoints = {
     0: {
       slidesPerView: 1.5,
@@ -385,3 +386,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home

@@ -6,8 +6,9 @@ import { fetchPortfolios } from '../../hooks/fetch'
 import Link from 'next/link'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
+import type { NextPage } from 'next'
 
-export default async function Portfolio() {
+const Portfolio = async () => {
   const portfolios = await fetchPortfolios()
 
   return (
@@ -36,3 +37,5 @@ export default async function Portfolio() {
     </>
   )
 }
+
+export default Portfolio
