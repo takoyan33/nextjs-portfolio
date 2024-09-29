@@ -7,15 +7,21 @@ import type { NextPage } from 'next'
 
 const Contact = () => {
   return (
-    <>
+    <div>
       <div className='contact max_width'>
         <BreadList name='お問い合わせ' link={PATH.CONTACT} />
-        <h2 className='main__title' data-ja='contact'>
-          お問い合わせ
-        </h2>
+      </div>
+      <div className='lower_bg'>
+        <div className='max_width'>
+          <h2 className='lower__title' data-ja='contact'>
+            お問い合わせ
+          </h2>
+        </div>
+      </div>
+      <div className='contact max_width'>
         <ContactForm />
       </div>
-    </>
+    </div>
   )
 }
 

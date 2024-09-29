@@ -212,69 +212,10 @@
   }
 }
 
-// ヘッダー
-header {
-  top: 0;
-  z-index: 99;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100px;
-  margin-inline: auto;
-  background-color: $white;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0;
-    list-style: none;
-  }
-  li {
-    margin-bottom: 0px;
-    font-size: 16px;
-  }
-  nav {
-    margin: 35 0 0 auto;
-  }
+.container {
+  position: relative;
+  bottom: 5px;
 }
-
-.header {
-  &_flx {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0px auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-  }
-
-  &__inner {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 4% 4vw;
-    margin-inline: auto;
-    background-color: $white;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-  }
-}
-
 //モーダル
 .modal {
   &-text {
@@ -1244,9 +1185,47 @@ dl {
   }
 }
 
-.bread__title {
-  text-align: left;
-  display: flex;
+.bread {
+  &__title {
+    text-align: left;
+    display: flex;
+  }
+  &__second {
+    font-weight: 600;
+  }
+  &__arrow {
+    margin: 0px 8px;
+  }
+}
+
+//下層ページ
+.lower {
+  &_bg {
+    height: 250px;
+    background-color: #6499ff;
+  }
+  &__title {
+    padding-top: 50px;
+    margin: 0;
+    font-size: rem(60);
+    color: white;
+    text-align: left;
+    &::after {
+      display: block;
+      content: attr(data-ja);
+      margin: 0;
+      font-size: rem(20);
+      color: white;
+      text-align: left;
+      margin-bottom: rem(40);
+      &--white {
+        font-size: rem(20);
+        color: white;
+        margin-bottom: rem(20);
+        text-align: left;
+      }
+    }
+  }
 }
 
 // ローディング

@@ -2,9 +2,9 @@
   z-index: 50;
   width: 100%;
   height: auto;
-  height: 60px;
-  padding: 0 40px;
+  padding: 20px;
   padding-top: 20px;
+  border-bottom: #13b0df 2px solid;
 }
 .header .logo {
   font-size: 20px;
@@ -31,6 +31,9 @@
   margin-right: 0;
   color: white;
   background-color: rgb(34, 35, 35);
+}
+.header li a:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 1024px) {
@@ -79,17 +82,19 @@
   color: white;
   background-color: #6499ff;
   opacity: 0;
+  display: none;
   transition: 0.5s;
 }
 .drawerMenu.open {
   z-index: 100;
+  display: block;
   height: 100vh;
   opacity: 1;
 }
 
 @media (max-width: 1024px) {
   .header {
-    padding: 0 20px;
+    padding: 30px 20px;
   }
   .header .logo {
     margin-top: 0px;
@@ -102,7 +107,7 @@
   }
   .drawerMenu {
     position: fixed;
-    top: 0;
+    top: 0px;
     width: 100%;
   }
   .drawerMenu ul {
@@ -112,7 +117,7 @@
   }
   .drawerMenu ul li {
     margin-bottom: 25px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 200;
     opacity: 0.8;
   }
