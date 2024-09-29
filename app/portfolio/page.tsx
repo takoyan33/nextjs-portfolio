@@ -18,6 +18,9 @@ const Portfolio = async () => {
           <h2 className='main__title' data-ja='制作物'>
             Portfolio
           </h2>
+          <h3 className='portfolio__headTitle'>
+            全ての制作物<span> {portfolios.length}件</span>
+          </h3>
           <div className='flx padding'>
             {Array.isArray(portfolios) &&
               portfolios.map((portfolio, index) => (

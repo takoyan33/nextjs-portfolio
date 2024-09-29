@@ -555,7 +555,8 @@ li {
   }
   &__date {
     font-size: rem(14);
-    color: $main-color;
+    margin-top: 6px;
+    margin-bottom: 4px;
   }
   &__tag {
     display: inline-block;
@@ -565,10 +566,12 @@ li {
     font-size: 14px;
     color: $main-color;
     border: 1px solid $main-color;
-    border-radius: 20px;
+    border-radius: 10px;
   }
   &__title {
-    margin-top: 0px;
+    color: #434343;
+    font-weight: 600;
+    font-size: 18px;
   }
   &__img {
     position: relative;
@@ -576,6 +579,65 @@ li {
     margin-inline: auto;
     height: 150px;
     object-fit: cover;
+    &__item {
+      border-radius: 10px;
+    }
+  }
+}
+
+// ポートフォリオページ用
+.portfolio {
+  background-color: $back-color;
+  &__headTitle {
+    text-align: left;
+    color: #434343;
+    font-size: 28px;
+  }
+  &Item {
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    &__flex {
+      display: flex;
+      justify-content: center;
+    }
+    &__date {
+      font-size: rem(14);
+    }
+    &__tag {
+      display: inline-block;
+      height: 25px;
+      padding: 2px 8px;
+      padding-bottom: 4px;
+      margin: 11px 2px;
+      font-size: 14px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 10px;
+    }
+    &__title {
+      font-weight: 600;
+      color: #434343;
+      font-size: 18px;
+    }
+    &__img {
+      position: relative;
+      width: 100%;
+      margin-inline: auto;
+      height: 200px;
+      object-fit: cover;
+
+      &__item {
+        border-radius: 10px;
+      }
+    }
+    &_link {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 }
 
