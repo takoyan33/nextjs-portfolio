@@ -132,6 +132,7 @@ a {
   justify-content: space-between;
   width: 100%;
   margin: rem(10) auto;
+  gap: rem(60) rem(0);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &_el {
@@ -332,6 +333,7 @@ a {
     -ms-flex-direction: column;
     flex-direction: column;
     margin: rem(20) auto;
+    gap: rem(10) rem(0);
     &_el {
       width: 100%;
       margin: rem(10) auto;
