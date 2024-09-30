@@ -28,24 +28,34 @@ const Blog = async () => {
   }
 
   return (
-    <div className='max_width'>
-      <BreadList name='Blog' link={PATH.BLOG} />
-      <h2 className='main__title' data-ja='ブログ'>
-        Blog
-      </h2>
-      <h2>Zenn</h2>
-      <div className='flx padding'>
-        {zennArticles?.articles.map((article, index) => (
-          <ZennArticleItem
-            key={index}
-            zenn_id={article.id}
-            zenn_title={article.title}
-            zenn_published_at={article.published_at}
-            zenn_article_type={article.article_type}
-            zenn_emoji={article.emoji}
-            zenn_path={article.path}
-          />
-        ))}
+    <div className=''>
+      <div className='max_width'>
+        <BreadList name='Blog' link={PATH.BLOG} />
+      </div>
+      <div className='lower_bg'>
+        <div className='max_width'>
+          <h2 className='lower__title' data-ja='ブログ'>
+            Blog
+          </h2>
+        </div>
+      </div>
+      <div className='max_width'>
+        <h3 className='portfolio__headTitle'>
+          Zenn<span> {zennArticles?.articles.length}件</span>
+        </h3>
+        <div className='flx padding'>
+          {zennArticles?.articles.map((article, index) => (
+            <ZennArticleItem
+              key={index}
+              zenn_id={article.id}
+              zenn_title={article.title}
+              zenn_published_at={article.published_at}
+              zenn_article_type={article.article_type}
+              zenn_emoji={article.emoji}
+              zenn_path={article.path}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

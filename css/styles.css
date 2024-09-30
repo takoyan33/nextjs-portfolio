@@ -355,7 +355,8 @@ a :hover {
   overflow: hidden;
   height: 40px;
 }
-.content__container:after, .content__container:before {
+.content__container:after,
+.content__container:before {
   position: absolute;
   top: 0;
   color: #ffffff;
@@ -392,7 +393,8 @@ a :hover {
 }
 
 @-webkit-keyframes opacity {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
@@ -400,27 +402,35 @@ a :hover {
   }
 }
 @-webkit-keyframes change {
-  0%, 12.66%, 100% {
+  0%,
+  12.66%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
-  16.66%, 29.32% {
+  16.66%,
+  29.32% {
     transform: translate3d(0, -25%, 0);
   }
-  33.32%, 45.98% {
+  33.32%,
+  45.98% {
     transform: translate3d(0, -50%, 0);
   }
-  49.98%, 62.64% {
+  49.98%,
+  62.64% {
     transform: translate3d(0, -75%, 0);
   }
-  66.64%, 79.3% {
+  66.64%,
+  79.3% {
     transform: translate3d(0, -50%, 0);
   }
-  83.3%, 95.96% {
+  83.3%,
+  95.96% {
     transform: translate3d(0, -25%, 0);
   }
 }
 @keyframes opacity {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
@@ -428,74 +438,35 @@ a :hover {
   }
 }
 @keyframes change {
-  0%, 12.66%, 100% {
+  0%,
+  12.66%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
-  16.66%, 29.32% {
+  16.66%,
+  29.32% {
     transform: translate3d(0, -25%, 0);
   }
-  33.32%, 45.98% {
+  33.32%,
+  45.98% {
     transform: translate3d(0, -50%, 0);
   }
-  49.98%, 62.64% {
+  49.98%,
+  62.64% {
     transform: translate3d(0, -75%, 0);
   }
-  66.64%, 79.3% {
+  66.64%,
+  79.3% {
     transform: translate3d(0, -50%, 0);
   }
-  83.3%, 95.96% {
+  83.3%,
+  95.96% {
     transform: translate3d(0, -25%, 0);
   }
 }
-header {
-  top: 0;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100px;
-  margin-inline: auto;
-  background-color: white;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-}
-header ul {
-  display: flex;
-  margin: 0;
-  list-style: none;
-}
-header li {
-  margin-bottom: 0px;
-  font-size: 16px;
-}
-header nav {
-  margin: 35 0 0 auto;
-}
-
-.header_flx {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 0px auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-}
-.header__inner {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 4% 4vw;
-  margin-inline: auto;
-  background-color: white;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+.container {
+  position: relative;
+  bottom: 5px;
 }
 
 .modal-text {
@@ -538,7 +509,9 @@ header nav {
   width: 100%;
   height: 0.125rem;
   background-color: black;
-  transition: transform 0.5s, opacity 0.5s;
+  transition:
+    transform 0.5s,
+    opacity 0.5s;
 }
 
 .hamburger-btn__parts.-top {
@@ -651,7 +624,7 @@ li {
 .title-border-right ::after {
   flex-grow: 1;
   margin-left: 1rem;
-  content: "";
+  content: '';
   border-top: 1px solid;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -769,7 +742,7 @@ li {
   margin-inline: auto;
   height: 150px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .portfolio__img__item {
   border-radius: 10px;
@@ -784,7 +757,9 @@ li {
   font-size: 28px;
 }
 .portfolioItem {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .portfolioItem__flex {
   display: flex;
@@ -815,7 +790,7 @@ li {
   margin-inline: auto;
   height: 200px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .portfolioItem__img__item {
   border-radius: 10px;
@@ -907,7 +882,7 @@ footer li {
   width: 400px;
   height: 300px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .about_snsLogo {
   width: 30px;
@@ -970,7 +945,7 @@ dl dt::after {
   right: -0.55em;
   font-size: 22px;
   color: #6499ff;
-  content: "●";
+  content: '●';
 }
 dl dd {
   width: calc(100% - 8.5em);
@@ -1028,7 +1003,7 @@ dl dd h2 {
   width: 100%;
   height: 300px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   border: 1px solid gray;
 }
 .modalBox__element__link {
@@ -1066,7 +1041,7 @@ dl dd h2 {
   height: 500px;
   margin-inline: auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .portfolioDetail__element__img {
   position: relative;
@@ -1074,7 +1049,7 @@ dl dd h2 {
   height: 400px;
   margin-inline: auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .portfolioDetail__element__title {
   text-align: left;
@@ -1248,7 +1223,7 @@ dl dd h2 {
     width: 100%;
     height: 200px;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     border: 1px solid gray;
   }
   .modalBox__element__text {
@@ -1284,7 +1259,7 @@ dl dd h2 {
     height: 300px;
     margin-inline: auto;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .portfolioDetail__element__img {
     position: relative;
@@ -1292,7 +1267,7 @@ dl dd h2 {
     height: 300px;
     margin-inline: auto;
     -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
   }
   .portfolioDetail__element__title {
     text-align: left;
@@ -1369,12 +1344,45 @@ dl dd h2 {
     margin-inline: auto;
     height: 130px;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }
 .bread__title {
   text-align: left;
   display: flex;
+}
+.bread__second {
+  font-weight: 600;
+}
+.bread__arrow {
+  margin: 0px 8px;
+}
+
+.lower_bg {
+  height: 250px;
+  background-color: #6499ff;
+}
+.lower__title {
+  padding-top: 50px;
+  margin: 0;
+  font-size: 3.75rem;
+  color: white;
+  text-align: left;
+}
+.lower__title::after {
+  display: block;
+  content: attr(data-ja);
+  margin: 0;
+  font-size: 1.25rem;
+  color: white;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+.lower__title::after--white {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 1.25rem;
+  text-align: left;
 }
 
 .loader {
@@ -1441,7 +1449,9 @@ dl dd h2 {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
 }
 
 .is-visible {
@@ -1472,11 +1482,11 @@ dl dd h2 {
 }
 .slide__in__right {
   -webkit-animation-name: slide__in__right;
-          animation-name: slide__in__right;
+  animation-name: slide__in__right;
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
 }
 
 .loading {
