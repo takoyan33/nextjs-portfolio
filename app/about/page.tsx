@@ -24,9 +24,7 @@ const About = async () => {
         </div>
       </div>
       <div className='max_width'>
-        <h2 className='main__title' data-ja='過去の経歴'>
-          History
-        </h2>
+        <h3 className='portfolio__headTitle'>経歴</h3>
 
         <dl>
           {Array.isArray(histories) &&
@@ -38,26 +36,18 @@ const About = async () => {
 
       {/*ここから職歴*/}
       <div className='max_width'>
-        <div className='flx'>
-          <div className='flx_el'>
-            <h2 className='main__title' data-ja='過去の職歴'>
-              Job
-            </h2>
-          </div>
-          <dl>
-            {Array.isArray(jobs) &&
-              jobs.map((job, index) => (
-                <Timeline key={index} title={job.title} date={job.date} body={job.body} />
-              ))}
-          </dl>
-        </div>
+        <h3 className='portfolio__headTitle'>職歴</h3>
+        <dl>
+          {Array.isArray(jobs) &&
+            jobs.map((job, index) => (
+              <Timeline key={index} title={job.title} date={job.date} body={job.body} />
+            ))}
+        </dl>
       </div>
 
       {/* ここからLicense*/}
       <section className='license max_width'>
-        <h2 className='main__title' data-ja='資格'>
-          License
-        </h2>
+        <h3 className='portfolio__headTitle'>資格</h3>
         <table className='license__table'>
           <tbody>
             <tr>
