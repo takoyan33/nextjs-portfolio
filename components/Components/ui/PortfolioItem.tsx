@@ -17,7 +17,7 @@ export default function PortfolioItem({
   portfolio_topImg,
 }: PortfolioItemProps) {
   return (
-    <div className='flx_el portfolioItem'>
+    <div className='portfolioFlx_el portfolioItem'>
       <Link href={`portfolios/${portfolio_id}`} className='portfolioItem__link'>
         <div className='portfolioItem__img'>
           <Image

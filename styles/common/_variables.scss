@@ -124,6 +124,7 @@ a {
   font-weight: bold;
 }
 
+// 共通
 .flx {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -137,6 +138,29 @@ a {
   -ms-flex-pack: center;
   &_el {
     width: 33%;
+    margin: 0px;
+    overflow-wrap: break-word;
+
+    &_footer {
+      margin: rem(10);
+    }
+  }
+}
+
+// ポートフォリオflx
+.portfolioFlx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: rem(50) auto;
+  gap: rem(60) rem(50);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  &_el {
+    width: 30%;
     margin: 0px;
     overflow-wrap: break-word;
 
