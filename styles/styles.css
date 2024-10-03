@@ -404,13 +404,12 @@ a :hover {
 
 .drawerMenu {
   z-index: -100;
-  width: 0;
+  width: 100%;
   height: 0;
+  background-color: #13b0df;
   position: fixed;
   top: 0px;
   width: 100%;
-  color: white;
-  background-color: #6499ff;
   opacity: 0;
   display: none;
   transition: 0.5s;
@@ -427,16 +426,65 @@ a :hover {
   opacity: 0.8;
 }
 .drawerMenu.open {
-  z-index: 100;
+  z-index: 99;
   display: block;
-  height: 100vh;
+  top: 76px;
+  height: 90vh;
   opacity: 1;
 }
 
+.btn-trigger {
+  display: none;
+}
+
 @media (max-width: 1024px) {
+  .btn-trigger {
+    position: relative;
+    width: 50px;
+    height: 44px;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .btn-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #13b0df;
+    border-radius: 4px;
+  }
+  .btn-trigger,
+  .btn-trigger span {
+    display: inline-block;
+    transition: all 0.5s;
+    box-sizing: border-box;
+  }
+  .btn-trigger span:nth-of-type(1) {
+    top: 0;
+  }
+  .btn-trigger span:nth-of-type(2) {
+    top: 20px;
+  }
+  .btn-trigger span:nth-of-type(3) {
+    bottom: 0;
+  }
+  /*=============================
+  #btn01
+  =============================*/
+  #btn01.active span:nth-of-type(1) {
+    transform: translateY(20px) rotate(-45deg);
+  }
+  #btn01.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #btn01.active span:nth-of-type(3) {
+    transform: translateY(-20px) rotate(45deg);
+  }
   .header {
-    position: initial;
-    padding: 30px 20px;
+    position: fixed;
+    display: flex;
+    background: white;
+    padding: 20px 20px;
   }
   .header nav {
     display: none;
@@ -447,36 +495,6 @@ a :hover {
   .container {
     margin: 0 0 0 auto;
   }
-  .container .humburger {
-    position: fixed;
-    top: 20px;
-    right: 40px;
-    z-index: 100;
-    display: block;
-    padding: 16px 10px !important;
-    border-radius: 100px;
-    color: white;
-    cursor: pointer;
-    background-color: #6499ff;
-  }
-  .container .humburger span {
-    display: block;
-    width: 36px;
-    height: 2px;
-    margin-bottom: 7px;
-    background-color: white;
-  }
-  .container .humburger span:nth-child(1) {
-    width: 36px;
-    height: 2px;
-    margin-left: 0px;
-  }
-  .container .humburger p {
-    margin-top: -4px;
-    margin-bottom: 5px;
-    font-size: 13px;
-    color: white;
-  }
   .mobileLogo {
     position: absolute;
     top: 0px;
@@ -486,7 +504,8 @@ a :hover {
   }
   .mainTitle {
     margin-bottom: 5px;
-    font-size: 28px;
+    font-size: 26px;
+    text-align: left;
     color: white;
     letter-spacing: 2px;
   }
@@ -523,6 +542,11 @@ a :hover {
 @media (max-width: 600px) {
   .header {
     padding: 20px 20px;
+    display: flex;
+  }
+  .header_flx {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .humburger {
     top: 5px;
@@ -1236,22 +1260,6 @@ dl dd h2 {
     color: white;
     text-align: center;
   }
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    padding: 0px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-  }
-  header h1 {
-    margin-left: 0.625rem;
-    font-size: 1.25rem;
-  }
   .fv {
     display: inline-block;
     width: 100%;
@@ -1327,9 +1335,6 @@ dl dd h2 {
   }
   .back__btn {
     padding: 15px 12px;
-  }
-  .header_flx {
-    flex-direction: column;
   }
   .modalBox {
     display: flex;

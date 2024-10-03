@@ -1,13 +1,17 @@
 'use client'
-import styles from '../../index.module.scss'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { PATH } from '../../../utils/path'
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false)
+
   const menuFunction = () => {
     setOpenMenu(!openMenu)
+  }
+
+  const handleMenuItemClick = (link: string) => {
+    menuFunction()
   }
 
   type MenuItem = {
@@ -29,6 +33,7 @@ export default function Header() {
       link: PATH.BLOG,
     },
   ]
+
   return (
     <>
       <header id='header' className='header'>
@@ -42,29 +47,29 @@ export default function Header() {
             <ul>
               {MENU_ITEMS.map((item, index) => (
                 <li key={index}>
-                  <Link href={item.link}>{item.title}</Link>
+                  <Link href={item.link} onClick={() => handleMenuItemClick(item.link)}>
+                    {item.title}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
-        <div className='container'>
-          <div className='humburger' onClick={() => menuFunction()}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+        <div
+          className={`btn-trigger ${openMenu ? 'active' : ''}`}
+          id='btn01'
+          onClick={menuFunction}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </header>
       <div className={`drawerMenu ${openMenu ? 'open' : undefined}`}>
         <ul>
-          <div className='close' onClick={() => menuFunction()}>
-            <span></span>
-            <span></span>
-          </div>
           {MENU_ITEMS.map((item, index) => (
             <li key={index}>
-              <Link href={item.link}>
+              <Link href={item.link} onClick={() => handleMenuItemClick(item.link)}>
                 <p className='mainTitle'>{item.title}</p>
               </Link>
             </li>
