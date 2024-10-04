@@ -822,7 +822,7 @@ dl {
 // [id]ページ
 .portfolioDetail {
   width: 100%;
-  margin-top: 50px;
+  margin: 50px auto;
   border-radius: rem(20);
   &_btn {
     position: relative;
@@ -842,6 +842,8 @@ dl {
       height: 500px;
       margin-inline: auto;
       object-fit: contain;
+      margin: 20px auto;
+      border: 1px solid #707070;
     }
     &__img {
       position: relative;
@@ -856,12 +858,20 @@ dl {
     &__subtitle {
       margin: 30px 0;
       text-align: left;
+      color: #4545ff;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #4545ff;
+      font-size: 26px;
     }
     &__text {
       text-align: left;
       li {
         list-style: square;
       }
+    }
+    &__date {
+      text-align: left;
+      color: #707070;
     }
     &__tag {
       display: inline;
@@ -875,6 +885,49 @@ dl {
       color: $tag-color-4;
       &:hover {
         opacity: 0.7;
+      }
+    }
+  }
+}
+
+.bread {
+  &__title {
+    text-align: left;
+    display: flex;
+  }
+  &__second {
+    font-weight: 600;
+  }
+  &__arrow {
+    margin: 0px 8px;
+  }
+}
+
+//下層ページ
+.lower {
+  &_bg {
+    height: 250px;
+    background-color: #6499ff;
+  }
+  &__title {
+    padding-top: 50px;
+    margin: 0;
+    font-size: rem(60);
+    color: white;
+    text-align: left;
+    &::after {
+      display: block;
+      content: attr(data-ja);
+      margin: 0;
+      font-size: rem(20);
+      color: white;
+      text-align: left;
+      margin-bottom: rem(40);
+      &--white {
+        font-size: rem(20);
+        color: white;
+        margin-bottom: rem(20);
+        text-align: left;
       }
     }
   }
@@ -1078,6 +1131,7 @@ dl {
       }
       &__subtitle {
         margin: 10px 0;
+        font-size: 20px;
         text-align: left;
       }
       &__text {
@@ -1085,6 +1139,9 @@ dl {
         li {
           list-style: square;
         }
+      }
+      &__date {
+        text-align: left;
       }
       &__tag {
         display: inline-block;
@@ -1121,6 +1178,20 @@ dl {
     z-index: -1;
   }
 
+  .bread {
+    &__title {
+      padding-top: 50px;
+      text-align: left;
+      display: flex;
+    }
+    &__second {
+      font-weight: 600;
+    }
+    &__arrow {
+      margin: 0px 8px;
+    }
+  }
+
   // ポートフォリオ
   .portfolio {
     background-color: $back-color;
@@ -1154,49 +1225,6 @@ dl {
       margin-inline: auto;
       height: 130px;
       object-fit: cover;
-    }
-  }
-}
-
-.bread {
-  &__title {
-    text-align: left;
-    display: flex;
-  }
-  &__second {
-    font-weight: 600;
-  }
-  &__arrow {
-    margin: 0px 8px;
-  }
-}
-
-//下層ページ
-.lower {
-  &_bg {
-    height: 250px;
-    background-color: #6499ff;
-  }
-  &__title {
-    padding-top: 50px;
-    margin: 0;
-    font-size: rem(60);
-    color: white;
-    text-align: left;
-    &::after {
-      display: block;
-      content: attr(data-ja);
-      margin: 0;
-      font-size: rem(20);
-      color: white;
-      text-align: left;
-      margin-bottom: rem(40);
-      &--white {
-        font-size: rem(20);
-        color: white;
-        margin-bottom: rem(20);
-        text-align: left;
-      }
     }
   }
 }
