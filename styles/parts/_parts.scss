@@ -114,7 +114,7 @@
   &.open {
     z-index: 99;
     display: block;
-    top: 76px;
+    top: 60px;
     height: 90vh;
     opacity: 1;
   }
@@ -232,6 +232,7 @@
 
 @media (max-width: 600px) {
   .header {
+    top: 0;
     padding: 10px;
     display: flex;
   }

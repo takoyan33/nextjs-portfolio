@@ -291,13 +291,6 @@ a {
     text-align: center;
   }
 
-  .main__btn {
-    padding: rem(10) 0px;
-    margin-inline: auto;
-    font-size: 16px;
-    text-align: center;
-  }
-
   .main {
     &__title {
       margin: 0;
@@ -309,6 +302,27 @@ a {
         font-size: rem(60);
         color: white;
         text-align: left;
+      }
+      &__btn {
+        padding: rem(10) 0px;
+        margin-inline: auto;
+        font-size: 16px;
+        text-align: center;
+      }
+      &::after {
+        display: block;
+        content: attr(data-ja);
+        margin: 0;
+        font-size: rem(20);
+        color: $main-color;
+        text-align: left;
+        margin-bottom: rem(10);
+        &--white {
+          font-size: rem(20);
+          color: white;
+          margin-bottom: rem(20);
+          text-align: left;
+        }
       }
     }
     &__subtitle {
@@ -371,7 +385,27 @@ a {
       }
     }
   }
+  .portfolioFlx {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: rem(30) auto;
+    gap: rem(50) rem(0);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    &_el {
+      width: 100%;
+      margin: 0px;
+      overflow-wrap: break-word;
 
+      &_footer {
+        margin: rem(10);
+      }
+    }
+  }
   .pc {
     display: none;
   }
