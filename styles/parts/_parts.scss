@@ -112,11 +112,12 @@
     }
   }
   &.open {
+    display: none;
     z-index: 99;
     display: block;
     top: 60px;
     height: 90vh;
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -226,6 +227,38 @@
       padding-right: 1px;
       font-size: 11px;
       text-align: right;
+    }
+  }
+  .drawerMenu {
+    z-index: -100;
+    width: 100%;
+    height: 0;
+    background-color: #13b0df;
+
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    opacity: 0;
+    display: none;
+    transition: 0.5s;
+    ul {
+      width: 90%;
+      padding: 0px;
+      margin-inline: auto;
+      li {
+        margin-bottom: 25px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 200;
+        opacity: 0.8;
+      }
+    }
+    &.open {
+      display: none;
+      z-index: 99;
+      display: block;
+      top: 60px;
+      height: 90vh;
+      opacity: 1;
     }
   }
 }
