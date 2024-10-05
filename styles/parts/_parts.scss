@@ -172,10 +172,11 @@
     transform: translateY(-17px) rotate(45deg);
   }
   .header {
+    top: 0;
     position: fixed;
     display: flex;
     background: white;
-    padding: 20px 20px;
+    padding: 10px;
     nav {
       display: none;
     }

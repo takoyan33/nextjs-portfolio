@@ -280,6 +280,30 @@ a {
   }
 }
 
+@media (max-width: 1024px) {
+  .flx {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: rem(10) auto;
+    gap: rem(30) rem(100);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    &_el {
+      width: 33%;
+      margin: 0px;
+      overflow-wrap: break-word;
+
+      &_footer {
+        margin: rem(10);
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 580px) {
   .section_title {
     margin: rem(10) auto;

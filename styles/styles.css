@@ -224,6 +224,26 @@ a :hover {
   text-align: left;
 }
 
+@media (max-width: 1024px) {
+  .flx {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0.625rem auto;
+    gap: 1.875rem 6.25rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+  }
+  .flx_el {
+    width: 33%;
+    margin: 0px;
+    overflow-wrap: break-word;
+  }
+  .flx_el_footer {
+    margin: 0.625rem;
+  }
+}
 @media screen and (max-width: 580px) {
   .section_title {
     margin: 0.625rem auto;
@@ -515,10 +535,11 @@ a :hover {
     transform: translateY(-17px) rotate(45deg);
   }
   .header {
+    top: 0;
     position: fixed;
     display: flex;
     background: white;
-    padding: 20px 20px;
+    padding: 10px;
   }
   .header nav {
     display: none;
@@ -1352,10 +1373,68 @@ dl dd h2 {
   text-align: left;
 }
 
+.skill__svg {
+  height: 100px !important;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .skill__svg {
+    height: 90px !important;
+    position: relative;
+  }
+  .portfolio {
+    background-color: #f7f7f7;
+  }
+  .portfolio__flex {
+    display: flex;
+    justify-content: center;
+  }
+  .portfolio__date {
+    font-size: 0.875rem;
+    margin-top: 6px;
+    margin-bottom: 4px;
+  }
+  .portfolio__tag {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 5px;
+    margin: 11px 2px;
+    font-size: 14px;
+    color: #6499ff;
+    border: 1px solid #6499ff;
+    border-radius: 10px;
+  }
+  .portfolio__title {
+    color: #434343;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .portfolio__img {
+    position: relative;
+    width: 200px;
+    margin-inline: auto;
+    height: 150px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .portfolio__img__item {
+    border-radius: 10px;
+  }
+  .about_img {
+    height: 230px;
+    width: 300px;
+    margin-inline: auto;
+  }
+}
 @media screen and (max-width: 580px) {
   .size {
     margin-top: 1.25rem;
     color: #6499ff;
+  }
+  .skill__svg {
+    height: 90px !important;
+    position: relative;
   }
   .border_company {
     margin-left: 0px;
@@ -1398,6 +1477,7 @@ dl dd h2 {
   }
   .about_img {
     width: 100%;
+    height: 300px;
     margin-inline: auto;
   }
   .about_text {
@@ -1419,6 +1499,7 @@ dl dd h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    gap: 24px 0px;
     margin-inline: auto;
   }
   .skill__flx_el {
@@ -1427,7 +1508,7 @@ dl dd h2 {
   .skill_text {
     width: 80%;
     margin: 0.3125rem auto;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: bold;
     color: #6499ff;
     text-align: center;
@@ -1608,7 +1689,7 @@ dl dd h2 {
   }
   .portfolio__img {
     position: relative;
-    width: 190px;
+    width: 220px;
     margin-inline: auto;
     height: 130px;
     -o-object-fit: cover;
@@ -1651,11 +1732,6 @@ dl dd h2 {
     transform: rotate(360deg);
   }
 }
-.skill__svg {
-  height: 160px !important;
-  position: relative;
-}
-
 .modalBox__skill__svg {
   width: 160px !important;
   height: 160px !important;
