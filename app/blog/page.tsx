@@ -1,5 +1,4 @@
 import ZennArticleItem from '../../components/Components/ui/ZennArticleItem'
-import Link from 'next/link'
 import { PATH } from '../../utils/path'
 import React from 'react'
 import BreadList from '../../components/Components/ui/BreadList'

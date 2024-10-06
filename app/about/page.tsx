@@ -1,16 +1,13 @@
-'use client'
 import Timeline from '../../components/Components/ui/Timeline'
 import React from 'react'
-import { licenseProps, jobProps, historyProps } from '../../utils/type'
-import { fetchHistory, fetchJob, fetchLicenses } from '../../hooks/fetch'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
-import type { NextPage } from 'next'
+import { Timelines } from '../../components/Components/ui/Timelines'
+import { HistoryTimelines } from '../../components/Components/ui/HistoryTimelines'
+import { License } from '../../components/Components/ui/License'
+import { Suspense } from 'react'
 
-const About = async () => {
-  const jobs = await fetchJob()
-  const histories = await fetchHistory()
-  const licenses = await fetchLicenses()
+const About = () => {
   return (
     <>
       <div className='max_width'>
@@ -26,23 +23,19 @@ const About = async () => {
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>経歴</h3>
 
-        <dl>
-          {Array.isArray(histories) &&
-            histories.map((history, index) => (
-              <Timeline key={index} title={history.title} date={history.date} body={history.body} />
-            ))}
-        </dl>
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* @ts-expect-error Async Server Component */}
+          <HistoryTimelines />
+        </Suspense>
       </div>
 
       {/*ここから職歴*/}
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>職歴</h3>
-        <dl>
-          {Array.isArray(jobs) &&
-            jobs.map((job, index) => (
-              <Timeline key={index} title={job.title} date={job.date} body={job.body} />
-            ))}
-        </dl>
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* @ts-expect-error Async Server Component */}
+          <Timelines />
+        </Suspense>
       </div>
 
       {/* ここからLicense*/}
@@ -54,13 +47,10 @@ const About = async () => {
               <th className='license__table__th'>日付</th>
               <th className='license__table__th'>資格名</th>
             </tr>
-            {Array.isArray(licenses) &&
-              licenses.map((license, index) => (
-                <tr key={index} className='license__table__tr'>
-                  <td className='license__table__td'>{license.date}</td>
-                  <td className='license__table__td'>{license.title}</td>
-                </tr>
-              ))}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Async Server Component */}
+              <License />
+            </Suspense>
           </tbody>
         </table>
       </section>

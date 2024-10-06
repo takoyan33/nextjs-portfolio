@@ -1,14 +1,11 @@
-'use client'
-import PortfolioItem from '../../components/Components/ui/PortfolioItem'
 import React from 'react'
-import { PortfolioProps } from '../../utils/type'
-import { fetchPortfolios } from '../../hooks/fetch'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
-import type { NextPage } from 'next'
+import { PortfolioElement } from '../../components/Components/ui/PortfolioElement'
+import { Suspense } from 'react'
 
 const Portfolio = async () => {
-  const portfolios = await fetchPortfolios()
+  // const portfolios = await fetchPortfolios()
 
   return (
     <>
@@ -24,24 +21,11 @@ const Portfolio = async () => {
               </h2>
             </div>
           </div>
-          <div className='max_width'>
-            <h3 className='portfolio__headTitle'>
-              全ての制作物<span> {portfolios.length}件</span>
-            </h3>
-            <div className='portfolioFlx'>
-              {Array.isArray(portfolios) &&
-                portfolios.map((portfolio, index) => (
-                  <PortfolioItem
-                    key={index}
-                    portfolio_id={portfolio.id}
-                    portfolio_name={portfolio.name}
-                    portfolio_date={portfolio.date}
-                    portfolio_tag={portfolio.tag}
-                    portfolio_topImg={portfolio.topImg}
-                  />
-                ))}
-            </div>
-          </div>
+
+          <Suspense fallback={<div>Loading...</div>}>
+            {/* @ts-expect-error Async Server Component */}
+            <PortfolioElement />
+          </Suspense>
         </div>
       </div>
     </>
