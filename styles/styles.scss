@@ -1295,6 +1295,36 @@ dl {
       object-fit: cover;
     }
   }
+
+  //下層ページ
+  .lower {
+    &_bg {
+      height: 180px;
+      background-color: #6499ff;
+    }
+    &__title {
+      padding-top: 40px;
+      margin: 0;
+      font-size: rem(36);
+      color: white;
+      text-align: left;
+      &::after {
+        display: block;
+        content: attr(data-ja);
+        margin: 0;
+        font-size: rem(16);
+        color: white;
+        text-align: left;
+        margin-bottom: rem(40);
+        &--white {
+          font-size: rem(20);
+          color: white;
+          margin-bottom: rem(20);
+          text-align: left;
+        }
+      }
+    }
+  }
 }
 
 // ローディング
