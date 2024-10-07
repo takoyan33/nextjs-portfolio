@@ -22,9 +22,9 @@ const Blog = async () => {
     error = 'Failed to fetch articles'
   }
 
-  if (error) {
-    return <div>Error fetching articles: {error}</div>
-  }
+  zennArticles?.articles.sort((a: any, b: any) => {
+    return new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+  })
 
   return (
     <div className=''>
