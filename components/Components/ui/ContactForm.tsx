@@ -39,6 +39,10 @@ const Index: NextPage = () => {
 
   return (
     <div className='form'>
+      <p>
+        以下のフォームに必要事項をご記入のうえ、お気軽にお問い合わせください。<br></br>
+        内容確認後、担当者からご連絡させていただきます。
+      </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form-box'>
           <label htmlFor='name' className='form-box-label'>
@@ -94,7 +98,7 @@ const Index: NextPage = () => {
         </div>
 
         <div className='text-center'>
-          <button className='form-box-btn'>送信</button>
+          <button className='form-box-btn'>入力内容を確認する</button>
         </div>
       </form>
     </div>

@@ -2,6 +2,7 @@ import ZennArticleItem from '../../components/Components/ui/ZennArticleItem'
 import { PATH } from '../../utils/path'
 import React from 'react'
 import BreadList from '../../components/Components/ui/BreadList'
+import { zennProps } from '../../utils/type'
 
 export const metadata = {
   title: 'To You Design - Blog',
@@ -9,11 +10,12 @@ export const metadata = {
 }
 
 const Blog = async () => {
-  let zennArticles: any
-  let error = ''
+  let zennArticles: zennProps | null = null
+  let error: string = ''
 
   try {
     const response = await fetch('https://zenn.dev/api/articles?username=643866')
+    console.log(response)
     if (!response.ok) {
       throw new Error(`Failed to fetch Zenn articles: ${response.status}`)
     }
@@ -27,7 +29,7 @@ const Blog = async () => {
   })
 
   return (
-    <div className=''>
+    <div>
       <div className='max_width'>
         <BreadList name='Blog' link={PATH.BLOG} />
       </div>

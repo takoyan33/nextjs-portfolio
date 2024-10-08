@@ -8,7 +8,7 @@ interface BreadListProps {
 
 const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
   return (
-    <p className='bread__title'>
+    <p className='bread__title max-width'>
       <Link href='/'>トップ</Link> <span className='bread__arrow'>＞</span>
       <Link href={link} className='bread__second'>
         {name}

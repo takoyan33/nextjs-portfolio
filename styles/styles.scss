@@ -476,6 +476,7 @@ li {
   padding: 25px 22px;
   color: white;
   border: 0px solid;
+  cursor: pointer;
   font-size: rem(20);
   bottom: 0;
   z-index: 10;
@@ -592,7 +593,7 @@ li {
   }
   &__date {
     font-size: rem(14);
-    color: $main-color;
+    color: grey;
   }
   &__tag {
     display: inline-block;
@@ -602,10 +603,14 @@ li {
     font-size: 14px;
     color: $main-color;
     border: 1px solid $main-color;
-    border-radius: 20px;
+    border-radius: 10px;
   }
   &__title {
     margin-top: 0px;
+    font-weight: 600;
+    width: 80%;
+    text-align: left;
+    margin-inline: auto;
   }
   &__emoji {
     font-size: 80px;
@@ -1077,6 +1082,35 @@ dl {
 
   p {
     text-align: center;
+  }
+
+  .zenn {
+    background-color: $back-color;
+
+    &__flex {
+      display: flex;
+      justify-content: center;
+    }
+    &__date {
+      font-size: rem(14);
+      color: $main-color;
+    }
+    &__tag {
+      display: inline-block;
+      height: 25px;
+      padding: 2px 5px;
+      margin: 11px 2px;
+      font-size: 14px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 20px;
+    }
+    &__title {
+      margin-top: 0px;
+    }
+    &__emoji {
+      font-size: 80px;
+    }
   }
 
   .skill {

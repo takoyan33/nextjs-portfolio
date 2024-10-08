@@ -5,28 +5,24 @@ import { PortfolioElement } from '../../components/Components/ui/PortfolioElemen
 import { Suspense } from 'react'
 
 const Portfolio = async () => {
-  // const portfolios = await fetchPortfolios()
-
   return (
     <>
       <div>
-        <div className=''>
-          <div className='max_width'>
-            <BreadList name='Portfolio' link={PATH.PORTFOLIO} />
-          </div>
-          <div className='lower_bg'>
-            <div className='max_width'>
-              <h2 className='lower__title' data-ja='制作物'>
-                Portfolio
-              </h2>
-            </div>
-          </div>
-
-          <Suspense fallback={<div>Loading...</div>}>
-            {/* @ts-expect-error Async Server Component */}
-            <PortfolioElement />
-          </Suspense>
+        <div className='max_width'>
+          <BreadList name='Portfolio' link={PATH.PORTFOLIO} />
         </div>
+        <div className='lower_bg'>
+          <div className='max_width'>
+            <h2 className='lower__title' data-ja='制作物'>
+              Portfolio
+            </h2>
+          </div>
+        </div>
+
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* @ts-expect-error Async Server Component */}
+          <PortfolioElement />
+        </Suspense>
       </div>
     </>
   )
