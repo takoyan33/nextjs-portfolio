@@ -447,7 +447,22 @@ a :hover {
   color: white;
   background-color: rgb(34, 35, 35);
 }
+.header li a {
+  transition: color 0.3s;
+}
 .header li a:hover {
+  color: #13b0df;
+}
+.header_btn_contact {
+  background-color: #13b0df;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s;
+}
+.header_btn_contact:hover {
   opacity: 0.6;
 }
 

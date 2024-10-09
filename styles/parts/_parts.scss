@@ -78,9 +78,23 @@
       background-color: rgb(34, 35, 35);
     }
     a {
+      transition: color 0.3s;
       &:hover {
-        opacity: 0.6;
+        color: #13b0df;
       }
+    }
+  }
+
+  &_btn_contact {
+    background-color: #13b0df;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.3s;
+    &:hover {
+      opacity: 0.6;
     }
   }
 }

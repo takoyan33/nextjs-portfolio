@@ -52,6 +52,9 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+              <Link href={PATH.CONTACT} className='header_btn_contact'>
+                お問い合わせ
+              </Link>
             </ul>
           </nav>
         </div>
