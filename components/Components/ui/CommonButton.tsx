@@ -1,17 +1,24 @@
 import React from 'react'
+import Link from 'next/link'
 
 interface CommonButtonProps {
   text: string
+  link?: string
   className?: string
   handleClick?: () => void
 }
 
-const CommonButton: React.FC<CommonButtonProps> = ({ text, className = '', handleClick }) => {
+export const CommonButton: React.FC<CommonButtonProps> = ({
+  text,
+  className = 'more',
+  handleClick,
+  link,
+}) => {
   return (
-    <button onClick={handleClick} className={`main__btn ${className}`}>
-      {text}
-    </button>
+    <Link href={link ? link : ''}>
+      <button onClick={handleClick} className={`main__btn ${className}`}>
+        {text}
+      </button>
+    </Link>
   )
 }
-
-export default CommonButton

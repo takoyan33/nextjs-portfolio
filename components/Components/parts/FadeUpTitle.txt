@@ -1,0 +1,32 @@
+import React, { useState, useEffect, useRef } from 'react'
+
+export const FadeUpTitle = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const CLASSNAME = '-visible'
+  const titleRef = useRef(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const titleRect = titleRef.current?.getBoundingClientRect()
+      if (window.scrollY >= titleRect.top) {
+        setIsVisible(true)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  return (
+    <h1 className={`title ${isVisible ? CLASSNAME : ''}`} ref={titleRef}>
+      <span>A</span>
+      <span>B</span>
+      <span>O</span>
+      <span>U</span>
+      <span>T</span>
+    </h1>
+  )
+}

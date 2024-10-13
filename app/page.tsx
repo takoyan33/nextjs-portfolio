@@ -18,6 +18,7 @@ import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
 import { portfolioType, history, skill } from '../utils/type'
+import { CommonButton } from '../components/Components/ui/CommonButton'
 // import {
 //   fetchPortfolios,
 //   fetchHistory,
@@ -28,6 +29,7 @@ import { portfolioType, history, skill } from '../utils/type'
 // } from '../hooks/fetch'
 import { PATH } from '../utils/path'
 import { socialLinks, FVSUBTITLE } from '../utils/data'
+//import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 import type { NextPage } from 'next'
 
 // import { useRecoilValue, useRecoilState } from 'recoil'
@@ -167,8 +169,8 @@ const Home = () => {
               </h2>
             </ScrollComponent>
             <ScrollComponent>
-              <div className='flx'>
-                <div className='flx_el'>
+              <div className='aboutTop_flx'>
+                <div className='aboutTop_flx_el'>
                   <div className='about_img'>
                     <Image
                       src='/images/myphoto.png'
@@ -180,7 +182,7 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <div className='flx_el'>
+                <div className='aboutTop_flx_el'>
                   <h4 className='about__title'>阿部 舜平</h4>
                   <div className='about__flx'>
                     {socialLinks.map((link) => (
@@ -196,7 +198,11 @@ const Home = () => {
                     ))}
                   </div>
                   <p className='about__text'>
-                    フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                    北海道在住の社会人1年目のエンジニア。<br></br>
+                    大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
+                    <br></br>
+                    文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                    <br></br>
                     現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
                   </p>
                   <p className='about__text'>趣味：旅行、ギター</p>
@@ -215,6 +221,7 @@ const Home = () => {
                 Portfolio
               </h2>
             </ScrollComponent>
+            {/* <FadeUpTitle /> */}
             <div className='portfolio-content'>
               <div className='prev-button'>
                 {firstSwiper !== 0 && (
@@ -268,9 +275,7 @@ const Home = () => {
                 )}
               </div>
             </div>
-            <Link href={PATH.PORTFOLIO} className='main__btn'>
-              more
-            </Link>
+            <CommonButton text='more' link={PATH.PORTFOLIO} />
           </div>
         </div>
         <WaveBgBottom />
@@ -296,9 +301,7 @@ const Home = () => {
                 ))}
             </dl>
           </div>
-          <Link href={PATH.ABOUT} className='main__btn'>
-            more
-          </Link>
+          <CommonButton text='more' link={PATH.ABOUT} />
         </div>
         {/* ここからSKill*/}
         <WaveBgTop />

@@ -1,5 +1,6 @@
 // 個別ページ
 // お問い合わせフォーム
+@use '../common/variables' as *;
 
 .form {
   margin: 60px 0;
@@ -99,6 +100,19 @@
   }
 }
 
+.fv_cube {
+  height: 100vh;
+
+  &_title {
+    font-size: 70px;
+    text-align: left;
+    line-height: 90px;
+    position: relative;
+    top: 120px;
+    font-family: futura-pt-bold, sans-serif;
+  }
+}
+
 .humburger {
   display: none;
 }
@@ -136,6 +150,27 @@
 
 .btn-trigger {
   display: none;
+}
+
+// 共通
+.aboutTop_flx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: rem(10) auto;
+  gap: rem(60) rem(0);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  &_el {
+    width: 50%;
+    margin: 0px;
+    overflow-wrap: break-word;
+
+    &_footer {
+      margin: rem(10);
+    }
+  }
 }
 
 @media (max-width: 1024px) {

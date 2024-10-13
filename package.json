@@ -27,8 +27,8 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@mui/icons-material": "^5.4.1",
     "@mui/material": "^5.4.1",
-    "@react-three/fiber": "^8.17.1",
-    "@types/three": "^0.167.1",
+    "@react-three/fiber": "^8.17.10",
+    "@types/three": "^0.169.0",
     "date-fns": "^2.11.1",
     "emailjs-com": "^3.2.0",
     "eslint": "^9.9.0",
@@ -53,7 +53,7 @@
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "swiper": "^11.1.9",
-    "three": "^0.167.1"
+    "three": "^0.169.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
