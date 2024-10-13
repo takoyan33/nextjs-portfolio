@@ -1,7 +1,7 @@
 import React from 'react'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
-import { PortfolioElement } from '../../components/Components/ui/PortfolioElement'
+import { PortfolioElement } from '../../components/Components/ui/sc/PortfolioElement'
 import { Suspense } from 'react'
 
 const Portfolio = async () => {

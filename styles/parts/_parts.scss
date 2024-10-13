@@ -49,7 +49,7 @@
   height: auto;
   padding: 20px;
   padding-top: 20px;
-  border-bottom: #13b0df 2px solid;
+  border-bottom: $main-color 2px solid;
   .logo {
     font-size: 20px;
     font-weight: bold;
@@ -81,13 +81,13 @@
     a {
       transition: color 0.3s;
       &:hover {
-        color: #13b0df;
+        color: $main-color;
       }
     }
   }
 
   &_btn_contact {
-    background-color: #13b0df;
+    background-color: $main-color;
     color: white;
     padding: 5px 10px;
     border-radius: 20px;
@@ -120,7 +120,7 @@
   z-index: -100;
   width: 100%;
   height: 0;
-  background-color: #13b0df;
+  background-color: $main-color;
 
   position: fixed;
   top: 0px;
@@ -186,7 +186,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: #13b0df;
+    background-color: $main-color;
     border-radius: 4px;
   }
   .btn-trigger,
@@ -282,7 +282,7 @@
     z-index: -100;
     width: 100%;
     height: 0;
-    background-color: #13b0df;
+    background-color: $main-color;
 
     position: fixed;
     top: 0px;

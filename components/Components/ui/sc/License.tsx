@@ -1,4 +1,4 @@
-import licenses from '../../../api/license/index.json'
+import licenses from '../../../../api/license/index.json'
 
 export const License = async () => {
   return (
