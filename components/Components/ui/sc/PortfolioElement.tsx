@@ -1,6 +1,6 @@
 import React from 'react'
-import portfolios from '../../../api/portfolio/index.json'
-import PortfolioItem from './PortfolioItem'
+import portfolios from '../../../../api/portfolio/index.json'
+import PortfolioItem from '../PortfolioItem'
 
 export const PortfolioElement = async () => {
   return (

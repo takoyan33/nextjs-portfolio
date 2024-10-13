@@ -1,7 +1,6 @@
-import Timeline from './Timeline'
+import Timeline from '../Timeline'
 import React from 'react'
-// import { fetchJob } from '../../../hooks/fetch'
-import histories from '../../../api/history/index.json'
+import histories from '../../../../api/history/index.json'
 
 export const HistoryTimelines = async () => {
   return (

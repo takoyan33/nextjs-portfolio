@@ -422,7 +422,7 @@ li {
   z-index: -1;
   width: 100%;
   height: 70vh;
-  background: #13b0df;
+  background: $main-color;
   &__title {
     position: relative;
     top: rem(220);
@@ -619,6 +619,7 @@ li {
 
 //フッター
 .footer {
+  border-top: 2px solid $main-color;
   &_flx {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -626,13 +627,12 @@ li {
     justify-content: center;
     padding: 30px 0;
     margin: 0px auto;
-    color: white;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
   }
   &_list {
-    color: white;
     text-align: left;
+    font-weight: 600;
   }
 
   &_logo {
@@ -640,7 +640,6 @@ li {
     bottom: rem(20);
     font-size: 30px;
     font-weight: bold;
-    color: white;
     text-align: left;
   }
 
@@ -648,16 +647,11 @@ li {
     width: 100%;
     padding: rem(10);
     margin: 0;
+    // background-color: $main-color;
+    color: gray;
+    font-weight: 600;
     font-size: 16px;
-    color: white;
     text-align: center;
-  }
-}
-
-footer {
-  background-color: $main-color;
-  li {
-    color: white;
   }
 }
 
@@ -996,6 +990,63 @@ dl {
       margin-inline: auto;
     }
   }
+}
+
+.title {
+  display: flex;
+  overflow: hidden;
+  color: #aa8f7b;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.title span {
+  display: block;
+  transform: translate(0, 105%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+
+.title.-visible span {
+  transform: translate(0, 0);
+}
+
+.title span:nth-child(2) {
+  transition-delay: 0.06s;
+}
+.title span:nth-child(3) {
+  transition-delay: 0.12s;
+}
+.title span:nth-child(4) {
+  transition-delay: 0.18s;
+}
+.title span:nth-child(5) {
+  transition-delay: 0.24s;
+}
+.title span:nth-child(6) {
+  transition-delay: 0.3s;
+}
+.title span:nth-child(7) {
+  transition-delay: 0.36s;
+}
+.title span:nth-child(8) {
+  transition-delay: 0.42s;
+}
+.title span:nth-child(9) {
+  transition-delay: 0.48s;
+}
+.title span:nth-child(10) {
+  transition-delay: 0.54s;
+}
+.title span:nth-child(11) {
+  transition-delay: 0.6s;
+}
+.title span:nth-child(12) {
+  transition-delay: 0.66s;
+}
+.title span:nth-child(13) {
+  transition-delay: 0.72s;
+}
+.title span:nth-child(14) {
+  transition-delay: 0.78s;
 }
 
 //スマホ版

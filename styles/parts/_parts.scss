@@ -1,5 +1,6 @@
 // 個別ページ
 // お問い合わせフォーム
+@use '../common/variables' as *;
 
 .form {
   margin: 60px 0;
@@ -48,7 +49,7 @@
   height: auto;
   padding: 20px;
   padding-top: 20px;
-  border-bottom: #13b0df 2px solid;
+  border-bottom: $main-color 2px solid;
   .logo {
     font-size: 20px;
     font-weight: bold;
@@ -80,13 +81,13 @@
     a {
       transition: color 0.3s;
       &:hover {
-        color: #13b0df;
+        color: $main-color;
       }
     }
   }
 
   &_btn_contact {
-    background-color: #13b0df;
+    background-color: $main-color;
     color: white;
     padding: 5px 10px;
     border-radius: 20px;
@@ -99,6 +100,19 @@
   }
 }
 
+.fv_cube {
+  height: 100vh;
+
+  &_title {
+    font-size: 70px;
+    text-align: left;
+    line-height: 90px;
+    position: relative;
+    top: 120px;
+    font-family: futura-pt-bold, sans-serif;
+  }
+}
+
 .humburger {
   display: none;
 }
@@ -106,7 +120,7 @@
   z-index: -100;
   width: 100%;
   height: 0;
-  background-color: #13b0df;
+  background-color: $main-color;
 
   position: fixed;
   top: 0px;
@@ -138,6 +152,27 @@
   display: none;
 }
 
+// 共通
+.aboutTop_flx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: rem(10) auto;
+  gap: rem(60) rem(0);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  &_el {
+    width: 50%;
+    margin: 0px;
+    overflow-wrap: break-word;
+
+    &_footer {
+      margin: rem(10);
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .btn-trigger {
     position: relative;
@@ -151,7 +186,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: #13b0df;
+    background-color: $main-color;
     border-radius: 4px;
   }
   .btn-trigger,
@@ -247,7 +282,7 @@
     z-index: -100;
     width: 100%;
     height: 0;
-    background-color: #13b0df;
+    background-color: $main-color;
 
     position: fixed;
     top: 0px;

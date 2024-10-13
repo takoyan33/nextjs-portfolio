@@ -3,8 +3,6 @@ import Head from 'next/head'
 import Script from 'next/script'
 import Image from 'next/image'
 import PortfolioItemTop from '../components/Components/ui/PortfolioItemTop'
-import Skill from '../components/Components/ui/Skill'
-import Timeline from '../components/Components/ui/Timeline'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import 'swiper/css'
@@ -17,19 +15,17 @@ import Link from 'next/link'
 import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
-import { portfolioType, history, skill } from '../utils/type'
-// import {
-//   fetchPortfolios,
-//   fetchHistory,
-//   fetchFrontSkills,
-//   fetchBackSkills,
-//   fetchInfraSkills,
-//   fetchOtherSkills,
-// } from '../hooks/fetch'
+import { portfolioType } from '../utils/type'
+import { CommonButton } from '../components/Components/ui/CommonButton'
+import { HistoryTimelines } from '../components/Components/ui/sc/HistoryTimelines'
+import { Suspense } from 'react'
 import { PATH } from '../utils/path'
 import { socialLinks, FVSUBTITLE } from '../utils/data'
-import type { NextPage } from 'next'
-
+import { FrontSkills } from '../components/Components/ui/sc/FrontSkills'
+import { BackSkills } from '../components/Components/ui/sc/BackSkills'
+import { InfraSkills } from '../components/Components/ui/sc/InfraSkills'
+import { OtherSkills } from '../components/Components/ui/sc/OtherSkills'
+//import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
 
@@ -43,19 +39,7 @@ const Home = () => {
     },
   }
 
-  // const portfolios = await fetchPortfolios()
-  // const histories = await fetchHistory()
-  // const frontSkills = await fetchFrontSkills()
-  // const backSkills = await fetchBackSkills()
-  // const infraSkills = await fetchInfraSkills()
-  // const otherSkills = await fetchOtherSkills()
-
   const [portfolios, setPortfolios] = useState<portfolioType[]>()
-  const [histories, setHistories] = useState<history[]>()
-  const [frontSkills, setFrontSkills] = useState<skill[]>()
-  const [backSkills, setBackSkills] = useState<skill[]>()
-  const [infraSkills, setInfraSkills] = useState<skill[]>()
-  const [otherSkills, setOtherSkills] = useState<skill[]>()
 
   // const data = useRecoilValue(portfolioState)
   const fetchPortfolios = async () => {
@@ -64,43 +48,8 @@ const Home = () => {
     await setPortfolios(data)
   }
 
-  const fetchHistory = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
-    const data = await response.json()
-    await setHistories(data)
-  }
-
-  const fetchFrontSkills = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/front`)
-    const data = await response.json()
-    await setFrontSkills(data)
-  }
-
-  const fetchBackSkills = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/back`)
-    const data = await response.json()
-    await setBackSkills(data)
-  }
-
-  const fetchInfraSkills = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/infra`)
-    const data = await response.json()
-    await setInfraSkills(data)
-  }
-
-  const fetchOtherSkills = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skill/other`)
-    const data = await response.json()
-    await setOtherSkills(data)
-  }
   useEffect(() => {
     fetchPortfolios()
-    //setPortfolios(data)
-    fetchHistory()
-    fetchFrontSkills()
-    fetchBackSkills()
-    fetchInfraSkills()
-    fetchOtherSkills()
   }, [])
 
   // const todos = useRecoilValue(todoState)
@@ -152,7 +101,7 @@ const Home = () => {
         <div className='wave__bg__bottom'>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
             <path
-              fill='#13b0df'
+              fill='#6499ff'
               fillOpacity='1'
               d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
             ></path>
@@ -167,8 +116,8 @@ const Home = () => {
               </h2>
             </ScrollComponent>
             <ScrollComponent>
-              <div className='flx'>
-                <div className='flx_el'>
+              <div className='aboutTop_flx'>
+                <div className='aboutTop_flx_el'>
                   <div className='about_img'>
                     <Image
                       src='/images/myphoto.png'
@@ -180,7 +129,7 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <div className='flx_el'>
+                <div className='aboutTop_flx_el'>
                   <h4 className='about__title'>阿部 舜平</h4>
                   <div className='about__flx'>
                     {socialLinks.map((link) => (
@@ -196,7 +145,11 @@ const Home = () => {
                     ))}
                   </div>
                   <p className='about__text'>
-                    フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                    北海道在住の社会人1年目のエンジニア。<br></br>
+                    大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
+                    <br></br>
+                    文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                    <br></br>
                     現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
                   </p>
                   <p className='about__text'>趣味：旅行、ギター</p>
@@ -215,6 +168,7 @@ const Home = () => {
                 Portfolio
               </h2>
             </ScrollComponent>
+            {/* <FadeUpTitle /> */}
             <div className='portfolio-content'>
               <div className='prev-button'>
                 {firstSwiper !== 0 && (
@@ -268,9 +222,7 @@ const Home = () => {
                 )}
               </div>
             </div>
-            <Link href={PATH.PORTFOLIO} className='main__btn'>
-              more
-            </Link>
+            <CommonButton text='more' link={PATH.PORTFOLIO} />
           </div>
         </div>
         <WaveBgBottom />
@@ -285,23 +237,19 @@ const Home = () => {
               </ScrollComponent>
             </div>
             <dl>
-              {histories &&
-                histories.map((history, index) => (
-                  <Timeline
-                    key={index}
-                    title={history.title}
-                    date={history.date}
-                    body={history.body}
-                  />
-                ))}
+              <ScrollComponent>
+                <Suspense fallback={<div>Loading...</div>}>
+                  {/* @ts-expect-error Async Server Component */}
+                  <HistoryTimelines />
+                </Suspense>
+              </ScrollComponent>
             </dl>
           </div>
-          <Link href={PATH.ABOUT} className='main__btn'>
-            more
-          </Link>
+          <CommonButton text='more' link={PATH.ABOUT} />
         </div>
         {/* ここからSKill*/}
         <WaveBgTop />
+
         <div className='skill'>
           <div className='max_width'>
             <ScrollComponent>
@@ -311,61 +259,34 @@ const Home = () => {
             </ScrollComponent>
 
             <h4 className='skill__title'>Frontend</h4>
-            <div className='skill__flx'>
-              {frontSkills &&
-                frontSkills.map((skill, index) => (
-                  <Skill
-                    key={index}
-                    name={skill.name}
-                    rank={skill.rank}
-                    tag={skill.tag}
-                    icon={skill.icon}
-                    about={skill.about}
-                  />
-                ))}
-            </div>
+            <ScrollComponent>
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* @ts-expect-error Async Server Component */}
+                <FrontSkills />
+              </Suspense>
+            </ScrollComponent>
+            {/* </div> */}
             <h4 className='skill__title'>Backend</h4>
-            <div className='skill__flx'>
-              {backSkills &&
-                backSkills.map((skill, index) => (
-                  <Skill
-                    key={index}
-                    name={skill.name}
-                    rank={skill.rank}
-                    tag={skill.tag}
-                    icon={skill.icon}
-                    about={skill.about}
-                  />
-                ))}
-            </div>
+            <ScrollComponent>
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* @ts-expect-error Async Server Component */}
+                <BackSkills />
+              </Suspense>
+            </ScrollComponent>
             <h4 className='skill__title'>Infra</h4>
-            <div className='skill__flx'>
-              {infraSkills &&
-                infraSkills.map((skill, index) => (
-                  <Skill
-                    key={index}
-                    name={skill.name}
-                    rank={skill.rank}
-                    tag={skill.tag}
-                    icon={skill.icon}
-                    about={skill.about}
-                  />
-                ))}
-            </div>
+            <ScrollComponent>
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* @ts-expect-error Async Server Component */}
+                <InfraSkills />
+              </Suspense>
+            </ScrollComponent>
             <h4 className='skill__title'>Other</h4>
-            <div className='skill__flx'>
-              {otherSkills &&
-                otherSkills.map((skill, index) => (
-                  <Skill
-                    key={index}
-                    name={skill.name}
-                    rank={skill.rank}
-                    tag={skill.tag}
-                    icon={skill.icon}
-                    about={skill.about}
-                  />
-                ))}
-            </div>
+            <ScrollComponent>
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* @ts-expect-error Async Server Component */}
+                <OtherSkills />
+              </Suspense>
+            </ScrollComponent>
           </div>
         </div>
         <WaveBgBottom />
