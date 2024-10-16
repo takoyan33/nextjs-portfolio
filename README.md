@@ -10,19 +10,34 @@ To You Design Portfolio
 
 # 使用言語、環境
 
-- 使用言語：TypeScript
+### nodeバージョン
 
-- フレームワーク：React,Next.js
+- node v18.18.0
+- npm v9.8.1
 
-- バックエンド： Next.js API Routes
+### フロントエンド
 
-- リンター：ESLint, Prettier, Stylelint, husky, lint-staged
+- [Next.js](https://nextjs.org/) 14.0.4
+- [React](https://ja.reactjs.org/) 18.2.0
+- [typescript](https://www.typescriptlang.org/) 4.5.5
 
-- テスト：Vitest, React Testing Library
+### リンター
+- [ESLint](https://eslint.org/) 9.9.0
+- [Prettier](https://prettier.io/) 3.3.3
+- [Stylelint](https://stylelint.io/) 16.8.2
+- [husky](https://typicode.github.io/husky/)9.1.4
+- [lint-staged]lint-staged(https://github.com/lint-staged/lint-staged) 
 
-- サーバー：Vercel
+### テスト
+- [Vitest](https://vitejs.dev/guide/features.html) 2.1.1
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 10.4.0
 
-- ライブラリ：Swiper
+### ホスティング
+
+Vercel
+
+### ライブラリ
+[Swiper](https://swiperjs.com/react) 6.8.1
  
 ### ディレクトリ構成
 
@@ -44,7 +59,16 @@ To You Design Portfolio
 ├── utils           #共通関数
 ├── types           #型定義
 ```
- 
+### ブランチについて
+
+developブランチが開発環境でmainが本番環境です。
+
+| ブランチ名 | 役割                               | 派生元  | マージ先        |
+| ---------- | ---------------------------------- | ------- | --------------- |
+| main       | 公開するものを置くブランチ         |         |                 |
+| develop    | 開発中のものを置くブランチ         | main    | main            |
+| feature-\* | 新機能開発中に使うブランチ         | develop | develop         |
+
 # Author
  
 * 作成者 阿部 舜平
