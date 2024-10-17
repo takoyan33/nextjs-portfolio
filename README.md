@@ -1,14 +1,20 @@
 
-# Name 
+# To You Design Portfolio
 
-To You Design Portfolio
+## 目次
+- [システムの特徴](#system-feature)
+- [使用技術について](#technology-used)
+- [ディレクトリ構成](#directory-structure)
+- [ブランチについて](#technology-used)
 
-# Features
+<h2 id="system-feature">システムの特徴</h2>
  これは、自分のポートフォリオサイトです。<br>
  特徴としては、next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
  また、 Tailwind CSS,FontAwesome などを用いてます。
 
-# 使用言語、環境
+ ### 画面構成図
+
+<h2 id="technology-used">使用言語、環境</h2>
 
 ### nodeバージョン
 
@@ -38,8 +44,9 @@ Vercel
 
 ### ライブラリ
 [Swiper](https://swiperjs.com/react) 6.8.1
+
  
-### ディレクトリ構成
+<h2 id="technology-used">ディレクトリ構成</h2>
 
 ```
 .
@@ -59,7 +66,8 @@ Vercel
 ├── utils           #共通関数
 ├── types           #型定義
 ```
-### ブランチについて
+
+<h2 id="technology-used">ブランチについて</h2>
 
 developブランチが開発環境でmainが本番環境です。
 
