@@ -2,9 +2,9 @@ import Timeline from '../../components/Components/ui/Timeline'
 import React from 'react'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
-import { Timelines } from '../../components/Components/ui/sc/Timelines'
-import { HistoryTimelines } from '../../components/Components/ui/sc/HistoryTimelines'
-import { License } from '../../components/Components/ui/sc/License'
+import { Timelines } from '../../components/Components/ui/rsc/Timelines'
+import { HistoryTimelines } from '../../components/Components/ui/rsc/HistoryTimelines'
+import { License } from '../../components/Components/ui/rsc/License'
 import { Suspense } from 'react'
 
 const About = () => {
