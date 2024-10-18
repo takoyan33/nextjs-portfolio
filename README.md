@@ -7,12 +7,16 @@
 - [ディレクトリ構成](#directory-structure)
 - [ブランチについて](#technology-used)
 
+-[URL](https://nextjs-portfolio-puce.vercel.app/)
+
 <h2 id="system-feature">システムの特徴</h2>
  これは、自分のポートフォリオサイトです。<br>
  特徴としては、next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
  また、 Tailwind CSS,FontAwesome などを用いてます。
 
  ### 画面構成図
+
+ 準備中
 
 <h2 id="technology-used">使用言語、環境</h2>
 
@@ -32,7 +36,7 @@
 - [Prettier](https://prettier.io/) 3.3.3
 - [Stylelint](https://stylelint.io/) 16.8.2
 - [husky](https://typicode.github.io/husky/)9.1.4
-- [lint-staged]lint-staged(https://github.com/lint-staged/lint-staged) 
+- [lint-staged](https://github.com/lint-staged/lint-staged) 
 
 ### テスト
 - [Vitest](https://vitejs.dev/guide/features.html) 2.1.1
@@ -45,7 +49,6 @@ Vercel
 ### ライブラリ
 [Swiper](https://swiperjs.com/react) 6.8.1
 
- 
 <h2 id="technology-used">ディレクトリ構成</h2>
 
 ```
