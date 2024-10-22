@@ -15,26 +15,23 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
   return (
     <>
       <div className='skill__flx_el'>
-        <ScrollComponent>
-          {/* <a onClick={open}> */}
-          <div className='skill__svg'>
-            <Image
-              src={icon}
-              alt='skill画像'
-              fill
-              className='skill__svg'
-              sizes='(min-width: 768px)'
-            />
-          </div>
-          <p className='skill_text'>{name} </p>
-          <p className='skill_text'>{rank}</p>
-          {/* </a> */}
-        </ScrollComponent>
+        {/* <a onClick={open}> */}
+        <div className='skill__svg'>
+          <Image
+            src={icon}
+            alt='skill画像'
+            fill
+            className='skill__svg'
+            sizes='(min-width: 768px)'
+          />
+        </div>
+        <p className='skill_text'>{name} </p>
+        <p className='skill_text'>{rank}</p>
+        {/* </a> */}
       </div>
-
       <Modal>
         <div className='bg-white'>
-          <button onClick={close} className='modalBox_btn w-100'>
+          <button onClick={close} className='modalBox_btn w-100' aria-label='閉じる'>
             <img src='/images/close-icon.svg' alt='閉じる' />
           </button>
           <div className='modalBox'>

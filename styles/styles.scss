@@ -692,25 +692,38 @@ li {
 // skill
 .skill {
   background-color: $back-color;
+  padding-bottom: 40px;
   &__title {
     text-align: left;
+    font-size: 20px;
   }
   &__flx {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    gap: 40px 20px;
     margin-inline: auto;
+    margin-bottom: 60px;
     &_el {
-      width: 20%;
+      width: 30%;
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      box-shadow: #838383 0px 2px 5px;
     }
   }
   &_text {
-    width: 80%;
-    margin: rem(5) auto;
-    margin-bottom: 15px;
+    margin: 0 auto;
     font-weight: bold;
-    color: $main-color;
     text-align: center;
+  }
+  // svgアイコン
+  &__svg {
+    width: 60px !important;
+    height: 60px !important;
+    position: relative;
   }
 }
 
@@ -889,6 +902,36 @@ dl {
   }
 }
 
+.contact {
+  background-image: url('/images/top_contact_bg.jpg');
+  &__box {
+    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 10px;
+    &__title {
+      font-size: 26px;
+      margin: 0;
+    }
+    &__text {
+      margin: 0;
+      margin-top: 5px;
+      margin-bottom: 25px;
+    }
+  }
+  &__btn {
+    background-color: $main-color;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 .bread {
   &__title {
     text-align: left;
@@ -932,16 +975,11 @@ dl {
   }
 }
 
-// svgアイコン
-.skill__svg {
-  height: 100px !important;
-  position: relative;
-}
-
 @media (max-width: 1024px) {
   // svgアイコン
   .skill__svg {
-    height: 90px !important;
+    width: 50px !important;
+    height: 50px !important;
     position: relative;
   }
   .portfolio {
@@ -1058,7 +1096,8 @@ dl {
 
   // svgアイコン
   .skill__svg {
-    height: 90px !important;
+    width: 50px !important;
+    height: 50px !important;
     position: relative;
   }
 
@@ -1172,18 +1211,15 @@ dl {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      gap: 24px 0px;
+      gap: 24px 10px;
       margin-inline: auto;
       &_el {
-        width: 50%;
+        width: 48%;
+        flex-direction: column;
       }
     }
     &_text {
-      width: 80%;
-      margin: rem(5) auto;
-      margin-bottom: 5px;
       font-weight: bold;
-      color: $main-color;
       text-align: center;
     }
   }

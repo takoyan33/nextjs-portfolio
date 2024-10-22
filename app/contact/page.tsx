@@ -7,8 +7,8 @@ import type { NextPage } from 'next'
 
 const Contact = () => {
   return (
-    <div>
-      <div className='contact max_width'>
+    <main>
+      <div className='max_width'>
         <BreadList name='お問い合わせ' link={PATH.CONTACT} />
       </div>
       <div className='lower_bg'>
@@ -18,10 +18,10 @@ const Contact = () => {
           </h2>
         </div>
       </div>
-      <div className='contact max_width'>
+      <div className='max_width'>
         <ContactForm />
       </div>
-    </div>
+    </main>
   )
 }
 

@@ -98,7 +98,9 @@ const Index: NextPage = () => {
         </div>
 
         <div className='text-center'>
-          <button className='form-box-btn'>入力内容を確認する</button>
+          <button className='form-box-btn' aria-label='送信確認'>
+            送信する
+          </button>
         </div>
       </form>
     </div>

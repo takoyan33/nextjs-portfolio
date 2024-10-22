@@ -31,9 +31,9 @@ const Post = () => {
   }, [id])
 
   return (
-    <>
+    <main>
       {portfolios ? (
-        <nav>
+        <article>
           <p className='bread__title max_width'>
             <Link href='/'>トップ </Link> ＞
             <Link href={PATH.PORTFOLIO}> Portfolio ＞ {portfolios.name}</Link>
@@ -208,11 +208,11 @@ const Post = () => {
               </div>
             )}
           </section>
-        </nav>
+        </article>
       ) : (
         <p>Loading...</p>
       )}
-    </>
+    </main>
   )
 }
 

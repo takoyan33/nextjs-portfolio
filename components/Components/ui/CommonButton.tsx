@@ -16,7 +16,7 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 }) => {
   return (
     <Link href={link ? link : ''}>
-      <button onClick={handleClick} className={`main__btn ${className}`}>
+      <button onClick={handleClick} className={`main__btn ${className}`} aria-label='送信'>
         {text}
       </button>
     </Link>
