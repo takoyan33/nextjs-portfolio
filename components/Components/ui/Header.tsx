@@ -36,7 +36,7 @@ export default function Header() {
 
   return (
     <>
-      <header id='header' className='header'>
+      <header id='header' className='header' aria-label='ヘッダー'>
         <div className='header_flx'>
           <div>
             <Link className='logo' href='/'>

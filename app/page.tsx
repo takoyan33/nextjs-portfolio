@@ -67,7 +67,7 @@ const Home = () => {
   const [firstSwiper, setFirstSwiper] = useState(0)
 
   return (
-    <div className='container'>
+    <div>
       <Head>
         <title>To You Design</title>
         <link rel='icon' href='/favicon.ico' />
@@ -79,7 +79,7 @@ const Home = () => {
         <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
         <meta name='google' content='notranslate' key='notranslate' />
       </Head>
-      <nav className='container'>
+      <main aria-label='本文'>
         {/* ここからfv */}
         <div className='fv'>
           <div className='max_width'>
@@ -291,22 +291,25 @@ const Home = () => {
         </div>
         <WaveBgBottom />
         {/* ここからcontact*/}
-        <div className='contact max_width'>
-          <div>
+        <div className='contact'>
+          <div className='max_width'>
             <ScrollComponent>
-              <h2 className='main__title' data-ja='お問い合わせ'>
+              <h2 className='main__title__white' data-ja='お問い合わせ'>
                 Contact
               </h2>
             </ScrollComponent>
-            <p className='contact__text'>お問い合わせの方は、フォームを記入してください。</p>
             <ScrollComponent>
-              <Link href={PATH.CONTACT} className='main__btn__long padding-bottom'>
-                お問い合わせ
-              </Link>
+              <div className='contact__box'>
+                <h3 className='contact__box__title'>CONTACT</h3>
+                <p className='contact__box__text'>お問い合わせ</p>
+                <Link href={PATH.CONTACT} className='contact__btn padding-bottom'>
+                  お問い合せフォームへ
+                </Link>
+              </div>
             </ScrollComponent>
           </div>
         </div>
-      </nav>
+      </main>
       {showBackButton && (
         <button
           className='back__btn'

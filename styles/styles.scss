@@ -902,6 +902,36 @@ dl {
   }
 }
 
+.contact {
+  background-image: url('/images/top_contact_bg.jpg');
+  &__box {
+    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 10px;
+    &__title {
+      font-size: 26px;
+      margin: 0;
+    }
+    &__text {
+      margin: 0;
+      margin-top: 5px;
+      margin-bottom: 25px;
+    }
+  }
+  &__btn {
+    background-color: $main-color;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 .bread {
   &__title {
     text-align: left;

@@ -29,7 +29,7 @@ const Blog = async () => {
   })
 
   return (
-    <div>
+    <main>
       <div className='max_width'>
         <BreadList name='Blog' link={PATH.BLOG} />
       </div>
@@ -58,7 +58,7 @@ const Blog = async () => {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 

@@ -9,7 +9,7 @@ import { Suspense } from 'react'
 
 const About = () => {
   return (
-    <>
+    <main>
       <div className='max_width'>
         <BreadList name='About' link={PATH.ABOUT} />
       </div>
@@ -54,7 +54,7 @@ const About = () => {
           </tbody>
         </table>
       </section>
-    </>
+    </main>
   )
 }
 

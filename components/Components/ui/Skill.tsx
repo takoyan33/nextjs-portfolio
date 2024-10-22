@@ -31,7 +31,7 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
       </div>
       <Modal>
         <div className='bg-white'>
-          <button onClick={close} className='modalBox_btn w-100'>
+          <button onClick={close} className='modalBox_btn w-100' aria-label='閉じる'>
             <img src='/images/close-icon.svg' alt='閉じる' />
           </button>
           <div className='modalBox'>
