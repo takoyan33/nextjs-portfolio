@@ -228,23 +228,19 @@ const Home = () => {
         <WaveBgBottom />
         {/*ここから学歴*/}
         <div className='max_width'>
-          <div className='flx'>
-            <div className='flx_el'>
-              <ScrollComponent>
-                <h2 className='main__title' data-ja='過去の経歴'>
-                  History
-                </h2>
-              </ScrollComponent>
-            </div>
-            <dl>
-              <ScrollComponent>
-                <Suspense fallback={<div>Loading...</div>}>
-                  {/* @ts-expect-error Async Server Component */}
-                  <HistoryTimelines />
-                </Suspense>
-              </ScrollComponent>
-            </dl>
-          </div>
+          <ScrollComponent>
+            <h2 className='main__title' data-ja='過去の経歴'>
+              History
+            </h2>
+          </ScrollComponent>
+          <dl>
+            <ScrollComponent>
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* @ts-expect-error Async Server Component */}
+                <HistoryTimelines />
+              </Suspense>
+            </ScrollComponent>
+          </dl>
           <CommonButton text='more' link={PATH.ABOUT} />
         </div>
         {/* ここからSKill*/}

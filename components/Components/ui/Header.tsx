@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import { PATH } from '../../../utils/path'
 
@@ -38,9 +39,15 @@ export default function Header() {
     <>
       <header id='header' className='header' aria-label='ヘッダー'>
         <div className='header_flx'>
-          <div>
+          <div className='header_logo'>
             <Link className='logo' href='/'>
-              To You Design
+              <Image
+                src='/images/common/logo.svg'
+                alt='ポートフォリオ画像'
+                fill
+                sizes='(min-width: 768px) 50vw, 100vw'
+                className='logo'
+              />
             </Link>
           </div>
           <nav>
