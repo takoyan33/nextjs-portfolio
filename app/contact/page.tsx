@@ -1,9 +1,7 @@
-'use client'
 import ContactForm from '../../components/Components/ui/ContactForm'
 import React from 'react'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
-import type { NextPage } from 'next'
 
 const Contact = () => {
   return (

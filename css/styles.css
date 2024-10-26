@@ -416,8 +416,8 @@ a :hover {
 }
 
 .logo {
-  width: 230px !important;
-  height: 100px !important;
+  width: 210px !important;
+  height: 80px !important;
   position: relative;
 }
 
@@ -427,6 +427,7 @@ a :hover {
   height: auto;
   padding: 20px;
   padding-top: 20px;
+  padding-bottom: 0px;
 }
 .header_flx {
   display: flex;
@@ -592,8 +593,10 @@ a :hover {
   .header nav {
     display: none;
   }
-  .header .logo {
-    margin-top: 0px;
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
   }
   .container {
     margin: 0 0 0 auto;
@@ -691,6 +694,11 @@ a :hover {
     top: 10px;
     width: 190px;
     height: 60px;
+  }
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
   }
   .form {
     margin: 60px 0;
@@ -1473,10 +1481,6 @@ dl dd h2 {
   opacity: 0.7;
 }
 
-.portfolioDetail__element__tagList {
-  padding: 0;
-}
-
 .portfolioDetail {
   width: 100%;
   margin: 50px auto;
@@ -1542,11 +1546,26 @@ dl dd h2 {
   border: 1px solid #6499ff;
   border-radius: 20px;
 }
+.portfolioDetail__element__tagList {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
 .portfolioDetail__element__link {
   color: #063997;
 }
 .portfolioDetail__element__link:hover {
   opacity: 0.7;
+}
+.portfolioDetail__element__link::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/images/common/link.svg");
+  background-size: contain;
+  margin-right: 5px;
 }
 
 .contact {

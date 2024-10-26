@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { portfolioType } from '../../../utils/type'
 import { PATH } from '../../../utils/path'
-import type { NextPage } from 'next'
 
 const Post = () => {
   const params = useParams()
@@ -48,11 +47,13 @@ const Post = () => {
           <section className='portfolioDetail max_width'>
             <p className='portfolioDetail__element__date'>{portfolios.date}</p>
             <h2 className='portfolioDetail__element__title'>{portfolios.name}</h2>
-            {portfolios.tag.map((skill, index) => (
-              <li className='portfolioDetail__element__tag' key={index}>
-                #{skill}
-              </li>
-            ))}
+            <ul className='portfolioDetail__element__tagList'>
+              {portfolios.tag.map((skill, index) => (
+                <li className='portfolioDetail__element__tag' key={index}>
+                  #{skill}
+                </li>
+              ))}
+            </ul>
             <div className='portfolioDetail__element__topImg'>
               {portfolios.topImg && (
                 <Image

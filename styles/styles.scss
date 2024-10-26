@@ -829,10 +829,6 @@ dl {
   }
 }
 
-.portfolioDetail__element__tagList {
-  padding: 0;
-}
-
 // [id]ページ
 .portfolioDetail {
   width: 100%;
@@ -895,10 +891,25 @@ dl {
       border: 1px solid $main-color;
       border-radius: 20px;
     }
+    &__tagList {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0;
+    }
     &__link {
       color: $tag-color-4;
       &:hover {
         opacity: 0.7;
+      }
+      &::before {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('/images/common/link.svg');
+        background-size: contain;
+        margin-right: 5px;
       }
     }
   }
