@@ -43,8 +43,8 @@
 }
 
 .logo {
-  width: 230px !important;
-  height: 100px !important;
+  width: 210px !important;
+  height: 80px !important;
   position: relative;
 }
 
@@ -230,9 +230,11 @@
     nav {
       display: none;
     }
-    .logo {
-      margin-top: 0px;
-    }
+  }
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
   }
   .container {
     margin: 0 0 0 auto;
@@ -332,6 +334,12 @@
     top: 10px;
     width: 190px;
     height: 60px;
+  }
+
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
   }
 
   .form {
