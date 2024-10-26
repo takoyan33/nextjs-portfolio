@@ -637,6 +637,8 @@ li {
 
   &_logo {
     position: relative;
+    width: 220px !important;
+    height: 100px !important;
     bottom: rem(20);
     font-size: 30px;
     font-weight: bold;
@@ -827,10 +829,6 @@ dl {
   }
 }
 
-.portfolioDetail__element__tagList {
-  padding: 0;
-}
-
 // [id]ページ
 .portfolioDetail {
   width: 100%;
@@ -893,15 +891,31 @@ dl {
       border: 1px solid $main-color;
       border-radius: 20px;
     }
+    &__tagList {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0;
+    }
     &__link {
       color: $tag-color-4;
       &:hover {
         opacity: 0.7;
       }
+      &::before {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('/images/common/link.svg');
+        background-size: contain;
+        margin-right: 5px;
+      }
     }
   }
 }
 
+//topのcontact
 .contact {
   background-image: url('/images/top_contact_bg.jpg');
   &__box {
@@ -1123,7 +1137,7 @@ dl {
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 76%;
+    width: 100%;
     color: white;
     text-align: center;
     -webkit-box-orient: vertical;
@@ -1146,7 +1160,7 @@ dl {
   }
 
   .about {
-    height: 700px;
+    height: 950px;
     &_name {
       margin: rem(10) auto;
       font-size: 22px;
@@ -1410,10 +1424,41 @@ dl {
     }
     &__img {
       position: relative;
-      width: 220px;
+      width: 190px;
       margin-inline: auto;
       height: 130px;
-      object-fit: cover;
+      object-fit: contain;
+    }
+  }
+
+  //topのcontact
+  .contact {
+    background-image: url('/images/top_contact_bg.jpg');
+    &__box {
+      background-color: white;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 0;
+      border-radius: 10px;
+      &__title {
+        font-size: 26px;
+        margin: 0;
+      }
+      &__text {
+        margin: 0;
+        margin-top: 5px;
+        margin-bottom: 25px;
+      }
+    }
+    &__btn {
+      background-color: $main-color;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 

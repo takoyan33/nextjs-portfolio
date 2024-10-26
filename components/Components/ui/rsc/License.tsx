@@ -2,7 +2,7 @@ import licenses from '../../../../api/license/index.json'
 
 export const License = async () => {
   return (
-    <>
+    <div>
       {Array.isArray(licenses) &&
         licenses.map((license, index) => (
           <tr key={index} className='license__table__tr'>
@@ -10,6 +10,6 @@ export const License = async () => {
             <td className='license__table__td'>{license.title}</td>
           </tr>
         ))}
-    </>
+    </div>
   )
 }

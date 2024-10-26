@@ -309,6 +309,9 @@ a :hover {
   .nav {
     display: none;
   }
+  .swiper .flx_el {
+    width: 100%;
+  }
   .bg-white {
     width: 90%;
     height: 100%;
@@ -412,17 +415,19 @@ a :hover {
   font-size: 14px;
 }
 
+.logo {
+  width: 210px !important;
+  height: 80px !important;
+  position: relative;
+}
+
 .header {
   z-index: 50;
   width: 100%;
   height: auto;
   padding: 20px;
   padding-top: 20px;
-  border-bottom: #6499ff 2px solid;
-}
-.header .logo {
-  font-size: 20px;
-  font-weight: bold;
+  padding-bottom: 0px;
 }
 .header_flx {
   display: flex;
@@ -522,7 +527,7 @@ a :hover {
   justify-content: space-between;
   width: 100%;
   margin: 0.625rem auto;
-  gap: 3.75rem 0rem;
+  gap: 3.75rem 0;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 }
@@ -588,8 +593,10 @@ a :hover {
   .header nav {
     display: none;
   }
-  .header .logo {
-    margin-top: 0px;
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
   }
   .container {
     margin: 0 0 0 auto;
@@ -688,6 +695,11 @@ a :hover {
     width: 190px;
     height: 60px;
   }
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
+  }
   .form {
     margin: 60px 0;
   }
@@ -727,6 +739,22 @@ a :hover {
   .form-box-error {
     color: red;
     font-size: 14px;
+  }
+  .aboutTop_flx {
+    flex-direction: column;
+    width: 100%;
+    margin: 0.625rem auto;
+    gap: 3.75rem 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+  }
+  .aboutTop_flx_el {
+    width: 100%;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+  .aboutTop_flx_el_footer {
+    margin: 0.625rem;
   }
 }
 .components_logo__pNz7v {
@@ -1278,6 +1306,8 @@ li {
 }
 .footer_logo {
   position: relative;
+  width: 220px !important;
+  height: 100px !important;
   bottom: 1.25rem;
   font-size: 30px;
   font-weight: bold;
@@ -1451,10 +1481,6 @@ dl dd h2 {
   opacity: 0.7;
 }
 
-.portfolioDetail__element__tagList {
-  padding: 0;
-}
-
 .portfolioDetail {
   width: 100%;
   margin: 50px auto;
@@ -1520,11 +1546,26 @@ dl dd h2 {
   border: 1px solid #6499ff;
   border-radius: 20px;
 }
+.portfolioDetail__element__tagList {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
 .portfolioDetail__element__link {
   color: #063997;
 }
 .portfolioDetail__element__link:hover {
   opacity: 0.7;
+}
+.portfolioDetail__element__link::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/images/common/link.svg");
+  background-size: contain;
+  margin-right: 5px;
 }
 
 .contact {
@@ -1737,7 +1778,7 @@ dl dd h2 {
   .footer_flx {
     display: flex;
     flex-direction: column;
-    width: 76%;
+    width: 100%;
     color: white;
     text-align: center;
   }
@@ -1756,7 +1797,7 @@ dl dd h2 {
     margin-top: 0.625rem;
   }
   .about {
-    height: 700px;
+    height: 950px;
   }
   .about_name {
     margin: 0.625rem auto;
@@ -2001,11 +2042,40 @@ dl dd h2 {
   }
   .portfolio__img {
     position: relative;
-    width: 220px;
+    width: 190px;
     margin-inline: auto;
     height: 130px;
-    -o-object-fit: cover;
-       object-fit: cover;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .contact {
+    background-image: url("/images/top_contact_bg.jpg");
+  }
+  .contact__box {
+    background-color: white;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+  .contact__box__title {
+    font-size: 26px;
+    margin: 0;
+  }
+  .contact__box__text {
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+  .contact__btn {
+    background-color: #6499ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  .contact__btn:hover {
+    opacity: 0.7;
   }
   .lower_bg {
     height: 180px;

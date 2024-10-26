@@ -42,6 +42,12 @@
   }
 }
 
+.logo {
+  width: 210px !important;
+  height: 80px !important;
+  position: relative;
+}
+
 //ヘッダー
 .header {
   z-index: 50;
@@ -49,11 +55,7 @@
   height: auto;
   padding: 20px;
   padding-top: 20px;
-  //border-bottom: $main-color 2px solid;
-  .logo {
-    font-size: 20px;
-    font-weight: bold;
-  }
+  padding-bottom: 0px;
 
   &_flx {
     display: flex;
@@ -152,14 +154,14 @@
   display: none;
 }
 
-// 共通
+// Topのaboutページ
 .aboutTop_flx {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   margin: rem(10) auto;
-  gap: rem(60) rem(0);
+  gap: rem(60) 0;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &_el {
@@ -228,9 +230,11 @@
     nav {
       display: none;
     }
-    .logo {
-      margin-top: 0px;
-    }
+  }
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
   }
   .container {
     margin: 0 0 0 auto;
@@ -332,6 +336,12 @@
     height: 60px;
   }
 
+  .logo {
+    width: 140px !important;
+    height: 40px !important;
+    position: relative;
+  }
+
   .form {
     margin: 60px 0;
     &-box {
@@ -369,6 +379,24 @@
       &-error {
         color: red;
         font-size: 14px;
+      }
+    }
+  }
+
+  .aboutTop_flx {
+    flex-direction: column;
+    width: 100%;
+    margin: rem(10) auto;
+    gap: rem(60) 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    &_el {
+      width: 100%;
+      margin: 0;
+      overflow-wrap: break-word;
+
+      &_footer {
+        margin: rem(10);
       }
     }
   }
