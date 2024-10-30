@@ -1,9 +1,8 @@
-'use client'
 import React from 'react'
 import frontSkills from '../../../../api/skill/front.json'
 import Skill from '../../../../components/Components/ui/Skill'
 
-export const FrontSkills = async () => {
+export const FrontSkills = () => {
   return (
     <div className='skill__flx'>
       {Array.isArray(frontSkills) &&

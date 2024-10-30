@@ -2,20 +2,11 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import Image from 'next/image'
-import PortfolioItemTop from '../components/Components/ui/PortfolioItemTop'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
-import 'swiper/css'
-import { Controller } from 'swiper/modules'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
 // import ScrollComponent from '../hooks/useFadeIn'
 import Link from 'next/link'
 import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
 import React, { useState, useEffect } from 'react'
-import { portfolioType } from '../utils/type'
 import { CommonButton } from '../components/Components/ui/CommonButton'
 import { HistoryTimelines } from '../components/Components/ui/rsc/HistoryTimelines'
 import { Suspense } from 'react'
@@ -26,47 +17,22 @@ import { BackSkills } from '../components/Components/ui/rsc/BackSkills'
 import { InfraSkills } from '../components/Components/ui/rsc/InfraSkills'
 import { OtherSkills } from '../components/Components/ui/rsc/OtherSkills'
 import ThreeModel from '../components/Components/parts/ThreeModel'
+import { TopPortfolioSlide } from '../components/Components/ui/rsc/TopPortfolioSlide'
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
 
 const Home = () => {
-  const breakpoints = {
-    0: {
-      slidesPerView: 1.5,
-    },
-    768: {
-      slidesPerView: 3.5,
-    },
+  const [showBackButton, setShowBackButton] = useState(false)
+
+  const handleScroll = () => {
+    setShowBackButton(window.scrollY > 150)
   }
 
-  // const [portfolios, setPortfolios] = useState<portfolioType[]>()
-
-  // // const data = useRecoilValue(portfolioState)
-  // const fetchPortfolios = async () => {
-  //   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
-  //   const data = await response.json()
-  //   await setPortfolios(data)
-  // }
-
-  // useEffect(() => {
-  //   fetchPortfolios()
-  // }, [])
-
-  // const todos = useRecoilValue(todoState)
-
-  // const [showBackButton, setShowBackButton] = useState(false)
-
-  // const handleScroll = () => {
-  //   setShowBackButton(window.scrollY > 150)
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => window.removeEventListener('scroll', handleScroll)
-  // }, [])
-
-  // const [firstSwiper, setFirstSwiper] = useState(0)
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div>
@@ -88,18 +54,6 @@ const Home = () => {
             <div className='fv_flx_el'>
               <h2 className='fv__title slide__in__right'>To You Design</h2>
               <li className='fv__title slide__in__right'>Portfolio</li>
-              <div className='content'>
-                <div className='content__container fv_flx_el'>
-                  {/* <ul className='content__container__list'>
-                    <li className='content__container__list__item slide__in__right'>Portfolio</li>
-                    {FVSUBTITLE.map((title, index) => (
-                      <li key={index} className='content__container__list__item'>
-                        {title.text}
-                      </li>
-                    ))}
-                  </ul> */}
-                </div>
-              </div>
             </div>
             <div className='fv_flx_el'>
               {/* <ScrollComponent> */}
@@ -179,59 +133,7 @@ const Home = () => {
             </h2>
             {/* </ScrollComponent> */}
             {/* <FadeUpTitle /> */}
-            <div className='portfolio-content'>
-              <div className='prev-button'>
-                {/* {firstSwiper !== 0 && (
-                  <Image
-                    src='/images/prev-arrow.svg'
-                    width={50}
-                    height={50}
-                    alt='スライドショーのナビゲーション'
-                  />
-                )} */}
-              </div>
-              {/* 
-              <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
-                className='flx swiper'
-                spaceBetween={30}
-                slidesPerView={3.5}
-                onSwiper={(swiper: any) => {
-                  setFirstSwiper(swiper.activeIndex)
-                }}
-                onSlideChange={(swiper: any) => {
-                  setFirstSwiper(swiper.activeIndex)
-                }}
-                breakpoints={breakpoints}
-                navigation={{
-                  nextEl: '.next-button',
-                  prevEl: '.prev-button',
-                }}
-              > */}
-              {/* {portfolios &&
-                  portfolios.map((portfolio, index) => (
-                    <SwiperSlide key={index}>
-                      <PortfolioItemTop
-                        portfolio_id={portfolio.id}
-                        portfolio_name={portfolio.name}
-                        portfolio_date={portfolio.date}
-                        portfolio_tag={portfolio.tag}
-                        portfolio_topImg={portfolio.topImg}
-                      />
-                    </SwiperSlide>
-                  ))} */}
-              {/* </Swiper> */}
-              <div className='next-button'>
-                {/* {firstSwiper < 3 && (
-                  <Image
-                    src='/images/next-arrow.svg'
-                    width={50}
-                    height={50}
-                    alt='スライドショーのナビゲーション'
-                  />
-                )} */}
-              </div>
-            </div>
+            <TopPortfolioSlide />
             <CommonButton text='more' link={PATH.PORTFOLIO} />
           </div>
         </div>
@@ -246,7 +148,6 @@ const Home = () => {
           <dl>
             {/* <ScrollComponent> */}
             <Suspense fallback={<div>Loading...</div>}>
-              {/* @ts-expect-error Async Server Component */}
               <HistoryTimelines />
             </Suspense>
             {/* </ScrollComponent> */}
@@ -267,7 +168,6 @@ const Home = () => {
             <h4 className='skill__title'>Frontend</h4>
             {/* <ScrollComponent> */}
             <Suspense fallback={<div>Loading...</div>}>
-              {/* @ts-expect-error Async Server Component */}
               <FrontSkills />
             </Suspense>
             {/* </ScrollComponent> */}
@@ -275,21 +175,18 @@ const Home = () => {
             <h4 className='skill__title'>Backend</h4>
             {/* <ScrollComponent> */}
             <Suspense fallback={<div>Loading...</div>}>
-              {/* @ts-expect-error Async Server Component */}
               <BackSkills />
             </Suspense>
             {/* // </ScrollComponent> */}
             <h4 className='skill__title'>Infra</h4>
             {/* <ScrollComponent> */}
             <Suspense fallback={<div>Loading...</div>}>
-              {/* @ts-expect-error Async Server Component */}
               <InfraSkills />
             </Suspense>
             {/* // </ScrollComponent> */}
             <h4 className='skill__title'>Other</h4>
             {/* <ScrollComponent> */}
             <Suspense fallback={<div>Loading...</div>}>
-              {/* @ts-expect-error Async Server Component */}
               <OtherSkills />
             </Suspense>
             {/* // </ScrollComponent> */}
@@ -316,7 +213,7 @@ const Home = () => {
           </div>
         </div>
       </main>
-      {/* {showBackButton && (
+      {showBackButton && (
         <button
           className='back__btn'
           onClick={() => {
@@ -325,7 +222,7 @@ const Home = () => {
         >
           <Image src='/images/top-arrow.svg' height={30} width={30} alt='arrow' />
         </button>
-      )} */}
+      )}
     </div>
   )
 }

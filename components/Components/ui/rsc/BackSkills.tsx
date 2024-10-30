@@ -1,9 +1,8 @@
-'use client'
 import React from 'react'
 import backSkills from '../../../../api/skill/back.json'
 import Skill from '../Skill'
 
-export const BackSkills = async () => {
+export const BackSkills = () => {
   return (
     <div className='skill__flx'>
       {Array.isArray(backSkills) &&
