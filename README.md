@@ -84,3 +84,7 @@ developブランチが開発環境でmainが本番環境です。
  
 * 作成者 阿部 舜平
 * E-mail harrier2070@gmail.com
+
+# License
+
+* 3Dmodelは、[Sketchfab](https://sketchfab.com/3d-models/red-triangular-cage-sphere-96e0750262fb450fa2c8bc5a1e879fcc)を使用しています。 
