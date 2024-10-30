@@ -9,7 +9,7 @@ const ScrollComponent = ({ children }) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible')
         } else {
-          entry.target.classList.remove('is-visible')
+          // entry.target.classList.remove('is-visible')
         }
       })
     })
