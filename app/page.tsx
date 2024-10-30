@@ -25,6 +25,7 @@ import { FrontSkills } from '../components/Components/ui/rsc/FrontSkills'
 import { BackSkills } from '../components/Components/ui/rsc/BackSkills'
 import { InfraSkills } from '../components/Components/ui/rsc/InfraSkills'
 import { OtherSkills } from '../components/Components/ui/rsc/OtherSkills'
+import ThreeModel from '../components/Components/parts/ThreeModel'
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
@@ -82,23 +83,31 @@ const Home = () => {
       <main aria-label='本文'>
         {/* ここからfv */}
         <div className='fv'>
-          <div className='max_width'>
-            <h2 className='fv__title slide__in__right'>To You Design</h2>
-            <div className='content'>
-              <div className='content__container'>
-                <ul className='content__container__list'>
-                  <li className='content__container__list__item slide__in__right'>Portfolio</li>
-                  {FVSUBTITLE.map((title, index) => (
-                    <li key={index} className='content__container__list__item'>
-                      {title.text}
-                    </li>
-                  ))}
-                </ul>
+          <div className='max_width fv_flx'>
+            <div className='fv_flx_el'>
+              <h2 className='fv__title slide__in__right'>To You Design</h2>
+              <li className='fv__title slide__in__right'>Portfolio</li>
+              <div className='content'>
+                <div className='content__container fv_flx_el'>
+                  {/* <ul className='content__container__list'>
+                    <li className='content__container__list__item slide__in__right'>Portfolio</li>
+                    {FVSUBTITLE.map((title, index) => (
+                      <li key={index} className='content__container__list__item'>
+                        {title.text}
+                      </li>
+                    ))}
+                  </ul> */}
+                </div>
               </div>
+            </div>
+            <div className='fv_flx_el'>
+              <ScrollComponent>
+                <ThreeModel />
+              </ScrollComponent>
             </div>
           </div>
         </div>
-        <div className='wave__bg__bottom'>
+        {/* <div className='wave__bg__bottom'>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
             <path
               fill='#6499ff'
@@ -106,7 +115,7 @@ const Home = () => {
               d='M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'
             ></path>
           </svg>
-        </div>
+        </div> */}
         {/* ここからabout */}
         <div className='about'>
           <div className='max_width'>
