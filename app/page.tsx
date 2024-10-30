@@ -10,7 +10,7 @@ import { Controller } from 'swiper/modules'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import ScrollComponent from '../hooks/useFadeIn'
+// import ScrollComponent from '../hooks/useFadeIn'
 import Link from 'next/link'
 import WaveBgTop from '../components/Components/ui/WaveBgTop'
 import WaveBgBottom from '../components/Components/ui/WaveBgBottom'
@@ -40,32 +40,33 @@ const Home = () => {
     },
   }
 
-  const [portfolios, setPortfolios] = useState<portfolioType[]>()
+  // const [portfolios, setPortfolios] = useState<portfolioType[]>()
 
-  // const data = useRecoilValue(portfolioState)
-  const fetchPortfolios = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
-    const data = await response.json()
-    await setPortfolios(data)
-  }
+  // // const data = useRecoilValue(portfolioState)
+  // const fetchPortfolios = async () => {
+  //   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`)
+  //   const data = await response.json()
+  //   await setPortfolios(data)
+  // }
 
-  useEffect(() => {
-    fetchPortfolios()
-  }, [])
+  // useEffect(() => {
+  //   fetchPortfolios()
+  // }, [])
 
   // const todos = useRecoilValue(todoState)
 
-  const [showBackButton, setShowBackButton] = useState(false)
-  const handleScroll = () => {
-    setShowBackButton(window.scrollY > 150)
-  }
+  // const [showBackButton, setShowBackButton] = useState(false)
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // const handleScroll = () => {
+  //   setShowBackButton(window.scrollY > 150)
+  // }
 
-  const [firstSwiper, setFirstSwiper] = useState(0)
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
+
+  // const [firstSwiper, setFirstSwiper] = useState(0)
 
   return (
     <div>
@@ -101,9 +102,9 @@ const Home = () => {
               </div>
             </div>
             <div className='fv_flx_el'>
-              <ScrollComponent>
-                <ThreeModel />
-              </ScrollComponent>
+              {/* <ScrollComponent> */}
+              <ThreeModel />
+              {/* </ScrollComponent> */}
             </div>
           </div>
         </div>
@@ -119,77 +120,77 @@ const Home = () => {
         {/* ここからabout */}
         <div className='about'>
           <div className='max_width'>
-            <ScrollComponent>
-              <h2 className='main__title' data-ja='To You Designについて'>
-                About
-              </h2>
-            </ScrollComponent>
-            <ScrollComponent>
-              <div className='aboutTop_flx'>
-                <div className='aboutTop_flx_el'>
-                  <div className='about_img'>
-                    <Image
-                      src='/images/myphoto.png'
-                      className=''
-                      alt='プロフィール画像'
-                      fill
-                      priority
-                      sizes='(min-width: 768px) 50vw, 100vw'
-                    />
-                  </div>
-                </div>
-                <div className='aboutTop_flx_el'>
-                  <h4 className='about__title'>阿部 舜平</h4>
-                  <div className='about__flx'>
-                    {socialLinks.map((link) => (
-                      <Link key={link.href} href={link.href} target='_blank'>
-                        <Image
-                          src={link.src}
-                          className='about_snsLogo'
-                          alt={link.alt}
-                          height={link.height}
-                          width={link.width}
-                        />
-                      </Link>
-                    ))}
-                  </div>
-                  <p className='about__text'>
-                    北海道在住の社会人1年目のエンジニア。<br></br>
-                    大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
-                    <br></br>
-                    文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
-                    <br></br>
-                    現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
-                  </p>
-                  <p className='about__text'>趣味：旅行、ギター</p>
-                  <p className='about__text'>資格：基本情報技術者試験</p>
+            {/* <ScrollComponent> */}
+            <h2 className='main__title' data-ja='To You Designについて'>
+              About
+            </h2>
+            {/* </ScrollComponent> */}
+            {/* <ScrollComponent> */}
+            <div className='aboutTop_flx'>
+              <div className='aboutTop_flx_el'>
+                <div className='about_img'>
+                  <Image
+                    src='/images/myphoto.png'
+                    className=''
+                    alt='プロフィール画像'
+                    fill
+                    priority
+                    sizes='(min-width: 768px) 50vw, 100vw'
+                  />
                 </div>
               </div>
-            </ScrollComponent>
+              <div className='aboutTop_flx_el'>
+                <h4 className='about__title'>阿部 舜平</h4>
+                <div className='about__flx'>
+                  {socialLinks.map((link) => (
+                    <Link key={link.href} href={link.href} target='_blank'>
+                      <Image
+                        src={link.src}
+                        className='about_snsLogo'
+                        alt={link.alt}
+                        height={link.height}
+                        width={link.width}
+                      />
+                    </Link>
+                  ))}
+                </div>
+                <p className='about__text'>
+                  北海道在住の社会人1年目のエンジニア。<br></br>
+                  大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
+                  <br></br>
+                  文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                  <br></br>
+                  現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
+                </p>
+                <p className='about__text'>趣味：旅行、ギター</p>
+                <p className='about__text'>資格：基本情報技術者試験</p>
+              </div>
+            </div>
+            {/* </ScrollComponent> */}
           </div>
         </div>
         {/*  ここからポートフォリオ*/}
         <WaveBgTop />
         <div className='portfolio'>
           <div className='max_width'>
-            <ScrollComponent>
-              <h2 className='main__title' data-ja='ポートフォリオ'>
-                Portfolio
-              </h2>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <h2 className='main__title' data-ja='ポートフォリオ'>
+              Portfolio
+            </h2>
+            {/* </ScrollComponent> */}
             {/* <FadeUpTitle /> */}
             <div className='portfolio-content'>
               <div className='prev-button'>
-                {firstSwiper !== 0 && (
+                {/* {firstSwiper !== 0 && (
                   <Image
                     src='/images/prev-arrow.svg'
                     width={50}
                     height={50}
                     alt='スライドショーのナビゲーション'
                   />
-                )}
+                )} */}
               </div>
-
+              {/* 
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
                 className='flx swiper'
@@ -206,8 +207,8 @@ const Home = () => {
                   nextEl: '.next-button',
                   prevEl: '.prev-button',
                 }}
-              >
-                {portfolios &&
+              > */}
+              {/* {portfolios &&
                   portfolios.map((portfolio, index) => (
                     <SwiperSlide key={index}>
                       <PortfolioItemTop
@@ -218,17 +219,17 @@ const Home = () => {
                         portfolio_topImg={portfolio.topImg}
                       />
                     </SwiperSlide>
-                  ))}
-              </Swiper>
+                  ))} */}
+              {/* </Swiper> */}
               <div className='next-button'>
-                {firstSwiper < 3 && (
+                {/* {firstSwiper < 3 && (
                   <Image
                     src='/images/next-arrow.svg'
                     width={50}
                     height={50}
                     alt='スライドショーのナビゲーション'
                   />
-                )}
+                )} */}
               </div>
             </div>
             <CommonButton text='more' link={PATH.PORTFOLIO} />
@@ -237,18 +238,18 @@ const Home = () => {
         <WaveBgBottom />
         {/*ここから学歴*/}
         <div className='max_width'>
-          <ScrollComponent>
-            <h2 className='main__title' data-ja='過去の経歴'>
-              History
-            </h2>
-          </ScrollComponent>
+          {/* <ScrollComponent> */}
+          <h2 className='main__title' data-ja='過去の経歴'>
+            History
+          </h2>
+          {/* </ScrollComponent> */}
           <dl>
-            <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                {/* @ts-expect-error Async Server Component */}
-                <HistoryTimelines />
-              </Suspense>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Async Server Component */}
+              <HistoryTimelines />
+            </Suspense>
+            {/* </ScrollComponent> */}
           </dl>
           <CommonButton text='more' link={PATH.ABOUT} />
         </div>
@@ -257,65 +258,65 @@ const Home = () => {
 
         <div className='skill'>
           <div className='max_width'>
-            <ScrollComponent>
-              <h2 className='main__title' data-ja='スキルセット'>
-                Skill
-              </h2>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <h2 className='main__title' data-ja='スキルセット'>
+              Skill
+            </h2>
+            {/* </ScrollComponent> */}
 
             <h4 className='skill__title'>Frontend</h4>
-            <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                {/* @ts-expect-error Async Server Component */}
-                <FrontSkills />
-              </Suspense>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Async Server Component */}
+              <FrontSkills />
+            </Suspense>
+            {/* </ScrollComponent> */}
             {/* </div> */}
             <h4 className='skill__title'>Backend</h4>
-            <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                {/* @ts-expect-error Async Server Component */}
-                <BackSkills />
-              </Suspense>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Async Server Component */}
+              <BackSkills />
+            </Suspense>
+            {/* // </ScrollComponent> */}
             <h4 className='skill__title'>Infra</h4>
-            <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                {/* @ts-expect-error Async Server Component */}
-                <InfraSkills />
-              </Suspense>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Async Server Component */}
+              <InfraSkills />
+            </Suspense>
+            {/* // </ScrollComponent> */}
             <h4 className='skill__title'>Other</h4>
-            <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                {/* @ts-expect-error Async Server Component */}
-                <OtherSkills />
-              </Suspense>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Async Server Component */}
+              <OtherSkills />
+            </Suspense>
+            {/* // </ScrollComponent> */}
           </div>
         </div>
         <WaveBgBottom />
         {/* ここからcontact*/}
         <div className='contact'>
           <div className='max_width'>
-            <ScrollComponent>
-              <h2 className='main__title__white' data-ja='お問い合わせ'>
-                Contact
-              </h2>
-            </ScrollComponent>
-            <ScrollComponent>
-              <div className='contact__box'>
-                <h3 className='contact__box__title'>CONTACT</h3>
-                <p className='contact__box__text'>お問い合わせ</p>
-                <Link href={PATH.CONTACT} className='contact__btn padding-bottom'>
-                  お問い合せフォームへ
-                </Link>
-              </div>
-            </ScrollComponent>
+            {/* <ScrollComponent> */}
+            <h2 className='main__title__white' data-ja='お問い合わせ'>
+              Contact
+            </h2>
+            {/* </ScrollComponent> */}
+            {/* <ScrollComponent> */}
+            <div className='contact__box'>
+              <h3 className='contact__box__title'>CONTACT</h3>
+              <p className='contact__box__text'>お問い合わせ</p>
+              <Link href={PATH.CONTACT} className='contact__btn padding-bottom'>
+                お問い合せフォームへ
+              </Link>
+            </div>
+            {/* </ScrollComponent> */}
           </div>
         </div>
       </main>
-      {showBackButton && (
+      {/* {showBackButton && (
         <button
           className='back__btn'
           onClick={() => {
@@ -324,7 +325,7 @@ const Home = () => {
         >
           <Image src='/images/top-arrow.svg' height={30} width={30} alt='arrow' />
         </button>
-      )}
+      )} */}
     </div>
   )
 }

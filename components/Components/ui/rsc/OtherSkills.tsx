@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import otherSkills from '../../../../api/skill/other.json'
 import Skill from '../Skill'

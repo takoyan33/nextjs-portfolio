@@ -1,3 +1,4 @@
+'use client'
 import Timeline from '../Timeline'
 import React from 'react'
 import jobs from '../../../../api/job/index.json'

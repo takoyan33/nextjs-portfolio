@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import infraSkills from '../../../../api/skill/front.json'
 import Skill from '../Skill'
