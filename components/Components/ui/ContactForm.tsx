@@ -1,11 +1,10 @@
 'use client'
 import { useState } from 'react'
-import type { NextPage } from 'next'
 import { emailjsConfig } from '../../../utils/Emailjs'
 import { send } from 'emailjs-com'
 import { useForm } from 'react-hook-form'
 
-const Index: NextPage = () => {
+const Index = () => {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')

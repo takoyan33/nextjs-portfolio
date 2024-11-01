@@ -11,7 +11,6 @@ export const metadata = {
 
 const Blog = async () => {
   let zennArticles: zennProps | null = null
-  let error: string = ''
 
   try {
     const response = await fetch('https://zenn.dev/api/articles?username=643866')
@@ -21,7 +20,7 @@ const Blog = async () => {
     }
     zennArticles = await response.json()
   } catch (err) {
-    error = 'Failed to fetch articles'
+    console.error(err)
   }
 
   zennArticles?.articles.sort((a: any, b: any) => {
