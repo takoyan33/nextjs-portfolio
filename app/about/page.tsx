@@ -28,7 +28,6 @@ const About = () => {
         <h3 className='portfolio__headTitle'>経歴</h3>
 
         <Suspense fallback={<div>Loading...</div>}>
-          {/* @ts-expect-error Async Server Component */}
           <HistoryTimelines />
         </Suspense>
       </div>
@@ -37,7 +36,6 @@ const About = () => {
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>職歴</h3>
         <Suspense fallback={<div>Loading...</div>}>
-          {/* @ts-expect-error Async Server Component */}
           <Timelines />
         </Suspense>
       </div>

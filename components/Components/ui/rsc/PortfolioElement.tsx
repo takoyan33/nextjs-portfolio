@@ -2,7 +2,7 @@ import React from 'react'
 import portfolios from '../../../../api/portfolio/index.json'
 import PortfolioItem from '../PortfolioItem'
 
-export const PortfolioElement = async () => {
+export const PortfolioElement = () => {
   return (
     <div className='max_width'>
       <h3 className='portfolio__headTitle'>
