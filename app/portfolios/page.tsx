@@ -24,7 +24,6 @@ const Portfolio = async () => {
       </div>
 
       <Suspense fallback={<div>Loading...</div>}>
-        {/* @ts-expect-error Async Server Component */}
         <PortfolioElement />
       </Suspense>
     </main>

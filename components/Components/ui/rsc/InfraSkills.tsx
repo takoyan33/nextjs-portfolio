@@ -2,7 +2,7 @@ import React from 'react'
 import infraSkills from '../../../../api/skill/front.json'
 import Skill from '../Skill'
 
-export const InfraSkills = async () => {
+export const InfraSkills = () => {
   return (
     <div className='skill__flx'>
       {Array.isArray(infraSkills) &&

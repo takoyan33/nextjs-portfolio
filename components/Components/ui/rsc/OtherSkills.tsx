@@ -2,7 +2,7 @@ import React from 'react'
 import otherSkills from '../../../../api/skill/other.json'
 import Skill from '../Skill'
 
-export const OtherSkills = async () => {
+export const OtherSkills = () => {
   return (
     <div className='skill__flx'>
       {Array.isArray(otherSkills) &&

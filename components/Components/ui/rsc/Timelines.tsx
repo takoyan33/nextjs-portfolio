@@ -2,7 +2,7 @@ import Timeline from '../Timeline'
 import React from 'react'
 import jobs from '../../../../api/job/index.json'
 
-export const Timelines = async () => {
+export const Timelines = () => {
   return (
     <dl>
       {Array.isArray(jobs) &&
