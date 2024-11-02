@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['prettier'],
+  extends: ['prettier', 'plugin:storybook/recommended'],
   root: true,
   rules: {
     // 使っていない変数を警告しない

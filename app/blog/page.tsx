@@ -3,6 +3,7 @@ import { PATH } from '../../utils/path'
 import React from 'react'
 import BreadList from '../../components/Components/ui/BreadList'
 import { zennProps } from '../../utils/type'
+import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 export const metadata = {
   title: 'To You Design - Blog',
@@ -32,13 +33,7 @@ const Blog = async () => {
       <div className='max_width'>
         <BreadList name='Blog' link={PATH.BLOG} />
       </div>
-      <div className='lower_bg'>
-        <div className='max_width'>
-          <h2 className='lower__title' data-ja='ブログ'>
-            Blog
-          </h2>
-        </div>
-      </div>
+      <LowerTitle title='Blog' enTitle='ブログ' />
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>
           Zenn<span> {zennArticles?.articles.length}件</span>

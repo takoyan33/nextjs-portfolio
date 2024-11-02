@@ -2,6 +2,7 @@ import ContactForm from '../../components/Components/ui/ContactForm'
 import React from 'react'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
+import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 const Contact = () => {
   return (
@@ -16,6 +17,7 @@ const Contact = () => {
           </h2>
         </div>
       </div>
+      <LowerTitle title='お問い合わせ' enTitle='contact' />
       <div className='max_width'>
         <ContactForm />
       </div>

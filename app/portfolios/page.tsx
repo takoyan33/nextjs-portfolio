@@ -3,6 +3,7 @@ import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
 import { PortfolioElement } from '../../components/Components/ui/rsc/PortfolioElement'
 import { Suspense } from 'react'
+import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 export const metadata = {
   title: 'To You Design - Portfolio',
@@ -15,13 +16,7 @@ const Portfolio = async () => {
       <div className='max_width'>
         <BreadList name='Portfolio' link={PATH.PORTFOLIO} />
       </div>
-      <div className='lower_bg'>
-        <div className='max_width'>
-          <h2 className='lower__title' data-ja='制作物'>
-            Portfolio
-          </h2>
-        </div>
-      </div>
+      <LowerTitle title='Portfolio' enTitle='制作物' />
 
       <Suspense fallback={<div>Loading...</div>}>
         <PortfolioElement />
