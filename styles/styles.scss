@@ -424,10 +424,9 @@ li {
   height: 70vh;
   &__title {
     position: relative;
-    top: rem(220);
+    top: rem(150);
     font-family: futura-pt-bold, sans-serif;
     font-size: rem(60);
-    line-height: 90px;
     color: $main-color;
     text-align: left;
     letter-spacing: 4px;
@@ -435,7 +434,7 @@ li {
   }
   &__subtitle {
     position: relative;
-    top: rem(220);
+    top: rem(120);
     margin-inline: auto;
     font-family: futura-pt-bold, sans-serif;
     font-size: rem(40);
@@ -1163,15 +1162,19 @@ dl {
   .fv {
     display: inline-block;
     width: 100%;
-    height: 600px;
+    height: 500px;
     margin-inline: auto;
     &__title {
       font-size: rem(38);
       line-height: 40px;
+      position: relative;
+      top: rem(120);
     }
     &__subtitle {
       font-size: rem(22);
       margin-top: rem(10);
+      position: relative;
+      top: rem(120);
     }
 
     &_flx {
@@ -1189,7 +1192,7 @@ dl {
     height: 200px;
     margin: 0 auto;
     position: relative;
-    top: 100px;
+    top: 160px;
   }
 
   .about {
@@ -1201,8 +1204,8 @@ dl {
     }
 
     &_img {
-      width: 90%;
-      height: 250px;
+      width: 75%;
+      height: 220px;
       margin-inline: auto;
     }
 

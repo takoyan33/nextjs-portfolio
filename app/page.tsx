@@ -53,7 +53,7 @@ const Home = () => {
           <div className='max_width fv_flx'>
             <div className='fv_flx_el'>
               <h2 className='fv__title slide__in__right'>To You Design</h2>
-              <li className='fv__title slide__in__right'>Portfolio</li>
+              <h3 className='fv__subtitle slide__in__right'>Portfolio</h3>
             </div>
             <div className='fv_flx_el'>
               <ScrollComponent>
