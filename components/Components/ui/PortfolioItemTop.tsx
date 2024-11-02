@@ -36,13 +36,13 @@ export default function PortfolioItem({
             __html: portfolio_name,
           }}
         ></div>
-        <div className='portfolio__flex'>
+        <ul className='portfolio__flex'>
           {portfolio_tag.map((tag, index) => (
             <li className='portfolio__tag' key={index}>
               #{tag}
             </li>
           ))}
-        </div>
+        </ul>
       </Link>
     </div>
   )

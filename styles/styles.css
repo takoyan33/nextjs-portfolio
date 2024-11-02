@@ -1057,10 +1057,9 @@ li {
 }
 .fv__title {
   position: relative;
-  top: 13.75rem;
+  top: 9.375rem;
   font-family: futura-pt-bold, sans-serif;
   font-size: 3.75rem;
-  line-height: 90px;
   color: #6499ff;
   text-align: left;
   letter-spacing: 4px;
@@ -1068,7 +1067,7 @@ li {
 }
 .fv__subtitle {
   position: relative;
-  top: 13.75rem;
+  top: 7.5rem;
   margin-inline: auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 2.5rem;
@@ -1753,16 +1752,20 @@ dl dd h2 {
   .fv {
     display: inline-block;
     width: 100%;
-    height: 600px;
+    height: 500px;
     margin-inline: auto;
   }
   .fv__title {
     font-size: 2.375rem;
     line-height: 40px;
+    position: relative;
+    top: 7.5rem;
   }
   .fv__subtitle {
     font-size: 1.375rem;
     margin-top: 0.625rem;
+    position: relative;
+    top: 7.5rem;
   }
   .fv_flx {
     flex-direction: column;
@@ -1777,7 +1780,7 @@ dl dd h2 {
     height: 200px;
     margin: 0 auto;
     position: relative;
-    top: 100px;
+    top: 160px;
   }
   .about {
     height: 950px;
@@ -1788,8 +1791,8 @@ dl dd h2 {
     text-align: center;
   }
   .about_img {
-    width: 90%;
-    height: 250px;
+    width: 75%;
+    height: 220px;
     margin-inline: auto;
   }
   .about_text {
