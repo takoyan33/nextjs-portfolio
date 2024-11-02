@@ -415,6 +415,15 @@
   background-color: #1d2630;
   opacity: 0.4;
   z-index: 999;
+  &-body {
+    height: rem(2000);
+  }
+  // &-box {
+  //   background-color: lightgray;
+  //   width: 80%;
+  //   height: 300px;
+  //   margin: 0 auto;
+  // }
 }
 
 @keyframes spin {

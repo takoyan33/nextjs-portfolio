@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { portfolioType } from '../../../utils/type'
 import { PATH } from '../../../utils/path'
+import { LowerTitle } from '../../../components/Components/ui/LowerTitle'
 
 const Post = () => {
   const params = useParams()
@@ -37,13 +38,7 @@ const Post = () => {
             <Link href='/'>トップ </Link> ＞
             <Link href={PATH.PORTFOLIO}> Portfolio ＞ {portfolios.name}</Link>
           </p>
-          <div className='lower_bg'>
-            <div className='max_width'>
-              <h2 className='lower__title' data-ja='制作物'>
-                Portfolio
-              </h2>
-            </div>
-          </div>
+          <LowerTitle title='Portfolio' enTitle='制作物' />
           <section className='portfolioDetail max_width'>
             <p className='portfolioDetail__element__date'>{portfolios.date}</p>
             <h2 className='portfolioDetail__element__title'>{portfolios.name}</h2>
@@ -211,7 +206,16 @@ const Post = () => {
           </section>
         </article>
       ) : (
-        <p>Loading...</p>
+        <div className='loading-body'>
+          <LowerTitle title='Portfolio' enTitle='制作物' />
+          <div className='loading'>
+            <div className='spinner-box'>
+              <div className='circle-border'>
+                <div className='circle-core'></div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </main>
   )

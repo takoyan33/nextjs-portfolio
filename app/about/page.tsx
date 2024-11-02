@@ -5,6 +5,7 @@ import { Timelines } from '../../components/Components/ui/rsc/Timelines'
 import { HistoryTimelines } from '../../components/Components/ui/rsc/HistoryTimelines'
 import { License } from '../../components/Components/ui/rsc/License'
 import { Suspense } from 'react'
+import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 export const metadata = {
   title: 'To You Design - About',
@@ -17,13 +18,7 @@ const About = () => {
       <div className='max_width'>
         <BreadList name='About' link={PATH.ABOUT} />
       </div>
-      <div className='lower_bg'>
-        <div className='max_width'>
-          <h2 className='lower__title' data-ja='プロフィール'>
-            About
-          </h2>
-        </div>
-      </div>
+      <LowerTitle title='About' enTitle='プロフィール' />
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>経歴</h3>
 
