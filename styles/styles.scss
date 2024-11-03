@@ -546,6 +546,10 @@ li {
     text-align: left;
     color: #434343;
     font-size: 28px;
+    &_span {
+      font-size: 16px;
+      color: #707070;
+    }
   }
   &Item {
     box-shadow:
@@ -729,6 +733,8 @@ li {
     &_el {
       width: 30%;
       display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100px;
       background-color: white;
       border: 0px solid;

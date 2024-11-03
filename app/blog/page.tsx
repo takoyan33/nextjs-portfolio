@@ -36,7 +36,7 @@ const Blog = async () => {
       <LowerTitle title='Blog' enTitle='ブログ' />
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>
-          Zenn<span> {zennArticles?.articles.length}件</span>
+          Zenn<span className='portfolio__headTitle_span'> {zennArticles?.articles.length}件</span>
         </h3>
         <div className='flx padding'>
           {zennArticles?.articles.map((article, index) => (
