@@ -1,3 +1,5 @@
+import parse from 'html-react-parser'
+
 type TimelineProps = {
   title: string
   date: string
@@ -10,7 +12,7 @@ export default function Timeline({ title, date, body }: TimelineProps) {
       <dt>{date}</dt>
       <dd>
         <h2>{title}</h2>
-        <p>{body}</p>
+        {parse(body)}
       </dd>
     </>
   )

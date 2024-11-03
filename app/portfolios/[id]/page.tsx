@@ -207,6 +207,9 @@ const Post = () => {
         </article>
       ) : (
         <div className='loading-body'>
+          <p className='bread__title max_width'>
+            <Link href='/'>トップ </Link> ＞<Link href={PATH.PORTFOLIO}> Portfolio </Link>
+          </p>
           <LowerTitle title='Portfolio' enTitle='制作物' />
           <div className='loading'>
             <div className='spinner-box'>

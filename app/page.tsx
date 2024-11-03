@@ -109,8 +109,12 @@ const Home = () => {
                     <br></br>
                     現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
                   </p>
-                  <p className='about__text'>趣味：旅行、ギター</p>
-                  <p className='about__text'>資格：基本情報技術者試験</p>
+                  <p className='about__text'>
+                    <span className='about__text__span'>趣味：</span>旅行、ギター
+                  </p>
+                  <p className='about__text'>
+                    <span className='about__text__span'>資格：</span>基本情報技術者試験
+                  </p>
                 </div>
               </div>
             </ScrollComponent>
@@ -128,7 +132,9 @@ const Home = () => {
             {/* <FadeUpTitle /> */}
             <ScrollComponent>
               <TopPortfolioSlide />
-              <CommonButton text='more' link={PATH.PORTFOLIO} />
+              <Link href={PATH.PORTFOLIO} className='contact__btn padding-bottom'>
+                more
+              </Link>
             </ScrollComponent>
           </div>
         </div>
@@ -145,7 +151,9 @@ const Home = () => {
               <HistoryTimelines />
             </ScrollComponent>
           </dl>
-          <CommonButton text='more' link={PATH.ABOUT} />
+          <Link href={PATH.ABOUT} className='contact__btn padding-bottom'>
+            more
+          </Link>
         </div>
         <WaveBgTop />
         {/* ここからSKill*/}

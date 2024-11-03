@@ -36,6 +36,7 @@
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.1.0",
     "gray-matter": "^4.0.2",
+    "html-react-parser": "^5.1.18",
     "next": "^14.0.4",
     "prettier": "^3.3.3",
     "react": "19.0.0-rc-0bc30748-20241028",
