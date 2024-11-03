@@ -20,9 +20,9 @@ const Model = ({
 
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 4.6
+      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 3.8
 
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.2
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.1
     }
   })
 

@@ -4,7 +4,6 @@ import BreadList from '../../components/Components/ui/BreadList'
 import { Timelines } from '../../components/Components/ui/rsc/Timelines'
 import { HistoryTimelines } from '../../components/Components/ui/rsc/HistoryTimelines'
 import { License } from '../../components/Components/ui/rsc/License'
-import { Suspense } from 'react'
 import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 export const metadata = {
@@ -22,17 +21,13 @@ const About = () => {
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>経歴</h3>
 
-        <Suspense fallback={<div>Loading...</div>}>
-          <HistoryTimelines />
-        </Suspense>
+        <HistoryTimelines />
       </div>
 
       {/*ここから職歴*/}
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>職歴</h3>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Timelines />
-        </Suspense>
+        <Timelines />
       </div>
 
       {/* ここからLicense*/}
@@ -44,10 +39,7 @@ const About = () => {
               <th className='license__table__th'>日付</th>
               <th className='license__table__th'>資格名</th>
             </tr>
-            <Suspense fallback={<div>Loading...</div>}>
-              {/* @ts-expect-error Async Server Component */}
-              <License />
-            </Suspense>
+            <License />
           </tbody>
         </table>
       </section>
