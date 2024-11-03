@@ -1350,6 +1350,9 @@ li {
   line-height: 1.6;
   text-align: left;
 }
+.about__text__span {
+  font-weight: bold;
+}
 .about_img {
   position: relative;
   width: 400px;
@@ -1437,7 +1440,7 @@ dl dt {
   padding: 0.5em 1em 0.5em 0.5em;
   text-align: left;
 }
-dl dt::after {
+dl dt:after {
   position: absolute;
   top: 0.3125rem;
   right: -0.55em;
