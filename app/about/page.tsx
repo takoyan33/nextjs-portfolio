@@ -20,7 +20,6 @@ const About = () => {
       <LowerTitle title='About' enTitle='プロフィール' />
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>経歴</h3>
-
         <HistoryTimelines />
       </div>
 

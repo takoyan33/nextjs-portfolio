@@ -1,5 +1,5 @@
 import React from 'react'
-import infraSkills from '../../../../api/skill/front.json'
+import infraSkills from '../../../../api/skill/infra.json'
 import Skill from '../Skill'
 
 export const InfraSkills = () => {
