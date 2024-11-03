@@ -1,6 +1,6 @@
 import licenses from '../../../../api/license/index.json'
 
-export const License = async () => {
+export const License = () => {
   return (
     <div>
       {Array.isArray(licenses) &&

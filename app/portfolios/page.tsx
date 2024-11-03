@@ -2,7 +2,6 @@ import React from 'react'
 import { PATH } from '../../utils/path'
 import BreadList from '../../components/Components/ui/BreadList'
 import { PortfolioElement } from '../../components/Components/ui/rsc/PortfolioElement'
-import { Suspense } from 'react'
 import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 export const metadata = {
@@ -18,9 +17,7 @@ const Portfolio = async () => {
       </div>
       <LowerTitle title='Portfolio' enTitle='制作物' />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <PortfolioElement />
-      </Suspense>
+      <PortfolioElement />
     </main>
   )
 }
