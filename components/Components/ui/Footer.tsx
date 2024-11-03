@@ -31,7 +31,7 @@ export default function Footer() {
   return (
     <footer className='footer' aria-label='フッター'>
       <div className='max_width'>
-        <ul className='footer_flx'>
+        <div className='footer_flx'>
           <div className='flx'>
             <div className='flx_el'>
               <Link href='/'>
@@ -50,7 +50,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </ul>
+        </div>
       </div>
 
       <p className='footer_text'>© {currentYear} To You Design</p>

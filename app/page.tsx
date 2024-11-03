@@ -53,11 +53,13 @@ const Home = () => {
           <div className='max_width fv_flx'>
             <div className='fv_flx_el'>
               <h2 className='fv__title slide__in__right'>To You Design</h2>
-              <li className='fv__title slide__in__right'>Portfolio</li>
+              <h3 className='fv__subtitle slide__in__right'>Portfolio</h3>
             </div>
             <div className='fv_flx_el'>
               <ScrollComponent>
-                <ThreeModel />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ThreeModel />
+                </Suspense>
               </ScrollComponent>
             </div>
           </div>
@@ -140,9 +142,7 @@ const Home = () => {
           </ScrollComponent>
           <dl>
             <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                <HistoryTimelines />
-              </Suspense>
+              <HistoryTimelines />
             </ScrollComponent>
           </dl>
           <CommonButton text='more' link={PATH.ABOUT} />
@@ -159,28 +159,19 @@ const Home = () => {
 
             <h4 className='skill__title'>Frontend</h4>
             <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                <FrontSkills />
-              </Suspense>
+              <FrontSkills />
             </ScrollComponent>
-            {/* </div> */}
             <h4 className='skill__title'>Backend</h4>
             <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                <BackSkills />
-              </Suspense>
+              <BackSkills />
             </ScrollComponent>
             <h4 className='skill__title'>Infra</h4>
             <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                <InfraSkills />
-              </Suspense>
+              <InfraSkills />
             </ScrollComponent>
             <h4 className='skill__title'>Other</h4>
             <ScrollComponent>
-              <Suspense fallback={<div>Loading...</div>}>
-                <OtherSkills />
-              </Suspense>
+              <OtherSkills />
             </ScrollComponent>
           </div>
         </div>
