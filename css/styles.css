@@ -1394,6 +1394,8 @@ li {
 .skill__flx_el {
   width: 30%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100px;
   background-color: white;
   border: 0px solid;
