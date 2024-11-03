@@ -1,5 +1,6 @@
-import usePortfolioModal from '../parts/usePortfolioModal'
-import ScrollComponent from '../../../hooks/useFadeIn'
+// import ScrollComponent from '../../../hooks/useFadeIn'
+'use client'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 
 type SkillProps = {
@@ -11,27 +12,37 @@ type SkillProps = {
 }
 
 export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
-  const [Modal, open, close, isOpen] = usePortfolioModal()
+  const dialogRef = useRef<any | null>(null)
+
+  function handleOpen() {
+    dialogRef.current?.show()
+    document.body.style.overflow = 'hidden'
+  }
+
+  function handleClose() {
+    dialogRef.current?.close()
+    document.body.style.overflow = ''
+  }
   return (
     <>
       <div className='skill__flx_el'>
-        {/* <a onClick={open}> */}
-        <div className='skill__svg'>
-          <Image
-            src={icon}
-            alt='skill画像'
-            fill
-            className='skill__svg'
-            sizes='(min-width: 768px)'
-          />
-        </div>
-        <p className='skill_text'>{name} </p>
-        <p className='skill_text'>{rank}</p>
-        {/* </a> */}
+        <button onClick={handleOpen} className='skill__flx_el_button'>
+          <div className='skill__svg'>
+            <Image
+              src={icon}
+              alt='skill画像'
+              fill
+              className='skill__svg'
+              sizes='(min-width: 768px)'
+            />
+          </div>
+          <p className='skill_text'>{name} </p>
+          <p className='skill_text'>{rank}</p>
+        </button>
       </div>
-      <Modal>
+      <dialog ref={dialogRef} className='modalBox_bg'>
         <div className='bg-white'>
-          <button onClick={close} className='modalBox_btn w-100' aria-label='閉じる'>
+          <button onClick={handleClose} className='modalBox_btn w-100' aria-label='閉じる'>
             <img src='/images/close-icon.svg' alt='閉じる' />
           </button>
           <div className='modalBox'>
@@ -68,7 +79,7 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
             </div>
           </div>
         </div>
-      </Modal>
+      </dialog>
     </>
   )
 }

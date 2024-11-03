@@ -1170,9 +1170,14 @@ li {
   height: 150px;
   -o-object-fit: cover;
   object-fit: cover;
+  overflow: hidden;
 }
 .portfolio__img__item {
   border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.portfolio__img__item:hover {
+  transform: scale(1.1);
 }
 
 .portfolio {
@@ -1218,15 +1223,17 @@ li {
   height: 200px;
   -o-object-fit: cover;
   object-fit: cover;
+  overflow: hidden;
 }
 .portfolioItem__img__item {
   border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.portfolioItem__img__item:hover {
+  transform: scale(1.1);
 }
 .portfolioItem_link {
   cursor: pointer;
-}
-.portfolioItem_link:hover {
-  opacity: 0.7;
 }
 
 .zenn {
@@ -1347,14 +1354,27 @@ li {
   width: 30%;
   display: flex;
   height: 100px;
+  background-color: white;
+  border: 0px solid;
+  box-shadow: #838383 0px 2px 5px;
+}
+.skill__flx_el_button {
+  display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   background-color: white;
-  box-shadow: #838383 0px 2px 5px;
+  border: 0px solid;
+  cursor: pointer;
+}
+.skill__flx_el_button:hover {
+  opacity: 0.7;
 }
 .skill_text {
   margin: 0 auto;
   font-weight: bold;
+  font-size: 16px;
   text-align: center;
 }
 .skill__svg {
@@ -1424,7 +1444,15 @@ dl dd h2 {
   justify-content: space-around;
   width: 100%;
   margin-top: 50px;
+}
+.modalBox_bg {
+  border: 0px solid;
   border-radius: 1.25rem;
+}
+.modalBox_bg::backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .modalBox_btn {
   position: relative;
@@ -1435,6 +1463,10 @@ dl dd h2 {
   margin-left: auto;
   background-color: white;
   border: 0px solid;
+  cursor: pointer;
+}
+.modalBox_btn:hover {
+  opacity: 0.7;
 }
 .modalBox__element {
   width: 45%;
@@ -1445,6 +1477,9 @@ dl dd h2 {
   -o-object-fit: contain;
   object-fit: contain;
   border: 1px solid gray;
+}
+.modalBox__element__text {
+  text-align: left;
 }
 .modalBox__element__link {
   color: #063997;
