@@ -825,6 +825,11 @@ dl {
   width: 90%;
 }
 
+// .modal-open {
+//   background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒背景 */
+//   transition: background-color 0.3s ease; /* フェードイン効果 */
+// }
+
 // モーダル
 .modalBox {
   display: flex;
@@ -833,10 +838,9 @@ dl {
   width: 100%;
   margin-top: 50px;
   &_bg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    inset: 0;
+    margin: auto;
     border: 1px solid #707070;
     border-radius: 20px;
     z-index: 100;

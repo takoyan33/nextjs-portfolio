@@ -1436,10 +1436,9 @@ dl dd h2 {
   margin-top: 50px;
 }
 .modalBox_bg {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  inset: 0;
+  margin: auto;
   border: 1px solid #707070;
   border-radius: 20px;
   z-index: 100;

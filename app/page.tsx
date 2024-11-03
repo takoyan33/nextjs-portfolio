@@ -132,7 +132,9 @@ const Home = () => {
             {/* <FadeUpTitle /> */}
             <ScrollComponent>
               <TopPortfolioSlide />
-              <CommonButton text='more' link={PATH.PORTFOLIO} />
+              <Link href={PATH.PORTFOLIO} className='contact__btn padding-bottom'>
+                more
+              </Link>
             </ScrollComponent>
           </div>
         </div>
@@ -149,7 +151,9 @@ const Home = () => {
               <HistoryTimelines />
             </ScrollComponent>
           </dl>
-          <CommonButton text='more' link={PATH.ABOUT} />
+          <Link href={PATH.ABOUT} className='contact__btn padding-bottom'>
+            more
+          </Link>
         </div>
         <WaveBgTop />
         {/* ここからSKill*/}
