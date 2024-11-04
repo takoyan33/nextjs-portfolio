@@ -4,7 +4,7 @@ import Skill from '../../../../components/Components/ui/Skill'
 
 export const FrontSkills = () => {
   return (
-    <div className='skill__flx'>
+    <div className='skill__container'>
       {Array.isArray(frontSkills) &&
         frontSkills.map((skill, index) => (
           <Skill

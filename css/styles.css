@@ -521,7 +521,7 @@ a :hover {
   display: none;
 }
 
-.aboutTop_flx {
+.aboutTop__flx {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -531,12 +531,12 @@ a :hover {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 }
-.aboutTop_flx_el {
+.aboutTop__flx-item {
   width: 50%;
   margin: 0px;
   overflow-wrap: break-word;
 }
-.aboutTop_flx_el_footer {
+.aboutTop__flx-item_footer {
   margin: 0.625rem;
 }
 
@@ -740,7 +740,7 @@ a :hover {
     color: red;
     font-size: 14px;
   }
-  .aboutTop_flx {
+  .aboutTop__flx {
     flex-direction: column;
     width: 100%;
     margin: 0.625rem auto;
@@ -748,12 +748,12 @@ a :hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
   }
-  .aboutTop_flx_el {
+  .aboutTop__flx-item {
     width: 100%;
     margin: 0;
     overflow-wrap: break-word;
   }
-  .aboutTop_flx_el_footer {
+  .aboutTop__flx-item_footer {
     margin: 0.625rem;
   }
 }
@@ -1094,6 +1094,15 @@ li {
   width: 100%;
   height: 70vh;
 }
+.fv__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+.fv__element {
+  width: 50%;
+  align-items: center;
+}
 .fv__title {
   position: relative;
   top: 9.375rem;
@@ -1113,15 +1122,6 @@ li {
   color: #6499ff;
   text-align: left;
   letter-spacing: 4px;
-}
-.fv_flx {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.25rem;
-}
-.fv_flx_el {
-  width: 50%;
-  align-items: center;
 }
 
 @-webkit-keyframes GradietionAnimation {
@@ -1227,6 +1227,10 @@ li {
   text-align: left;
   color: #434343;
   font-size: 28px;
+}
+.portfolio__headTitle_span {
+  font-size: 16px;
+  color: #707070;
 }
 .portfolioItem {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -1383,7 +1387,7 @@ li {
   text-align: left;
   font-size: 20px;
 }
-.skill__flx {
+.skill__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -1391,7 +1395,7 @@ li {
   margin-inline: auto;
   margin-bottom: 60px;
 }
-.skill__flx_el {
+.skill__element {
   width: 30%;
   display: flex;
   justify-content: center;
@@ -1401,20 +1405,7 @@ li {
   border: 0px solid;
   box-shadow: #838383 0px 2px 5px;
 }
-.skill__flx_el_button {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border: 0px solid;
-  cursor: pointer;
-}
-.skill__flx_el_button:hover {
-  opacity: 0.7;
-}
-.skill_text {
+.skill__text {
   margin: 0 auto;
   font-weight: bold;
   font-size: 16px;
@@ -1427,8 +1418,7 @@ li {
 }
 
 .padding {
-  padding: 80px 0;
-  margin: 80px auto;
+  padding-bottom: 60px;
 }
 
 dl {
@@ -1649,11 +1639,11 @@ dl dd h2 {
   padding: 20px 0;
   border-radius: 10px;
 }
-.contact__box__title {
+.contact__box-title {
   font-size: 26px;
   margin: 0;
 }
-.contact__box__text {
+.contact__box-text {
   margin: 0;
   margin-top: 5px;
   margin-bottom: 25px;
@@ -1755,6 +1745,24 @@ dl dd h2 {
     height: 230px;
     width: 300px;
     margin-inline: auto;
+  }
+  .skill__title {
+    text-align: left;
+  }
+  .skill__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 10px;
+    margin-inline: auto;
+  }
+  .skill__element {
+    width: 45%;
+    flex-direction: column;
+  }
+  .skill__text {
+    font-weight: bold;
+    text-align: center;
   }
 }
 .title {
@@ -1859,6 +1867,14 @@ dl dd h2 {
     height: 500px;
     margin-inline: auto;
   }
+  .fv__container {
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+  .fv__element {
+    width: 100%;
+    align-items: center;
+  }
   .fv__title {
     font-size: 2.375rem;
     line-height: 40px;
@@ -1870,14 +1886,6 @@ dl dd h2 {
     margin-top: 0.625rem;
     position: relative;
     top: 7.5rem;
-  }
-  .fv_flx {
-    flex-direction: column;
-    margin-top: 0rem;
-  }
-  .fv_flx_el {
-    width: 100%;
-    align-items: center;
   }
   .canvas {
     width: 200px;
@@ -1941,18 +1949,18 @@ dl dd h2 {
   .skill__title {
     text-align: left;
   }
-  .skill__flx {
+  .skill__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 24px 10px;
     margin-inline: auto;
   }
-  .skill__flx_el {
+  .skill__element {
     width: 48%;
     flex-direction: column;
   }
-  .skill_text {
+  .skill__text {
     font-weight: bold;
     text-align: center;
   }
@@ -2148,11 +2156,11 @@ dl dd h2 {
     padding: 20px 0;
     border-radius: 10px;
   }
-  .contact__box__title {
+  .contact__box-title {
     font-size: 26px;
     margin: 0;
   }
-  .contact__box__text {
+  .contact__box-text {
     margin: 0;
     margin-top: 5px;
     margin-bottom: 25px;

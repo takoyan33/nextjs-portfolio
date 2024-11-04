@@ -13,7 +13,7 @@ export const metadata = {
 
 const About = () => {
   return (
-    <main>
+    <main className='padding'>
       <div className='max_width'>
         <BreadList name='About' link={PATH.ABOUT} />
       </div>

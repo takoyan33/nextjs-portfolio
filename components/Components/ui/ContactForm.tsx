@@ -41,7 +41,7 @@ const Index = () => {
     <div className='form'>
       <p>
         以下のフォームに必要事項をご記入のうえ、お気軽にお問い合わせください。<br></br>
-        内容確認後、担当者からご連絡させていただきます。
+        内容確認後、ご連絡させて頂きます。
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form-box'>

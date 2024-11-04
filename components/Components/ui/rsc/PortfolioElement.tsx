@@ -8,7 +8,7 @@ export const PortfolioElement = () => {
       <h3 className='portfolio__headTitle'>
         全ての制作物<span className='portfolio__headTitle_span'> {portfolios.length}件</span>
       </h3>
-      <div className='portfolioFlx'>
+      <div className='portfolioFlx padding'>
         {Array.isArray(portfolios) &&
           portfolios.map((portfolio, index) => (
             <PortfolioItem
