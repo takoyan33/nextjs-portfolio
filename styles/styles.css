@@ -521,7 +521,7 @@ a :hover {
   display: none;
 }
 
-.aboutTop_flx {
+.aboutTop__flx {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -531,12 +531,12 @@ a :hover {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 }
-.aboutTop_flx_el {
+.aboutTop__flx-item {
   width: 50%;
   margin: 0px;
   overflow-wrap: break-word;
 }
-.aboutTop_flx_el_footer {
+.aboutTop__flx-item_footer {
   margin: 0.625rem;
 }
 
@@ -740,7 +740,7 @@ a :hover {
     color: red;
     font-size: 14px;
   }
-  .aboutTop_flx {
+  .aboutTop__flx {
     flex-direction: column;
     width: 100%;
     margin: 0.625rem auto;
@@ -748,12 +748,12 @@ a :hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
   }
-  .aboutTop_flx_el {
+  .aboutTop__flx-item {
     width: 100%;
     margin: 0;
     overflow-wrap: break-word;
   }
-  .aboutTop_flx_el_footer {
+  .aboutTop__flx-item_footer {
     margin: 0.625rem;
   }
 }
@@ -1055,6 +1055,15 @@ li {
   width: 100%;
   height: 70vh;
 }
+.fv__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+.fv__element {
+  width: 50%;
+  align-items: center;
+}
 .fv__title {
   position: relative;
   top: 9.375rem;
@@ -1074,15 +1083,6 @@ li {
   color: #6499ff;
   text-align: left;
   letter-spacing: 4px;
-}
-.fv_flx {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.25rem;
-}
-.fv_flx_el {
-  width: 50%;
-  align-items: center;
 }
 
 @keyframes GradietionAnimation {
@@ -1380,8 +1380,7 @@ li {
 }
 
 .padding {
-  padding: 80px 0;
-  margin: 80px auto;
+  padding-bottom: 60px;
 }
 
 dl {
@@ -1807,6 +1806,14 @@ dl dd h2 {
     height: 500px;
     margin-inline: auto;
   }
+  .fv__container {
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+  .fv__element {
+    width: 100%;
+    align-items: center;
+  }
   .fv__title {
     font-size: 2.375rem;
     line-height: 40px;
@@ -1818,14 +1825,6 @@ dl dd h2 {
     margin-top: 0.625rem;
     position: relative;
     top: 7.5rem;
-  }
-  .fv_flx {
-    flex-direction: column;
-    margin-top: 0rem;
-  }
-  .fv_flx_el {
-    width: 100%;
-    align-items: center;
   }
   .canvas {
     width: 200px;

@@ -50,12 +50,12 @@ const Home = () => {
       <main aria-label='本文'>
         {/* ここからfv */}
         <div className='fv'>
-          <div className='max_width fv_flx'>
-            <div className='fv_flx_el'>
+          <div className='max_width fv__container'>
+            <div className='fv__element'>
               <h2 className='fv__title slide__in__right'>To You Design</h2>
               <h3 className='fv__subtitle slide__in__right'>Portfolio</h3>
             </div>
-            <div className='fv_flx_el'>
+            <div className='fv__element'>
               <ScrollComponent>
                 <Suspense fallback={<div>Loading...</div>}>
                   <ThreeModel />
@@ -73,48 +73,52 @@ const Home = () => {
               </h2>
             </ScrollComponent>
             <ScrollComponent>
-              <div className='aboutTop_flx'>
-                <div className='aboutTop_flx_el'>
-                  <div className='about_img'>
-                    <Image
-                      src='/images/myphoto.png'
-                      className=''
-                      alt='プロフィール画像'
-                      fill
-                      priority
-                      sizes='(min-width: 768px) 50vw, 100vw'
-                    />
-                  </div>
+              <div className='aboutTop__flx'>
+                <div className='aboutTop__flx-item'>
+                  <ScrollComponent>
+                    <div className='about_img'>
+                      <Image
+                        src='/images/myphoto.png'
+                        className=''
+                        alt='プロフィール画像'
+                        fill
+                        priority
+                        sizes='(min-width: 768px) 50vw, 100vw'
+                      />
+                    </div>
+                  </ScrollComponent>
                 </div>
-                <div className='aboutTop_flx_el'>
-                  <h4 className='about__title'>阿部 舜平</h4>
-                  <div className='about__flx'>
-                    {socialLinks.map((link) => (
-                      <Link key={link.href} href={link.href} target='_blank'>
-                        <Image
-                          src={link.src}
-                          className='about_snsLogo'
-                          alt={link.alt}
-                          height={link.height}
-                          width={link.width}
-                        />
-                      </Link>
-                    ))}
-                  </div>
-                  <p className='about__text'>
-                    北海道在住の社会人1年目のエンジニア。<br></br>
-                    大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
-                    <br></br>
-                    文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
-                    <br></br>
-                    現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
-                  </p>
-                  <p className='about__text'>
-                    <span className='about__text__span'>趣味：</span>旅行、ギター
-                  </p>
-                  <p className='about__text'>
-                    <span className='about__text__span'>資格：</span>基本情報技術者試験
-                  </p>
+                <div className='aboutTop__flx-item'>
+                  <ScrollComponent>
+                    <h4 className='about__title'>阿部 舜平</h4>
+                    <div className='about__flx'>
+                      {socialLinks.map((link) => (
+                        <Link key={link.href} href={link.href} target='_blank'>
+                          <Image
+                            src={link.src}
+                            className='about_snsLogo'
+                            alt={link.alt}
+                            height={link.height}
+                            width={link.width}
+                          />
+                        </Link>
+                      ))}
+                    </div>
+                    <p className='about__text'>
+                      北海道在住の社会人1年目のエンジニア。<br></br>
+                      大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
+                      <br></br>
+                      文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
+                      <br></br>
+                      現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
+                    </p>
+                    <p className='about__text'>
+                      <span className='about__text__span'>趣味：</span>旅行、ギター
+                    </p>
+                    <p className='about__text'>
+                      <span className='about__text__span'>資格：</span>基本情報技術者試験
+                    </p>
+                  </ScrollComponent>
                 </div>
               </div>
             </ScrollComponent>
@@ -132,7 +136,7 @@ const Home = () => {
             {/* <FadeUpTitle /> */}
             <ScrollComponent>
               <TopPortfolioSlide />
-              <Link href={PATH.PORTFOLIO} className='contact__btn padding-bottom'>
+              <Link href={PATH.PORTFOLIO} className='contact__btn'>
                 more
               </Link>
             </ScrollComponent>

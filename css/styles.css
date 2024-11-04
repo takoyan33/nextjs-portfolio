@@ -1094,6 +1094,15 @@ li {
   width: 100%;
   height: 70vh;
 }
+.fv__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+.fv__element {
+  width: 50%;
+  align-items: center;
+}
 .fv__title {
   position: relative;
   top: 9.375rem;
@@ -1113,15 +1122,6 @@ li {
   color: #6499ff;
   text-align: left;
   letter-spacing: 4px;
-}
-.fv_flx {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.25rem;
-}
-.fv_flx_el {
-  width: 50%;
-  align-items: center;
 }
 
 @-webkit-keyframes GradietionAnimation {
@@ -1227,6 +1227,10 @@ li {
   text-align: left;
   color: #434343;
   font-size: 28px;
+}
+.portfolio__headTitle_span {
+  font-size: 16px;
+  color: #707070;
 }
 .portfolioItem {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -1427,8 +1431,7 @@ li {
 }
 
 .padding {
-  padding: 80px 0;
-  margin: 80px auto;
+  padding-bottom: 60px;
 }
 
 dl {
@@ -1859,6 +1862,14 @@ dl dd h2 {
     height: 500px;
     margin-inline: auto;
   }
+  .fv {
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+  .fv__element {
+    width: 100%;
+    align-items: center;
+  }
   .fv__title {
     font-size: 2.375rem;
     line-height: 40px;
@@ -1870,14 +1881,6 @@ dl dd h2 {
     margin-top: 0.625rem;
     position: relative;
     top: 7.5rem;
-  }
-  .fv_flx {
-    flex-direction: column;
-    margin-top: 0rem;
-  }
-  .fv_flx_el {
-    width: 100%;
-    align-items: center;
   }
   .canvas {
     width: 200px;
