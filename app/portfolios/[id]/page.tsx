@@ -35,7 +35,7 @@ const Post = () => {
       {portfolios ? (
         <article>
           <p className='bread__title max_width'>
-            <Link href='/'>トップ </Link> ＞ 
+            <Link href='/'>トップ </Link> ＞
             <Link href={PATH.PORTFOLIO}>　Portfolio ＞ {portfolios.name}</Link>
           </p>
           <LowerTitle title='Portfolio' enTitle='制作物' />

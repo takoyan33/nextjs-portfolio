@@ -198,13 +198,13 @@ a :hover {
   color: #6499ff;
   text-align: left;
 }
-.main__title__white {
+.main__title-white {
   margin: 0;
   font-size: 3.75rem;
   color: white;
   text-align: left;
 }
-.main__title__white::after {
+.main__title-white::after {
   display: block;
   content: attr(data-ja);
   margin: 0;
@@ -259,7 +259,7 @@ a :hover {
     color: #6499ff;
     text-align: left;
   }
-  .main__title--white {
+  .main__title-white {
     margin: 0;
     font-size: 3.75rem;
     color: white;
@@ -1336,7 +1336,7 @@ li {
   text-align: left;
   font-size: 20px;
 }
-.skill__flx {
+.skill__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -1344,7 +1344,7 @@ li {
   margin-inline: auto;
   margin-bottom: 60px;
 }
-.skill__flx_el {
+.skill__element {
   width: 30%;
   display: flex;
   justify-content: center;
@@ -1354,20 +1354,7 @@ li {
   border: 0px solid;
   box-shadow: #838383 0px 2px 5px;
 }
-.skill__flx_el_button {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border: 0px solid;
-  cursor: pointer;
-}
-.skill__flx_el_button:hover {
-  opacity: 0.7;
-}
-.skill_text {
+.skill__text {
   margin: 0 auto;
   font-weight: bold;
   font-size: 16px;
@@ -1596,11 +1583,11 @@ dl dd h2 {
   padding: 20px 0;
   border-radius: 10px;
 }
-.contact__box__title {
+.contact__box-title {
   font-size: 26px;
   margin: 0;
 }
-.contact__box__text {
+.contact__box-text {
   margin: 0;
   margin-top: 5px;
   margin-bottom: 25px;
@@ -1702,6 +1689,22 @@ dl dd h2 {
     height: 230px;
     width: 300px;
     margin-inline: auto;
+  }
+  .skill__title {
+    text-align: left;
+  }
+  .skill__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .skill__element {
+    width: 45%;
+    flex-direction: column;
+  }
+  .skill__text {
+    font-weight: bold;
+    text-align: center;
   }
 }
 .title {
@@ -1888,18 +1891,18 @@ dl dd h2 {
   .skill__title {
     text-align: left;
   }
-  .skill__flx {
+  .skill__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 24px 10px;
     margin-inline: auto;
   }
-  .skill__flx_el {
+  .skill__element {
     width: 48%;
     flex-direction: column;
   }
-  .skill_text {
+  .skill__text {
     font-weight: bold;
     text-align: center;
   }
@@ -2095,11 +2098,11 @@ dl dd h2 {
     padding: 20px 0;
     border-radius: 10px;
   }
-  .contact__box__title {
+  .contact__box-title {
     font-size: 26px;
     margin: 0;
   }
-  .contact__box__text {
+  .contact__box-text {
     margin: 0;
     margin-top: 5px;
     margin-bottom: 25px;

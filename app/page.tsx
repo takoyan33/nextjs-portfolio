@@ -79,7 +79,6 @@ const Home = () => {
                     <div className='about_img'>
                       <Image
                         src='/images/myphoto.png'
-                        className=''
                         alt='プロフィール画像'
                         fill
                         priority
@@ -192,14 +191,14 @@ const Home = () => {
         <div className='contact'>
           <div className='max_width'>
             <ScrollComponent>
-              <h2 className='main__title__white' data-ja='お問い合わせ'>
+              <h2 className='main__title-white' data-ja='お問い合わせ'>
                 Contact
               </h2>
             </ScrollComponent>
             <ScrollComponent>
               <div className='contact__box'>
-                <h3 className='contact__box__title'>CONTACT</h3>
-                <p className='contact__box__text'>お問い合わせ</p>
+                <h3 className='contact__box-title'>CONTACT</h3>
+                <p className='contact__box-text'>お問い合わせ</p>
                 <Link href={PATH.CONTACT} className='contact__btn padding-bottom'>
                   お問い合せフォームへ
                 </Link>

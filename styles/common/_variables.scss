@@ -256,7 +256,7 @@ a {
     font-size: rem(60);
     color: $main-color;
     text-align: left;
-    &__white {
+    &-white {
       margin: 0;
       font-size: rem(60);
       color: white;
@@ -324,7 +324,7 @@ a {
       font-size: rem(34);
       color: $main-color;
       text-align: left;
-      &--white {
+      &-white {
         margin: 0;
         font-size: rem(60);
         color: white;
