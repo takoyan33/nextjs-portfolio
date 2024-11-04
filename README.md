@@ -1,6 +1,8 @@
 
 # To You Design Portfolio
 
+![image](/public/images/portfolio/portfolio_top3.png)
+
 ## 目次
 - [システムの特徴](#system-feature)
 - [使用技術について](#technology-used)
