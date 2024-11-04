@@ -4,7 +4,7 @@ import Skill from '../Skill'
 
 export const InfraSkills = () => {
   return (
-    <div className='skill__flx'>
+    <div className='skill__container'>
       {Array.isArray(infraSkills) &&
         infraSkills.map((skill, index) => (
           <Skill

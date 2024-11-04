@@ -422,6 +422,15 @@ li {
   z-index: -1;
   width: 100%;
   height: 70vh;
+  &__container {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(20);
+  }
+  &__element {
+    width: 50%;
+    align-items: center;
+  }
   &__title {
     position: relative;
     top: rem(150);
@@ -441,15 +450,6 @@ li {
     color: $main-color;
     text-align: left;
     letter-spacing: 4px;
-  }
-  &_flx {
-    display: flex;
-    justify-content: center;
-    margin-top: rem(20);
-    &_el {
-      width: 50%;
-      align-items: center;
-    }
   }
 }
 
@@ -723,38 +723,38 @@ li {
     text-align: left;
     font-size: 20px;
   }
-  &__flx {
+  &__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 40px 20px;
     margin-inline: auto;
     margin-bottom: 60px;
-    &_el {
-      width: 30%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-      background-color: white;
-      border: 0px solid;
-      box-shadow: #838383 0px 2px 5px;
-      &_button {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        border: 0px solid;
-        cursor: pointer;
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-    }
   }
-  &_text {
+  &__element {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: white;
+    border: 0px solid;
+    box-shadow: #838383 0px 2px 5px;
+    // &_button {
+    //   display: flex;
+    //   width: 100%;
+    //   height: 100%;
+    //   justify-content: center;
+    //   align-items: center;
+    //   background-color: white;
+    //   border: 0px solid;
+    //   cursor: pointer;
+    //   &:hover {
+    //     opacity: 0.7;
+    //   }
+    // }
+  }
+  &__text {
     margin: 0 auto;
     font-weight: bold;
     font-size: 16px;
@@ -769,8 +769,7 @@ li {
 }
 
 .padding {
-  padding: 80px 0;
-  margin: 80px auto;
+  padding-bottom: 60px;
 }
 
 // history
@@ -997,11 +996,11 @@ dl {
     margin: 0 auto;
     padding: 20px 0;
     border-radius: 10px;
-    &__title {
+    &-title {
       font-size: 26px;
       margin: 0;
     }
-    &__text {
+    &-text {
       margin: 0;
       margin-top: 5px;
       margin-bottom: 25px;
@@ -1115,6 +1114,25 @@ dl {
       margin-inline: auto;
     }
   }
+
+  .skill {
+    &__title {
+      text-align: left;
+    }
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__element {
+      width: 45%;
+      flex-direction: column;
+    }
+    &__text {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
 }
 
 .title {
@@ -1222,6 +1240,14 @@ dl {
     width: 100%;
     height: 500px;
     margin-inline: auto;
+    &__container {
+      flex-direction: column;
+      margin-top: rem(0);
+    }
+    &__element {
+      width: 100%;
+      align-items: center;
+    }
     &__title {
       font-size: rem(38);
       line-height: 40px;
@@ -1233,15 +1259,6 @@ dl {
       margin-top: rem(10);
       position: relative;
       top: rem(120);
-    }
-
-    &_flx {
-      flex-direction: column;
-      margin-top: rem(0);
-      &_el {
-        width: 100%;
-        align-items: center;
-      }
     }
   }
 
@@ -1315,18 +1332,18 @@ dl {
     &__title {
       text-align: left;
     }
-    &__flx {
+    &__container {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 24px 10px;
       margin-inline: auto;
-      &_el {
-        width: 48%;
-        flex-direction: column;
-      }
     }
-    &_text {
+    &__element {
+      width: 48%;
+      flex-direction: column;
+    }
+    &__text {
       font-weight: bold;
       text-align: center;
     }
@@ -1534,11 +1551,11 @@ dl {
       margin: 0 auto;
       padding: 20px 0;
       border-radius: 10px;
-      &__title {
+      &-title {
         font-size: 26px;
         margin: 0;
       }
-      &__text {
+      &-text {
         margin: 0;
         margin-top: 5px;
         margin-bottom: 25px;

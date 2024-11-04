@@ -26,7 +26,7 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
   }
   return (
     <>
-      <div className='skill__flx_el'>
+      <div className='skill__element'>
         {/* <button onClick={handleOpen} className='skill__flx_el_button'> */}
         <div className='skill__svg'>
           <Image
@@ -37,11 +37,11 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
             sizes='(min-width: 768px)'
           />
         </div>
-        <p className='skill_text'>{name} </p>
-        <p className='skill_text'>{rank}</p>
+        <p className='skill__text'>{name} </p>
+        <p className='skill__text'>{rank}</p>
         {/* </button> */}
       </div>
-      <dialog ref={dialogRef} className='modalBox_bg'>
+      {/* <dialog ref={dialogRef} className='modalBox_bg'>
         <div className='modalBox_overlay'>
           <button onClick={handleClose} className='modalBox_btn w-100' aria-label='閉じる'>
             <img src='/images/close-icon.svg' alt='閉じる' />
@@ -80,7 +80,7 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
             </div>
           </div>
         </div>
-      </dialog>
+      </dialog> */}
     </>
   )
 }
