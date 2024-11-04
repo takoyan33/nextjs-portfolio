@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { portfolioType } from '../../../utils/type'
 import { PATH } from '../../../utils/path'
-import type { NextPage } from 'next'
+import { LowerTitle } from '../../../components/Components/ui/LowerTitle'
 
 const Post = () => {
   const params = useParams()
@@ -31,28 +31,24 @@ const Post = () => {
   }, [id])
 
   return (
-    <>
+    <main>
       {portfolios ? (
-        <nav>
+        <article>
           <p className='bread__title max_width'>
             <Link href='/'>トップ </Link> ＞
-            <Link href={PATH.PORTFOLIO}> Portfolio ＞ {portfolios.name}</Link>
+            <Link href={PATH.PORTFOLIO}>　Portfolio ＞ {portfolios.name}</Link>
           </p>
-          <div className='lower_bg'>
-            <div className='max_width'>
-              <h2 className='lower__title' data-ja='制作物'>
-                Portfolio
-              </h2>
-            </div>
-          </div>
+          <LowerTitle title='Portfolio' enTitle='制作物' />
           <section className='portfolioDetail max_width'>
             <p className='portfolioDetail__element__date'>{portfolios.date}</p>
             <h2 className='portfolioDetail__element__title'>{portfolios.name}</h2>
-            {portfolios.tag.map((skill, index) => (
-              <li className='portfolioDetail__element__tag' key={index}>
-                #{skill}
-              </li>
-            ))}
+            <ul className='portfolioDetail__element__tagList'>
+              {portfolios.tag.map((skill, index) => (
+                <li className='portfolioDetail__element__tag' key={index}>
+                  #{skill}
+                </li>
+              ))}
+            </ul>
             <div className='portfolioDetail__element__topImg'>
               {portfolios.topImg && (
                 <Image
@@ -208,11 +204,23 @@ const Post = () => {
               </div>
             )}
           </section>
-        </nav>
+        </article>
       ) : (
-        <p>Loading...</p>
+        <div className='loading-body'>
+          <p className='bread__title max_width'>
+            <Link href='/'>トップ </Link> ＞<Link href={PATH.PORTFOLIO}> Portfolio </Link>
+          </p>
+          <LowerTitle title='Portfolio' enTitle='制作物' />
+          <div className='loading'>
+            <div className='spinner-box'>
+              <div className='circle-border'>
+                <div className='circle-core'></div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
-    </>
+    </main>
   )
 }
 

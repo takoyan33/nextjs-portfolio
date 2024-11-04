@@ -18,7 +18,7 @@ export default function PortfolioItem({
   portfolio_topImg,
 }: PortfolioItemProps) {
   return (
-    <div className='flx_el'>
+    <div className='flx_el portfolio_flx_el'>
       <Link href={`portfolios/${portfolio_id}`}>
         <div className='portfolio__img'>
           <Image
@@ -36,13 +36,13 @@ export default function PortfolioItem({
             __html: portfolio_name,
           }}
         ></div>
-        <div className='portfolio__flex'>
+        <ul className='portfolio__flex'>
           {portfolio_tag.map((tag, index) => (
             <li className='portfolio__tag' key={index}>
               #{tag}
             </li>
           ))}
-        </div>
+        </ul>
       </Link>
     </div>
   )

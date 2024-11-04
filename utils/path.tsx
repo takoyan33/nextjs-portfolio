@@ -1,7 +1,7 @@
 export const PATH = {
   INDEX: '/',
   ABOUT: '/about',
-  PORTFOLIO: '/portfolio',
+  PORTFOLIO: '/portfolios',
   BLOG: '/blog',
   CONTACT: '/contact',
 } as const

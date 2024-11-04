@@ -3,6 +3,7 @@ import { PATH } from '../../utils/path'
 import React from 'react'
 import BreadList from '../../components/Components/ui/BreadList'
 import { zennProps } from '../../utils/type'
+import { LowerTitle } from '../../components/Components/ui/LowerTitle'
 
 export const metadata = {
   title: 'To You Design - Blog',
@@ -11,7 +12,6 @@ export const metadata = {
 
 const Blog = async () => {
   let zennArticles: zennProps | null = null
-  let error: string = ''
 
   try {
     const response = await fetch('https://zenn.dev/api/articles?username=643866')
@@ -21,7 +21,7 @@ const Blog = async () => {
     }
     zennArticles = await response.json()
   } catch (err) {
-    error = 'Failed to fetch articles'
+    console.error(err)
   }
 
   zennArticles?.articles.sort((a: any, b: any) => {
@@ -29,20 +29,14 @@ const Blog = async () => {
   })
 
   return (
-    <div>
+    <main>
       <div className='max_width'>
         <BreadList name='Blog' link={PATH.BLOG} />
       </div>
-      <div className='lower_bg'>
-        <div className='max_width'>
-          <h2 className='lower__title' data-ja='ブログ'>
-            Blog
-          </h2>
-        </div>
-      </div>
+      <LowerTitle title='Blog' enTitle='ブログ' />
       <div className='max_width'>
         <h3 className='portfolio__headTitle'>
-          Zenn<span> {zennArticles?.articles.length}件</span>
+          Zenn<span className='portfolio__headTitle_span'> {zennArticles?.articles.length}件</span>
         </h3>
         <div className='flx padding'>
           {zennArticles?.articles.map((article, index) => (
@@ -58,7 +52,7 @@ const Blog = async () => {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 

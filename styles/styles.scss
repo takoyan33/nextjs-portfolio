@@ -7,7 +7,7 @@
   overflow: hidden;
   font-size: 35px;
   line-height: 40px;
-  color: #ecf0f1;
+  color: $main-color;
   position: relative;
   top: rem(240);
   &__container {
@@ -20,7 +20,7 @@
       position: absolute;
       top: 0;
 
-      color: #ffffff;
+      color: $main-color;
       font-size: 42px;
       line-height: 40px;
 
@@ -422,25 +422,32 @@ li {
   z-index: -1;
   width: 100%;
   height: 70vh;
-  background: $main-color;
+  &__container {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(20);
+  }
+  &__element {
+    width: 50%;
+    align-items: center;
+  }
   &__title {
     position: relative;
-    top: rem(220);
+    top: rem(150);
     font-family: futura-pt-bold, sans-serif;
-    font-size: rem(70);
-    line-height: 90px;
-    color: $white;
+    font-size: rem(60);
+    color: $main-color;
     text-align: left;
     letter-spacing: 4px;
     margin: rem(10) auto;
   }
   &__subtitle {
     position: relative;
-    top: rem(220);
+    top: rem(120);
     margin-inline: auto;
     font-family: futura-pt-bold, sans-serif;
     font-size: rem(40);
-    color: $white;
+    color: $main-color;
     text-align: left;
     letter-spacing: 4px;
   }
@@ -521,8 +528,13 @@ li {
     margin-inline: auto;
     height: 150px;
     object-fit: cover;
+    overflow: hidden;
     &__item {
       border-radius: 10px;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
@@ -534,6 +546,10 @@ li {
     text-align: left;
     color: #434343;
     font-size: 28px;
+    &_span {
+      font-size: 16px;
+      color: #707070;
+    }
   }
   &Item {
     box-shadow:
@@ -569,16 +585,21 @@ li {
       margin-inline: auto;
       height: 200px;
       object-fit: cover;
+      overflow: hidden;
 
       &__item {
         border-radius: 10px;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
     &_link {
       cursor: pointer;
-      &:hover {
-        opacity: 0.7;
-      }
+      // &:hover {
+      //   opacity: 0.7;
+      // }
     }
   }
 }
@@ -637,6 +658,8 @@ li {
 
   &_logo {
     position: relative;
+    width: 220px !important;
+    height: 100px !important;
     bottom: rem(20);
     font-size: 30px;
     font-weight: bold;
@@ -666,6 +689,9 @@ li {
     font-size: 16px;
     line-height: 1.6;
     text-align: left;
+    &__span {
+      font-weight: bold;
+    }
   }
   &_img {
     position: relative;
@@ -692,31 +718,58 @@ li {
 // skill
 .skill {
   background-color: $back-color;
+  padding-bottom: 40px;
   &__title {
     text-align: left;
+    font-size: 20px;
   }
-  &__flx {
+  &__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    gap: 40px 20px;
     margin-inline: auto;
-    &_el {
-      width: 20%;
-    }
+    margin-bottom: 60px;
   }
-  &_text {
-    width: 80%;
-    margin: rem(5) auto;
-    margin-bottom: 15px;
+  &__element {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: white;
+    border: 0px solid;
+    box-shadow: #838383 0px 2px 5px;
+    // &_button {
+    //   display: flex;
+    //   width: 100%;
+    //   height: 100%;
+    //   justify-content: center;
+    //   align-items: center;
+    //   background-color: white;
+    //   border: 0px solid;
+    //   cursor: pointer;
+    //   &:hover {
+    //     opacity: 0.7;
+    //   }
+    // }
+  }
+  &__text {
+    margin: 0 auto;
     font-weight: bold;
-    color: $main-color;
+    font-size: 16px;
     text-align: center;
+  }
+  // svgアイコン
+  &__svg {
+    width: 60px !important;
+    height: 60px !important;
+    position: relative;
   }
 }
 
 .padding {
-  padding: 80px 0;
-  margin: 80px auto;
+  padding-bottom: 60px;
 }
 
 // history
@@ -729,14 +782,14 @@ dl {
     width: 8.5em;
     padding: 0.5em 1em 0.5em 0.5em;
     text-align: left;
-  }
-  dt::after {
-    position: absolute;
-    top: rem(5);
-    right: -0.55em;
-    font-size: 22px;
-    color: $main-color;
-    content: '●';
+    &:after {
+      position: absolute;
+      top: rem(5);
+      right: -0.55em;
+      font-size: 22px;
+      color: $main-color;
+      content: '●';
+    }
   }
   dd {
     width: calc(100% - 8.5em);
@@ -777,6 +830,11 @@ dl {
   width: 90%;
 }
 
+// .modal-open {
+//   background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒背景 */
+//   transition: background-color 0.3s ease; /* フェードイン効果 */
+// }
+
 // モーダル
 .modalBox {
   display: flex;
@@ -784,7 +842,23 @@ dl {
   justify-content: space-around;
   width: 100%;
   margin-top: 50px;
-  border-radius: rem(20);
+  &_bg {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border: 1px solid #707070;
+    border-radius: 20px;
+    z-index: 100;
+    width: 80%;
+    max-width: 1100px;
+    height: 450px;
+    background-color: white;
+    &::backdrop {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
   &_btn {
     position: relative;
     top: rem(20);
@@ -793,7 +867,11 @@ dl {
     margin-right: rem(10);
     margin-left: auto;
     background-color: white;
-    border: 0px solid;
+    border: 0 solid;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
   }
   &__element {
     width: 45%;
@@ -804,6 +882,7 @@ dl {
       border: 1px solid gray;
     }
     &__text {
+      text-align: left;
     }
     &__link {
       color: $tag-color-4;
@@ -814,8 +893,12 @@ dl {
   }
 }
 
-.portfolioDetail__element__tagList {
-  padding: 0;
+.canvas {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  top: 150px;
 }
 
 // [id]ページ
@@ -880,11 +963,57 @@ dl {
       border: 1px solid $main-color;
       border-radius: 20px;
     }
+    &__tagList {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0;
+    }
     &__link {
       color: $tag-color-4;
       &:hover {
         opacity: 0.7;
       }
+      &::before {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('/images/common/link.svg');
+        background-size: contain;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+//topのcontact
+.contact {
+  background-image: url('/images/top_contact_bg.jpg');
+  &__box {
+    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 10px;
+    &-title {
+      font-size: 26px;
+      margin: 0;
+    }
+    &-text {
+      margin: 0;
+      margin-top: 5px;
+      margin-bottom: 25px;
+    }
+  }
+  &__btn {
+    background-color: $main-color;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    &:hover {
+      opacity: 0.7;
     }
   }
 }
@@ -932,16 +1061,11 @@ dl {
   }
 }
 
-// svgアイコン
-.skill__svg {
-  height: 100px !important;
-  position: relative;
-}
-
 @media (max-width: 1024px) {
   // svgアイコン
   .skill__svg {
-    height: 90px !important;
+    width: 50px !important;
+    height: 50px !important;
     position: relative;
   }
   .portfolio {
@@ -988,6 +1112,25 @@ dl {
       height: 230px;
       width: 300px;
       margin-inline: auto;
+    }
+  }
+
+  .skill {
+    &__title {
+      text-align: left;
+    }
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__element {
+      width: 45%;
+      flex-direction: column;
+    }
+    &__text {
+      font-weight: bold;
+      text-align: center;
     }
   }
 }
@@ -1058,7 +1201,8 @@ dl {
 
   // svgアイコン
   .skill__svg {
-    height: 90px !important;
+    width: 50px !important;
+    height: 50px !important;
     position: relative;
   }
 
@@ -1084,7 +1228,7 @@ dl {
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 76%;
+    width: 100%;
     color: white;
     text-align: center;
     -webkit-box-orient: vertical;
@@ -1094,20 +1238,40 @@ dl {
   .fv {
     display: inline-block;
     width: 100%;
-    height: 600px;
+    height: 500px;
     margin-inline: auto;
+    &__container {
+      flex-direction: column;
+      margin-top: rem(0);
+    }
+    &__element {
+      width: 100%;
+      align-items: center;
+    }
     &__title {
       font-size: rem(38);
       line-height: 40px;
+      position: relative;
+      top: rem(120);
     }
     &__subtitle {
       font-size: rem(22);
       margin-top: rem(10);
+      position: relative;
+      top: rem(120);
     }
   }
 
+  .canvas {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    top: 160px;
+  }
+
   .about {
-    height: 700px;
+    height: 950px;
     &_name {
       margin: rem(10) auto;
       font-size: 22px;
@@ -1115,8 +1279,8 @@ dl {
     }
 
     &_img {
-      width: 100%;
-      height: 300px;
+      width: 75%;
+      height: 220px;
       margin-inline: auto;
     }
 
@@ -1168,22 +1332,19 @@ dl {
     &__title {
       text-align: left;
     }
-    &__flx {
+    &__container {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      gap: 24px 0px;
+      gap: 24px 10px;
       margin-inline: auto;
-      &_el {
-        width: 50%;
-      }
     }
-    &_text {
-      width: 80%;
-      margin: rem(5) auto;
-      margin-bottom: 5px;
+    &__element {
+      width: 48%;
+      flex-direction: column;
+    }
+    &__text {
       font-weight: bold;
-      color: $main-color;
       text-align: center;
     }
   }
@@ -1374,13 +1535,43 @@ dl {
     }
     &__img {
       position: relative;
-      width: 220px;
+      width: 190px;
       margin-inline: auto;
       height: 130px;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
+  //topのcontact
+  .contact {
+    background-image: url('/images/top_contact_bg.jpg');
+    &__box {
+      background-color: white;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 0;
+      border-radius: 10px;
+      &-title {
+        font-size: 26px;
+        margin: 0;
+      }
+      &-text {
+        margin: 0;
+        margin-top: 5px;
+        margin-bottom: 25px;
+      }
+    }
+    &__btn {
+      background-color: $main-color;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
   //下層ページ
   .lower {
     &_bg {

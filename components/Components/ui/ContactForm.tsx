@@ -1,10 +1,10 @@
+'use client'
 import { useState } from 'react'
-import type { NextPage } from 'next'
 import { emailjsConfig } from '../../../utils/Emailjs'
 import { send } from 'emailjs-com'
 import { useForm } from 'react-hook-form'
 
-const Index: NextPage = () => {
+const Index = () => {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
@@ -41,7 +41,7 @@ const Index: NextPage = () => {
     <div className='form'>
       <p>
         以下のフォームに必要事項をご記入のうえ、お気軽にお問い合わせください。<br></br>
-        内容確認後、担当者からご連絡させていただきます。
+        内容確認後、ご連絡させて頂きます。
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='form-box'>
@@ -98,7 +98,9 @@ const Index: NextPage = () => {
         </div>
 
         <div className='text-center'>
-          <button className='form-box-btn'>入力内容を確認する</button>
+          <button className='form-box-btn' aria-label='送信確認'>
+            送信する
+          </button>
         </div>
       </form>
     </div>
