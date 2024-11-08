@@ -1,6 +1,6 @@
-import React from "react";
-import { PATH } from "../utils/path";
-import BreadList from "./components/ui/BreadList";
+import React from "react"
+import { PATH } from "../utils/path"
+import BreadList from "./components/ui/BreadList"
 
 const Loading = () => {
 	return (
@@ -23,7 +23,7 @@ const Loading = () => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Loading;
+export default Loading

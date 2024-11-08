@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
+import React from "react"
+import Link from "next/link"
 
 interface CommonButtonProps {
-	text: string;
-	link?: string;
-	className?: string;
-	handleClick?: () => void;
+	text: string
+	link?: string
+	className?: string
+	handleClick?: () => void
 }
 
 export const CommonButton: React.FC<CommonButtonProps> = ({
@@ -24,5 +24,5 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 				{text}
 			</button>
 		</Link>
-	);
-};
+	)
+}

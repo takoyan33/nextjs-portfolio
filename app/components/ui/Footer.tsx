@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { PATH } from "../../../utils/path";
+import Link from "next/link"
+import { PATH } from "../../../utils/path"
 
 export default function Footer() {
-	const currentYear = new Date().getFullYear();
+	const currentYear = new Date().getFullYear()
 
 	type MenuItem = {
-		id: number;
-		title: string;
-		link: string;
-	};
+		id: number
+		title: string
+		link: string
+	}
 
 	const MENU_ITEMS: MenuItem[] = [
 		{
@@ -31,7 +31,7 @@ export default function Footer() {
 			title: "お問い合わせ",
 			link: PATH.CONTACT,
 		},
-	];
+	]
 	return (
 		<footer className="footer" aria-label="フッター">
 			<div className="max_width">
@@ -59,5 +59,5 @@ export default function Footer() {
 
 			<p className="footer_text">© {currentYear} To You Design</p>
 		</footer>
-	);
+	)
 }

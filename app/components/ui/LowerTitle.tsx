@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
 interface LowerTitleProps {
-	enTitle: string;
-	title: string;
+	enTitle: string
+	title: string
 }
 
 export const LowerTitle: React.FC<LowerTitleProps> = ({ title, enTitle }) => {
@@ -14,5 +14,5 @@ export const LowerTitle: React.FC<LowerTitleProps> = ({ title, enTitle }) => {
 				</h2>
 			</div>
 		</div>
-	);
-};
+	)
+}

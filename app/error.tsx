@@ -1,6 +1,6 @@
-"use client";
-import React from "react";
-import type { NextPage } from "next";
+"use client"
+import React from "react"
+import type { NextPage } from "next"
 
 const Error: NextPage = ({ error }: any) => {
 	return (
@@ -8,7 +8,7 @@ const Error: NextPage = ({ error }: any) => {
 			<h2>Error</h2>
 			<p>{error.message}</p>
 		</div>
-	);
-};
+	)
+}
 
-export default Error;
+export default Error

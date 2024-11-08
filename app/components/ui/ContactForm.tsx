@@ -1,18 +1,18 @@
-"use client";
-import { send } from "emailjs-com";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { emailjsConfig } from "../../../utils/Emailjs";
+"use client"
+import { send } from "emailjs-com"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { emailjsConfig } from "../../../utils/Emailjs"
 
 const Index = () => {
-	const [name, setName] = useState<string>("");
-	const [email, setEmail] = useState<string>("");
-	const [message, setMessage] = useState<string>("");
+	const [name, setName] = useState<string>("")
+	const [email, setEmail] = useState<string>("")
+	const [message, setMessage] = useState<string>("")
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm();
+	} = useForm()
 
 	const sendMail = () => {
 		if (
@@ -23,26 +23,26 @@ const Index = () => {
 				to_name: name,
 				from_email: email,
 				message: message,
-			};
+			}
 
 			send(
 				emailjsConfig.serviceId,
 				emailjsConfig.templateId,
 				template_param,
 			).then(() => {
-				window.alert("お問い合わせを送信致しました。");
-				setName("");
-				setEmail("");
-				setMessage("");
-			});
+				window.alert("お問い合わせを送信致しました。")
+				setName("")
+				setEmail("")
+				setMessage("")
+			})
 		} else {
-			window.alert("お問い合わせを送信失敗しました。");
+			window.alert("お問い合わせを送信失敗しました。")
 		}
-	};
+	}
 
 	const onSubmit = () => {
-		sendMail();
-	};
+		sendMail()
+	}
 
 	return (
 		<div className="form">
@@ -120,7 +120,7 @@ const Index = () => {
 				</div>
 			</form>
 		</div>
-	);
-};
+	)
+}
 
-export default Index;
+export default Index

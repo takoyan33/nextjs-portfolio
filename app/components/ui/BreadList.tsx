@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
+import React from "react"
+import Link from "next/link"
 
 interface BreadListProps {
-	name: string;
-	link: string;
+	name: string
+	link: string
 }
 
 const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
@@ -14,7 +14,7 @@ const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
 				{name}
 			</Link>
 		</p>
-	);
-};
+	)
+}
 
-export default BreadList;
+export default BreadList

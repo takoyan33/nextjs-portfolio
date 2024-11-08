@@ -1,8 +1,8 @@
-import ContactForm from "../components/ui/ContactForm";
-import React from "react";
-import { PATH } from "../../utils/path";
-import BreadList from "../components/ui/BreadList";
-import { LowerTitle } from "../components/ui/LowerTitle";
+import ContactForm from "../components/ui/ContactForm"
+import React from "react"
+import { PATH } from "../../utils/path"
+import BreadList from "../components/ui/BreadList"
+import { LowerTitle } from "../components/ui/LowerTitle"
 
 const Contact = () => {
 	return (
@@ -15,7 +15,7 @@ const Contact = () => {
 				<ContactForm />
 			</div>
 		</main>
-	);
-};
+	)
+}
 
-export default Contact;
+export default Contact

@@ -1,6 +1,6 @@
-import React from "react";
-import infraSkills from "../../../../api/skill/infra.json";
-import Skill from "../Skill";
+import React from "react"
+import infraSkills from "../../../../api/skill/infra.json"
+import Skill from "../Skill"
 
 export const InfraSkills = () => {
 	return (
@@ -17,5 +17,5 @@ export const InfraSkills = () => {
 					/>
 				))}
 		</div>
-	);
-};
+	)
+}

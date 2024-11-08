@@ -1,24 +1,24 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import React, { useState } from "react";
-import { PATH } from "../../../utils/path";
+"use client"
+import Link from "next/link"
+import Image from "next/image"
+import React, { useState } from "react"
+import { PATH } from "../../../utils/path"
 
 export default function Header() {
-	const [openMenu, setOpenMenu] = useState<boolean>(false);
+	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
 	const menuFunction = () => {
-		setOpenMenu(!openMenu);
-	};
+		setOpenMenu(!openMenu)
+	}
 
 	const handleMenuItemClick = (link: string) => {
-		menuFunction();
-	};
+		menuFunction()
+	}
 
 	type MenuItem = {
-		title: string;
-		link: string;
-	};
+		title: string
+		link: string
+	}
 
 	const MENU_ITEMS: MenuItem[] = [
 		{
@@ -33,7 +33,7 @@ export default function Header() {
 			title: "ブログ",
 			link: PATH.BLOG,
 		},
-	];
+	]
 
 	return (
 		<>
@@ -93,5 +93,5 @@ export default function Header() {
 				</ul>
 			</div>
 		</>
-	);
+	)
 }

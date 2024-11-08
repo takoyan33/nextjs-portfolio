@@ -1,6 +1,6 @@
-import Timeline from "../Timeline";
-import React from "react";
-import histories from "../../../../api/history/index.json";
+import Timeline from "../Timeline"
+import React from "react"
+import histories from "../../../../api/history/index.json"
 
 export const HistoryTimelines = () => {
 	return (
@@ -15,5 +15,5 @@ export const HistoryTimelines = () => {
 					/>
 				))}
 		</dl>
-	);
-};
+	)
+}

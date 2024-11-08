@@ -1,14 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
 type ZennArticleItemProps = {
-	zenn_id: number;
-	zenn_title: string;
-	zenn_published_at: Date;
-	zenn_article_type: string;
-	zenn_emoji: string;
-	zenn_path: string;
-};
+	zenn_id: number
+	zenn_title: string
+	zenn_published_at: Date
+	zenn_article_type: string
+	zenn_emoji: string
+	zenn_path: string
+}
 
 export default function ZennArticleItem({
 	zenn_id,
@@ -19,13 +19,13 @@ export default function ZennArticleItem({
 	zenn_path,
 }: ZennArticleItemProps) {
 	const formatDate = (dateString) => {
-		const date = new Date(dateString);
-		const year = date.getFullYear();
-		const month = String(date.getMonth() + 1).padStart(2, "0");
-		const day = String(date.getDate()).padStart(2, "0");
+		const date = new Date(dateString)
+		const year = date.getFullYear()
+		const month = String(date.getMonth() + 1).padStart(2, "0")
+		const day = String(date.getDate()).padStart(2, "0")
 
-		return `${year}-${month}-${day}`;
-	};
+		return `${year}-${month}-${day}`
+	}
 	return (
 		<div className="flx_el" key={zenn_id}>
 			<Link href={`https://zenn.dev${zenn_path}`} target="_blank">
@@ -37,5 +37,5 @@ export default function ZennArticleItem({
 				<p className="zenn__date">{formatDate(zenn_published_at)}</p>
 			</Link>
 		</div>
-	);
+	)
 }

@@ -1,6 +1,6 @@
-import React from "react";
-import backSkills from "../../../../api/skill/back.json";
-import Skill from "../Skill";
+import React from "react"
+import backSkills from "../../../../api/skill/back.json"
+import Skill from "../Skill"
 
 export const BackSkills = () => {
 	return (
@@ -17,5 +17,5 @@ export const BackSkills = () => {
 					/>
 				))}
 		</div>
-	);
-};
+	)
+}

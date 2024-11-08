@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
-import data from "../../../api/job/index.json";
+import { NextResponse } from "next/server"
+import data from "../../../api/job/index.json"
 
 type Data = {
-	job: Object;
-};
+	job: Object
+}
 
 export async function GET() {
 	return NextResponse.json([
@@ -37,5 +37,5 @@ export async function GET() {
 			date: "2024年3月",
 			body: "フロントエンドの開発を行う",
 		},
-	]);
+	])
 }

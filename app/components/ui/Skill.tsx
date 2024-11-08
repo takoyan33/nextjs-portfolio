@@ -1,28 +1,28 @@
 // import ScrollComponent from '../../../hooks/useFadeIn'
-"use client";
-import Image from "next/image";
-import React, { useRef } from "react";
+"use client"
+import Image from "next/image"
+import React, { useRef } from "react"
 
 type SkillProps = {
-	name: string;
-	rank: string;
-	tag: string;
-	icon: string;
-	about: string;
-};
+	name: string
+	rank: string
+	tag: string
+	icon: string
+	about: string
+}
 
 export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
-	const dialogRef = useRef<any>(null);
+	const dialogRef = useRef<any>(null)
 
 	function handleOpen() {
-		dialogRef.current?.show();
-		document.body.style.overflow = "hidden";
-		document.body.classList.add("modal-open");
+		dialogRef.current?.show()
+		document.body.style.overflow = "hidden"
+		document.body.classList.add("modal-open")
 	}
 
 	function handleClose() {
-		dialogRef.current?.close();
-		document.body.style.overflow = "";
+		dialogRef.current?.close()
+		document.body.style.overflow = ""
 	}
 	return (
 		<>
@@ -82,5 +82,5 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
         </div>
       </dialog> */}
 		</>
-	);
+	)
 }

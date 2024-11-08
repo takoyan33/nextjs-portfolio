@@ -1,37 +1,37 @@
-"use client";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
-import React, { useState, useEffect } from "react";
-import { Suspense } from "react";
-import ScrollComponent from "../hooks/useFadeIn";
-import { socialLinks } from "../utils/data";
-import { PATH } from "../utils/path";
-import ThreeModel from "./components/parts/ThreeModel";
-import WaveBgBottom from "./components/ui/WaveBgBottom";
-import WaveBgTop from "./components/ui/WaveBgTop";
-import { BackSkills } from "./components/ui/rsc/BackSkills";
-import { FrontSkills } from "./components/ui/rsc/FrontSkills";
-import { HistoryTimelines } from "./components/ui/rsc/HistoryTimelines";
-import { InfraSkills } from "./components/ui/rsc/InfraSkills";
-import { OtherSkills } from "./components/ui/rsc/OtherSkills";
-import { TopPortfolioSlide } from "./components/ui/rsc/TopPortfolioSlide";
+"use client"
+import Head from "next/head"
+import Image from "next/image"
+import Link from "next/link"
+import Script from "next/script"
+import React, { useState, useEffect } from "react"
+import { Suspense } from "react"
+import ScrollComponent from "../hooks/useFadeIn"
+import { socialLinks } from "../utils/data"
+import { PATH } from "../utils/path"
+import ThreeModel from "./components/parts/ThreeModel"
+import WaveBgBottom from "./components/ui/WaveBgBottom"
+import WaveBgTop from "./components/ui/WaveBgTop"
+import { BackSkills } from "./components/ui/rsc/BackSkills"
+import { FrontSkills } from "./components/ui/rsc/FrontSkills"
+import { HistoryTimelines } from "./components/ui/rsc/HistoryTimelines"
+import { InfraSkills } from "./components/ui/rsc/InfraSkills"
+import { OtherSkills } from "./components/ui/rsc/OtherSkills"
+import { TopPortfolioSlide } from "./components/ui/rsc/TopPortfolioSlide"
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
 
 const Home = () => {
-	const [showBackButton, setShowBackButton] = useState(false);
+	const [showBackButton, setShowBackButton] = useState(false)
 
 	const handleScroll = () => {
-		setShowBackButton(window.scrollY > 150);
-	};
+		setShowBackButton(window.scrollY > 150)
+	}
 
 	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+		window.addEventListener("scroll", handleScroll)
+		return () => window.removeEventListener("scroll", handleScroll)
+	}, [])
 
 	return (
 		<div>
@@ -216,7 +216,7 @@ const Home = () => {
 				<button
 					className="back__btn"
 					onClick={() => {
-						window.scrollTo(0, 0);
+						window.scrollTo(0, 0)
 					}}
 				>
 					<Image
@@ -228,7 +228,7 @@ const Home = () => {
 				</button>
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

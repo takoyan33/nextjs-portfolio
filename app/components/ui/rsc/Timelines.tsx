@@ -1,6 +1,6 @@
-import Timeline from "../Timeline";
-import React from "react";
-import jobs from "../../../../api/job/index.json";
+import Timeline from "../Timeline"
+import React from "react"
+import jobs from "../../../../api/job/index.json"
 
 export const Timelines = () => {
 	return (
@@ -15,5 +15,5 @@ export const Timelines = () => {
 					/>
 				))}
 		</dl>
-	);
-};
+	)
+}

@@ -1,37 +1,37 @@
-"use client";
-import parse from "html-react-parser";
-import Image from "next/image";
-import Link from "next/link";
-import { useParams } from "next/navigation";
-import React, { useState, useEffect } from "react";
-import { PATH } from "../../../utils/path";
-import type { portfolioType } from "../../../utils/type";
-import { LowerTitle } from "../../components/ui/LowerTitle";
+"use client"
+import parse from "html-react-parser"
+import Image from "next/image"
+import Link from "next/link"
+import { useParams } from "next/navigation"
+import React, { useState, useEffect } from "react"
+import { PATH } from "../../../utils/path"
+import type { portfolioType } from "../../../utils/type"
+import { LowerTitle } from "../../components/ui/LowerTitle"
 
 const Post = () => {
-	const params = useParams();
-	const id = params?.id;
+	const params = useParams()
+	const id = params?.id
 
-	const [portfolios, setPortfolios] = useState<portfolioType>();
+	const [portfolios, setPortfolios] = useState<portfolioType>()
 
 	const fetchPortfolios = async (id) => {
 		try {
 			const response = await fetch(
 				`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`,
-			);
-			const data = await response.json();
-			const filteredPortfolio = data.find((portfolio) => portfolio.id === id);
-			await setPortfolios(filteredPortfolio);
+			)
+			const data = await response.json()
+			const filteredPortfolio = data.find((portfolio) => portfolio.id === id)
+			await setPortfolios(filteredPortfolio)
 		} catch (error) {
-			console.error("Error fetching portfolios:", error);
+			console.error("Error fetching portfolios:", error)
 		}
-	};
+	}
 
 	useEffect(() => {
 		if (id) {
-			fetchPortfolios(id);
+			fetchPortfolios(id)
 		}
-	}, [id]);
+	}, [id])
 
 	return (
 		<main>
@@ -221,7 +221,7 @@ const Post = () => {
 				</div>
 			)}
 		</main>
-	);
-};
+	)
+}
 
-export default Post;
+export default Post

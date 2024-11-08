@@ -1,15 +1,15 @@
-"use client";
-import React, { useState } from "react";
-import "swiper/css";
-import { Controller } from "swiper/modules";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import Image from "next/image";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import portfolios from "../../../../api/portfolio/index.json";
-import PortfolioItemTop from "../../../components/ui/PortfolioItemTop";
+"use client"
+import React, { useState } from "react"
+import "swiper/css"
+import { Controller } from "swiper/modules"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+import "swiper/css/scrollbar"
+import Image from "next/image"
+import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+import portfolios from "../../../../api/portfolio/index.json"
+import PortfolioItemTop from "../../../components/ui/PortfolioItemTop"
 
 export const TopPortfolioSlide = () => {
 	const breakpoints = {
@@ -19,9 +19,9 @@ export const TopPortfolioSlide = () => {
 		768: {
 			slidesPerView: 3.5,
 		},
-	};
+	}
 
-	const [firstSwiper, setFirstSwiper] = useState(0);
+	const [firstSwiper, setFirstSwiper] = useState(0)
 
 	return (
 		<div className="portfolio-content">
@@ -42,10 +42,10 @@ export const TopPortfolioSlide = () => {
 				spaceBetween={30}
 				slidesPerView={3.5}
 				onSwiper={(swiper) => {
-					setFirstSwiper(swiper.activeIndex);
+					setFirstSwiper(swiper.activeIndex)
 				}}
 				onSlideChange={(swiper) => {
-					setFirstSwiper(swiper.activeIndex);
+					setFirstSwiper(swiper.activeIndex)
 				}}
 				breakpoints={breakpoints}
 				navigation={{
@@ -76,5 +76,5 @@ export const TopPortfolioSlide = () => {
 				)}
 			</div>
 		</div>
-	);
-};
+	)
+}

@@ -1,14 +1,14 @@
-"use client";
-import React, { useRef, useState } from "react";
-import * as THREE from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
+"use client"
+import React, { useRef, useState } from "react"
+import * as THREE from "three"
+import { Canvas, useFrame } from "@react-three/fiber"
 
 const Cube = () => {
 	const Box = (props: JSX.IntrinsicElements["mesh"]) => {
-		const ref = useRef<THREE.Mesh>(null!);
-		const [hovered, setHover] = useState(false);
-		const [active, setActive] = useState(false);
-		useFrame((state, delta) => (ref.current.rotation.x += 0.01));
+		const ref = useRef<THREE.Mesh>(null!)
+		const [hovered, setHover] = useState(false)
+		const [active, setActive] = useState(false)
+		useFrame((state, delta) => (ref.current.rotation.x += 0.01))
 		return (
 			<mesh
 				{...props}
@@ -20,8 +20,8 @@ const Cube = () => {
 				<boxGeometry args={[1, 1, 1]} />
 				<meshStandardMaterial color={"orange"} />
 			</mesh>
-		);
-	};
+		)
+	}
 
 	return (
 		<div className="fv_cube">
@@ -39,7 +39,7 @@ const Cube = () => {
 				<Box position={[4.2, 0, 0]} />
 			</Canvas>
 		</div>
-	);
-};
+	)
+}
 
-export default Cube;
+export default Cube

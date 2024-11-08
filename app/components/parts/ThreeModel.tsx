@@ -1,7 +1,7 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
-import { useRef } from "react";
-import { Group } from "three";
+import { Canvas, useFrame } from "@react-three/fiber"
+import { OrbitControls, useGLTF } from "@react-three/drei"
+import { useRef } from "react"
+import { Group } from "three"
 
 const Model = ({
 	url,
@@ -9,22 +9,22 @@ const Model = ({
 	rotation,
 	position,
 }: {
-	url: string;
-	scale: number;
-	position: number[];
-	rotation: number[];
+	url: string
+	scale: number
+	position: number[]
+	rotation: number[]
 }) => {
-	const { scene } = useGLTF(url);
+	const { scene } = useGLTF(url)
 
-	const groupRef = useRef<Group>(null);
+	const groupRef = useRef<Group>(null)
 
 	useFrame((state) => {
 		if (groupRef.current) {
-			groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 3.8;
+			groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 3.8
 
-			groupRef.current.rotation.y = state.clock.elapsedTime * 0.1;
+			groupRef.current.rotation.y = state.clock.elapsedTime * 0.1
 		}
-	});
+	})
 
 	return (
 		<group ref={groupRef}>
@@ -35,8 +35,8 @@ const Model = ({
 				position={position}
 			/>
 		</group>
-	);
-};
+	)
+}
 
 const ThreeModel = () => {
 	return (
@@ -52,7 +52,7 @@ const ThreeModel = () => {
 				<OrbitControls enableZoom={false} />
 			</Canvas>
 		</div>
-	);
-};
+	)
+}
 
-export default ThreeModel;
+export default ThreeModel

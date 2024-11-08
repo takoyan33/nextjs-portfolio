@@ -11,9 +11,9 @@ import {
 	faBitbucket,
 	faFigma,
 	faWordpress,
-} from "@fortawesome/free-brands-svg-icons";
-import { faGem } from "@fortawesome/free-regular-svg-icons";
-import { faCamera, faFire } from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-brands-svg-icons"
+import { faGem } from "@fortawesome/free-regular-svg-icons"
+import { faCamera, faFire } from "@fortawesome/free-solid-svg-icons"
 
 // ポートフォリオ
 export const PORTFOLIO_LIST = [
@@ -210,7 +210,7 @@ export const PORTFOLIO_LIST = [
 	//   portfolio_url: "",
 	//   portfolio_color: "portfoli__tag--color3",
 	// },
-];
+]
 
 //frontend
 export const FRONT_SKILL_LIST = [
@@ -264,7 +264,7 @@ export const FRONT_SKILL_LIST = [
 			"ホームページ制作などで使用。ブログ機能やカスタムフィールドなども実装可能。WordPressAPIの実装経験有り",
 		icon: "/images/skill/wordpress.svg",
 	},
-];
+]
 
 //backend
 export const BACK_SKILL_LIST = [
@@ -291,7 +291,7 @@ export const BACK_SKILL_LIST = [
 	},
 	{},
 	{},
-];
+]
 //infra
 export const INFRA_SKILL_LIST = [
 	{
@@ -311,7 +311,7 @@ export const INFRA_SKILL_LIST = [
 	{},
 	{},
 	{},
-];
+]
 
 //other
 export const OTHER_SKILL_LIST = [
@@ -343,7 +343,7 @@ export const OTHER_SKILL_LIST = [
 		about: "仕事のソース管理で利用",
 		icon: "/images/skill/bitbucket.svg",
 	},
-];
+]
 
 //学歴
 
@@ -363,7 +363,7 @@ export const HISTORY_LIST = [
 		date: "2024年3月",
 		body: "フロントエンドの開発を行う",
 	},
-];
+]
 
 //職歴
 export const JOB_LIST = [
@@ -397,7 +397,7 @@ export const JOB_LIST = [
 		date: "2024年3月",
 		body: "フロントエンドの開発を行う",
 	},
-];
+]
 
 // 資格
 export const LICENSE_LIST = [
@@ -417,4 +417,4 @@ export const LICENSE_LIST = [
 		title: "基本情報技術者試験",
 		date: "2024年6月",
 	},
-];
+]

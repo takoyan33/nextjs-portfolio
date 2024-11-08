@@ -1,6 +1,6 @@
-import React from "react";
-import frontSkills from "../../../../api/skill/front.json";
-import Skill from "../../../components/ui/Skill";
+import React from "react"
+import frontSkills from "../../../../api/skill/front.json"
+import Skill from "../../../components/ui/Skill"
 
 export const FrontSkills = () => {
 	return (
@@ -17,5 +17,5 @@ export const FrontSkills = () => {
 					/>
 				))}
 		</div>
-	);
-};
+	)
+}

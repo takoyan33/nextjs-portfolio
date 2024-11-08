@@ -1,5 +1,5 @@
-import React from "react";
-import licenses from "../../../../api/license/index.json";
+import React from "react"
+import licenses from "../../../../api/license/index.json"
 
 export const License = () => {
 	return (
@@ -12,5 +12,5 @@ export const License = () => {
 					</tr>
 				))}
 		</>
-	);
-};
+	)
+}
