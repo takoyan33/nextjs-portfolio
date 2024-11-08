@@ -1,6 +1,8 @@
 
 # To You Design Portfolio
 
+![image](/public/images/portfolio/portfolio_top3.png)
+
 ## 目次
 - [システムの特徴](#system-feature)
 - [使用技術について](#technology-used)
@@ -32,10 +34,8 @@
 - [typescript](https://www.typescriptlang.org/) 4.5.5
 
 ### リンター
-- [ESLint](https://eslint.org/) 9.9.0
-- [Prettier](https://prettier.io/) 3.3.3
-- [Stylelint](https://stylelint.io/) 16.8.2
-- [husky](https://typicode.github.io/husky/)9.1.4
+- [Biome](https://biomejs.dev/ja/) 1.9.4
+- [husky](https://typicode.github.io/husky/) 9.1.4
 - [lint-staged](https://github.com/lint-staged/lint-staged) 
 
 ### テスト
@@ -54,8 +54,8 @@ Vercel
 ```
 .
 ├── api             #APIのデータ
-├── components      #コンポーネントの記載
 ├── app
+│   ├── components #コンポーネントの記載
 │   ├── api        #APIの取得
 │   ├── about      #Aboutページ
 │   ├── contact    #お問い合わせページ
