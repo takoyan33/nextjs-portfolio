@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server'
-import data from '../../../api/history/index.json'
+import { NextResponse } from "next/server";
+import data from "../../../api/history/index.json";
 
 type Data = {
-  history: Object
-}
+	history: Object;
+};
 
 export async function GET() {
-  return NextResponse.json(data)
+	return NextResponse.json(data);
 }

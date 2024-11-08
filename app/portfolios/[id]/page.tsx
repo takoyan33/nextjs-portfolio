@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { portfolioType } from '../../../utils/type'
 import { PATH } from '../../../utils/path'
-import { LowerTitle } from '../../../components/Components/ui/LowerTitle'
+import { LowerTitle } from '../../components/ui/LowerTitle'
 
 const Post = () => {
   const params = useParams()
