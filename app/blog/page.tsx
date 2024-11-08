@@ -1,9 +1,9 @@
-import ZennArticleItem from "../components/ui/ZennArticleItem";
-import { PATH } from "../../utils/path";
 import React from "react";
+import { PATH } from "../../utils/path";
+import type { zennProps } from "../../utils/type";
 import BreadList from "../components/ui/BreadList";
-import { zennProps } from "../../utils/type";
 import { LowerTitle } from "../components/ui/LowerTitle";
+import ZennArticleItem from "../components/ui/ZennArticleItem";
 
 export const metadata = {
 	title: "To You Design - Blog",
@@ -26,7 +26,7 @@ const Blog = async () => {
 		console.error(err);
 	}
 
-	zennArticles?.articles.sort((a: any, b: any) => {
+	zennArticles?.articles.sort((a, b) => {
 		return (
 			new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
 		);
@@ -47,9 +47,9 @@ const Blog = async () => {
 					</span>
 				</h3>
 				<div className="flx padding">
-					{zennArticles?.articles.map((article, index) => (
+					{zennArticles?.articles.map((article) => (
 						<ZennArticleItem
-							key={index}
+							key={article.id}
 							zenn_id={article.id}
 							zenn_title={article.title}
 							zenn_published_at={article.published_at}

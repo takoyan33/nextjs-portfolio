@@ -5,24 +5,29 @@ export default function Footer() {
 	const currentYear = new Date().getFullYear();
 
 	type MenuItem = {
+		id: number;
 		title: string;
 		link: string;
 	};
 
 	const MENU_ITEMS: MenuItem[] = [
 		{
+			id: 1,
 			title: "About",
 			link: PATH.ABOUT,
 		},
 		{
+			id: 2,
 			title: "ポートフォリオ",
 			link: PATH.PORTFOLIO,
 		},
 		{
+			id: 3,
 			title: "ブログ",
 			link: PATH.BLOG,
 		},
 		{
+			id: 4,
 			title: "お問い合わせ",
 			link: PATH.CONTACT,
 		},
@@ -42,8 +47,8 @@ export default function Footer() {
 							</Link>
 						</div>
 						<div className="flx_el">
-							{MENU_ITEMS.map((item, index) => (
-								<Link href={item.link} key={index}>
+							{MENU_ITEMS.map((item) => (
+								<Link href={item.link} key={item.id}>
 									<p className="footer_list">{item.title}</p>
 								</Link>
 							))}

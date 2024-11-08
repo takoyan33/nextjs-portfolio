@@ -34,7 +34,7 @@ export default function PortfolioItem({
 					dangerouslySetInnerHTML={{
 						__html: portfolio_name,
 					}}
-				></div>
+				/>
 				<div className="portfolioItem__flex">
 					{portfolio_tag.map((tag, index) => (
 						<li className="portfolioItem__tag" key={index}>

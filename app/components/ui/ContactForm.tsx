@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
-import { emailjsConfig } from "../../../utils/Emailjs";
 import { send } from "emailjs-com";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { emailjsConfig } from "../../../utils/Emailjs";
 
 const Index = () => {
 	const [name, setName] = useState<string>("");
@@ -48,7 +48,7 @@ const Index = () => {
 		<div className="form">
 			<p>
 				以下のフォームに必要事項をご記入のうえ、お気軽にお問い合わせください。
-				<br></br>
+				<br />
 				内容確認後、ご連絡させて頂きます。
 			</p>
 			<form onSubmit={handleSubmit(onSubmit)}>

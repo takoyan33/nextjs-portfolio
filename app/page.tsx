@@ -1,21 +1,21 @@
 "use client";
 import Head from "next/head";
-import Script from "next/script";
 import Image from "next/image";
-import ScrollComponent from "../hooks/useFadeIn";
 import Link from "next/link";
-import WaveBgTop from "./components/ui/WaveBgTop";
-import WaveBgBottom from "./components/ui/WaveBgBottom";
+import Script from "next/script";
 import React, { useState, useEffect } from "react";
-import { HistoryTimelines } from "./components/ui/rsc/HistoryTimelines";
 import { Suspense } from "react";
-import { PATH } from "../utils/path";
+import ScrollComponent from "../hooks/useFadeIn";
 import { socialLinks } from "../utils/data";
-import { FrontSkills } from "./components/ui/rsc/FrontSkills";
+import { PATH } from "../utils/path";
+import ThreeModel from "./components/parts/ThreeModel";
+import WaveBgBottom from "./components/ui/WaveBgBottom";
+import WaveBgTop from "./components/ui/WaveBgTop";
 import { BackSkills } from "./components/ui/rsc/BackSkills";
+import { FrontSkills } from "./components/ui/rsc/FrontSkills";
+import { HistoryTimelines } from "./components/ui/rsc/HistoryTimelines";
 import { InfraSkills } from "./components/ui/rsc/InfraSkills";
 import { OtherSkills } from "./components/ui/rsc/OtherSkills";
-import ThreeModel from "./components/parts/ThreeModel";
 import { TopPortfolioSlide } from "./components/ui/rsc/TopPortfolioSlide";
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
@@ -103,11 +103,12 @@ const Home = () => {
 											))}
 										</div>
 										<p className="about__text">
-											北海道在住の社会人1年目のエンジニア。<br></br>
+											北海道在住の社会人1年目のエンジニア。
+											<br />
 											大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
-											<br></br>
+											<br />
 											文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
-											<br></br>
+											<br />
 											現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
 										</p>
 										<p className="about__text">

@@ -5,11 +5,11 @@ import { Controller } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import PortfolioItemTop from "../../../components/ui/PortfolioItemTop";
 import Image from "next/image";
+import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import portfolios from "../../../../api/portfolio/index.json";
+import PortfolioItemTop from "../../../components/ui/PortfolioItemTop";
 
 export const TopPortfolioSlide = () => {
 	const breakpoints = {
@@ -41,10 +41,10 @@ export const TopPortfolioSlide = () => {
 				className="flx swiper"
 				spaceBetween={30}
 				slidesPerView={3.5}
-				onSwiper={(swiper: any) => {
+				onSwiper={(swiper) => {
 					setFirstSwiper(swiper.activeIndex);
 				}}
-				onSlideChange={(swiper: any) => {
+				onSlideChange={(swiper) => {
 					setFirstSwiper(swiper.activeIndex);
 				}}
 				breakpoints={breakpoints}
@@ -53,18 +53,17 @@ export const TopPortfolioSlide = () => {
 					prevEl: ".prev-button",
 				}}
 			>
-				{portfolios &&
-					portfolios.map((portfolio, index) => (
-						<SwiperSlide key={index}>
-							<PortfolioItemTop
-								portfolio_id={portfolio.id}
-								portfolio_name={portfolio.name}
-								portfolio_date={portfolio.date}
-								portfolio_tag={portfolio.tag}
-								portfolio_topImg={portfolio.topImg}
-							/>
-						</SwiperSlide>
-					))}
+				{portfolios?.map((portfolio) => (
+					<SwiperSlide key={portfolio.id}>
+						<PortfolioItemTop
+							portfolio_id={portfolio.id}
+							portfolio_name={portfolio.name}
+							portfolio_date={portfolio.date}
+							portfolio_tag={portfolio.tag}
+							portfolio_topImg={portfolio.topImg}
+						/>
+					</SwiperSlide>
+				))}
 			</Swiper>
 			<div className="next-button">
 				{firstSwiper < 3 && (

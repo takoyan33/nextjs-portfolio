@@ -1,9 +1,9 @@
 import "../styles/styles.css";
-import React from "react";
-import { RecoilRoot } from "recoil";
-import Header from "./components/ui/Header";
-import Footer from "./components/ui/Footer";
 import type { NextPage } from "next";
+import type React from "react";
+import { RecoilRoot } from "recoil";
+import Footer from "./components/ui/Footer";
+import Header from "./components/ui/Header";
 
 export const metadata = {
 	title: "To You Design",

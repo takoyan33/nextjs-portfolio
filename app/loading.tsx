@@ -1,6 +1,6 @@
 import React from "react";
-import BreadList from "./components/ui/BreadList";
 import { PATH } from "../utils/path";
+import BreadList from "./components/ui/BreadList";
 
 const Loading = () => {
 	return (
@@ -18,7 +18,7 @@ const Loading = () => {
 			<div className="loading">
 				<div className="spinner-box">
 					<div className="circle-border">
-						<div className="circle-core"></div>
+						<div className="circle-core" />
 					</div>
 				</div>
 			</div>
