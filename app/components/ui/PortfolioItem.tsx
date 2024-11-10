@@ -1,3 +1,4 @@
+import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -29,12 +30,7 @@ export default function PortfolioItem({
 					/>
 				</div>
 				<p className="portfolioItem__date">{portfolio_date}</p>
-				<div
-					className="portfolioItem__title"
-					dangerouslySetInnerHTML={{
-						__html: portfolio_name,
-					}}
-				/>
+				<h2 className="portfolioItem__title">{parse(portfolio_name)}</h2>
 				<div className="portfolioItem__flex">
 					{portfolio_tag.map((tag, index) => (
 						<li className="portfolioItem__tag" key={index}>
