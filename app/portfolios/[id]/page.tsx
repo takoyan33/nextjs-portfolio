@@ -12,9 +12,7 @@ const Post = () => {
 	const params = useParams()
 	const id = params?.id
 
-	const [portfolios, setPortfolios] = useState<any>(
-		undefined,
-	)
+	const [portfolios, setPortfolios] = useState<any>(undefined)
 
 	const fetchPortfolios = async (id) => {
 		try {
@@ -39,22 +37,23 @@ const Post = () => {
 				<article>
 					<p className="bread__title max_width">
 						<Link href="/">トップ </Link> ＞
-						<Link href={PATH.PORTFOLIO}>　Portfolio ＞ {portfolios.name}</Link>
+						<Link href={PATH.PORTFOLIO}>　Portfolio</Link> ＞
+						<span className="bread__title-span">{portfolios.name}</span>
 					</p>
 					<LowerTitle title="Portfolio" enTitle="制作物" />
 					<section className="portfolioDetail max_width">
-						<p className="portfolioDetail__element__date">{portfolios.date}</p>
-						<h2 className="portfolioDetail__element__title">
+						<p className="portfolioDetail__element-date">{portfolios.date}</p>
+						<h2 className="portfolioDetail__element-title">
 							{portfolios.name}
 						</h2>
-						<ul className="portfolioDetail__element__tagList">
+						<ul className="portfolioDetail__element-tagList">
 							{portfolios.tag.map((skill, index) => (
-								<li className="portfolioDetail__element__tag" key={index}>
+								<li className="portfolioDetail__element-tag" key={index}>
 									#{skill}
 								</li>
 							))}
 						</ul>
-						<div className="portfolioDetail__element__topImg">
+						<div className="portfolioDetail__element-topImg">
 							{portfolios.topImg && (
 								<Image
 									src={portfolios.topImg}
@@ -65,12 +64,12 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<h3 className="portfolioDetail__element__subtitle">About</h3>
-						<div className="portfolioDetail__element__img">
+						<h3 className="portfolioDetail__element-subtitle">About</h3>
+						<div className="portfolioDetail__element-img">
 							{portfolios.aboutImg && (
 								<Image
 									src={portfolios.aboutImg}
-									className="portfolioDetail__element__img"
+									className="portfolioDetail__element-img"
 									alt="ポートフォリオ画像"
 									fill
 									sizes="(min-width: 768px) 50vw, 100vw"
@@ -78,17 +77,17 @@ const Post = () => {
 							)}
 						</div>
 						<div
-							className="portfolioDetail__element__text"
+							className="portfolioDetail__element-text"
 							dangerouslySetInnerHTML={{
 								__html: portfolios?.about,
 							}}
-						></div>
-						<h3 className="portfolioDetail__element__subtitle">機能一覧</h3>
-						<div className="portfolioDetail__element__img">
+						/>
+						<h3 className="portfolioDetail__element-subtitle">機能一覧</h3>
+						<div className="portfolioDetail__element-img">
 							{portfolios?.functionImg && (
 								<Image
 									src={portfolios.functionImg}
-									className="portfolioDetail__element__img"
+									className="portfolioDetail__element-img"
 									alt="ポートフォリオ画像"
 									fill
 									sizes="(min-width: 768px) 50vw, 100vw"
@@ -96,17 +95,17 @@ const Post = () => {
 							)}
 						</div>
 						<div
-							className="portfolioDetail__element__text"
+							className="portfolioDetail__element-text"
 							dangerouslySetInnerHTML={{
 								__html: portfolios.function,
 							}}
-						></div>
-						<h3 className="portfolioDetail__element__subtitle">アピール</h3>
-						<div className="portfolioDetail__element__img">
+						/>
+						<h3 className="portfolioDetail__element-subtitle">アピール</h3>
+						<div className="portfolioDetail__element-img">
 							{portfolios?.appealImg && (
 								<Image
 									src={portfolios.appealImg}
-									className="portfolioDetail__element__img"
+									className="portfolioDetail__element-img"
 									alt="ポートフォリオ画像"
 									fill
 									sizes="(min-width: 768px) 50vw, 100vw"
@@ -114,22 +113,22 @@ const Post = () => {
 							)}
 						</div>
 						<div
-							className="portfolioDetail__element__text"
+							className="portfolioDetail__element-text"
 							dangerouslySetInnerHTML={{
 								__html: portfolios.appeal,
 							}}
-						></div>
+						/>
 
-						<div className="portfolioDetail__element__text">
-							<h3 className="portfolioDetail__element__subtitle">制作期間</h3>
+						<div className="portfolioDetail__element-text">
+							<h3 className="portfolioDetail__element-subtitle">制作期間</h3>
 							{portfolios.time}
 						</div>
-						<div className="portfolioDetail__element__text">
-							<h3 className="portfolioDetail__element__subtitle">使用技術</h3>
+						<div className="portfolioDetail__element-text">
+							<h3 className="portfolioDetail__element-subtitle">使用技術</h3>
 							<h4>フロントエンド</h4>
-							<ul className="portfolioDetail__element__tagList">
+							<ul className="portfolioDetail__element-tagList">
 								{portfolios.front_skill.map((skill, index) => (
-									<li className="portfolioDetail__element__tag" key={index}>
+									<li className="portfolioDetail__element-tag" key={index}>
 										{skill}
 									</li>
 								))}
@@ -137,9 +136,9 @@ const Post = () => {
 							{portfolios.back_skill && portfolios.back_skill.length > 0 && (
 								<div>
 									<h4>バックエンド</h4>
-									<ul className="portfolioDetail__element__tagList">
+									<ul className="portfolioDetail__element-tagList">
 										{portfolios.back_skill.map((skill, index) => (
-											<li className="portfolioDetail__element__tag" key={index}>
+											<li className="portfolioDetail__element-tag" key={index}>
 												{skill}
 											</li>
 										))}
@@ -149,9 +148,9 @@ const Post = () => {
 							{portfolios.infra_skill && portfolios.infra_skill.length > 0 && (
 								<div>
 									<h4>インフラ</h4>
-									<ul className="portfolioDetail__element__tagList">
+									<ul className="portfolioDetail__element-tagList">
 										{portfolios.infra_skill.map((skill, index) => (
-											<li className="portfolioDetail__element__tag" key={index}>
+											<li className="portfolioDetail__element-tag" key={index}>
 												{skill}
 											</li>
 										))}
@@ -160,11 +159,11 @@ const Post = () => {
 							)}
 						</div>
 						{portfolios.front_url && (
-							<div className="portfolioDetail__element__text">
-								<h3 className="portfolioDetail__element__subtitle">URL</h3>
+							<div className="portfolioDetail__element-text">
+								<h3 className="portfolioDetail__element-subtitle">URL</h3>
 								<Link
 									href={portfolios.front_url}
-									className="portfolioDetail__element__link"
+									className="portfolioDetail__element-link"
 									target="_blank"
 								>
 									{portfolios.front_url}
@@ -172,11 +171,11 @@ const Post = () => {
 							</div>
 						)}
 						{portfolios.front_github && (
-							<div className="portfolioDetail__element__text">
-								<h3 className="portfolioDetail__element__subtitle">Github</h3>
+							<div className="portfolioDetail__element-text">
+								<h3 className="portfolioDetail__element-subtitle">Github</h3>
 								<Link
 									href={portfolios.front_github}
-									className="portfolioDetail__element__link"
+									className="portfolioDetail__element-link"
 									target="_blank"
 								>
 									{portfolios.front_github}
@@ -184,13 +183,13 @@ const Post = () => {
 							</div>
 						)}
 						{portfolios.back_url && (
-							<div className="portfolioDetail__element__text">
-								<h3 className="portfolioDetail__element__subtitle">
+							<div className="portfolioDetail__element-text">
+								<h3 className="portfolioDetail__element-subtitle">
 									バックエンドURL
 								</h3>
 								<Link
 									href={portfolios.back_url}
-									className="portfolioDetail__element__link"
+									className="portfolioDetail__element-link"
 									target="_blank"
 								>
 									{portfolios.back_url}
@@ -198,13 +197,13 @@ const Post = () => {
 							</div>
 						)}
 						{portfolios.back_github && (
-							<div className="portfolioDetail__element__text">
-								<h3 className="portfolioDetail__element__subtitle">
+							<div className="portfolioDetail__element-text">
+								<h3 className="portfolioDetail__element-subtitle">
 									バックエンドGithub
 								</h3>
 								<Link
 									href={portfolios.back_github}
-									className="portfolioDetail__element__link"
+									className="portfolioDetail__element-link"
 									target="_blank"
 								>
 									{portfolios.back_github}
