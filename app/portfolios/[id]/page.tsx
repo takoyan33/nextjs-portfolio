@@ -1,9 +1,9 @@
 "use client"
-import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import React, { useState, useEffect } from "react"
+import portfoliosData from "../../../api/portfolio/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/LowerTitle"
@@ -12,16 +12,16 @@ const Post = () => {
 	const params = useParams()
 	const id = params?.id
 
-	const [portfolios, setPortfolios] = useState<portfolioType>()
+	const [portfolios, setPortfolios] = useState<any>(
+		undefined,
+	)
 
 	const fetchPortfolios = async (id) => {
 		try {
-			const response = await fetch(
-				`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`,
+			const filteredPortfolio = portfoliosData.find(
+				(portfolio) => portfolio.id.toString() === id,
 			)
-			const data = await response.json()
-			const filteredPortfolio = data.find((portfolio) => portfolio.id === id)
-			await setPortfolios(filteredPortfolio)
+			setPortfolios(filteredPortfolio)
 		} catch (error) {
 			console.error("Error fetching portfolios:", error)
 		}
@@ -77,9 +77,12 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<p className="portfolioDetail__element__text">
-							{parse(portfolios.about)}
-						</p>
+						<div
+							className="portfolioDetail__element__text"
+							dangerouslySetInnerHTML={{
+								__html: portfolios?.about,
+							}}
+						></div>
 						<h3 className="portfolioDetail__element__subtitle">機能一覧</h3>
 						<div className="portfolioDetail__element__img">
 							{portfolios?.functionImg && (
@@ -92,9 +95,12 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<p className="portfolioDetail__element__text">
-							{parse(portfolios.function)}
-						</p>
+						<div
+							className="portfolioDetail__element__text"
+							dangerouslySetInnerHTML={{
+								__html: portfolios.function,
+							}}
+						></div>
 						<h3 className="portfolioDetail__element__subtitle">アピール</h3>
 						<div className="portfolioDetail__element__img">
 							{portfolios?.appealImg && (
@@ -107,9 +113,12 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<p className="portfolioDetail__element__text">
-							{parse(portfolios.appeal)}
-						</p>
+						<div
+							className="portfolioDetail__element__text"
+							dangerouslySetInnerHTML={{
+								__html: portfolios.appeal,
+							}}
+						></div>
 
 						<div className="portfolioDetail__element__text">
 							<h3 className="portfolioDetail__element__subtitle">制作期間</h3>
