@@ -13,6 +13,7 @@ const Tabs = ({ tabs }: TabProps) => {
 		<div>
 			{tabs.map((tab) => (
 				<button
+					type="button"
 					key={tab}
 					onClick={() => setActiveTab(tab)}
 					// css={css`

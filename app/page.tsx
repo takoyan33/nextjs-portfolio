@@ -17,6 +17,7 @@ import { HistoryTimelines } from "./components/ui/rsc/HistoryTimelines"
 import { InfraSkills } from "./components/ui/rsc/InfraSkills"
 import { OtherSkills } from "./components/ui/rsc/OtherSkills"
 import { TopPortfolioSlide } from "./components/ui/rsc/TopPortfolioSlide"
+// import { TopZennArticle } from "./components/ui/rsc/TopZennArticle"
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
 // import { todoState } from '../atoms/todoState'
@@ -189,6 +190,7 @@ const Home = () => {
 					</div>
 				</div>
 				<WaveBgBottom />
+				{/* <TopZennArticle /> */}
 				{/* ここからcontact*/}
 				<div className="contact">
 					<div className="max_width">
@@ -214,6 +216,7 @@ const Home = () => {
 			</main>
 			{showBackButton && (
 				<button
+					type="button"
 					className="back__btn"
 					onClick={() => {
 						window.scrollTo(0, 0)

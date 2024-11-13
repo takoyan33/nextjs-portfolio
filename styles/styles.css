@@ -1177,7 +1177,7 @@ li {
   color: #434343;
   font-size: 28px;
 }
-.portfolio__headTitle_span {
+.portfolio__headTitle-span {
   font-size: 16px;
   color: #707070;
 }
@@ -1216,11 +1216,11 @@ li {
      object-fit: cover;
   overflow: hidden;
 }
-.portfolioItem__img__item {
+.portfolioItem__img-item {
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
-.portfolioItem__img__item:hover {
+.portfolioItem__img-item:hover {
   transform: scale(1.1);
 }
 .portfolioItem_link {
@@ -1262,19 +1262,19 @@ li {
 .footer {
   border-top: 2px solid #6499ff;
 }
-.footer_flx {
+.footer__container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding: 30px 0;
   margin: 0px auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
+  gap: 3.75rem 7.5rem;
+  width: 100%;
 }
-.footer_list {
+.footer__list {
   text-align: left;
   font-weight: 600;
 }
-.footer_logo {
+.footer__logo {
   position: relative;
   width: 220px !important;
   height: 100px !important;
@@ -1283,7 +1283,7 @@ li {
   font-weight: bold;
   text-align: left;
 }
-.footer_text {
+.footer__text {
   width: 100%;
   padding: 0.625rem;
   margin: 0;
@@ -1504,7 +1504,7 @@ dl dd h2 {
 .portfolioDetail__element {
   width: 45%;
 }
-.portfolioDetail__element__topImg {
+.portfolioDetail__element-topImg {
   position: relative;
   width: 80%;
   height: 500px;
@@ -1514,7 +1514,7 @@ dl dd h2 {
   margin: 20px auto;
   border: 1px solid #707070;
 }
-.portfolioDetail__element__img {
+.portfolioDetail__element-img {
   position: relative;
   width: 70%;
   height: 400px;
@@ -1522,10 +1522,10 @@ dl dd h2 {
   -o-object-fit: contain;
      object-fit: contain;
 }
-.portfolioDetail__element__title {
+.portfolioDetail__element-title {
   text-align: left;
 }
-.portfolioDetail__element__subtitle {
+.portfolioDetail__element-subtitle {
   margin: 30px 0;
   text-align: left;
   color: #4545ff;
@@ -1533,17 +1533,17 @@ dl dd h2 {
   border-bottom: 2px solid #4545ff;
   font-size: 26px;
 }
-.portfolioDetail__element__text {
+.portfolioDetail__element-text {
   text-align: left;
 }
-.portfolioDetail__element__text li {
+.portfolioDetail__element-text li {
   list-style: square;
 }
-.portfolioDetail__element__date {
+.portfolioDetail__element-date {
   text-align: left;
   color: #707070;
 }
-.portfolioDetail__element__tag {
+.portfolioDetail__element-tag {
   display: inline;
   padding: 5px 10px;
   margin: 0px 10px;
@@ -1551,18 +1551,18 @@ dl dd h2 {
   border: 1px solid #6499ff;
   border-radius: 20px;
 }
-.portfolioDetail__element__tagList {
+.portfolioDetail__element-tagList {
   display: flex;
   justify-content: flex-start;
   padding: 0;
 }
-.portfolioDetail__element__link {
+.portfolioDetail__element-link {
   color: #063997;
 }
-.portfolioDetail__element__link:hover {
+.portfolioDetail__element-link:hover {
   opacity: 0.7;
 }
-.portfolioDetail__element__link::before {
+.portfolioDetail__element-link::before {
   content: "";
   position: relative;
   display: inline-block;
@@ -1606,6 +1606,9 @@ dl dd h2 {
 .bread__title {
   text-align: left;
   display: flex;
+}
+.bread__title-span {
+  font-weight: bold;
 }
 .bread__second {
   font-weight: 600;
@@ -1793,13 +1796,15 @@ dl dd h2 {
   .border_company {
     box-shadow: -rem(5) 0.3125rem 0px 0.3125rem #000081;
   }
-  footer ul {
+  .footer ul {
     margin-left: 30px;
   }
-  .footer_flx {
+  .footer__container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
     color: white;
     text-align: center;
   }
@@ -1980,7 +1985,7 @@ dl dd h2 {
   .portfolioDetail__element {
     width: 45%;
   }
-  .portfolioDetail__element__topImg {
+  .portfolioDetail__element-topImg {
     position: relative;
     width: 80%;
     height: 300px;
@@ -1988,7 +1993,7 @@ dl dd h2 {
     -o-object-fit: cover;
        object-fit: cover;
   }
-  .portfolioDetail__element__img {
+  .portfolioDetail__element-img {
     position: relative;
     width: 70%;
     height: 300px;
@@ -1996,24 +2001,24 @@ dl dd h2 {
     -o-object-fit: contain;
        object-fit: contain;
   }
-  .portfolioDetail__element__title {
+  .portfolioDetail__element-title {
     text-align: left;
   }
-  .portfolioDetail__element__subtitle {
+  .portfolioDetail__element-subtitle {
     margin: 10px 0;
     font-size: 20px;
     text-align: left;
   }
-  .portfolioDetail__element__text {
+  .portfolioDetail__element-text {
     text-align: left;
   }
-  .portfolioDetail__element__text li {
+  .portfolioDetail__element-text li {
     list-style: square;
   }
-  .portfolioDetail__element__date {
+  .portfolioDetail__element-date {
     text-align: left;
   }
-  .portfolioDetail__element__tag {
+  .portfolioDetail__element-tag {
     display: inline-block;
     padding: 5px 10px;
     margin: 5px 2px;
@@ -2021,16 +2026,16 @@ dl dd h2 {
     border: 1px solid #6499ff;
     border-radius: 20px;
   }
-  .portfolioDetail__element__tagList {
+  .portfolioDetail__element-tagList {
     width: 100%;
     padding: 0;
     margin: 0;
   }
-  .portfolioDetail__element__link {
+  .portfolioDetail__element-link {
     color: #063997;
     margin-bottom: 1.25rem;
   }
-  .portfolioDetail__element__link:hover {
+  .portfolioDetail__element-link:hover {
     opacity: 0.7;
   }
   .wave__bg__top {
@@ -2089,7 +2094,8 @@ dl dd h2 {
        object-fit: contain;
   }
   .contact {
-    background-image: url("/images/top_contact_bg.jpg");
+    background-image: url("/images/top_contact_bg_sp.jpg");
+    background-size: cover;
   }
   .contact__box {
     background-color: white;

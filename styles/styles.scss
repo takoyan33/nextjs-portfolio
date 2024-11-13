@@ -546,11 +546,12 @@ li {
     text-align: left;
     color: #434343;
     font-size: 28px;
-    &_span {
+    &-span {
       font-size: 16px;
       color: #707070;
     }
   }
+  // portfolioElement
   &Item {
     box-shadow:
       rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -587,7 +588,7 @@ li {
       object-fit: cover;
       overflow: hidden;
 
-      &__item {
+      &-item {
         border-radius: 10px;
         transition: transform 0.3s ease;
         &:hover {
@@ -641,22 +642,22 @@ li {
 //フッター
 .footer {
   border-top: 2px solid $main-color;
-  &_flx {
+  &__container{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 30px 0;
     margin: 0px auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    gap: rem(60) rem(120);
+    width: 100%;
   }
-  &_list {
+  &__list {
     text-align: left;
     font-weight: 600;
   }
 
-  &_logo {
+  &__logo {
     position: relative;
     width: 220px !important;
     height: 100px !important;
@@ -666,11 +667,10 @@ li {
     text-align: left;
   }
 
-  &_text {
+  &__text {
     width: 100%;
     padding: rem(10);
     margin: 0;
-    // background-color: $main-color;
     color: gray;
     font-weight: 600;
     font-size: 16px;
@@ -918,7 +918,7 @@ dl {
   }
   &__element {
     width: 45%;
-    &__topImg {
+    &-topImg {
       position: relative;
       width: 80%;
       height: 500px;
@@ -927,17 +927,17 @@ dl {
       margin: 20px auto;
       border: 1px solid #707070;
     }
-    &__img {
+    &-img {
       position: relative;
       width: 70%;
       height: 400px;
       margin-inline: auto;
       object-fit: contain;
     }
-    &__title {
+    &-title {
       text-align: left;
     }
-    &__subtitle {
+    &-subtitle {
       margin: 30px 0;
       text-align: left;
       color: #4545ff;
@@ -945,17 +945,17 @@ dl {
       border-bottom: 2px solid #4545ff;
       font-size: 26px;
     }
-    &__text {
+    &-text {
       text-align: left;
       li {
         list-style: square;
       }
     }
-    &__date {
+    &-date {
       text-align: left;
       color: #707070;
     }
-    &__tag {
+    &-tag {
       display: inline;
       padding: 5px 10px;
       margin: 0px 10px;
@@ -963,12 +963,12 @@ dl {
       border: 1px solid $main-color;
       border-radius: 20px;
     }
-    &__tagList {
+    &-tagList {
       display: flex;
       justify-content: flex-start;
       padding: 0;
     }
-    &__link {
+    &-link {
       color: $tag-color-4;
       &:hover {
         opacity: 0.7;
@@ -1022,6 +1022,9 @@ dl {
   &__title {
     text-align: left;
     display: flex;
+    &-span {
+      font-weight: bold;
+    }
   }
   &__second {
     font-weight: 600;
@@ -1218,22 +1221,26 @@ dl {
     }
   }
 
-  footer ul {
+  .footer {
+  ul {
     margin-left: 30px;
   }
 
-  .footer_flx {
+  &__container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
     color: white;
     text-align: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
   }
+}
 
   .fv {
     display: inline-block;
@@ -1426,38 +1433,38 @@ dl {
     }
     &__element {
       width: 45%;
-      &__topImg {
+      &-topImg {
         position: relative;
         width: 80%;
         height: 300px;
         margin-inline: auto;
         object-fit: cover;
       }
-      &__img {
+      &-img {
         position: relative;
         width: 70%;
         height: 300px;
         margin-inline: auto;
         object-fit: contain;
       }
-      &__title {
+      &-title {
         text-align: left;
       }
-      &__subtitle {
+      &-subtitle {
         margin: 10px 0;
         font-size: 20px;
         text-align: left;
       }
-      &__text {
+      &-text {
         text-align: left;
         li {
           list-style: square;
         }
       }
-      &__date {
+      &-date {
         text-align: left;
       }
-      &__tag {
+      &-tag {
         display: inline-block;
         padding: 5px 10px;
         margin: 5px 2px;
@@ -1465,12 +1472,12 @@ dl {
         border: 1px solid $main-color;
         border-radius: 20px;
       }
-      &__tagList {
+      &-tagList {
         width: 100%;
         padding: 0;
         margin: 0;
       }
-      &__link {
+      &-link {
         color: $tag-color-4;
         margin-bottom: rem(20);
         &:hover {
@@ -1544,7 +1551,8 @@ dl {
 
   //topのcontact
   .contact {
-    background-image: url('/images/top_contact_bg.jpg');
+    background-image: url('/images/top_contact_bg_sp.jpg');
+    background-size: cover;
     &__box {
       background-color: white;
       width: 100%;

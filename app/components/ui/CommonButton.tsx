@@ -1,5 +1,5 @@
-import React from "react"
 import Link from "next/link"
+import type React from "react"
 
 interface CommonButtonProps {
 	text: string
@@ -17,6 +17,7 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 	return (
 		<Link href={link ? link : ""}>
 			<button
+				type="button"
 				onClick={handleClick}
 				className={`main__btn ${className}`}
 				aria-label="送信"
