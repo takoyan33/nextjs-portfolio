@@ -34,30 +34,26 @@ export default function Footer() {
 	]
 	return (
 		<footer className="footer" aria-label="フッター">
-			<div className="max_width">
-				<div className="footer_flx">
-					<div className="flx">
-						<div className="flx_el">
-							<Link href="/">
-								<img
-									src="/images/common/logo.svg"
-									alt="ポートフォリオ画像"
-									className="footer_logo"
-								/>
-							</Link>
-						</div>
-						<div className="flx_el">
-							{MENU_ITEMS.map((item) => (
-								<Link href={item.link} key={item.id}>
-									<p className="footer_list">{item.title}</p>
-								</Link>
-							))}
-						</div>
-					</div>
+			<div className="max_width footer__container">
+				<div className="flx_el">
+					<Link href="/" passHref>
+						<img
+							src="/images/common/logo.svg"
+							alt="ポートフォリオ画像"
+							className="footer__logo"
+						/>
+					</Link>
 				</div>
+				<nav className="flx_el" aria-label="フッターメニュー">
+					{MENU_ITEMS.map((item) => (
+						<Link href={item.link} key={item.id} passHref>
+							<p className="footer__list">{item.title}</p>
+						</Link>
+					))}
+				</nav>
 			</div>
 
-			<p className="footer_text">© {currentYear} To You Design</p>
+			<p className="footer__text">© {currentYear} To You Design</p>
 		</footer>
 	)
 }

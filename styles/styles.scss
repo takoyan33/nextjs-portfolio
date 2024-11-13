@@ -546,11 +546,12 @@ li {
     text-align: left;
     color: #434343;
     font-size: 28px;
-    &_span {
+    &-span {
       font-size: 16px;
       color: #707070;
     }
   }
+  // portfolioElement
   &Item {
     box-shadow:
       rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -587,7 +588,7 @@ li {
       object-fit: cover;
       overflow: hidden;
 
-      &__item {
+      &-item {
         border-radius: 10px;
         transition: transform 0.3s ease;
         &:hover {
@@ -641,22 +642,22 @@ li {
 //フッター
 .footer {
   border-top: 2px solid $main-color;
-  &_flx {
+  &__container{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 30px 0;
     margin: 0px auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    gap: rem(60) rem(120);
+    width: 100%;
   }
-  &_list {
+  &__list {
     text-align: left;
     font-weight: 600;
   }
 
-  &_logo {
+  &__logo {
     position: relative;
     width: 220px !important;
     height: 100px !important;
@@ -666,11 +667,10 @@ li {
     text-align: left;
   }
 
-  &_text {
+  &__text {
     width: 100%;
     padding: rem(10);
     margin: 0;
-    // background-color: $main-color;
     color: gray;
     font-weight: 600;
     font-size: 16px;
@@ -1221,22 +1221,26 @@ dl {
     }
   }
 
-  footer ul {
+  .footer {
+  ul {
     margin-left: 30px;
   }
 
-  .footer_flx {
+  &__container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
     color: white;
     text-align: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
   }
+}
 
   .fv {
     display: inline-block;
@@ -1547,7 +1551,8 @@ dl {
 
   //topのcontact
   .contact {
-    background-image: url('/images/top_contact_bg.jpg');
+    background-image: url('/images/top_contact_bg_sp.jpg');
+    background-size: cover;
     &__box {
       background-color: white;
       width: 100%;

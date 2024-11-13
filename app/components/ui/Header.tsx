@@ -1,6 +1,6 @@
 "use client"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import React, { useState } from "react"
 import { PATH } from "../../../utils/path"
 
@@ -16,20 +16,24 @@ export default function Header() {
 	}
 
 	type MenuItem = {
+		id: number
 		title: string
 		link: string
 	}
 
 	const MENU_ITEMS: MenuItem[] = [
 		{
+			id: 1,
 			title: "About",
 			link: PATH.ABOUT,
 		},
 		{
+			id: 2,
 			title: "ポートフォリオ",
 			link: PATH.PORTFOLIO,
 		},
 		{
+			id: 3,
 			title: "ブログ",
 			link: PATH.BLOG,
 		},
@@ -50,10 +54,10 @@ export default function Header() {
 							/>
 						</Link>
 					</div>
-					<nav>
+					<nav aria-label="メインナビゲーション">
 						<ul>
-							{MENU_ITEMS.map((item, index) => (
-								<li key={index}>
+							{MENU_ITEMS.map((item) => (
+								<li key={item.id}>
 									<Link
 										href={item.link}
 										onClick={() => handleMenuItemClick(item.link)}
@@ -71,6 +75,7 @@ export default function Header() {
 				<div
 					className={`btn-trigger ${openMenu ? "active" : ""}`}
 					id="btn01"
+					aria-label="メニューを開閉"
 					onClick={menuFunction}
 				>
 					<span></span>
