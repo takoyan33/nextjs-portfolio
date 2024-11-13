@@ -1177,7 +1177,7 @@ li {
   color: #434343;
   font-size: 28px;
 }
-.portfolio__headTitle_span {
+.portfolio__headTitle-span {
   font-size: 16px;
   color: #707070;
 }
@@ -1216,11 +1216,11 @@ li {
      object-fit: cover;
   overflow: hidden;
 }
-.portfolioItem__img__item {
+.portfolioItem__img-item {
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
-.portfolioItem__img__item:hover {
+.portfolioItem__img-item:hover {
   transform: scale(1.1);
 }
 .portfolioItem_link {
@@ -1262,19 +1262,19 @@ li {
 .footer {
   border-top: 2px solid #6499ff;
 }
-.footer_flx {
+.footer__container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding: 30px 0;
   margin: 0px auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
+  gap: 3.75rem 7.5rem;
+  width: 100%;
 }
-.footer_list {
+.footer__list {
   text-align: left;
   font-weight: 600;
 }
-.footer_logo {
+.footer__logo {
   position: relative;
   width: 220px !important;
   height: 100px !important;
@@ -1283,7 +1283,7 @@ li {
   font-weight: bold;
   text-align: left;
 }
-.footer_text {
+.footer__text {
   width: 100%;
   padding: 0.625rem;
   margin: 0;
@@ -1796,13 +1796,15 @@ dl dd h2 {
   .border_company {
     box-shadow: -rem(5) 0.3125rem 0px 0.3125rem #000081;
   }
-  footer ul {
+  .footer ul {
     margin-left: 30px;
   }
-  .footer_flx {
+  .footer__container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
     color: white;
     text-align: center;
   }
@@ -2092,7 +2094,8 @@ dl dd h2 {
        object-fit: contain;
   }
   .contact {
-    background-image: url("/images/top_contact_bg.jpg");
+    background-image: url("/images/top_contact_bg_sp.jpg");
+    background-size: cover;
   }
   .contact__box {
     background-color: white;

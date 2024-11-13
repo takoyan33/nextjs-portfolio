@@ -26,7 +26,7 @@ export default function PortfolioItem({
 						alt="ポートフォリオ画像"
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
-						className="portfolioItem__img__item"
+						className="portfolioItem__img-item"
 					/>
 				</div>
 				<p className="portfolioItem__date">{portfolio_date}</p>

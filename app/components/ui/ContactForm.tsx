@@ -114,7 +114,7 @@ const Index = () => {
 				</div>
 
 				<div className="text-center">
-					<button className="form-box-btn" aria-label="送信確認">
+					<button className="form-box-btn" aria-label="送信確認" type="button">
 						送信する
 					</button>
 				</div>
