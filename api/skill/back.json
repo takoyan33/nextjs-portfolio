@@ -1,23 +1,26 @@
 [
-  {
-    "name": "Firestore",
-    "rank": "★★★★",
-    "tag": "経験年数：3年",
-    "about": "システム構築のバックエンドで利用。認証やデプロイの経験も有り",
-    "icon": "/images/skill/fire.svg"
-  },
-  {
-    "name": "Ruby",
-    "rank": "★★★",
-    "tag": "経験年数：1年",
-    "about": "システム構築のバックエンドで利用。",
-    "icon": "/images/skill/ruby.svg"
-  },
-  {
-    "name": "PHP",
-    "rank": "★★",
-    "tag": "経験年数：3ヶ月",
-    "about": "システム構築のバックエンドで利用。",
-    "icon": "/images/skill/php.svg"
-  }
+	{
+		"id": 1,
+		"name": "Firestore",
+		"rank": "★★★★",
+		"tag": "経験年数：3年",
+		"about": "システム構築のバックエンドで利用。認証やデプロイの経験も有り",
+		"icon": "/images/skill/fire.svg"
+	},
+	{
+		"id": 2,
+		"name": "Ruby",
+		"rank": "★★★",
+		"tag": "経験年数：1年",
+		"about": "システム構築のバックエンドで利用。",
+		"icon": "/images/skill/ruby.svg"
+	},
+	{
+		"id": 3,
+		"name": "PHP",
+		"rank": "★★",
+		"tag": "経験年数：3ヶ月",
+		"about": "システム構築のバックエンドで利用。",
+		"icon": "/images/skill/php.svg"
+	}
 ]

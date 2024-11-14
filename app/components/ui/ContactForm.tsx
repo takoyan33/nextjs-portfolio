@@ -3,6 +3,7 @@ import { send } from "emailjs-com"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { emailjsConfig } from "../../../utils/Emailjs"
+import { CommonLabel } from "./CommonLabel"
 
 const Index = () => {
 	const [name, setName] = useState<string>("")
@@ -53,9 +54,7 @@ const Index = () => {
 			</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="form-box">
-					<label htmlFor="name" className="form-box-label">
-						名前<span className="form-box-label-required">必須</span>
-					</label>
+					<CommonLabel text="名前" id="name" />
 					<input
 						type="text"
 						id="name"
@@ -71,9 +70,7 @@ const Index = () => {
 				</div>
 
 				<div className="form-box">
-					<label htmlFor="email" className="form-box-label">
-						メールアドレス<span className="form-box-label-required">必須</span>
-					</label>
+					<CommonLabel text="メールアドレス" id="email" />
 					<input
 						type="text"
 						id="email"
@@ -95,9 +92,7 @@ const Index = () => {
 				</div>
 
 				<div className="form-box">
-					<label htmlFor="message" className="form-box-label">
-						メッセージ<span className="form-box-label-required">必須</span>
-					</label>
+					<CommonLabel text="メッセージ" id="message" />
 					<textarea
 						id="message"
 						className="form-box-textarea"

@@ -1432,11 +1432,6 @@ li {
   padding-bottom: 60px;
 }
 
-dl {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 dl dt {
   position: relative;
   width: 8.5em;

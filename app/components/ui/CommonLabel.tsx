@@ -3,27 +3,14 @@ import type React from "react"
 
 interface CommonLabelProps {
 	text: string
-	link?: string
-	className?: string
-	handleClick?: () => void
+	id?: string
 }
 
-export const CommonLabel: React.FC<CommonLabelProps> = ({
-	text,
-	className = "more",
-	handleClick,
-	link,
-}) => {
+export const CommonLabel: React.FC<CommonLabelProps> = ({ text, id }) => {
 	return (
-		<Link href={link ? link : ""}>
-			<button
-				type="button"
-				onClick={handleClick}
-				className={`main__btn ${className}`}
-				aria-label="送信"
-			>
-				{text}
-			</button>
-		</Link>
+		<label htmlFor={id} className="form-box-label">
+			{text}
+			<span className="form-box-label-required">必須</span>
+		</label>
 	)
 }
