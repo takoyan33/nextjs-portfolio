@@ -133,6 +133,10 @@ a :hover {
 .next-button {
   cursor: pointer;
 }
+.prev-button:hover,
+.next-button:hover {
+  opacity: 0.7;
+}
 
 .prev-button {
   margin-top: 3.75rem;
@@ -323,6 +327,10 @@ a :hover {
   .max_width {
     width: 90%;
   }
+  .portfolio-content {
+    display: grid;
+    grid-template-columns: 0.9375rem 1fr 0.9375rem;
+  }
   .flx {
     flex-direction: column;
     margin: 1.25rem auto;
@@ -365,12 +373,14 @@ a :hover {
     display: block;
   }
   .prev-button {
-    left: px;
+    left: 0px;
+    margin-top: 8.75rem;
     width: 1.875rem;
     height: 1.875rem;
   }
   .next-button {
     right: 0px;
+    margin-top: 8.75rem;
     width: 1.875rem;
     height: 1.875rem;
   }
@@ -467,7 +477,7 @@ a :hover {
   transition: color 0.3s;
 }
 .header_btn_contact:hover {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .fv_cube {
@@ -507,7 +517,7 @@ a :hover {
   margin-bottom: 25px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 200;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 .drawerMenu.open {
   display: none;
@@ -665,7 +675,7 @@ a :hover {
     margin-bottom: 25px;
     font-family: "Josefin Sans", sans-serif;
     font-weight: 200;
-    opacity: 0.8;
+    opacity: 0.7;
   }
   .drawerMenu.open {
     display: none;
@@ -1180,6 +1190,7 @@ li {
 .portfolio__headTitle-span {
   font-size: 16px;
   color: #707070;
+  margin-left: 10px;
 }
 .portfolioItem {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -1823,13 +1834,13 @@ dl dd h2 {
     align-items: center;
   }
   .fv__title {
-    font-size: 2.375rem;
+    font-size: 1.875rem;
     line-height: 40px;
     position: relative;
     top: 7.5rem;
   }
   .fv__subtitle {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     margin-top: 0.625rem;
     position: relative;
     top: 7.5rem;
@@ -2061,6 +2072,16 @@ dl dd h2 {
   }
   .portfolio {
     background-color: #f7f7f7;
+  }
+  .portfolio__headTitle {
+    text-align: left;
+    color: #434343;
+    font-size: 22px;
+  }
+  .portfolio__headTitle-span {
+    font-size: 16px;
+    color: #707070;
+    margin-left: 10px;
   }
   .portfolio__flex {
     display: flex;
