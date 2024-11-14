@@ -27,11 +27,11 @@ export default function PortfolioItem({
 						alt="ポートフォリオ画像"
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
-						className="portfolio__img__item"
+						className="portfolio__img-item"
 					/>
 				</div>
 				<p className="portfolio__date">{portfolio_date}</p>
-				<h2 className="portfolio__title">{parse(portfolio_name)}</h2>
+				<h3 className="portfolio__title">{parse(portfolio_name)}</h3>
 				<ul className="portfolio__flex">
 					{portfolio_tag.map((tag, index) => (
 						<li className="portfolio__tag" key={index}>

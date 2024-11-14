@@ -549,6 +549,7 @@ li {
     &-span {
       font-size: 16px;
       color: #707070;
+      margin-left: 10px;
     }
   }
   // portfolioElement
@@ -598,9 +599,6 @@ li {
     }
     &_link {
       cursor: pointer;
-      // &:hover {
-      //   opacity: 0.7;
-      // }
     }
   }
 }
@@ -774,9 +772,9 @@ li {
 
 // history
 dl {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
   dt {
     position: relative;
     width: 8.5em;
@@ -1242,6 +1240,7 @@ dl {
   }
 }
 
+// fvのsp
   .fv {
     display: inline-block;
     width: 100%;
@@ -1256,13 +1255,13 @@ dl {
       align-items: center;
     }
     &__title {
-      font-size: rem(38);
+      font-size: rem(30);
       line-height: 40px;
       position: relative;
       top: rem(120);
     }
     &__subtitle {
-      font-size: rem(22);
+      font-size: rem(20);
       margin-top: rem(10);
       position: relative;
       top: rem(120);
@@ -1516,6 +1515,17 @@ dl {
   // ポートフォリオ
   .portfolio {
     background-color: $back-color;
+
+  &__headTitle {
+    text-align: left;
+    color: #434343;
+    font-size: 22px;
+    &-span {
+      font-size: 16px;
+      color: #707070;
+      margin-left: 10px;
+    }
+  }
 
     &__flex {
       display: flex;

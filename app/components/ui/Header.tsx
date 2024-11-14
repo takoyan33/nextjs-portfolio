@@ -77,16 +77,17 @@ export default function Header() {
 					id="btn01"
 					aria-label="メニューを開閉"
 					onClick={menuFunction}
+					onKeyDown={menuFunction}
 				>
-					<span></span>
-					<span></span>
-					<span></span>
+					<span />
+					<span />
+					<span />
 				</div>
 			</header>
 			<div className={`drawerMenu ${openMenu ? "open" : undefined}`}>
 				<ul>
-					{MENU_ITEMS.map((item, index) => (
-						<li key={index}>
+					{MENU_ITEMS.map((item) => (
+						<li key={item.id}>
 							<Link
 								href={item.link}
 								onClick={() => handleMenuItemClick(item.link)}

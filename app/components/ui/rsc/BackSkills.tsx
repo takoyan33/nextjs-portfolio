@@ -8,12 +8,12 @@ export const BackSkills = () => {
 			{Array.isArray(backSkills) &&
 				backSkills.map((skill, index) => (
 					<Skill
-						key={index}
 						name={skill.name}
 						rank={skill.rank}
 						tag={skill.tag}
 						icon={skill.icon}
 						about={skill.about}
+						key={skill.id}
 					/>
 				))}
 		</div>

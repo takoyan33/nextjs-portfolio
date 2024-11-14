@@ -30,7 +30,7 @@ export default function PortfolioItem({
 					/>
 				</div>
 				<p className="portfolioItem__date">{portfolio_date}</p>
-				<h2 className="portfolioItem__title">{parse(portfolio_name)}</h2>
+				<h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
 				<div className="portfolioItem__flex">
 					{portfolio_tag.map((tag, index) => (
 						<li className="portfolioItem__tag" key={index}>
