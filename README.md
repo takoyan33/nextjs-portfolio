@@ -9,7 +9,7 @@
 - [ディレクトリ構成](#directory-structure)
 - [ブランチについて](#technology-used)
 
--[URL](https://nextjs-portfolio-puce.vercel.app/)
+-[URL](https://to-you-design.vercel.app/)
 
 <h2 id="system-feature">システムの特徴</h2>
  これは、自分のポートフォリオサイトです。<br>

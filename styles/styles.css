@@ -1334,6 +1334,29 @@ li {
   margin-bottom: 0.625rem;
 }
 
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+}
+.tab-buttons button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 1px solid gray;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.tab-buttons button.active {
+  background: #6499ff;
+  color: #fff;
+}
+.tab-buttons button:hover {
+  opacity: 0.7;
+}
+
 .size {
   margin-top: 40px;
   color: #6499ff;
@@ -1417,7 +1440,7 @@ dl dd h2 {
   margin-top: 1.25rem;
   font-size: 1.125rem;
 }
-.license__table__td {
+.license__table-td {
   padding: 0.625rem;
   text-align: left;
 }
@@ -2108,6 +2131,51 @@ dl dd h2 {
     height: 130px;
     -o-object-fit: contain;
        object-fit: contain;
+  }
+  .portfolioItem {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+  .portfolioItem__flex {
+    display: flex;
+    justify-content: center;
+  }
+  .portfolioItem__date {
+    font-size: 0.875rem;
+  }
+  .portfolioItem__tag {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 8px;
+    padding-bottom: 4px;
+    margin: 11px 2px;
+    font-size: 14px;
+    color: #6499ff;
+    border: 1px solid #6499ff;
+    border-radius: 10px;
+  }
+  .portfolioItem__title {
+    font-weight: 600;
+    color: #434343;
+    font-size: 18px;
+  }
+  .portfolioItem__img {
+    position: relative;
+    width: 100%;
+    margin-inline: auto;
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    overflow: hidden;
+  }
+  .portfolioItem__img-item {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  .portfolioItem__img-item:hover {
+    transform: scale(1.1);
+  }
+  .portfolioItem_link {
+    cursor: pointer;
   }
   .contact {
     background-image: url("/images/top_contact_bg_sp.jpg");
