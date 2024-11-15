@@ -59,7 +59,7 @@
 	},
 	{
 		"id": 3,
-		"name": "ポートフォリオサイト",
+		"name": "To You Design(ポートフォリオサイト)",
 		"date": "2023.11.30",
 		"tag": ["React", "Next.js", "Vercel"],
 		"topImg": "/images/portfolio/portfolio_top3.png",

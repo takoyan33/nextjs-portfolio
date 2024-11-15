@@ -708,6 +708,31 @@ li {
   }
 }
 
+//タブ切り替え
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+
+    button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid gray;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s;
+    &.active {
+      background: $main-color;
+      color: #fff;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+    }
+}
+
 .size {
   margin-top: 40px;
   color: $main-color;
@@ -813,11 +838,11 @@ dl {
   &__table {
     margin-top: rem(20);
     font-size: rem(18);
-    &__th {
+    &-th {
     }
-    &__tr {
+    &-tr {
     }
-    &__td {
+    &-td {
       padding: rem(10);
       text-align: left;
     }
@@ -1516,16 +1541,16 @@ dl {
   .portfolio {
     background-color: $back-color;
 
-  &__headTitle {
-    text-align: left;
-    color: #434343;
-    font-size: 22px;
-    &-span {
-      font-size: 16px;
-      color: #707070;
-      margin-left: 10px;
+    &__headTitle {
+      text-align: left;
+      color: #434343;
+      font-size: 22px;
+      &-span {
+        font-size: 16px;
+        color: #707070;
+        margin-left: 10px;
+      }
     }
-  }
 
     &__flex {
       display: flex;
@@ -1557,6 +1582,55 @@ dl {
       height: 130px;
       object-fit: contain;
     }
+
+    &Item {
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    &__flex {
+      display: flex;
+      justify-content: center;
+    }
+    &__date {
+      font-size: rem(14);
+    }
+    &__tag {
+      display: inline-block;
+      height: 25px;
+      padding: 2px 8px;
+      padding-bottom: 4px;
+      margin: 11px 2px;
+      font-size: 14px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 10px;
+    }
+    &__title {
+      font-weight: 600;
+      color: #434343;
+      font-size: 18px;
+    }
+    &__img {
+      position: relative;
+      width: 100%;
+      margin-inline: auto;
+      height: 300px;
+      object-fit: cover;
+      overflow: hidden;
+
+      &-item {
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    &_link {
+      cursor: pointer;
+    }
+  }
   }
 
   //topのcontact
