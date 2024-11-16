@@ -31,6 +31,10 @@ export const TopPortfolioSlide = () => {
 						src="/images/prev-arrow.svg"
 						width={50}
 						height={50}
+						style={{
+							width: "100%",
+							height: "auto",
+						}}
 						alt="スライドショーのナビゲーション"
 					/>
 				)}
@@ -71,6 +75,10 @@ export const TopPortfolioSlide = () => {
 						src="/images/next-arrow.svg"
 						width={50}
 						height={50}
+						style={{
+							width: "100%",
+							height: "auto",
+						}}
 						alt="スライドショーのナビゲーション"
 					/>
 				)}
