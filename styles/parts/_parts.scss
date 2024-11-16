@@ -155,7 +155,7 @@
 }
 
 // Topのaboutページ
-.aboutTop__flx {
+.aboutTop_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -168,10 +168,6 @@
     width: 50%;
     margin: 0px;
     overflow-wrap: break-word;
-
-    &_footer {
-      margin: rem(10);
-    }
   }
 }
 
@@ -383,7 +379,7 @@
     }
   }
 
-  .aboutTop__flx {
+  .aboutTop_container {
     flex-direction: column;
     width: 100%;
     margin: rem(10) auto;
@@ -394,10 +390,6 @@
       width: 100%;
       margin: 0;
       overflow-wrap: break-word;
-
-      &_footer {
-        margin: rem(10);
-      }
     }
   }
 }

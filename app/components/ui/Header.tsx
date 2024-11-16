@@ -49,6 +49,7 @@ export default function Header() {
 								src="/images/common/logo.svg"
 								alt="ポートフォリオ画像"
 								fill
+								priority
 								sizes="(min-width: 768px) 50vw, 100vw"
 								className="logo"
 							/>

@@ -8,6 +8,7 @@ $tag-color-4: #063997;
 $tag-color-5: #fd6d39;
 $white: #ffff;
 $back-color: #f7f7f7;
+//不透明度
 $opacity: 0.7;
 
 // remの設定
@@ -137,10 +138,6 @@ a {
     width: 33%;
     margin: 0px;
     overflow-wrap: break-word;
-
-    &_footer {
-      margin: rem(10);
-    }
   }
 }
 
@@ -160,10 +157,6 @@ a {
     width: 30%;
     margin: 0px;
     overflow-wrap: break-word;
-
-    &_footer {
-      margin: rem(10);
-    }
   }
 }
 
@@ -220,7 +213,7 @@ a {
   -webkit-box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
   box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
-  &__long {
+  &-long {
     display: block;
     width: 260px;
     padding: rem(10);
@@ -235,21 +228,21 @@ a {
     -webkit-box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
     box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
     transition: 0.5s;
+    &:hover {
+    color: #fff;
+    background: $main-color;
+    border-bottom: rem(2) solid #fff;
+    transform: translateY(3px);
   }
-  :hover {
+
+  }
+  &:hover {
     color: #fff;
     background: $main-color;
     border-bottom: rem(2) solid #fff;
     transform: translateY(3px);
   }
 }
-.main__btn__long:hover {
-  color: #fff;
-  background: $main-color;
-  border-bottom: rem(2) solid #fff;
-  transform: translateY(3px);
-}
-
 // 共通スタイル
 .main {
   &__title {
@@ -300,10 +293,6 @@ a {
       width: 33%;
       margin: 0px;
       overflow-wrap: break-word;
-
-      &_footer {
-        margin: rem(10);
-      }
     }
   }
 }
@@ -358,7 +347,7 @@ a {
       font-size: rem(18);
       color: $main-color;
       text-align: left;
-      &--white {
+      &-white {
         margin: 0;
         font-size: rem(20);
         color: white;
@@ -438,10 +427,6 @@ a {
       width: 100%;
       margin: 0px;
       overflow-wrap: break-word;
-
-      &_footer {
-        margin: rem(10);
-      }
     }
   }
   .pc {
