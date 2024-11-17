@@ -1,6 +1,7 @@
 import React from "react"
 import licenses from "../../../../api/licenses/index.json"
 
+
 export const License = () => {
 	return (
 		<>
