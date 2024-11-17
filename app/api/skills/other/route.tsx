@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server"
-import data from "../../../../api/skill/front.json"
+import data from "../../../../api/skills/other.json"
 
-type Data = {
-	skill: Object
-}
+// type Data = {
+// 	skill: Object
+// }
 
 export async function GET() {
 	return NextResponse.json(data)

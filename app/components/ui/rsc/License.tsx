@@ -1,5 +1,5 @@
 import React from "react"
-import licenses from "../../../../api/license/index.json"
+import licenses from "../../../../api/licenses/index.json"
 
 export const License = () => {
 	return (

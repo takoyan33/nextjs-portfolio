@@ -1,5 +1,5 @@
 import React from "react"
-import otherSkills from "../../../../api/skill/other.json"
+import otherSkills from "../../../../api/skills/other.json"
 import Skill from "../Skill"
 
 export const OtherSkills = () => {

@@ -8,7 +8,7 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import portfolios from "../../../../api/portfolio/index.json"
+import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItemTop from "../../../components/ui/PortfolioItemTop"
 
 export const TopPortfolioSlide = () => {

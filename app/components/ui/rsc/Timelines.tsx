@@ -1,6 +1,6 @@
 import Timeline from "../Timeline"
 import React from "react"
-import jobs from "../../../../api/job/index.json"
+import jobs from "../../../../api/jobs/index.json"
 
 export const Timelines = () => {
 	return (
