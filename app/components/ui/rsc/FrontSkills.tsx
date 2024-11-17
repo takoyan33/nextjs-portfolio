@@ -1,8 +1,24 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import frontSkills from "../../../../api/skills/front.json"
 import Skill from "../../../components/ui/Skill"
+import { fetchFrontSkills } from "../../../../hooks/fetch"
 
 export const FrontSkills = () => {
+	const [frontSkills, setFrontSkills] = useState<any>([])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await fetchFrontSkills()
+				setFrontSkills(data)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+
+		fetchData()
+	}, [])
+
 	return (
 		<div className="skill__container">
 			{Array.isArray(frontSkills) &&

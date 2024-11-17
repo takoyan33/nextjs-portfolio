@@ -1,24 +1,26 @@
-export const fetchHistory = async () => {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/history`)
+export const fetchHistories = async () => {
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
+	)
 	const data = await response.json()
 	return data
 }
 
-export const fetchJob = async () => {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/job`)
+export const fetchJobs = async () => {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`)
 	const data = await response.json()
 	return data
 }
 
 export const fetchLicenses = async () => {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/license`)
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`)
 	const data = await response.json()
 	return data
 }
 
 export const fetchPortfolios = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/portfolio`,
+		`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`,
 	)
 	const data = await response.json()
 	return data
@@ -26,7 +28,7 @@ export const fetchPortfolios = async () => {
 
 export const fetchFrontSkills = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/skill/front`,
+		`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`,
 	)
 	const data = await response.json()
 	return data
@@ -34,7 +36,7 @@ export const fetchFrontSkills = async () => {
 
 export const fetchBackSkills = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/skill/back`,
+		`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`,
 	)
 	const data = await response.json()
 	return data
@@ -42,7 +44,7 @@ export const fetchBackSkills = async () => {
 
 export const fetchInfraSkills = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/skill/infra`,
+		`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`,
 	)
 	const data = await response.json()
 	return data
@@ -50,7 +52,7 @@ export const fetchInfraSkills = async () => {
 
 export const fetchOtherSkills = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/skill/other`,
+		`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`,
 	)
 	const data = await response.json()
 	return data
