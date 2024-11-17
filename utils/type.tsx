@@ -1,4 +1,5 @@
 export type history = {
+	id: number
 	title: string
 	date: string
 	body: string
@@ -9,6 +10,7 @@ export type historyProps = {
 }
 
 export type job = {
+	id: number
 	title: string
 	date: string
 	body: string
@@ -19,6 +21,7 @@ export type jobProps = {
 }
 
 export type license = {
+	id: number
 	date: string
 	title: string
 }
@@ -28,6 +31,7 @@ export type licenseProps = {
 }
 
 export type skill = {
+	id: number
 	name: string
 	rank: string
 	tag: string
@@ -40,7 +44,7 @@ export type skillProps = {
 }
 
 export type portfolioType = {
-	id: string
+	id: number
 	name: string
 	date: string
 	tag: string[]

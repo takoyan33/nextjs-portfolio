@@ -31,7 +31,7 @@
     "pages/500.tsx",
     "pages/posts/[id].js",
     ".next/types/**/*.ts",
-    "app/api/skill/back/router.js",
+    "app/api/skills/back/router.js",
     "app/api/back/router.js"
   ],
   "exclude": ["node_modules"]

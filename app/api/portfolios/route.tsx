@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server"
-import data from "../../../api/history/index.json"
+import data from "../../../api/portfolios/index.json"
 
 type Data = {
-	history: Object
+	portfolio: Object
 }
 
 export async function GET() {

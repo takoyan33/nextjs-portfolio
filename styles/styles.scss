@@ -501,6 +501,7 @@ li {
   &__flex {
     display: flex;
     justify-content: center;
+    padding-left: 10px;
   }
   &__date {
     font-size: rem(14);

@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import React, { useState, useEffect } from "react"
-import portfoliosData from "../../../api/portfolio/index.json"
+import portfoliosData from "../../../api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/LowerTitle"
@@ -13,7 +13,7 @@ const Post = () => {
 	const params = useParams()
 	const id = params?.id
 
-	const [portfolios, setPortfolios] = useState<any>(undefined)
+	const [portfolios, setPortfolios] = useState<any>()
 
 	const fetchPortfolios = async (id) => {
 		try {

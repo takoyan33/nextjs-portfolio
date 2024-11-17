@@ -1122,6 +1122,7 @@ li {
 .portfolio__flex {
   display: flex;
   justify-content: center;
+  padding-left: 10px;
 }
 .portfolio__date {
   font-size: 0.875rem;
