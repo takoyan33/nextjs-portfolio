@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react"
 // import histories from "../../../../api/history/index.json"
+import { fetchHistories } from "../../../../hooks/fetch"
 import Timeline from "../Timeline"
 
-async function getData() {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, {
-		cache: "no-store",
-	})
+// async function getData() {
+// 	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`)
 
-	if (!res.ok) {
-		throw new Error("Failed to fetch data")
-	}
+// 	if (!res.ok) {
+// 		throw new Error("Failed to fetch data")
+// 	}
 
-	return res.json()
-}
+// 	return res.json()
+// }
 
 export const HistoryTimelines = () => {
 	const [histories, setHistories] = useState<any>([])
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const data = await getData()
+				const data = await fetchHistories()
 				setHistories(data)
 			} catch (e) {
 				console.error(e)

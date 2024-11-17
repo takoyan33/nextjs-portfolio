@@ -1,8 +1,23 @@
 import React from "react"
-import backSkills from "../../../../api/skills/back.json"
+// import backSkills from "../../../../api/skills/back.json"
+import { fetchBackSkills } from "../../../../hooks/fetch"
 import Skill from "../Skill"
 
 export const BackSkills = () => {
+	const [backSkills, setBackSkills] = React.useState<any>([])
+
+	React.useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await fetchBackSkills()
+				setBackSkills(data)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+
+		fetchData()
+	}, [])
 	return (
 		<div className="skill__container">
 			{Array.isArray(backSkills) &&
