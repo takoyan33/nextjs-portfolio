@@ -1,8 +1,23 @@
-import React from "react"
-import otherSkills from "../../../../api/skills/other.json"
+import React, { useEffect, useState } from "react"
+// import otherSkills from "../../../../api/skills/other.json"
+import { fetchOtherSkills } from "../../../../hooks/fetch"
 import Skill from "../Skill"
 
 export const OtherSkills = () => {
+	const [otherSkills, setOtherSkills] = useState<any>([])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await fetchOtherSkills()
+				setOtherSkills(data)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+
+		fetchData()
+	}, [])
 	return (
 		<div className="skill__container">
 			{Array.isArray(otherSkills) &&
