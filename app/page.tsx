@@ -69,7 +69,7 @@ const Home = () => {
 					<div className="max_width">
 						<ScrollComponent>
 							<h2 className="main__title" data-ja="To You Designについて">
-								About
+								Aboutaa
 							</h2>
 						</ScrollComponent>
 						<ScrollComponent>

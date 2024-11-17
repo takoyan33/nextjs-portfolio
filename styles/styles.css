@@ -1606,6 +1606,7 @@ dl dd h2 {
 .contact__btn {
   background-color: #6499ff;
   color: white;
+  font-weight: bold;
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;

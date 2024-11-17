@@ -1,8 +1,23 @@
-import Timeline from "../Timeline"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import jobs from "../../../../api/jobs/index.json"
+import { fetchJobs } from "../../../../hooks/fetch"
+import Timeline from "../Timeline"
 
 export const Timelines = () => {
+	const [jobs, setJobs] = useState<any>([])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await fetchJobs()
+				setJobs(data)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+
+		fetchData()
+	}, [])
 	return (
 		<dl>
 			{Array.isArray(jobs) &&
