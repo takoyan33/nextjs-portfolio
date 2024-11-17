@@ -3,16 +3,6 @@ import React, { useEffect, useState } from "react"
 import { fetchHistories } from "../../../../hooks/fetch"
 import Timeline from "../Timeline"
 
-// async function getData() {
-// 	const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`)
-
-// 	if (!res.ok) {
-// 		throw new Error("Failed to fetch data")
-// 	}
-
-// 	return res.json()
-// }
-
 export const HistoryTimelines = () => {
 	const [histories, setHistories] = useState<any>([])
 	useEffect(() => {

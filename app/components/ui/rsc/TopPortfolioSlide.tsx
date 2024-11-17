@@ -1,5 +1,4 @@
-"use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "swiper/css"
 import { Controller } from "swiper/modules"
 import "swiper/css/navigation"
@@ -8,7 +7,8 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import portfolios from "../../../../api/portfolios/index.json"
+import { fetchPortfolios } from "../../../../hooks/fetch"
+// import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItemTop from "../../../components/ui/PortfolioItemTop"
 
 export const TopPortfolioSlide = () => {
@@ -22,6 +22,21 @@ export const TopPortfolioSlide = () => {
 	}
 
 	const [firstSwiper, setFirstSwiper] = useState(0)
+
+	const [portfolios, setPortfolios] = useState<any>([])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await fetchPortfolios()
+				setPortfolios(data)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+
+		fetchData()
+	}, [])
 
 	return (
 		<div className="portfolio-content">

@@ -33,6 +33,10 @@
 - [React](https://ja.reactjs.org/) 18.2.0
 - [typescript](https://www.typescriptlang.org/) 4.5.5
 
+### バックエンド
+
+- [Next.js API]
+
 ### リンター
 - [Biome](https://biomejs.dev/ja/) 1.9.4
 - [husky](https://typicode.github.io/husky/) 9.1.4
