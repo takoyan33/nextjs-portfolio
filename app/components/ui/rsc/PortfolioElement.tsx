@@ -1,5 +1,5 @@
 import React from "react"
-import portfolios from "../../../../api/portfolio/index.json"
+import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItem from "../PortfolioItem"
 
 export const PortfolioElement = () => {

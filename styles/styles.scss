@@ -501,6 +501,7 @@ li {
   &__flex {
     display: flex;
     justify-content: center;
+    padding-left: 10px;
   }
   &__date {
     font-size: rem(14);
@@ -687,7 +688,7 @@ li {
     font-size: 16px;
     line-height: 1.6;
     text-align: left;
-    &__span {
+    &-span {
       font-weight: bold;
     }
   }
@@ -1012,7 +1013,7 @@ dl {
 
 //topのcontact
 .contact {
-  background-image: url('/images/top_contact_bg.jpg');
+  background-image: url('/images/top_contact_bg.webp');
   &__box {
     background-color: white;
     width: 50%;
@@ -1045,6 +1046,8 @@ dl {
   &__title {
     text-align: left;
     display: flex;
+    gap: 10px;
+    align-items: center;
     &-span {
       font-weight: bold;
     }
@@ -1053,7 +1056,11 @@ dl {
     font-weight: 600;
   }
   &__arrow {
-    margin: 0px 8px;
+    width: 15px;
+    height: 15px;
+    img {
+      display: block;
+    }
   }
 }
 
@@ -1635,7 +1642,7 @@ dl {
 
   //topのcontact
   .contact {
-    background-image: url('/images/top_contact_bg_sp.jpg');
+    background-image: url('/images/top_contact_bg_sp.webp');
     background-size: cover;
     &__box {
       background-color: white;

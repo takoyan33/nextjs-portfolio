@@ -1,9 +1,10 @@
 "use client"
+import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import React, { useState, useEffect } from "react"
-import portfoliosData from "../../../api/portfolio/index.json"
+import portfoliosData from "../../../api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/LowerTitle"
@@ -12,7 +13,7 @@ const Post = () => {
 	const params = useParams()
 	const id = params?.id
 
-	const [portfolios, setPortfolios] = useState<any>(undefined)
+	const [portfolios, setPortfolios] = useState<any>()
 
 	const fetchPortfolios = async (id) => {
 		try {
@@ -36,8 +37,32 @@ const Post = () => {
 			{portfolios ? (
 				<article>
 					<p className="bread__title max_width">
-						<Link href="/">トップ </Link> ＞
-						<Link href={PATH.PORTFOLIO}>　Portfolio</Link> ＞
+						<Link href="/">トップ </Link>
+						<span className="bread__arrow">
+							<Image
+								src="/images/next-arrow.svg"
+								width={15}
+								height={15}
+								style={{
+									width: "100%",
+									height: "auto",
+								}}
+								alt="スライドショーのナビゲーション"
+							/>
+						</span>
+						<Link href={PATH.PORTFOLIO}>Portfolio</Link>
+						<span className="bread__arrow">
+							<Image
+								src="/images/next-arrow.svg"
+								width={15}
+								height={15}
+								style={{
+									width: "100%",
+									height: "auto",
+								}}
+								alt="スライドショーのナビゲーション"
+							/>
+						</span>
 						<span className="bread__title-span">{portfolios.name}</span>
 					</p>
 					<LowerTitle title="Portfolio" enTitle="制作物" />
@@ -76,12 +101,9 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<div
-							className="portfolioDetail__element-text"
-							dangerouslySetInnerHTML={{
-								__html: portfolios?.about,
-							}}
-						/>
+						<p className="portfolioDetail__element-text">
+							{parse(portfolios?.about)}
+						</p>
 						<h3 className="portfolioDetail__element-subtitle">機能一覧</h3>
 						<div className="portfolioDetail__element-img">
 							{portfolios?.functionImg && (
@@ -94,12 +116,9 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<div
-							className="portfolioDetail__element-text"
-							dangerouslySetInnerHTML={{
-								__html: portfolios.function,
-							}}
-						/>
+						<p className="portfolioDetail__element-text">
+							{parse(portfolios?.function)}
+						</p>
 						<h3 className="portfolioDetail__element-subtitle">アピール</h3>
 						<div className="portfolioDetail__element-img">
 							{portfolios?.appealImg && (
@@ -112,12 +131,9 @@ const Post = () => {
 								/>
 							)}
 						</div>
-						<div
-							className="portfolioDetail__element-text"
-							dangerouslySetInnerHTML={{
-								__html: portfolios.appeal,
-							}}
-						/>
+						<p className="portfolioDetail__element-text">
+							{parse(portfolios?.appeal)}
+						</p>
 
 						<div className="portfolioDetail__element-text">
 							<h3 className="portfolioDetail__element-subtitle">制作期間</h3>

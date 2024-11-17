@@ -92,9 +92,6 @@ a :hover {
   margin: 0px;
   overflow-wrap: break-word;
 }
-.flx_el_footer {
-  margin: 0.625rem;
-}
 
 .portfolioFlx {
   display: flex;
@@ -110,9 +107,6 @@ a :hover {
   width: 30%;
   margin: 0px;
   overflow-wrap: break-word;
-}
-.portfolioFlx_el_footer {
-  margin: 0.625rem;
 }
 
 .swiper .flx_el {
@@ -167,7 +161,7 @@ a :hover {
   box-shadow: 0 0.125rem 7px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
 }
-.main__btn__long {
+.main__btn-long {
   display: block;
   width: 260px;
   padding: 0.625rem;
@@ -182,14 +176,13 @@ a :hover {
   box-shadow: 0 0.125rem 7px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
 }
-.main__btn :hover {
+.main__btn-long:hover {
   color: #fff;
   background: #6499ff;
   border-bottom: 0.125rem solid #fff;
   transform: translateY(3px);
 }
-
-.main__btn__long:hover {
+.main__btn:hover {
   color: #fff;
   background: #6499ff;
   border-bottom: 0.125rem solid #fff;
@@ -243,9 +236,6 @@ a :hover {
     margin: 0px;
     overflow-wrap: break-word;
   }
-  .flx_el_footer {
-    margin: 0.625rem;
-  }
 }
 @media screen and (max-width: 580px) {
   .section_title {
@@ -296,7 +286,7 @@ a :hover {
     color: #6499ff;
     text-align: left;
   }
-  .main__subtitle--white {
+  .main__subtitle-white {
     margin: 0;
     font-size: 1.25rem;
     color: white;
@@ -362,9 +352,6 @@ a :hover {
     width: 100%;
     margin: 0px;
     overflow-wrap: break-word;
-  }
-  .portfolioFlx_el_footer {
-    margin: 0.625rem;
   }
   .pc {
     display: none;
@@ -531,7 +518,7 @@ a :hover {
   display: none;
 }
 
-.aboutTop__flx {
+.aboutTop_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -541,13 +528,10 @@ a :hover {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 }
-.aboutTop__flx-item {
+.aboutTop_container-item {
   width: 50%;
   margin: 0px;
   overflow-wrap: break-word;
-}
-.aboutTop__flx-item_footer {
-  margin: 0.625rem;
 }
 
 @media (max-width: 1024px) {
@@ -750,7 +734,7 @@ a :hover {
     color: red;
     font-size: 14px;
   }
-  .aboutTop__flx {
+  .aboutTop_container {
     flex-direction: column;
     width: 100%;
     margin: 0.625rem auto;
@@ -758,13 +742,10 @@ a :hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
   }
-  .aboutTop__flx-item {
+  .aboutTop_container-item {
     width: 100%;
     margin: 0;
     overflow-wrap: break-word;
-  }
-  .aboutTop__flx-item_footer {
-    margin: 0.625rem;
   }
 }
 .components_logo__pNz7v {
@@ -1141,6 +1122,7 @@ li {
 .portfolio__flex {
   display: flex;
   justify-content: center;
+  padding-left: 10px;
 }
 .portfolio__date {
   font-size: 0.875rem;
@@ -1314,7 +1296,7 @@ li {
   line-height: 1.6;
   text-align: left;
 }
-.about__text__span {
+.about__text-span {
   font-weight: bold;
 }
 .about_img {
@@ -1603,7 +1585,7 @@ dl dd h2 {
 }
 
 .contact {
-  background-image: url("/images/top_contact_bg.jpg");
+  background-image: url("/images/top_contact_bg.webp");
 }
 .contact__box {
   background-color: white;
@@ -1635,6 +1617,8 @@ dl dd h2 {
 .bread__title {
   text-align: left;
   display: flex;
+  gap: 10px;
+  align-items: center;
 }
 .bread__title-span {
   font-weight: bold;
@@ -1643,7 +1627,11 @@ dl dd h2 {
   font-weight: 600;
 }
 .bread__arrow {
-  margin: 0px 8px;
+  width: 15px;
+  height: 15px;
+}
+.bread__arrow img {
+  display: block;
 }
 
 .lower_bg {
@@ -2178,7 +2166,7 @@ dl dd h2 {
     cursor: pointer;
   }
   .contact {
-    background-image: url("/images/top_contact_bg_sp.jpg");
+    background-image: url("/images/top_contact_bg_sp.webp");
     background-size: cover;
   }
   .contact__box {

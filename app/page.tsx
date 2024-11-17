@@ -73,8 +73,8 @@ const Home = () => {
 							</h2>
 						</ScrollComponent>
 						<ScrollComponent>
-							<div className="aboutTop__flx">
-								<div className="aboutTop__flx-item">
+							<div className="aboutTop_container">
+								<div className="aboutTop_container-item">
 									<ScrollComponent>
 										<div className="about_img">
 											<Image
@@ -87,7 +87,7 @@ const Home = () => {
 										</div>
 									</ScrollComponent>
 								</div>
-								<div className="aboutTop__flx-item">
+								<div className="aboutTop_container-item">
 									<ScrollComponent>
 										<h4 className="about__title">阿部 舜平</h4>
 										<div className="about__flx">
@@ -113,11 +113,11 @@ const Home = () => {
 											現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
 										</p>
 										<p className="about__text">
-											<span className="about__text__span">趣味：</span>
+											<span className="about__text-span">趣味：</span>
 											旅行、ギター
 										</p>
 										<p className="about__text">
-											<span className="about__text__span">資格：</span>
+											<span className="about__text-span">資格：</span>
 											基本情報技術者試験
 										</p>
 									</ScrollComponent>
@@ -152,11 +152,11 @@ const Home = () => {
 							History
 						</h2>
 					</ScrollComponent>
-					<dl>
+					<div>
 						<ScrollComponent>
 							<HistoryTimelines />
 						</ScrollComponent>
-					</dl>
+					</div>
 					<Link href={PATH.ABOUT} className="contact__btn padding-bottom">
 						more
 					</Link>

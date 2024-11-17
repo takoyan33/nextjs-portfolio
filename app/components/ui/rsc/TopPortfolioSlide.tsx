@@ -8,7 +8,7 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import portfolios from "../../../../api/portfolio/index.json"
+import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItemTop from "../../../components/ui/PortfolioItemTop"
 
 export const TopPortfolioSlide = () => {
@@ -31,6 +31,10 @@ export const TopPortfolioSlide = () => {
 						src="/images/prev-arrow.svg"
 						width={50}
 						height={50}
+						style={{
+							width: "100%",
+							height: "auto",
+						}}
 						alt="スライドショーのナビゲーション"
 					/>
 				)}
@@ -71,6 +75,10 @@ export const TopPortfolioSlide = () => {
 						src="/images/next-arrow.svg"
 						width={50}
 						height={50}
+						style={{
+							width: "100%",
+							height: "auto",
+						}}
 						alt="スライドショーのナビゲーション"
 					/>
 				)}

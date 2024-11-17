@@ -1,5 +1,5 @@
 import React from "react"
-import frontSkills from "../../../../api/skill/front.json"
+import frontSkills from "../../../../api/skills/front.json"
 import Skill from "../../../components/ui/Skill"
 
 export const FrontSkills = () => {
