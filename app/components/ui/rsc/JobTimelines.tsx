@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import jobs from "../../../../api/jobs/index.json"
+//import jobs from "../../../../api/jobs/index.json"
 import { fetchJobs } from "../../../../hooks/fetch"
 import Timeline from "../Timeline"
 
-export const Timelines = () => {
+export const JobTimelines = () => {
 	const [jobs, setJobs] = useState<any>([])
 
 	useEffect(() => {
@@ -22,12 +22,14 @@ export const Timelines = () => {
 		<dl>
 			{Array.isArray(jobs) &&
 				jobs.map((job, index) => (
-					<Timeline
-						key={index}
-						title={job.title}
-						date={job.date}
-						body={job.body}
-					/>
+					<div key={job.id}>
+						<Timeline
+							key={index}
+							title={job.title}
+							date={job.date}
+							body={job.body}
+						/>
+					</div>
 				))}
 		</dl>
 	)

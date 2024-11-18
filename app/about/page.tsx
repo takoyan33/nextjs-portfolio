@@ -4,8 +4,8 @@ import { PATH } from "../../utils/path"
 import BreadList from "../components/ui/BreadList"
 import { LowerTitle } from "../components/ui/LowerTitle"
 import { HistoryTimelines } from "../components/ui/rsc/HistoryTimelines"
+import { JobTimelines } from "../components/ui/rsc/JobTimelines"
 import { License } from "../components/ui/rsc/License"
-import { Timelines } from "../components/ui/rsc/Timelines"
 
 // export const metadata = {
 // 	title: "To You Design - About",
@@ -51,7 +51,7 @@ const About = () => {
 				{activeTab === "career" && (
 					<>
 						<h3 className="portfolio__headTitle">職歴</h3>
-						<Timelines />
+						<JobTimelines />
 					</>
 				)}
 			</div>

@@ -1,7 +1,7 @@
 "use client"
-import React, { useRef, useState } from "react"
-import * as THREE from "three"
 import { Canvas, useFrame } from "@react-three/fiber"
+import React, { useRef, useState } from "react"
+import type * as THREE from "three"
 
 const Cube = () => {
 	const Box = (props: JSX.IntrinsicElements["mesh"]) => {
