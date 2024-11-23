@@ -316,6 +316,7 @@ a :hover {
   }
   .max_width {
     width: 90%;
+    margin: 0 auto;
   }
   .portfolio-content {
     display: grid;
@@ -1148,7 +1149,8 @@ li {
   position: relative;
   width: 250px;
   margin-inline: auto;
-  height: 150px;
+  aspect-ratio: 16/9;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
@@ -1201,6 +1203,7 @@ li {
   font-size: 18px;
 }
 .portfolioItem__img {
+  aspect-ratio: 16/9;
   position: relative;
   width: 100%;
   margin-inline: auto;
@@ -1499,7 +1502,6 @@ dl dd h2 {
 }
 
 .portfolioDetail {
-  width: 100%;
   margin: 50px auto;
   border-radius: 1.25rem;
 }
@@ -1518,31 +1520,34 @@ dl dd h2 {
 }
 .portfolioDetail__element-topImg {
   position: relative;
-  width: 80%;
-  height: 500px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: auto;
   margin-inline: auto;
   -o-object-fit: contain;
      object-fit: contain;
   margin: 20px auto;
+  margin-bottom: 80px;
   border: 1px solid #707070;
 }
 .portfolioDetail__element-img {
   position: relative;
   width: 70%;
-  height: 400px;
+  aspect-ratio: 16/9;
+  height: auto;
   margin-inline: auto;
   -o-object-fit: contain;
      object-fit: contain;
 }
 .portfolioDetail__element-title {
   text-align: left;
+  font-size: 26px;
 }
 .portfolioDetail__element-subtitle {
   margin: 30px 0;
   text-align: left;
-  color: #4545ff;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #4545ff;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #6499ff;
   font-size: 26px;
 }
 .portfolioDetail__element-text {
@@ -1938,12 +1943,20 @@ dl dd h2 {
     width: 100%;
   }
   dl dd {
-    width: 100%;
-    padding: 0.2em 1.5em 2.5em;
+    width: 90%;
+    padding: 0;
     border-left: 0.125rem solid #ccc;
+    padding-left: 0.625rem;
+    padding-bottom: 1.25rem;
+    padding-top: 0.625rem;
+    margin-left: 20px;
   }
   dl dd h2 {
     font-size: 1.125rem;
+    width: 90%;
+  }
+  dl dd p {
+    width: 90%;
   }
   .back__btn {
     padding: 15px 12px;
@@ -1987,7 +2000,6 @@ dl dd h2 {
     opacity: 0.7;
   }
   .portfolioDetail {
-    width: 100%;
     margin-top: 30px;
     border-radius: 1.25rem;
   }
@@ -2005,17 +2017,19 @@ dl dd h2 {
     width: 45%;
   }
   .portfolioDetail__element-topImg {
+    aspect-ratio: 16/9;
     position: relative;
     width: 80%;
-    height: 300px;
+    height: auto;
     margin-inline: auto;
     -o-object-fit: cover;
        object-fit: cover;
   }
   .portfolioDetail__element-img {
+    aspect-ratio: 16/9;
     position: relative;
     width: 70%;
-    height: 300px;
+    height: auto;
     margin-inline: auto;
     -o-object-fit: contain;
        object-fit: contain;
@@ -2149,10 +2163,11 @@ dl dd h2 {
     font-size: 18px;
   }
   .portfolioItem__img {
+    aspect-ratio: 16/9;
     position: relative;
     width: 100%;
     margin-inline: auto;
-    height: 300px;
+    height: auto;
     -o-object-fit: cover;
        object-fit: cover;
     overflow: hidden;
