@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-//import jobs from "../../../../api/jobs/index.json"
 import { fetchJobs } from "../../../../hooks/fetch"
 import Timeline from "../Timeline"
 
