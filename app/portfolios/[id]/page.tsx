@@ -8,6 +8,7 @@ import portfoliosData from "../../../api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/LowerTitle"
+import { PostNavigation } from "../../components/ui/PostNavigation"
 
 const Post = () => {
 	const params = useParams()
@@ -35,7 +36,7 @@ const Post = () => {
 	return (
 		<main>
 			{portfolios ? (
-				<article>
+				<article className="portfolioDetail__top">
 					<p className="bread__title max_width">
 						<Link href="/">トップ </Link>
 						<span className="bread__arrow">
@@ -227,6 +228,12 @@ const Post = () => {
 							</div>
 						)}
 					</section>
+					<PostNavigation
+						next_title={portfolios.next_title}
+						next_article_id={portfolios.next_article_id}
+						prev_title={portfolios.prev_title}
+						prev_article_id={portfolios.prev_article_id}
+					/>
 				</article>
 			) : (
 				<div className="loading-body">

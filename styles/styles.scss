@@ -993,6 +993,7 @@ dl {
     &-tagList {
       display: flex;
       justify-content: flex-start;
+      flex-wrap: wrap;
       padding: 0;
     }
     &-link {
@@ -1095,6 +1096,20 @@ dl {
         text-align: left;
       }
     }
+  }
+}
+
+.PostNavigation {
+  display: flex;
+  border-top: 2px solid rgb(206, 206, 206);
+  border-bottom: 2px solid rgb(206, 206, 206);
+  margin: rem(30) auto;
+  margin-top: rem(120);
+  &__item {
+    width: 50%;
+    text-align: center;
+    padding: rem(20) 0;
+    color: #000081;
   }
 }
 
@@ -1337,10 +1352,6 @@ dl {
     }
   }
 
-  p {
-    text-align: center;
-  }
-
   .zenn {
     background-color: $back-color;
 
@@ -1473,6 +1484,9 @@ dl {
       background-color: white;
       border: 0px solid;
     }
+    &__top {
+      margin-top: rem(20);
+    }
     &__element {
       width: 45%;
       &-topImg {
@@ -1547,7 +1561,7 @@ dl {
     &__title {
       padding-top: 50px;
       text-align: left;
-      display: flex;
+      flex-wrap: wrap;
     }
     &__second {
       font-weight: 600;
@@ -1653,6 +1667,20 @@ dl {
     }
   }
   }
+  .PostNavigation {
+  display: flex;
+  border-top: 2px solid rgb(206, 206, 206);
+  border-bottom: 2px solid rgb(206, 206, 206);
+  margin: rem(20) auto;
+  margin-top: rem(60);
+  &__item {
+    width: 50%;
+    text-align: center;
+    padding: rem(10) 0;
+    color: #000081;
+  }
+}
+
 
   //topのcontact
   .contact {
