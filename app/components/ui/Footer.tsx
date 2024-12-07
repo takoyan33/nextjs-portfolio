@@ -41,6 +41,7 @@ export default function Footer() {
 							src="/images/common/logo.svg"
 							alt="ポートフォリオ画像"
 							className="footer__logo"
+							loading="lazy"
 						/>
 					</Link>
 				</div>

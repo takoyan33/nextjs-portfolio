@@ -76,7 +76,6 @@ export default function Header() {
 				<div
 					className={`btn-trigger ${openMenu ? "active" : ""}`}
 					id="btn01"
-					aria-label="メニューを開閉"
 					onClick={menuFunction}
 					onKeyDown={menuFunction}
 				>

@@ -152,11 +152,11 @@ a :hover {
   padding: 0.625rem;
   margin: auto;
   font-weight: bold;
-  color: #6499ff;
+  color: #4485ff;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-bottom: 0.125rem solid #6499ff;
+  border-bottom: 0.125rem solid #4485ff;
   border-radius: 100vh;
   box-shadow: 0 0.125rem 7px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
@@ -167,24 +167,24 @@ a :hover {
   padding: 0.625rem;
   margin: auto;
   font-weight: bold;
-  color: #6499ff;
+  color: #4485ff;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-bottom: 0.125rem solid #6499ff;
+  border-bottom: 0.125rem solid #4485ff;
   border-radius: 100vh;
   box-shadow: 0 0.125rem 7px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
 }
 .main__btn-long:hover {
   color: #fff;
-  background: #6499ff;
+  background: #4485ff;
   border-bottom: 0.125rem solid #fff;
   transform: translateY(3px);
 }
 .main__btn:hover {
   color: #fff;
-  background: #6499ff;
+  background: #4485ff;
   border-bottom: 0.125rem solid #fff;
   transform: translateY(3px);
 }
@@ -192,7 +192,7 @@ a :hover {
 .main__title {
   margin: 0;
   font-size: 3.75rem;
-  color: #6499ff;
+  color: #4485ff;
   text-align: left;
 }
 .main__title-white {
@@ -215,7 +215,7 @@ a :hover {
   content: attr(data-ja);
   margin: 0;
   font-size: 1.25rem;
-  color: #6499ff;
+  color: #4485ff;
   text-align: left;
   margin-bottom: 2.5rem;
 }
@@ -250,7 +250,7 @@ a :hover {
   .main__title {
     margin: 0;
     font-size: 2.125rem;
-    color: #6499ff;
+    color: #4485ff;
     text-align: left;
   }
   .main__title-white {
@@ -270,7 +270,7 @@ a :hover {
     content: attr(data-ja);
     margin: 0;
     font-size: 1.25rem;
-    color: #6499ff;
+    color: #4485ff;
     text-align: left;
     margin-bottom: 0.625rem;
   }
@@ -283,7 +283,7 @@ a :hover {
   .main__subtitle {
     margin: 0;
     font-size: 1.125rem;
-    color: #6499ff;
+    color: #4485ff;
     text-align: left;
   }
   .main__subtitle-white {
@@ -453,10 +453,10 @@ a :hover {
   transition: color 0.3s;
 }
 .header li a:hover {
-  color: #6499ff;
+  color: #4485ff;
 }
 .header_btn_contact {
-  background-color: #6499ff;
+  background-color: #4485ff;
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
@@ -488,7 +488,7 @@ a :hover {
   z-index: -100;
   width: 100%;
   height: 0;
-  background-color: #6499ff;
+  background-color: #4485ff;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -548,7 +548,7 @@ a :hover {
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: #6499ff;
+    background-color: #4485ff;
     border-radius: 4px;
   }
   .btn-trigger,
@@ -643,7 +643,7 @@ a :hover {
     z-index: -100;
     width: 100%;
     height: 0;
-    background-color: #6499ff;
+    background-color: #4485ff;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -806,7 +806,7 @@ a :hover {
   overflow: hidden;
   font-size: 35px;
   line-height: 40px;
-  color: #6499ff;
+  color: #4485ff;
   position: relative;
   top: 15rem;
 }
@@ -818,7 +818,7 @@ a :hover {
 .content__container:after, .content__container:before {
   position: absolute;
   top: 0;
-  color: #6499ff;
+  color: #4485ff;
   font-size: 42px;
   line-height: 40px;
   -webkit-animation-name: opacity;
@@ -1061,7 +1061,7 @@ li {
   top: 9.375rem;
   font-family: futura-pt-bold, sans-serif;
   font-size: 3.75rem;
-  color: #6499ff;
+  color: #4485ff;
   text-align: left;
   letter-spacing: 4px;
   margin: 0.625rem auto;
@@ -1072,7 +1072,7 @@ li {
   margin-inline: auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 2.5rem;
-  color: #6499ff;
+  color: #4485ff;
   text-align: left;
   letter-spacing: 4px;
 }
@@ -1136,8 +1136,8 @@ li {
   padding: 2px 5px;
   margin: 11px 2px;
   font-size: 14px;
-  color: #6499ff;
-  border: 1px solid #6499ff;
+  color: #4485ff;
+  border: 1px solid #4485ff;
   border-radius: 10px;
 }
 .portfolio__title {
@@ -1193,8 +1193,8 @@ li {
   padding-bottom: 4px;
   margin: 11px 2px;
   font-size: 14px;
-  color: #6499ff;
-  border: 1px solid #6499ff;
+  color: #4485ff;
+  border: 1px solid #4485ff;
   border-radius: 10px;
 }
 .portfolioItem__title {
@@ -1207,7 +1207,7 @@ li {
   position: relative;
   width: 100%;
   margin-inline: auto;
-  height: 200px;
+  height: 162px;
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
@@ -1240,8 +1240,8 @@ li {
   padding: 2px 5px;
   margin: 11px 2px;
   font-size: 14px;
-  color: #6499ff;
-  border: 1px solid #6499ff;
+  color: #4485ff;
+  border: 1px solid #4485ff;
   border-radius: 10px;
 }
 .zenn__title {
@@ -1256,7 +1256,7 @@ li {
 }
 
 .footer {
-  border-top: 2px solid #6499ff;
+  border-top: 2px solid #4485ff;
 }
 .footer__container {
   display: flex;
@@ -1283,7 +1283,7 @@ li {
   width: 100%;
   padding: 0.625rem;
   margin: 0;
-  color: gray;
+  color: rgb(59, 59, 59);
   font-weight: 600;
   font-size: 16px;
   text-align: center;
@@ -1335,7 +1335,7 @@ li {
   transition: background 0.3s;
 }
 .tab-buttons button.active {
-  background: #6499ff;
+  background: #4485ff;
   color: #fff;
 }
 .tab-buttons button:hover {
@@ -1344,7 +1344,7 @@ li {
 
 .size {
   margin-top: 40px;
-  color: #6499ff;
+  color: #4485ff;
 }
 
 .skill {
@@ -1400,7 +1400,7 @@ dl dt:after {
   top: 0.3125rem;
   right: -0.55em;
   font-size: 22px;
-  color: #6499ff;
+  color: #4485ff;
   content: "●";
 }
 dl dd {
@@ -1547,7 +1547,7 @@ dl dd h2 {
   margin: 30px 0;
   text-align: left;
   padding-bottom: 10px;
-  border-bottom: 2px solid #6499ff;
+  border-bottom: 2px solid #4485ff;
   font-size: 26px;
 }
 .portfolioDetail__element-text {
@@ -1564,8 +1564,8 @@ dl dd h2 {
   display: inline;
   padding: 5px 10px;
   margin: 0px 10px;
-  color: #6499ff;
-  border: 1px solid #6499ff;
+  color: #4485ff;
+  border: 1px solid #4485ff;
   border-radius: 20px;
 }
 .portfolioDetail__element-tagList {
@@ -1611,7 +1611,7 @@ dl dd h2 {
   margin-bottom: 25px;
 }
 .contact__btn {
-  background-color: #6499ff;
+  background-color: #4485ff;
   color: white;
   font-weight: bold;
   padding: 10px 20px;
@@ -1707,8 +1707,8 @@ dl dd h2 {
     padding: 2px 5px;
     margin: 11px 2px;
     font-size: 14px;
-    color: #6499ff;
-    border: 1px solid #6499ff;
+    color: #4485ff;
+    border: 1px solid #4485ff;
     border-radius: 10px;
   }
   .portfolio__title {
@@ -1718,9 +1718,9 @@ dl dd h2 {
   }
   .portfolio__img {
     position: relative;
-    width: 200px;
+    width: 192px;
     margin-inline: auto;
-    height: 150px;
+    height: 108px;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1728,8 +1728,8 @@ dl dd h2 {
     border-radius: 10px;
   }
   .about_img {
-    height: 230px;
-    width: 300px;
+    height: 180px;
+    width: 320px;
     margin-inline: auto;
   }
   .skill__title {
@@ -1821,7 +1821,7 @@ dl dd h2 {
 @media screen and (max-width: 580px) {
   .size {
     margin-top: 1.25rem;
-    color: #6499ff;
+    color: #4485ff;
   }
   .skill__svg {
     width: 50px !important;
@@ -1911,7 +1911,7 @@ dl dd h2 {
   }
   .zenn__date {
     font-size: 0.875rem;
-    color: #6499ff;
+    color: #4485ff;
   }
   .zenn__tag {
     display: inline-block;
@@ -1919,8 +1919,8 @@ dl dd h2 {
     padding: 2px 5px;
     margin: 11px 2px;
     font-size: 14px;
-    color: #6499ff;
-    border: 1px solid #6499ff;
+    color: #4485ff;
+    border: 1px solid #4485ff;
     border-radius: 20px;
   }
   .zenn__title {
@@ -1997,7 +1997,7 @@ dl dd h2 {
   }
   .modalBox__element__img {
     width: 100%;
-    height: 200px;
+    height: 162px;
     -o-object-fit: contain;
        object-fit: contain;
     border: 1px solid gray;
@@ -2070,8 +2070,8 @@ dl dd h2 {
     display: inline-block;
     padding: 5px 10px;
     margin: 5px 2px;
-    color: #6499ff;
-    border: 1px solid #6499ff;
+    color: #4485ff;
+    border: 1px solid #4485ff;
     border-radius: 20px;
   }
   .portfolioDetail__element-tagList {
@@ -2127,7 +2127,7 @@ dl dd h2 {
   }
   .portfolio__date {
     font-size: 0.875rem;
-    color: #6499ff;
+    color: #4485ff;
     margin: 6px 0px;
   }
   .portfolio__tag {
@@ -2136,8 +2136,8 @@ dl dd h2 {
     padding: 2px 5px;
     margin: 4px 2px;
     font-size: 14px;
-    color: #6499ff;
-    border: 1px solid #6499ff;
+    color: #4485ff;
+    border: 1px solid #4485ff;
     border-radius: 20px;
   }
   .portfolio__title {
@@ -2145,9 +2145,9 @@ dl dd h2 {
   }
   .portfolio__img {
     position: relative;
-    width: 190px;
+    width: 192px;
     margin-inline: auto;
-    height: 130px;
+    height: 108px;
     -o-object-fit: contain;
        object-fit: contain;
   }
@@ -2168,8 +2168,8 @@ dl dd h2 {
     padding-bottom: 4px;
     margin: 11px 2px;
     font-size: 14px;
-    color: #6499ff;
-    border: 1px solid #6499ff;
+    color: #4485ff;
+    border: 1px solid #4485ff;
     border-radius: 10px;
   }
   .portfolioItem__title {
@@ -2231,7 +2231,7 @@ dl dd h2 {
     margin-bottom: 25px;
   }
   .contact__btn {
-    background-color: #6499ff;
+    background-color: #4485ff;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
