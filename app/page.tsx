@@ -9,6 +9,7 @@ import ScrollComponent from "../hooks/useFadeIn"
 import { socialLinks } from "../utils/data"
 import { PATH } from "../utils/path"
 import ThreeModel from "./components/parts/ThreeModel"
+import { CommonHead } from "./components/ui/CommonHead"
 import WaveBgBottom from "./components/ui/WaveBgBottom"
 import WaveBgTop from "./components/ui/WaveBgTop"
 import { BackSkills } from "./components/ui/rsc/BackSkills"
@@ -36,20 +37,10 @@ const Home = () => {
 
 	return (
 		<div>
-			<Head>
-				<title>To You Design</title>
-				<link rel="icon" href="/favicon.ico" />
-				<Script
-					src="https://kit.fontawesome.com/bb61864944.js"
-					crossOrigin="anonymous"
-					strategy="afterInteractive"
-				/>
-				<meta name="google" content="nositelinkssearchbox" key="sitelinks" />
-				<meta name="google" content="notranslate" key="notranslate" />
-			</Head>
+			<CommonHead />
 			<main aria-label="本文">
 				{/* ここからfv */}
-				<div className="fv">
+				<section className="fv">
 					<div className="max_width fv__container">
 						<div className="fv__element">
 							<h2 className="fv__title slide__in__right">To You Design</h2>
@@ -63,9 +54,9 @@ const Home = () => {
 							</ScrollComponent>
 						</div>
 					</div>
-				</div>
+				</section>
 				{/* ここからabout */}
-				<div className="about">
+				<section className="about">
 					<div className="max_width">
 						<ScrollComponent>
 							<h2 className="main__title" data-ja="To You Designについて">
@@ -89,7 +80,7 @@ const Home = () => {
 								</div>
 								<div className="aboutTop_container-item">
 									<ScrollComponent>
-										<h4 className="about__title">阿部 舜平</h4>
+										<p className="about__title">阿部 舜平</p>
 										<div className="about__flx">
 											{socialLinks.map((link) => (
 												<Link key={link.href} href={link.href} target="_blank">
@@ -125,10 +116,10 @@ const Home = () => {
 							</div>
 						</ScrollComponent>
 					</div>
-				</div>
+				</section>
 				{/*  ここからポートフォリオ*/}
 				<WaveBgTop />
-				<div className="portfolio">
+				<section className="portfolio">
 					<div className="max_width">
 						<ScrollComponent>
 							<h2 className="main__title" data-ja="ポートフォリオ">
@@ -139,14 +130,14 @@ const Home = () => {
 						<ScrollComponent>
 							<TopPortfolioSlide />
 							<Link href={PATH.PORTFOLIO} className="contact__btn">
-								more
+								ポートフォリオをさらに見る
 							</Link>
 						</ScrollComponent>
 					</div>
-				</div>
+				</section>
 				<WaveBgBottom />
 				{/*ここから学歴*/}
-				<div className="max_width">
+				<section className="max_width">
 					<ScrollComponent>
 						<h2 className="main__title" data-ja="過去の経歴">
 							History
@@ -158,12 +149,12 @@ const Home = () => {
 						</ScrollComponent>
 					</div>
 					<Link href={PATH.ABOUT} className="contact__btn padding-bottom">
-						more
+						経歴をさらに見る
 					</Link>
-				</div>
+				</section>
 				<WaveBgTop />
 				{/* ここからSKill*/}
-				<div className="skill">
+				<section className="skill">
 					<div className="max_width">
 						<ScrollComponent>
 							<h2 className="main__title" data-ja="スキルセット">
@@ -171,28 +162,28 @@ const Home = () => {
 							</h2>
 						</ScrollComponent>
 
-						<h4 className="skill__title">Frontend</h4>
+						<h3 className="skill__title">Frontend</h3>
 						<ScrollComponent>
 							<FrontSkills />
 						</ScrollComponent>
-						<h4 className="skill__title">Backend</h4>
+						<h3 className="skill__title">Backend</h3>
 						<ScrollComponent>
 							<BackSkills />
 						</ScrollComponent>
-						<h4 className="skill__title">Infra</h4>
+						<h3 className="skill__title">Infra</h3>
 						<ScrollComponent>
 							<InfraSkills />
 						</ScrollComponent>
-						<h4 className="skill__title">Other</h4>
+						<h3 className="skill__title">Other</h3>
 						<ScrollComponent>
 							<OtherSkills />
 						</ScrollComponent>
 					</div>
-				</div>
+				</section>
 				<WaveBgBottom />
 				{/* <TopZennArticle /> */}
 				{/* ここからcontact*/}
-				<div className="contact">
+				<section className="contact">
 					<div className="max_width">
 						<ScrollComponent>
 							<h2 className="main__title-white" data-ja="お問い合わせ">
@@ -212,7 +203,7 @@ const Home = () => {
 							</div>
 						</ScrollComponent>
 					</div>
-				</div>
+				</section>
 			</main>
 			{showBackButton && (
 				<button
