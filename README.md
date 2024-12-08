@@ -46,6 +46,9 @@
 - [Vitest](https://vitejs.dev/guide/features.html) 2.1.1
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 10.4.0
 
+### 分析
+- [Google Analytics](https://developers.google.com/analytics?hl=ja)
+
 ### ホスティング
 
 Vercel
