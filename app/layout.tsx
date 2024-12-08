@@ -12,7 +12,7 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-	const gaId = "G-R47KRGK42T"
+	const gaId = process.env.NEXT_PUBLIC_GATAG
 	return (
 		<html lang="ja">
 			<head>
