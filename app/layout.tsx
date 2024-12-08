@@ -1,5 +1,6 @@
 import "../styles/styles.css"
 import type { NextPage } from "next"
+import Script from "next/script"
 import type React from "react"
 import { RecoilRoot } from "recoil"
 import Footer from "./components/ui/Footer"
@@ -11,8 +12,24 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+	const gaId = "G-R47KRGK42T"
 	return (
 		<html lang="ja">
+			<head>
+				<Script
+					src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+					strategy="afterInteractive"
+					async
+				/>
+				<Script id="google-analytics" strategy="afterInteractive">
+					{`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}');
+          `}
+				</Script>
+			</head>
 			<body>
 				<Header />
 				{children}
