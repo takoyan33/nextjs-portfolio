@@ -18,22 +18,6 @@ export const CommonHead: React.VFC = React.memo(() => {
 				crossOrigin="anonymous"
 				strategy="afterInteractive"
 			/> */}
-			<script
-				async
-				src="https://www.googletagmanager.com/gtag/js?id=G-R47KRGK42T"
-			/>
-			<script
-				dangerouslySetInnerHTML={{
-					__html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                page_path: window.location.pathname,
-              });
-            `,
-				}}
-			/>
 			<meta name="description" content={description} />
 			<meta property="og:url" content={url} />
 			<meta property="og:title" content={title} />
