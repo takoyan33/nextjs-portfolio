@@ -3,6 +3,7 @@ import type { NextPage } from "next"
 import Script from "next/script"
 import type React from "react"
 import { RecoilRoot } from "recoil"
+import { Clarity } from "../utils/clarity"
 import Footer from "./components/ui/Footer"
 import Header from "./components/ui/Header"
 
@@ -29,6 +30,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             gtag('config', '${gaId}');
           `}
 				</Script>
+				<Clarity />
 			</head>
 			<body>
 				<Header />
