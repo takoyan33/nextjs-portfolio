@@ -92,7 +92,7 @@ export default function Header() {
 								href={item.link}
 								onClick={() => handleMenuItemClick(item.link)}
 							>
-								<p className="mainTitle">{item.title}</p>
+								<span className="mainTitle">{item.title}</span>
 							</Link>
 						</li>
 					))}

@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import React, { useState, useEffect } from "react"
+import Modal from "react-modal"
 import portfoliosData from "../../../api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
@@ -26,6 +27,57 @@ const Post = () => {
 			console.error("Error fetching portfolios:", error)
 		}
 	}
+	//サムネイル
+	const [isOpen, setIsOpen] = useState(false)
+
+	const openModal = () => {
+		setIsOpen(true)
+		document.body.classList.add("modal-open") // Prevent background scroll
+	}
+
+	const closeModal = () => {
+		setIsOpen(false)
+		document.body.classList.remove("modal-open") // Re-enable background scroll
+	}
+
+	//About
+	const [isOpen2, setIsOpen2] = useState(false)
+
+	const openModal2 = () => {
+		setIsOpen2(true)
+		document.body.classList.add("modal-open") // Prevent background scroll
+	}
+
+	const closeModal2 = () => {
+		setIsOpen2(false)
+		document.body.classList.remove("modal-open") // Re-enable background scroll
+	}
+
+	//function
+	const [isOpen4, setIsOpen4] = useState(false)
+
+	const openModal4 = () => {
+		setIsOpen4(true)
+		document.body.classList.add("modal-open") // Prevent background scroll
+	}
+
+	const closeModal4 = () => {
+		setIsOpen4(false)
+		document.body.classList.remove("modal-open") // Re-enable background scroll
+	}
+
+	//appeal
+	const [isOpen3, setIsOpen3] = useState(false)
+
+	const openModal3 = () => {
+		setIsOpen3(true)
+		document.body.classList.add("modal-open") // Prevent background scroll
+	}
+
+	const closeModal3 = () => {
+		setIsOpen3(false)
+		document.body.classList.remove("modal-open") // Re-enable background scroll
+	}
 
 	useEffect(() => {
 		if (id) {
@@ -37,7 +89,7 @@ const Post = () => {
 		<main>
 			{portfolios ? (
 				<article className="portfolioDetail__top">
-					<p className="bread__title max_width">
+					<div className="bread__title max_width">
 						<Link href="/">トップ </Link>
 						<span className="bread__arrow">
 							<Image
@@ -65,7 +117,7 @@ const Post = () => {
 							/>
 						</span>
 						<span className="bread__title-span">{portfolios.name}</span>
-					</p>
+					</div>
 					<LowerTitle title="Portfolio" enTitle="制作物" />
 					<section className="portfolioDetail max_width">
 						<p className="portfolioDetail__element-date">{portfolios.date}</p>
@@ -79,17 +131,43 @@ const Post = () => {
 								</li>
 							))}
 						</ul>
+
 						<div className="portfolioDetail__element-topImg">
-							{portfolios.topImg && (
+							<button onClick={openModal} type="button">
+								{portfolios.topImg && (
+									<Image
+										src={portfolios.topImg}
+										fill
+										sizes="(min-width: 768px) 50vw"
+										priority
+										alt="ポートフォリオ画像"
+									/>
+								)}
+							</button>
+						</div>
+						<Modal
+							isOpen={isOpen}
+							onRequestClose={closeModal}
+							contentLabel="Portfolio Image Modal"
+							className="modal"
+							overlayClassName="overlay"
+						>
+							<button
+								onClick={closeModal}
+								className="modal-close"
+								type="button"
+							>
+								&times;
+							</button>
+							<div className="modal-content">
 								<Image
 									src={portfolios.topImg}
-									fill
-									sizes="(min-width: 768px) 50vw"
-									priority
+									width={800}
+									height={600}
 									alt="ポートフォリオ画像"
 								/>
-							)}
-						</div>
+							</div>
+						</Modal>
 						<h3 className="portfolioDetail__element-subtitle">About</h3>
 						<div className="portfolioDetail__element-img">
 							{portfolios.aboutImg && (
