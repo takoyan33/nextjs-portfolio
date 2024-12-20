@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type React from "react"
 
-interface PostNavigationeProps {
+interface PostNavigationProps {
 	next_title?: string
 	next_article_id?: string
 	prev_title?: string
@@ -13,7 +13,7 @@ export const PostNavigation = ({
 	next_article_id,
 	prev_title,
 	prev_article_id,
-}: PostNavigationeProps) => {
+}: PostNavigationProps) => {
 	return (
 		<div className="PostNavigation max_width">
 			<div className="PostNavigation__item">

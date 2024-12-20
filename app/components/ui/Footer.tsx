@@ -2,6 +2,7 @@ import Link from "next/link"
 import { PATH } from "../../../utils/path"
 
 export default function Footer() {
+	// 現在の年度
 	const currentYear = new Date().getFullYear()
 
 	type MenuItem = {
@@ -10,6 +11,7 @@ export default function Footer() {
 		link: string
 	}
 
+	// Footerメニュー
 	const MENU_ITEMS: MenuItem[] = [
 		{
 			id: 1,

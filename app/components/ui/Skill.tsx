@@ -14,16 +14,16 @@ type SkillProps = {
 export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
 	const dialogRef = useRef<any>(null)
 
-	function handleOpen() {
-		dialogRef.current?.show()
-		document.body.style.overflow = "hidden"
-		document.body.classList.add("modal-open")
-	}
+	// function handleOpen() {
+	// 	dialogRef.current?.show()
+	// 	document.body.style.overflow = "hidden"
+	// 	document.body.classList.add("modal-open")
+	// }
 
-	function handleClose() {
-		dialogRef.current?.close()
-		document.body.style.overflow = ""
-	}
+	// function handleClose() {
+	// 	dialogRef.current?.close()
+	// 	document.body.style.overflow = ""
+	// }
 	return (
 		<div className="skill__element">
 			{/* <button onClick={handleOpen} className='skill__flx_el_button'> */}

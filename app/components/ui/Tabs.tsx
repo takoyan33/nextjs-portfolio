@@ -1,5 +1,4 @@
 import { useState } from "react"
-// import { css } from "@emotion/react";
 import React from "react"
 
 type TabProps = {
@@ -12,15 +11,7 @@ const Tabs = ({ tabs }: TabProps) => {
 	return (
 		<div>
 			{tabs.map((tab) => (
-				<button
-					type="button"
-					key={tab}
-					onClick={() => setActiveTab(tab)}
-					// css={css`
-					//   background-color: ${tab === activeTab ? "blue" : "white"};
-					//   color: ${tab === activeTab ? "white" : "black"};
-					// `}
-				>
+				<button type="button" key={tab} onClick={() => setActiveTab(tab)}>
 					{tab}
 				</button>
 			))}

@@ -1,12 +1,10 @@
 "use client"
-import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import Script from "next/script"
 import React, { useState, useEffect } from "react"
 import { Suspense } from "react"
 import ScrollComponent from "../hooks/useFadeIn"
-import { socialLinks } from "../utils/data"
+import { SOCIAL_LINKS } from "../utils/data"
 import { PATH } from "../utils/path"
 import ThreeModel from "./components/parts/ThreeModel"
 import { CommonHead } from "./components/ui/CommonHead"
@@ -82,7 +80,7 @@ const Home = () => {
 									<ScrollComponent>
 										<p className="about__title">阿部 舜平</p>
 										<div className="about__flx">
-											{socialLinks.map((link) => (
+											{SOCIAL_LINKS.map((link) => (
 												<Link key={link.href} href={link.href} target="_blank">
 													<Image
 														src={link.src}
