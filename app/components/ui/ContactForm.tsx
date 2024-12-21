@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { emailjsConfig } from "../../../utils/Emailjs"
 import { CommonLabel } from "./CommonLabel"
 
-const Index = () => {
+const ContactForm = () => {
 	const [name, setName] = useState<string>("")
 	const [email, setEmail] = useState<string>("")
 	const [message, setMessage] = useState<string>("")
@@ -118,4 +118,4 @@ const Index = () => {
 	)
 }
 
-export default Index
+export default ContactForm

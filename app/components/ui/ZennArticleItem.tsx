@@ -18,6 +18,7 @@ export default function ZennArticleItem({
 	zenn_emoji,
 	zenn_path,
 }: ZennArticleItemProps) {
+	//日付のフォーマット
 	const formatDate = (dateString) => {
 		const date = new Date(dateString)
 		const year = date.getFullYear()

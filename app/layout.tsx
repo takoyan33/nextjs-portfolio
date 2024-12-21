@@ -1,9 +1,9 @@
 import "../styles/styles.css"
-import type { NextPage } from "next"
+import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import Script from "next/script"
 import type React from "react"
-import { RecoilRoot } from "recoil"
+// import { RecoilRoot } from "recoil"
 import { Clarity } from "../utils/clarity"
 import Footer from "./components/ui/Footer"
 import Header from "./components/ui/Header"
@@ -33,6 +33,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				</Script>
 				<Clarity />
 			</head>
+			<GoogleTagManager gtmId="GTM-WND4GDPL" />
 			<body>
 				<Header />
 				{children}
