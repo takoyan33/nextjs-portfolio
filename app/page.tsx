@@ -46,7 +46,7 @@ const Home = () => {
 						</div>
 						<div className="fv__element">
 							<ScrollComponent>
-								<Suspense fallback={<div>Loading...</div>}>
+								<Suspense fallback={<>.</>}>
 									<ThreeModel />
 								</Suspense>
 							</ScrollComponent>

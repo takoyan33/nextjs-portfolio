@@ -8,6 +8,7 @@ import Modal from "react-modal"
 import portfoliosData from "../../../api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
+import { CommonModal } from "../../components/ui/CommonModal"
 import { LowerTitle } from "../../components/ui/LowerTitle"
 import { PostNavigation } from "../../components/ui/PostNavigation"
 
@@ -127,8 +128,8 @@ const Post = () => {
 							{portfolios.name}
 						</h2>
 						<ul className="portfolioDetail__element-tagList">
-							{portfolios.tag.map((skill, index) => (
-								<li className="portfolioDetail__element-tag" key={index}>
+							{portfolios.tag.map((skill) => (
+								<li className="portfolioDetail__element-tag" key={skill}>
 									#{skill}
 								</li>
 							))}
@@ -142,76 +143,79 @@ const Post = () => {
 										fill
 										sizes="(min-width: 768px) 50vw"
 										priority
-										alt="ポートフォリオ画像"
+										alt="ポートフォリオのトップ画像"
 									/>
 								)}
 							</button>
 						</div>
-						<Modal
+						<CommonModal
 							isOpen={isOpen}
-							onRequestClose={closeModal}
-							contentLabel="Portfolio Image Modal"
-							className="modal"
-							overlayClassName="overlay"
-						>
-							<button
-								onClick={closeModal}
-								className="modal-close"
-								type="button"
-							>
-								&times;
-							</button>
-							<div className="modal-content">
-								<Image
-									src={portfolios.topImg}
-									width={800}
-									height={600}
-									alt="ポートフォリオ画像"
-								/>
-							</div>
-						</Modal>
+							closeModal={closeModal}
+							img={portfolios.topImg}
+						/>
 						<h3 className="portfolioDetail__element-subtitle">About</h3>
 						<div className="portfolioDetail__element-img">
-							{portfolios.aboutImg && (
-								<Image
-									src={portfolios.aboutImg}
-									className="portfolioDetail__element-img"
-									alt="ポートフォリオ画像"
-									fill
-									sizes="(min-width: 768px) 50vw, 100vw"
-								/>
-							)}
+							<button onClick={openModal2} type="button">
+								{portfolios.aboutImg && (
+									<Image
+										src={portfolios.aboutImg}
+										className="portfolioDetail__element-img"
+										alt="ポートフォリオの概要画像"
+										fill
+										sizes="(min-width: 768px) 50vw, 100vw"
+									/>
+								)}
+							</button>
 						</div>
+						<CommonModal
+							isOpen={isOpen2}
+							closeModal={closeModal2}
+							img={portfolios.aboutImg}
+						/>
 						<p className="portfolioDetail__element-text">
 							{parse(portfolios?.about)}
 						</p>
 						<h3 className="portfolioDetail__element-subtitle">機能一覧</h3>
 						<div className="portfolioDetail__element-img">
-							{portfolios?.functionImg && (
-								<Image
-									src={portfolios.functionImg}
-									className="portfolioDetail__element-img"
-									alt="ポートフォリオ画像"
-									fill
-									sizes="(min-width: 768px) 50vw, 100vw"
-								/>
-							)}
+							<button onClick={openModal3} type="button">
+								{portfolios?.functionImg && (
+									<Image
+										src={portfolios.functionImg}
+										className="portfolioDetail__element-img"
+										alt="ポートフォリオの機能一覧画像"
+										fill
+										sizes="(min-width: 768px) 50vw, 100vw"
+									/>
+								)}
+							</button>
 						</div>
+						<CommonModal
+							isOpen={isOpen3}
+							closeModal={closeModal3}
+							img={portfolios.functionImg}
+						/>
 						<p className="portfolioDetail__element-text">
 							{parse(portfolios?.function)}
 						</p>
 						<h3 className="portfolioDetail__element-subtitle">アピール</h3>
 						<div className="portfolioDetail__element-img">
-							{portfolios?.appealImg && (
-								<Image
-									src={portfolios.appealImg}
-									className="portfolioDetail__element-img"
-									alt="ポートフォリオ画像"
-									fill
-									sizes="(min-width: 768px) 50vw, 100vw"
-								/>
-							)}
+							<button onClick={openModal4} type="button">
+								{portfolios?.appealImg && (
+									<Image
+										src={portfolios.appealImg}
+										className="portfolioDetail__element-img"
+										alt="ポートフォリオのアピール画像"
+										fill
+										sizes="(min-width: 768px) 50vw, 100vw"
+									/>
+								)}
+							</button>
 						</div>
+						<CommonModal
+							isOpen={isOpen4}
+							closeModal={closeModal4}
+							img={portfolios.appealImg}
+						/>
 						<p className="portfolioDetail__element-text">
 							{parse(portfolios?.appeal)}
 						</p>
@@ -224,8 +228,8 @@ const Post = () => {
 							<h3 className="portfolioDetail__element-subtitle">使用技術</h3>
 							<h4>フロントエンド</h4>
 							<ul className="portfolioDetail__element-tagList">
-								{portfolios.front_skill.map((skill, index) => (
-									<li className="portfolioDetail__element-tag" key={index}>
+								{portfolios.front_skill.map((skill) => (
+									<li className="portfolioDetail__element-tag" key={skill}>
 										{skill}
 									</li>
 								))}
@@ -234,8 +238,8 @@ const Post = () => {
 								<div>
 									<h4>バックエンド</h4>
 									<ul className="portfolioDetail__element-tagList">
-										{portfolios.back_skill.map((skill, index) => (
-											<li className="portfolioDetail__element-tag" key={index}>
+										{portfolios.back_skill.map((skill) => (
+											<li className="portfolioDetail__element-tag" key={skill}>
 												{skill}
 											</li>
 										))}
@@ -246,8 +250,8 @@ const Post = () => {
 								<div>
 									<h4>インフラ</h4>
 									<ul className="portfolioDetail__element-tagList">
-										{portfolios.infra_skill.map((skill, index) => (
-											<li className="portfolioDetail__element-tag" key={index}>
+										{portfolios.infra_skill.map((skill) => (
+											<li className="portfolioDetail__element-tag" key={skill}>
 												{skill}
 											</li>
 										))}
@@ -316,20 +320,34 @@ const Post = () => {
 					/>
 				</article>
 			) : (
-				<div className="loading-body">
-					<p className="bread__title max_width">
-						<Link href="/">トップ </Link> ＞
-						<Link href={PATH.PORTFOLIO}> Portfolio </Link>
-					</p>
-					<LowerTitle title="Portfolio" enTitle="制作物" />
-					<div className="loading">
-						<div className="spinner-box">
-							<div className="circle-border">
-								<div className="circle-core" />
+				<article className="portfolioDetail__top">
+					<div className="loading-body">
+						<p className="bread__title max_width">
+							<Link href="/">トップ </Link>
+							<span className="bread__arrow">
+								<Image
+									src="/images/next-arrow.svg"
+									width={15}
+									height={15}
+									style={{
+										width: "100%",
+										height: "auto",
+									}}
+									alt="スライドショーのナビゲーション"
+								/>
+							</span>
+							<Link href={PATH.PORTFOLIO}> Portfolio </Link>
+						</p>
+						<LowerTitle title="Portfolio" enTitle="制作物" />
+						<div className="loading">
+							<div className="spinner-box">
+								<div className="circle-border">
+									<div className="circle-core" />
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</article>
 			)}
 		</main>
 	)

@@ -1730,25 +1730,10 @@ dl dd h2 {
   color: #000081;
 }
 
-/* Modal overlay styling */
-.overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
 body.modal-open {
   overflow: hidden;
 }
 
-/* Modal overlay styling */
 .overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
@@ -1762,10 +1747,9 @@ body.modal-open {
   z-index: 1000;
 }
 
-/* Modal content styling */
 .modal {
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
   max-width: 95%;
   max-height: 95%;
@@ -1782,9 +1766,9 @@ body.modal-open {
   font-size: 1.5rem;
   cursor: pointer;
 }
-
-.modal-content img {
-  max-width: 100%;
+.modal-close img {
+  max-width: 1100px;
+  width: 100%;
   height: auto;
 }
 
@@ -2115,6 +2099,34 @@ body.modal-open {
   }
   .modalBox__element__link:hover {
     opacity: 0.7;
+  }
+  .modal {
+    background: white;
+    padding: 0;
+    border-radius: 10px;
+    max-width: 95%;
+    max-height: 95%;
+    overflow: auto;
+    position: relative;
+  }
+  .modal img {
+    height: 400px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .modal-close img {
+    max-width: 1100px;
+    width: 100%;
+    height: 200px;
   }
   .portfolioDetail {
     margin-top: 30px;
