@@ -1,15 +1,15 @@
 import {
-	faHtml5,
+	faAws,
+	faBitbucket,
 	faCss3,
-	faReact,
-	faVuejs,
-	faUnity,
+	faFigma,
+	faGithub,
+	faHtml5,
 	faJs,
 	faPhp,
-	faAws,
-	faGithub,
-	faBitbucket,
-	faFigma,
+	faReact,
+	faUnity,
+	faVuejs,
 	faWordpress,
 } from "@fortawesome/free-brands-svg-icons"
 import { faGem } from "@fortawesome/free-regular-svg-icons"

@@ -1,33 +1,33 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from "react"
 
 const ScrollComponent = ({ children }) => {
-  const ref = useRef(null)
+	const ref = useRef(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-        } else {
-          // entry.target.classList.remove('is-visible')
-        }
-      })
-    })
+	useEffect(() => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("is-visible")
+				} else {
+					// entry.target.classList.remove('is-visible')
+				}
+			})
+		})
 
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
+		if (ref.current) {
+			observer.observe(ref.current)
+		}
 
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
+		return () => {
+			observer.disconnect()
+		}
+	}, [])
 
-  return (
-    <div ref={ref} className='fade-in'>
-      {children}
-    </div>
-  )
+	return (
+		<div ref={ref} className="fade-in">
+			{children}
+		</div>
+	)
 }
 
 export default ScrollComponent

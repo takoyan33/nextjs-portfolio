@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import React from "react"
 import { PATH } from "../../utils/path"
 import BreadList from "../components/ui/BreadList"
 import { LowerTitle } from "../components/ui/LowerTitle"

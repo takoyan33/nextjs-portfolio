@@ -1,12 +1,12 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 // import backSkills from "../../../../api/skills/back.json"
 import { fetchBackSkills } from "../../../../hooks/fetch"
 import Skill from "../Skill"
 
 export const BackSkills = () => {
-	const [backSkills, setBackSkills] = React.useState<any>([])
+	const [backSkills, setBackSkills] = useState<any>([])
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const data = await fetchBackSkills()

@@ -1,7 +1,7 @@
-import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei"
+import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef } from "react"
-import { Group } from "three"
+import type { Group } from "three"
 
 const Model = ({
 	url,

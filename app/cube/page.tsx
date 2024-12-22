@@ -1,6 +1,6 @@
 "use client"
 import { Canvas, useFrame } from "@react-three/fiber"
-import React, { useRef, useState } from "react"
+import { useRef, useState } from "react"
 import type * as THREE from "three"
 
 const Cube = () => {

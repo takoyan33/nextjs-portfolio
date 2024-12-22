@@ -21,9 +21,9 @@ export const OtherSkills = () => {
 	return (
 		<div className="skill__container">
 			{Array.isArray(otherSkills) &&
-				otherSkills.map((skill, index) => (
+				otherSkills.map((skill) => (
 					<Skill
-						key={index}
+						key={skill}
 						name={skill.name}
 						rank={skill.rank}
 						tag={skill.tag}

@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import React from "react"
-import type { NextPage } from "next"
 
 export const metadata: Metadata = {
 	title: "404",

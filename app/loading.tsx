@@ -1,4 +1,3 @@
-import React from "react"
 import { PATH } from "../utils/path"
 import BreadList from "./components/ui/BreadList"
 
