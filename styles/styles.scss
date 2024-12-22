@@ -477,23 +477,23 @@ li {
   z-index: -1;
 }
 
+//戻るボタン
 .back__btn {
   position: fixed;
   background-color: #6499ff;
   padding: 25px 22px;
   color: white;
-  border: 0px solid;
+  border: 0 solid;
   cursor: pointer;
   font-size: rem(20);
   bottom: 0;
   z-index: 10;
   right: 0;
+  width: 80px;
+  &:hover {
+    opacity: 0.7;
+  }
 }
-
-.back__btn:hover {
-  opacity: 0.7;
-}
-
 // ポートフォリオ
 .portfolio {
   background-color: $back-color;
