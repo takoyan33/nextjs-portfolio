@@ -18,22 +18,22 @@ export default function PortfolioItem({
 	portfolio_topImg,
 }: PortfolioItemProps) {
 	return (
-		<div className="portfolioFlx_el portfolioItem">
-			<Link href={`portfolios/${portfolio_id}`} className="portfolioItem__link">
-				<div className="portfolioItem__img">
+		<div className='portfolioFlx_el portfolioItem'>
+			<Link href={`portfolios/${portfolio_id}`} className='portfolioItem__link'>
+				<div className='portfolioItem__img'>
 					<Image
 						src={portfolio_topImg}
-						alt="ポートフォリオ画像"
+						alt='ポートフォリオ画像'
 						fill
-						sizes="(min-width: 768px) 50vw, 100vw"
-						className="portfolioItem__img-item"
+						sizes='(min-width: 768px) 50vw, 100vw'
+						className='portfolioItem__img-item'
 					/>
 				</div>
-				<p className="portfolioItem__date">{portfolio_date}</p>
-				<h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
-				<div className="portfolioItem__flex">
+				<p className='portfolioItem__date'>{portfolio_date}</p>
+				<h3 className='portfolioItem__title'>{parse(portfolio_name)}</h3>
+				<div className='portfolioItem__flex'>
 					{portfolio_tag.map((tag) => (
-						<li className="portfolioItem__tag" key={tag}>
+						<li className='portfolioItem__tag' key={tag}>
 							#{tag}
 						</li>
 					))}

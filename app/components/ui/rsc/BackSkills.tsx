@@ -19,7 +19,7 @@ export const BackSkills = () => {
 		fetchData()
 	}, [])
 	return (
-		<div className="skill__container">
+		<div className='skill__container'>
 			{Array.isArray(backSkills) &&
 				backSkills.map((skill, index) => (
 					<Skill

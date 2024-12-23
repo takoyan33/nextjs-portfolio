@@ -11,7 +11,7 @@ const Tabs = ({ tabs }: TabProps) => {
 	return (
 		<div>
 			{tabs.map((tab) => (
-				<button type="button" key={tab} onClick={() => setActiveTab(tab)}>
+				<button type='button' key={tab} onClick={() => setActiveTab(tab)}>
 					{tab}
 				</button>
 			))}

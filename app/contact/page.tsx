@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 const Contact = () => {
 	return (
 		<main>
-			<div className="max_width">
-				<BreadList name="お問い合わせ" link={PATH.CONTACT} />
+			<div className='max_width'>
+				<BreadList name='お問い合わせ' link={PATH.CONTACT} />
 			</div>
-			<LowerTitle title="お問い合わせ" enTitle="contact" />
-			<div className="max_width">
+			<LowerTitle title='お問い合わせ' enTitle='contact' />
+			<div className='max_width'>
 				<ContactForm />
 			</div>
 		</main>

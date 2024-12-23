@@ -41,21 +41,21 @@ export default function Header() {
 
 	return (
 		<>
-			<header id="header" className="header" aria-label="ヘッダー">
-				<div className="header_flx">
-					<div className="header_logo">
-						<Link className="logo" href="/">
+			<header id='header' className='header' aria-label='ヘッダー'>
+				<div className='header_flx'>
+					<div className='header_logo'>
+						<Link className='logo' href='/'>
 							<Image
-								src="/images/common/logo.svg"
-								alt="ポートフォリオ画像"
+								src='/images/common/logo.svg'
+								alt='ポートフォリオ画像'
 								fill
 								priority
-								sizes="(min-width: 768px) 50vw, 100vw"
-								className="logo"
+								sizes='(min-width: 768px) 50vw, 100vw'
+								className='logo'
 							/>
 						</Link>
 					</div>
-					<nav aria-label="メインナビゲーション">
+					<nav aria-label='メインナビゲーション'>
 						<ul>
 							{MENU_ITEMS.map((item) => (
 								<li key={item.id}>
@@ -67,7 +67,7 @@ export default function Header() {
 									</Link>
 								</li>
 							))}
-							<Link href={PATH.CONTACT} className="header_btn_contact">
+							<Link href={PATH.CONTACT} className='header_btn_contact'>
 								お問い合わせ
 							</Link>
 						</ul>
@@ -75,7 +75,7 @@ export default function Header() {
 				</div>
 				<div
 					className={`btn-trigger ${openMenu ? "active" : ""}`}
-					id="btn01"
+					id='btn01'
 					onClick={menuFunction}
 					onKeyDown={menuFunction}
 				>
@@ -92,7 +92,7 @@ export default function Header() {
 								href={item.link}
 								onClick={() => handleMenuItemClick(item.link)}
 							>
-								<span className="mainTitle">{item.title}</span>
+								<span className='mainTitle'>{item.title}</span>
 							</Link>
 						</li>
 					))}

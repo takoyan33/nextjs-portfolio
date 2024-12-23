@@ -27,14 +27,14 @@ export default function ZennArticleItem({
 		return `${year}-${month}-${day}`
 	}
 	return (
-		<div className="flx_el" key={zenn_id}>
-			<Link href={`https://zenn.dev${zenn_path}`} target="_blank">
-				<div className="zenn__emoji">{zenn_emoji}</div>
-				<div className="zenn__flex">
-					<li className="zenn__tag">{zenn_article_type}</li>
+		<div className='flx_el' key={zenn_id}>
+			<Link href={`https://zenn.dev${zenn_path}`} target='_blank'>
+				<div className='zenn__emoji'>{zenn_emoji}</div>
+				<div className='zenn__flex'>
+					<li className='zenn__tag'>{zenn_article_type}</li>
 				</div>
-				<p className="zenn__title"> {zenn_title} </p>
-				<p className="zenn__date">{formatDate(zenn_published_at)}</p>
+				<p className='zenn__title'> {zenn_title} </p>
+				<p className='zenn__date'>{formatDate(zenn_published_at)}</p>
 			</Link>
 		</div>
 	)

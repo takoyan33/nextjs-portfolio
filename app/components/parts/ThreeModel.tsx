@@ -40,11 +40,11 @@ const Model = ({
 
 const ThreeModel = () => {
 	return (
-		<div className="canvas">
+		<div className='canvas'>
 			<Canvas camera={{ position: [0, 0, 84], fov: 50 }}>
 				<ambientLight intensity={3} />
 				<Model
-					url="/models/scene.gltf"
+					url='/models/scene.gltf'
 					scale={10.3}
 					position={[0, 0, 0]}
 					rotation={[0, 0, Math.PI / 10]}

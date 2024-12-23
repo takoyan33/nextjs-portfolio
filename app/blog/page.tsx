@@ -35,18 +35,18 @@ const Blog = async () => {
 
 	return (
 		<main>
-			<div className="max_width">
-				<BreadList name="Blog" link={PATH.BLOG} />
+			<div className='max_width'>
+				<BreadList name='Blog' link={PATH.BLOG} />
 			</div>
-			<LowerTitle title="Blog" enTitle="ブログ" />
-			<div className="max_width">
-				<h3 className="portfolio__headTitle">
+			<LowerTitle title='Blog' enTitle='ブログ' />
+			<div className='max_width'>
+				<h3 className='portfolio__headTitle'>
 					Zenn
-					<span className="portfolio__headTitle-span">
+					<span className='portfolio__headTitle-span'>
 						{zennArticles?.articles.length}件
 					</span>
 				</h3>
-				<div className="flx padding">
+				<div className='flx padding'>
 					{zennArticles?.articles.map((article) => (
 						<ZennArticleItem
 							key={article.id}

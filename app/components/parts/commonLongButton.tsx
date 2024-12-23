@@ -15,10 +15,10 @@ export const commonButton = ({ text, href, onClick }: CommonButtonProps) => {
 	}
 	return (
 		<button
-			type="button"
+			type='button'
 			onClick={handleClick}
-			className="main__btn__long"
-			aria-label="送信"
+			className='main__btn__long'
+			aria-label='送信'
 		>
 			{text}
 		</button>
