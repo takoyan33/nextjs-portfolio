@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 const Portfolio = async () => {
 	return (
 		<main>
-			<div className='max_width'>
-				<BreadList name='Portfolio' link={PATH.PORTFOLIO} />
+			<div className="max_width">
+				<BreadList name="Portfolio" link={PATH.PORTFOLIO} />
 			</div>
-			<LowerTitle title='Portfolio' enTitle='制作物' />
+			<LowerTitle title="Portfolio" enTitle="制作物" />
 			<PortfolioElement />
 		</main>
 	)

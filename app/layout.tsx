@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	const gaId = process.env.NEXT_PUBLIC_GATAG
 	return (
-		<html lang='ja'>
+		<html lang="ja">
 			<head>
 				<Script
 					src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-					strategy='afterInteractive'
+					strategy="afterInteractive"
 					async
 				/>
-				<Script id='google-analytics' strategy='afterInteractive'>
+				<Script id="google-analytics" strategy="afterInteractive">
 					{`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -33,7 +33,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				</Script>
 				<Clarity />
 			</head>
-			<GoogleTagManager gtmId='GTM-WND4GDPL' />
+			<GoogleTagManager gtmId="GTM-WND4GDPL" />
 			<body>
 				<Header />
 				{children}

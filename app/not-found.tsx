@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
 	return (
-		<div className='max_width'>
+		<div className="max_width">
 			<h1>404ページ</h1>
 		</div>
 	)

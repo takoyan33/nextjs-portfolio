@@ -17,10 +17,10 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 	return (
 		<Link href={link ? link : ""}>
 			<button
-				type='button'
+				type="button"
 				onClick={handleClick}
 				className={`main__btn ${className}`}
-				aria-label='送信'
+				aria-label="送信"
 			>
 				{text}
 			</button>

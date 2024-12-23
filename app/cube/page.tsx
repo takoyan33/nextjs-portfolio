@@ -24,8 +24,8 @@ const Cube = () => {
 	}
 
 	return (
-		<div className='fv_cube'>
-			<h2 className='fv_cube_title max_width'>To You Design</h2>
+		<div className="fv_cube">
+			<h2 className="fv_cube_title max_width">To You Design</h2>
 			<Canvas
 				style={{
 					width: 80 + "vw",

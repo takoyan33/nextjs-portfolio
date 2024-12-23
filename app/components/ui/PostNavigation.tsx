@@ -15,8 +15,8 @@ export const PostNavigation = ({
 	prev_article_id,
 }: PostNavigationProps) => {
 	return (
-		<div className='PostNavigation max_width'>
-			<div className='PostNavigation__item'>
+		<div className="PostNavigation max_width">
+			<div className="PostNavigation__item">
 				{prev_title && (
 					<Link href={`/portfolios/${prev_article_id}`}>
 						<p>
@@ -27,7 +27,7 @@ export const PostNavigation = ({
 				)}
 			</div>
 
-			<div className='PostNavigation__item'>
+			<div className="PostNavigation__item">
 				{next_title && (
 					<Link href={`/portfolios/${next_article_id}`}>
 						<p>

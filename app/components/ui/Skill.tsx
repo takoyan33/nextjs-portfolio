@@ -25,19 +25,19 @@ export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
 	// 	document.body.style.overflow = ""
 	// }
 	return (
-		<div className='skill__element'>
+		<div className="skill__element">
 			{/* <button onClick={handleOpen} className='skill__flx_el_button'> */}
-			<div className='skill__svg'>
+			<div className="skill__svg">
 				<Image
 					src={icon}
-					alt='skill画像'
+					alt="skill画像"
 					fill
-					className='skill__svg'
-					sizes='(min-width: 768px)'
+					className="skill__svg"
+					sizes="(min-width: 768px)"
 				/>
 			</div>
-			<p className='skill__text'>{name} </p>
-			<p className='skill__text'>{rank}</p>
+			<p className="skill__text">{name} </p>
+			<p className="skill__text">{rank}</p>
 			{/* </button> */}
 		</div>
 	)

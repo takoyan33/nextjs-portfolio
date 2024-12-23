@@ -39,25 +39,25 @@ export const TopPortfolioSlide = () => {
 	}, [])
 
 	return (
-		<div className='portfolio-content'>
-			<div className='prev-button'>
+		<div className="portfolio-content">
+			<div className="prev-button">
 				{firstSwiper !== 0 && (
 					<Image
-						src='/images/prev-arrow.svg'
+						src="/images/prev-arrow.svg"
 						width={50}
 						height={50}
 						style={{
 							width: "100%",
 							height: "auto",
 						}}
-						alt='スライドショーのナビゲーション'
+						alt="スライドショーのナビゲーション"
 					/>
 				)}
 			</div>
 
 			<Swiper
 				modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
-				className='flx swiper'
+				className="flx swiper"
 				spaceBetween={30}
 				slidesPerView={3.5}
 				onSwiper={(swiper) => {
@@ -84,17 +84,17 @@ export const TopPortfolioSlide = () => {
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<div className='next-button'>
+			<div className="next-button">
 				{firstSwiper < 3 && (
 					<Image
-						src='/images/next-arrow.svg'
+						src="/images/next-arrow.svg"
 						width={50}
 						height={50}
 						style={{
 							width: "100%",
 							height: "auto",
 						}}
-						alt='スライドショーのナビゲーション'
+						alt="スライドショーのナビゲーション"
 					/>
 				)}
 			</div>

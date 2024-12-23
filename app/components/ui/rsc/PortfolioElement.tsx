@@ -20,12 +20,12 @@ export const PortfolioElement = () => {
 		fetchData()
 	}, [])
 	return (
-		<div className='max_width'>
-			<h3 className='portfolio__headTitle'>
+		<div className="max_width">
+			<h3 className="portfolio__headTitle">
 				全ての制作物
-				<span className='portfolio__headTitle-span'>{portfolios.length}件</span>
+				<span className="portfolio__headTitle-span">{portfolios.length}件</span>
 			</h3>
-			<div className='portfolioFlx padding'>
+			<div className="portfolioFlx padding">
 				{Array.isArray(portfolios) &&
 					portfolios.map((portfolio) => (
 						<PortfolioItem

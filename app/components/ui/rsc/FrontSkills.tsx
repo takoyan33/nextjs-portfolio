@@ -20,7 +20,7 @@ export const FrontSkills = () => {
 	}, [])
 
 	return (
-		<div className='skill__container'>
+		<div className="skill__container">
 			{Array.isArray(frontSkills) &&
 				frontSkills.map((skill) => (
 					<Skill

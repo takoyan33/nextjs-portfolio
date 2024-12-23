@@ -13,15 +13,15 @@ export const CommonModal = ({ isOpen, img, closeModal }: CommonModalProps) => {
 		<Modal
 			isOpen={isOpen}
 			onRequestClose={closeModal}
-			contentLabel='Image Modal'
-			className='modal'
-			overlayClassName='overlay'
+			contentLabel="Image Modal"
+			className="modal"
+			overlayClassName="overlay"
 		>
-			<button onClick={closeModal} className='modal-close' type='button'>
+			<button onClick={closeModal} className="modal-close" type="button">
 				&times;
 			</button>
-			<div className='modal-content'>
-				<Image src={img} width={800} height={600} alt='画像' />
+			<div className="modal-content">
+				<Image src={img} width={800} height={600} alt="画像" />
 			</div>
 		</Modal>
 	)

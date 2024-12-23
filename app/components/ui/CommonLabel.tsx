@@ -7,9 +7,9 @@ interface CommonLabelProps {
 
 export const CommonLabel: React.FC<CommonLabelProps> = ({ text, id }) => {
 	return (
-		<label htmlFor={id} className='form-box-label'>
+		<label htmlFor={id} className="form-box-label">
 			{text}
-			<span className='form-box-label-required'>必須</span>
+			<span className="form-box-label-required">必須</span>
 		</label>
 	)
 }
