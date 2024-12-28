@@ -1,5 +1,6 @@
 "use client"
 import { send } from "emailjs-com"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { emailjsConfig } from "../../../utils/Emailjs"
@@ -9,12 +10,15 @@ const ContactForm = () => {
 	const [name, setName] = useState<string>("")
 	const [email, setEmail] = useState<string>("")
 	const [message, setMessage] = useState<string>("")
+	const [isConfirming, setIsConfirming] = useState(false)
+	const router = useRouter()
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm()
 
+	// お問い合わせフォーム送信
 	const sendMail = () => {
 		if (
 			emailjsConfig.serviceId !== undefined &&
@@ -25,24 +29,55 @@ const ContactForm = () => {
 				from_email: email,
 				message: message,
 			}
-
 			send(
 				emailjsConfig.serviceId,
 				emailjsConfig.templateId,
 				template_param,
 			).then(() => {
 				window.alert("お問い合わせを送信致しました。")
-				setName("")
-				setEmail("")
-				setMessage("")
+				router.push("/")
 			})
 		} else {
 			window.alert("お問い合わせを送信失敗しました。")
 		}
 	}
 
-	const onSubmit = () => {
-		sendMail()
+	// 確認画面へ
+	const handleConfirm = () => {
+		const isValid = Object.keys(errors).length === 0
+		if (isValid) {
+			setIsConfirming(true)
+		}
+	}
+
+	// フォームに戻る
+	const handleBack = () => {
+		setIsConfirming(false)
+	}
+
+	if (isConfirming) {
+		// プレビュー画面
+		return (
+			<div className="form">
+				<h2>お問い合わせ内容確認</h2>
+				<p>下記の内容で送信します。よろしいですか？</p>
+				<p>名前：{name}</p>
+				<p>メールアドレス：{email}</p>
+				<p>メッセージ：{message}</p>
+				<div className="text-center">
+					<button
+						onClick={handleBack}
+						type="button"
+						className="form-box-btn mr-4"
+					>
+						戻る
+					</button>
+					<button onClick={sendMail} type="button" className="form-box-btn">
+						送信する
+					</button>
+				</div>
+			</div>
+		)
 	}
 
 	return (
@@ -52,7 +87,7 @@ const ContactForm = () => {
 				<br />
 				内容確認後、ご連絡させて頂きます。
 			</p>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(sendMail)}>
 				<div className="form-box">
 					<CommonLabel text="名前" id="name" />
 					<input
@@ -76,13 +111,7 @@ const ContactForm = () => {
 						id="email"
 						placeholder="sample@email.com"
 						className="form-box-textarea"
-						{...register("email", {
-							required: "メールアドレスを入力してください",
-							pattern: {
-								value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-								message: "有効なメールアドレスを入力してください",
-							},
-						})}
+						{...register("email", { required: "emailを入力してください" })}
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 					/>
@@ -109,8 +138,13 @@ const ContactForm = () => {
 				</div>
 
 				<div className="text-center">
-					<button className="form-box-btn" aria-label="送信確認" type="button">
-						送信する
+					<button
+						className="form-box-btn"
+						aria-label="確認画面へ"
+						type="submit"
+						onClick={handleSubmit(handleConfirm)}
+					>
+						確認画面へ
 					</button>
 				</div>
 			</form>
