@@ -20,7 +20,7 @@ export const PostNavigation = ({
 				{prev_title && (
 					<Link href={`/portfolios/${prev_article_id}`}>
 						<p>
-							<span>＜　</span>
+							<span>＜&nbsp;</span>
 							{prev_title}
 						</p>
 					</Link>
@@ -32,7 +32,7 @@ export const PostNavigation = ({
 					<Link href={`/portfolios/${next_article_id}`}>
 						<p>
 							{next_title}
-							<span>　＞</span>
+							<span>&nbsp;＞</span>
 						</p>
 					</Link>
 				)}

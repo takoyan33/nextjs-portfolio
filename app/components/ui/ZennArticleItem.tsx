@@ -18,7 +18,7 @@ export default function ZennArticleItem({
 	zenn_path,
 }: ZennArticleItemProps) {
 	//日付のフォーマット
-	const formatDate = (dateString) => {
+	const formatDate = (dateString: Date) => {
 		const date = new Date(dateString)
 		const year = date.getFullYear()
 		const month = String(date.getMonth() + 1).padStart(2, "0")

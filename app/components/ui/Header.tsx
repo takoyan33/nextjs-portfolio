@@ -11,10 +11,6 @@ export default function Header() {
 		setOpenMenu(!openMenu)
 	}
 
-	const handleMenuItemClick = (link: string) => {
-		menuFunction()
-	}
-
 	type MenuItem = {
 		id: number
 		title: string
@@ -59,10 +55,7 @@ export default function Header() {
 						<ul>
 							{MENU_ITEMS.map((item) => (
 								<li key={item.id}>
-									<Link
-										href={item.link}
-										onClick={() => handleMenuItemClick(item.link)}
-									>
+									<Link href={item.link} onClick={menuFunction}>
 										{item.title}
 									</Link>
 								</li>
@@ -88,10 +81,7 @@ export default function Header() {
 				<ul>
 					{MENU_ITEMS.map((item) => (
 						<li key={item.id}>
-							<Link
-								href={item.link}
-								onClick={() => handleMenuItemClick(item.link)}
-							>
+							<Link href={item.link}>
 								<span className="mainTitle">{item.title}</span>
 							</Link>
 						</li>
