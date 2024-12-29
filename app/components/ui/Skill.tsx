@@ -12,7 +12,7 @@ type SkillProps = {
 }
 
 export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
-	const dialogRef = useRef<any>(null)
+	// const dialogRef = useRef<any>(null)
 
 	// function handleOpen() {
 	// 	dialogRef.current?.show()

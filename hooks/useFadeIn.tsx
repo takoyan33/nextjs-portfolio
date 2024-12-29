@@ -5,13 +5,11 @@ const ScrollComponent = ({ children }) => {
 
 	useEffect(() => {
 		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
+			for (const entry of entries) {
 				if (entry.isIntersecting) {
 					entry.target.classList.add("is-visible")
-				} else {
-					// entry.target.classList.remove('is-visible')
 				}
-			})
+			}
 		})
 
 		if (ref.current) {

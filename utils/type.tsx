@@ -34,9 +34,9 @@ export type portfolioType = {
 	tag: string[]
 	topImg: string
 	front_url: string
-	back_url: string
+	back_url?: string
 	front_github: string
-	back_github: string
+	back_github?: string
 	color: string
 	about: string
 	aboutImg: string
@@ -45,9 +45,13 @@ export type portfolioType = {
 	appeal: string
 	appealImg: string
 	front_skill: string[]
-	back_skill: string[]
-	infra_skill: string[]
+	back_skill?: string[]
+	infra_skill?: string[]
 	time: string
+	prev_title?: string
+	prev_article_id?: string
+	next_title?: string
+	next_article_id?: string
 }
 
 export type zenn = {
