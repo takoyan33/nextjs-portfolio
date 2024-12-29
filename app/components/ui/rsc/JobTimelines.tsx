@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react"
 import { fetchJobs } from "../../../../hooks/fetch"
+import type { job } from "../../../../utils/type"
 import Timeline from "../Timeline"
 
 export const JobTimelines = () => {
-	const [jobs, setJobs] = useState<any>([])
+	const [jobs, setJobs] = useState<job[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
-			try {
-				const data = await fetchJobs()
-				setJobs(data)
-			} catch (e) {
-				console.error(e)
-			}
+			const data = await fetchJobs()
+			setJobs(data)
 		}
 
 		fetchData()
@@ -20,14 +17,9 @@ export const JobTimelines = () => {
 	return (
 		<dl>
 			{Array.isArray(jobs) &&
-				jobs.map((job, index) => (
+				jobs.map((job) => (
 					<div key={job.id}>
-						<Timeline
-							key={index}
-							title={job.title}
-							date={job.date}
-							body={job.body}
-						/>
+						<Timeline title={job.title} date={job.date} body={job.body} />
 					</div>
 				))}
 		</dl>

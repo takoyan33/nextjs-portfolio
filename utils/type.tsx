@@ -5,10 +5,6 @@ export type history = {
 	body: string
 }
 
-export type historyProps = {
-	history: history[]
-}
-
 export type job = {
 	id: number
 	title: string
@@ -16,18 +12,10 @@ export type job = {
 	body: string
 }
 
-export type jobProps = {
-	job: job[]
-}
-
 export type license = {
 	id: number
 	date: string
 	title: string
-}
-
-export type licenseProps = {
-	license: license[]
 }
 
 export type skill = {
@@ -37,10 +25,6 @@ export type skill = {
 	tag: string
 	about: string
 	icon: string
-}
-
-export type skillProps = {
-	skill: skill[]
 }
 
 export type portfolioType = {
@@ -64,10 +48,6 @@ export type portfolioType = {
 	back_skill: string[]
 	infra_skill: string[]
 	time: string
-}
-
-export type PortfolioProps = {
-	portfolio: portfolioType[]
 }
 
 export type zenn = {

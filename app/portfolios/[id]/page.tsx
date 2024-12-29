@@ -31,12 +31,12 @@ const Post = () => {
 
 	const openModal = () => {
 		setIsOpen(true)
-		document.body.classList.add("modal-open") // Prevent background scroll
+		document.body.classList.add("modal-open")
 	}
 
 	const closeModal = () => {
 		setIsOpen(false)
-		document.body.classList.remove("modal-open") // Re-enable background scroll
+		document.body.classList.remove("modal-open")
 	}
 
 	//About
@@ -44,12 +44,12 @@ const Post = () => {
 
 	const openModal2 = () => {
 		setIsOpen2(true)
-		document.body.classList.add("modal-open") // Prevent background scroll
+		document.body.classList.add("modal-open")
 	}
 
 	const closeModal2 = () => {
 		setIsOpen2(false)
-		document.body.classList.remove("modal-open") // Re-enable background scroll
+		document.body.classList.remove("modal-open")
 	}
 
 	//function
@@ -57,12 +57,12 @@ const Post = () => {
 
 	const openModal4 = () => {
 		setIsOpen4(true)
-		document.body.classList.add("modal-open") // Prevent background scroll
+		document.body.classList.add("modal-open")
 	}
 
 	const closeModal4 = () => {
 		setIsOpen4(false)
-		document.body.classList.remove("modal-open") // Re-enable background scroll
+		document.body.classList.remove("modal-open")
 	}
 
 	//appeal
@@ -70,12 +70,12 @@ const Post = () => {
 
 	const openModal3 = () => {
 		setIsOpen3(true)
-		document.body.classList.add("modal-open") // Prevent background scroll
+		document.body.classList.add("modal-open")
 	}
 
 	const closeModal3 = () => {
 		setIsOpen3(false)
-		document.body.classList.remove("modal-open") // Re-enable background scroll
+		document.body.classList.remove("modal-open")
 	}
 
 	useEffect(() => {

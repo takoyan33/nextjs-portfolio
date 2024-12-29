@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react"
 // import otherSkills from "../../../../api/skills/other.json"
 import { fetchOtherSkills } from "../../../../hooks/fetch"
+import type { skill } from "../../../../utils/type"
 import Skill from "../Skill"
 
 export const OtherSkills = () => {
-	const [otherSkills, setOtherSkills] = useState<any>([])
+	const [otherSkills, setOtherSkills] = useState<skill[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
-			try {
-				const data = await fetchOtherSkills()
-				setOtherSkills(data)
-			} catch (e) {
-				console.error(e)
-			}
+			const data = await fetchOtherSkills()
+			setOtherSkills(data)
 		}
 
 		fetchData()
@@ -23,7 +20,7 @@ export const OtherSkills = () => {
 			{Array.isArray(otherSkills) &&
 				otherSkills.map((skill) => (
 					<Skill
-						key={skill}
+						key={skill.id}
 						name={skill.name}
 						rank={skill.rank}
 						tag={skill.tag}
