@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import frontSkills from "../../../../api/skills/front.json"
+// import frontSkills from "../../../../api/skills/front.json"
 import Skill from "../../../components/ui/Skill"
 import { fetchFrontSkills } from "../../../../hooks/fetch"
 
