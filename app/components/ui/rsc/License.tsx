@@ -1,7 +1,18 @@
-import React from "react"
-import licenses from "../../../../api/licenses/index.json"
+import React, { useEffect, useState } from "react"
+import { fetchLicenses } from "../../../../hooks/fetch"
+//import licenses from "../../../../api/licenses/index.json"
+import type { license } from "../../../../utils/type"
 
 export const License = () => {
+	const [licenses, setLicenses] = useState<license[]>([])
+	useEffect(() => {
+		const fetchData = async () => {
+			const data = await fetchLicenses()
+			setLicenses(data)
+		}
+
+		fetchData()
+	}, [])
 	return (
 		<>
 			{Array.isArray(licenses) &&

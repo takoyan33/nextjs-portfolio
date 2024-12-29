@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react"
+import { fetchFrontSkills } from "../../../../hooks/fetch"
+import type { skill } from "../../../../utils/type"
 // import frontSkills from "../../../../api/skills/front.json"
 import Skill from "../../../components/ui/Skill"
-import { fetchFrontSkills } from "../../../../hooks/fetch"
 
 export const FrontSkills = () => {
-	const [frontSkills, setFrontSkills] = useState<any>([])
+	const [frontSkills, setFrontSkills] = useState<skill[]>()
 
 	useEffect(() => {
 		const fetchData = async () => {
-			try {
-				const data = await fetchFrontSkills()
-				setFrontSkills(data)
-			} catch (e) {
-				console.error(e)
-			}
+			const data = await fetchFrontSkills()
+			setFrontSkills(data)
 		}
 
 		fetchData()
@@ -21,17 +18,16 @@ export const FrontSkills = () => {
 
 	return (
 		<div className="skill__container">
-			{Array.isArray(frontSkills) &&
-				frontSkills.map((skill) => (
-					<Skill
-						key={skill.id}
-						name={skill.name}
-						rank={skill.rank}
-						tag={skill.tag}
-						icon={skill.icon}
-						about={skill.about}
-					/>
-				))}
+			{frontSkills?.map((skill) => (
+				<Skill
+					key={skill.id}
+					name={skill.name}
+					rank={skill.rank}
+					tag={skill.tag}
+					icon={skill.icon}
+					about={skill.about}
+				/>
+			))}
 		</div>
 	)
 }

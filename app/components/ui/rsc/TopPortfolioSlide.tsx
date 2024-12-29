@@ -8,6 +8,7 @@ import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { fetchPortfolios } from "../../../../hooks/fetch"
+import type { portfolioType } from "../../../../utils/type"
 // import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItemTop from "../../../components/ui/PortfolioItemTop"
 
@@ -23,16 +24,12 @@ export const TopPortfolioSlide = () => {
 
 	const [firstSwiper, setFirstSwiper] = useState(0)
 
-	const [portfolios, setPortfolios] = useState<any>([])
+	const [portfolios, setPortfolios] = useState<portfolioType[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {
-			try {
-				const data = await fetchPortfolios()
-				setPortfolios(data)
-			} catch (e) {
-				console.error(e)
-			}
+			const data = await fetchPortfolios()
+			setPortfolios(data)
 		}
 
 		fetchData()

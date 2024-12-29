@@ -1,3 +1,5 @@
+// import "server-only"
+
 export const fetchHistories = async () => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
@@ -22,7 +24,7 @@ export const fetchPortfolios = async () => {
 	return response.json()
 }
 
-export const fetchFrontSkills = async () => {
+export async function fetchFrontSkills() {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`,
 	)

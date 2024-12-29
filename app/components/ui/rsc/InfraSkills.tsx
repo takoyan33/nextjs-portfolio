@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import infraSkills from "../../../../api/skills/infra.json"
-import { fetchInfraSkills } from "../../../../hooks/fetch"
+//import { fetchInfraSkills } from "../../../../hooks/fetch"
+import type { skill } from "../../../../utils/type"
 import Skill from "../Skill"
 
 export const InfraSkills = () => {
@@ -8,12 +9,8 @@ export const InfraSkills = () => {
 
 	// useEffect(() => {
 	// 	const fetchData = async () => {
-	// 		try {
 	// 			const data = await fetchInfraSkills()
 	// 			setInfraSkills(data)
-	// 		} catch (e) {
-	// 			console.error(e)
-	// 		}
 	// 	}
 
 	// 	fetchData()
@@ -21,7 +18,7 @@ export const InfraSkills = () => {
 	return (
 		<div className="skill__container">
 			{Array.isArray(infraSkills) &&
-				infraSkills.map((skill) => (
+				infraSkills.map((skill: skill) => (
 					<Skill
 						key={skill.name}
 						name={skill.name}
