@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 // import histories from "../../../../api/history/index.json"
 import { fetchHistories } from "../../../../hooks/fetch"
 import type { history } from "../../../../utils/type"
-import Timeline from "../Timeline"
+import { Timeline } from "../Timeline"
 
 export const HistoryTimelines = () => {
 	const [histories, setHistories] = useState<history[]>([])

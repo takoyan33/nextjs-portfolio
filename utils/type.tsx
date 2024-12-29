@@ -82,3 +82,10 @@ export type zenn = {
 export type zennProps = {
 	articles: zenn[]
 }
+
+// メニューアイテムの型定義
+export type MenuItem = {
+	id: number
+	title: string
+	link: string
+}

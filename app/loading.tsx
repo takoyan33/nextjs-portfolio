@@ -1,5 +1,5 @@
 import { PATH } from "../utils/path"
-import BreadList from "./components/ui/BreadList"
+import { BreadList } from "./components/ui/"
 
 const Loading = () => {
 	return (

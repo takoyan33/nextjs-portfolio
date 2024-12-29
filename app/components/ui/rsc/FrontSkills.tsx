@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { fetchFrontSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
 // import frontSkills from "../../../../api/skills/front.json"
-import Skill from "../../../components/ui/Skill"
+import { SkillElement } from "../SkillElement"
 
 export const FrontSkills = () => {
 	const [frontSkills, setFrontSkills] = useState<skill[]>()
@@ -19,7 +19,7 @@ export const FrontSkills = () => {
 	return (
 		<div className="skill__container">
 			{frontSkills?.map((skill) => (
-				<Skill
+				<SkillElement
 					key={skill.id}
 					name={skill.name}
 					rank={skill.rank}

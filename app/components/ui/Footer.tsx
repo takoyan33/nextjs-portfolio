@@ -1,15 +1,10 @@
 import Link from "next/link"
 import { PATH } from "../../../utils/path"
+import type { MenuItem } from "../../../utils/type"
 
-export default function Footer() {
+export const Footer = () => {
 	// 現在の年度
 	const currentYear = new Date().getFullYear()
-
-	type MenuItem = {
-		id: number
-		title: string
-		link: string
-	}
 
 	// Footerメニュー
 	const MENU_ITEMS: MenuItem[] = [

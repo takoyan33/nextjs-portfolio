@@ -6,7 +6,7 @@ type TimelineProps = {
 	body: string
 }
 
-export default function Timeline({ title, date, body }: TimelineProps) {
+export const Timeline = ({ title, date, body }: TimelineProps) => {
 	return (
 		<>
 			<dt>{date}</dt>

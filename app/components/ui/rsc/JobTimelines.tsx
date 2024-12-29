@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { fetchJobs } from "../../../../hooks/fetch"
 import type { job } from "../../../../utils/type"
-import Timeline from "../Timeline"
+import { Timeline } from "../Timeline"
 
 export const JobTimelines = () => {
 	const [jobs, setJobs] = useState<job[]>([])

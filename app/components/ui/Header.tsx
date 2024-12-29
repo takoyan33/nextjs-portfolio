@@ -3,18 +3,14 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { useState } from "react"
 import { PATH } from "../../../utils/path"
+import type { MenuItem } from "../../../utils/type"
 
 export default function Header() {
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
+	// メニューの開閉
 	const menuFunction = () => {
 		setOpenMenu(!openMenu)
-	}
-
-	type MenuItem = {
-		id: number
-		title: string
-		link: string
 	}
 
 	const MENU_ITEMS: MenuItem[] = [
@@ -81,7 +77,7 @@ export default function Header() {
 				<ul>
 					{MENU_ITEMS.map((item) => (
 						<li key={item.id}>
-							<Link href={item.link}>
+							<Link href={item.link} onClick={menuFunction}>
 								<span className="mainTitle">{item.title}</span>
 							</Link>
 						</li>

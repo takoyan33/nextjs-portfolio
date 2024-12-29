@@ -1,9 +1,7 @@
 import type { Metadata } from "next"
-import React from "react"
 import { PATH } from "../../utils/path"
 import type { zennProps } from "../../utils/type"
-import BreadList from "../components/ui/BreadList"
-import { LowerTitle } from "../components/ui/LowerTitle"
+import { BreadList, LowerTitle } from "../components/ui/"
 import ZennArticleItem from "../components/ui/ZennArticleItem"
 
 export const metadata: Metadata = {

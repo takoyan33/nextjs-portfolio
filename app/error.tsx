@@ -3,8 +3,8 @@ import type { NextPage } from "next"
 
 interface ErrorPageProps {
 	error: {
-		message: string;
-	};
+		message: string
+	}
 }
 
 const ErrorPage: NextPage<ErrorPageProps> = ({ error }) => {
