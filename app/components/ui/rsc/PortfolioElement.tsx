@@ -11,7 +11,7 @@ export const PortfolioElement = async () => {
 			<h3 className="portfolio__headTitle">
 				全ての制作物
 				<span className="portfolio__headTitle-span">
-					{/* {portfolios?.data?.length}件 */}
+					{portfolios?.data?.length}件
 				</span>
 			</h3>
 			<div className="portfolioFlx padding">
