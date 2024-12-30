@@ -16,10 +16,6 @@ const Blog = async () => {
 		const response = await fetch(
 			"https://zenn.dev/api/articles?username=643866",
 		)
-		console.log(response)
-		if (!response.ok) {
-			throw new Error(`Failed to fetch Zenn articles: ${response.status}`)
-		}
 		zennArticles = await response.json()
 	} catch (err) {
 		console.error(err)

@@ -8,12 +8,14 @@ import { SOCIAL_LINKS } from "../utils/data"
 import { PATH } from "../utils/path"
 import ThreeModel from "./components/parts/ThreeModel"
 import { CommonHead, WaveBgBottom, WaveBgTop } from "./components/ui/"
-import { BackSkills } from "./components/ui/rsc/BackSkills"
-import { FrontSkills } from "./components/ui/rsc/FrontSkills"
-import { HistoryTimelines } from "./components/ui/rsc/HistoryTimelines"
-import { InfraSkills } from "./components/ui/rsc/InfraSkills"
-import { OtherSkills } from "./components/ui/rsc/OtherSkills"
-import { TopPortfolioSlide } from "./components/ui/rsc/TopPortfolioSlide"
+import {
+	BackSkills,
+	FrontSkills,
+	HistoryTimelines,
+	InfraSkills,
+	OtherSkills,
+	TopPortfolioSlide,
+} from "./components/ui/rsc/"
 // import { TopZennArticle } from "./components/ui/rsc/TopZennArticle"
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
