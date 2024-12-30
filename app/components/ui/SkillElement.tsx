@@ -1,5 +1,5 @@
 // import ScrollComponent from '../../../hooks/useFadeIn'
-"use client"
+// "use client"
 import Image from "next/image"
 import React, { useRef } from "react"
 
@@ -11,7 +11,7 @@ type SkillProps = {
 	about: string
 }
 
-export default function Skill({ name, rank, tag, icon, about }: SkillProps) {
+export const SkillElement = ({ name, rank, tag, icon, about }: SkillProps) => {
 	// const dialogRef = useRef<any>(null)
 
 	// function handleOpen() {

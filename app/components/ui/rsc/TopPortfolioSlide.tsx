@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { fetchPortfolios } from "../../../../hooks/fetch"
 import type { portfolioType } from "../../../../utils/type"
 // import portfolios from "../../../../api/portfolios/index.json"
-import PortfolioItemTop from "../../../components/ui/PortfolioItemTop"
+import { PortfolioItemTop } from "../../../components/ui/"
 
 export const TopPortfolioSlide = () => {
 	const breakpoints = {

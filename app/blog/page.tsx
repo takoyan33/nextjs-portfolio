@@ -1,9 +1,7 @@
 import type { Metadata } from "next"
-import React from "react"
 import { PATH } from "../../utils/path"
 import type { zennProps } from "../../utils/type"
-import BreadList from "../components/ui/BreadList"
-import { LowerTitle } from "../components/ui/LowerTitle"
+import { BreadList, LowerTitle } from "../components/ui/"
 import ZennArticleItem from "../components/ui/ZennArticleItem"
 
 export const metadata: Metadata = {
@@ -18,10 +16,6 @@ const Blog = async () => {
 		const response = await fetch(
 			"https://zenn.dev/api/articles?username=643866",
 		)
-		console.log(response)
-		if (!response.ok) {
-			throw new Error(`Failed to fetch Zenn articles: ${response.status}`)
-		}
 		zennArticles = await response.json()
 	} catch (err) {
 		console.error(err)

@@ -1,11 +1,8 @@
 "use client"
-import React, { useState } from "react"
+import { useState } from "react"
 import { PATH } from "../../utils/path"
-import BreadList from "../components/ui/BreadList"
-import { LowerTitle } from "../components/ui/LowerTitle"
-import { HistoryTimelines } from "../components/ui/rsc/HistoryTimelines"
-import { JobTimelines } from "../components/ui/rsc/JobTimelines"
-import { License } from "../components/ui/rsc/License"
+import { BreadList, LowerTitle } from "../components/ui/"
+import { HistoryTimelines, JobTimelines, License } from "../components/ui/rsc/"
 
 const About = () => {
 	const [activeTab, setActiveTab] = useState<"history" | "career">("history")

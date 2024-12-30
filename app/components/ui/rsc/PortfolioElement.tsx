@@ -1,21 +1,11 @@
-"use client"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { fetchPortfolios } from "../../../../hooks/fetch"
 import type { portfolioType } from "../../../../utils/type"
 // import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItem from "../PortfolioItem"
 
-export const PortfolioElement = () => {
-	const [portfolios, setPortfolios] = useState<portfolioType[]>([])
-
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchPortfolios()
-			setPortfolios(data)
-		}
-
-		fetchData()
-	}, [])
+export const PortfolioElement = async () => {
+	const portfolios: portfolioType[] = await fetchPortfolios()
 	return (
 		<div className="max_width">
 			<h3 className="portfolio__headTitle">

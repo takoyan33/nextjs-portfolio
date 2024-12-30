@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
+import { SkillElement } from "../"
 // import otherSkills from "../../../../api/skills/other.json"
 import { fetchOtherSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
-import Skill from "../Skill"
 
 export const OtherSkills = () => {
 	const [otherSkills, setOtherSkills] = useState<skill[]>([])
@@ -19,7 +19,7 @@ export const OtherSkills = () => {
 		<div className="skill__container">
 			{Array.isArray(otherSkills) &&
 				otherSkills.map((skill) => (
-					<Skill
+					<SkillElement
 						key={skill.id}
 						name={skill.name}
 						rank={skill.rank}

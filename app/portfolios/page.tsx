@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import BreadList from "../components/ui/BreadList"
-import { LowerTitle } from "../components/ui/LowerTitle"
+import { BreadList, LowerTitle } from "../components/ui/"
 import { PortfolioElement } from "../components/ui/rsc/PortfolioElement"
 
 export const metadata: Metadata = {
@@ -16,6 +15,7 @@ const Portfolio = async () => {
 				<BreadList name="Portfolio" link={PATH.PORTFOLIO} />
 			</div>
 			<LowerTitle title="Portfolio" enTitle="制作物" />
+			{/* @ts-expect-error Server Component */}
 			<PortfolioElement />
 		</main>
 	)

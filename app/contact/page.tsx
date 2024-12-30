@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import BreadList from "../components/ui/BreadList"
-import ContactForm from "../components/ui/ContactForm"
-import { LowerTitle } from "../components/ui/LowerTitle"
+import { BreadList, LowerTitle } from "../components/ui/"
+import { ContactForm } from "../components/ui/"
 
 export const metadata: Metadata = {
 	title: "To You Design - Contact",

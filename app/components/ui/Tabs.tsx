@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react"
 import React from "react"
 
@@ -5,7 +6,7 @@ type TabProps = {
 	tabs: string[]
 }
 
-const Tabs = ({ tabs }: TabProps) => {
+export const Tabs = ({ tabs }: TabProps) => {
 	const [activeTab, setActiveTab] = useState(tabs[0])
 
 	return (
@@ -19,5 +20,3 @@ const Tabs = ({ tabs }: TabProps) => {
 		</div>
 	)
 }
-
-export default Tabs

@@ -1,7 +1,6 @@
 import Head from "next/head"
 import React from "react"
 
-// eslint-disable-next-line react/display-name
 export const CommonHead: React.VFC = React.memo(() => {
 	const title = "To You Design"
 	const description = "To You Designは、ポートフォリオサイトです"

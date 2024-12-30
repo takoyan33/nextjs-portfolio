@@ -7,8 +7,8 @@ import { useEffect, useState } from "react"
 import portfoliosData from "../../../api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
+import { LowerTitle } from "../../components/ui/"
 import { CommonModal } from "../../components/ui/CommonModal"
-import { LowerTitle } from "../../components/ui/LowerTitle"
 import { PostNavigation } from "../../components/ui/PostNavigation"
 
 const Post = () => {

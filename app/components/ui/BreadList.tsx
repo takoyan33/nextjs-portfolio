@@ -6,7 +6,7 @@ interface BreadListProps {
 	link: string
 }
 
-const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
+export const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
 	return (
 		<p className="bread__title max-width">
 			<Link href="/">トップ</Link>
@@ -28,5 +28,3 @@ const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
 		</p>
 	)
 }
-
-export default BreadList
