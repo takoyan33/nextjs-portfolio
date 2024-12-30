@@ -5,7 +5,7 @@ import Script from "next/script"
 import type React from "react"
 // import { RecoilRoot } from "recoil"
 import { Clarity } from "../utils/clarity"
-import { Footer } from "./components/ui/Footer"
+import { Footer } from "./components/ui/"
 import Header from "./components/ui/Header"
 
 export const metadata: Metadata = {

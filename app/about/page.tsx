@@ -2,9 +2,7 @@
 import { useState } from "react"
 import { PATH } from "../../utils/path"
 import { BreadList, LowerTitle } from "../components/ui/"
-import { HistoryTimelines } from "../components/ui/rsc/HistoryTimelines"
-import { JobTimelines } from "../components/ui/rsc/JobTimelines"
-import { License } from "../components/ui/rsc/License"
+import { HistoryTimelines, JobTimelines, License } from "../components/ui/rsc/"
 
 const About = () => {
 	const [activeTab, setActiveTab] = useState<"history" | "career">("history")

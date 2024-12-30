@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { emailjsConfig } from "../../../utils/Emailjs"
 import { CommonLabel } from "./CommonLabel"
 
-const ContactForm = () => {
+export const ContactForm = () => {
 	const [name, setName] = useState<string>("")
 	const [email, setEmail] = useState<string>("")
 	const [message, setMessage] = useState<string>("")
@@ -151,5 +151,3 @@ const ContactForm = () => {
 		</div>
 	)
 }
-
-export default ContactForm

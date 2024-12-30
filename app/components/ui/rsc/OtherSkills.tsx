@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
+import { SkillElement } from "../"
 // import otherSkills from "../../../../api/skills/other.json"
 import { fetchOtherSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
-import { SkillElement } from "../SkillElement"
 
 export const OtherSkills = () => {
 	const [otherSkills, setOtherSkills] = useState<skill[]>([])
