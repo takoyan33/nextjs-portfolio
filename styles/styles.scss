@@ -798,7 +798,8 @@ li {
   padding-bottom: 60px;
 }
 
-// history
+// timeline
+.timeline {
 dl {
   dt {
     position: relative;
@@ -831,7 +832,7 @@ dl {
     text-align: left;
   }
 }
-
+}
 // 資格
 .license {
   ul {
@@ -1457,6 +1458,7 @@ body.modal-open {
   img {
     width: 100%;
   }
+  .timeline {
   dl {
     dd {
       width: 90%;
@@ -1475,6 +1477,7 @@ body.modal-open {
       }
     }
   }
+}
 
   .back__btn {
     padding: 15px 12px;

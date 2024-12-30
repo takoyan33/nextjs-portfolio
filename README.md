@@ -16,10 +16,6 @@
  特徴としては、next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
  また、 Tailwind CSS,FontAwesome などを用いてます。
 
- ### 画面構成図
-
- 準備中
-
 <h2 id="technology-used">使用言語、環境</h2>
 
 ### nodeバージョン
@@ -35,7 +31,8 @@
 
 ### バックエンド
 
-- [Next.js API]
+- [ruby](https://www.ruby-lang.org/ja/) 3.2.6
+- [rails](https://rubyonrails.org/) 7.0.2
 
 ### リンター
 - [Biome](https://biomejs.dev/ja/) 1.9.4
@@ -51,7 +48,8 @@
 
 ### ホスティング
 
-Vercel
+[Vercel](https://vercel.com/)
+[Render](https://render.com/)
 
 ### ライブラリ
 [Swiper](https://swiperjs.com/react) 6.8.1

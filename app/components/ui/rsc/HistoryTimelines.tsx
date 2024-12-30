@@ -15,17 +15,18 @@ export const HistoryTimelines = () => {
 		fetchData()
 	}, [])
 	return (
-		<dl>
-			{Array.isArray(histories) &&
-				histories.map((history) => (
-					<div key={history.id}>
+		<div className="timeline">
+			<dl>
+				{Array.isArray(histories) &&
+					histories.map((history) => (
 						<Timeline
+							key={history.id}
 							title={history.title}
 							date={history.date}
 							body={history.body}
 						/>
-					</div>
-				))}
-		</dl>
+					))}
+			</dl>
+		</div>
 	)
 }
