@@ -95,20 +95,20 @@ const Home = () => {
 										<p className="about__text">
 											北海道在住の社会人1年目のエンジニア。
 											<br />
-											大学在学中に、プログラミングに興味を持ち、html,cssから学習を始めました。
+											大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。
 											<br />
 											文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
 											<br />
-											現在は、ReactやVueなどフロントエンドを中心に勉強をしています。
+											現在はReactやVueを中心に、更なるフロントエンド技術の向上を目指しています。
 										</p>
-										<p className="about__text">
-											<span className="about__text-span">趣味：</span>
-											旅行、ギター
-										</p>
-										<p className="about__text">
-											<span className="about__text-span">資格：</span>
-											基本情報技術者試験
-										</p>
+										<dl className="about__text">
+											<dt className="about__text-span">趣味：</dt>
+											<dd>旅行、ギター</dd>
+										</dl>
+										<dl className="about__text">
+											<dt className="about__text-span">資格：</dt>
+											<dd>基本情報技術者試験</dd>
+										</dl>
 									</ScrollComponent>
 								</div>
 							</div>

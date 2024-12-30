@@ -10,7 +10,7 @@ export const BackSkills = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchBackSkills()
-			setBackSkills(data)
+			setBackSkills(data.data)
 		}
 
 		fetchData()

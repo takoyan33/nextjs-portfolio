@@ -1436,13 +1436,13 @@ li {
   padding-bottom: 60px;
 }
 
-dl dt {
+.timeline dl dt {
   position: relative;
   width: 8.5em;
   padding: 0.5em 1em 0.5em 0.5em;
   text-align: left;
 }
-dl dt:after {
+.timeline dl dt:after {
   position: absolute;
   top: 0.3125rem;
   right: -0.55em;
@@ -1450,16 +1450,16 @@ dl dt:after {
   color: #4485ff;
   content: "●";
 }
-dl dd {
+.timeline dl dd {
   width: calc(100% - 8.5em);
   padding: 0.5em 2em 3em;
   border-left: 0.125rem solid #ccc;
   text-align: left;
 }
-dl p {
+.timeline dl p {
   text-align: left;
 }
-dl dd h2 {
+.timeline dl dd h2 {
   margin: 0 0 0.3125rem;
   font-size: 22px;
   font-weight: bold;
@@ -2043,7 +2043,7 @@ body.modal-open {
   img {
     width: 100%;
   }
-  dl dd {
+  .timeline dl dd {
     width: 90%;
     padding: 0;
     border-left: 0.125rem solid #ccc;
@@ -2052,11 +2052,11 @@ body.modal-open {
     padding-top: 0.625rem;
     margin-left: 20px;
   }
-  dl dd h2 {
+  .timeline dl dd h2 {
     font-size: 1.125rem;
     width: 90%;
   }
-  dl dd p {
+  .timeline dl dd p {
     width: 90%;
   }
   .back__btn {

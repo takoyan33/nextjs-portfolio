@@ -10,7 +10,7 @@ export const FrontSkills = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchFrontSkills()
-			setFrontSkills(data)
+			setFrontSkills(data.data)
 		}
 
 		fetchData()
