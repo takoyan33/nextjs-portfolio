@@ -5,25 +5,26 @@ import type { portfolioType } from "../../../../utils/type"
 import PortfolioItem from "../PortfolioItem"
 
 export const PortfolioElement = async () => {
-	const portfolios: portfolioType[] = await fetchPortfolios()
+	const portfolios = await fetchPortfolios()
 	return (
 		<div className="max_width">
 			<h3 className="portfolio__headTitle">
 				全ての制作物
-				<span className="portfolio__headTitle-span">{portfolios.length}件</span>
+				<span className="portfolio__headTitle-span">
+					{/* {portfolios?.data?.length}件 */}
+				</span>
 			</h3>
 			<div className="portfolioFlx padding">
-				{Array.isArray(portfolios) &&
-					portfolios.map((portfolio) => (
-						<PortfolioItem
-							key={portfolio.id}
-							portfolio_id={portfolio.id}
-							portfolio_name={portfolio.name}
-							portfolio_date={portfolio.date}
-							portfolio_tag={portfolio.tag}
-							portfolio_topImg={portfolio.topImg}
-						/>
-					))}
+				{portfolios?.data?.map((portfolio: portfolioType) => (
+					<PortfolioItem
+						key={portfolio.id}
+						portfolio_id={portfolio.id}
+						portfolio_name={portfolio.name}
+						portfolio_date={portfolio.date}
+						portfolio_tag={portfolio.tag}
+						portfolio_topImg={portfolio.topImg}
+					/>
+				))}
 			</div>
 		</div>
 	)

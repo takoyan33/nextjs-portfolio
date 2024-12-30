@@ -8,7 +8,7 @@ export const License = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchLicenses()
-			setLicenses(data)
+			setLicenses(data.data)
 		}
 
 		fetchData()

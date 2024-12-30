@@ -9,19 +9,24 @@ export const JobTimelines = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchJobs()
-			setJobs(data)
+			setJobs(data.data)
 		}
 
 		fetchData()
 	}, [])
 	return (
-		<dl>
-			{Array.isArray(jobs) &&
-				jobs.map((job) => (
-					<div key={job.id}>
-						<Timeline title={job.title} date={job.date} body={job.body} />
-					</div>
-				))}
-		</dl>
+		<div className="timeline">
+			<dl>
+				{Array.isArray(jobs) &&
+					jobs.map((job) => (
+						<Timeline
+							key={job.id}
+							title={job.title}
+							date={job.date}
+							body={job.body}
+						/>
+					))}
+			</dl>
+		</div>
 	)
 }

@@ -29,7 +29,7 @@ export const TopPortfolioSlide = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchPortfolios()
-			setPortfolios(data)
+			setPortfolios(data.data)
 		}
 
 		fetchData()

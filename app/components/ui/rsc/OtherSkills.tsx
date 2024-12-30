@@ -10,7 +10,7 @@ export const OtherSkills = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchOtherSkills()
-			setOtherSkills(data)
+			setOtherSkills(data.data)
 		}
 
 		fetchData()
