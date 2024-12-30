@@ -9,7 +9,7 @@ export const HistoryTimelines = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await fetchHistories()
-			setHistories(data)
+			setHistories(data.data)
 		}
 
 		fetchData()
