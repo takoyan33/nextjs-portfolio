@@ -24,6 +24,14 @@ export const fetchPortfolios = async () => {
 	return response.json()
 }
 
+export const fetchPortfolio = async (id) => {
+	console.log("id", id)
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`,
+	)
+	return response.json()
+}
+
 export async function fetchFrontSkills() {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`,

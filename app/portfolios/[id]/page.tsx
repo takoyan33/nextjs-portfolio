@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import portfoliosData from "../../../api/portfolios/index.json"
+import { fetchPortfolio } from "../../../hooks/fetch"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/"
@@ -17,17 +17,16 @@ const Post = () => {
 
 	const [portfolio, setPortfolio] = useState<portfolioType>()
 
-	const fetchPortfolios = async (id) => {
-		try {
-			// １つ取得する
-			const filteredPortfolio = portfoliosData.find(
-				(portfolio) => portfolio.id.toString() === id,
-			)
-			setPortfolio(filteredPortfolio)
-		} catch (error) {
-			console.error("Error fetching portfolio:", error)
+	useEffect(() => {
+		if (id) {
+			const fetchData = async () => {
+				const data = await fetchPortfolio(id)
+				setPortfolio(data.data)
+			}
+			fetchData()
 		}
-	}
+	}, [])
+
 	//サムネイル
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -79,12 +78,6 @@ const Post = () => {
 		setIsOpen3(false)
 		document.body.classList.remove("modal-open")
 	}
-
-	useEffect(() => {
-		if (id) {
-			fetchPortfolios(id)
-		}
-	}, [id])
 
 	return (
 		<main>

@@ -45,14 +45,17 @@
 
 ### 分析
 - [Google Analytics](https://developers.google.com/analytics?hl=ja)
+- [Clarity](https://clarity.microsoft.com/)
 
 ### ホスティング
 
-[Vercel](https://vercel.com/)
-[Render](https://render.com/)
+- [Vercel](https://vercel.com/)
+- [Render](https://render.com/)
 
 ### ライブラリ
-[Swiper](https://swiperjs.com/react) 6.8.1
+- [Swiper](https://swiperjs.com/react) 6.8.1
+- [react-three-fiber]() 7.0.0
+- [react-modal]() 3.14.3
 
 <h2 id="technology-used">ディレクトリ構成</h2>
 
