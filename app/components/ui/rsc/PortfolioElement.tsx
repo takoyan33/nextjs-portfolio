@@ -5,7 +5,7 @@ import type { portfolioType } from "../../../../utils/type"
 // import portfolios from "../../../../api/portfolios/index.json"
 import PortfolioItem from "../PortfolioItem"
 
-export const PortfolioElement = async () => {
+export const PortfolioElement = () => {
 	//const portfolios = await fetchPortfolios()
 
 	const [portfolios, setPortfolios] = useState<portfolioType[]>()
