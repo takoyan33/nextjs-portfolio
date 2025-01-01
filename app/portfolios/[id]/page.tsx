@@ -13,7 +13,7 @@ import { PostNavigation } from "../../components/ui/PostNavigation"
 
 const Post = () => {
 	const params = useParams()
-	const id = params?.id
+	const id: string | string[] = params?.id
 
 	const [portfolio, setPortfolio] = useState<portfolioType>()
 
@@ -28,53 +28,53 @@ const Post = () => {
 	}, [])
 
 	//サムネイル
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
 
-	const openModal = () => {
+	const openModal = (): void => {
 		setIsOpen(true)
 		document.body.classList.add("modal-open")
 	}
 
-	const closeModal = () => {
+	const closeModal = (): void => {
 		setIsOpen(false)
 		document.body.classList.remove("modal-open")
 	}
 
 	//About
-	const [isOpen2, setIsOpen2] = useState(false)
+	const [isOpen2, setIsOpen2] = useState<boolean>(false)
 
-	const openModal2 = () => {
+	const openModal2 = (): void => {
 		setIsOpen2(true)
 		document.body.classList.add("modal-open")
 	}
 
-	const closeModal2 = () => {
+	const closeModal2 = (): void => {
 		setIsOpen2(false)
 		document.body.classList.remove("modal-open")
 	}
 
 	//function
-	const [isOpen4, setIsOpen4] = useState(false)
+	const [isOpen4, setIsOpen4] = useState<boolean>(false)
 
-	const openModal4 = () => {
+	const openModal4 = (): void => {
 		setIsOpen4(true)
 		document.body.classList.add("modal-open")
 	}
 
-	const closeModal4 = () => {
+	const closeModal4 = (): void => {
 		setIsOpen4(false)
 		document.body.classList.remove("modal-open")
 	}
 
 	//appeal
-	const [isOpen3, setIsOpen3] = useState(false)
+	const [isOpen3, setIsOpen3] = useState<boolean>(false)
 
-	const openModal3 = () => {
+	const openModal3 = (): void => {
 		setIsOpen3(true)
 		document.body.classList.add("modal-open")
 	}
 
-	const closeModal3 = () => {
+	const closeModal3 = (): void => {
 		setIsOpen3(false)
 		document.body.classList.remove("modal-open")
 	}

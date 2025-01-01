@@ -10,7 +10,7 @@ export const ContactForm = () => {
 	const [name, setName] = useState<string>("")
 	const [email, setEmail] = useState<string>("")
 	const [message, setMessage] = useState<string>("")
-	const [isConfirming, setIsConfirming] = useState(false)
+	const [isConfirming, setIsConfirming] = useState<boolean>(false)
 	const router = useRouter()
 	const {
 		register,
@@ -19,7 +19,7 @@ export const ContactForm = () => {
 	} = useForm()
 
 	// お問い合わせフォーム送信
-	const sendMail = () => {
+	const sendMail = (): void => {
 		if (
 			emailjsConfig.serviceId !== undefined &&
 			emailjsConfig.templateId !== undefined
@@ -43,7 +43,7 @@ export const ContactForm = () => {
 	}
 
 	// 確認画面へ
-	const handleConfirm = () => {
+	const handleConfirm = (): void => {
 		const isValid = Object.keys(errors).length === 0
 		if (isValid) {
 			setIsConfirming(true)
@@ -51,7 +51,7 @@ export const ContactForm = () => {
 	}
 
 	// フォームに戻る
-	const handleBack = () => {
+	const handleBack = (): void => {
 		setIsConfirming(false)
 	}
 

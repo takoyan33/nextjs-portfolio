@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
 import { BreadList, LowerTitle } from "../components/ui/"
-import { PortfolioElement } from "../components/ui/rsc/PortfolioElement"
+import { PortfolioElement } from "../components/ui/rsc/"
 
 export const metadata: Metadata = {
 	title: "To You Design - Portfolio",

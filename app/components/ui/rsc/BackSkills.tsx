@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 // import backSkills from "../../../../api/skills/back.json"
 import { fetchBackSkills } from "../../../../hooks/fetch"
