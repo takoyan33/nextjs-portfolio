@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { PATH } from "../../../utils/path"
 import type { MenuItem } from "../../../utils/type"
+import { TransitionLink } from "./"
 
 export const Footer = () => {
 	// 現在の年度
@@ -33,20 +33,20 @@ export const Footer = () => {
 		<footer className="footer" aria-label="フッター">
 			<div className="max_width footer__container">
 				<div className="flx_el">
-					<Link href="/" passHref>
+					<TransitionLink href={PATH.INDEX}>
 						<img
 							src="/images/common/logo.svg"
 							alt="ポートフォリオ画像"
 							className="footer__logo"
 							loading="lazy"
 						/>
-					</Link>
+					</TransitionLink>
 				</div>
 				<nav className="flx_el" aria-label="フッターメニュー">
 					{MENU_ITEMS.map((item) => (
-						<Link href={item.link} key={item.id} passHref>
+						<TransitionLink href={item.link} key={item.id}>
 							<p className="footer__list">{item.title}</p>
-						</Link>
+						</TransitionLink>
 					))}
 				</nav>
 			</div>

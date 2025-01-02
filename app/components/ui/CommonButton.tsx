@@ -1,5 +1,7 @@
 import Link from "next/link"
 import type React from "react"
+import { PATH } from "../../../utils/path"
+import { TransitionLink } from "./"
 
 interface CommonButtonProps {
 	text: string
@@ -15,15 +17,15 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 	link,
 }) => {
 	return (
-		<Link href={link ? link : ""}>
+		<TransitionLink href={link ? link : ""}>
 			<button
 				type="button"
 				onClick={handleClick}
 				className={`main__btn ${className}`}
-				aria-label="送信"
+				aria-label={text}
 			>
 				{text}
 			</button>
-		</Link>
+		</TransitionLink>
 	)
 }

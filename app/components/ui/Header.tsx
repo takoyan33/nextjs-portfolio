@@ -54,11 +54,7 @@ export default function Header() {
 						<ul>
 							{MENU_ITEMS.map((item) => (
 								<li key={item.id}>
-									<Link href={item.link} onClick={menuFunction}>
-										<TransitionLink href={item.link}>
-											{item.title}
-										</TransitionLink>
-									</Link>
+									<TransitionLink href={item.link}>{item.title}</TransitionLink>
 								</li>
 							))}
 							<TransitionLink
@@ -85,9 +81,9 @@ export default function Header() {
 				<ul>
 					{MENU_ITEMS.map((item) => (
 						<li key={item.id}>
-							<Link href={item.link} onClick={menuFunction}>
+							<TransitionLink href={item.link} setOpenMenu={setOpenMenu}>
 								<span className="mainTitle">{item.title}</span>
-							</Link>
+							</TransitionLink>
 						</li>
 					))}
 				</ul>

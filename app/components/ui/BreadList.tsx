@@ -1,5 +1,6 @@
 import Image from "next/image"
-import Link from "next/link"
+import { PATH } from "../../../utils/path"
+import { TransitionLink } from "./"
 
 interface BreadListProps {
 	name: string
@@ -9,7 +10,7 @@ interface BreadListProps {
 export const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
 	return (
 		<p className="bread__title max-width">
-			<Link href="/">トップ</Link>
+			<TransitionLink href={PATH.INDEX}>トップ</TransitionLink>
 			<span className="bread__arrow">
 				<Image
 					src="/images/next-arrow.svg"
@@ -22,9 +23,9 @@ export const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
 					alt="スライドショーのナビゲーション"
 				/>
 			</span>
-			<Link href={link} className="bread__second">
+			<TransitionLink href={link} className="bread__second">
 				{name}
-			</Link>
+			</TransitionLink>
 		</p>
 	)
 }

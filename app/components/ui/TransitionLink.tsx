@@ -8,6 +8,7 @@ interface TransitionLinkProps extends LinkProps {
 	href: string
 	children: React.ReactNode
 	className?: string
+	setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 function sleep(ms: number): Promise<void> {
@@ -18,6 +19,7 @@ export const TransitionLink = ({
 	href,
 	children,
 	className,
+	setOpenMenu,
 	...props
 }: TransitionLinkProps) => {
 	const router = useRouter()
@@ -37,6 +39,9 @@ export const TransitionLink = ({
 		await sleep(500)
 
 		body?.classList.remove("page-transition")
+		if (setOpenMenu) {
+			setOpenMenu(false)
+		}
 	}
 
 	return (

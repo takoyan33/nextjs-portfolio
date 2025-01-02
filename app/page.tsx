@@ -1,8 +1,9 @@
 "use client"
 import Image from "next/image"
-import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Suspense } from "react"
+import { TransitionLink } from "../app/components/ui/TransitionLink"
+import Link from "next/link"
 import ScrollComponent from "../hooks/useFadeIn"
 import { SOCIAL_LINKS } from "../utils/data"
 import { PATH } from "../utils/path"
@@ -127,9 +128,9 @@ const Home = () => {
 						{/* <FadeUpTitle /> */}
 						<ScrollComponent>
 							<TopPortfolioSlide />
-							<Link href={PATH.PORTFOLIO} className="contact__btn">
+							<TransitionLink href={PATH.PORTFOLIO} className="contact__btn">
 								ポートフォリオをさらに見る
-							</Link>
+							</TransitionLink>
 						</ScrollComponent>
 					</div>
 				</section>
@@ -146,9 +147,12 @@ const Home = () => {
 							<HistoryTimelines />
 						</ScrollComponent>
 					</div>
-					<Link href={PATH.ABOUT} className="contact__btn padding-bottom">
+					<TransitionLink
+						href={PATH.ABOUT}
+						className="contact__btn padding-bottom"
+					>
 						経歴をさらに見る
-					</Link>
+					</TransitionLink>
 				</section>
 				<WaveBgTop />
 				{/* ここからSKill*/}
@@ -192,12 +196,12 @@ const Home = () => {
 							<div className="contact__box">
 								<h3 className="contact__box-title">CONTACT</h3>
 								<p className="contact__box-text">お問い合わせ</p>
-								<Link
+								<TransitionLink
 									href={PATH.CONTACT}
 									className="contact__btn padding-bottom"
 								>
 									お問い合せフォームへ
-								</Link>
+								</TransitionLink>
 							</div>
 						</ScrollComponent>
 					</div>
