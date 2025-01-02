@@ -5,6 +5,11 @@ export type history = {
 	body: string
 }
 
+export type ResponseHistory = {
+	status: string
+	data: history[]
+}
+
 export type job = {
 	id: number
 	title: string
@@ -12,10 +17,20 @@ export type job = {
 	body: string
 }
 
+export type ResponseJob = {
+	status: string
+	data: job[]
+}
+
 export type license = {
 	id: number
 	date: string
 	title: string
+}
+
+export type ResponseLicense = {
+	status: string
+	data: license[]
 }
 
 export type skill = {
@@ -25,6 +40,11 @@ export type skill = {
 	tag: string
 	about: string
 	icon: string
+}
+
+export type ResponseSkill = {
+	status: string
+	data: skill[]
 }
 
 export type portfolioType = {
@@ -52,6 +72,16 @@ export type portfolioType = {
 	prev_article_id?: string
 	next_title?: string
 	next_article_id?: string
+}
+
+export type ResponsePortfolios = {
+	status: string
+	data: portfolioType[]
+}
+
+export type ResponsePortfolio = {
+	status: string
+	data: portfolioType
 }
 
 export type zenn = {

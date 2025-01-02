@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 import { SkillElement } from "../"
 // import otherSkills from "../../../../api/skills/other.json"

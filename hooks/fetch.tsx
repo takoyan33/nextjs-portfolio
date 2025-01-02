@@ -1,59 +1,68 @@
 // import "server-only"
+import type {
+	ResponseHistory,
+	ResponseJob,
+	ResponseLicense,
+	ResponsePortfolio,
+	ResponsePortfolios,
+	ResponseSkill,
+} from "../utils/type"
 
-export const fetchHistories = async () => {
+export const fetchHistories = async (): Promise<ResponseHistory> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
 	)
 	return response.json()
 }
 
-export const fetchJobs = async () => {
+export const fetchJobs = async (): Promise<ResponseJob> => {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`)
 	return response.json()
 }
 
-export const fetchLicenses = async () => {
+export const fetchLicenses = async (): Promise<ResponseLicense> => {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`)
 	return response.json()
 }
 
-export const fetchPortfolios = async () => {
+export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`,
 	)
 	return response.json()
 }
 
-export const fetchPortfolio = async (id) => {
-	console.log("id", id)
+export const fetchPortfolio = async (
+	id: string | string[],
+): Promise<ResponsePortfolio> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`,
 	)
 	return response.json()
 }
 
-export async function fetchFrontSkills() {
+export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`,
 	)
 	return response.json()
 }
 
-export const fetchBackSkills = async () => {
+export const fetchBackSkills = async (): Promise<ResponseSkill> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`,
 	)
 	return response.json()
 }
 
-export const fetchInfraSkills = async () => {
+export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`,
 	)
 	return response.json()
 }
 
-export const fetchOtherSkills = async () => {
+export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`,
 	)

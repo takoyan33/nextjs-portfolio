@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 import { Timeline } from "../"
 import { fetchJobs } from "../../../../hooks/fetch"

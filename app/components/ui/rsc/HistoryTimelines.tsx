@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 // import histories from "../../../../api/history/index.json"
 import { fetchHistories } from "../../../../hooks/fetch"

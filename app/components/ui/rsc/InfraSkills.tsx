@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 //import infraSkills from "../../../../api/skills/infra.json"
 import { fetchInfraSkills } from "../../../../hooks/fetch"

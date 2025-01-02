@@ -9,7 +9,7 @@ export default function Header() {
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
 	// メニューの開閉
-	const menuFunction = () => {
+	const menuFunction = (): void => {
 		setOpenMenu(!openMenu)
 	}
 

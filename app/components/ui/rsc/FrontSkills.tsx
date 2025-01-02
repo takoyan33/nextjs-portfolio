@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react"
 import { fetchFrontSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
