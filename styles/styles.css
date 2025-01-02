@@ -1776,6 +1776,19 @@ body.modal-open {
   height: auto;
 }
 
+body {
+  transition-property: opacity, background-color, transform, filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+
+.page-transition {
+  opacity: 0;
+  background-color: #ffffff;
+  transform: translateY(20px);
+  filter: blur(12px);
+}
+
 @media (max-width: 1024px) {
   .skill__svg {
     width: 50px !important;

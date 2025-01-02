@@ -4,6 +4,7 @@ import Link from "next/link"
 import React, { useState } from "react"
 import { PATH } from "../../../utils/path"
 import type { MenuItem } from "../../../utils/type"
+import { TransitionLink } from "./"
 
 export default function Header() {
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
@@ -36,29 +37,36 @@ export default function Header() {
 			<header id="header" className="header" aria-label="ヘッダー">
 				<div className="header_flx">
 					<div className="header_logo">
-						<Link className="logo" href="/">
-							<Image
-								src="/images/common/logo.svg"
-								alt="ポートフォリオ画像"
-								fill
-								priority
-								sizes="(min-width: 768px) 50vw, 100vw"
-								className="logo"
-							/>
-						</Link>
+						<div className="logo">
+							<TransitionLink href={PATH.INDEX}>
+								<Image
+									src="/images/common/logo.svg"
+									alt="ポートフォリオ画像"
+									fill
+									priority
+									sizes="(min-width: 768px) 50vw, 100vw"
+									className="logo"
+								/>
+							</TransitionLink>
+						</div>
 					</div>
 					<nav aria-label="メインナビゲーション">
 						<ul>
 							{MENU_ITEMS.map((item) => (
 								<li key={item.id}>
 									<Link href={item.link} onClick={menuFunction}>
-										{item.title}
+										<TransitionLink href={item.link}>
+											{item.title}
+										</TransitionLink>
 									</Link>
 								</li>
 							))}
-							<Link href={PATH.CONTACT} className="header_btn_contact">
+							<TransitionLink
+								href={PATH.CONTACT}
+								className="header_btn_contact"
+							>
 								お問い合わせ
-							</Link>
+							</TransitionLink>
 						</ul>
 					</nav>
 				</div>

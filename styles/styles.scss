@@ -1160,6 +1160,21 @@ body.modal-open {
     width: 100%;
     height: auto;
   }
+
+}
+
+  // ページ遷移時のアニメーション
+body {
+  transition-property: opacity,background-color, transform, filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+
+.page-transition {
+  opacity: 0;
+  background-color: #ffffff ;
+  transform: translateY(20px);
+  filter: blur(12px);
 }
 
 
