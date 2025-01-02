@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import Image from "next/image"
-import Link from "next/link"
 import React from "react"
+import { TransitionLink } from "./"
 
 type PortfolioItemProps = {
 	portfolio_id: number
@@ -20,7 +20,7 @@ export const PortfolioItemTop = ({
 }: PortfolioItemProps) => {
 	return (
 		<div className="flx_el portfolio_flx_el">
-			<Link href={`portfolios/${portfolio_id}`}>
+			<TransitionLink href={`portfolios/${portfolio_id}`}>
 				<div className="portfolio__img">
 					<Image
 						src={portfolio_topImg}
@@ -39,7 +39,7 @@ export const PortfolioItemTop = ({
 						</li>
 					))}
 				</ul>
-			</Link>
+			</TransitionLink>
 		</div>
 	)
 }

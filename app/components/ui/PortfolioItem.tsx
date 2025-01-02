@@ -1,6 +1,6 @@
 import parse from "html-react-parser"
 import Image from "next/image"
-import Link from "next/link"
+import { TransitionLink } from "./"
 
 type PortfolioItemProps = {
 	portfolio_id: number
@@ -19,7 +19,10 @@ export default function PortfolioItem({
 }: PortfolioItemProps) {
 	return (
 		<div className="portfolioFlx_el portfolioItem">
-			<Link href={`portfolios/${portfolio_id}`} className="portfolioItem__link">
+			<TransitionLink
+				href={`portfolios/${portfolio_id}`}
+				className="portfolioItem__link"
+			>
 				<div className="portfolioItem__img">
 					<Image
 						src={portfolio_topImg}
@@ -38,7 +41,7 @@ export default function PortfolioItem({
 						</li>
 					))}
 				</div>
-			</Link>
+			</TransitionLink>
 		</div>
 	)
 }
