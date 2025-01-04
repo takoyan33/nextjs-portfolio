@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+export const dynamic = "force-static"
 
 export async function GET() {
 	const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`

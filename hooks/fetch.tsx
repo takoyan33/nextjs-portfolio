@@ -21,15 +21,17 @@ export const fetchJobs = async (): Promise<ResponseJob> => {
 }
 
 export const fetchLicenses = async (): Promise<ResponseLicense> => {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`)
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/licenses`,
+	)
 	return response.json()
 }
 
 export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`,
+		`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`,
 	)
-	return response.json()
+	return await response.json()
 }
 
 export const fetchPortfolio = async (
