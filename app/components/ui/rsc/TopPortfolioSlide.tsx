@@ -15,7 +15,7 @@ import type { portfolioType } from "../../../../utils/type"
 import { PortfolioItemTop } from "../../../components/ui/"
 
 export const TopPortfolioSlide = () => {
-	const breakpoints = {
+	const BREAK_POINT = {
 		0: {
 			slidesPerView: 1.5,
 		},
@@ -24,7 +24,7 @@ export const TopPortfolioSlide = () => {
 		},
 	}
 
-	const [firstSwiper, setFirstSwiper] = useState(0)
+	const [firstSwiper, setFirstSwiper] = useState<number>(0)
 
 	const [portfolios, setPortfolios] = useState<portfolioType[]>([])
 
@@ -65,7 +65,7 @@ export const TopPortfolioSlide = () => {
 				onSlideChange={(swiper) => {
 					setFirstSwiper(swiper.activeIndex)
 				}}
-				breakpoints={breakpoints}
+				breakpoints={BREAK_POINT}
 				navigation={{
 					nextEl: ".next-button",
 					prevEl: ".prev-button",

@@ -1,6 +1,6 @@
 import { PATH } from "../../utils/path"
 import { AboutTabs, BreadList, LowerTitle } from "../components/ui/"
-import { License } from "../components/ui/rsc/"
+import { TopLicense } from "../components/ui/rsc/"
 
 const About = () => {
 	return (
@@ -22,7 +22,7 @@ const About = () => {
 							<th className="license__table-th">資格名</th>
 						</tr>
 						{/* @ts-expect-error Server Component */}
-						<License />
+						<TopLicense />
 					</tbody>
 				</table>
 			</section>

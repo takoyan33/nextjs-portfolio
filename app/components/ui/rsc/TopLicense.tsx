@@ -1,11 +1,9 @@
-"use client"
-
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { fetchLicenses } from "../../../../hooks/fetch"
 //import licenses from "../../../../api/licenses/index.json"
 // import type { license } from "../../../../utils/type"
 
-export const License = async () => {
+export const TopLicense = async () => {
 	const licenses = await fetchLicenses()
 
 	// const [licenses, setLicenses] = useState<license[]>([])
