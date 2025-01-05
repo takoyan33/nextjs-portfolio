@@ -9,7 +9,7 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { fetchPortfolios } from "../../../../hooks/fetch"
+import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import type { portfolioType } from "../../../../utils/type"
 // import portfolios from "../../../../api/portfolios/index.json"
 import { PortfolioItemTop } from "../../../components/ui/"
@@ -30,7 +30,7 @@ export const TopPortfolioSlide = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const data = await fetchPortfolios()
+			const data = await fetchPortfoliosFront()
 			setPortfolios(data.data)
 		}
 
