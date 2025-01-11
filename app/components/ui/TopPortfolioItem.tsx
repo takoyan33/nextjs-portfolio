@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
-import { TransitionLink } from "./"
+import { TransitionLink } from "."
 
 type PortfolioItemProps = {
 	portfolio_id: number
@@ -11,7 +11,7 @@ type PortfolioItemProps = {
 	portfolio_topImg: string
 }
 
-export const PortfolioItemTop = ({
+export const TopPortfolioItem = ({
 	portfolio_id,
 	portfolio_name,
 	portfolio_date,

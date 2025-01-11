@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import type { portfolioType } from "../../../../utils/type"
 // import portfolios from "../../../../api/portfolios/index.json"
-import { PortfolioItemTop } from "../../../components/ui/"
+import { TopPortfolioItem } from "../../../components/ui/"
 
 export const TopPortfolioSlide = () => {
 	const BREAK_POINT = {
@@ -73,7 +73,7 @@ export const TopPortfolioSlide = () => {
 			>
 				{portfolios?.map((portfolio) => (
 					<SwiperSlide key={portfolio.id}>
-						<PortfolioItemTop
+						<TopPortfolioItem
 							portfolio_id={portfolio.id}
 							portfolio_name={portfolio.name}
 							portfolio_date={portfolio.date}
