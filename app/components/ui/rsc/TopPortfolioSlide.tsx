@@ -10,8 +10,8 @@ import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { fetchPortfoliosFront } from "../../../../hooks/fetch"
+import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
 import type { portfolioType } from "../../../../utils/type"
-// import portfolios from "../../../../api/portfolios/index.json"
 import { TopPortfolioItem } from "../../../components/ui/"
 
 export const TopPortfolioSlide = () => {
@@ -30,10 +30,16 @@ export const TopPortfolioSlide = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const data = await fetchPortfoliosFront()
-			setPortfolios(data.data)
+			// const data = await fetchPortfoliosFront()
+			// data.data.sort((a, b) => {
+			// 	return new Date(b.date).getTime() - new Date(a.date).getTime()
+			// })
+			// setPortfolios(data.data)
+			portfoliosData?.sort((a, b) => {
+				return new Date(b.date).getTime() - new Date(a.date).getTime()
+			})
 		}
-
+		setPortfolios(portfoliosData)
 		fetchData()
 	}, [])
 

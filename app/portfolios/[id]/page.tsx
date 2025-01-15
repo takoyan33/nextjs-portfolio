@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import { fetchPortfolio } from "../../../hooks/fetch"
+import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import { PATH } from "../../../utils/path"
 import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/"
@@ -17,15 +17,33 @@ const Post = () => {
 
 	const [portfolio, setPortfolio] = useState<portfolioType>()
 
+	const fetchPortfolios = async (id) => {
+		try {
+			// １つ取得する
+			const filteredPortfolio = portfoliosData.find(
+				(portfolio) => portfolio.id.toString() === id,
+			)
+			setPortfolio(filteredPortfolio)
+		} catch (error) {
+			console.error("Error fetching portfolio:", error)
+		}
+	}
+
 	useEffect(() => {
 		if (id) {
-			const fetchData = async () => {
-				const data = await fetchPortfolio(id)
-				setPortfolio(data.data)
-			}
-			fetchData()
+			fetchPortfolios(id)
 		}
-	}, [])
+	}, [id])
+
+	// useEffect(() => {
+	// 	if (id) {
+	// 		const fetchData = async () => {
+	// 			const data = await fetchPortfolio(id)
+	// 			setPortfolio(data.data)
+	// 		}
+	// 		fetchData()
+	// 	}
+	// }, [])
 
 	//サムネイル
 	const [isOpen, setIsOpen] = useState<boolean>(false)

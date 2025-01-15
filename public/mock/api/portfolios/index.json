@@ -160,6 +160,31 @@
 		"back_skill": ["WordPress"],
 		"time": "2ヶ月",
 		"prev_title": "株式会社セルフ・ヒーリング実践研究会サイト構築",
-		"prev_article_id": "5"
+		"prev_article_id": "5",
+		"next_title": "Next + Hono",
+		"next_article_id": "7"
+	},
+	{
+		"id": 7,
+		"name": "Next + Hono",
+		"date": "2025.01.11",
+		"tag": ["Next.js", "Hono"],
+		"topImg": "/images/portfolio/portfolio_1.png",
+		"front_url": "https://www.mmc-dia-finance.com/rental/",
+		"front_github": "",
+		"back_github": "",
+		"back_url": "",
+		"color": "portfolio__tag--color1",
+		"about": "<p>コーディング案件として企業様から頂き、下層ページの実装に関わりました。</p>",
+		"aboutImg": "/images/portfolio/portfolio_appeal6.png",
+		"functionImg": "/images/portfolio/portfolio_about6.png",
+		"function": "<p>三菱レンタカーの公式サイトで、レンタカーの予約ができたり、車種や料金などが確認できる</p>",
+		"appeal": "<p>チーム開発で、Githubを利用し、下層ページのコーディング実装を数ページ担当しました</p>",
+		"appealImg": "/images/portfolio/portfolio_function6.png",
+		"front_skill": ["Next.js","TypeScript"],
+		"back_skill": ["Hono"],
+		"time": "2ヶ月",
+		"prev_title": "三菱レンタカー下層ページコーディング",
+		"prev_article_id": "6"
 	}
 ]
