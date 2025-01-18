@@ -34,7 +34,7 @@ const Home = () => {
 		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
 
-	const TEST = process.env.NEXT_PUBLIC_TEST_ID
+	const TEST = process.env.NEXT_PUBLIC_API_URL
 
 	return (
 		<div>
