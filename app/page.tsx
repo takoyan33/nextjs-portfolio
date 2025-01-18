@@ -34,14 +34,11 @@ const Home = () => {
 		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
 
-	const TEST = process.env.NEXT_PUBLIC_API_URL
-
 	return (
 		<div>
 			<CommonHead />
 			<main aria-label="本文">
 				{/* ここからfv */}
-				{TEST}
 				<section className="fv">
 					<div className="max_width fv__container">
 						<div className="fv__element">
