@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Suspense } from "react"
 import { TransitionLink } from "../app/components/ui/TransitionLink"
-import Link from "next/link"
 import ScrollComponent from "../hooks/useFadeIn"
 import { SOCIAL_LINKS } from "../utils/data"
 import { PATH } from "../utils/path"
@@ -34,11 +34,14 @@ const Home = () => {
 		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
 
+	const TEST = process.env.NEXT_PUBLIC_TEST_ID
+
 	return (
 		<div>
 			<CommonHead />
 			<main aria-label="本文">
 				{/* ここからfv */}
+				{TEST}
 				<section className="fv">
 					<div className="max_width fv__container">
 						<div className="fv__element">
