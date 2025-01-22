@@ -1,6 +1,4 @@
-import Link from "next/link"
 import type React from "react"
-import { PATH } from "../../../utils/path"
 import { TransitionLink } from "./"
 
 interface CommonButtonProps {

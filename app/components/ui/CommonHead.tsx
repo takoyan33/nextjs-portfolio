@@ -2,12 +2,12 @@ import Head from "next/head"
 import React from "react"
 
 export const CommonHead: React.VFC = React.memo(() => {
-	const title = "To You Design"
-	const description = "To You Designは、ポートフォリオサイトです"
-	const url = "https://to-you-design.vercel.app/"
-	const imgUrl = "/images/myphoto.png"
-	const imgWidth = 1280
-	const imgHeight = 640
+	const title: string = "To You Design"
+	const description: string = "To You Designは、ポートフォリオサイトです"
+	const url: string = "https://to-you-design.vercel.app/"
+	const imgUrl: string = "/images/myphoto.png"
+	const imgWidth: number = 1280
+	const imgHeight: number = 640
 	return (
 		<Head>
 			<title>To You Design</title>

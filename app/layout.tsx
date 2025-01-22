@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	const gaId = process.env.NEXT_PUBLIC_GATAG
+	const gtmId = process.env.NEXT_PUBLIC_GTM
 	return (
 		<html lang="ja">
 			<head>
@@ -33,7 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				</Script>
 				<Clarity />
 			</head>
-			<GoogleTagManager gtmId="GTM-WND4GDPL" />
+			<GoogleTagManager gtmId={`GTM-${gtmId}`} />
 			<body>
 				<Header />
 				{children}
