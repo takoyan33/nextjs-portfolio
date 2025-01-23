@@ -4,6 +4,7 @@ export const WaveBgTop = () => {
 	return (
 		<div className="wave__bg__top">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<title>Wave Background Top</title>
 				<path
 					fill="#f7f7f7"
 					fillOpacity="1"

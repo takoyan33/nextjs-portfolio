@@ -9,10 +9,10 @@ interface ErrorPageProps {
 
 const ErrorPage: NextPage<ErrorPageProps> = ({ error }) => {
 	return (
-		<div className="max_width">
+		<main className="max_width">
 			<h2>Error</h2>
 			<p>{error.message}</p>
-		</div>
+		</main>
 	)
 }
 

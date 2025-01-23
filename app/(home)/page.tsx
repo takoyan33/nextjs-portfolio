@@ -1,14 +1,8 @@
 "use client"
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import { Suspense } from "react"
-import { TransitionLink } from "../app/components/ui/TransitionLink"
-import ScrollComponent from "../hooks/useFadeIn"
-import { SOCIAL_LINKS } from "../utils/data"
-import { PATH } from "../utils/path"
-import ThreeModel from "./components/parts/ThreeModel"
-import { CommonHead, WaveBgBottom, WaveBgTop } from "./components/ui/"
+
+import ThreeModel from "app/components/parts/ThreeModel"
+import { CommonHead, WaveBgBottom, WaveBgTop } from "app/components/ui/"
+import { TransitionLink } from "app/components/ui/TransitionLink"
 import {
 	BackSkills,
 	FrontSkills,
@@ -16,7 +10,14 @@ import {
 	InfraSkills,
 	OtherSkills,
 	TopPortfolioSlide,
-} from "./components/ui/rsc/"
+} from "app/components/ui/rsc"
+import ScrollComponent from "hooks/useFadeIn"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { Suspense } from "react"
+import { SOCIAL_LINKS } from "utils/data"
+import { PATH } from "utils/path"
 // import { TopZennArticle } from "./components/ui/rsc/TopZennArticle"
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 // import { useRecoilValue, useRecoilState } from 'recoil'
