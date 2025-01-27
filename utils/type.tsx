@@ -1,39 +1,39 @@
-export type history = {
+export interface history {
 	id: number
 	title: string
 	date: string
 	body: string
 }
 
-export type ResponseHistory = {
+export interface ResponseHistory {
 	status: string
 	data: history[]
 }
 
-export type job = {
+export interface job {
 	id: number
 	title: string
 	date: string
 	body: string
 }
 
-export type ResponseJob = {
+export interface ResponseJob {
 	status: string
 	data: job[]
 }
 
-export type license = {
+export interface license {
 	id: number
 	date: string
 	title: string
 }
 
-export type ResponseLicense = {
+export interface ResponseLicense {
 	status: string
 	data: license[]
 }
 
-export type skill = {
+export interface skill {
 	id: number
 	name: string
 	rank: string
@@ -42,12 +42,12 @@ export type skill = {
 	icon: string
 }
 
-export type ResponseSkill = {
+export interface ResponseSkill {
 	status: string
 	data: skill[]
 }
 
-export type portfolioType = {
+export interface portfolioType {
 	id: number
 	name: string
 	date: string
@@ -74,17 +74,17 @@ export type portfolioType = {
 	next_article_id?: string
 }
 
-export type ResponsePortfolios = {
+export interface ResponsePortfolios {
 	status: string
 	data: portfolioType[]
 }
 
-export type ResponsePortfolio = {
+export interface ResponsePortfolio {
 	status: string
 	data: portfolioType
 }
 
-export type zenn = {
+export interface zenn {
 	id: number
 	post_type: "Article"
 	title: string
@@ -109,12 +109,12 @@ export type zenn = {
 	publication: null
 }
 
-export type zennProps = {
+export interface zennProps {
 	articles: zenn[]
 }
 
 // メニューアイテムの型定義
-export type MenuItem = {
+export interface MenuItem {
 	id: number
 	title: string
 	link: string

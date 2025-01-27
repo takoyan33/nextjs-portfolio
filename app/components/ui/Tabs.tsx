@@ -2,7 +2,7 @@
 import { useState } from "react"
 import React from "react"
 
-type TabProps = {
+interface TabProps {
 	tabs: string[]
 }
 

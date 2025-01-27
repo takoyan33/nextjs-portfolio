@@ -541,6 +541,41 @@ li {
   }
 }
 
+//セレクトボックス
+.selectbox-5 {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.selectbox-5::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-5 select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: none;
+    border-bottom: 2px solid #d0d0d0;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.selectbox-5 select:focus {
+    outline: none;
+}
+
 // ポートフォリオページ用
 .portfolio {
   background-color: $back-color;

@@ -15,7 +15,6 @@ const Portfolio = async () => {
 				<BreadList name="Portfolio" link={PATH.PORTFOLIO} />
 			</div>
 			<LowerTitle title="Portfolio" enTitle="制作物" />
-			{/* @ts-expect-error Server Component */}
 			<PortfolioElement />
 		</main>
 	)

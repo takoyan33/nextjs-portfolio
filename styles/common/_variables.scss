@@ -295,6 +295,24 @@ a {
       overflow-wrap: break-word;
     }
   }
+.portfolioFlx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: rem(50) auto;
+  gap: rem(20) rem(20);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  &_el {
+    width: 45%;
+    margin: 0px;
+    overflow-wrap: break-word;
+  }
+}
+
 }
 
 @media screen and (max-width: 580px) {

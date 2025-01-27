@@ -3,7 +3,7 @@ import Image from "next/image"
 import React from "react"
 import { TransitionLink } from "."
 
-type PortfolioItemProps = {
+interface PortfolioItemProps {
 	portfolio_id: number
 	portfolio_name: string
 	portfolio_date: string

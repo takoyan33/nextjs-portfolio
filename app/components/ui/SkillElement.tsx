@@ -3,7 +3,7 @@
 import Image from "next/image"
 import React, { useRef } from "react"
 
-type SkillProps = {
+interface SkillProps {
 	name: string
 	rank: string
 	tag: string

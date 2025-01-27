@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-type ZennArticleItemProps = {
+interface ZennArticleItemProps {
 	zenn_id: number
 	zenn_title: string
 	zenn_published_at: Date

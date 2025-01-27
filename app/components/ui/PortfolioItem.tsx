@@ -2,7 +2,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 import { TransitionLink } from "./"
 
-type PortfolioItemProps = {
+interface PortfolioItemProps {
 	portfolio_id: number
 	portfolio_name: string
 	portfolio_date: string
