@@ -1,22 +1,22 @@
 "use client"
 
+import frontSkills from "public/mock/api/skills/front.json"
 import React, { useEffect, useState } from "react"
 import { fetchFrontSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
-// import frontSkills from "../../../../api/skills/front.json"
 import { SkillElement } from "../SkillElement"
 
 export const FrontSkills = () => {
-	const [frontSkills, setFrontSkills] = useState<skill[]>()
+	// const [frontSkills, setFrontSkills] = useState<skill[]>()
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchFrontSkills()
-			setFrontSkills(data.data)
-		}
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const data = await fetchFrontSkills()
+	// 		setFrontSkills(data.data)
+	// 	}
 
-		fetchData()
-	}, [])
+	// 	fetchData()
+	// }, [])
 
 	return (
 		<div className="skill__container">

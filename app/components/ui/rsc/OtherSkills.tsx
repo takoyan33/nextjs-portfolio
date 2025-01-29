@@ -2,21 +2,21 @@
 
 import React, { useEffect, useState } from "react"
 import { SkillElement } from "../"
-// import otherSkills from "../../../../api/skills/other.json"
+import otherSkills from "public/mock/api/skills/other.json"
 import { fetchOtherSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
 
 export const OtherSkills = () => {
-	const [otherSkills, setOtherSkills] = useState<skill[]>([])
+	// const [otherSkills, setOtherSkills] = useState<skill[]>([])
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchOtherSkills()
-			setOtherSkills(data.data)
-		}
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const data = await fetchOtherSkills()
+	// 		setOtherSkills(data.data)
+	// 	}
 
-		fetchData()
-	}, [])
+	// 	fetchData()
+	// }, [])
 	return (
 		<div className="skill__container">
 			{Array.isArray(otherSkills) &&

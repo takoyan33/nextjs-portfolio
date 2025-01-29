@@ -181,9 +181,9 @@ const Post = () => {
 							closeModal={closeModal2}
 							img={portfolio.aboutImg}
 						/>
-						<p className="portfolioDetail__element-text">
+						<div className="portfolioDetail__element-text">
 							{parse(portfolio?.about)}
-						</p>
+						</div>
 						<h3 className="portfolioDetail__element-subtitle">機能一覧</h3>
 						<div className="portfolioDetail__element-img">
 							<button onClick={openModal3} type="button">
@@ -203,9 +203,9 @@ const Post = () => {
 							closeModal={closeModal3}
 							img={portfolio.functionImg}
 						/>
-						<p className="portfolioDetail__element-text">
+						<div className="portfolioDetail__element-text">
 							{parse(portfolio?.function)}
-						</p>
+						</div>
 						<h3 className="portfolioDetail__element-subtitle">アピール</h3>
 						<div className="portfolioDetail__element-img">
 							<button onClick={openModal4} type="button">
@@ -225,9 +225,9 @@ const Post = () => {
 							closeModal={closeModal4}
 							img={portfolio.appealImg}
 						/>
-						<p className="portfolioDetail__element-text">
+						<div className="portfolioDetail__element-text">
 							{parse(portfolio?.appeal)}
-						</p>
+						</div>
 
 						<div className="portfolioDetail__element-text">
 							<h3 className="portfolioDetail__element-subtitle">制作期間</h3>

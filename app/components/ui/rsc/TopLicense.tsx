@@ -1,10 +1,10 @@
+// import { fetchLicenses } from "../../../../hooks/fetch"
+import licenses from "public/mock/api/licenses/index.json"
 import React from "react"
-import { fetchLicenses } from "../../../../hooks/fetch"
-//import licenses from "../../../../api/licenses/index.json"
 // import type { license } from "../../../../utils/type"
 
 export const TopLicense = async () => {
-	const licenses = await fetchLicenses()
+	// const licenses = await fetchLicenses()
 
 	// const [licenses, setLicenses] = useState<license[]>([])
 	// useEffect(() => {
@@ -17,7 +17,7 @@ export const TopLicense = async () => {
 	// }, [])
 	return (
 		<>
-			{licenses?.data.map((license) => (
+			{licenses?.map((license) => (
 				<tr key={license.id} className="license__table-tr">
 					<td className="license__table-td">{license.date}</td>
 					<td className="license__table-td">{license.title}</td>

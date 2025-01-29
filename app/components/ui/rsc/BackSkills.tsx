@@ -1,22 +1,22 @@
 "use client"
 
+import backSkills from "public/mock/api/skills/back.json"
 import React, { useEffect, useState } from "react"
-// import backSkills from "../../../../api/skills/back.json"
 import { fetchBackSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
 import { SkillElement } from "../SkillElement"
 
 export const BackSkills = () => {
-	const [backSkills, setBackSkills] = useState<skill[]>([])
+	// const [backSkills, setBackSkills] = useState<skill[]>([])
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchBackSkills()
-			setBackSkills(data.data)
-		}
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const data = await fetchBackSkills()
+	// 		setBackSkills(data.data)
+	// 	}
 
-		fetchData()
-	}, [])
+	// 	fetchData()
+	// }, [])
 	return (
 		<div className="skill__container">
 			{Array.isArray(backSkills) &&

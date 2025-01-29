@@ -1,22 +1,22 @@
 "use client"
 
+import infraSkills from "public/mock/api/skills/infra.json"
 import React, { useEffect, useState } from "react"
-//import infraSkills from "../../../../api/skills/infra.json"
-import { fetchInfraSkills } from "../../../../hooks/fetch"
-import type { skill } from "../../../../utils/type"
+// import { fetchInfraSkills } from "../../../../hooks/fetch"
+// import type { skill } from "../../../../utils/type"
 import { SkillElement } from "../SkillElement"
 
 export const InfraSkills = () => {
-	const [infraSkills, setInfraSkills] = useState<skill[]>([])
+	// const [infraSkills, setInfraSkills] = useState<skill[]>([])
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchInfraSkills()
-			setInfraSkills(data.data)
-		}
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const data = await fetchInfraSkills()
+	// 		setInfraSkills(data.data)
+	// 	}
 
-		fetchData()
-	}, [])
+	// 	fetchData()
+	// }, [])
 	return (
 		<div className="skill__container">
 			{infraSkills?.map((skill) => (
