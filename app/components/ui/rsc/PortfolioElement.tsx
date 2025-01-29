@@ -17,22 +17,23 @@ export const PortfolioElement = () => {
 		// 	const data = await fetchPortfoliosFront()
 		// 	setPortfolios(data.data)
 		// }
+		// fetchData()
 		portfoliosData?.sort((a, b) => {
 			return new Date(b.date).getTime() + new Date(a.date).getTime()
 		})
 		setPortfolios(portfoliosData)
-
-		// fetchData()
 	}, [])
 
 	const filterPortfolio = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const value = e.target.value
 		const sortedData = portfolios ? [...portfolios] : []
 
+		//新しい順
 		if (value === "new-order") {
 			sortedData.sort(
 				(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 			)
+			//古い順
 		} else if (value === "old-order") {
 			sortedData.sort(
 				(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
