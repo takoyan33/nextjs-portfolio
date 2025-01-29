@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"name": "Easy To Do",
-		"date": "2024.4.12",
+		"date": "2024-04-12",
 		"tag": ["Vue.js", "Nuxt3", "Firestore"],
 		"topImg": "/images/portfolio/portfolio_top1.png",
 		"front_url": "https://vuejs-app-front.web.app/",
@@ -33,7 +33,7 @@
 	{
 		"id": 2,
 		"name": "Manga Study",
-		"date": "2024.2.31",
+		"date": "2024-02-31",
 		"tag": ["React", "Next.js"],
 		"topImg": "/images/portfolio/portfolio_top2.png",
 		"front_url": "https://manga-study-net.vercel.app/",
@@ -66,7 +66,7 @@
 	{
 		"id": 3,
 		"name": "To You Design(ポートフォリオサイト)",
-		"date": "2023.11.30",
+		"date": "2023-11-30",
 		"tag": ["React", "Next.js", "Ruby"],
 		"topImg": "/images/portfolio/portfolio_top3.png",
 		"front_url": "https://to-you-design.vercel.app/",
@@ -91,7 +91,7 @@
 	{
 		"id": 4,
 		"name": "サークル管理App",
-		"date": "2022.11.30",
+		"date": "2022-11-30",
 		"tag": ["React", "Ruby"],
 		"topImg": "/images/portfolio/portfolio_7.png",
 		"front_github": "https://github.com/takoyan33/rails-react-app-front",
@@ -117,7 +117,7 @@
 	{
 		"id": 5,
 		"name": "株式会社セルフ・ヒーリング実践研究会サイト構築",
-		"date": "2022.09.01",
+		"date": "2022-09-01",
 		"tag": ["html", "WordPress"],
 		"topImg": "/images/portfolio/portfolio_9.png",
 		"front_url": "https://self-healing.co.jp/",
@@ -142,7 +142,7 @@
 	{
 		"id": 6,
 		"name": "三菱レンタカー下層ページコーディング",
-		"date": "2021.09.01",
+		"date": "2021-09-01",
 		"tag": ["html", "CSS"],
 		"topImg": "/images/portfolio/portfolio_1.png",
 		"front_url": "https://www.mmc-dia-finance.com/rental/",
@@ -167,7 +167,7 @@
 	{
 		"id": 7,
 		"name": "Next + Prisma",
-		"date": "2025.01.11",
+		"date": "2025-01-11",
 		"tag": ["Next.js", "Prisma"],
 		"topImg": "/images/portfolio/portfolio_10.png",
 		"front_url": "https://nextjs--prisma--todo.vercel.app/",
