@@ -18,7 +18,7 @@ export default function PortfolioItem({
 	portfolio_topImg,
 }: PortfolioItemProps) {
 	return (
-		<div className="portfolioFlx_el portfolioItem">
+		<article className="portfolioFlx_el portfolioItem">
 			<TransitionLink
 				href={`portfolios/${portfolio_id}`}
 				className="portfolioItem__link"
@@ -42,6 +42,6 @@ export default function PortfolioItem({
 					))}
 				</div>
 			</TransitionLink>
-		</div>
+		</article>
 	)
 }

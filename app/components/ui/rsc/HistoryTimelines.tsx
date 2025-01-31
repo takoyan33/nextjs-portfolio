@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import histories from "public/mock/api/histories/index.json"
 import React, { useEffect, useState } from "react"

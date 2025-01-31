@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import jobs from "public/mock/api/jobs/index.json"
 import React, { useEffect, useState } from "react"

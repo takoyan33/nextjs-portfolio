@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import infraSkills from "public/mock/api/skills/infra.json"
 import React, { useEffect, useState } from "react"

@@ -762,12 +762,12 @@ li {
     border-radius: 5px;
     font-weight: bold;
     border: 1px solid gray;
-    background: #f9f9f9;
     cursor: pointer;
     transition: background 0.3s;
     &.active {
       background: $main-color;
       color: #fff;
+      border: 0 solid;
     }
     &:hover {
       opacity: 0.7;
@@ -995,11 +995,15 @@ dl {
     }
     &-img {
       position: relative;
-      width: 70%;
+      width: 100%;
       aspect-ratio: 16 / 9;
       height: auto;
       margin-inline: auto;
       object-fit: contain;
+      button {
+        border: 0;
+        background-color: white;
+      }
     }
     &-title {
       text-align: left;
@@ -1091,6 +1095,7 @@ dl {
   &__title {
     text-align: left;
     display: flex;
+    margin: 10px auto;
     gap: 10px;
     align-items: center;
     &-span {
@@ -1190,9 +1195,10 @@ body.modal-open {
   font-size: 1.5rem;
   cursor: pointer;
 
-    img {
+  img {
     max-width: 1100px;
     width: 100%;
+    aspect-ratio: 16 / 9;
     height: auto;
   }
 
@@ -1628,7 +1634,7 @@ body {
       &-topImg {
         aspect-ratio: 16 / 9;
         position: relative;
-        width: 80%;
+        width: 100%;
         height: auto;
         margin-inline: auto;
         object-fit: cover;
@@ -1636,7 +1642,7 @@ body {
       &-img {
         aspect-ratio: 16 / 9;
         position: relative;
-        width: 70%;
+        width: 90%;
         height: auto;
         margin-inline: auto;
         object-fit: contain;

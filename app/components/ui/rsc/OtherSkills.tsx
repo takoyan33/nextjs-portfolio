@@ -1,8 +1,8 @@
-"use client"
+//"use client"
 
+import otherSkills from "public/mock/api/skills/other.json"
 import React, { useEffect, useState } from "react"
 import { SkillElement } from "../"
-import otherSkills from "public/mock/api/skills/other.json"
 import { fetchOtherSkills } from "../../../../hooks/fetch"
 import type { skill } from "../../../../utils/type"
 

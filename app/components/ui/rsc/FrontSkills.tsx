@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import frontSkills from "public/mock/api/skills/front.json"
 import React, { useEffect, useState } from "react"

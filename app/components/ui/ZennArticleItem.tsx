@@ -27,7 +27,7 @@ export default function ZennArticleItem({
 		return `${year}-${month}-${day}`
 	}
 	return (
-		<div className="flx_el" key={zenn_id}>
+		<article className="flx_el" key={zenn_id}>
 			<Link href={`https://zenn.dev${zenn_path}`} target="_blank">
 				<div className="zenn__emoji">{zenn_emoji}</div>
 				<div className="zenn__flex">
@@ -36,6 +36,6 @@ export default function ZennArticleItem({
 				<p className="zenn__title"> {zenn_title} </p>
 				<p className="zenn__date">{formatDate(zenn_published_at)}</p>
 			</Link>
-		</div>
+		</article>
 	)
 }

@@ -1433,13 +1433,13 @@ li {
   border-radius: 5px;
   font-weight: bold;
   border: 1px solid gray;
-  background: #f9f9f9;
   cursor: pointer;
   transition: background 0.3s;
 }
 .tab-buttons button.active {
   background: #4485ff;
   color: #fff;
+  border: 0 solid;
 }
 .tab-buttons button:hover {
   opacity: 0.7;
@@ -1635,12 +1635,16 @@ li {
 }
 .portfolioDetail__element-img {
   position: relative;
-  width: 70%;
+  width: 100%;
   aspect-ratio: 16/9;
   height: auto;
   margin-inline: auto;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.portfolioDetail__element-img button {
+  border: 0;
+  background-color: white;
 }
 .portfolioDetail__element-title {
   text-align: left;
@@ -1728,6 +1732,7 @@ li {
 .bread__title {
   text-align: left;
   display: flex;
+  margin: 10px auto;
   gap: 10px;
   align-items: center;
 }
@@ -1825,6 +1830,7 @@ body.modal-open {
 .modal-close img {
   max-width: 1100px;
   width: 100%;
+  aspect-ratio: 16/9;
   height: auto;
 }
 
@@ -2220,7 +2226,7 @@ body {
   .portfolioDetail__element-topImg {
     aspect-ratio: 16/9;
     position: relative;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin-inline: auto;
     -o-object-fit: cover;
@@ -2229,7 +2235,7 @@ body {
   .portfolioDetail__element-img {
     aspect-ratio: 16/9;
     position: relative;
-    width: 70%;
+    width: 90%;
     height: auto;
     margin-inline: auto;
     -o-object-fit: contain;
