@@ -1,13 +1,13 @@
 import Image from "next/image"
 import { PATH } from "../../../utils/path"
-import { TransitionLink } from "./"
+import { TransitionLink } from "."
 
-interface BreadListProps {
+interface BreadcrumbProps {
 	name: string
 	link: string
 }
 
-export const BreadList: React.FC<BreadListProps> = ({ name, link }) => {
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 	return (
 		<p className="bread__title max-width">
 			<TransitionLink href={PATH.INDEX}>トップ</TransitionLink>

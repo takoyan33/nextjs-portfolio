@@ -1,4 +1,4 @@
-export * from "./BreadList"
+export * from "./Breadcrumb"
 export * from "./LowerTitle"
 export * from "./PostNavigation"
 export * from "./CommonButton"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
 import type { zennProps } from "../../utils/type"
-import { BreadList, LowerTitle } from "../components/ui/"
+import { Breadcrumb, LowerTitle } from "../components/ui/"
 import ZennArticleItem from "../components/ui/ZennArticleItem"
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ const Blog = async () => {
 	return (
 		<main>
 			<div className="max_width">
-				<BreadList name="Blog" link={PATH.BLOG} />
+				<Breadcrumb name="Blog" link={PATH.BLOG} />
 			</div>
 			<LowerTitle title="Blog" enTitle="ブログ" />
 			<div className="max_width">

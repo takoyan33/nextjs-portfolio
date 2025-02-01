@@ -1,11 +1,11 @@
 import { PATH } from "../utils/path"
-import { BreadList } from "./components/ui/"
+import { Breadcrumb } from "./components/ui/"
 
 const Loading = () => {
 	return (
 		<div className="loading-body">
 			<div className="max_width">
-				<BreadList name="Blog" link={PATH.BLOG} />
+				<Breadcrumb name="Blog" link={PATH.BLOG} />
 			</div>
 			<div className="lower_bg">
 				<div className="max_width">

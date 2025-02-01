@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import { BreadList, LowerTitle } from "../components/ui/"
+import { Breadcrumb, LowerTitle } from "../components/ui/"
 import { PortfolioElement } from "../components/ui/rsc/"
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ const Portfolio = async () => {
 	return (
 		<main>
 			<div className="max_width">
-				<BreadList name="Portfolio" link={PATH.PORTFOLIO} />
+				<Breadcrumb name="Portfolio" link={PATH.PORTFOLIO} />
 			</div>
 			<LowerTitle title="Portfolio" enTitle="制作物" />
 			<PortfolioElement />

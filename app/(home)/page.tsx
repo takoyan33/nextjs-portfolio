@@ -1,7 +1,6 @@
-"use client"
-
 import ThreeModel from "app/components/parts/ThreeModel"
 import { CommonHead, WaveBgBottom, WaveBgTop } from "app/components/ui/"
+import { TopBackButton } from "app/components/ui/TopBackButton"
 import { TransitionLink } from "app/components/ui/TransitionLink"
 import {
 	BackSkills,
@@ -14,7 +13,6 @@ import {
 import ScrollComponent from "hooks/useFadeIn"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import { Suspense } from "react"
 import { SOCIAL_LINKS } from "utils/data"
 import { PATH } from "utils/path"
@@ -24,17 +22,6 @@ import { PATH } from "utils/path"
 // import { todoState } from '../atoms/todoState'
 
 const Home = () => {
-	const [showBackButton, setShowBackButton] = useState(false)
-
-	const handleScroll = () => {
-		setShowBackButton(window.scrollY > 150)
-	}
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll)
-		return () => window.removeEventListener("scroll", handleScroll)
-	}, [])
-
 	return (
 		<div>
 			<CommonHead />
@@ -104,11 +91,15 @@ const Home = () => {
 											現在はReactやVueを中心に、更なるフロントエンド技術の向上を目指しています。
 										</p>
 										<dl className="about__text">
-											<dt className="about__text-span">趣味：</dt>
+											<dt className="about__text">
+												<strong>趣味：</strong>
+											</dt>
 											<dd>旅行、ギター</dd>
 										</dl>
 										<dl className="about__text">
-											<dt className="about__text-span">資格：</dt>
+											<dt className="about__text">
+												<strong>資格：</strong>
+											</dt>
 											<dd>基本情報技術者試験</dd>
 										</dl>
 									</ScrollComponent>
@@ -208,22 +199,7 @@ const Home = () => {
 					</div>
 				</section>
 			</main>
-			{showBackButton && (
-				<button
-					type="button"
-					className="back__btn"
-					onClick={() => {
-						window.scrollTo(0, 0)
-					}}
-				>
-					<Image
-						src="/images/top-arrow.svg"
-						height={30}
-						width={30}
-						alt="arrow"
-					/>
-				</button>
-			)}
+			<TopBackButton />
 		</div>
 	)
 }

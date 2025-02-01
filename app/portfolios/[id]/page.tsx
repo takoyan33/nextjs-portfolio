@@ -1,4 +1,5 @@
 "use client"
+
 import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
@@ -17,7 +18,7 @@ const Post = () => {
 
 	const [portfolio, setPortfolio] = useState<portfolioType>()
 
-	const fetchPortfolios = async (id) => {
+	const fetchPortfolios = (id: string | string[]) => {
 		try {
 			// １つ取得する
 			const filteredPortfolio = portfoliosData.find(

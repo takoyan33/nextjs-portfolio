@@ -1,3 +1,5 @@
+"use client"
+
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef } from "react"

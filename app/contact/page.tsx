@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import { BreadList, LowerTitle } from "../components/ui/"
+import { Breadcrumb, LowerTitle } from "../components/ui/"
 import { ContactForm } from "../components/ui/"
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ const Contact = () => {
 	return (
 		<main>
 			<div className="max_width">
-				<BreadList name="お問い合わせ" link={PATH.CONTACT} />
+				<Breadcrumb name="お問い合わせ" link={PATH.CONTACT} />
 			</div>
 			<LowerTitle title="お問い合わせ" enTitle="contact" />
 			<div className="max_width">

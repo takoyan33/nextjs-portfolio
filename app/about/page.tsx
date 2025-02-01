@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import { AboutTabs, BreadList, LowerTitle } from "../components/ui/"
+import { AboutTabs, Breadcrumb, LowerTitle } from "../components/ui/"
 import { TopLicense } from "../components/ui/rsc/"
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ const About = () => {
 	return (
 		<main className="padding">
 			<div className="max_width">
-				<BreadList name="About" link={PATH.ABOUT} />
+				<Breadcrumb name="About" link={PATH.ABOUT} />
 			</div>
 			<LowerTitle title="About" enTitle="プロフィール" />
 			<AboutTabs />
