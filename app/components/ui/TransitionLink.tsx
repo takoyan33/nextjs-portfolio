@@ -49,7 +49,7 @@ export const TransitionLink = ({
 			onClick={handleTransition}
 			href={href}
 			{...props}
-			className={className}
+			className={className ? className : "transition-link"}
 		>
 			{children}
 		</Link>

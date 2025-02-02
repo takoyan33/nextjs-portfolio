@@ -426,6 +426,7 @@ a :hover {
 .form-box-error {
   color: red;
   font-size: 14px;
+  text-align: left;
 }
 
 .logo {
@@ -619,6 +620,8 @@ a :hover {
     height: 38px;
     z-index: 100;
     cursor: pointer;
+    background-color: white;
+    border: 0px;
   }
   .btn-trigger span {
     position: absolute;
@@ -1446,6 +1449,10 @@ li {
   font-weight: 600;
   font-size: 16px;
   text-align: center;
+}
+
+.transition-link {
+  height: 100%;
 }
 
 .about__title {

@@ -1391,6 +1391,10 @@ li {
   text-align: center;
 }
 
+.transition-link {
+  height: 100%;
+}
+
 .about__title {
   margin: 0.625rem auto;
   font-size: 1.625rem;
