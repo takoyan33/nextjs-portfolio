@@ -1736,24 +1736,29 @@ li {
   opacity: 0.7;
 }
 
-.bread__title {
+.breadCrumb__title {
   text-align: left;
   display: flex;
   margin: 10px auto;
   gap: 10px;
   align-items: center;
 }
-.bread__title-span {
+.breadCrumb__title-span {
   font-weight: bold;
 }
-.bread__second {
+.breadCrumb__second {
   font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
-.bread__arrow {
+.breadCrumb__second:hover {
+  color: #4485ff;
+}
+.breadCrumb__arrow {
   width: 15px;
   height: 15px;
 }
-.bread__arrow img {
+.breadCrumb__arrow img {
   display: block;
 }
 
@@ -2295,15 +2300,15 @@ body {
     bottom: 10px;
     z-index: -1;
   }
-  .bread__title {
+  .breadCrumb__title {
     padding-top: 50px;
     text-align: left;
     flex-wrap: wrap;
   }
-  .bread__second {
+  .breadCrumb__second {
     font-weight: 600;
   }
-  .bread__arrow {
+  .breadCrumb__arrow {
     margin: 0px 8px;
   }
   .portfolio {

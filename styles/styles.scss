@@ -1095,7 +1095,7 @@ dl {
   }
 }
 
-.bread {
+.breadCrumb {
   &__title {
     text-align: left;
     display: flex;
@@ -1108,6 +1108,11 @@ dl {
   }
   &__second {
     font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    &:hover {
+      color: $main-color;
+    }
   }
   &__arrow {
     width: 15px;
@@ -1703,7 +1708,7 @@ body {
     z-index: -1;
   }
 
-  .bread {
+  .breadCrumb {
     &__title {
       padding-top: 50px;
       text-align: left;

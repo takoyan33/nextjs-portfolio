@@ -9,9 +9,9 @@ interface BreadcrumbProps {
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 	return (
-		<p className="bread__title max-width">
+		<p className="breadCrumb__title max-width">
 			<TransitionLink href={PATH.INDEX}>トップ</TransitionLink>
-			<span className="bread__arrow">
+			<span className="breadCrumb__arrow">
 				<Image
 					src="/images/next-arrow.svg"
 					width={15}
@@ -23,7 +23,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 					alt="スライドショーのナビゲーション"
 				/>
 			</span>
-			<TransitionLink href={link} className="bread__second">
+			<TransitionLink href={link} className="breadCrumb__second">
 				{name}
 			</TransitionLink>
 		</p>
