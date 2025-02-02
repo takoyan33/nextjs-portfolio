@@ -54,6 +54,9 @@
 					},
 					"nursery": {
 						"useSortedClasses": "warn"
+					},
+					"a11y": {
+						"noNoninteractiveTabindex": "off"
 					}
 				}
 			}

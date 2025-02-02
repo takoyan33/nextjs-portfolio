@@ -610,6 +610,8 @@ a :hover {
     height: 38px;
     z-index: 100;
     cursor: pointer;
+    background-color: white;
+    border: 0px;
   }
   .btn-trigger span {
     position: absolute;

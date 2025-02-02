@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image"
-import Link from "next/link"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { PATH } from "../../../utils/path"
 import type { MenuItem } from "../../../utils/type"
 import { TransitionLink } from "./"
@@ -31,6 +30,27 @@ export default function Header() {
 			link: PATH.BLOG,
 		},
 	]
+
+	useEffect(() => {
+		const focusTrap = document.getElementById("js-focus-trap")
+		const hamburger = document.getElementById("btn01")
+
+		// メニューが開いた時にフォーカスをハンバーガーメニューに移動
+		if (focusTrap && hamburger) {
+			focusTrap.addEventListener("focus", () => {
+				hamburger.focus()
+			})
+		}
+
+		if (openMenu) {
+			document.body.style.overflow = "hidden"
+		} else {
+			document.body.style.overflow = ""
+		}
+		return () => {
+			document.body.style.overflow = ""
+		}
+	}, [openMenu])
 
 	return (
 		<>
@@ -66,16 +86,19 @@ export default function Header() {
 						</ul>
 					</nav>
 				</div>
-				<div
+				<button
+					type="button"
 					className={`btn-trigger ${openMenu ? "active" : ""}`}
 					id="btn01"
 					onClick={menuFunction}
-					onKeyDown={menuFunction}
+					aria-controls="navigation"
+					aria-expanded={openMenu}
+					aria-label="メニューを開く"
 				>
 					<span />
 					<span />
 					<span />
-				</div>
+				</button>
 			</header>
 			<div className={`drawerMenu ${openMenu ? "open" : undefined}`}>
 				<ul>
@@ -87,6 +110,9 @@ export default function Header() {
 						</li>
 					))}
 				</ul>
+				<a id="js-focus-trap" href="#header">
+					.
+				</a>
 			</div>
 		</>
 	)
