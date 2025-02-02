@@ -426,6 +426,7 @@ a :hover {
 .form-box-error {
   color: red;
   font-size: 14px;
+  text-align: left;
 }
 
 .logo {

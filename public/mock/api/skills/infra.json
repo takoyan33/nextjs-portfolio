@@ -14,5 +14,13 @@
 		"tag": "経験年数：3年",
 		"about": "ReactやVueのデプロイで利用",
 		"icon": "/images/skill/server.svg"
+	},
+	{
+		"id": 3,
+		"name": "Render",
+		"rank": "★★★★",
+		"tag": "経験年数：3年",
+		"about": "Ruby on Railsのデプロイで利用",
+		"icon": "/images/skill/server.svg"
 	}
 ]

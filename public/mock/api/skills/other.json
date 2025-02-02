@@ -30,5 +30,13 @@
 		"tag": "経験年数：1年半",
 		"about": "仕事のソース管理で利用",
 		"icon": "/images/skill/bitbucket.svg"
+	},
+	{
+		"id": 5,
+		"name": "Docker",
+		"rank": "★★",
+		"tag": "経験年数：1年",
+		"about": "コンテナで個人開発などで利用",
+		"icon": "/images/skill/bitbucket.svg"
 	}
 ]
