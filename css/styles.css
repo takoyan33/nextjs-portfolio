@@ -1489,27 +1489,49 @@ li {
   margin-bottom: 0.625rem;
 }
 
-.tab-buttons {
+.tab-1 {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 1200px;
   margin: 20px auto;
+  justify-content: center;
 }
-.tab-buttons button {
-  padding: 10px 20px;
-  border-radius: 5px;
+.tab-1 label {
+  flex: 1 1;
+  order: -1;
+  min-width: 100px;
+  padding: 0.9em 1em 0.5em;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
+  background-color: #e9f0f6;
+  color: #535353;
   font-weight: bold;
-  border: 1px solid gray;
+  font-size: 0.9em;
+  text-align: center;
   cursor: pointer;
-  transition: background 0.3s;
 }
-.tab-buttons button.active {
-  background: #4485ff;
-  color: #fff;
-  border: 0 solid;
+.tab-1 label:hover {
+  opacity: 0.8;
 }
-.tab-buttons button:hover {
-  opacity: 0.7;
+.tab-1 input {
+  display: none;
+}
+.tab-1 div {
+  display: none;
+  width: 100%;
+  padding: 1.5em 1em;
+  background-color: #fff;
+}
+.tab-1 .active {
+  background-color: #fff;
+  border-color: #4485ff #f0f0f0 #fff;
+  border-style: solid;
+  border-width: 4px 1px 1px;
+  border-radius: 5px;
+  color: #333333;
+}
+.tab-1 .active + div {
+  display: block;
 }
 
 .size {

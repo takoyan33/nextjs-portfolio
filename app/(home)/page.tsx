@@ -1,7 +1,11 @@
 import ThreeModel from "app/components/parts/ThreeModel"
-import { CommonHead, WaveBgBottom, WaveBgTop } from "app/components/ui/"
-import { TopBackButton } from "app/components/ui/TopBackButton"
-import { TransitionLink } from "app/components/ui/TransitionLink"
+import {
+	CommonHead,
+	TopBackButton,
+	TransitionLink,
+	WaveBgBottom,
+	WaveBgTop,
+} from "app/components/ui"
 import {
 	BackSkills,
 	FrontSkills,

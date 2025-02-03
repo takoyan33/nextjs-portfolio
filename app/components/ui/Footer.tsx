@@ -44,7 +44,7 @@ export const Footer = () => {
 				</div>
 				<nav className="flx_el" aria-label="フッターメニュー">
 					{MENU_ITEMS.map((item) => (
-						<TransitionLink href={item.link} key={item.id}>
+						<TransitionLink href={item.link} key={item.id} className="m-0">
 							<p className="footer__list">{item.title}</p>
 						</TransitionLink>
 					))}
