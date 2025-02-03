@@ -1,4 +1,4 @@
-import "../styles/styles.css"
+import "../styles/styles.scss"
 import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import Script from "next/script"
