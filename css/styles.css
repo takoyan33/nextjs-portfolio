@@ -613,6 +613,31 @@ a :hover {
   width: 100%;
 }
 
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+.errorPage h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+}
+.errorPage h2 {
+  font-size: 2rem;
+  color: #1a1a1a;
+}
+.errorPage p {
+  color: #666666;
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 1024px) {
   .btn-trigger {
     position: relative;
@@ -885,6 +910,10 @@ a :hover {
     width: 300px;
   }
 }
+a {
+  cursor: pointer;
+}
+
 .content {
   height: 160px;
   overflow: hidden;

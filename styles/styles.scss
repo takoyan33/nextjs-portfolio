@@ -2,6 +2,10 @@
 @use './common/variables' as *;
 @use './parts/parts';
 
+a {
+  cursor: pointer;
+}
+
 .content {
   height: 160px;
   overflow: hidden;
