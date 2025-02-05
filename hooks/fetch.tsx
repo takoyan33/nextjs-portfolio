@@ -6,7 +6,7 @@ import type {
 	ResponsePortfolio,
 	ResponsePortfolios,
 	ResponseSkill,
-} from "../utils/type"
+} from "../types"
 
 export const fetchHistories = async (): Promise<ResponseHistory> => {
 	const response = await fetch(

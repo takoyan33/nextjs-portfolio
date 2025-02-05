@@ -6,11 +6,11 @@ import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
+import type { portfolioType } from "../../../types"
 import { PATH } from "../../../utils/path"
-import type { portfolioType } from "../../../utils/type"
 import { LowerTitle } from "../../components/ui/"
-import { CommonModal } from "../../components/ui/CommonModal"
-import { PostNavigation } from "../../components/ui/PostNavigation"
+import { CommonModal } from "../../components/ui/common-modal"
+import { PostNavigation } from "../../components/ui/post-navigation"
 
 const Post = () => {
 	const params = useParams()

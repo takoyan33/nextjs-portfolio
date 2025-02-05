@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import React from "react"
-import { HistoryTimelines, JobTimelines } from "./rsc/"
+import { HistoryTimelines, JobTimelines } from "./rsc"
 
 export const AboutTabs = () => {
 	const [activeTab, setActiveTab] = useState<"history" | "career">("history")

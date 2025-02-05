@@ -5,7 +5,7 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import Link from "next/link"
-import type { zennProps } from "../../../../utils/type"
+import type { zennProps } from "../../../../types"
 
 export const TopZennArticle = () => {
 	const [zennArticles, setZennArticles] = useState<zennProps | null>(null)

@@ -1,11 +1,11 @@
 "use client"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
+import type { MenuItem } from "../../../types"
 import { PATH } from "../../../utils/path"
-import type { MenuItem } from "../../../utils/type"
-import { TransitionLink } from "./"
+import { TransitionLink } from "../ui"
 
-export default function Header() {
+export const Header = () => {
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
 	// メニューの開閉

@@ -3,8 +3,8 @@
 import frontSkills from "public/mock/api/skills/front.json"
 import React, { useEffect, useState } from "react"
 import { fetchFrontSkills } from "../../../../hooks/fetch"
-import type { skill } from "../../../../utils/type"
-import { SkillElement } from "../SkillElement"
+import type { skill } from "../../../../types"
+import { SkillElement } from "../skill-element"
 
 export const FrontSkills = () => {
 	// const [frontSkills, setFrontSkills] = useState<skill[]>()

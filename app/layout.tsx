@@ -1,12 +1,11 @@
-import "../styles/styles.scss"
+import "../styles/globals.scss"
 import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import Script from "next/script"
 import type React from "react"
 // import { RecoilRoot } from "recoil"
 import { Clarity } from "../utils/clarity"
-import { Footer } from "./components/ui/"
-import Header from "./components/ui/Header"
+import { CommonHead, Footer, Header } from "./components/layout"
 
 export const metadata: Metadata = {
 	title: "To You Design",
@@ -19,6 +18,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="ja">
 			<head>
+				<CommonHead />
 				<Script
 					src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
 					strategy="afterInteractive"

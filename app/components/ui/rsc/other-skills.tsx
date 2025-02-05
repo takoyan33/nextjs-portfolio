@@ -2,9 +2,9 @@
 
 import otherSkills from "public/mock/api/skills/other.json"
 import React, { useEffect, useState } from "react"
-import { SkillElement } from "../"
+import { SkillElement } from ".."
 import { fetchOtherSkills } from "../../../../hooks/fetch"
-import type { skill } from "../../../../utils/type"
+import type { skill } from "../../../../types"
 
 export const OtherSkills = () => {
 	// const [otherSkills, setOtherSkills] = useState<skill[]>([])

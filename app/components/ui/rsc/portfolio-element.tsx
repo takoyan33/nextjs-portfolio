@@ -4,8 +4,8 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
-import type { portfolioType } from "../../../../utils/type"
-import PortfolioItem from "../PortfolioItem"
+import type { portfolioType } from "../../../../types"
+import PortfolioItem from "../portfolio-item"
 
 export const PortfolioElement = () => {
 	// const portfolios = await fetchPortfolios()

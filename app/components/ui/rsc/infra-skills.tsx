@@ -3,8 +3,8 @@
 import infraSkills from "public/mock/api/skills/infra.json"
 import React, { useEffect, useState } from "react"
 // import { fetchInfraSkills } from "../../../../hooks/fetch"
-// import type { skill } from "../../../../utils/type"
-import { SkillElement } from "../SkillElement"
+// import type { skill } from "../../../../types"
+import { SkillElement } from "../skill-element"
 
 export const InfraSkills = () => {
 	// const [infraSkills, setInfraSkills] = useState<skill[]>([])

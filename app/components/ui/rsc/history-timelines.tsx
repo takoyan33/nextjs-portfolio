@@ -3,8 +3,8 @@
 import histories from "public/mock/api/histories/index.json"
 import React, { useEffect, useState } from "react"
 import { fetchHistories } from "../../../../hooks/fetch"
-import type { history } from "../../../../utils/type"
-import { Timeline } from "../Timeline"
+import type { history } from "../../../../types"
+import { Timeline } from "../timeline"
 
 export const HistoryTimelines = () => {
 	// const [histories, setHistories] = useState<history[]>([])

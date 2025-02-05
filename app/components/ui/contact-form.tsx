@@ -3,8 +3,8 @@ import { send } from "emailjs-com"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { emailjsConfig } from "../../../utils/Emailjs"
-import { CommonLabel } from "./CommonLabel"
+import { emailjsConfig } from "../../../utils/emailjs"
+import { CommonLabel } from "./common-label"
 
 export const ContactForm = () => {
 	const [name, setName] = useState<string>("")

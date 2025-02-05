@@ -1,6 +1,5 @@
-import ThreeModel from "app/components/parts/ThreeModel"
+import ThreeModel from "app/components/parts/three-model"
 import {
-	CommonHead,
 	TopBackButton,
 	TransitionLink,
 	WaveBgBottom,
@@ -14,7 +13,7 @@ import {
 	OtherSkills,
 	TopPortfolioSlide,
 } from "app/components/ui/rsc"
-import ScrollComponent from "hooks/useFadeIn"
+import ScrollComponent from "hooks/use-fadeIn"
 import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
@@ -28,7 +27,6 @@ import { PATH } from "utils/path"
 const Home = () => {
 	return (
 		<div>
-			<CommonHead />
 			<main aria-label="本文">
 				{/* ここからfv */}
 				<section className="fv">

@@ -9,10 +9,10 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { TopPortfolioItem } from ".."
 import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
-import type { portfolioType } from "../../../../utils/type"
-import { TopPortfolioItem } from "../../../components/ui/"
+import type { portfolioType } from "../../../../types"
 
 export const TopPortfolioSlide = () => {
 	const BREAK_POINT = {

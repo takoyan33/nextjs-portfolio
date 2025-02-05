@@ -1,6 +1,6 @@
 import parse from "html-react-parser"
 import Image from "next/image"
-import { TransitionLink } from "./"
+import { TransitionLink } from "."
 
 interface PortfolioItemProps {
 	portfolio_id: number
