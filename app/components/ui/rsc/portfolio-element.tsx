@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
 import type { portfolioType } from "../../../../types"
@@ -28,12 +28,10 @@ export const PortfolioElement = () => {
 		const value = e.target.value
 		const sortedData = portfolios ? [...portfolios] : []
 
-		//新しい順
 		if (value === "new-order") {
 			sortedData.sort(
 				(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 			)
-			//古い順
 		} else if (value === "old-order") {
 			sortedData.sort(
 				(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),

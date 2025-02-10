@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useMemo } from "react"
 import "swiper/css"
 import { Controller } from "swiper/modules"
 import "swiper/css/navigation"
@@ -9,10 +9,10 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { TopPortfolioItem } from ".."
 import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
 import type { portfolioType } from "../../../../types"
+import TopPortfolioItem from "../top-portfolio-item"
 
 export const TopPortfolioSlide = () => {
 	const BREAK_POINT = {
@@ -42,6 +42,21 @@ export const TopPortfolioSlide = () => {
 		setPortfolios(portfoliosData)
 		fetchData()
 	}, [])
+
+	// ポートフォリオの中身が変わる場合のみ再計算
+	const slides = useMemo(() => {
+		return portfolios?.map((portfolio) => (
+			<SwiperSlide key={portfolio.id}>
+				<TopPortfolioItem
+					portfolio_id={portfolio.id}
+					portfolio_name={portfolio.name}
+					portfolio_date={portfolio.date}
+					portfolio_tag={portfolio.tag}
+					portfolio_topImg={portfolio.topImg}
+				/>
+			</SwiperSlide>
+		))
+	}, [portfolios])
 
 	return (
 		<div className="portfolio-content">
@@ -77,20 +92,10 @@ export const TopPortfolioSlide = () => {
 					prevEl: ".prev-button",
 				}}
 			>
-				{portfolios?.map((portfolio) => (
-					<SwiperSlide key={portfolio.id}>
-						<TopPortfolioItem
-							portfolio_id={portfolio.id}
-							portfolio_name={portfolio.name}
-							portfolio_date={portfolio.date}
-							portfolio_tag={portfolio.tag}
-							portfolio_topImg={portfolio.topImg}
-						/>
-					</SwiperSlide>
-				))}
+				{slides}
 			</Swiper>
 			<div className="next-button">
-				{firstSwiper < 3 && (
+				{firstSwiper < 4 && (
 					<Image
 						src="/images/next-arrow.svg"
 						width={50}

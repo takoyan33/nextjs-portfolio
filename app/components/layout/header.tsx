@@ -42,6 +42,7 @@ export const Header = () => {
 			})
 		}
 
+		// メニューが開いた時にスクロールを禁止
 		if (openMenu) {
 			document.body.style.overflow = "hidden"
 		} else {
@@ -62,9 +63,9 @@ export const Header = () => {
 								<Image
 									src="/images/common/logo.svg"
 									alt="ポートフォリオ画像"
-									fill
 									priority
-									sizes="(min-width: 768px) 50vw, 100vw"
+									width={180}
+									height={50}
 									className="logo"
 								/>
 							</TransitionLink>

@@ -11,13 +11,13 @@ interface PortfolioItemProps {
 	portfolio_topImg: string
 }
 
-export const TopPortfolioItem = ({
+const TopPortfolioItem = React.memo(function TopPortfolioItem({
 	portfolio_id,
 	portfolio_name,
 	portfolio_date,
 	portfolio_tag,
 	portfolio_topImg,
-}: PortfolioItemProps) => {
+}: PortfolioItemProps) {
 	return (
 		<div className="flx_el portfolio_flx_el">
 			<TransitionLink href={`portfolios/${portfolio_id}`}>
@@ -42,4 +42,6 @@ export const TopPortfolioItem = ({
 			</TransitionLink>
 		</div>
 	)
-}
+})
+
+export default TopPortfolioItem

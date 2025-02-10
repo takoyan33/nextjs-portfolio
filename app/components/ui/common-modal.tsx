@@ -1,5 +1,6 @@
 import Image from "next/image"
 import type React from "react"
+import { memo } from "react"
 import Modal from "react-modal"
 
 interface CommonModalProps {
@@ -8,7 +9,11 @@ interface CommonModalProps {
 	closeModal: () => void
 }
 
-export const CommonModal = ({ isOpen, img, closeModal }: CommonModalProps) => {
+export const CommonModalComponent = ({
+	isOpen,
+	img,
+	closeModal,
+}: CommonModalProps) => {
 	return (
 		<Modal
 			isOpen={isOpen}
@@ -16,6 +21,7 @@ export const CommonModal = ({ isOpen, img, closeModal }: CommonModalProps) => {
 			contentLabel="Image Modal"
 			className="modal"
 			overlayClassName="overlay"
+			ariaHideApp={false}
 		>
 			<button onClick={closeModal} className="modal-close" type="button">
 				&times;
@@ -26,3 +32,5 @@ export const CommonModal = ({ isOpen, img, closeModal }: CommonModalProps) => {
 		</Modal>
 	)
 }
+
+export const CommonModal = memo(CommonModalComponent)

@@ -1,5 +1,6 @@
 import parse from "html-react-parser"
 import Image from "next/image"
+import React from "react"
 import { TransitionLink } from "."
 
 interface PortfolioItemProps {
@@ -10,7 +11,7 @@ interface PortfolioItemProps {
 	portfolio_topImg: string
 }
 
-export default function PortfolioItem({
+const PortfolioItem = React.memo(function PortfolioItem({
 	portfolio_id,
 	portfolio_name,
 	portfolio_date,
@@ -34,14 +35,16 @@ export default function PortfolioItem({
 				</div>
 				<p className="portfolioItem__date">{portfolio_date}</p>
 				<h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
-				<div className="portfolioItem__flex">
+				<ul className="portfolioItem__flex">
 					{portfolio_tag.map((tag) => (
 						<li className="portfolioItem__tag" key={tag}>
 							#{tag}
 						</li>
 					))}
-				</div>
+				</ul>
 			</TransitionLink>
 		</article>
 	)
-}
+})
+
+export default PortfolioItem

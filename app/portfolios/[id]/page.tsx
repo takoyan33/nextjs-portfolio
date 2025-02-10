@@ -111,10 +111,7 @@ const Post = () => {
 								src="/images/next-arrow.svg"
 								width={15}
 								height={15}
-								style={{
-									width: "100%",
-									height: "auto",
-								}}
+								priority
 								alt="スライドショーのナビゲーション"
 							/>
 						</span>
@@ -124,10 +121,7 @@ const Post = () => {
 								src="/images/next-arrow.svg"
 								width={15}
 								height={15}
-								style={{
-									width: "100%",
-									height: "auto",
-								}}
+								priority
 								alt="スライドショーのナビゲーション"
 							/>
 						</span>
