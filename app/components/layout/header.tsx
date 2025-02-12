@@ -1,6 +1,5 @@
 "use client"
 
-import clsx from "clsx"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
 import type { MenuItem } from "../../../types"
@@ -75,7 +74,7 @@ export const Header = () => {
 				</div>
 				<button
 					type="button"
-					className={clsx("btn-trigger", { active: openMenu })}
+					className={`btn-trigger ${openMenu ? "active" : ""}`}
 					id="btn01"
 					onClick={toggleMenu}
 					aria-controls="navigation"
@@ -87,7 +86,7 @@ export const Header = () => {
 					<span />
 				</button>
 			</header>
-			<div className={clsx("drawerMenu", { open: openMenu })}>
+			<div className={`drawerMenu ${openMenu ? "open" : undefined}`}>
 				<ul>
 					{MENU_ITEMS.map((item) => (
 						<li key={item.id}>
