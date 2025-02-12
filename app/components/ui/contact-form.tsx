@@ -98,7 +98,9 @@ export const ContactForm = () => {
 						value={name}
 						{...register("name", { required: "名前を入力してください" })}
 						onChange={(e) => setName(e.target.value)}
+						required
 					/>
+					<div />
 					{errors.name && (
 						<p className="form-box-error">{errors.name.message}</p>
 					)}
@@ -107,14 +109,16 @@ export const ContactForm = () => {
 				<div className="form-box">
 					<CommonLabel text="メールアドレス" id="email" />
 					<input
-						type="text"
+						type="email"
 						id="email"
 						placeholder="sample@email.com"
 						className="form-box-textarea"
 						{...register("email", { required: "emailを入力してください" })}
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						required
 					/>
+					<div />
 					{errors.email && (
 						<p className="form-box-error">{errors.email.message}</p>
 					)}
@@ -131,7 +135,9 @@ export const ContactForm = () => {
 						rows={5}
 						value={message}
 						onChange={(e) => setMessage(e.target.value)}
+						required
 					/>
+					<div />
 					{errors.message && (
 						<p className="form-box-error">{errors.message.message}</p>
 					)}

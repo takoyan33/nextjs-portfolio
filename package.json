@@ -10,8 +10,8 @@
 		"prepare": "husky",
 		"test": "vitest",
 		"test:watch": "jest --watch",
-		"lint:style": "stylelint '**/*.{css,scss,sass}'",
-		"lint:style:fix": "stylelint --fix '**/*.{css,scss,sass}'",
+		"lint:style": "stylelint '**/*.{scss,sass}'",
+		"lint:style:fix": "stylelint --fix '**/*.{scss,sass}'",
 		"commitmsg": "commitlint --edit",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"

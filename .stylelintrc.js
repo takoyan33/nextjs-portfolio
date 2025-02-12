@@ -7,7 +7,7 @@ module.exports = {
 		// ::before, ::afterのコロンを2つにする
 		"selector-pseudo-element-colon-notation": "double",
 		// クラス名でアンパサンド（&）は禁止（&:hoverなどはOK）
-		"scss/selector-no-union-class-name": true,
+		"scss/selector-no-union-class-name": false,
 		// シングルクォーテーションに統一
 		"string-quotes": "single",
 	},

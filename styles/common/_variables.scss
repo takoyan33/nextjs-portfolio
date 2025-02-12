@@ -128,10 +128,10 @@ a {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  gap: rem(60) rem(0);
   justify-content: flex-start;
   width: 100%;
   margin: rem(10) auto;
-  gap: rem(60) rem(0);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &_el {
@@ -147,10 +147,10 @@ a {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  gap: rem(60) rem(50);
   justify-content: space-between;
   width: 100%;
   margin: rem(50) auto;
-  gap: rem(60) rem(50);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &_el {
@@ -184,13 +184,13 @@ a {
 }
 
 .prev-button {
-  margin-top: rem(60);
   left: rem(-30);
+  margin-top: rem(60);
 }
 
 .next-button {
-  margin-top: rem(60);
   right: rem(-30);
+  margin-top: rem(60);
 }
 
 .padding-bottom {
@@ -257,22 +257,22 @@ a {
       text-align: left;
       &::after {
         display: block;
-        content: attr(data-ja);
         margin: 0;
+        margin-bottom: rem(40);
         font-size: rem(20);
         color: white;
         text-align: left;
-        margin-bottom: rem(40);
+        content: attr(data-ja);
       }
     }
     &::after {
       display: block;
-      content: attr(data-ja);
       margin: 0;
+      margin-bottom: rem(40);
       font-size: rem(20);
       color: $main-color;
       text-align: left;
-      margin-bottom: rem(40);
+      content: attr(data-ja);
     }
   }
 }
@@ -283,10 +283,10 @@ a {
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
+    gap: rem(30) rem(100);
     justify-content: center;
     width: 100%;
     margin: rem(10) auto;
-    gap: rem(30) rem(100);
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     &_el {
@@ -300,10 +300,10 @@ a {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  gap: rem(20) rem(20);
   justify-content: center;
   width: 100%;
   margin: rem(50) auto;
-  gap: rem(20) rem(20);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &_el {
@@ -346,16 +346,16 @@ a {
       }
       &::after {
         display: block;
-        content: attr(data-ja);
         margin: 0;
+        margin-bottom: rem(10);
         font-size: rem(20);
         color: $main-color;
         text-align: left;
-        margin-bottom: rem(10);
+        content: attr(data-ja);
         &--white {
+          margin-bottom: rem(20);
           font-size: rem(20);
           color: white;
-          margin-bottom: rem(20);
           text-align: left;
         }
       }
@@ -412,12 +412,12 @@ a {
   }
 
   .flx {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin: rem(20) auto;
     gap: rem(10) rem(0);
+    margin: rem(20) auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     &_el {
       width: 100%;
       margin: rem(10) auto;
@@ -436,10 +436,10 @@ a {
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
+    gap: rem(50) rem(0);
     justify-content: space-between;
     width: 100%;
     margin: rem(30) auto;
-    gap: rem(50) rem(0);
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     &_el {
@@ -458,15 +458,15 @@ a {
 
   .prev-button {
     left: 0px;
-    margin-top: rem(140);
     width: rem(30);
     height: rem(30);
+    margin-top: rem(140);
   }
 
   .next-button {
     right: 0px;
-    margin-top: rem(140);
     width: rem(30);
     height: rem(30);
+    margin-top: rem(140);
   }
 }

@@ -11,14 +11,24 @@ interface PortfolioItemProps {
 	portfolio_topImg: string
 }
 
-const TopPortfolioItem = React.memo(function TopPortfolioItem({
-	portfolio_id,
-	portfolio_name,
-	portfolio_date,
-	portfolio_tag,
-	portfolio_topImg,
-}: PortfolioItemProps) {
-	return (
+const PortfolioTags: React.FC<{ tags: string[] }> = ({ tags }) => (
+	<ul className="portfolio__flex">
+		{tags.map((tag) => (
+			<li className="portfolio__tag" key={tag}>
+				#{tag}
+			</li>
+		))}
+	</ul>
+)
+
+const TopPortfolioItem: React.FC<PortfolioItemProps> = React.memo(
+	({
+		portfolio_id,
+		portfolio_name,
+		portfolio_date,
+		portfolio_tag,
+		portfolio_topImg,
+	}) => (
 		<div className="flx_el portfolio_flx_el">
 			<TransitionLink href={`portfolios/${portfolio_id}`}>
 				<div className="portfolio__img">
@@ -32,16 +42,10 @@ const TopPortfolioItem = React.memo(function TopPortfolioItem({
 				</div>
 				<p className="portfolio__date">{portfolio_date}</p>
 				<h3 className="portfolio__title">{parse(portfolio_name)}</h3>
-				<ul className="portfolio__flex">
-					{portfolio_tag.map((tag) => (
-						<li className="portfolio__tag" key={tag}>
-							#{tag}
-						</li>
-					))}
-				</ul>
+				<PortfolioTags tags={portfolio_tag} />
 			</TransitionLink>
 		</div>
-	)
-})
+	),
+)
 
 export default TopPortfolioItem

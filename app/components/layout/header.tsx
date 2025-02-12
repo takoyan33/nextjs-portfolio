@@ -1,4 +1,6 @@
 "use client"
+
+import clsx from "clsx"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
 import type { MenuItem } from "../../../types"
@@ -9,47 +11,31 @@ export const Header = () => {
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
 	// メニューの開閉
-	const menuFunction = (): void => {
-		setOpenMenu(!openMenu)
-	}
+	const toggleMenu = () => setOpenMenu((prev) => !prev)
 
 	const MENU_ITEMS: MenuItem[] = [
-		{
-			id: 1,
-			title: "About",
-			link: PATH.ABOUT,
-		},
-		{
-			id: 2,
-			title: "ポートフォリオ",
-			link: PATH.PORTFOLIO,
-		},
-		{
-			id: 3,
-			title: "ブログ",
-			link: PATH.BLOG,
-		},
+		{ id: 1, title: "About", link: PATH.ABOUT },
+		{ id: 2, title: "ポートフォリオ", link: PATH.PORTFOLIO },
+		{ id: 3, title: "ブログ", link: PATH.BLOG },
 	]
 
 	useEffect(() => {
+		// メニューが開いた時にフォーカスをハンバーガーメニューに移動
 		const focusTrap = document.getElementById("js-focus-trap")
 		const hamburger = document.getElementById("btn01")
 
-		// メニューが開いた時にフォーカスをハンバーガーメニューに移動
+		const handleFocus = () => hamburger?.focus()
+
 		if (focusTrap && hamburger) {
-			focusTrap.addEventListener("focus", () => {
-				hamburger.focus()
-			})
+			focusTrap.addEventListener("focus", handleFocus)
 		}
 
 		// メニューが開いた時にスクロールを禁止
-		if (openMenu) {
-			document.body.style.overflow = "hidden"
-		} else {
-			document.body.style.overflow = ""
-		}
+		document.body.style.overflow = openMenu ? "hidden" : ""
+
 		return () => {
 			document.body.style.overflow = ""
+			focusTrap?.removeEventListener("focus", handleFocus)
 		}
 	}, [openMenu])
 
@@ -89,9 +75,9 @@ export const Header = () => {
 				</div>
 				<button
 					type="button"
-					className={`btn-trigger ${openMenu ? "active" : ""}`}
+					className={clsx("btn-trigger", { active: openMenu })}
 					id="btn01"
-					onClick={menuFunction}
+					onClick={toggleMenu}
 					aria-controls="navigation"
 					aria-expanded={openMenu}
 					aria-label="メニューを開く"
@@ -101,7 +87,7 @@ export const Header = () => {
 					<span />
 				</button>
 			</header>
-			<div className={`drawerMenu ${openMenu ? "open" : undefined}`}>
+			<div className={clsx("drawerMenu", { open: openMenu })}>
 				<ul>
 					{MENU_ITEMS.map((item) => (
 						<li key={item.id}>

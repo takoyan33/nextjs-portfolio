@@ -390,6 +390,7 @@ a :hover {
 }
 .form {
   margin: 60px 0;
+  /* 未記入でエラーがある場合に背景色を変更 */
 }
 .form-box {
   display: grid;
@@ -2121,8 +2122,6 @@ body {
   .border_company {
     margin-left: 0px;
     background-color: white;
-  }
-  .border_company {
     box-shadow: -rem(5) 0.3125rem 0px 0.3125rem #000081;
   }
   .footer ul {
@@ -2681,3 +2680,4 @@ body {
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
 }
+/*# sourceMappingURL=globals.css.map */
