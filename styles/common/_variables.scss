@@ -175,14 +175,6 @@ a {
   grid-template-columns: rem(30) 1fr rem(30);
 }
 
-.prev-button,
-.next-button {
-  cursor: pointer;
-  &:hover {
-    opacity: $opacity;
-  } 
-}
-
 .prev-button {
   left: rem(-30);
   margin-top: rem(60);
@@ -191,6 +183,14 @@ a {
 .next-button {
   right: rem(-30);
   margin-top: rem(60);
+}
+
+.prev-button,
+.next-button {
+  cursor: pointer;
+  &:hover {
+    opacity: $opacity;
+  }
 }
 
 .padding-bottom {
@@ -229,12 +229,11 @@ a {
     box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
     transition: 0.5s;
     &:hover {
-    color: #fff;
-    background: $main-color;
-    border-bottom: rem(2) solid #fff;
-    transform: translateY(3px);
-  }
-
+      color: #fff;
+      background: $main-color;
+      border-bottom: rem(2) solid #fff;
+      transform: translateY(3px);
+    }
   }
   &:hover {
     color: #fff;
@@ -295,24 +294,23 @@ a {
       overflow-wrap: break-word;
     }
   }
-.portfolioFlx {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  gap: rem(20) rem(20);
-  justify-content: center;
-  width: 100%;
-  margin: rem(50) auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  &_el {
-    width: 45%;
-    margin: 0px;
-    overflow-wrap: break-word;
+  .portfolioFlx {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20) rem(20);
+    justify-content: center;
+    width: 100%;
+    margin: rem(50) auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    &_el {
+      width: 45%;
+      margin: 0px;
+      overflow-wrap: break-word;
+    }
   }
-}
-
 }
 
 @media screen and (max-width: 580px) {
@@ -407,8 +405,8 @@ a {
   }
 
   .portfolio-content {
-  display: grid;
-  grid-template-columns: rem(15) 1fr rem(15);
+    display: grid;
+    grid-template-columns: rem(15) 1fr rem(15);
   }
 
   .flx {

@@ -1,0 +1,68 @@
+// ブログページ
+
+@use '../common/variables' as *;
+@use '../common/mixin';
+
+.zenn {
+  background-color: $back-color;
+
+  &__flex {
+    display: flex;
+    justify-content: center;
+  }
+  &__date {
+    font-size: rem(14);
+    color: grey;
+  }
+  &__tag {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 5px;
+    margin: 11px 2px;
+    font-size: 14px;
+    color: $main-color;
+    border: 1px solid $main-color;
+    border-radius: 10px;
+  }
+  &__title {
+    width: 80%;
+    margin-inline: auto;
+    margin-top: 0;
+    font-weight: 600;
+    text-align: left;
+  }
+  &__emoji {
+    font-size: 80px;
+  }
+}
+
+@include mixin.sp {
+  .zenn {
+    background-color: $back-color;
+
+    &__flex {
+      display: flex;
+      justify-content: center;
+    }
+    &__date {
+      font-size: rem(14);
+      color: $main-color;
+    }
+    &__tag {
+      display: inline-block;
+      height: 25px;
+      padding: 2px 5px;
+      margin: 11px 2px;
+      font-size: 14px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 20px;
+    }
+    &__title {
+      margin-top: 0px;
+    }
+    &__emoji {
+      font-size: 80px;
+    }
+  }
+}

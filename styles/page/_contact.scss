@@ -1,0 +1,113 @@
+// お問い合わせぺージ
+
+@use '../common/variables' as *;
+@use '../common/mixin';
+
+
+.form {
+  margin: 60px 0;
+  
+  &-box {
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr;
+    grid-gap: 5px auto;
+    margin: 40px 0;
+
+    &-label {
+      font-weight: 500;
+      text-align: left;
+      
+      &-required {
+        padding: 3px 6px;
+        margin-left: 5px;
+        font-size: 14px;
+        font-weight: 400;
+        color: white;
+        background-color: rgb(251, 77, 77);
+        border-radius: 20px;
+      }
+    }
+
+    &-textarea {
+      padding: 8px;
+    }
+
+    &-btn {
+      padding: 5px 20px;
+      color: white;
+      background-color: royalblue;
+      border: 0px solid;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: rgb(0, 0, 255, 0.8);
+      }
+    }
+
+    &-error {
+      font-size: 14px;
+      color: red;
+      text-align: left;
+    }
+  }
+
+  /* 未記入でエラーがある場合に背景色を変更 */
+  // &:has(.form-box-textarea:invalid) {
+  //   background-color: #0d1014;
+  // }
+}
+
+// input:invalid,
+// textarea:invalid {
+//   border: solid 1px red;
+// }
+
+
+  // .form-box-textarea:user-invalid {
+  //   border: 1px solid red;
+  // }
+
+
+  @include mixin.sp {
+
+  .form {
+    margin: 60px 0;
+    &-box {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+      margin: 40px 0;
+      &-label {
+        font-weight: 500;
+        text-align: left;
+        &-required {
+          padding: 3px 6px;
+          margin-left: 5px;
+          font-size: 14px;
+          font-weight: 400;
+          color: white;
+          background-color: rgb(251, 77, 77);
+          border-radius: 20px;
+        }
+      }
+      &-textarea {
+        padding: 8px;
+      }
+      &-btn {
+        padding: 5px 20px;
+        font-size: 18px;
+        color: white;
+        background-color: royalblue;
+        border: 0px solid;
+        border-radius: 10px;
+        &:hover {
+          background-color: rgb(0, 0, 255, 0.8);
+        }
+      }
+      &-error {
+        font-size: 14px;
+        color: red;
+      }
+    }
+  }
+  }

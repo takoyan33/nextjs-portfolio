@@ -1,0 +1,241 @@
+// header
+
+@use '../common/variables' as *;
+@use '../common/mixin';
+
+//ヘッダー
+.logo {
+  position: relative;
+  width: 210px !important;
+  height: 80px !important;
+}
+
+.header {
+  z-index: 50;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+
+  &_flx {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+
+  nav {
+    margin-left: auto;
+  }
+  li {
+    display: inline-block;
+    margin-right: 15px;
+
+    &:nth-child(6) {
+      width: 90px;
+      padding: 5px 10px;
+      margin-right: 0;
+      color: white;
+      background-color: rgb(34, 35, 35);
+    }
+    a {
+      transition: color 0.3s;
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+
+  &_btn_contact {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    background-color: $main-color;
+    border-radius: 20px;
+    transition: color 0.3s;
+    &:hover {
+      opacity: $opacity;
+    }
+  }
+}
+
+.humburger {
+  display: none;
+}
+
+// ハンバーガーメニュー
+.hamburger-btn__parts {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: rem(2);
+  background-color: black;
+  -webkit-transition:
+    opacity 0.5s,
+    -webkit-transform 0.5s;
+  transition:
+    opacity 0.5s,
+    -webkit-transform 0.5s;
+  transition:
+    transform 0.5s,
+    opacity 0.5s;
+  transition:
+    transform 0.5s,
+    opacity 0.5s,
+    -webkit-transform 0.5s;
+}
+
+.hamburger-btn__parts.-top {
+  top: 0;
+}
+
+.hamburger-btn__parts.-middle {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.hamburger-btn__parts.-bottom {
+  bottom: 0;
+}
+
+.hamburger-btn.active .hamburger-btn__parts.-top {
+  -webkit-transform: translateY(rem(10)) rotate(-45deg);
+  transform: translateY(rem(10)) rotate(-45deg);
+}
+
+.hamburger-btn.active .hamburger-btn__parts.-middle {
+  opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-btn__parts.-bottom {
+  -webkit-transform: translateY(-4px) rotate(45deg);
+  transform: translateY(-4px) rotate(45deg);
+}
+
+.hamburger,
+.hamburger-btn {
+  display: none;
+}
+
+@include mixin.sp {
+  .hamburger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    font-family: futura-pt-bold, sans-serif;
+    font-size: 16px;
+    background-color: #333333;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+  }
+
+  .hamburger-btn {
+    position: relative;
+    z-index: 20;
+    display: block;
+    width: 25px;
+    height: 16px;
+  }
+
+  .hamburger__lists {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    background-color: $white;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  }
+
+  .hamburger__list {
+    font-size: 16px;
+    /*IE9以前に対応する*/
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    list-style: none;
+  }
+
+  .hamburger__list + .hamburger__list {
+    padding-top: 50px;
+  }
+
+  .hamburger__link {
+    font-family: futura-pt-bold, sans-serif;
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.hamburger.active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+@include mixin.tab {
+  .header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    padding: 10px;
+    background: white;
+    nav {
+      display: none;
+    }
+  }
+  .logo {
+    position: relative;
+    width: 140px !important;
+    height: 40px !important;
+  }
+}
+
+
+@include mixin.sp {
+  .header {
+    top: 0;
+    display: flex;
+    padding: 10px;
+  }
+  .header_flx {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .humburger {
+    top: 5px;
+    right: 20px;
+  }
+  .mobileLogo {
+    top: 10px;
+    width: 190px;
+    height: 60px;
+  }
+
+  .logo {
+    position: relative;
+    width: 140px !important;
+    height: 40px !important;
+  }
+
+}

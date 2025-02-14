@@ -1,0 +1,212 @@
+// ポートフォリオぺージ
+
+@use '../common/variables' as *;
+@use '../common/mixin';
+
+
+//ポートフォリオ セレクトボックス
+.selectbox-5 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.selectbox-5::after {
+  position: absolute;
+  right: 15px;
+  width: 10px;
+  height: 7px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  pointer-events: none;
+  content: '';
+  background-color: #535353;
+}
+
+.selectbox-5 select {
+  min-width: 230px;
+  height: 2.8em;
+  padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
+  font-size: 1em;
+  color: #333333;
+  appearance: none;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  border-bottom: 2px solid #d0d0d0;
+}
+
+.selectbox-5 select:focus {
+  outline: none;
+}
+
+
+// [id]ページ
+.portfolioDetail {
+  margin: 50px auto;
+  border-radius: rem(20);
+  &_btn {
+    position: relative;
+    top: rem(20);
+    display: block;
+    width: 46px;
+    margin-right: rem(10);
+    margin-left: auto;
+    background-color: white;
+    border: 0px solid;
+  }
+  &__element {
+    width: 45%;
+    &-topImg {
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      margin: 20px auto;
+      margin-inline: auto;
+      margin-bottom: 80px;
+      object-fit: contain;
+      border: 1px solid #707070;
+    }
+    &-img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      margin-inline: auto;
+      object-fit: contain;
+      button {
+        background-color: white;
+        border: 0;
+      }
+    }
+    &-title {
+      font-size: 26px;
+      text-align: left;
+    }
+    &-subtitle {
+      padding-bottom: 10px;
+      margin: 30px 0;
+      font-size: 26px;
+      text-align: left;
+      border-bottom: 2px solid $main-color;
+    }
+    &-text {
+      text-align: left;
+      li {
+        list-style: square;
+      }
+    }
+    &-date {
+      color: #707070;
+      text-align: left;
+    }
+    &-tag {
+      display: inline;
+      padding: 5px 10px;
+      margin: 0px 10px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 20px;
+    }
+    &-tagList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: 0;
+    }
+    &-link {
+      color: $tag-color-4;
+      &:hover {
+        opacity: 0.7;
+      }
+      &::before {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        content: '';
+        background-image: url('/images/common/link.svg');
+        background-size: contain;
+      }
+    }
+  }
+}
+
+@include mixin.sp {
+
+  .portfolioDetail {
+    margin-top: 30px;
+    border-radius: rem(20);
+    &_btn {
+      position: relative;
+      top: rem(20);
+      display: block;
+      width: 46px;
+      margin-right: rem(10);
+      margin-left: auto;
+      background-color: white;
+      border: 0px solid;
+    }
+    &__top {
+      margin-top: rem(20);
+    }
+    &__element {
+      width: 45%;
+      &-topImg {
+        position: relative;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin-inline: auto;
+        object-fit: cover;
+      }
+      &-img {
+        position: relative;
+        width: 90%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin-inline: auto;
+        object-fit: contain;
+      }
+      &-title {
+        text-align: left;
+      }
+      &-subtitle {
+        margin: 10px 0;
+        font-size: 20px;
+        text-align: left;
+      }
+      &-text {
+        text-align: left;
+        li {
+          list-style: square;
+        }
+      }
+      &-date {
+        text-align: left;
+      }
+      &-tag {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px 2px;
+        color: $main-color;
+        border: 1px solid $main-color;
+        border-radius: 20px;
+      }
+      &-tagList {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      &-link {
+        margin-bottom: rem(20);
+        color: $tag-color-4;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+}
