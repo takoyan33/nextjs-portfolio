@@ -1,13 +1,13 @@
 "use client"
 
 import type React from "react"
-import { useCallback, useEffect, useState } from "react"
-import { fetchPortfoliosFront } from "../../../../hooks/fetch"
-import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
-import type { portfolioType } from "../../../../types"
-import PortfolioItem from "../portfolio-item"
+import { useEffect, useState } from "react"
+// import { fetchPortfoliosFront } from "../../../hooks/fetch"
+import portfoliosData from "../../../public/mock/api/portfolios/index.json"
+import type { portfolioType } from "../../../types"
+import PortfolioItem from "../../components/ui/portfolio-item"
 
-export const PortfolioElement = () => {
+export const PortfolioList = () => {
 	// const portfolios = await fetchPortfolios()
 
 	const [portfolios, setPortfolios] = useState<portfolioType[]>()

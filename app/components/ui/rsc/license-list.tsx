@@ -3,7 +3,7 @@ import licenses from "public/mock/api/licenses/index.json"
 import React from "react"
 // import type { license } from "../../../../types"
 
-export const TopLicense = async () => {
+export const LicenseList = async () => {
 	// const licenses = await fetchLicenses()
 
 	// const [licenses, setLicenses] = useState<license[]>([])

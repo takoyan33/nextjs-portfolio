@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
-import { TransitionLink } from "."
+import { TransitionLink } from "../../../components/ui"
 
 interface PortfolioItemProps {
 	portfolio_id: number
@@ -21,7 +21,7 @@ const PortfolioTags: React.FC<{ tags: string[] }> = ({ tags }) => (
 	</ul>
 )
 
-const TopPortfolioItem: React.FC<PortfolioItemProps> = React.memo(
+const HomePortfolioSlideItem: React.FC<PortfolioItemProps> = React.memo(
 	({
 		portfolio_id,
 		portfolio_name,
@@ -48,4 +48,4 @@ const TopPortfolioItem: React.FC<PortfolioItemProps> = React.memo(
 	),
 )
 
-export default TopPortfolioItem
+export default HomePortfolioSlideItem

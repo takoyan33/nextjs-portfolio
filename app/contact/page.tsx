@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
 import { Breadcrumb, LowerTitle } from "../components/ui/"
-import { ContactForm } from "../components/ui/"
+import { ContactForm } from "./_containers/contact-form"
 
 export const metadata: Metadata = {
 	title: "To You Design - Contact",

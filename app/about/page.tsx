@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import { AboutTabs, Breadcrumb, LowerTitle } from "../components/ui/"
-import { TopLicense } from "../components/ui/rsc/"
+import { Breadcrumb, LowerTitle } from "../components/ui/"
+import { LicenseList } from "../components/ui/rsc/"
+import { AboutTabs } from "./_containers/about-tabs"
 
 export const metadata: Metadata = {
 	title: "To You Design - About",
@@ -26,7 +27,7 @@ const About = () => {
 							<th className="license__table-th">資格名</th>
 						</tr>
 						{/* @ts-expect-error Server Component */}
-						<TopLicense />
+						<LicenseList />
 					</tbody>
 				</table>
 			</section>

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import type { zennProps } from "../../types"
 import { PATH } from "../../utils/path"
 import { Breadcrumb, LowerTitle } from "../components/ui/"
-import ZennArticleItem from "../components/ui/zenn-article-item"
+import ZennArticleItem from "./_containers/zenn-article-item"
 
 export const metadata: Metadata = {
 	title: "To You Design - Blog",

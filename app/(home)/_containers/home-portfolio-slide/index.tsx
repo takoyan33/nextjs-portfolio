@@ -9,12 +9,12 @@ import "swiper/css/scrollbar"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { fetchPortfoliosFront } from "../../../../hooks/fetch"
+// import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
 import type { portfolioType } from "../../../../types"
-import TopPortfolioItem from "../top-portfolio-item"
+import HomePortfolioSlideItem from "./home-portfolio-slide-item"
 
-export const TopPortfolioSlide = () => {
+export const HomePortfolioSlide = () => {
 	const BREAK_POINT = {
 		0: {
 			slidesPerView: 1.5,
@@ -47,7 +47,7 @@ export const TopPortfolioSlide = () => {
 	const slides = useMemo(() => {
 		return portfolios?.map((portfolio) => (
 			<SwiperSlide key={portfolio.id}>
-				<TopPortfolioItem
+				<HomePortfolioSlideItem
 					portfolio_id={portfolio.id}
 					portfolio_name={portfolio.name}
 					portfolio_date={portfolio.date}
