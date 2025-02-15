@@ -1,28 +1,20 @@
 import ThreeModel from "app/components/parts/three-model"
-import {
-	TopBackButton,
-	TransitionLink,
-	WaveBgBottom,
-	WaveBgTop,
-} from "app/components/ui"
-import {
-	BackSkills,
-	FrontSkills,
-	HistoryTimelines,
-	InfraSkills,
-	OtherSkills,
-	TopPortfolioSlide,
-} from "app/components/ui/rsc"
+import { TopBackButton, TransitionLink } from "app/components/ui"
+import { HistoryTimelines } from "app/components/ui/rsc"
 import ScrollComponent from "hooks/use-fadeIn"
 import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
 import { SOCIAL_LINKS } from "utils/data"
 import { PATH } from "utils/path"
+import {
+	HomePortfolioSlide,
+	HomeSkills,
+	HomeWaveBgBottom,
+	HomeWaveBgTop,
+} from "./_containers/"
 // import { TopZennArticle } from "./components/ui/rsc/TopZennArticle"
 //import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
-// import { useRecoilValue, useRecoilState } from 'recoil'
-// import { todoState } from '../atoms/todoState'
 
 const Home = () => {
 	return (
@@ -111,7 +103,7 @@ const Home = () => {
 					</div>
 				</section>
 				{/*  ここからポートフォリオ*/}
-				<WaveBgTop />
+				<HomeWaveBgTop />
 				<section className="portfolio">
 					<div className="max_width">
 						<ScrollComponent>
@@ -121,14 +113,14 @@ const Home = () => {
 						</ScrollComponent>
 						{/* <FadeUpTitle /> */}
 						<ScrollComponent>
-							<TopPortfolioSlide />
+							<HomePortfolioSlide />
 							<TransitionLink href={PATH.PORTFOLIO} className="contact__btn">
 								ポートフォリオをさらに見る
 							</TransitionLink>
 						</ScrollComponent>
 					</div>
 				</section>
-				<WaveBgBottom />
+				<HomeWaveBgBottom />
 				{/*ここから学歴*/}
 				<section className="max_width">
 					<ScrollComponent>
@@ -148,7 +140,7 @@ const Home = () => {
 						経歴をさらに見る
 					</TransitionLink>
 				</section>
-				<WaveBgTop />
+				<HomeWaveBgTop />
 				{/* ここからSKill*/}
 				<section className="skill">
 					<div className="max_width">
@@ -157,26 +149,10 @@ const Home = () => {
 								Skill
 							</h2>
 						</ScrollComponent>
-
-						<h3 className="skill__title">Frontend</h3>
-						<ScrollComponent>
-							<FrontSkills />
-						</ScrollComponent>
-						<h3 className="skill__title">Backend</h3>
-						<ScrollComponent>
-							<BackSkills />
-						</ScrollComponent>
-						<h3 className="skill__title">Infra</h3>
-						<ScrollComponent>
-							<InfraSkills />
-						</ScrollComponent>
-						<h3 className="skill__title">Other</h3>
-						<ScrollComponent>
-							<OtherSkills />
-						</ScrollComponent>
+						<HomeSkills />
 					</div>
 				</section>
-				<WaveBgBottom />
+				<HomeWaveBgBottom />
 				{/* <TopZennArticle /> */}
 				{/* ここからcontact*/}
 				<section className="contact">

@@ -1,6 +1,6 @@
 import React from "react"
 
-export const WaveBgTop = () => {
+export const HomeWaveBgTop = () => {
 	return (
 		<div className="wave__bg__top">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

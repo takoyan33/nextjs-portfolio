@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import React from "react"
-import { HistoryTimelines, JobTimelines } from "./rsc"
+import { HistoryTimelines, JobTimelines } from "../../components/ui/rsc"
 
 export const AboutTabs = () => {
 	const [activeTab, setActiveTab] = useState<"history" | "career">("history")
@@ -10,30 +10,6 @@ export const AboutTabs = () => {
 	return (
 		<div>
 			{/* タブボタン */}
-			{/* <div className="tab-buttons" role="tablist">
-				<button
-					role="tab"
-					className={activeTab === "history" ? "active" : ""}
-					onClick={() => setActiveTab("history")}
-					type="button"
-					aria-controls="panelA"
-					aria-selected="true"
-				>
-					<input type="radio" name="tab-1" checked />
-					経歴
-				</button>
-				<button
-					role="tab"
-					className={activeTab === "career" ? "active" : ""}
-					onClick={() => setActiveTab("career")}
-					type="button"
-					aria-controls="panelB"
-					aria-selected="true"
-				>
-					職歴
-				</button>
-			</div> */}
-
 			<div className="tab-1" role="tablist">
 				<label className={activeTab === "history" ? "active" : ""}>
 					<input
