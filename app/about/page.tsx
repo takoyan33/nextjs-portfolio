@@ -19,7 +19,7 @@ const About = () => {
 			<AboutTabs />
 			{/* ここからLicense*/}
 			<section className="license max_width">
-				<h3 className="portfolio__headTitle">資格</h3>
+				<h3 className="lower__subTitle">資格</h3>
 				<table className="license__table">
 					<tbody>
 						<tr>

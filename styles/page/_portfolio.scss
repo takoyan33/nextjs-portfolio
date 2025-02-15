@@ -107,12 +107,13 @@
       color: $main-color;
       border: 1px solid $main-color;
       border-radius: 20px;
-    }
-    &-tagList {
+      &List {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       padding: 0;
+      margin: rem(10) 0;
+    }
     }
     &-link {
       color: $tag-color-4;

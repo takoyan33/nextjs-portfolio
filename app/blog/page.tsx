@@ -34,9 +34,9 @@ const Blog = async () => {
 			</div>
 			<LowerTitle title="Blog" enTitle="ブログ" />
 			<div className="max_width">
-				<h3 className="portfolio__headTitle">
+				<h3 className="lower__subTitle">
 					Zenn
-					<span className="portfolio__headTitle-span">
+					<span className="lower__subTitle-span">
 						{zennArticles?.articles.length}件
 					</span>
 				</h3>

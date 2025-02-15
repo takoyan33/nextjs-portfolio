@@ -42,11 +42,9 @@ export const PortfolioList = () => {
 	}
 	return (
 		<div className="max_width">
-			<h3 className="portfolio__headTitle">
+			<h3 className="lower__subTitle">
 				全ての制作物
-				<span className="portfolio__headTitle-span">
-					{portfolios?.length}件
-				</span>
+				<span className="lower__subTitle-span">{portfolios?.length}件</span>
 			</h3>
 			<label className="selectbox-5">
 				<select name="orders" id="order-select" onChange={filterPortfolio}>
