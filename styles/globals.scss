@@ -3,13 +3,8 @@
 @use './common/mixin';
 @use './common/reset';
 @use './common/animation';
-@use './component/header';
-@use './component/footer';
-@use './page/parts';
-@use './page/about';
-@use './page/contact';
-@use './page/portfolio';
-@use './page/blog';
+@use './component';
+@use './page';
 
 a {
   cursor: pointer;
