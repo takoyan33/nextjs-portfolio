@@ -1,6 +1,6 @@
 import ThreeModel from "app/components/parts/three-model"
 import { TopBackButton, TransitionLink } from "app/components/ui"
-import { HistoryTimelines } from "app/components/ui/rsc"
+import { HistoryTimeline } from "app/components/ui/rsc"
 import ScrollComponent from "hooks/use-fadeIn"
 import Image from "next/image"
 import Link from "next/link"
@@ -130,7 +130,7 @@ const Home = () => {
 					</ScrollComponent>
 					<div>
 						<ScrollComponent>
-							<HistoryTimelines />
+							<HistoryTimeline />
 						</ScrollComponent>
 					</div>
 					<TransitionLink

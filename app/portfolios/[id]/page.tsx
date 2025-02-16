@@ -127,7 +127,7 @@ const Post = () => {
 						</span>
 						<span className="breadCrumb__second">{portfolio.name}</span>
 					</div>
-					<LowerTitle title="Portfolio" enTitle="制作物" />
+					<LowerTitle title="Portfolio" enTitle="制作物詳細" />
 					<section className="portfolioDetail max_width">
 						<p className="portfolioDetail__element-date">{portfolio.date}</p>
 						<h2 className="portfolioDetail__element-title">{portfolio.name}</h2>
@@ -326,22 +326,6 @@ const Post = () => {
 			) : (
 				<article className="portfolioDetail__top">
 					<div className="loading-body">
-						<p className="bread__title max_width">
-							<Link href="/">トップ </Link>
-							<span className="bread__arrow">
-								<Image
-									src="/images/next-arrow.svg"
-									width={15}
-									height={15}
-									style={{
-										width: "100%",
-										height: "auto",
-									}}
-									alt="スライドショーのナビゲーション"
-								/>
-							</span>
-							<Link href={PATH.PORTFOLIO}> Portfolio </Link>
-						</p>
 						<LowerTitle title="Portfolio" enTitle="制作物" />
 						<div className="loading">
 							<div className="spinner-box">

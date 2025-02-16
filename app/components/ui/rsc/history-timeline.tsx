@@ -6,7 +6,7 @@ import { fetchHistories } from "../../../../hooks/fetch"
 import type { history } from "../../../../types"
 import { Timeline } from "../timeline"
 
-export const HistoryTimelines = () => {
+export const HistoryTimeline = () => {
 	// const [histories, setHistories] = useState<history[]>([])
 	// useEffect(() => {
 	// 	const fetchData = async () => {

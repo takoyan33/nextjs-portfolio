@@ -10,6 +10,13 @@ import React, { useEffect, useState } from "react"
 // import type { skill } from "../../../types"
 import { SkillElement } from "../../components/ui/skill-element"
 
+const skillCategories = [
+	{ title: "Frontend", skills: frontSkills },
+	{ title: "Backend", skills: backSkills },
+	{ title: "Infra", skills: infraSkills },
+	{ title: "Other", skills: otherSkills },
+]
+
 export const HomeSkills = () => {
 	// const [frontSkills, setFrontSkills] = useState<skill[]>()
 
@@ -57,66 +64,18 @@ export const HomeSkills = () => {
 
 	return (
 		<div>
-			<h3 className="skill__title">Frontend</h3>
-			<ScrollComponent>
-				<div className="skill__container">
-					{frontSkills?.map((skill) => (
-						<SkillElement
-							key={skill.id}
-							name={skill.name}
-							rank={skill.rank}
-							tag={skill.tag}
-							icon={skill.icon}
-							about={skill.about}
-						/>
-					))}
+			{skillCategories.map(({ title, skills }) => (
+				<div key={title}>
+					<h3 className="skill__title">{title}</h3>
+					<ScrollComponent>
+						<div className="skill__container">
+							{skills.map((skill) => (
+								<SkillElement key={skill.id} {...skill} />
+							))}
+						</div>
+					</ScrollComponent>
 				</div>
-			</ScrollComponent>
-			<h3 className="skill__title">Backend</h3>
-			<ScrollComponent>
-				<div className="skill__container">
-					{backSkills?.map((skill) => (
-						<SkillElement
-							key={skill.id}
-							name={skill.name}
-							rank={skill.rank}
-							tag={skill.tag}
-							icon={skill.icon}
-							about={skill.about}
-						/>
-					))}
-				</div>
-			</ScrollComponent>
-			<h3 className="skill__title">Infra</h3>
-			<ScrollComponent>
-				<div className="skill__container">
-					{infraSkills?.map((skill) => (
-						<SkillElement
-							key={skill.id}
-							name={skill.name}
-							rank={skill.rank}
-							tag={skill.tag}
-							icon={skill.icon}
-							about={skill.about}
-						/>
-					))}
-				</div>
-			</ScrollComponent>
-			<h3 className="skill__title">Other</h3>
-			<ScrollComponent>
-				<div className="skill__container">
-					{otherSkills?.map((skill) => (
-						<SkillElement
-							key={skill.id}
-							name={skill.name}
-							rank={skill.rank}
-							tag={skill.tag}
-							icon={skill.icon}
-							about={skill.about}
-						/>
-					))}
-				</div>
-			</ScrollComponent>
+			))}
 		</div>
 	)
 }

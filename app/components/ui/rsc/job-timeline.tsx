@@ -6,7 +6,7 @@ import { Timeline } from ".."
 import { fetchJobs } from "../../../../hooks/fetch"
 import type { job } from "../../../../types"
 
-export const JobTimelines = () => {
+export const JobTimeline = () => {
 	// const [jobs, setJobs] = useState<job[]>([])
 
 	// useEffect(() => {

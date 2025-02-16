@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { PATH } from "../../../utils/path"
 import { TransitionLink } from "."
+import { PATH } from "../../../utils/path"
 
 interface BreadcrumbProps {
 	name: string
@@ -16,10 +16,6 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 					src="/images/next-arrow.svg"
 					width={15}
 					height={15}
-					style={{
-						width: "100%",
-						height: "auto",
-					}}
 					alt="スライドショーのナビゲーション"
 				/>
 			</span>
