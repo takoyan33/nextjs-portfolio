@@ -1,3 +1,4 @@
+import dayjs from "dayjs"
 import Link from "next/link"
 
 interface ZennArticleItemProps {
@@ -18,14 +19,7 @@ export default function ZennArticleItem({
 	zenn_path,
 }: ZennArticleItemProps) {
 	//日付のフォーマット
-	const formatDate = (dateString: Date): string => {
-		const date = new Date(dateString)
-		const year = date.getFullYear()
-		const month = String(date.getMonth() + 1).padStart(2, "0")
-		const day = String(date.getDate()).padStart(2, "0")
-
-		return `${year}-${month}-${day}`
-	}
+	const formatDate = (date: Date): string => dayjs(date).format("YYYY-MM-DD")
 	return (
 		<article className="flx_el" key={zenn_id}>
 			<Link href={`https://zenn.dev${zenn_path}`} target="_blank">

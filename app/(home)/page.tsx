@@ -14,7 +14,6 @@ import {
 	HomeWaveBgTop,
 } from "./_containers/"
 // import { TopZennArticle } from "./components/ui/rsc/TopZennArticle"
-//import { FadeUpTitle } from '../components/Components/parts/FadeUpTitle'
 
 const Home = () => {
 	return (
@@ -111,7 +110,6 @@ const Home = () => {
 								Portfolio
 							</h2>
 						</ScrollComponent>
-						{/* <FadeUpTitle /> */}
 						<ScrollComponent>
 							<HomePortfolioSlide />
 							<TransitionLink href={PATH.PORTFOLIO} className="contact__btn">
