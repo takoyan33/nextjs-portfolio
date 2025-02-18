@@ -10,7 +10,9 @@ interface BreadcrumbProps {
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 	return (
 		<p className="breadCrumb__title max-width">
-			<TransitionLink href={PATH.INDEX}>トップ</TransitionLink>
+			<TransitionLink href={PATH.INDEX} className="breadCrumb__first">
+				トップ
+			</TransitionLink>
 			<span className="breadCrumb__arrow">
 				<Image
 					src="/images/next-arrow.svg"

@@ -1,12 +1,13 @@
 import "../styles/globals.scss"
 import { GoogleTagManager } from "@next/third-parties/google"
+import type { Metadata } from "next"
 import Script from "next/script"
 import type React from "react"
 // import { RecoilRoot } from "recoil"
 import { Clarity } from "../utils/clarity"
 import { Footer, Header } from "./components/layout"
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: "To You Design",
 	description: "To You Designは、ポートフォリオサイトです",
 	metadataBase: new URL("https://to-you-design.vercel.app/"),

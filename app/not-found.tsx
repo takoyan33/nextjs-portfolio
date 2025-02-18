@@ -1,8 +1,7 @@
 "use client"
 
 import { TransitionLink } from "app/components/ui"
-import type { Metadata } from "next"
-import type { NextPage } from "next"
+import type { Metadata, NextPage } from "next"
 import { PATH } from "../utils/path"
 
 export const metadata: Metadata = {

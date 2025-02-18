@@ -2082,6 +2082,9 @@ li {
 .breadCrumb__title-span {
   font-weight: bold;
 }
+.breadCrumb__first:hover {
+  color: #4485ff;
+}
 .breadCrumb__second {
   font-weight: 600;
   text-decoration: underline;

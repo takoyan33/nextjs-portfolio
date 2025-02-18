@@ -741,6 +741,11 @@ li {
       font-weight: bold;
     }
   }
+  &__first {
+    &:hover {
+      color: $main-color;
+    }
+  }
   &__second {
     font-weight: 600;
     text-decoration: underline;

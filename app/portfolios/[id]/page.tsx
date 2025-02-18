@@ -11,6 +11,7 @@ import { PATH } from "../../../utils/path"
 import { LowerTitle } from "../../components/ui/"
 import { CommonModal } from "../../components/ui/common-modal"
 import { PostNavigation } from "../../components/ui/post-navigation"
+import { TransitionLink } from "../../components/ui/transition-link"
 
 const Post = () => {
 	const params = useParams()
@@ -105,7 +106,9 @@ const Post = () => {
 			{portfolio ? (
 				<article className="portfolioDetail__top">
 					<div className="breadCrumb__title max_width">
-						<Link href="/">トップ </Link>
+						<TransitionLink href={PATH.INDEX} className="breadCrumb__first">
+							トップ
+						</TransitionLink>
 						<span className="breadCrumb__arrow">
 							<Image
 								src="/images/next-arrow.svg"
@@ -115,7 +118,9 @@ const Post = () => {
 								alt="スライドショーのナビゲーション"
 							/>
 						</span>
-						<Link href={PATH.PORTFOLIO}>Portfolio</Link>
+						<TransitionLink href={PATH.PORTFOLIO} className="breadCrumb__first">
+							Portfolio
+						</TransitionLink>
 						<span className="breadCrumb__arrow">
 							<Image
 								src="/images/next-arrow.svg"
