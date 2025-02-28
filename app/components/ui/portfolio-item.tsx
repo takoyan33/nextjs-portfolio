@@ -4,11 +4,11 @@ import React from "react"
 import { TransitionLink } from "."
 
 interface PortfolioItemProps {
-	portfolio_id: number
-	portfolio_name: string
-	portfolio_date: string
-	portfolio_tag: string[]
-	portfolio_topImg: string
+	readonly portfolio_id: number
+	readonly portfolio_name: string
+	readonly portfolio_date: string
+	readonly portfolio_tag: string[]
+	readonly portfolio_topImg: string
 }
 
 const PortfolioItem = React.memo(function PortfolioItem({
