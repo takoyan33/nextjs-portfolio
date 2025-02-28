@@ -4,10 +4,10 @@ import jobs from "public/mock/api/jobs/index.json"
 import React, { useEffect, useState } from "react"
 import { Timeline } from ".."
 import { fetchJobs } from "../../../../hooks/fetch"
-import type { job } from "../../../../types"
+import type { Job } from "../../../../types"
 
 export const JobTimeline = () => {
-	// const [jobs, setJobs] = useState<job[]>([])
+	// const [jobs, setJobs] = useState<Job[]>([])
 
 	// useEffect(() => {
 	// 	const fetchData = async () => {

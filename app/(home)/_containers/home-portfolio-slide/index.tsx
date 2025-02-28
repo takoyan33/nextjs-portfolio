@@ -11,7 +11,7 @@ import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 // import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
-import type { portfolioType } from "../../../../types"
+import type { PortfolioType } from "../../../../types"
 import HomePortfolioSlideItem from "./home-portfolio-slide-item"
 
 export const HomePortfolioSlide = () => {
@@ -26,7 +26,7 @@ export const HomePortfolioSlide = () => {
 
 	const [firstSwiper, setFirstSwiper] = useState<number>(0)
 
-	const [portfolios, setPortfolios] = useState<portfolioType[]>([])
+	const [portfolios, setPortfolios] = useState<PortfolioType[]>([])
 
 	useEffect(() => {
 		const fetchData = async () => {

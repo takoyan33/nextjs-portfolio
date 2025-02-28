@@ -1,4 +1,12 @@
-export const SOCIAL_LINKS = [
+type SocialLink = {
+	readonly href: string
+	readonly src: string
+	readonly alt: string
+	readonly height: number
+	readonly width: number
+}
+
+export const SOCIAL_LINKS: readonly SocialLink[] = [
 	{
 		href: "https://github.com/takoyan33",
 		src: "/images/github-logo.png",
@@ -20,16 +28,4 @@ export const SOCIAL_LINKS = [
 		height: 30,
 		width: 30,
 	},
-]
-
-// export const FV_SUBTITLE = [
-// 	{
-// 		text: "Frontend",
-// 	},
-// 	{
-// 		text: "Shumpei abe",
-// 	},
-// 	{
-// 		text: "Hello world",
-// 	},
-// ]
+] as const

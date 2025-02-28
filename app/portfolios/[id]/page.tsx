@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
-import type { portfolioType } from "../../../types"
+import type { PortfolioType } from "../../../types"
 import { PATH } from "../../../utils/path"
 import { LowerTitle } from "../../components/ui/"
 import { CommonModal } from "../../components/ui/common-modal"
@@ -17,7 +17,7 @@ const Post = () => {
 	const params = useParams()
 	const id: string | string[] = params?.id
 
-	const [portfolio, setPortfolio] = useState<portfolioType>()
+	const [portfolio, setPortfolio] = useState<PortfolioType>()
 
 	const fetchPortfolios = (id: string | string[]) => {
 		try {

@@ -4,13 +4,13 @@ import type React from "react"
 import { useEffect, useState } from "react"
 // import { fetchPortfoliosFront } from "../../../hooks/fetch"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
-import type { portfolioType } from "../../../types"
+import type { PortfolioType } from "../../../types"
 import PortfolioItem from "../../components/ui/portfolio-item"
 
 export const PortfolioList = () => {
 	// const portfolios = await fetchPortfolios()
 
-	const [portfolios, setPortfolios] = useState<portfolioType[]>()
+	const [portfolios, setPortfolios] = useState<PortfolioType[]>()
 
 	useEffect(() => {
 		// const fetchData = async () => {
@@ -54,7 +54,7 @@ export const PortfolioList = () => {
 				</select>
 			</label>
 			<div className="portfolioFlx padding">
-				{portfolios?.map((portfolio: portfolioType) => (
+				{portfolios?.map((portfolio: PortfolioType) => (
 					<PortfolioItem
 						key={portfolio.id}
 						portfolio_id={portfolio.id}

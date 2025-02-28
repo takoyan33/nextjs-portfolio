@@ -3,11 +3,11 @@
 import histories from "public/mock/api/histories/index.json"
 import React, { useEffect, useState } from "react"
 import { fetchHistories } from "../../../../hooks/fetch"
-import type { history } from "../../../../types"
+import type { History } from "../../../../types"
 import { Timeline } from "../timeline"
 
 export const HistoryTimeline = () => {
-	// const [histories, setHistories] = useState<history[]>([])
+	// const [histories, setHistories] = useState<History[]>([])
 	// useEffect(() => {
 	// 	const fetchData = async () => {
 	// 		const data = await fetchHistories()

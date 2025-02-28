@@ -1,4 +1,4 @@
-export interface history {
+export interface History {
 	id: number
 	title: string
 	date: string
@@ -7,10 +7,10 @@ export interface history {
 
 export interface ResponseHistory {
 	status: string
-	data: history[]
+	data: History[]
 }
 
-export interface job {
+export interface Job {
 	id: number
 	title: string
 	date: string
@@ -19,10 +19,10 @@ export interface job {
 
 export interface ResponseJob {
 	status: string
-	data: job[]
+	data: Job[]
 }
 
-export interface license {
+export interface License {
 	id: number
 	date: string
 	title: string
@@ -30,10 +30,10 @@ export interface license {
 
 export interface ResponseLicense {
 	status: string
-	data: license[]
+	data: License[]
 }
 
-export interface skill {
+export interface Skill {
 	id: number
 	name: string
 	rank: string
@@ -44,10 +44,10 @@ export interface skill {
 
 export interface ResponseSkill {
 	status: string
-	data: skill[]
+	data: Skill[]
 }
 
-export interface portfolioType {
+export interface PortfolioType {
 	id: number
 	name: string
 	date: string
@@ -76,15 +76,15 @@ export interface portfolioType {
 
 export interface ResponsePortfolios {
 	status: string
-	data: portfolioType[]
+	data: PortfolioType[]
 }
 
 export interface ResponsePortfolio {
 	status: string
-	data: portfolioType
+	data: PortfolioType
 }
 
-export interface zenn {
+export interface Zenn {
 	id: number
 	post_type: "Article"
 	title: string
@@ -109,8 +109,8 @@ export interface zenn {
 	publication: null
 }
 
-export interface zennProps {
-	articles: zenn[]
+export interface ZennProps {
+	articles: Zenn[]
 }
 
 // メニューアイテムの型定義

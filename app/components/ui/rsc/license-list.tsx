@@ -1,12 +1,12 @@
 // import { fetchLicenses } from "../../../../hooks/fetch"
 import licenses from "public/mock/api/licenses/index.json"
 import React from "react"
-// import type { license } from "../../../../types"
+// import type { License } from "../../../../types"
 
 export const LicenseList = async () => {
 	// const licenses = await fetchLicenses()
 
-	// const [licenses, setLicenses] = useState<license[]>([])
+	// const [licenses, setLicenses] = useState<License[]>([])
 	// useEffect(() => {
 	// 	const fetchData = async () => {
 	// 		const data = await fetchLicenses()

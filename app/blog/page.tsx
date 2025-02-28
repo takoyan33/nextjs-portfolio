@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import type { zennProps } from "../../types"
+import type { ZennProps } from "../../types"
 import { PATH } from "../../utils/path"
 import { Breadcrumb, LowerTitle } from "../components/ui/"
 import ZennArticleItem from "./_containers/zenn-article-item"
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 const Blog = async () => {
-	let zennArticles: zennProps | null = null
+	let zennArticles: ZennProps | null = null
 
 	try {
 		const response = await fetch(
