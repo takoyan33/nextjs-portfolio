@@ -22,37 +22,37 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-  # lint:
-  #   needs: setup
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup
-  #       with:
-  #         node-version: ${{ env.NODE_VERSION }}
-  #     - run: pnpm run lint
-  #       env:
-  #         DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: pnpm run lint
+        env:
+          DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
 
-  # format:
-  #   needs: setup
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup
-  #       with:
-  #         node-version: ${{ env.NODE_VERSION }}
-  #     - run: pnpm run format
+  format:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: pnpm run format
 
-  # typecheck:
-  #   needs: setup
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup
-  #       with:
-  #         node-version: ${{ env.NODE_VERSION }}
-  #     - run: pnpm run typecheck
+  typecheck:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: pnpm run typecheck
 
   build:
     needs: [lint, format, typecheck]
