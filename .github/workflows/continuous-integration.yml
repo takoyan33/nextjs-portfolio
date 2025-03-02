@@ -9,8 +9,7 @@ on:
       - main
 
 env:
-  NODE_VERSION: "20.11.1"
-  PNPM_VERSION: "9.15.5"
+  NODE_VERSION: "20.00.0"
 
 jobs:
   setup:
@@ -22,7 +21,6 @@ jobs:
         uses: ./.github/actions/setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
 
   lint:
     needs: setup
@@ -32,7 +30,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
       - run: pnpm run lint
         env:
           DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
@@ -45,7 +42,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
       - run: pnpm run format
 
   typecheck:
@@ -56,7 +52,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
       - run: pnpm run typecheck
 
   build:
@@ -67,7 +62,6 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
       - run: pnpm run build
 
   deploy:
