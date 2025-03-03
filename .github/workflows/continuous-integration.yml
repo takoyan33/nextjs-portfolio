@@ -37,7 +37,7 @@ jobs:
 
       # Prettierでフォーマット
       - name: Format code
-        run: yarn prettier
+        run: yarn format
 
       # ESLintで静的解析の実行
       - name: Lint code
