@@ -1,78 +1,44 @@
-name: Continuous Integration
+# 任意のワークフローの名前を定義
+name: nextjs-ci
 
+# どのGitHubイベントに対して実行されるかを定義
 on:
   push:
-    branches:
-      - "**"
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
-env:
-  NODE_VERSION: "20.00.0"
-
+# このワークフローで実行されるジョブを定義
 jobs:
-  setup:
+  # ジョブの名前を定義
+  nextjs-ci:
+    # このジョブを実行する環境（GitHub Actionsランナー）を指定
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup environment
-        uses: ./.github/actions/setup
-        with:
-          node-version: ${{ env.NODE_VERSION }}
 
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # 使用するNode.jsのバージョンを定義
+        node-version: [20.x]
+    # 自動化したい作業を定義
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: pnpm run lint
-        env:
-          DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
+      # 実行環境にソースコードを取り込む
+      - uses: actions/checkout@v3
 
-  format:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
+      # 実行環境に対してNode.jsのセットアップをする
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: pnpm run format
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
 
-  typecheck:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: pnpm run typecheck
+      # プロジェクトの依存関係をインストール
+      - name: Install dependencies
+        run: yarn install
 
-  build:
-    needs: [lint, format, typecheck]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: pnpm run build
+      # Prettierでフォーマット
+      - name: Format code
+        run: yarn format
 
-  deploy:
-    needs: [build]
-    if: github.ref == 'refs/heads/main' && success()
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Vercel
-        uses: vercel/cli@v2
-        with:
-          token: ${{ secrets.VERCEL_TOKEN }}
-          org-id: ${{ secrets.VERCEL_ORG_ID }}
-          project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          directory: .
+      # ESLintで静的解析の実行
+      - name: Lint code
+        run: yarn lint

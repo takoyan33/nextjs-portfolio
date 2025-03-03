@@ -4,7 +4,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
 import { PATH } from "../../../utils/path"
@@ -19,7 +19,7 @@ const Post = () => {
 
 	const [portfolio, setPortfolio] = useState<PortfolioType>()
 
-	const fetchPortfolios = (id: string | string[]) => {
+	const fetchPortfolios = useCallback((id: string | string[]) => {
 		try {
 			// １つ取得する
 			const filteredPortfolio = portfoliosData.find(
@@ -29,13 +29,13 @@ const Post = () => {
 		} catch (error) {
 			console.error("Error fetching portfolio:", error)
 		}
-	}
+	}, [])
 
 	useEffect(() => {
 		if (id) {
 			fetchPortfolios(id)
 		}
-	}, [id])
+	}, [id, fetchPortfolios])
 
 	// useEffect(() => {
 	// 	if (id) {
