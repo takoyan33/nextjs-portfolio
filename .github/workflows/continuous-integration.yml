@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           yarn-version: ${{ env.YARN_VERSION }}
-      - run: yarn run lint
+      - run: yarn lint
         env:
           DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
 
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           yarn-version: ${{ env.YARN_VERSION }}
-      - run: yarn run format
+      - run: yarn format
 
   # typecheck:
   #   needs: setup
