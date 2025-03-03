@@ -1,57 +1,52 @@
-name: Continuous Integration
+# 任意のワークフローの名前を定義
+name: nextjs-ci
 
+#どのGitHubイベントに対して実行されるかを定義
 on:
+# メインブランチにpushがあったときにワークフローを実行
   push:
-    branches-ignore:
-      - main
+    branches: [ main ]
+  # メインブランチに対するプルリクエストが作成されたときにワークフローを実行
+  pull_request:
+    branches: [ main ]
 
-env:
-  NODE_VERSION: "20.00.0"
-  YARN_VERSION: "1.22.22"
-
+# このワークフローで実行されるジョブを定義
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup environment
-        uses: ./.github/actions/setup
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          yarn-version: ${{ env.YARN_VERSION }}
+# ジョブの名前を定義
+  nextjs-ci:
 
-  lint:
-    needs: setup
+# このジョブを実行する環境（GitHub Actionsランナー）を指定
+# 今回はubuntuを指定
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          yarn-version: ${{ env.YARN_VERSION }}
-      - run: yarn lint
-        env:
-          DEBUG_URL: ${{ secrets.TEST_DEBUG_URL }}
 
-  format:
-    needs: setup
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+      # 使用するNode.jsのバージョンを定義
+        node-version: [20.x]
+	
+# 自動化したい作業を定義
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
+      # 実行環境にソースコードを取り込む
+      - uses: actions/checkout@v3
+      # 実行環境に対してNode.jsのセットアップをする
+      # 作業に任意の名前を定義
+      - name: Use Node.js ${{ matrix.node-version }}
+        # Node.jsのセットアップに必要な設定
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          yarn-version: ${{ env.YARN_VERSION }}
-      - run: yarn format
-
-  # typecheck:
-  #   needs: setup
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/actions/setup
-  #       with:
-  #         node-version: ${{ env.NODE_VERSION }}
-  #         yarn-version: ${{ env.YARN_VERSION }}
-  #     - run: yarn run typecheck
+	# Node.jsのバージョンを指定
+          node-version: ${{ matrix.node-version }}
+	  # yarnのキャッシュを使用する設定
+          cache: 'yarn'
+      # 作業に任意の名前を定義
+      - name: Install dependencies
+      # プロジェクトの依存関係をインストール
+        run: yarn　install
+      # 作業に任意の名前を定義
+      - name: Format code
+        # Prettierでフォーマット
+        run: yarn prettier
+      # 作業に任意の名前を定義
+      - name: Lint code
+        # ESLintで静的解析の実行
+        run: yarn lint
