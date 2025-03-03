@@ -41,7 +41,7 @@ jobs:
       # 作業に任意の名前を定義
       - name: Install dependencies
       # プロジェクトの依存関係をインストール
-        run: yarn　install
+        run: yarn install
       # 作業に任意の名前を定義
       - name: Format code
         # Prettierでフォーマット
