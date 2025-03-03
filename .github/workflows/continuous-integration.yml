@@ -4,9 +4,9 @@ name: nextjs-ci
 # どのGitHubイベントに対して実行されるかを定義
 on:
   push:
-    branches: [ main ]
+    branches: [ make-cicd ]
   pull_request:
-    branches: [ main ]
+    branches: [ make-cicd ]
 
 # このワークフローで実行されるジョブを定義
 jobs:
