@@ -1,0 +1,28 @@
+name: "Setup and install"
+description: "Common setup steps for Actions"
+
+inputs:
+  node-version:
+    description: "Node.js version"
+    required: true
+  yarn-version:
+    description: "YARN version"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Setup yarn
+      uses: yarn/action-setup@v4
+      with:
+        version: ${{ inputs.yarn-version }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: "yarn"
+
+    - name: Install dependencies
+      shell: bash
+      run: yarn install
