@@ -5,10 +5,15 @@ import type * as THREE from "three"
 
 const Cube = () => {
 	const Box = (props: JSX.IntrinsicElements["mesh"]) => {
-		const ref = useRef<THREE.Mesh>(null!)
-		const [hovered, setHover] = useState(false)
-		const [active, setActive] = useState(false)
-		useFrame((state, delta) => (ref.current.rotation.x += 0.01))
+		const ref = useRef<THREE.Mesh>(null)
+		const [_hovered, setHover] = useState(false)
+		const [active, _setActive] = useState(false)
+		useFrame((_state, _delta) => {
+			if (ref.current) {
+				ref.current.rotation.x += 0.01
+			}
+		})
+
 		return (
 			<mesh
 				{...props}
