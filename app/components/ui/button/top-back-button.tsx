@@ -21,20 +21,22 @@ export const TopBackButton = () => {
 	return (
 		<div>
 			{showBackButton && (
-				<button
-					type="button"
-					className="back__btn"
-					onClick={() => {
-						window.scrollTo(0, 0)
-					}}
-				>
-					<Image
-						src="/images/top-arrow.svg"
-						height={30}
-						width={30}
-						alt="arrow"
-					/>
-				</button>
+				<div>
+					<button
+						type="button"
+						className="back__btn"
+						onClick={() => {
+							window.scrollTo(0, 0)
+						}}
+					>
+						<Image
+							src="/images/top-arrow.svg"
+							height={30}
+							width={30}
+							alt="arrow"
+						/>
+					</button>
+				</div>
 			)}
 		</div>
 	)

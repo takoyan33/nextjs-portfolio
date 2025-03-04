@@ -1607,7 +1607,7 @@ a {
 .fv {
   z-index: -1;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
 }
 .fv__container {
   display: flex;
@@ -1631,7 +1631,7 @@ a {
 .fv__subtitle {
   position: relative;
   top: 7.5rem;
-  margin-top: 1.875rem;
+  margin-top: 2.5rem;
   margin-inline: auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 2.5rem;
@@ -1677,11 +1677,12 @@ a {
 
 .back__btn {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 10px;
+  bottom: 20px;
   z-index: 10;
-  width: 80px;
-  padding: 25px 22px;
+  width: 30px;
+  padding: 25px 25px;
+  border-radius: 100%;
   font-size: 1.25rem;
   color: white;
   cursor: pointer;
