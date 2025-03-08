@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef } from "react"
 import type { Group } from "three"
 import type { MeshStandardMaterial } from "three"
+import * as THREE from "three"
 
 const Model = ({
 	url,
@@ -31,9 +32,9 @@ const Model = ({
 		}
 	})
 
-	scene.traverse((child: any) => {
-		if (child.isMesh) {
-			;(child.material as MeshStandardMaterial).color.set(color)
+	scene.traverse((child: THREE.Object3D) => {
+		if (child instanceof THREE.Mesh) {
+			;(child.material as THREE.MeshStandardMaterial).color.set(color)
 		}
 	})
 
