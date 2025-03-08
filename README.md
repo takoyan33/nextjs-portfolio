@@ -1,4 +1,3 @@
-
 # To You Design Portfolio
 
 ![image](/public/images/portfolio/portfolio_top3.png)
@@ -7,57 +6,54 @@
 - [システムの特徴](#system-feature)
 - [使用技術について](#technology-used)
 - [ディレクトリ構成](#directory-structure)
-- [ブランチについて](#technology-used)
+- [ブランチについて](#branch-structure)
+- [ライセンス](#license)
 
--[URL](https://to-you-design.vercel.app/)
+[デモサイト](https://to-you-design.vercel.app/)
 
-<h2 id="system-feature">システムの特徴</h2>
- これは、自分のポートフォリオサイトです。<br>
- 特徴としては、next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
- また、 Tailwind CSS,FontAwesome などを用いてます。
+## システムの特徴
+これは、自分のポートフォリオサイトです。<br>
+特徴としては、Next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
+また、Tailwind CSSやFontAwesomeなどを用いています。
 
-<h2 id="technology-used">使用言語、環境</h2>
+## 使用技術について
 
-### nodeバージョン
-
-- node v18.18.0
-- npm v9.8.1
+### Node.js バージョン
+- Node.js: v18.18.0
+- npm: v9.8.1
 
 ### フロントエンド
-
-- [Next.js](https://nextjs.org/) 14.0.4
-- [React](https://ja.reactjs.org/) 18.2.0
-- [typescript](https://www.typescriptlang.org/) 4.5.5
+- [Next.js](https://nextjs.org/) v14.0.4
+- [React](https://ja.reactjs.org/) v18.2.0
+- [TypeScript](https://www.typescriptlang.org/) v4.5.5
 
 ### バックエンド
-
-- [ruby](https://www.ruby-lang.org/ja/) 3.2.6
-- [rails](https://rubyonrails.org/) 7.0.2
+- [Ruby](https://www.ruby-lang.org/ja/) v3.2.6
+- [Rails](https://rubyonrails.org/) v7.0.2
 
 ### リンター
-- [Biome](https://biomejs.dev/ja/) 1.9.4
-- [husky](https://typicode.github.io/husky/) 9.1.4
-- [lint-staged](https://github.com/lint-staged/lint-staged) 
+- [Biome](https://biomejs.dev/ja/) v1.9.4
+- [Husky](https://typicode.github.io/husky/) v9.1.4
+- [Lint-staged](https://github.com/lint-staged/lint-staged) 
 
 ### テスト
-- [Vitest](https://vitejs.dev/guide/features.html) 2.1.1
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 10.4.0
+- [Vitest](https://vitejs.dev/guide/features.html) v2.1.1
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) v10.4.0
 
 ### 分析
 - [Google Analytics](https://developers.google.com/analytics?hl=ja)
 - [Clarity](https://clarity.microsoft.com/)
 
 ### ホスティング
-
 - [Vercel](https://vercel.com/)
 - [Render](https://render.com/)
 
 ### ライブラリ
-- [Swiper](https://swiperjs.com/react) 6.8.1
-- [react-three-fiber]() 7.0.0
-- [react-modal]() 3.14.3
+- [Swiper](https://swiperjs.com/react) v6.8.1
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) v7.0.0
+- [React Modal](https://reactcommunity.org/react-modal/) v3.14.3
 
-<h2 id="technology-used">ディレクトリ構成</h2>
+## ディレクトリ構成
 
 ```
 .
@@ -78,7 +74,7 @@
 ├── types           #型定義
 ```
 
-<h2 id="technology-used">ブランチについて</h2>
+## ブランチについて
 
 developブランチが開発環境でmainが本番環境です。
 

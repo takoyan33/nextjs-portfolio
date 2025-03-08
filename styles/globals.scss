@@ -18,7 +18,7 @@ a {
 .fv {
   z-index: -1;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   &__container {
     display: flex;
     justify-content: center;
@@ -29,25 +29,31 @@ a {
     width: 50%;
   }
   &__title {
-    position: relative;
-    top: rem(150);
+    position: absolute;
+    top: rem(260);
+    left: rem(40);
     margin: rem(10) auto;
     font-family: futura-pt-bold, sans-serif;
-    font-size: rem(60);
+    font-size: rem(130);
     color: $main-color;
     text-align: left;
     letter-spacing: 4px;
+    background-color: white;
+    z-index: 100;
   }
   &__subtitle {
-    position: relative;
-    top: rem(120);
-    margin-top: rem(30);
+    position: absolute;
+    top: rem(310);
+    left: rem(40);
+    margin-top: rem(120);
     margin-inline: auto;
     font-family: futura-pt-bold, sans-serif;
-    font-size: rem(40);
+    font-size: rem(80);
     color: $main-color;
     text-align: left;
     letter-spacing: 4px;
+    background-color: white;
+    z-index: 100;
   }
 }
 
@@ -79,11 +85,12 @@ a {
 //トップ 戻るボタン
 .back__btn {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 10px;
+  bottom: 20px;
   z-index: 10;
-  width: 80px;
-  padding: 25px 22px;
+  width: 30px;
+  padding: 25px 25px;
+  border-radius: 100%;
   font-size: rem(20);
   color: white;
   cursor: pointer;
@@ -94,11 +101,20 @@ a {
   }
 }
 
-// Topのaboutページ
+// Homeのaboutページ
 .about {
-  &__title {
+  &__name {
     margin: rem(10) auto;
     font-size: rem(26);
+    font-weight: 600;
+    text-align: left;
+  }
+  &__profile {
+    display: flex;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: rem(20);
+    margin-bottom: rem(20);
     text-align: left;
   }
   &__text {
@@ -121,12 +137,13 @@ a {
   }
   &_snsLogo {
     width: 30px;
-    margin: 0 rem(10);
   }
   &__flx {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: rem(10);
+    gap: rem(20);
+    margin-top: rem(18);
+    margin-bottom: rem(20);
   }
 }
 
@@ -540,6 +557,7 @@ li {
   &__title {
     font-size: 20px;
     text-align: left;
+    margin-bottom: 14px;
   }
   &__container {
     display: flex;
@@ -687,12 +705,12 @@ li {
     }
   }
 }
-
+// threejs
 .canvas {
   position: relative;
-  top: 150px;
-  width: 300px;
-  height: 300px;
+  top: 0px;
+  width: 100%;
+  height: 900px;
   margin: 0 auto;
 }
 
@@ -982,13 +1000,19 @@ body.modal-open {
     }
     &__title {
       position: relative;
+      width: 300px;
       top: rem(120);
+      left: rem(20);
       font-size: rem(30);
       line-height: 40px;
+      margin: 0;
     }
     &__subtitle {
       position: relative;
+      width: 200px;
       top: rem(120);
+      left: rem(20);
+      margin: 0;
       margin-top: rem(10);
       font-size: rem(20);
     }

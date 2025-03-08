@@ -29,21 +29,8 @@ export const HomeAboutSection = () => {
 						</div>
 						<div className="aboutTop_container-item">
 							<ScrollComponent>
-								<p className="about__title">阿部 舜平</p>
-								<div className="about__flx">
-									{SOCIAL_LINKS.map((link) => (
-										<Link key={link.href} href={link.href} target="_blank">
-											<Image
-												src={link.src}
-												className="about_snsLogo"
-												alt={link.alt}
-												height={link.height}
-												width={link.width}
-											/>
-										</Link>
-									))}
-								</div>
-								<p className="about__text">
+								<p className="about__name">阿部 舜平</p>
+								<p className="about__profile">
 									北海道在住の社会人1年目のエンジニア。
 									<br />
 									大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。
@@ -64,6 +51,19 @@ export const HomeAboutSection = () => {
 									</dt>
 									<dd>基本情報技術者試験</dd>
 								</dl>
+								<div className="about__flx">
+									{SOCIAL_LINKS.map((link) => (
+										<Link key={link.href} href={link.href} target="_blank">
+											<Image
+												src={link.src}
+												className="about_snsLogo"
+												alt={link.alt}
+												height={link.height}
+												width={link.width}
+											/>
+										</Link>
+									))}
+								</div>
 							</ScrollComponent>
 						</div>
 					</div>

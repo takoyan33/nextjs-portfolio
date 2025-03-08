@@ -1607,7 +1607,7 @@ a {
 .fv {
   z-index: -1;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
 }
 .fv__container {
   display: flex;
@@ -1619,25 +1619,31 @@ a {
   width: 50%;
 }
 .fv__title {
-  position: relative;
-  top: 9.375rem;
+  position: absolute;
+  top: 16.25rem;
+  left: 2.5rem;
   margin: 0.625rem auto;
   font-family: futura-pt-bold, sans-serif;
-  font-size: 3.75rem;
+  font-size: 8.125rem;
   color: #4485ff;
   text-align: left;
   letter-spacing: 4px;
+  background-color: white;
+  z-index: 100;
 }
 .fv__subtitle {
-  position: relative;
-  top: 7.5rem;
-  margin-top: 1.875rem;
+  position: absolute;
+  top: 19.375rem;
+  left: 2.5rem;
+  margin-top: 7.5rem;
   margin-inline: auto;
   font-family: futura-pt-bold, sans-serif;
-  font-size: 2.5rem;
+  font-size: 5rem;
   color: #4485ff;
   text-align: left;
   letter-spacing: 4px;
+  background-color: white;
+  z-index: 100;
 }
 
 @-webkit-keyframes GradietionAnimation {
@@ -1677,11 +1683,12 @@ a {
 
 .back__btn {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 10px;
+  bottom: 20px;
   z-index: 10;
-  width: 80px;
-  padding: 25px 22px;
+  width: 30px;
+  padding: 25px 25px;
+  border-radius: 100%;
   font-size: 1.25rem;
   color: white;
   cursor: pointer;
@@ -1692,9 +1699,18 @@ a {
   opacity: 0.7;
 }
 
-.about__title {
+.about__name {
   margin: 0.625rem auto;
   font-size: 1.625rem;
+  font-weight: 600;
+  text-align: left;
+}
+.about__profile {
+  display: flex;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   text-align: left;
 }
 .about__text {
@@ -1718,12 +1734,13 @@ a {
 }
 .about_snsLogo {
   width: 30px;
-  margin: 0 0.625rem;
 }
 .about__flx {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 0.625rem;
+  gap: 1.25rem;
+  margin-top: 1.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .container {
@@ -1905,6 +1922,7 @@ li {
 .skill__title {
   font-size: 20px;
   text-align: left;
+  margin-bottom: 14px;
 }
 .skill__container {
   display: flex;
@@ -2035,9 +2053,9 @@ li {
 
 .canvas {
   position: relative;
-  top: 150px;
-  width: 300px;
-  height: 300px;
+  top: 0px;
+  width: 100%;
+  height: 900px;
   margin: 0 auto;
 }
 
@@ -2293,13 +2311,19 @@ body.modal-open {
   }
   .fv__title {
     position: relative;
+    width: 300px;
     top: 7.5rem;
+    left: 1.25rem;
     font-size: 1.875rem;
     line-height: 40px;
+    margin: 0;
   }
   .fv__subtitle {
     position: relative;
+    width: 200px;
     top: 7.5rem;
+    left: 1.25rem;
+    margin: 0;
     margin-top: 0.625rem;
     font-size: 1.25rem;
   }

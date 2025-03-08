@@ -4,17 +4,21 @@ import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef } from "react"
 import type { Group } from "three"
+import type { MeshStandardMaterial } from "three"
+import * as THREE from "three"
 
 const Model = ({
 	url,
 	scale,
 	rotation,
 	position,
+	color,
 }: {
 	url: string
 	scale: number
 	position: number[]
 	rotation: number[]
+	color: string
 }) => {
 	const { scene } = useGLTF(url)
 
@@ -22,9 +26,15 @@ const Model = ({
 
 	useFrame((state) => {
 		if (groupRef.current) {
-			groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 3.8
+			groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.8
 
-			groupRef.current.rotation.y = state.clock.elapsedTime * 0.1
+			groupRef.current.rotation.y = state.clock.elapsedTime * 0.07
+		}
+	})
+
+	scene.traverse((child: THREE.Object3D) => {
+		if (child instanceof THREE.Mesh) {
+			;(child.material as THREE.MeshStandardMaterial).color.set(color)
 		}
 	})
 
@@ -43,13 +53,15 @@ const Model = ({
 const ThreeModel = () => {
 	return (
 		<div className="canvas">
-			<Canvas camera={{ position: [0, 0, 84], fov: 50 }}>
-				<ambientLight intensity={3} />
+			<Canvas camera={{ position: [0, 0, 50], fov: 50 }}>
+				<ambientLight intensity={1.5} />
+				<pointLight position={[10, 20, 0]} intensity={21} />
 				<Model
 					url="/models/scene.gltf"
-					scale={10.3}
+					scale={8.5}
 					position={[0, 0, 0]}
-					rotation={[0, 0, Math.PI / 10]}
+					rotation={[0, 0, Math.PI / 40]}
+					color="#4485ff"
 				/>
 				<OrbitControls enableZoom={false} />
 			</Canvas>
