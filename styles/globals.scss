@@ -95,11 +95,20 @@ a {
   }
 }
 
-// Topのaboutページ
+// Homeのaboutページ
 .about {
-  &__title {
+  &__name {
     margin: rem(10) auto;
     font-size: rem(26);
+    font-weight: 600;
+    text-align: left;
+  }
+  &__profile {
+    display: flex;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: rem(20);
+    margin-bottom: rem(20);
     text-align: left;
   }
   &__text {
@@ -122,12 +131,13 @@ a {
   }
   &_snsLogo {
     width: 30px;
-    margin: 0 rem(10);
   }
   &__flx {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: rem(10);
+    gap: rem(20);
+    margin-top: rem(18);
+    margin-bottom: rem(20);
   }
 }
 
@@ -541,6 +551,7 @@ li {
   &__title {
     font-size: 20px;
     text-align: left;
+    margin-bottom: 14px;
   }
   &__container {
     display: flex;

@@ -1,0 +1,8 @@
+Model Information:
+* title:	Laptop (FREE)
+* source:	https://sketchfab.com/3d-models/laptop-free-a651092825974fc5a405129d4f50a7d2
+* author:	Brandon Westlake (https://sketchfab.com/dr.badass2142)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

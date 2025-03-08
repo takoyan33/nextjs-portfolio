@@ -1693,9 +1693,18 @@ a {
   opacity: 0.7;
 }
 
-.about__title {
+.about__name {
   margin: 0.625rem auto;
   font-size: 1.625rem;
+  font-weight: 600;
+  text-align: left;
+}
+.about__profile {
+  display: flex;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   text-align: left;
 }
 .about__text {
@@ -1719,12 +1728,13 @@ a {
 }
 .about_snsLogo {
   width: 30px;
-  margin: 0 0.625rem;
 }
 .about__flx {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 0.625rem;
+  gap: 1.25rem;
+  margin-top: 1.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .container {
@@ -1906,6 +1916,7 @@ li {
 .skill__title {
   font-size: 20px;
   text-align: left;
+  margin-bottom: 14px;
 }
 .skill__container {
   display: flex;
