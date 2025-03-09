@@ -1,7 +1,7 @@
 //ブレークポイントを変数化
 $pc: 1200px; //パソコン
 $tab: 1024px; //タブレット
-$sp: 420px; //スマホ
+$sp: 500px; //スマホ
 
 @mixin pc {
   @media screen and (max-width: ($pc)) {

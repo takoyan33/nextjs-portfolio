@@ -653,7 +653,7 @@ a :hover {
   width: 100%;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .loading {
     position: fixed;
     top: 0;
@@ -807,7 +807,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .hamburger {
     position: fixed;
     top: 0;
@@ -881,7 +881,7 @@ body {
     height: 40px !important;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .header {
     top: 0;
     display: flex;
@@ -940,7 +940,7 @@ body {
   text-align: center;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .footer ul {
     margin-left: 30px;
   }
@@ -1043,7 +1043,7 @@ body {
   font-size: 80px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .zenn {
     background-color: #f7f7f7;
   }
@@ -1114,7 +1114,7 @@ body {
   text-align: left;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .form {
     margin: 60px 0;
   }
@@ -1369,7 +1369,7 @@ body {
     opacity: 1;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .aboutTop_container {
     flex-direction: column;
     gap: 0.625rem 0;
@@ -1519,7 +1519,7 @@ body {
   background-size: contain;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .portfolioDetail {
     margin-top: 30px;
     border-radius: 1.25rem;
@@ -1629,7 +1629,7 @@ a {
   text-align: left;
   letter-spacing: 4px;
   background-color: white;
-  z-index: 100;
+  z-index: 1;
 }
 .fv__subtitle {
   position: absolute;
@@ -1643,7 +1643,7 @@ a {
   text-align: left;
   letter-spacing: 4px;
   background-color: white;
-  z-index: 100;
+  z-index: 1;
 }
 
 @-webkit-keyframes GradietionAnimation {
@@ -2258,6 +2258,50 @@ body.modal-open {
   .portfolio__img__item {
     border-radius: 10px;
   }
+  .canvas {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+  }
+  .fv {
+    z-index: -1;
+    width: 100%;
+    height: 70vh;
+  }
+  .fv__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+  }
+  .fv__element {
+    align-items: center;
+    width: 50%;
+  }
+  .fv__title {
+    position: absolute;
+    top: 16.25rem;
+    left: 1.25rem;
+    font-family: futura-pt-bold, sans-serif;
+    font-size: 3.75rem;
+    color: #4485ff;
+    text-align: left;
+    letter-spacing: 4px;
+    background-color: white;
+  }
+  .fv__subtitle {
+    position: absolute;
+    top: 15.625rem;
+    left: 1.25rem;
+    margin-inline: auto;
+    font-family: futura-pt-bold, sans-serif;
+    font-size: 2.5rem;
+    color: #4485ff;
+    text-align: left;
+    letter-spacing: 4px;
+    background-color: white;
+  }
   .about_img {
     width: 320px;
     height: 180px;
@@ -2280,7 +2324,7 @@ body.modal-open {
     text-align: center;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
   .size {
     margin-top: 1.25rem;
     color: #4485ff;
@@ -2314,7 +2358,7 @@ body.modal-open {
     width: 300px;
     top: 7.5rem;
     left: 1.25rem;
-    font-size: 1.875rem;
+    font-size: 1.25rem;
     line-height: 40px;
     margin: 0;
   }
@@ -2398,7 +2442,7 @@ body.modal-open {
     width: 90%;
   }
   .back__btn {
-    padding: 15px 12px;
+    padding: 12px;
   }
   .modalBox {
     display: flex;
