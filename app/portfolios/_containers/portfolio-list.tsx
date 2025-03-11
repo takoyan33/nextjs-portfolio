@@ -42,18 +42,20 @@ export const PortfolioList = () => {
 	}
 	return (
 		<div className="max_width">
-			<h3 className="lower__subTitle">
+			<h2 className="lower__subTitle">
 				全ての制作物
 				<span className="lower__subTitle-span">{portfolios?.length}件</span>
-			</h3>
-			<label className="selectbox-5">
-				<select name="orders" id="order-select" onChange={filterPortfolio}>
-					<option value="new-order">並び替え</option>
-					<option value="new-order">新しい順</option>
-					<option value="old-order">古い順</option>
-				</select>
-			</label>
-			<div className="portfolioFlx padding">
+			</h2>
+			<div className="portfolio__filter">
+				<label className="selectBox">
+					<select name="orders" id="order-select" onChange={filterPortfolio}>
+						<option value="new-order">並び替え</option>
+						<option value="new-order">新しい順</option>
+						<option value="old-order">古い順</option>
+					</select>
+				</label>
+			</div>
+			<div className="portfolio__List padding">
 				{portfolios?.map((portfolio: PortfolioType) => (
 					<PortfolioItem
 						key={portfolio.id}

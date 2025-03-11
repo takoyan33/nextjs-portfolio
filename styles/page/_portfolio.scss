@@ -4,39 +4,107 @@
 @use '../common/mixin';
 
 
-//ポートフォリオ セレクトボックス
-.selectbox-5 {
+//ポートフォリオ filter
+.selectBox {
   position: relative;
   display: inline-flex;
   align-items: center;
-}
 
-.selectbox-5::after {
-  position: absolute;
-  right: 15px;
-  width: 10px;
-  height: 7px;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  pointer-events: none;
-  content: '';
-  background-color: #535353;
-}
+    &::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    pointer-events: none;
+    content: '';
+    background-color: #535353;
+  }
 
-.selectbox-5 select {
-  min-width: 230px;
-  height: 2.8em;
-  padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
-  font-size: 1em;
-  color: #333333;
-  appearance: none;
-  cursor: pointer;
-  background-color: #fff;
-  border: none;
-  border-bottom: 2px solid #d0d0d0;
-}
+    select {
+    min-width: 230px;
+    height: 2.8em;
+    padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
+    font-size: 1em;
+    color: #333333;
+    appearance: none;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-bottom: 2px solid #d0d0d0;
 
-.selectbox-5 select:focus {
-  outline: none;
+    &:focus {
+    outline: none;
+    }
+  }
+  }
+
+  // ポートフォリオページ用
+.portfolio {
+  background-color: $back-color;
+
+  &__filter {
+    display: flex;
+    justify-content: flex-end;
+  }
+  // portfolioList
+  &Item {
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    &__content {
+      padding: 10px;
+    }
+    &__date {
+      font-size: rem(14);
+      text-align: left;
+      color: #434343;
+    }
+    &__tag {
+      display: inline-block;
+      height: 25px;
+      padding: 2px 8px;
+      padding-bottom: 4px;
+      margin: 11px 2px;
+      font-size: 14px;
+      color: $main-color;
+      border: 1px solid $main-color;
+      border-radius: 5px;
+    }
+    &__title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #434343;
+      text-align: left;
+      margin-top: 10px;
+    }
+    &__img {
+      position: relative;
+      width: 100%;
+      height: 162px;
+      aspect-ratio: 16 / 9;
+      margin-inline: auto;
+      overflow: hidden;
+      object-fit: cover;
+
+      &-item {
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &__container {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+    &_link {
+      cursor: pointer;
+    }
+  }
 }
 
 

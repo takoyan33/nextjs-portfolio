@@ -19,7 +19,7 @@ const PortfolioItem = React.memo(function PortfolioItem({
 	portfolio_topImg,
 }: PortfolioItemProps) {
 	return (
-		<article className="portfolioFlx_el portfolioItem">
+		<article className="portfolio__List-item portfolioItem">
 			<TransitionLink
 				href={`portfolios/${portfolio_id}`}
 				className="portfolioItem__link"
@@ -33,15 +33,17 @@ const PortfolioItem = React.memo(function PortfolioItem({
 						className="portfolioItem__img-item"
 					/>
 				</div>
-				<p className="portfolioItem__date">{portfolio_date}</p>
-				<h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
-				<ul className="portfolioItem__flex">
-					{portfolio_tag.map((tag) => (
-						<li className="portfolioItem__tag" key={tag}>
-							#{tag}
-						</li>
-					))}
-				</ul>
+				<div className="portfolioItem__content">
+					<p className="portfolioItem__date">{portfolio_date}</p>
+					<h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
+					<ul className="portfolioItem__container">
+						{portfolio_tag.map((tag) => (
+							<li className="portfolioItem__tag" key={tag}>
+								#{tag}
+							</li>
+						))}
+					</ul>
+				</div>
 			</TransitionLink>
 		</article>
 	)

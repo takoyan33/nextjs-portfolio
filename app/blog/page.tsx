@@ -34,13 +34,13 @@ const Blog = async () => {
 			</div>
 			<LowerTitle title="Blog" enTitle="ブログ" />
 			<div className="max_width">
-				<h3 className="lower__subTitle">
+				<h2 className="lower__subTitle">
 					Zenn
 					<span className="lower__subTitle-span">
 						{zennArticles?.articles.length}件
 					</span>
-				</h3>
-				<div className="flx padding">
+				</h2>
+				<div className="blog__List">
 					{zennArticles?.articles.map((article) => (
 						<ZennArticleItem
 							key={article.id}
