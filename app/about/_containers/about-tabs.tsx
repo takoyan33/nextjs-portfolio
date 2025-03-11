@@ -41,13 +41,13 @@ export const AboutTabs = () => {
 			<div className="tab-content max_width">
 				{activeTab === "history" && (
 					<div aria-labelledby="tabA">
-						<h3 className="lower__subTitle">経歴</h3>
+						<h2 className="lower__subTitle">経歴</h2>
 						<HistoryTimeline />
 					</div>
 				)}
 				{activeTab === "career" && (
 					<div aria-labelledby="tabB">
-						<h3 className="lower__subTitle">職歴</h3>
+						<h2 className="lower__subTitle">職歴</h2>
 						<JobTimeline />
 					</div>
 				)}

@@ -142,7 +142,7 @@ a {
 }
 
 // ポートフォリオページのflex
-.portfolioFlx {
+.portfolio__List {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,9 +153,9 @@ a {
   margin: rem(50) auto;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  &_el {
+  &-item {
     width: 30%;
-    margin: 0px;
+    margin: 0;
     overflow-wrap: break-word;
   }
 }
@@ -294,7 +294,7 @@ a {
       overflow-wrap: break-word;
     }
   }
-  .portfolioFlx {
+  .portfolio__List {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -305,7 +305,7 @@ a {
     margin: rem(50) auto;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    &_el {
+    &-item {
       width: 45%;
       margin: 0px;
       overflow-wrap: break-word;
@@ -429,7 +429,7 @@ a {
       }
     }
   }
-  .portfolioFlx {
+  .portfolio__List {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -440,7 +440,7 @@ a {
     margin: rem(30) auto;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    &_el {
+    &-item {
       width: 100%;
       margin: 0px;
       overflow-wrap: break-word;

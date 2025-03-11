@@ -21,14 +21,16 @@ export default function ZennArticleItem({
 	//日付のフォーマット
 	const formatDate = (date: Date): string => dayjs(date).format("YYYY-MM-DD")
 	return (
-		<article className="flx_el" key={zenn_id}>
+		<article className="zennArticle" key={zenn_id}>
 			<Link href={`https://zenn.dev${zenn_path}`} target="_blank">
-				<div className="zenn__emoji">{zenn_emoji}</div>
-				<div className="zenn__flex">
-					<li className="zenn__tag">{zenn_article_type}</li>
+				<div className="zennArticle__emoji">{zenn_emoji}</div>
+				<div className="zennArticle__content">
+					<p className="zennArticle__date">{formatDate(zenn_published_at)}</p>
+					<h3 className="zennArticle__title"> {zenn_title} </h3>
+					<ul className="zennArticle__container">
+						<li className="zennArticle__tag">{zenn_article_type}</li>
+					</ul>
 				</div>
-				<p className="zenn__title"> {zenn_title} </p>
-				<p className="zenn__date">{formatDate(zenn_published_at)}</p>
 			</Link>
 		</article>
 	)

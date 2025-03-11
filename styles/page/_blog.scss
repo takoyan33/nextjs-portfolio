@@ -3,16 +3,44 @@
 @use '../common/variables' as *;
 @use '../common/mixin';
 
-.zenn {
-  background-color: $back-color;
 
-  &__flex {
+.blog__List {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3.75rem 3.125rem;
+    justify-content: start;
+    width: 100%;
+    margin: 3.125rem auto;
+}
+
+.zennArticle {
+  // background-color: $back-color;
+  width: 30%;
+  box-shadow:
+  rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  &__container {
+    display: flex;
+    justify-content: start;
+    margin-top: 10px;
+  }
+
+  &__content {
+    margin: 10px;
+  }
+
+  &__title {
+    margin-inline: auto;
+    margin-top: 0;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 10px;
   }
   &__date {
     font-size: rem(14);
     color: grey;
+    text-align: left;
   }
   &__tag {
     display: inline-block;
@@ -24,21 +52,14 @@
     border: 1px solid $main-color;
     border-radius: 10px;
   }
-  &__title {
-    width: 80%;
-    margin-inline: auto;
-    margin-top: 0;
-    font-weight: 600;
-    text-align: left;
-  }
   &__emoji {
     font-size: 80px;
   }
 }
 
 @include mixin.sp {
-  .zenn {
-    background-color: $back-color;
+  .zennArticle {
+    width: 100%;
 
     &__flex {
       display: flex;
