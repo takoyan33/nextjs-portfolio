@@ -24,6 +24,7 @@ export const PortfolioList = () => {
 		setPortfolios(portfoliosData)
 	}, [])
 
+	// ポートフォリオの絞り込み
 	const filterPortfolio = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const value = e.target.value
 		const sortedData = portfolios ? [...portfolios] : []
@@ -55,7 +56,7 @@ export const PortfolioList = () => {
 					</select>
 				</label>
 			</div>
-			<div className="portfolio__List padding">
+			<div className="portfolio__List">
 				{portfolios?.map((portfolio: PortfolioType) => (
 					<PortfolioItem
 						key={portfolio.id}

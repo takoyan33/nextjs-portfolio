@@ -437,34 +437,41 @@ li {
   }
 }
 
-// ポートフォリオ
-.portfolio {
+// ポートフォリオ Home
+.SlideItem {
   background-color: $back-color;
 
-  &__flex {
+  &__container {
     display: flex;
-    justify-content: center;
-    padding-left: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
   }
   &__date {
     margin-top: 6px;
     margin-bottom: 4px;
     font-size: rem(14);
+    text-align: left;
+    color: gray;
   }
   &__tag {
     display: inline-block;
     height: 25px;
     padding: 2px 5px;
-    margin: 11px 2px;
     font-size: 14px;
     color: $main-color;
     border: 1px solid $main-color;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   &__title {
     font-size: 18px;
     font-weight: 600;
     color: #434343;
+    text-align: left;
+  }
+  &__content{
+    padding: 5px;
   }
   &__img {
     position: relative;
@@ -837,13 +844,9 @@ body.modal-open {
     width: 50px !important;
     height: 50px !important;
   }
-  .portfolio {
+  .SlideItem {
     background-color: $back-color;
 
-    &__flex {
-      display: flex;
-      justify-content: center;
-    }
     &__date {
       margin-top: 6px;
       margin-bottom: 4px;
@@ -852,12 +855,9 @@ body.modal-open {
     &__tag {
       display: inline-block;
       height: 25px;
-      padding: 2px 5px;
-      margin: 11px 2px;
       font-size: 14px;
       color: $main-color;
       border: 1px solid $main-color;
-      border-radius: 10px;
     }
     &__title {
       font-size: 18px;
@@ -1198,14 +1198,9 @@ body.modal-open {
   }
 
   // ポートフォリオ
-  .portfolio {
+  .SlideItem {
     background-color: $back-color;
 
-    &__flex {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
     &__date {
       margin: 6px 0px;
       font-size: rem(14);
@@ -1214,12 +1209,9 @@ body.modal-open {
     &__tag {
       display: inline-block;
       height: 25px;
-      padding: 2px 5px;
-      margin: 4px 2px;
       font-size: 14px;
       color: $main-color;
       border: 1px solid $main-color;
-      border-radius: 20px;
     }
     &__title {
       margin-top: 0px;
