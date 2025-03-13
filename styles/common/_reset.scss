@@ -76,7 +76,6 @@
 
 :where(img, picture, svg, video) {
 	max-inline-size: 100%;
-	block-size: auto;
 }
 
 :where(p, h1, h2, h3, h4, h5, h6) {

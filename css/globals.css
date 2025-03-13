@@ -1804,10 +1804,10 @@ a {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.about_snsLogo {
+.about_sns-icon {
   width: 30px;
 }
-.about__flx {
+.about__container {
   display: flex;
   justify-content: flex-start;
   gap: 1.25rem;

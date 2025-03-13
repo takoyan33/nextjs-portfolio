@@ -135,10 +135,10 @@ a {
     height: 300px;
     object-fit: cover;
   }
-  &_snsLogo {
+  &_sns-icon {
     width: 30px;
   }
-  &__flx {
+  &__container {
     display: flex;
     justify-content: flex-start;
     gap: rem(20);
