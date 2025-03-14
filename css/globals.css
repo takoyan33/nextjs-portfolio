@@ -77,22 +77,6 @@ a :hover {
   font-weight: bold;
 }
 
-.flx {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3.75rem 0rem;
-  justify-content: flex-start;
-  width: 100%;
-  margin: 0.625rem auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-}
-.flx_el {
-  width: 33%;
-  margin: 0px;
-  overflow-wrap: break-word;
-}
-
 .portfolio__List {
   display: flex;
   flex-wrap: wrap;
@@ -109,10 +93,6 @@ a :hover {
   overflow-wrap: break-word;
 }
 
-.swiper .flx_el {
-  width: 100%;
-}
-
 .navigation-container {
   position: relative;
   z-index: 1;
@@ -121,6 +101,7 @@ a :hover {
 .portfolio-content {
   display: grid;
   grid-template-columns: 1.875rem 1fr 1.875rem;
+  margin: 50px 0;
 }
 
 .prev-button {
@@ -221,21 +202,6 @@ a :hover {
 }
 
 @media (max-width: 1024px) {
-  .flx {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.875rem 6.25rem;
-    justify-content: center;
-    width: 100%;
-    margin: 0.625rem auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-  }
-  .flx_el {
-    width: 33%;
-    margin: 0px;
-    overflow-wrap: break-word;
-  }
   .portfolio__List {
     display: flex;
     flex-wrap: wrap;
@@ -318,9 +284,6 @@ a :hover {
   .nav {
     display: none;
   }
-  .swiper .flx_el {
-    width: 100%;
-  }
   .bg-white {
     width: 90%;
     height: 100%;
@@ -336,23 +299,7 @@ a :hover {
   .portfolio-content {
     display: grid;
     grid-template-columns: 0.9375rem 1fr 0.9375rem;
-  }
-  .flx {
-    flex-direction: column;
-    gap: 0.625rem 0rem;
-    margin: 1.25rem auto;
-  }
-  .flx_el {
-    width: 100%;
-    margin: 0.625rem auto;
-  }
-  .flx_el_3 {
-    width: 100%;
-    margin: 1.25rem auto;
-  }
-  .flx_el_feature {
-    width: 100%;
-    margin: 1.25rem auto;
+    margin: 20px 0;
   }
   .portfolio__List {
     display: flex;
@@ -467,7 +414,6 @@ a :hover {
 
 :where(img, picture, svg, video) {
   max-inline-size: 100%;
-  block-size: auto;
 }
 
 :where(p, h1, h2, h3, h4, h5, h6) {
@@ -1010,13 +956,37 @@ body {
   text-align: left;
 }
 
+.blog__layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  padding: 50px 0;
+}
+
 .blog__List {
   display: flex;
   flex-wrap: wrap;
-  gap: 3.75rem 3.125rem;
+  gap: 25px 15px;
   justify-content: flex-start;
   width: 100%;
-  margin: 3.125rem auto;
+  margin: 10px auto;
+}
+
+.blog__aside {
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.blog__aside__List {
+  gap: 25px 15px;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.blog__aside h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  text-align: left;
 }
 
 .zennArticle {
@@ -1057,7 +1027,55 @@ body {
   font-size: 80px;
 }
 
+.zennAsideArticle {
+  width: 100%;
+  border-bottom: 1px solid rgb(178, 178, 178);
+  margin-bottom: 10px;
+}
+.zennAsideArticle__container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+.zennAsideArticle__content {
+  margin: 10px 0;
+}
+.zennAsideArticle__title {
+  margin-inline: auto;
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  margin-top: 10px;
+}
+.zennAsideArticle__date {
+  font-size: 0.875rem;
+  color: grey;
+  text-align: left;
+}
+.zennAsideArticle__tag {
+  display: inline-block;
+  height: 25px;
+  padding: 2px 5px;
+  margin: 11px 2px;
+  font-size: 14px;
+  color: #4485ff;
+  border: 1px solid #4485ff;
+  border-radius: 10px;
+}
+.zennAsideArticle__emoji {
+  font-size: 80px;
+}
+
 @media screen and (max-width: 500px) {
+  .blog__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px 0;
+  }
+  .blog__aside {
+    display: none;
+  }
   .zennArticle {
     width: 100%;
   }
@@ -1365,7 +1383,7 @@ body {
   }
   .drawerMenu ul {
     width: 90%;
-    padding: 0px;
+    padding: 20px 0;
     margin-inline: auto;
   }
   .drawerMenu ul li {
@@ -1935,6 +1953,10 @@ li {
   transform: scale(1.1);
 }
 
+.transition-link {
+  display: inline-block;
+}
+
 .size {
   margin-top: 40px;
   color: #4485ff;
@@ -2082,6 +2104,19 @@ li {
   width: 100%;
   height: 900px;
   margin: 0 auto;
+}
+
+.common__btn {
+  display: inline-block;
+  padding: 8px 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #4485ff;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.common__btn:hover {
+  opacity: 0.7;
 }
 
 .contact {
@@ -2357,6 +2392,12 @@ body.modal-open {
     background-color: white;
     box-shadow: -rem(5) 0.3125rem 0px 0.3125rem #000081;
   }
+  .about,
+.portfolio,
+.news,
+.contact {
+    padding: 20px 0;
+  }
   .fv {
     display: inline-block;
     width: 100%;
@@ -2395,9 +2436,6 @@ body.modal-open {
     width: 200px;
     height: 200px;
     margin: 0 auto;
-  }
-  .about {
-    height: 950px;
   }
   .about_name {
     margin: 0.625rem auto;

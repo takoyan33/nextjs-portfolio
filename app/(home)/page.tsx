@@ -1,4 +1,5 @@
-import { TopBackButton, TransitionLink } from "app/components/ui"
+import { TopBackButton } from "app/components/ui"
+import { CommonButton } from "app/components/ui/button/common-button"
 import { HistoryTimeline } from "app/components/ui/rsc"
 import ScrollComponent from "hooks/use-fadeIn"
 import { PATH } from "utils/path"
@@ -27,9 +28,10 @@ const Home = () => {
 						</ScrollComponent>
 						<ScrollComponent>
 							<HomePortfolioSlide />
-							<TransitionLink href={PATH.PORTFOLIO} className="contact__btn">
-								ポートフォリオをさらに見る
-							</TransitionLink>
+							<CommonButton
+								text="ポートフォリオをさらに見る"
+								link={PATH.PORTFOLIO}
+							/>
 						</ScrollComponent>
 					</div>
 				</section>
@@ -46,12 +48,7 @@ const Home = () => {
 							<HistoryTimeline />
 						</ScrollComponent>
 					</div>
-					<TransitionLink
-						href={PATH.ABOUT}
-						className="contact__btn padding-bottom"
-					>
-						経歴をさらに見る
-					</TransitionLink>
+					<CommonButton text="経歴をさらに見る" link={PATH.ABOUT} />
 				</section>
 				<HomeWaveBgTop />
 				{/* ここからSKill*/}
@@ -78,12 +75,11 @@ const Home = () => {
 							<div className="contact__box">
 								<h3 className="contact__box-title">CONTACT</h3>
 								<p className="contact__box-text">お問い合わせ</p>
-								<TransitionLink
-									href={PATH.CONTACT}
-									className="contact__btn padding-bottom"
-								>
-									お問い合せフォームへ
-								</TransitionLink>
+								<CommonButton
+									text="お問い合せフォームへ"
+									className="padding-bottom"
+									link={PATH.CONTACT}
+								/>
 							</div>
 						</ScrollComponent>
 					</div>

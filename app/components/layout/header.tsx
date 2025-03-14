@@ -1,5 +1,6 @@
 "use client"
 
+import { CommonButton } from "app/components/ui/button/common-button"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
 import type { MenuItem } from "../../../types"
@@ -63,12 +64,14 @@ export const Header = () => {
 									<TransitionLink href={item.link}>{item.title}</TransitionLink>
 								</li>
 							))}
-							<TransitionLink
+							{/* <TransitionLink
 								href={PATH.CONTACT}
 								className="header_btn_contact"
 							>
 								お問い合わせ
-							</TransitionLink>
+							</TransitionLink> */}
+
+							<CommonButton text="お問い合わせ" link={PATH.CONTACT} />
 						</ul>
 					</nav>
 				</div>

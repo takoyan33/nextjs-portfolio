@@ -495,7 +495,7 @@ li {
 
 
 .transition-link {
-  //height: 100%;
+  display: inline-block;
 }
 
 .size {
@@ -666,6 +666,20 @@ li {
   height: 900px;
   margin: 0 auto;
 }
+
+// 共通のボタン
+  .common__btn {
+    display: inline-block;
+    padding: 8px 18px;;
+    font-weight: bold;
+    color: white;
+    background-color: $main-color;
+    border-radius: 10px;
+    font-size: 16px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 
 
 //topのcontact
@@ -976,7 +990,12 @@ body.modal-open {
     }
   }
 
-
+.about,
+.portfolio,
+.news,
+.contact {
+  padding: 20px 0;
+}
 
   // fv sp
   .fv {
@@ -1021,7 +1040,6 @@ body.modal-open {
   }
 
   .about {
-    height: 950px;
     &_name {
       margin: rem(10) auto;
       font-size: 22px;
