@@ -668,19 +668,42 @@ li {
 }
 
 // 共通のボタン
-  .common__btn {
-    display: inline-block;
-    padding: 8px 18px;;
-    font-weight: bold;
-    color: white;
-    background-color: $main-color;
-    border-radius: 10px;
-    font-size: 16px;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
+  // .common__btn {
+  //   display: inline-block;
+  //   padding: 8px 18px;;
+  //   font-weight: bold;
+  //   color: white;
+  //   background-color: $main-color;
+  //   border-radius: 10px;
+  //   font-size: 16px;
+  //   &:hover {
+  //     opacity: 0.7;
+  //   }
+  // }
 
+  .common__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin:0 auto;
+    padding: 8px 20px;
+    border: 1.5px solid $main-color;;
+    border-radius: 8px;
+    background-color: #fff;
+    color: $main-color;;
+    font-size: 14px;
+
+    &::after {
+    transform: rotate(45deg);
+    width: 6px;
+    height: 6px;
+    margin-left: 6px;
+    border-top: 2px solid $main-color;;
+    border-right: 2px solid $main-color;;
+    content: '';
+  }
+}
 
 //topのcontact
 .contact {

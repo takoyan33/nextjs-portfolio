@@ -2107,16 +2107,26 @@ li {
 }
 
 .common__btn {
-  display: inline-block;
-  padding: 8px 18px;
-  font-weight: bold;
-  color: white;
-  background-color: #4485ff;
-  border-radius: 10px;
-  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 0 auto;
+  padding: 8px 20px;
+  border: 1.5px solid #4485ff;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #4485ff;
+  font-size: 14px;
 }
-.common__btn:hover {
-  opacity: 0.7;
+.common__btn::after {
+  transform: rotate(45deg);
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-top: 2px solid #4485ff;
+  border-right: 2px solid #4485ff;
+  content: "";
 }
 
 .contact {
