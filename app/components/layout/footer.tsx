@@ -32,7 +32,7 @@ export const Footer = () => {
 	return (
 		<footer className="footer" aria-label="フッター">
 			<div className="max_width footer__container">
-				<div className="flx_el">
+				<div>
 					<TransitionLink href={PATH.INDEX}>
 						<img
 							src="/images/common/logo.svg"
@@ -42,11 +42,11 @@ export const Footer = () => {
 						/>
 					</TransitionLink>
 				</div>
-				<nav className="flx_el" aria-label="フッターメニュー">
+				<nav aria-label="フッターメニュー">
 					{MENU_ITEMS.map((item) => (
-						<TransitionLink href={item.link} key={item.id}>
-							<p className="footer__list">{item.title}</p>
-						</TransitionLink>
+						<li className="footer__list" key={item.id}>
+							<TransitionLink href={item.link}>{item.title}</TransitionLink>
+						</li>
 					))}
 				</nav>
 			</div>

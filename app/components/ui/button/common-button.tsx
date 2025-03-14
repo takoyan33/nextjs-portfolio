@@ -15,15 +15,28 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 	link,
 }) => {
 	return (
-		<TransitionLink href={link ? link : ""}>
-			<button
-				type="button"
-				onClick={handleClick}
-				className={`main__btn ${className}`}
-				aria-label={text}
-			>
-				{text}
-			</button>
-		</TransitionLink>
+		<>
+			{link ? (
+				<TransitionLink href={link}>
+					<button
+						type="button"
+						onClick={handleClick}
+						className={`common__btn ${className}`}
+						aria-label={text}
+					>
+						{text}
+					</button>
+				</TransitionLink>
+			) : (
+				<button
+					type="button"
+					onClick={handleClick}
+					className={`common__btn ${className}`}
+					aria-label={text}
+				>
+					{text}
+				</button>
+			)}
+		</>
 	)
 }

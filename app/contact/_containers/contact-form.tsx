@@ -1,4 +1,5 @@
 "use client"
+import { CommonButton } from "app/components/ui/button/common-button"
 import { send } from "emailjs-com"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -143,16 +144,10 @@ export const ContactForm = () => {
 					)}
 				</div>
 
-				<div className="text-center">
-					<button
-						className="form-box-btn"
-						aria-label="確認画面へ"
-						type="submit"
-						onClick={handleSubmit(handleConfirm)}
-					>
-						確認画面へ
-					</button>
-				</div>
+				<CommonButton
+					text="確認画面へ"
+					handleClick={handleSubmit(handleConfirm)}
+				/>
 			</form>
 		</div>
 	)

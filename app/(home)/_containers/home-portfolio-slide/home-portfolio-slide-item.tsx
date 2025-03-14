@@ -12,9 +12,9 @@ interface PortfolioItemProps {
 }
 
 const PortfolioTags: React.FC<{ tags: string[] }> = ({ tags }) => (
-	<ul className="portfolio__flex">
+	<ul className="SlideItem__container">
 		{tags.map((tag) => (
-			<li className="portfolio__tag" key={tag}>
+			<li className="SlideItem__tag" key={tag}>
 				#{tag}
 			</li>
 		))}
@@ -29,20 +29,22 @@ const HomePortfolioSlideItem: React.FC<PortfolioItemProps> = React.memo(
 		portfolio_tag,
 		portfolio_topImg,
 	}) => (
-		<div className="flx_el portfolio_flx_el">
+		<div>
 			<TransitionLink href={`portfolios/${portfolio_id}`}>
-				<div className="portfolio__img">
+				<div className="SlideItem__img">
 					<Image
 						src={portfolio_topImg}
 						alt="ポートフォリオ画像"
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
-						className="portfolio__img-item"
+						className="SlideItem__img-item"
 					/>
 				</div>
-				<p className="portfolio__date">{portfolio_date}</p>
-				<h3 className="portfolio__title">{parse(portfolio_name)}</h3>
-				<PortfolioTags tags={portfolio_tag} />
+				<div className="SlideItem__content">
+					<p className="SlideItem__date">{portfolio_date}</p>
+					<h3 className="SlideItem__title">{parse(portfolio_name)}</h3>
+					<PortfolioTags tags={portfolio_tag} />
+				</div>
 			</TransitionLink>
 		</div>
 	),

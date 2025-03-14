@@ -122,24 +122,6 @@ a {
   font-weight: bold;
 }
 
-// 共通
-.flx {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  gap: rem(60) rem(0);
-  justify-content: flex-start;
-  width: 100%;
-  margin: rem(10) auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  &_el {
-    width: 33%;
-    margin: 0px;
-    overflow-wrap: break-word;
-  }
-}
 
 // ポートフォリオページのflex
 .portfolio__List {
@@ -160,19 +142,17 @@ a {
   }
 }
 
-.swiper .flx_el {
-  width: 100%;
-}
 
 .navigation-container {
   position: relative;
   z-index: 1;
 }
 
-// slideのコンテンツ
+// homeのslideのコンテンツ
 .portfolio-content {
   display: grid;
   grid-template-columns: rem(30) 1fr rem(30);
+  margin: 50px 0;
 }
 
 .prev-button {
@@ -277,23 +257,6 @@ a {
 }
 
 @media (max-width: 1024px) {
-  .flx {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    gap: rem(30) rem(100);
-    justify-content: center;
-    width: 100%;
-    margin: rem(10) auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    &_el {
-      width: 33%;
-      margin: 0px;
-      overflow-wrap: break-word;
-    }
-  }
   .portfolio__List {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -387,10 +350,6 @@ a {
     display: none;
   }
 
-  .swiper .flx_el {
-    width: 100%;
-  }
-
   .bg-white {
     width: 90%;
     height: 100%;
@@ -407,28 +366,9 @@ a {
   .portfolio-content {
     display: grid;
     grid-template-columns: rem(15) 1fr rem(15);
+    margin: 20px 0;
   }
 
-  .flx {
-    -ms-flex-direction: column;
-    flex-direction: column;
-    gap: rem(10) rem(0);
-    margin: rem(20) auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    &_el {
-      width: 100%;
-      margin: rem(10) auto;
-      &_3 {
-        width: 100%;
-        margin: rem(20) auto;
-      }
-      &_feature {
-        width: 100%;
-        margin: rem(20) auto;
-      }
-    }
-  }
   .portfolio__List {
     display: -webkit-box;
     display: -ms-flexbox;

@@ -4,13 +4,37 @@
 @use '../common/mixin';
 
 
+.blog__layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  padding: 50px 0;
+}
+
 .blog__List {
     display: flex;
     flex-wrap: wrap;
-    gap: 3.75rem 3.125rem;
+    gap: 25px 15px;
     justify-content: flex-start;
     width: 100%;
-    margin: 3.125rem auto;
+    margin: 10px auto;
+}
+
+.blog__aside {
+    padding: 16px; 
+    margin-top: 20px;
+}
+
+.blog__aside__List {
+    gap: 25px 15px;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.blog__aside h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 12px; 
+    text-align: left;
 }
 
 .zennArticle {
@@ -57,7 +81,61 @@
   }
 }
 
+.zennAsideArticle {
+  width: 100%;
+  border-bottom: 1px solid rgb(178, 178, 178);
+  margin-bottom: 10px;
+
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+  }
+
+  &__content {
+    margin: 10px 0;
+  }
+
+  &__title {
+    margin-inline: auto;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: rem(16);
+    text-align: left;
+    margin-top: 10px;
+  }
+  &__date {
+    font-size: rem(14);
+    color: grey;
+    text-align: left;
+  }
+  &__tag {
+    display: inline-block;
+    height: 25px;
+    padding: 2px 5px;
+    margin: 11px 2px;
+    font-size: 14px;
+    color: $main-color;
+    border: 1px solid $main-color;
+    border-radius: 10px;
+  }
+  &__emoji {
+    font-size: 80px;
+  }
+}
+
 @include mixin.sp {
+
+  .blog__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 0;
+  }
+
+  .blog__aside {
+  display: none;
+  }
+
   .zennArticle {
     width: 100%;
 
