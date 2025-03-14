@@ -44,10 +44,8 @@ export const Footer = () => {
 				</div>
 				<nav aria-label="フッターメニュー">
 					{MENU_ITEMS.map((item) => (
-						<li className="footer__list">
-							<TransitionLink href={item.link} key={item.id}>
-								{item.title}
-							</TransitionLink>
+						<li className="footer__list" key={item.id}>
+							<TransitionLink href={item.link}>{item.title}</TransitionLink>
 						</li>
 					))}
 				</nav>
