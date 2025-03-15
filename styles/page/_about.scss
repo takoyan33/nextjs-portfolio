@@ -33,12 +33,12 @@
     display: none;
     width: 100%;
     padding: 1.5em 1em;
-    background-color: #fff;
+    background-color: $white;
   }
   .active {
     color: #333333;
-    background-color: #fff;
-    border-color: $main-color #f0f0f0 #fff;
+    background-color: $white;
+    border-color: $main-color #f0f0f0 $white;
     border-style: solid;
     border-width: 4px 1px 1px;
     border-radius: 5px;

@@ -115,7 +115,7 @@ body {
   }
   &__profile {
     display: flex;
-    font-size: 16px;
+    font-size: $baseFontSize;
     line-height: 1.6;
     margin-top: rem(20);
     margin-bottom: rem(20);
@@ -123,7 +123,7 @@ body {
   }
   &__text {
     display: flex;
-    font-size: 16px;
+    font-size: $baseFontSize;
     line-height: 1.6;
     text-align: left;
     &-span {
@@ -549,7 +549,7 @@ li {
   }
   &__text {
     margin: 0 auto;
-    font-size: 16px;
+    font-size: $baseFontSize;
     font-weight: bold;
     text-align: center;
   }
@@ -680,7 +680,7 @@ li {
   //   color: white;
   //   background-color: $main-color;
   //   border-radius: 10px;
-  //   font-size: 16px;
+  //   font-size: $baseFontSize;
   //   &:hover {
   //     opacity: $opacity;
   //   }
@@ -812,7 +812,7 @@ li {
     padding-bottom: rem(10);
     &-span {
       margin-left: 10px;
-      font-size: 16px;
+      font-size: $baseFontSize;
       color: #707070;
     }
   }
@@ -1082,7 +1082,7 @@ body.modal-open {
 
     &_text {
       margin: 40px auto;
-      font-size: 16px;
+      font-size: $baseFontSize;
       line-height: 1.6;
       text-align: center;
     }
@@ -1402,7 +1402,7 @@ body.modal-open {
       text-align: left;
       &-span {
         margin-left: 10px;
-        font-size: 16px;
+        font-size: $baseFontSize;
         color: #707070;
       }
     }

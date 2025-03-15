@@ -123,7 +123,7 @@ a :hover {
   opacity: 0.7;
 }
 
-.padding-bottom {
+.u-padding-bottom {
   margin-bottom: 50px !important;
 }
 
@@ -925,12 +925,12 @@ body {
   display: none;
   width: 100%;
   padding: 1.5em 1em;
-  background-color: #fff;
+  background-color: white;
 }
 .tab-1 .active {
   color: #333333;
-  background-color: #fff;
-  border-color: #4485ff #f0f0f0 #fff;
+  background-color: white;
+  border-color: #4485ff #f0f0f0 white;
   border-style: solid;
   border-width: 4px 1px 1px;
   border-radius: 5px;
@@ -1024,7 +1024,7 @@ body {
 
 .zennAsideArticle {
   width: 100%;
-  border-bottom: 1px solid rgb(178, 178, 178);
+  border-bottom: 1px solid grey;
   margin-bottom: 10px;
 }
 .zennAsideArticle__container {
@@ -1127,7 +1127,7 @@ body {
 .form-box-btn {
   padding: 5px 20px;
   color: white;
-  background-color: royalblue;
+  background-color: #4485ff;
   border: 0px solid;
   border-radius: 10px;
 }
@@ -1136,7 +1136,7 @@ body {
 }
 .form-box-error {
   font-size: 14px;
-  color: red;
+  color: rgb(251, 77, 77);
   text-align: left;
 }
 
@@ -1170,7 +1170,7 @@ body {
     padding: 5px 20px;
     font-size: 18px;
     color: white;
-    background-color: royalblue;
+    background-color: #4485ff;
     border: 0px solid;
     border-radius: 10px;
   }
@@ -1179,7 +1179,7 @@ body {
   }
   .form-box-error {
     font-size: 14px;
-    color: red;
+    color: rgb(251, 77, 77);
   }
 }
 .fv_cube {
@@ -1255,22 +1255,21 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: #f8f8f8;
+  background-color: white;
 }
 .errorPage h1 {
   margin-top: 0px;
   margin-bottom: 0.5rem;
   font-size: 6rem;
   font-weight: bold;
-  color: #333;
 }
 .errorPage h2 {
   font-size: 2rem;
-  color: #1a1a1a;
+  color: #0e0e0e;
 }
 .errorPage p {
   margin-top: 0.5rem;
-  color: #666666;
+  color: #5a5a5a;
 }
 
 @media (max-width: 1024px) {
@@ -1427,19 +1426,18 @@ body {
           clip-path: polygon(0 0, 100% 0, 50% 100%);
   pointer-events: none;
   content: "";
-  background-color: #535353;
+  background-color: grey;
 }
 .selectBox select {
   min-width: 230px;
   height: 2.8em;
   padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
   font-size: 1em;
-  color: #333333;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
-  background-color: #fff;
+  background-color: white;
   border: none;
   border-bottom: 2px solid #d0d0d0;
 }
@@ -1463,7 +1461,6 @@ body {
 .portfolioItem__date {
   font-size: 0.875rem;
   text-align: left;
-  color: #434343;
 }
 .portfolioItem__tag {
   display: inline-block;
@@ -1479,7 +1476,6 @@ body {
 .portfolioItem__title {
   font-size: 18px;
   font-weight: 600;
-  color: #434343;
   text-align: left;
   margin-top: 10px;
 }
@@ -1535,7 +1531,7 @@ body {
   margin-bottom: 80px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid #707070;
+  border: 1px solid grey;
 }
 .portfolioDetail__element-img {
   position: relative;
@@ -1568,7 +1564,7 @@ body {
   list-style: square;
 }
 .portfolioDetail__element-date {
-  color: #707070;
+  color: grey;
   text-align: left;
 }
 .portfolioDetail__element-tag {
@@ -1795,7 +1791,7 @@ body {
 }
 .about__profile {
   display: flex;
-  font-size: 16px;
+  font-size: 16;
   line-height: 1.6;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -1803,7 +1799,7 @@ body {
 }
 .about__text {
   display: flex;
-  font-size: 16px;
+  font-size: 16;
   line-height: 1.6;
   text-align: left;
 }
@@ -1989,7 +1985,7 @@ li {
 }
 .skill__text {
   margin: 0 auto;
-  font-size: 16px;
+  font-size: 16;
   font-weight: bold;
   text-align: center;
 }
@@ -2225,7 +2221,7 @@ li {
 }
 .lower__subTitle-span {
   margin-left: 10px;
-  font-size: 16px;
+  font-size: 16;
   color: #707070;
 }
 
@@ -2460,7 +2456,7 @@ body.modal-open {
   }
   .about_text {
     margin: 40px auto;
-    font-size: 16px;
+    font-size: 16;
     line-height: 1.6;
     text-align: center;
   }
@@ -2751,7 +2747,7 @@ body.modal-open {
   }
   .lower__subTitle-span {
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 16;
     color: #707070;
   }
 }
