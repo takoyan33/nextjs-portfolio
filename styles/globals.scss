@@ -38,7 +38,7 @@ body {
     left: rem(40);
     margin: rem(10) auto;
     font-family: futura-pt-bold, sans-serif;
-    font-size: rem(130);
+    font-size: rem(120);
     color: $main-color;
     text-align: left;
     letter-spacing: 4px;
@@ -943,7 +943,7 @@ body.modal-open {
     }
     &__title {
       position: absolute;
-      top: rem(260);
+      top: rem(180);
       left: rem(20);
       font-family: futura-pt-bold, sans-serif;
       font-size: rem(60);
@@ -954,7 +954,7 @@ body.modal-open {
     }
     &__subtitle {
       position: absolute;
-      top: rem(250);
+      top: rem(160);
       left: rem(20);
       margin-inline: auto;
       font-family: futura-pt-bold, sans-serif;

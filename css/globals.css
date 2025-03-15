@@ -810,6 +810,7 @@ body {
     position: fixed;
     top: 0;
     display: flex;
+    width: 100%;
     padding: 10px;
     background: white;
   }
@@ -1708,7 +1709,7 @@ body {
   left: 2.5rem;
   margin: 0.625rem auto;
   font-family: futura-pt-bold, sans-serif;
-  font-size: 8.125rem;
+  font-size: 7.5rem;
   color: #4485ff;
   text-align: left;
   letter-spacing: 4px;
@@ -2341,7 +2342,7 @@ body.modal-open {
   }
   .fv__title {
     position: absolute;
-    top: 16.25rem;
+    top: 11.25rem;
     left: 1.25rem;
     font-family: futura-pt-bold, sans-serif;
     font-size: 3.75rem;
@@ -2352,7 +2353,7 @@ body.modal-open {
   }
   .fv__subtitle {
     position: absolute;
-    top: 15.625rem;
+    top: 10rem;
     left: 1.25rem;
     margin-inline: auto;
     font-family: futura-pt-bold, sans-serif;

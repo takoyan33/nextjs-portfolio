@@ -201,6 +201,12 @@
 
 @include mixin.sp {
 
+  .portfolio {
+    &Item__img {
+      height: 230px;
+    }
+  }
+
   .portfolioDetail {
     margin-top: 30px;
     border-radius: rem(20);
