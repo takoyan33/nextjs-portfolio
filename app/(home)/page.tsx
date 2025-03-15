@@ -77,7 +77,7 @@ const Home = () => {
 								<p className="contact__box-text">お問い合わせ</p>
 								<CommonButton
 									text="お問い合せフォームへ"
-									className="padding-bottom"
+									className="u-padding-bottom"
 									link={PATH.CONTACT}
 								/>
 							</div>

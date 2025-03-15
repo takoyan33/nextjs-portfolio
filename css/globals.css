@@ -661,13 +661,9 @@ body {
 
 .header {
   z-index: 50;
-  width: 100%;
-  height: auto;
-  padding: 20px;
-  padding-top: 20px;
   padding-bottom: 0px;
 }
-.header_flx {
+.header_container {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -828,11 +824,10 @@ body {
 }
 @media screen and (max-width: 500px) {
   .header {
-    top: 0;
-    display: flex;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 20px;
   }
-  .header_flx {
+  .header_container {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -1050,7 +1045,6 @@ body {
 }
 .zennAsideArticle__date {
   font-size: 0.875rem;
-  color: grey;
   text-align: left;
 }
 .zennAsideArticle__tag {
@@ -1690,8 +1684,12 @@ a {
   cursor: pointer;
 }
 
-.padding {
+.u-padding {
   padding-bottom: 60px;
+}
+
+body {
+  color: rgb(39, 39, 39);
 }
 
 .fv {
@@ -1915,7 +1913,7 @@ li {
   margin-bottom: 4px;
   font-size: 0.875rem;
   text-align: left;
-  color: gray;
+  color: grey;
 }
 .SlideItem__tag {
   display: inline-block;
@@ -1929,7 +1927,7 @@ li {
 .SlideItem__title {
   font-size: 18px;
   font-weight: 600;
-  color: #434343;
+  color: rgb(39, 39, 39);
   text-align: left;
 }
 .SlideItem__content {
@@ -2001,6 +1999,9 @@ li {
   height: 60px !important;
 }
 
+.timeline {
+  margin: 50px auto;
+}
 .timeline dl dt {
   position: relative;
   width: 8.5em;
@@ -2086,7 +2087,7 @@ li {
   height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid gray;
+  border: 1px solid grey;
 }
 .modalBox__element__text {
   text-align: left;
@@ -2217,7 +2218,7 @@ li {
 }
 .lower__subTitle {
   font-size: 28px;
-  color: #434343;
+  color: rgb(39, 39, 39);
   text-align: left;
   padding-top: 0.9375rem;
   padding-bottom: 0.625rem;
@@ -2308,7 +2309,7 @@ body.modal-open {
   .SlideItem__title {
     font-size: 18px;
     font-weight: 600;
-    color: #434343;
+    color: rgb(39, 39, 39);
   }
   .SlideItem__img {
     position: relative;
@@ -2491,6 +2492,9 @@ body.modal-open {
   img {
     width: 100%;
   }
+  .timeline {
+    margin: 30px auto;
+  }
   .timeline dl dd {
     width: 100%;
     padding: 0;
@@ -2506,6 +2510,9 @@ body.modal-open {
   }
   .timeline dl dd p {
     width: 90%;
+  }
+  .timeline dl dt {
+    padding-left: 0;
   }
   .back__btn {
     padding: 12px;
@@ -2537,7 +2544,7 @@ body.modal-open {
     height: 162px;
     -o-object-fit: contain;
        object-fit: contain;
-    border: 1px solid gray;
+    border: 1px solid grey;
   }
   .modalBox__element__text {
     text-align: left;
@@ -2603,7 +2610,6 @@ body.modal-open {
   .SlideItem__date {
     margin: 6px 0px;
     font-size: 0.875rem;
-    color: #4485ff;
   }
   .SlideItem__tag {
     display: inline-block;
@@ -2647,7 +2653,7 @@ body.modal-open {
   .SlideItemItem__title {
     font-size: 18px;
     font-weight: 600;
-    color: #434343;
+    color: rgb(39, 39, 39);
   }
   .SlideItemItem__img {
     position: relative;
@@ -2740,7 +2746,7 @@ body.modal-open {
   }
   .lower__subTitle {
     font-size: 22px;
-    color: #434343;
+    color: rgb(39, 39, 39);
     text-align: left;
   }
   .lower__subTitle-span {

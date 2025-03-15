@@ -42,7 +42,7 @@ export const Header = () => {
 	return (
 		<>
 			<header id="header" className="header" aria-label="ヘッダー">
-				<div className="header_flx">
+				<div className="header_container">
 					<div className="header_logo">
 						<div className="logo">
 							<TransitionLink href={PATH.INDEX}>
@@ -64,13 +64,6 @@ export const Header = () => {
 									<TransitionLink href={item.link}>{item.title}</TransitionLink>
 								</li>
 							))}
-							{/* <TransitionLink
-								href={PATH.CONTACT}
-								className="header_btn_contact"
-							>
-								お問い合わせ
-							</TransitionLink> */}
-
 							<CommonButton text="お問い合わせ" link={PATH.CONTACT} />
 						</ul>
 					</nav>

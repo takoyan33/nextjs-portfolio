@@ -63,7 +63,7 @@
   }
   &__date {
     font-size: rem(14);
-    color: grey;
+    color: $grey;
     text-align: left;
   }
   &__tag {
@@ -106,7 +106,6 @@
   }
   &__date {
     font-size: rem(14);
-    color: grey;
     text-align: left;
   }
   &__tag {

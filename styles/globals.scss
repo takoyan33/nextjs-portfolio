@@ -10,8 +10,12 @@ a {
   cursor: pointer;
 }
 
-.padding {
+.u-padding {
   padding-bottom: 60px;
+}
+
+body {
+  color: $black;
 }
 
 // ファーストビュー PC
@@ -97,7 +101,7 @@ a {
   background-color: #6499ff;
   border: 0 solid;
   &:hover {
-    opacity: 0.7;
+    opacity: $opacity;
   }
 }
 
@@ -453,7 +457,7 @@ li {
     margin-bottom: 4px;
     font-size: rem(14);
     text-align: left;
-    color: gray;
+    color: $grey;
   }
   &__tag {
     display: inline-block;
@@ -467,7 +471,7 @@ li {
   &__title {
     font-size: 18px;
     font-weight: 600;
-    color: #434343;
+    color: $black;
     text-align: left;
   }
   &__content{
@@ -539,7 +543,7 @@ li {
     //   border: 0px solid;
     //   cursor: pointer;
     //   &:hover {
-    //     opacity: 0.7;
+    //     opacity: $opacity;
     //   }
     // }
   }
@@ -557,8 +561,9 @@ li {
   }
 }
 
-// timeline
+// timeline 過去の経歴
 .timeline {
+  margin: 50px auto;
   dl {
     dt {
       position: relative;
@@ -636,7 +641,7 @@ li {
     background-color: white;
     border: 0 solid;
     &:hover {
-      opacity: 0.7;
+      opacity: $opacity;
     }
   }
   &__element {
@@ -645,7 +650,7 @@ li {
       width: 100%;
       height: 300px;
       object-fit: contain;
-      border: 1px solid gray;
+      border: 1px solid $grey;
     }
     &__text {
       text-align: left;
@@ -653,7 +658,7 @@ li {
     &__link {
       color: $tag-color-4;
       &:hover {
-        opacity: 0.7;
+        opacity: $opacity;
       }
     }
   }
@@ -677,7 +682,7 @@ li {
   //   border-radius: 10px;
   //   font-size: 16px;
   //   &:hover {
-  //     opacity: 0.7;
+  //     opacity: $opacity;
   //   }
   // }
 
@@ -732,7 +737,7 @@ li {
     background-color: $main-color;
     border-radius: 10px;
     &:hover {
-      opacity: 0.7;
+      opacity: $opacity;
     }
   }
 }
@@ -801,7 +806,7 @@ li {
   }
   &__subTitle {
     font-size: 28px;
-    color: #434343;
+    color: $black;
     text-align: left;
     padding-top: rem(15);
     padding-bottom: rem(10);
@@ -843,7 +848,7 @@ body.modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, $opacity);
 }
 
 .modal {
@@ -899,7 +904,7 @@ body.modal-open {
     &__title {
       font-size: 18px;
       font-weight: 600;
-      color: #434343;
+      color: $black;
     }
     &__img {
       position: relative;
@@ -1116,6 +1121,7 @@ body.modal-open {
     width: 100%;
   }
   .timeline {
+      margin: 30px auto;
     dl {
       dd {
         width: 100%;
@@ -1133,12 +1139,15 @@ body.modal-open {
           width: 90%;
         }
       }
+      dt {
+        padding-left: 0;
+      }
     }
   }
 
   .back__btn {
     padding: 12px;
-  }
+  } 
 
   // モーダル現在は未使用
   .modalBox {
@@ -1165,7 +1174,7 @@ body.modal-open {
         width: 100%;
         height: 162px;
         object-fit: contain;
-        border: 1px solid gray;
+        border: 1px solid $grey;
       }
       &__text {
         text-align: left;
@@ -1173,7 +1182,7 @@ body.modal-open {
       &__link {
         color: $tag-color-4;
         &:hover {
-          opacity: 0.7;
+          opacity: $opacity;
         }
       }
     }
@@ -1245,7 +1254,6 @@ body.modal-open {
     &__date {
       margin: 6px 0px;
       font-size: rem(14);
-      color: $main-color;
     }
     &__tag {
       display: inline-block;
@@ -1291,7 +1299,7 @@ body.modal-open {
       &__title {
         font-size: 18px;
         font-weight: 600;
-        color: #434343;
+        color: $black;
       }
       &__img {
         position: relative;
@@ -1356,7 +1364,7 @@ body.modal-open {
       background-color: $main-color;
       border-radius: 10px;
       &:hover {
-        opacity: 0.7;
+        opacity: $opacity;
       }
     }
   }
@@ -1390,7 +1398,7 @@ body.modal-open {
     }
     &__subTitle {
       font-size: 22px;
-      color: #434343;
+      color: $black;
       text-align: left;
       &-span {
         margin-left: 10px;

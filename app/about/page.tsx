@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const About = () => {
 	return (
-		<main className="padding">
+		<main className="u-padding">
 			<div className="max_width">
 				<Breadcrumb name="About" link={PATH.ABOUT} />
 			</div>

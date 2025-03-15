@@ -12,13 +12,9 @@
 
 .header {
   z-index: 50;
-  width: 100%;
-  height: auto;
-  padding: 20px;
-  padding-top: 20px;
   padding-bottom: 0px;
 
-  &_flx {
+  &_container {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -214,14 +210,14 @@
 
 @include mixin.sp {
   .header {
-    top: 0;
-    display: flex;
-    padding: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    &_container {
+      flex-direction: column;
+      align-items: flex-start;
   }
-  .header_flx {
-    flex-direction: column;
-    align-items: flex-start;
   }
+
   .humburger {
     top: 5px;
     right: 20px;
