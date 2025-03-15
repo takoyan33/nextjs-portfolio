@@ -19,7 +19,7 @@
 
 .drawerMenu {
   position: fixed;
-  top: 0px;
+  top: 0;
   z-index: -100;
   display: none;
   width: 100%;
@@ -29,7 +29,7 @@
   transition: 0.5s;
   ul {
     width: 90%;
-    padding: 0px;
+    padding: 0;
     margin-inline: auto;
     li {
       margin-bottom: 25px;
@@ -63,13 +63,13 @@
   -ms-flex-pack: center;
   &-item {
     width: 50%;
-    margin: 0px;
+    margin: 0;
     overflow-wrap: break-word;
   }
 }
 
 .components_logo__pNz7v {
-  margin: 0px;
+  margin: 0;
 }
 
 .errorPage {
@@ -82,7 +82,7 @@
 	background-color: $white;
 
 	h1 {
-    margin-top: 0px;
+    margin-top: 0;
 		margin-bottom: 0.5rem;
 		font-size: 6rem;
 		font-weight: bold;
@@ -109,7 +109,7 @@
     height: 38px;
     cursor: pointer;
     background-color: $white;
-    border: 0px;
+    border: 0;
   }
   .btn-trigger span {
     position: absolute;
@@ -150,14 +150,12 @@
     transform: translateY(-17px) rotate(45deg);
   }
 
-
-
   .container {
     margin: 0 0 0 auto;
   }
   .mobileLogo {
     position: absolute;
-    top: 0px;
+    top: 0;
     display: inline-block;
     width: 250px;
     height: 80px;
@@ -201,7 +199,7 @@
   .drawerMenu {
 
     position: fixed;
-    top: 0px;
+    top: 0;
     z-index: -100;
     display: none;
     width: 100%;
@@ -248,6 +246,6 @@
   }
 
   .components_logo__pNz7v {
-  margin: 0px;
-}
+    margin: 0;
+  }
 }
