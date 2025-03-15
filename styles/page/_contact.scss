@@ -23,7 +23,7 @@
         font-size: 14px;
         font-weight: 400;
         color: white;
-        background-color: rgb(251, 77, 77);
+        background-color: $red;
         border-radius: 20px;
       }
     }
@@ -35,7 +35,7 @@
     &-btn {
       padding: 5px 20px;
       color: white;
-      background-color: royalblue;
+      background-color: $main-color;
       border: 0px solid;
       border-radius: 10px;
 
@@ -46,7 +46,7 @@
 
     &-error {
       font-size: 14px;
-      color: red;
+      color: $red;
       text-align: left;
     }
   }
@@ -59,12 +59,12 @@
 
 // input:invalid,
 // textarea:invalid {
-//   border: solid 1px red;
+//   border: solid 1px $red;
 // }
 
 
   // .form-box-textarea:user-invalid {
-  //   border: 1px solid red;
+  //   border: 1px solid $red;
   // }
 
 
@@ -97,7 +97,7 @@
         padding: 5px 20px;
         font-size: 18px;
         color: white;
-        background-color: royalblue;
+        background-color: $main-color;
         border: 0px solid;
         border-radius: 10px;
         &:hover {
@@ -106,7 +106,7 @@
       }
       &-error {
         font-size: 14px;
-        color: red;
+        color: $red;
       }
     }
   }

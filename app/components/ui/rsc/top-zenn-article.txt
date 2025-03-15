@@ -43,7 +43,7 @@ export const TopZennArticle = () => {
 	}
 
 	return (
-		<div className="flx padding">
+		<div className="flx u-padding">
 			{zennArticles?.articles.map((article) => (
 				<div className="flx_el" key={article.id}>
 					<Link href={`https://zenn.dev${article.path}`} target="_blank">

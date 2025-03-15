@@ -18,7 +18,7 @@
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     pointer-events: none;
     content: '';
-    background-color: #535353;
+    background-color: $grey;
   }
 
     select {
@@ -26,10 +26,9 @@
     height: 2.8em;
     padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
     font-size: 1em;
-    color: #333333;
     appearance: none;
     cursor: pointer;
-    background-color: #fff;
+    background-color: $white;
     border: none;
     border-bottom: 2px solid #d0d0d0;
 
@@ -59,7 +58,6 @@
     &__date {
       font-size: rem(14);
       text-align: left;
-      color: #434343;
     }
     &__tag {
       display: inline-block;
@@ -75,7 +73,6 @@
     &__title {
       font-size: 18px;
       font-weight: 600;
-      color: #434343;
       text-align: left;
       margin-top: 10px;
     }
@@ -119,7 +116,7 @@
     width: 46px;
     margin-right: rem(10);
     margin-left: auto;
-    background-color: white;
+    background-color: $white;
     border: 0px solid;
   }
   &__element {
@@ -133,7 +130,7 @@
       margin-inline: auto;
       margin-bottom: 80px;
       object-fit: contain;
-      border: 1px solid #707070;
+      border: 1px solid $grey;
     }
     &-img {
       position: relative;
@@ -143,7 +140,7 @@
       margin-inline: auto;
       object-fit: contain;
       button {
-        background-color: white;
+        background-color: $white;
         border: 0;
       }
     }
@@ -165,7 +162,7 @@
       }
     }
     &-date {
-      color: #707070;
+      color: $grey;
       text-align: left;
     }
     &-tag {
@@ -186,7 +183,7 @@
     &-link {
       color: $tag-color-4;
       &:hover {
-        opacity: 0.7;
+        opacity: $opacity;
       }
       &::before {
         position: relative;
@@ -204,6 +201,12 @@
 
 @include mixin.sp {
 
+  .portfolio {
+    &Item__img {
+      height: 230px;
+    }
+  }
+
   .portfolioDetail {
     margin-top: 30px;
     border-radius: rem(20);
@@ -214,7 +217,7 @@
       width: 46px;
       margin-right: rem(10);
       margin-left: auto;
-      background-color: white;
+      background-color: $white;
       border: 0px solid;
     }
     &__top {
@@ -272,7 +275,7 @@
         margin-bottom: rem(20);
         color: $tag-color-4;
         &:hover {
-          opacity: 0.7;
+          opacity: $opacity;
         }
       }
     }

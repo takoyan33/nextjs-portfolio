@@ -7,10 +7,13 @@ $tag-color-3: #ce61c8;
 $tag-color-4: #063997;
 $tag-color-5: #fd6d39;
 $white: #ffff;
+$grey: grey;
+$black: rgb(39, 39, 39);
 $back-color: #f7f7f7;
+$red: rgb(251, 77, 77);
+
 //不透明度
 $opacity: 0.7;
-
 // remの設定
 $baseFontSize: 16;
 @function rem($pixels) {
@@ -173,7 +176,7 @@ a {
   }
 }
 
-.padding-bottom {
+.u-padding-bottom {
   margin-bottom: 50px !important;
 }
 
