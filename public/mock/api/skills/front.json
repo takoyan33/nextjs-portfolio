@@ -4,7 +4,7 @@
 		"name": "HTML",
 		"rank": "★★★★",
 		"tag": "経験年数：3年",
-		"about": "ホームページ制作などで使用",
+		"about": "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
 		"icon": "/images/skill/html5.svg"
 	},
 	{
@@ -12,47 +12,47 @@
 		"name": "CSS(SCSS)",
 		"rank": "★★★★",
 		"tag": "経験年数：3年",
-		"about": "ホームページ制作などで使用",
+		"about": "ホームページ制作などで長年利用。BEMなどを意識して実装",
 		"icon": "/images/skill/css3.svg"
 	},
 	{
 		"id": 3,
 		"name": "JavaScript",
 		"rank": "★★★",
-		"tag": "経験年数：2年",
-		"about": "ホームページ制作やReactなどで使用",
+		"tag": "経験年数：3年",
+		"about": "ホームページでのアニメーション(jQuery)利用やReactなどで使用",
 		"icon": "/images/skill/js.svg"
 	},
 	{
 		"id": 4,
 		"name": "TypeScript",
 		"rank": "★★★",
-		"tag": "経験年数：1年",
-		"about": "ホームページ制作やReactなどで使用",
+		"tag": "経験年数：2年",
+		"about": "主にシステム開発でReactやVue.jsなどで使用",
 		"icon": "/images/skill/js.svg"
 	},
 	{
 		"id": 5,
 		"name": "React/Next.js",
 		"rank": "★★★",
-		"tag": "経験年数：2年",
-		"about": "フロントを実装する際に利用。一番好きな技術",
+		"tag": "経験年数：3年",
+		"about": "システム開発のフロントを実装する際に利用。個人的に一番好きな技術",
 		"icon": "/images/skill/react.svg"
 	},
 	{
 		"id": 6,
 		"name": "Vue.js/Nuxt.js",
 		"rank": "★★",
-		"tag": "経験年数：1年",
-		"about": "フロントを実装する際に利用。現在学習中",
+		"tag": "経験年数：2年",
+		"about": "システム開発のフロントを実装する際に利用。Nuxt3を用いたwebサイトの実務経験有り",
 		"icon": "/images/skill/vuejs.svg"
 	},
 	{
 		"id": 7,
 		"name": "WordPress",
 		"rank": "★★★",
-		"tag": "経験年数：1年",
-		"about": "ホームページ制作などで使用。ブログ機能やカスタムフィールドなども実装可能。WordPressAPIの実装経験有り",
+		"tag": "経験年数：2年",
+		"about": "ホームページ制作などで使用。ブログ機能やACFやカスタムフィールドなども実装可能。WordPressAPIの実装経験有り",
 		"icon": "/images/skill/wordpress.svg"
 	}
 ]

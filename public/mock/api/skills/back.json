@@ -1,26 +1,26 @@
 [
 	{
 		"id": 1,
-		"name": "Firestore",
+		"name": "Firebase",
 		"rank": "★★★★",
 		"tag": "経験年数：3年",
-		"about": "システム構築のバックエンドで利用。認証やデプロイの経験も有り",
+		"about": "NoSQLデータベースの設計・実装、認証(firebase authentication)やHostingでのデプロイの経験も有り",
 		"icon": "/images/skill/fire.svg"
 	},
 	{
 		"id": 2,
 		"name": "Ruby",
 		"rank": "★★★",
-		"tag": "経験年数：1年",
-		"about": "システム構築のバックエンドで利用。",
+		"tag": "経験年数：2年",
+		"about": "Ruby on Railsを用いたRESTful API開発やRSpecでのテスト実装などを個人開発で利用",
 		"icon": "/images/skill/ruby.svg"
 	},
 	{
 		"id": 3,
 		"name": "PHP",
 		"rank": "★★",
-		"tag": "経験年数：3ヶ月",
-		"about": "システム構築のバックエンドで利用。",
+		"tag": "経験年数：半年",
+		"about": "Laravelフレームワークを使用したRESTful API開発で利用",
 		"icon": "/images/skill/php.svg"
 	}
 ]
