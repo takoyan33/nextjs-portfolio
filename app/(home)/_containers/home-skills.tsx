@@ -68,11 +68,11 @@ export const HomeSkills = () => {
 				<div key={title}>
 					<h3 className="skill__title">{title}</h3>
 					<ScrollComponent>
-						<div className="skill__container">
+						<ul className="skill__container">
 							{skills.map((skill) => (
 								<SkillElement key={skill.id} {...skill} />
 							))}
-						</div>
+						</ul>
 					</ScrollComponent>
 				</div>
 			))}

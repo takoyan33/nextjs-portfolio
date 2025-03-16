@@ -75,11 +75,7 @@ const Home = () => {
 							<div className="contact__box">
 								<h3 className="contact__box-title">CONTACT</h3>
 								<p className="contact__box-text">お問い合わせ</p>
-								<CommonButton
-									text="お問い合せフォームへ"
-									className="u-padding-bottom"
-									link={PATH.CONTACT}
-								/>
+								<CommonButton text="お問い合せフォームへ" link={PATH.CONTACT} />
 							</div>
 						</ScrollComponent>
 					</div>

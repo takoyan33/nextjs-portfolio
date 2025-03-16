@@ -4,7 +4,7 @@
 		"name": "AWS",
 		"rank": "★★★★",
 		"tag": "経験年数：3年",
-		"about": "インターンなどで利用。S3, CloudFront, Cognitoなどを使用",
+		"about": "S3でのファイルストレージ管理、CloudFrontを用いたCDN構築、Cognitoでの認証実装などで使用",
 		"icon": "/images/skill/aws.svg"
 	},
 	{
@@ -12,7 +12,7 @@
 		"name": "Vercel",
 		"rank": "★★★★",
 		"tag": "経験年数：3年",
-		"about": "ReactやVueのデプロイで利用",
+		"about": "ReactやVue.jsのデプロイで利用",
 		"icon": "/images/skill/server.svg"
 	},
 	{

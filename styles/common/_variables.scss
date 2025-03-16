@@ -155,21 +155,21 @@ a {
 .portfolio-content {
   display: grid;
   grid-template-columns: rem(30) 1fr rem(30);
+  align-items: center;
   margin: 50px 0;
 }
 
 .prev-button {
   left: rem(-30);
-  margin-top: rem(60);
 }
 
 .next-button {
   right: rem(-30);
-  margin-top: rem(60);
 }
 
 .prev-button,
 .next-button {
+  height: fit-content;
   cursor: pointer;
   &:hover {
     opacity: $opacity;
@@ -242,6 +242,7 @@ a {
         margin: 0;
         margin-bottom: rem(40);
         font-size: rem(20);
+        line-height: 1.5;
         color: white;
         text-align: left;
         content: attr(data-ja);
@@ -252,6 +253,7 @@ a {
       margin: 0;
       margin-bottom: rem(40);
       font-size: rem(20);
+      line-height: 1.5;
       color: $main-color;
       text-align: left;
       content: attr(data-ja);
@@ -273,7 +275,7 @@ a {
     -ms-flex-pack: center;
     &-item {
       width: 45%;
-      margin: 0px;
+      margin: 0;
       overflow-wrap: break-word;
     }
   }
@@ -303,7 +305,7 @@ a {
         text-align: left;
       }
       &__btn {
-        padding: rem(10) 0px;
+        padding: rem(10) 0;
         margin-inline: auto;
         font-size: 16px;
         text-align: center;
@@ -385,7 +387,7 @@ a {
     -ms-flex-pack: center;
     &-item {
       width: 100%;
-      margin: 0px;
+      margin: 0;
       overflow-wrap: break-word;
     }
   }
@@ -398,16 +400,14 @@ a {
   }
 
   .prev-button {
-    left: 0px;
+    left: 0;
     width: rem(30);
     height: rem(30);
-    margin-top: rem(140);
   }
 
   .next-button {
-    right: 0px;
+    right: 0;
     width: rem(30);
     height: rem(30);
-    margin-top: rem(140);
   }
 }

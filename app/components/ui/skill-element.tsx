@@ -1,6 +1,6 @@
-// "use client"
+"use client"
 import Image from "next/image"
-import React, { useRef } from "react"
+import React, { useState } from "react"
 
 interface SkillProps {
 	name: string
@@ -11,33 +11,37 @@ interface SkillProps {
 }
 
 export const SkillElement = ({ name, rank, tag, icon, about }: SkillProps) => {
-	// const dialogRef = useRef<any>(null)
+	const [isOpen, setIsOpen] = useState(false)
 
-	// function handleOpen() {
-	// 	dialogRef.current?.show()
-	// 	document.body.style.overflow = "hidden"
-	// 	document.body.classList.add("modal-open")
-	// }
+	const handleToggle = () => {
+		setIsOpen(!isOpen)
+	}
 
-	// function handleClose() {
-	// 	dialogRef.current?.close()
-	// 	document.body.style.overflow = ""
-	// }
 	return (
-		<div className="skill__element">
-			{/* <button onClick={handleOpen} className='skill__flx_el_button'> */}
-			<div className="skill__svg">
-				<Image
-					src={icon}
-					alt="skill画像"
-					fill
-					className="skill__svg"
-					sizes="(min-width: 768px)"
-				/>
+		<div className="skill__element-wrapper">
+			<button className="skill__element" onClick={handleToggle} type="button">
+				<div className="skill__svg">
+					<Image
+						src={icon}
+						alt="skill画像"
+						fill
+						className="skill__svg"
+						sizes="(min-width: 768px)"
+					/>
+				</div>
+				<div className="skill__content">
+					<p className="skill__text">{name}</p>
+					<p className="skill__text">{rank}</p>
+				</div>
+				<span className={`skill__toggle-icon ${isOpen ? "is-open" : ""}`}>
+					{isOpen ? "−" : "＋"}
+				</span>
+			</button>
+			<div className={`skill__accordion ${isOpen ? "is-open" : ""}`}>
+				<div className="skill__accordion-inner">
+					<p className="skill__about">{about}</p>
+				</div>
 			</div>
-			<p className="skill__text">{name} </p>
-			<p className="skill__text">{rank}</p>
-			{/* </button> */}
 		</div>
 	)
 }
