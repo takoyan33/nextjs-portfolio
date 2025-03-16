@@ -529,9 +529,6 @@ li {
     width: 30%;
   }
 
-    &__content {
-  }
-
   &__toggle-icon {
     position: absolute;
     right: 15px;
@@ -559,7 +556,7 @@ li {
     margin: 0 auto;
     font-size: $baseFontSize;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
   }
 
   &__accordion {

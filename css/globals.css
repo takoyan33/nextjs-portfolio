@@ -2008,7 +2008,7 @@ li {
   margin: 0 auto;
   font-size: 16;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 .skill__accordion {
   overflow: hidden;
