@@ -21,19 +21,9 @@ img {
   vertical-align: bottom;
 }
 
-.section__ttl {
-  font-size: 18px;
-  font-size: 1.125rem;
-  text-align: center;
-}
-.section__inner {
-  padding: 0 4vw;
-  margin-inline: auto;
-}
-
 a {
   display: block;
-  color: black;
+  color: rgb(39, 39, 39);
   text-decoration: none;
   cursor: pointer;
 }
@@ -133,7 +123,7 @@ a :hover {
   display: block;
   width: 160px;
   padding: 0.625rem;
-  margin: auto;
+  margin-inline: auto;
   font-weight: bold;
   color: #4485ff;
   text-align: center;
@@ -148,7 +138,7 @@ a :hover {
   display: block;
   width: 260px;
   padding: 0.625rem;
-  margin: auto;
+  margin-inline: auto;
   font-weight: bold;
   color: #4485ff;
   text-align: center;
@@ -245,7 +235,7 @@ a :hover {
     text-align: left;
   }
   .main__title__btn {
-    padding: 0.625rem 0;
+    padding-block: 0.625rem;
     margin-inline: auto;
     font-size: 16px;
     text-align: center;
@@ -726,7 +716,7 @@ body {
 .hamburger-btn__parts.-middle {
   top: 0;
   bottom: 0;
-  margin: auto;
+  margin-inline: auto;
 }
 
 .hamburger-btn__parts.-bottom {
@@ -857,7 +847,7 @@ body {
   gap: 3.75rem 7.5rem;
   justify-content: space-around;
   width: 100%;
-  padding: 30px 0;
+  padding-block: 30px;
   margin: 0 auto;
 }
 .footer__list {
@@ -957,7 +947,7 @@ body {
 .blog__layout {
   display: grid;
   grid-template-columns: 1fr 300px;
-  padding: 50px 0;
+  padding-block: 50px;
 }
 
 .blog__List {
@@ -1068,7 +1058,7 @@ body {
   .blog__layout {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 20px 0;
+    padding-block: 20px;
   }
   .blog__aside {
     display: none;
@@ -1378,7 +1368,7 @@ body {
   }
   .drawerMenu ul {
     width: 90%;
-    padding: 20px 0;
+    padding-block: 20px;
     margin-inline: auto;
   }
   .drawerMenu ul li {
@@ -1883,7 +1873,7 @@ li {
 .portfolio,
 .news,
 .contact {
-  padding: 60px 0;
+  padding-block: 60px;
 }
 
 .title-border-right {
@@ -2008,7 +1998,7 @@ li {
   margin: 0 auto;
   font-size: 16;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 .skill__accordion {
   overflow: hidden;
@@ -2055,7 +2045,7 @@ li {
 .timeline dl dt {
   position: relative;
   width: 8.5em;
-  padding: 0.5em 1em 0.5em 0.5em;
+  padding: 8px 16px 8px 8px;
   text-align: left;
 }
 .timeline dl dt::after {
@@ -2068,7 +2058,7 @@ li {
 }
 .timeline dl dd {
   width: calc(100% - 8.5em);
-  padding: 0.5em 2em 3em;
+  padding: 8px 32px 48px;
   text-align: left;
   border-left: 0.125rem solid #ccc;
 }
@@ -2100,7 +2090,7 @@ li {
   width: 80%;
   max-width: 1100px;
   height: 450px;
-  margin: auto;
+  margin-inline: auto;
   background-color: white;
   border: 1px solid #707070;
   border-radius: 20px;
@@ -2185,7 +2175,7 @@ li {
 }
 .contact__box {
   width: 50%;
-  padding: 50px 0;
+  padding-block: 50px;
   margin: 0 auto;
   background-color: white;
   border-radius: 10px;
@@ -2288,7 +2278,7 @@ li {
 }
 .PostNavigation__item {
   width: 50%;
-  padding: 1.25rem 0;
+  padding-block: 1.25rem;
   color: #000081;
   text-align: center;
 }
@@ -2451,7 +2441,7 @@ body.modal-open {
 .portfolio,
 .news,
 .contact {
-    padding: 20px 0;
+    padding-block: 20px;
   }
   .fv {
     display: inline-block;
@@ -2796,7 +2786,7 @@ body.modal-open {
   }
   .PostNavigation__item {
     width: 50%;
-    padding: 0.625rem 0;
+    padding-block: 0.625rem;
     color: #000081;
     text-align: center;
   }
@@ -2806,7 +2796,7 @@ body.modal-open {
   }
   .contact__box {
     width: 100%;
-    padding: 40px 0;
+    padding-block: 40px;
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;

@@ -7,7 +7,7 @@
 .blog__layout {
   display: grid;
   grid-template-columns: 1fr 300px;
-  padding: 50px 0;
+  padding-block: 50px;
 }
 
 .blog__List {
@@ -92,7 +92,7 @@
   }
 
   &__content {
-    margin: 10px 0;
+    margin-block: 10px;
   }
 
   &__title {
@@ -127,7 +127,7 @@
   .blog__layout {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 20px 0;
+  padding-block: 20px;
   }
 
   .blog__aside {

@@ -64,7 +64,7 @@
       height: 25px;
       padding: 2px 8px;
       padding-bottom: 4px;
-      margin: 11px 2px;
+      margin: 11px 0px;
       font-size: 14px;
       color: $main-color;
       border: 1px solid $main-color;
@@ -97,6 +97,7 @@
       display: flex;
       justify-content: flex-start;
       margin-top: 10px;
+      gap: rem(10);
     }
     &_link {
       cursor: pointer;
@@ -168,7 +169,6 @@
     &-tag {
       display: inline;
       padding: 5px 10px;
-      margin: 0px 10px;
       color: $main-color;
       border: 1px solid $main-color;
       border-radius: 20px;
@@ -176,8 +176,8 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      padding: 0;
-      margin: rem(10) 0;
+      gap: rem(10);
+      margin-block: rem(10);
     }
     }
     &-link {

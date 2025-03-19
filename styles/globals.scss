@@ -421,7 +421,7 @@ li {
 .portfolio,
 .news,
 .contact {
-  padding: 60px 0;
+  padding-block: 60px;
 }
 
 .title-border-right {
@@ -529,9 +529,6 @@ li {
     width: 30%;
   }
 
-    &__content {
-  }
-
   &__toggle-icon {
     position: absolute;
     right: 15px;
@@ -559,7 +556,7 @@ li {
     margin: 0 auto;
     font-size: $baseFontSize;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
   }
 
   &__accordion {
@@ -617,7 +614,7 @@ li {
     dt {
       position: relative;
       width: 8.5em;
-      padding: 0.5em 1em 0.5em 0.5em;
+      padding: 8px 16px  8px  8px;
       text-align: left;
       &::after {
         position: absolute;
@@ -630,7 +627,7 @@ li {
     }
     dd {
       width: calc(100% - 8.5em);
-      padding: 0.5em 2em 3em;
+      padding: 8px 32px 48px;
       text-align: left;
       border-left: rem(2) solid #ccc;
     }
@@ -669,7 +666,7 @@ li {
     width: 80%;
     max-width: 1100px;
     height: 450px;
-    margin: auto;
+    margin-inline: auto;
     background-color: white;
     border: 1px solid #707070;
     border-radius: 20px;
@@ -751,7 +748,7 @@ li {
   background-image: url('/images/top_contact_bg.webp');
   &__box {
     width: 50%;
-    padding: 50px 0;
+    padding-block: 50px;
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;
@@ -863,7 +860,7 @@ li {
   border-bottom: 2px solid rgb(206, 206, 206);
   &__item {
     width: 50%;
-    padding: rem(20) 0;
+    padding-block: rem(20);
     color: #000081;
     text-align: center;
   }
@@ -1051,7 +1048,7 @@ body.modal-open {
 .portfolio,
 .news,
 .contact {
-  padding: 20px 0;
+  padding-block: 20px;
 }
 
   // fv sp
@@ -1438,7 +1435,7 @@ body.modal-open {
     border-bottom: 2px solid rgb(206, 206, 206);
     &__item {
       width: 50%;
-      padding: rem(10) 0;
+      padding-block: rem(10);
       color: #000081;
       text-align: center;
     }
@@ -1450,7 +1447,7 @@ body.modal-open {
     background-size: cover;
     &__box {
       width: 100%;
-      padding: 40px 0;
+      padding-block: 40px;
       margin: 0 auto;
       background-color: white;
       border-radius: 10px;
