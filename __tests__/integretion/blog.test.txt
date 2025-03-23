@@ -1,0 +1,15 @@
+import { render, screen } from "@testing-library/react"
+import React from "react"
+import { expect, test, vitest } from "vitest"
+import Blog from "../../app/blog/page"
+
+vitest.mock("next/navigation", () => ({
+	useRouter: () => ({
+		query: { id: "test-post-id" },
+		push: vitest.fn(),
+	}),
+}))
+
+test("Blog", () => {
+	render(<Blog />)
+})

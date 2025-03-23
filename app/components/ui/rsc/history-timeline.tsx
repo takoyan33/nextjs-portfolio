@@ -1,6 +1,6 @@
 // "use client"
 
-import histories from "public/mock/api/histories/index.json"
+import histories from "../../../../public/mock/api/histories/index.json"
 import React, { useEffect, useState } from "react"
 import { fetchHistories } from "../../../../hooks/fetch"
 import type { History } from "../../../../types"

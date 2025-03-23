@@ -37,7 +37,7 @@
 - [Lint-staged](https://github.com/lint-staged/lint-staged) 
 
 ### テスト
-- [Vitest](https://vitejs.dev/guide/features.html) v2.1.1
+- [Vitest](https://vitest.dev/) v2.1.1
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) v10.4.0
 
 ### 分析
