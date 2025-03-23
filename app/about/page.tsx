@@ -26,7 +26,6 @@ const About = () => {
 							<th className="license__table-th">日付</th>
 							<th className="license__table-th">資格名</th>
 						</tr>
-						{/* @ts-expect-error Server Component */}
 						<LicenseList />
 					</tbody>
 				</table>
