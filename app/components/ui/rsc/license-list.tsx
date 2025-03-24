@@ -1,9 +1,9 @@
-// import { fetchLicenses } from "../../../../hooks/fetch"
-import licenses from "public/mock/api/licenses/index.json"
 import React from "react"
+// import { fetchLicenses } from "../../../../hooks/fetch"
+import licenses from "../../../../public/mock/api/licenses/index.json"
 // import type { License } from "../../../../types"
 
-export const LicenseList = async () => {
+export const LicenseList = () => {
 	// const licenses = await fetchLicenses()
 
 	// const [licenses, setLicenses] = useState<License[]>([])

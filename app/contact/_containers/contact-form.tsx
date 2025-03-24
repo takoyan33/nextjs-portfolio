@@ -1,9 +1,9 @@
 "use client"
-import { CommonButton } from "app/components/ui/button/common-button"
 import { send } from "emailjs-com"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { CommonButton } from "../../../app/components/ui/button/common-button"
 import { emailjsConfig } from "../../../utils/emailjs"
 import { CommonLabel } from "../../components/ui/"
 

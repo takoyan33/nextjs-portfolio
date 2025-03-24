@@ -1,6 +1,6 @@
 // "use client"
 
-import jobs from "public/mock/api/jobs/index.json"
+import jobs from "../../../../public/mock/api/jobs/index.json"
 import React, { useEffect, useState } from "react"
 import { Timeline } from ".."
 import { fetchJobs } from "../../../../hooks/fetch"
