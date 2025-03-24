@@ -8,7 +8,6 @@ import { useCallback, useEffect, useState } from "react"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
 import { PATH } from "../../../utils/path"
-import { LowerTitle } from "../../components/ui/"
 import { CommonModal } from "../../components/ui/common-modal"
 import { PostNavigation } from "../../components/ui/post-navigation"
 import { TransitionLink } from "../../components/ui/transition-link"
@@ -132,7 +131,6 @@ const Post = () => {
 						</span>
 						<span className="breadCrumb__second">{portfolio.name}</span>
 					</div>
-					<LowerTitle title="Portfolio" enTitle="制作物詳細" />
 					<section className="portfolioDetail max_width">
 						<p className="portfolioDetail__element-date">{portfolio.date}</p>
 						<h2 className="portfolioDetail__element-title">{portfolio.name}</h2>
@@ -331,7 +329,6 @@ const Post = () => {
 			) : (
 				<article className="portfolioDetail__top">
 					<div className="loading-body">
-						<LowerTitle title="Portfolio" enTitle="制作物" />
 						<div className="loading">
 							<div className="spinner-box">
 								<div className="circle-border">
