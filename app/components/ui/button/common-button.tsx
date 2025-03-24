@@ -21,7 +21,7 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 					<button
 						type="button"
 						onClick={handleClick}
-						className={`common__btn ${className}`}
+						className={`common__btn slide ${className}`}
 						aria-label={text}
 					>
 						{text}
@@ -31,7 +31,7 @@ export const CommonButton: React.FC<CommonButtonProps> = ({
 				<button
 					type="button"
 					onClick={handleClick}
-					className={`common__btn ${className}`}
+					className={`common__btn slide ${className}`}
 					aria-label={text}
 				>
 					{text}
