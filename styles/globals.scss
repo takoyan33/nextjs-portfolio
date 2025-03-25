@@ -128,51 +128,6 @@ a {
   margin-bottom: 50px !important;
 }
 
-// 共通ボタン
-.main__btn {
-  display: block;
-  width: 160px;
-  padding: rem(10);
-  margin-inline: auto;
-  font-weight: bold;
-  color: $main-color;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-bottom: rem(2) solid $main-color;
-  border-radius: 100vh;
-  -webkit-box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-  transition: 0.5s;
-  &-long {
-    display: block;
-    width: 260px;
-    padding: rem(10);
-    margin-inline: auto;
-    font-weight: bold;
-    color: $main-color;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-bottom: rem(2) solid $main-color;
-    border-radius: 100vh;
-    -webkit-box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 rem(2) 7px rgba(0, 0, 0, 0.3);
-    transition: 0.5s;
-    &:hover {
-      color: #fff;
-      background: $main-color;
-      border-bottom: rem(2) solid #fff;
-      transform: translateY(3px);
-    }
-  }
-  &:hover {
-    color: #fff;
-    background: $main-color;
-    border-bottom: rem(2) solid #fff;
-    transform: translateY(3px);
-  }
-}
 // 共通スタイル
 .main {
   &__title {
@@ -425,19 +380,6 @@ body {
   100% {
     background-position: 0% 50%;
   }
-}
-
-//トップ
-.wave__bg__top {
-  position: relative;
-  top: 40px;
-  z-index: -1;
-}
-
-.wave__bg__bottom {
-  position: relative;
-  bottom: 40px;
-  z-index: -1;
 }
 
 //トップ 戻るボタン
@@ -795,62 +737,6 @@ li {
   }
 }
 
-// ポートフォリオ Home
-.SlideItem {
-  background-color: $back-color;
-
-  &__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: flex-start;
-    margin-top: 10px;
-  }
-  &__date {
-    margin-top: 6px;
-    margin-bottom: 4px;
-    font-size: rem(14);
-    color: $grey;
-    text-align: left;
-  }
-  &__tag {
-    display: inline-block;
-    height: 25px;
-    padding: 2px 5px;
-    font-size: 14px;
-    color: $main-color;
-    border: 1px solid $main-color;
-    border-radius: 5px;
-  }
-  &__title {
-    font-size: 18px;
-    font-weight: 600;
-    color: $black;
-    text-align: left;
-  }
-  &__content{
-    padding: 5px;
-  }
-  &__img {
-    position: relative;
-    width: 250px;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    margin-inline: auto;
-    overflow: hidden;
-    object-fit: cover;
-    &-item {
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-}
-
-
-
 
 .transition-link {
   display: inline-block;
@@ -1175,7 +1061,7 @@ li {
 
 //下層ページ
 .lower {
-  &_bg {
+  &__bg {
     height: 250px;
     background-color: #6499ff;
   }
@@ -1277,38 +1163,6 @@ body.modal-open {
 
 //tablet
 @include mixin.tab {
-  // svgアイコン
-  .SlideItem {
-    background-color: $back-color;
-
-    &__date {
-      margin-top: 6px;
-      margin-bottom: 4px;
-      font-size: rem(14);
-    }
-    &__tag {
-      display: inline-block;
-      height: 25px;
-      font-size: 14px;
-      color: $main-color;
-      border: 1px solid $main-color;
-    }
-    &__title {
-      font-size: 18px;
-      font-weight: 600;
-      color: $black;
-    }
-    &__img {
-      position: relative;
-      width: 192px;
-      height: 108px;
-      margin-inline: auto;
-      object-fit: cover;
-      &-item {
-        border-radius: 10px;
-      }
-    }
-  }
 
   .canvas {
     position: relative;
@@ -1687,96 +1541,6 @@ body.modal-open {
     }
   }
 
-
-
-  .wave__bg__top {
-    position: relative;
-    top: 10px;
-    z-index: -1;
-  }
-
-  .wave__bg__bottom {
-    position: relative;
-    bottom: 10px;
-    z-index: -1;
-  }
-
-  // ポートフォリオ
-  .SlideItem {
-    background-color: $back-color;
-
-    &__date {
-      margin: 6px 0;
-      font-size: rem(14);
-    }
-    &__tag {
-      display: inline-block;
-      height: 25px;
-      font-size: 14px;
-      color: $main-color;
-      border: 1px solid $main-color;
-    }
-    &__title {
-      margin-top: 0;
-    }
-    &__img {
-      position: relative;
-      width: 192px;
-      height: 108px;
-      margin-inline: auto;
-      object-fit: contain;
-    }
-
-    &Item {
-      box-shadow:
-        rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
-
-      &__flex {
-        display: flex;
-        justify-content: center;
-      }
-      &__date {
-        font-size: rem(14);
-      }
-      &__tag {
-        display: inline-block;
-        height: 25px;
-        padding: 2px 8px;
-        padding-bottom: 4px;
-        margin: 11px 2px;
-        font-size: 14px;
-        color: $main-color;
-        border: 1px solid $main-color;
-        border-radius: 10px;
-      }
-      &__title {
-        font-size: 18px;
-        font-weight: 600;
-        color: $black;
-      }
-      &__img {
-        position: relative;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        margin-inline: auto;
-        overflow: hidden;
-        object-fit: cover;
-
-        &-item {
-          border-radius: 10px;
-          transition: transform 0.3s ease;
-          &:hover {
-            transform: scale(1.1);
-          }
-        }
-      }
-      &_link {
-        cursor: pointer;
-      }
-    }
-  }
   .PostNavigation {
     display: flex;
     margin: rem(20) auto;
@@ -1824,7 +1588,7 @@ body.modal-open {
   }
   //下層ページ
   .lower {
-    &_bg {
+    &__bg {
       height: 180px;
       background-color: #6499ff;
     }
