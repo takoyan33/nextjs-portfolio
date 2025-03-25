@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { TransitionLink } from "."
 import { PATH } from "../../../utils/path"
+import styles from "./css/breadcrumb.module.scss"
 
 interface BreadcrumbProps {
 	name: string
@@ -9,11 +10,11 @@ interface BreadcrumbProps {
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 	return (
-		<p className="breadCrumb__title max-width">
-			<TransitionLink href={PATH.INDEX} className="breadCrumb__first">
+		<p className={`${styles.breadcrumb__title}`}>
+			<TransitionLink href={PATH.INDEX} className={styles.breadCrumb__first}>
 				トップ
 			</TransitionLink>
-			<span className="breadCrumb__arrow">
+			<span className={styles.Breadcrumb__arrow}>
 				<Image
 					src="/images/next-arrow.svg"
 					width={15}
@@ -21,7 +22,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, link }) => {
 					alt="スライドショーのナビゲーション"
 				/>
 			</span>
-			<TransitionLink href={link} className="breadCrumb__second">
+			<TransitionLink href={link} className={styles.breadCrumb__second}>
 				{name}
 			</TransitionLink>
 		</p>

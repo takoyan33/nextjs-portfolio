@@ -69,6 +69,7 @@
 		"@types/node": "^20.0.0",
 		"@types/react": "^17.0.39",
 		"@vitejs/plugin-react": "^4.3.1",
+		"@vitest/ui": "^3.0.9",
 		"eslint-plugin-react": "^7.35.0",
 		"eslint-plugin-storybook": "^0.10.2",
 		"globals": "^15.9.0",

@@ -1,4 +1,4 @@
-export * from "./bread-crumb"
+export * from "./breadcrumb"
 export * from "./lower-title"
 export * from "./post-navigation"
 export * from "./button/common-button"

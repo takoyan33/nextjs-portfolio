@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import React from "react"
 import { expect, test, vitest } from "vitest"
-import { Breadcrumb } from "../../app/components/ui/bread-crumb"
+import { Breadcrumb } from "../../app/components/ui/breadcrumb"
 
 vitest.mock("next/navigation", () => ({
 	useRouter: () => ({
