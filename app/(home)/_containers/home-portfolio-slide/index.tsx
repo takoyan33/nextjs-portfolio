@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState, useMemo } from "react"
+import React, { useEffect, useState } from "react"
 import "swiper/css"
 import { Controller } from "swiper/modules"
 import "swiper/css/navigation"
@@ -43,20 +43,17 @@ export const HomePortfolioSlide = () => {
 		fetchData()
 	}, [])
 
-	// ポートフォリオの中身が変わる場合のみ再計算
-	const slides = useMemo(() => {
-		return portfolios?.map((portfolio) => (
-			<SwiperSlide key={portfolio.id}>
-				<HomePortfolioSlideItem
-					portfolio_id={portfolio.id}
-					portfolio_name={portfolio.name}
-					portfolio_date={portfolio.date}
-					portfolio_tag={portfolio.tag}
-					portfolio_topImg={portfolio.topImg}
-				/>
-			</SwiperSlide>
-		))
-	}, [portfolios])
+	const slides = portfolios?.map((portfolio) => (
+		<SwiperSlide key={portfolio.id}>
+			<HomePortfolioSlideItem
+				portfolio_id={portfolio.id}
+				portfolio_name={portfolio.name}
+				portfolio_date={portfolio.date}
+				portfolio_tag={portfolio.tag}
+				portfolio_topImg={portfolio.topImg}
+			/>
+		</SwiperSlide>
+	))
 
 	return (
 		<div className="portfolio-content">
