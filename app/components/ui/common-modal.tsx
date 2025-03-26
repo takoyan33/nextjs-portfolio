@@ -10,7 +10,7 @@ interface CommonModalProps {
 }
 
 export const CommonModalComponent = ({
-	isOpen,
+	isOpen = false,
 	img,
 	closeModal,
 }: CommonModalProps) => {

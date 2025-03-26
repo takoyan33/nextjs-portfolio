@@ -9,10 +9,10 @@ interface PostNavigationProps {
 }
 
 export const PostNavigation = ({
-	next_title,
-	next_article_id,
-	prev_title,
-	prev_article_id,
+	next_title = "",
+	next_article_id = "",
+	prev_title = "",
+	prev_article_id = "",
 }: PostNavigationProps) => {
 	return (
 		<div className="PostNavigation max_width">
