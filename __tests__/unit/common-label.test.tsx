@@ -5,7 +5,7 @@ import { CommonLabel } from "../../app/components/ui/common-label"
 
 test("CommonLabel renders with text", () => {
 	render(<CommonLabel text="名前" id="name" />)
-	expect(screen.getByText("名前")).toBeInTheDocument()
+	expect(screen.getByText("名前")).toBeVisible()
 })
 
 // test("CommonLabel assigns correct htmlFor attribute", () => {

@@ -15,7 +15,7 @@ const skillCategories = [
 	{ title: "Backend", skills: backSkills },
 	{ title: "Infra", skills: infraSkills },
 	{ title: "Other", skills: otherSkills },
-]
+] as const
 
 export const HomeSkills = () => {
 	// const [frontSkills, setFrontSkills] = useState<skill[]>()

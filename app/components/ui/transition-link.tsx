@@ -18,7 +18,7 @@ function sleep(ms: number): Promise<void> {
 export const TransitionLink = ({
 	href,
 	children,
-	className,
+	className = "",
 	setOpenMenu,
 	...props
 }: TransitionLinkProps) => {

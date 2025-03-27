@@ -1,9 +1,10 @@
 // "use client"
 
-import histories from "../../../../public/mock/api/histories/index.json"
 import React, { useEffect, useState } from "react"
 import { fetchHistories } from "../../../../hooks/fetch"
+import histories from "../../../../public/mock/api/histories/index.json"
 import type { History } from "../../../../types"
+import styles from "../css/timeline.module.scss"
 import { Timeline } from "../timeline"
 
 export const HistoryTimeline = () => {
@@ -17,7 +18,7 @@ export const HistoryTimeline = () => {
 	// 	fetchData()
 	// }, [])
 	return (
-		<div className="timeline">
+		<div className={styles.timeline}>
 			<dl>
 				{Array.isArray(histories) &&
 					histories.map((history) => (

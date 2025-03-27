@@ -11,7 +11,7 @@ interface SkillProps {
 }
 
 export const SkillElement = ({ name, rank, tag, icon, about }: SkillProps) => {
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
 
 	const handleToggle = () => {
 		setIsOpen(!isOpen)

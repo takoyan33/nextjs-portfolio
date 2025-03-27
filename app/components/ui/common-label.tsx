@@ -5,7 +5,7 @@ interface CommonLabelProps {
 	id?: string
 }
 
-export const CommonLabel: React.FC<CommonLabelProps> = ({ text, id }) => {
+export const CommonLabel: React.FC<CommonLabelProps> = ({ text, id = "" }) => {
 	return (
 		<label htmlFor={id} className="form-box-label">
 			{text}

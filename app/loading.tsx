@@ -7,7 +7,7 @@ const Loading = () => {
 			<div className="max_width">
 				<Breadcrumb name="Blog" link={PATH.BLOG} />
 			</div>
-			<div className="lower_bg">
+			<div className="lower__bg">
 				<div className="max_width">
 					<h2 className="lower__title" data-ja="Loading">
 						Loading

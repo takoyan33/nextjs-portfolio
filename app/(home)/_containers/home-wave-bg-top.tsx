@@ -1,8 +1,9 @@
 import React from "react"
+import styles from "./home-wave-bg-top.module.scss"
 
 export const HomeWaveBgTop = () => {
 	return (
-		<div className="wave__bg__top">
+		<div className={styles.wave__bg__bottom}>
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 				<title>Wave Background Top</title>
 				<path

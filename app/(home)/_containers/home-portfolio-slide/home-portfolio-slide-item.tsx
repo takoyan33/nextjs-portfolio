@@ -2,6 +2,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
 import { TransitionLink } from "../../../components/ui"
+import styles from "./home-portfolio-slide-item.module.scss"
 
 interface PortfolioItemProps {
 	portfolio_id: number
@@ -12,9 +13,9 @@ interface PortfolioItemProps {
 }
 
 const PortfolioTags: React.FC<{ tags: string[] }> = ({ tags }) => (
-	<ul className="SlideItem__container">
+	<ul className={styles.SlideItem__container}>
 		{tags.map((tag) => (
-			<li className="SlideItem__tag" key={tag}>
+			<li className={styles.SlideItem__tag} key={tag}>
 				#{tag}
 			</li>
 		))}
@@ -31,18 +32,18 @@ const HomePortfolioSlideItem: React.FC<PortfolioItemProps> = React.memo(
 	}) => (
 		<div>
 			<TransitionLink href={`portfolios/${portfolio_id}`}>
-				<div className="SlideItem__img">
+				<div className={styles.SlideItem__img}>
 					<Image
 						src={portfolio_topImg}
 						alt="ポートフォリオ画像"
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
-						className="SlideItem__img-item"
+						className={styles.SlideItem__img_item}
 					/>
 				</div>
-				<div className="SlideItem__content">
-					<p className="SlideItem__date">{portfolio_date}</p>
-					<h3 className="SlideItem__title">{parse(portfolio_name)}</h3>
+				<div className={styles.SlideItem__content}>
+					<p className={styles.SlideItem__date}>{portfolio_date}</p>
+					<h3 className={styles.SlideItem__title}>{parse(portfolio_name)}</h3>
 					<PortfolioTags tags={portfolio_tag} />
 				</div>
 			</TransitionLink>

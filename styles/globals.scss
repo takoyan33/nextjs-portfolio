@@ -6,6 +6,315 @@
 @use './component';
 @use './page';
 
+// 共通スタイル
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: noto-sans-cjk-jp, sans-serif;
+  font-size: 0.625rem;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  display: block;
+  color: $black;
+  text-decoration: none;
+  cursor: pointer;
+
+  :hover {
+    opacity: $opacity;
+  }
+}
+
+.max_width {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.pc {
+  display: block;
+}
+
+.sp {
+  display: none;
+}
+
+.bg-white {
+  width: 1000px;
+  height: rem(600);
+  padding: rem(20);
+  background-color: white;
+}
+
+.text-center {
+  padding: rem(10) auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.pc-nav a {
+  font-weight: bold;
+}
+
+
+// ポートフォリオページのflex
+.portfolio__List {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(60) rem(50);
+  justify-content: space-between;
+  width: 100%;
+  margin: rem(50) auto;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  &-item {
+    width: 30%;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+}
+
+
+.navigation-container {
+  position: relative;
+  z-index: 1;
+}
+
+// homeのslideのコンテンツ
+.portfolio-content {
+  display: grid;
+  grid-template-columns: rem(30) 1fr rem(30);
+  align-items: center;
+  margin: 50px 0;
+}
+
+.prev-button {
+  left: rem(-30);
+}
+
+.next-button {
+  right: rem(-30);
+}
+
+.prev-button,
+.next-button {
+  height: fit-content;
+  cursor: pointer;
+  &:hover {
+    opacity: $opacity;
+  }
+}
+
+.u-padding-bottom {
+  margin-bottom: 50px !important;
+}
+
+// 共通スタイル
+.main {
+  &__title {
+    margin: 0;
+    font-size: rem(60);
+    color: $main-color;
+    text-align: left;
+    &-white {
+      margin: 0;
+      font-size: rem(60);
+      color: white;
+      text-align: left;
+      &::after {
+        display: block;
+        margin: 0;
+        margin-bottom: rem(40);
+        font-size: rem(20);
+        line-height: 1.5;
+        color: white;
+        text-align: left;
+        content: attr(data-ja);
+      }
+    }
+    &::after {
+      display: block;
+      margin: 0;
+      margin-bottom: rem(40);
+      font-size: rem(20);
+      line-height: 1.5;
+      color: $main-color;
+      text-align: left;
+      content: attr(data-ja);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio__List {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(20) rem(20);
+    justify-content: center;
+    width: 100%;
+    margin: rem(50) auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    &-item {
+      width: 45%;
+      margin: 0;
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .section_title {
+    margin: rem(10) auto;
+    font-family: futura-pt-bold, sans-serif;
+    font-size: rem(20);
+    font-style: normal;
+    font-weight: 700;
+    color: #007111;
+    text-align: center;
+  }
+
+  .main {
+    &__title {
+      margin: 0;
+      font-size: rem(34);
+      color: $main-color;
+      text-align: left;
+      &-white {
+        margin: 0;
+        font-size: rem(60);
+        color: white;
+        text-align: left;
+      }
+      &__btn {
+        padding-block: rem(10);
+        margin-inline: auto;
+        font-size: 16px;
+        text-align: center;
+      }
+      &::after {
+        display: block;
+        margin: 0;
+        margin-bottom: rem(10);
+        font-size: rem(20);
+        color: $main-color;
+        text-align: left;
+        content: attr(data-ja);
+        &--white {
+          margin-bottom: rem(20);
+          font-size: rem(20);
+          color: white;
+          text-align: left;
+        }
+      }
+    }
+    &__subtitle {
+      margin: 0;
+      font-size: rem(18);
+      color: $main-color;
+      text-align: left;
+      &-white {
+        margin: 0;
+        font-size: rem(20);
+        color: white;
+        text-align: left;
+      }
+    }
+  }
+
+  .section {
+    &_img {
+      width: 70%;
+      margin: 0;
+      &_left {
+        width: 70%;
+        margin: 0;
+      }
+    }
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .bg-white {
+    width: 90%;
+    height: 100%;
+    padding: rem(30);
+    margin-inline: auto;
+    overflow-wrap: break-word;
+    background-color: white;
+  }
+  .max_width {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .portfolio-content {
+    display: grid;
+    grid-template-columns: rem(15) 1fr rem(15);
+    margin-block: 20px;
+  }
+
+  .portfolio__List {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(50) rem(0);
+    justify-content: space-between;
+    width: 100%;
+    margin: rem(30) auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    &-item {
+      width: 100%;
+      margin: 0;
+      overflow-wrap: break-word;
+    }
+  }
+  .pc {
+    display: none;
+  }
+
+  .sp {
+    display: block;
+  }
+
+  .prev-button {
+    left: 0;
+    width: rem(30);
+    height: rem(30);
+  }
+
+  .next-button {
+    right: 0;
+    width: rem(30);
+    height: rem(30);
+  }
+}
+
 a {
   cursor: pointer;
 }
@@ -71,19 +380,6 @@ body {
   100% {
     background-position: 0% 50%;
   }
-}
-
-//トップ
-.wave__bg__top {
-  position: relative;
-  top: 40px;
-  z-index: -1;
-}
-
-.wave__bg__bottom {
-  position: relative;
-  bottom: 40px;
-  z-index: -1;
 }
 
 //トップ 戻るボタン
@@ -441,62 +737,6 @@ li {
   }
 }
 
-// ポートフォリオ Home
-.SlideItem {
-  background-color: $back-color;
-
-  &__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: flex-start;
-    margin-top: 10px;
-  }
-  &__date {
-    margin-top: 6px;
-    margin-bottom: 4px;
-    font-size: rem(14);
-    color: $grey;
-    text-align: left;
-  }
-  &__tag {
-    display: inline-block;
-    height: 25px;
-    padding: 2px 5px;
-    font-size: 14px;
-    color: $main-color;
-    border: 1px solid $main-color;
-    border-radius: 5px;
-  }
-  &__title {
-    font-size: 18px;
-    font-weight: 600;
-    color: $black;
-    text-align: left;
-  }
-  &__content{
-    padding: 5px;
-  }
-  &__img {
-    position: relative;
-    width: 250px;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    margin-inline: auto;
-    overflow: hidden;
-    object-fit: cover;
-    &-item {
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-}
-
-
-
 
 .transition-link {
   display: inline-block;
@@ -605,42 +845,6 @@ li {
     height: 60px !important;
   }
 
-}
-
-// timeline 過去の経歴
-.timeline {
-  margin: 50px auto;
-  dl {
-    dt {
-      position: relative;
-      width: 8.5em;
-      padding: 8px 16px  8px  8px;
-      text-align: left;
-      &::after {
-        position: absolute;
-        top: rem(5);
-        right: -0.55em;
-        font-size: 22px;
-        color: $main-color;
-        content: '●';
-      }
-    }
-    dd {
-      width: calc(100% - 8.5em);
-      padding: 8px 32px 48px;
-      text-align: left;
-      border-left: rem(2) solid #ccc;
-    }
-    p {
-      text-align: left;
-    }
-    dd h2 {
-      margin: 0 0 rem(5);
-      font-size: 22px;
-      font-weight: bold;
-      text-align: left;
-    }
-  }
 }
 
 .swiper-horizontal {
@@ -818,43 +1022,10 @@ li {
   }
 }
 
-//パンくずりすと
-.breadCrumb {
-  &__title {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin: 10px auto;
-    text-align: left;
-    &-span {
-      font-weight: bold;
-    }
-  }
-  &__first {
-    &:hover {
-      color: $main-color;
-    }
-  }
-  &__second {
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    &:hover {
-      color: $main-color;
-    }
-  }
-  &__arrow {
-    width: 15px;
-    height: 15px;
-    img {
-      display: block;
-    }
-  }
-}
 
 //下層ページ
 .lower {
-  &_bg {
+  &__bg {
     height: 250px;
     background-color: #6499ff;
   }
@@ -891,21 +1062,6 @@ li {
       font-size: $baseFontSize;
       color: #707070;
     }
-  }
-}
-
-//ナビゲーション
-.PostNavigation {
-  display: flex;
-  margin: rem(30) auto;
-  margin-top: rem(120);
-  border-top: 2px solid rgb(206, 206, 206);
-  border-bottom: 2px solid rgb(206, 206, 206);
-  &__item {
-    width: 50%;
-    padding-block: rem(20);
-    color: #000081;
-    text-align: center;
   }
 }
 
@@ -956,38 +1112,6 @@ body.modal-open {
 
 //tablet
 @include mixin.tab {
-  // svgアイコン
-  .SlideItem {
-    background-color: $back-color;
-
-    &__date {
-      margin-top: 6px;
-      margin-bottom: 4px;
-      font-size: rem(14);
-    }
-    &__tag {
-      display: inline-block;
-      height: 25px;
-      font-size: 14px;
-      color: $main-color;
-      border: 1px solid $main-color;
-    }
-    &__title {
-      font-size: 18px;
-      font-weight: 600;
-      color: $black;
-    }
-    &__img {
-      position: relative;
-      width: 192px;
-      height: 108px;
-      margin-inline: auto;
-      object-fit: cover;
-      &-item {
-        border-radius: 10px;
-      }
-    }
-  }
 
   .canvas {
     position: relative;
@@ -1267,31 +1391,6 @@ body.modal-open {
     width: 100%;
   }
 
-  .timeline {
-      margin: 30px auto;
-    dl {
-      dd {
-        width: 100%;
-        padding: 0;
-        padding-top: rem(10);
-        padding-bottom: rem(20);
-        padding-left: rem(10);
-        margin-left: 20px;
-        border-left: rem(2) solid #ccc;
-        h2 {
-          width: 90%;
-          font-size: rem(18);
-        }
-        p {
-          width: 90%;
-        }
-      }
-      dt {
-        padding-left: 0;
-      }
-    }
-  }
-
   .back__btn {
     padding: 12px;
   } 
@@ -1366,124 +1465,6 @@ body.modal-open {
     }
   }
 
-
-
-  .wave__bg__top {
-    position: relative;
-    top: 10px;
-    z-index: -1;
-  }
-
-  .wave__bg__bottom {
-    position: relative;
-    bottom: 10px;
-    z-index: -1;
-  }
-
-  .breadCrumb {
-    &__title {
-      flex-wrap: wrap;
-      padding-top: 50px;
-      text-align: left;
-    }
-    &__second {
-      font-weight: 600;
-    }
-    &__arrow {
-      margin: 0 8px;
-    }
-  }
-
-  // ポートフォリオ
-  .SlideItem {
-    background-color: $back-color;
-
-    &__date {
-      margin: 6px 0;
-      font-size: rem(14);
-    }
-    &__tag {
-      display: inline-block;
-      height: 25px;
-      font-size: 14px;
-      color: $main-color;
-      border: 1px solid $main-color;
-    }
-    &__title {
-      margin-top: 0;
-    }
-    &__img {
-      position: relative;
-      width: 192px;
-      height: 108px;
-      margin-inline: auto;
-      object-fit: contain;
-    }
-
-    &Item {
-      box-shadow:
-        rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
-
-      &__flex {
-        display: flex;
-        justify-content: center;
-      }
-      &__date {
-        font-size: rem(14);
-      }
-      &__tag {
-        display: inline-block;
-        height: 25px;
-        padding: 2px 8px;
-        padding-bottom: 4px;
-        margin: 11px 2px;
-        font-size: 14px;
-        color: $main-color;
-        border: 1px solid $main-color;
-        border-radius: 10px;
-      }
-      &__title {
-        font-size: 18px;
-        font-weight: 600;
-        color: $black;
-      }
-      &__img {
-        position: relative;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        margin-inline: auto;
-        overflow: hidden;
-        object-fit: cover;
-
-        &-item {
-          border-radius: 10px;
-          transition: transform 0.3s ease;
-          &:hover {
-            transform: scale(1.1);
-          }
-        }
-      }
-      &_link {
-        cursor: pointer;
-      }
-    }
-  }
-  .PostNavigation {
-    display: flex;
-    margin: rem(20) auto;
-    margin-top: rem(60);
-    border-top: 2px solid rgb(206, 206, 206);
-    border-bottom: 2px solid rgb(206, 206, 206);
-    &__item {
-      width: 50%;
-      padding-block: rem(10);
-      color: #000081;
-      text-align: center;
-    }
-  }
-
   //topのcontact
   .contact {
     background-image: url('/images/top_contact_bg_sp.webp');
@@ -1517,7 +1498,7 @@ body.modal-open {
   }
   //下層ページ
   .lower {
-    &_bg {
+    &__bg {
       height: 180px;
       background-color: #6499ff;
     }

@@ -1,0 +1,53 @@
+@use '../../../../styles/common/_variables.scss' as *;
+@use '../../../../styles/common/_mixin';
+
+
+//パンくずりすと
+.breadcrumb {
+  &__title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px auto;
+    text-align: left;
+    &-span {
+      font-weight: bold;
+    }
+  }
+  &__first {
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__second {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__arrow {
+    width: 15px;
+    height: 15px;
+    img {
+      display: block;
+    }
+  }
+}
+
+@include mixin.sp {
+  .breadcrumb {
+    &__title {
+      flex-wrap: wrap;
+      padding-top: 50px;
+      text-align: left;
+    }
+    &__second {
+      font-weight: 600;
+    }
+    &__arrow {
+      margin: 0 8px;
+    }
+  }
+}
