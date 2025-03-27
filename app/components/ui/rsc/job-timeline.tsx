@@ -1,10 +1,11 @@
 // "use client"
 
-import jobs from "../../../../public/mock/api/jobs/index.json"
 import React, { useEffect, useState } from "react"
 import { Timeline } from ".."
 import { fetchJobs } from "../../../../hooks/fetch"
+import jobs from "../../../../public/mock/api/jobs/index.json"
 import type { Job } from "../../../../types"
+import styles from "../css/timeline.module.scss"
 
 export const JobTimeline = () => {
 	// const [jobs, setJobs] = useState<Job[]>([])
@@ -18,7 +19,7 @@ export const JobTimeline = () => {
 	// 	fetchData()
 	// }, [])
 	return (
-		<div className="timeline">
+		<div className={styles.timeline}>
 			<dl>
 				{Array.isArray(jobs) &&
 					jobs.map((job) => (

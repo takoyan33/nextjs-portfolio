@@ -1129,13 +1129,13 @@ body {
 .portfolioItem__tag {
   display: inline-block;
   height: 25px;
-  padding: 2px 8px;
-  padding-bottom: 4px;
   margin: 11px 0px;
   font-size: 14px;
+  padding: 2px 10px;
+  font-size: 14px;
   color: #4485ff;
-  border: 1px solid #4485ff;
-  border-radius: 5px;
+  background-color: #d2e3ff;
+  border-radius: 20px;
 }
 .portfolioItem__title {
   margin-top: 10px;
@@ -1234,9 +1234,10 @@ body {
 }
 .portfolioDetail__element-tag {
   display: inline;
-  padding: 5px 10px;
+  padding: 2px 10px;
+  font-size: 14px;
   color: #4485ff;
-  border: 1px solid #4485ff;
+  background-color: #d2e3ff;
   border-radius: 20px;
 }
 .portfolioDetail__element-tagList {
@@ -1927,39 +1928,6 @@ li {
   height: 60px !important;
 }
 
-.timeline {
-  margin: 50px auto;
-}
-.timeline dl dt {
-  position: relative;
-  width: 8.5em;
-  padding: 8px 16px 8px 8px;
-  text-align: left;
-}
-.timeline dl dt::after {
-  position: absolute;
-  top: 0.3125rem;
-  right: -0.55em;
-  font-size: 22px;
-  color: #4485ff;
-  content: "●";
-}
-.timeline dl dd {
-  width: calc(100% - 8.5em);
-  padding: 8px 32px 48px;
-  text-align: left;
-  border-left: 0.125rem solid #ccc;
-}
-.timeline dl p {
-  text-align: left;
-}
-.timeline dl dd h2 {
-  margin: 0 0 0.3125rem;
-  font-size: 22px;
-  font-weight: bold;
-  text-align: left;
-}
-
 .swiper-horizontal {
   width: 90%;
 }
@@ -2162,20 +2130,6 @@ li {
   margin-left: 10px;
   font-size: 16;
   color: #707070;
-}
-
-.PostNavigation {
-  display: flex;
-  margin: 1.875rem auto;
-  margin-top: 7.5rem;
-  border-top: 2px solid rgb(206, 206, 206);
-  border-bottom: 2px solid rgb(206, 206, 206);
-}
-.PostNavigation__item {
-  width: 50%;
-  padding-block: 1.25rem;
-  color: #000081;
-  text-align: center;
 }
 
 body.modal-open {
@@ -2458,28 +2412,6 @@ body.modal-open {
   img {
     width: 100%;
   }
-  .timeline {
-    margin: 30px auto;
-  }
-  .timeline dl dd {
-    width: 100%;
-    padding: 0;
-    padding-top: 0.625rem;
-    padding-bottom: 1.25rem;
-    padding-left: 0.625rem;
-    margin-left: 20px;
-    border-left: 0.125rem solid #ccc;
-  }
-  .timeline dl dd h2 {
-    width: 90%;
-    font-size: 1.125rem;
-  }
-  .timeline dl dd p {
-    width: 90%;
-  }
-  .timeline dl dt {
-    padding-left: 0;
-  }
   .back__btn {
     padding: 12px;
   }
@@ -2548,19 +2480,6 @@ body.modal-open {
     width: 100%;
     max-width: 1100px;
     height: 200px;
-  }
-  .PostNavigation {
-    display: flex;
-    margin: 1.25rem auto;
-    margin-top: 3.75rem;
-    border-top: 2px solid rgb(206, 206, 206);
-    border-bottom: 2px solid rgb(206, 206, 206);
-  }
-  .PostNavigation__item {
-    width: 50%;
-    padding-block: 0.625rem;
-    color: #000081;
-    text-align: center;
   }
   .contact {
     background-image: url("/images/top_contact_bg_sp.webp");
