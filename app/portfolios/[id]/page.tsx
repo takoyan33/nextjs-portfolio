@@ -34,7 +34,7 @@ const Post = () => {
 		if (id) {
 			fetchPortfolios(id)
 		}
-	}, [id, fetchPortfolios])
+	}, [id])
 
 	// useEffect(() => {
 	// 	if (id) {
