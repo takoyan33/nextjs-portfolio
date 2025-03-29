@@ -1,21 +1,25 @@
 // 共通クラスや変数
 // 色の定義
-$main-color: #4485ff;
-$tag-color-1: #d50303;
-$tag-color-2: #00a339;
-$tag-color-3: #ce61c8;
-$tag-color-4: #063997;
-$tag-color-5: #fd6d39;
-$white: #ffff;
-$grey: grey;
-$black: rgb(39, 39, 39);
-$back-color: #f7f7f7;
-$red: rgb(251, 77, 77);
+$main-color: oklch(63.8% 48.5% 261.57); //#4485ff
+$main-color-disabled: oklch(55% 48.5% 261.57); //#090061
+
+$tag-color-1: oklch(50.18% 0.2331 29.27); // #d50303
+$tag-color-2: oklch(62.32% 0.1969 145.56); // #00a339
+$tag-color-3: oklch(63.77% 0.1635 327.74); // #ce61c8
+$tag-color-4: oklch(36.59% 0.1644 251.34); // #063997
+$tag-color-5: oklch(68.78% 0.1911 45.73); // #fd6d39
+
+$white: oklch(100% 0 0); // #ffffff
+$grey: oklch(53.59% 0 0); // grey
+$black: oklch(16.01% 0 0); // rgb(39, 39, 39)
+$back-color: oklch(96.72% 0 0); // #f7f7f7
+$red: oklch(63.62% 0.222 27.97); // rgb(251, 77, 77)
 
 //不透明度
 $opacity: 0.7;
 // remの設定
 $baseFontSize: 16;
+
 @function rem($pixels) {
   @return $pixels / $baseFontSize * 1rem;
 }
