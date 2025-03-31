@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import type React from "react"
@@ -24,13 +25,7 @@ export const PostNavigation = ({
 						<Link href={`/portfolios/${prev_article_id}`}>
 							<div className={styles.PostNavigation__container}>
 								<span className={styles.PostNavigation__arrow}>
-									<Image
-										src="/images/prev-arrow.svg"
-										width={15}
-										height={15}
-										alt="スライドショーのナビゲーション"
-										className={styles.PostNavigation__arrow}
-									/>
+									<ChevronLeft />
 								</span>
 								{prev_title}
 							</div>
@@ -44,13 +39,7 @@ export const PostNavigation = ({
 							<div className={styles.PostNavigation__container}>
 								{next_title}
 								<span className={styles.PostNavigation__arrow}>
-									<Image
-										src="/images/next-arrow.svg"
-										width={15}
-										height={15}
-										alt="スライドショーのナビゲーション"
-										className={styles.PostNavigation__arrow}
-									/>
+									<ChevronRight />
 								</span>
 							</div>
 						</Link>
