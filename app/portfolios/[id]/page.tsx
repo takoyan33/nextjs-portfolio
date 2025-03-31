@@ -1,6 +1,7 @@
 "use client"
 
 import parse from "html-react-parser"
+import { SquareArrowOutUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
@@ -213,7 +214,24 @@ const Post = () => {
 						</div>
 						<div className="portfolioDetail__element-text">
 							<h3 className="portfolioDetail__element-subtitle">使用技術</h3>
-							<h4>フロントエンド</h4>
+							<h4 className="portfolioDetail__element-h4">
+								<span className="portfolioDetail__element-icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									>
+										<path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+									</svg>
+								</span>
+								フロントエンド
+							</h4>
 							<ul className="portfolioDetail__element-tagList">
 								{portfolio.front_skill.map((skill) => (
 									<li className="portfolioDetail__element-tag" key={skill}>
@@ -223,7 +241,25 @@ const Post = () => {
 							</ul>
 							{portfolio.back_skill && portfolio.back_skill.length > 0 && (
 								<div>
-									<h4>バックエンド</h4>
+									<h4 className="portfolioDetail__element-h4">
+										<span className="portfolioDetail__element-icon">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="18"
+												height="18"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+												<path d="M13 5v14" />
+											</svg>
+										</span>
+										バックエンド
+									</h4>
 									<ul className="portfolioDetail__element-tagList">
 										{portfolio.back_skill.map((skill) => (
 											<li className="portfolioDetail__element-tag" key={skill}>
@@ -235,7 +271,25 @@ const Post = () => {
 							)}
 							{portfolio.infra_skill && portfolio.infra_skill.length > 0 && (
 								<div>
-									<h4>インフラ</h4>
+									<h4 className="portfolioDetail__element-h4">
+										<span className="portfolioDetail__element-icon">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="18"
+												height="18"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+												<path d="M13 5v14" />
+											</svg>
+										</span>
+										インフラ
+									</h4>
 									<ul className="portfolioDetail__element-tagList">
 										{portfolio.infra_skill.map((skill) => (
 											<li className="portfolioDetail__element-tag" key={skill}>
@@ -254,6 +308,9 @@ const Post = () => {
 									className="portfolioDetail__element-link"
 									target="_blank"
 								>
+									<span className="portfolioDetail__element-icon">
+										<SquareArrowOutUpRight className="portfolioDetail__element-icon-img" />
+									</span>
 									{portfolio.front_url}
 								</Link>
 							</div>
@@ -266,6 +323,9 @@ const Post = () => {
 									className="portfolioDetail__element-link"
 									target="_blank"
 								>
+									<span className="portfolioDetail__element-icon">
+										<SquareArrowOutUpRight className="portfolioDetail__element-icon-img" />
+									</span>
 									{portfolio.front_github}
 								</Link>
 							</div>
@@ -280,6 +340,9 @@ const Post = () => {
 									className="portfolioDetail__element-link"
 									target="_blank"
 								>
+									<span className="portfolioDetail__element-icon">
+										<SquareArrowOutUpRight className="portfolioDetail__element-icon-img" />
+									</span>
 									{portfolio.back_url}
 								</Link>
 							</div>
@@ -294,6 +357,9 @@ const Post = () => {
 									className="portfolioDetail__element-link"
 									target="_blank"
 								>
+									<span className="portfolioDetail__element-icon">
+										<SquareArrowOutUpRight className="portfolioDetail__element-icon-img" />
+									</span>
 									{portfolio.back_github}
 								</Link>
 							</div>

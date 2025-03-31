@@ -6,6 +6,7 @@ import { Controller } from "swiper/modules"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -57,20 +58,7 @@ export const HomePortfolioSlide = () => {
 
 	return (
 		<div className="portfolio-content">
-			<div className="prev-button">
-				{firstSwiper !== 0 && (
-					<Image
-						src="/images/prev-arrow.svg"
-						width={50}
-						height={50}
-						style={{
-							width: "100%",
-							height: "auto",
-						}}
-						alt="スライドショーのナビゲーション"
-					/>
-				)}
-			</div>
+			<div className="prev-button">{firstSwiper !== 0 && <ChevronLeft />}</div>
 
 			<Swiper
 				modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
@@ -91,20 +79,7 @@ export const HomePortfolioSlide = () => {
 			>
 				{slides}
 			</Swiper>
-			<div className="next-button">
-				{firstSwiper < 4 && (
-					<Image
-						src="/images/next-arrow.svg"
-						width={50}
-						height={50}
-						style={{
-							width: "100%",
-							height: "auto",
-						}}
-						alt="スライドショーのナビゲーション"
-					/>
-				)}
-			</div>
+			<div className="next-button">{firstSwiper < 4 && <ChevronRight />}</div>
 		</div>
 	)
 }

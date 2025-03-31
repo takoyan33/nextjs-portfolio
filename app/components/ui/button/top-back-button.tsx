@@ -1,4 +1,5 @@
 "use client"
+import { ChevronUp } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
@@ -30,12 +31,7 @@ export const TopBackButton = () => {
 							window.scrollTo(0, 0)
 						}}
 					>
-						<Image
-							src="/images/top-arrow.svg"
-							height={30}
-							width={30}
-							alt="arrow"
-						/>
+						<ChevronUp className="back__btn-icon" />
 					</button>
 				</div>
 			)}

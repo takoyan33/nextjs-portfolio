@@ -353,14 +353,14 @@ body {
   transition: color 0.3s;
 }
 .header li a:hover {
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
 }
 .header_btn_contact {
   display: inline-block;
   padding: 5px 10px;
   color: white;
   cursor: pointer;
-  background-color: #4485ff;
+  background-color: oklch(63.8% 48.5% 261.57);
   border-radius: 20px;
   transition: color 0.3s;
 }
@@ -442,7 +442,7 @@ body {
     width: 100vw;
     height: 100vh;
     padding: 0;
-    background-color: white;
+    background-color: oklch(100% 0 0);
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-box-align: center;
@@ -512,7 +512,7 @@ body {
   }
 }
 .footer {
-  border-top: 2px solid #4485ff;
+  border-top: 2px solid oklch(63.8% 48.5% 261.57);
 }
 .footer__container {
   display: flex;
@@ -555,7 +555,7 @@ body {
     gap: 10px;
     width: 90%;
     margin: 0 auto;
-    color: white;
+    color: oklch(100% 0 0);
     text-align: center;
   }
 }
@@ -590,12 +590,12 @@ body {
   display: none;
   width: 100%;
   padding: 1.5em 1em;
-  background-color: white;
+  background-color: oklch(100% 0 0);
 }
 .tab-1 .active {
   color: #333333;
-  background-color: white;
-  border-color: #4485ff #f0f0f0 white;
+  background-color: oklch(100% 0 0);
+  border-color: oklch(63.8% 48.5% 261.57) #f0f0f0 oklch(100% 0 0);
   border-style: solid;
   border-width: 4px 1px 1px;
   border-radius: 5px;
@@ -670,7 +670,7 @@ body {
 }
 .zennArticle__date {
   font-size: 0.875rem;
-  color: grey;
+  color: oklch(53.59% 0 0);
   text-align: left;
 }
 .zennArticle__tag {
@@ -679,8 +679,8 @@ body {
   padding: 2px 5px;
   margin: 11px 2px;
   font-size: 14px;
-  color: #4485ff;
-  border: 1px solid #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
+  border: 1px solid oklch(63.8% 48.5% 261.57);
   border-radius: 10px;
 }
 .zennArticle__emoji {
@@ -690,7 +690,7 @@ body {
 .zennAsideArticle {
   width: 100%;
   margin-bottom: 10px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid oklch(53.59% 0 0);
 }
 .zennAsideArticle__container {
   display: flex;
@@ -718,8 +718,8 @@ body {
   padding: 2px 5px;
   margin: 11px 2px;
   font-size: 14px;
-  color: #4485ff;
-  border: 1px solid #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
+  border: 1px solid oklch(63.8% 48.5% 261.57);
   border-radius: 10px;
 }
 .zennAsideArticle__emoji {
@@ -751,8 +751,8 @@ body {
     padding: 2px 5px;
     margin: 11px 2px;
     font-size: 14px;
-    color: #4485ff;
-    border: 1px solid #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
+    border: 1px solid oklch(63.8% 48.5% 261.57);
     border-radius: 20px;
   }
   .zennArticle__title {
@@ -782,7 +782,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: white;
-  background-color: rgb(251, 77, 77);
+  background-color: oklch(63.62% 0.222 27.97);
   border-radius: 20px;
 }
 .form-box-textarea {
@@ -791,16 +791,16 @@ body {
 .form-box-btn {
   padding: 5px 20px;
   color: white;
-  background-color: #4485ff;
+  background-color: oklch(63.8% 48.5% 261.57);
   border: 0px solid;
   border-radius: 10px;
 }
 .form-box-btn:hover {
-  background-color: #4485ff;
+  background-color: oklch(63.8% 48.5% 261.57);
 }
 .form-box-error {
   font-size: 14px;
-  color: rgb(251, 77, 77);
+  color: oklch(63.62% 0.222 27.97);
   text-align: left;
 }
 
@@ -824,7 +824,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     color: white;
-    background-color: rgb(251, 77, 77);
+    background-color: oklch(63.62% 0.222 27.97);
     border-radius: 20px;
   }
   .form-box-textarea {
@@ -834,16 +834,16 @@ body {
     padding: 5px 20px;
     font-size: 18px;
     color: white;
-    background-color: #4485ff;
+    background-color: oklch(63.8% 48.5% 261.57);
     border: 0px solid;
     border-radius: 10px;
   }
   .form-box-btn:hover {
-    background-color: #4485ff;
+    background-color: oklch(63.8% 48.5% 261.57);
   }
   .form-box-error {
     font-size: 14px;
-    color: rgb(251, 77, 77);
+    color: oklch(63.62% 0.222 27.97);
   }
 }
 .fv_cube {
@@ -865,7 +865,7 @@ body {
   display: none;
   width: 100%;
   height: 0;
-  background-color: #4485ff;
+  background-color: oklch(63.8% 48.5% 261.57);
   opacity: 0;
   transition: 0.5s;
 }
@@ -919,7 +919,7 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: white;
+  background-color: oklch(100% 0 0);
 }
 .errorPage h1 {
   margin-top: 0;
@@ -943,7 +943,7 @@ body {
     width: 50px;
     height: 38px;
     cursor: pointer;
-    background-color: white;
+    background-color: oklch(100% 0 0);
     border: 0;
   }
   .btn-trigger span {
@@ -951,7 +951,7 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: #4485ff;
+    background-color: oklch(63.8% 48.5% 261.57);
     border-radius: 4px;
   }
   .btn-trigger,
@@ -994,13 +994,13 @@ body {
   .mainTitle {
     margin-bottom: 5px;
     font-size: 26px;
-    color: white;
+    color: oklch(100% 0 0);
     text-align: left;
     letter-spacing: 2px;
   }
   .subTitle {
     font-size: 15px;
-    color: white;
+    color: oklch(100% 0 0);
   }
   .close {
     padding-right: 3px;
@@ -1013,7 +1013,7 @@ body {
     height: 2px;
     margin: 0 8px 10px auto;
     margin-bottom: 10px;
-    background-color: white;
+    background-color: oklch(100% 0 0);
   }
   .close span:first-child {
     transform: translateY(6px) rotate(150deg);
@@ -1034,7 +1034,7 @@ body {
     display: none;
     width: 100%;
     height: 0;
-    background-color: #4485ff;
+    background-color: oklch(63.8% 48.5% 261.57);
     opacity: 0;
     transition: 0.5s;
   }
@@ -1090,7 +1090,7 @@ body {
           clip-path: polygon(0 0, 100% 0, 50% 100%);
   pointer-events: none;
   content: "";
-  background-color: grey;
+  background-color: oklch(53.59% 0 0);
 }
 .selectBox select {
   min-width: 230px;
@@ -1101,7 +1101,7 @@ body {
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
-  background-color: white;
+  background-color: oklch(100% 0 0);
   border: none;
   border-bottom: 2px solid #d0d0d0;
 }
@@ -1110,7 +1110,7 @@ body {
 }
 
 .portfolio {
-  background-color: #f7f7f7;
+  background-color: oklch(96.72% 0 0);
 }
 .portfolio__filter {
   display: flex;
@@ -1133,7 +1133,7 @@ body {
   font-size: 14px;
   padding: 2px 10px;
   font-size: 14px;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   background-color: #d2e3ff;
   border-radius: 20px;
 }
@@ -1180,7 +1180,7 @@ body {
   width: 46px;
   margin-right: 0.625rem;
   margin-left: auto;
-  background-color: white;
+  background-color: oklch(100% 0 0);
   border: 0px solid;
 }
 .portfolioDetail__element {
@@ -1196,7 +1196,7 @@ body {
   margin-bottom: 80px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid grey;
+  border: 1px solid oklch(53.59% 0 0);
 }
 .portfolioDetail__element-img {
   position: relative;
@@ -1208,7 +1208,7 @@ body {
      object-fit: contain;
 }
 .portfolioDetail__element-img button {
-  background-color: white;
+  background-color: oklch(100% 0 0);
   border: 0;
 }
 .portfolioDetail__element-title {
@@ -1220,7 +1220,25 @@ body {
   margin: 30px 0;
   font-size: 26px;
   text-align: left;
-  border-bottom: 2px solid #4485ff;
+  border-bottom: 2px solid oklch(63.8% 48.5% 261.57);
+}
+.portfolioDetail__element-h4 {
+  display: flex;
+  padding-bottom: 10px;
+  margin: 10px 0;
+  font-size: 18px;
+  align-items: center;
+  gap: 6px;
+}
+.portfolioDetail__element-icon {
+  color: oklch(63.8% 48.5% 261.57);
+  background-color: #d2e3ff;
+  padding: 5px;
+  border-radius: 5px;
+}
+.portfolioDetail__element-icon-img {
+  height: 18px;
+  width: 18px;
 }
 .portfolioDetail__element-text {
   text-align: left;
@@ -1229,14 +1247,14 @@ body {
   list-style: square;
 }
 .portfolioDetail__element-date {
-  color: grey;
+  color: oklch(53.59% 0 0);
   text-align: left;
 }
 .portfolioDetail__element-tag {
   display: inline;
   padding: 2px 10px;
   font-size: 14px;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   background-color: #d2e3ff;
   border-radius: 20px;
 }
@@ -1246,22 +1264,16 @@ body {
   justify-content: flex-start;
   gap: 0.625rem;
   margin-block: 0.625rem;
+  margin-bottom: 30px;
 }
 .portfolioDetail__element-link {
-  color: #063997;
+  color: oklch(36.59% 0.1644 251.34);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .portfolioDetail__element-link:hover {
   opacity: 0.7;
-}
-.portfolioDetail__element-link::before {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  content: "";
-  background-image: url("/images/common/link.svg");
-  background-size: contain;
 }
 
 @media screen and (max-width: 500px) {
@@ -1279,7 +1291,7 @@ body {
     width: 46px;
     margin-right: 0.625rem;
     margin-left: auto;
-    background-color: white;
+    background-color: oklch(100% 0 0);
     border: 0px solid;
   }
   .portfolioDetail__top {
@@ -1327,8 +1339,8 @@ body {
     display: inline-block;
     padding: 5px 10px;
     margin: 5px 2px;
-    color: #4485ff;
-    border: 1px solid #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
+    border: 1px solid oklch(63.8% 48.5% 261.57);
     border-radius: 20px;
   }
   .portfolioDetail__element-tagList {
@@ -1338,7 +1350,7 @@ body {
   }
   .portfolioDetail__element-link {
     margin-bottom: 1.25rem;
-    color: #063997;
+    color: oklch(36.59% 0.1644 251.34);
   }
   .portfolioDetail__element-link:hover {
     opacity: 0.7;
@@ -1364,7 +1376,7 @@ img {
 
 a {
   display: block;
-  color: rgb(39, 39, 39);
+  color: oklch(16.01% 0 0);
   text-decoration: none;
   cursor: pointer;
 }
@@ -1463,7 +1475,7 @@ a :hover {
 .main__title {
   margin: 0;
   font-size: 3.75rem;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   text-align: left;
 }
 .main__title-white {
@@ -1488,12 +1500,18 @@ a :hover {
   margin-bottom: 2.5rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   text-align: left;
   content: attr(data-ja);
 }
 
 @media (max-width: 1024px) {
+  .max_width {
+    width: 90%;
+    max-width: 1100px;
+    margin-inline: auto;
+    text-align: center;
+  }
   .portfolio__List {
     display: flex;
     flex-wrap: wrap;
@@ -1511,19 +1529,10 @@ a :hover {
   }
 }
 @media screen and (max-width: 580px) {
-  .section_title {
-    margin: 0.625rem auto;
-    font-family: futura-pt-bold, sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
-    color: #007111;
-    text-align: center;
-  }
   .main__title {
     margin: 0;
     font-size: 2.125rem;
-    color: #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
     text-align: left;
   }
   .main__title-white {
@@ -1543,7 +1552,7 @@ a :hover {
     margin: 0;
     margin-bottom: 0.625rem;
     font-size: 1.25rem;
-    color: #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
     text-align: left;
     content: attr(data-ja);
   }
@@ -1556,7 +1565,7 @@ a :hover {
   .main__subtitle {
     margin: 0;
     font-size: 1.125rem;
-    color: #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
     text-align: left;
   }
   .main__subtitle-white {
@@ -1564,14 +1573,6 @@ a :hover {
     font-size: 1.25rem;
     color: white;
     text-align: left;
-  }
-  .section_img {
-    width: 70%;
-    margin: 0;
-  }
-  .section_img_left {
-    width: 70%;
-    margin: 0;
   }
   .nav {
     display: none;
@@ -1634,7 +1635,7 @@ a {
 }
 
 body {
-  color: rgb(39, 39, 39);
+  color: oklch(16.01% 0 0);
 }
 
 .fv {
@@ -1659,7 +1660,7 @@ body {
   margin: 0.625rem auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 7.5rem;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   text-align: left;
   letter-spacing: 4px;
   background-color: white;
@@ -1673,7 +1674,7 @@ body {
   margin-top: 7.5rem;
   font-family: futura-pt-bold, sans-serif;
   font-size: 5rem;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   text-align: left;
   letter-spacing: 4px;
   background-color: white;
@@ -1707,7 +1708,7 @@ body {
   right: 10px;
   bottom: 20px;
   z-index: 10;
-  width: 30px;
+  width: auto;
   padding: 25px 25px;
   font-size: 1.25rem;
   color: white;
@@ -1778,29 +1779,9 @@ body {
   margin: 1.25rem auto;
   color: white;
   text-align: center;
-  background-color: #063997;
+  background-color: oklch(36.59% 0.1644 251.34);
   border: none;
   border-radius: 0.3125rem;
-}
-
-.section_text {
-  margin: 0.625rem auto;
-  margin-bottom: 1.25rem;
-  font-size: 1.125rem;
-  font-weight: bold;
-}
-.section_text2 {
-  font-family: bold;
-}
-.section_img {
-  width: 70%;
-  margin-top: 1.25rem;
-  margin-left: 30px;
-}
-.section_img_left {
-  width: 70%;
-  margin-top: 1.25rem;
-  margin-right: 30px;
 }
 
 li {
@@ -1837,12 +1818,12 @@ li {
 
 .size {
   margin-top: 40px;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
 }
 
 .skill {
   padding-bottom: 40px;
-  background-color: #f7f7f7;
+  background-color: oklch(96.72% 0 0);
 }
 .skill__title {
   margin-bottom: 14px;
@@ -1983,13 +1964,13 @@ li {
   height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid grey;
+  border: 1px solid oklch(53.59% 0 0);
 }
 .modalBox__element__text {
   text-align: left;
 }
 .modalBox__element__link {
-  color: #063997;
+  color: oklch(36.59% 0.1644 251.34);
 }
 .modalBox__element__link:hover {
   opacity: 0.7;
@@ -2011,9 +1992,9 @@ li {
   padding: 8px 20px;
   margin: 0 auto;
   font-size: 14px;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   background-color: #fff;
-  border: 1.5px solid #4485ff;
+  border: 1.5px solid oklch(63.8% 48.5% 261.57);
   border-radius: 8px;
   position: relative;
   overflow: hidden;
@@ -2025,13 +2006,13 @@ li {
   height: 6px;
   margin-left: 6px;
   content: "";
-  border-top: 2px solid #4485ff;
-  border-right: 2px solid #4485ff;
+  border-top: 2px solid oklch(63.8% 48.5% 261.57);
+  border-right: 2px solid oklch(63.8% 48.5% 261.57);
   transform: rotate(45deg);
 }
 .common__btn:hover {
   color: white;
-  background-color: #4485ff;
+  background-color: oklch(63.8% 48.5% 261.57);
 }
 .common__btn:hover::after {
   border-top: 2px solid white;
@@ -2039,11 +2020,11 @@ li {
 }
 .common__btn.slide {
   background: #fff;
-  color: #4485ff;
+  color: oklch(63.8% 48.5% 261.57);
   position: relative;
 }
 .common__btn.slide::before {
-  background: #4485ff;
+  background: oklch(63.8% 48.5% 261.57);
   position: absolute;
   top: 0;
   left: 0;
@@ -2086,7 +2067,7 @@ li {
   padding: 10px 20px;
   font-weight: bold;
   color: white;
-  background-color: #4485ff;
+  background-color: oklch(63.8% 48.5% 261.57);
   border-radius: 10px;
 }
 .contact__btn:hover {
@@ -2123,7 +2104,7 @@ li {
   padding-top: 0.9375rem;
   padding-bottom: 0.625rem;
   font-size: 28px;
-  color: rgb(39, 39, 39);
+  color: oklch(16.01% 0 0);
   text-align: left;
 }
 .lower__subTitle-span {
@@ -2202,7 +2183,7 @@ body.modal-open {
     left: 1.25rem;
     font-family: futura-pt-bold, sans-serif;
     font-size: 3.75rem;
-    color: #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
     text-align: left;
     letter-spacing: 4px;
     background-color: white;
@@ -2214,7 +2195,7 @@ body.modal-open {
     margin-inline: auto;
     font-family: futura-pt-bold, sans-serif;
     font-size: 2.5rem;
-    color: #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
     text-align: left;
     letter-spacing: 4px;
     background-color: white;
@@ -2248,7 +2229,7 @@ body.modal-open {
 @media screen and (max-width: 500px) {
   .size {
     margin-top: 1.25rem;
-    color: #4485ff;
+    color: oklch(63.8% 48.5% 261.57);
   }
   .border_company {
     margin-left: 0;
@@ -2321,7 +2302,7 @@ body.modal-open {
   }
   .skill {
     padding-bottom: 40px;
-    background-color: #f7f7f7;
+    background-color: oklch(96.72% 0 0);
   }
   .skill__title {
     margin-bottom: 14px;
@@ -2442,13 +2423,13 @@ body.modal-open {
     height: 162px;
     -o-object-fit: contain;
        object-fit: contain;
-    border: 1px solid grey;
+    border: 1px solid oklch(53.59% 0 0);
   }
   .modalBox__element__text {
     text-align: left;
   }
   .modalBox__element__link {
-    color: #063997;
+    color: oklch(36.59% 0.1644 251.34);
   }
   .modalBox__element__link:hover {
     opacity: 0.7;
@@ -2505,7 +2486,7 @@ body.modal-open {
     display: inline-block;
     padding: 10px 20px;
     color: white;
-    background-color: #4485ff;
+    background-color: oklch(63.8% 48.5% 261.57);
     border-radius: 10px;
   }
   .contact__btn:hover {
@@ -2539,7 +2520,7 @@ body.modal-open {
   }
   .lower__subTitle {
     font-size: 22px;
-    color: rgb(39, 39, 39);
+    color: oklch(16.01% 0 0);
     text-align: left;
   }
   .lower__subTitle-span {

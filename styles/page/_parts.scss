@@ -90,12 +90,12 @@
 
 	h2 {
 		font-size: 2rem;
-		color: darken($black, 10%);
+		color: darken( rgb(39, 39, 39), 10%);
 	}
 
 	p {
 		margin-top: 0.5rem;
-		color: lighten($black, 20%);
+		color: lighten( rgb(39, 39, 39), 20%);
 	}
 }
 

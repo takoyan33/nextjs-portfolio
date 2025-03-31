@@ -1,8 +1,7 @@
-import { ChevronRight } from "lucide-react"
 import Image from "next/image"
-import { TransitionLink } from "."
-import { PATH } from "../../../utils/path"
-import styles from "./css/breadcrumb.module.scss"
+import { TransitionLink } from "../../app/components/ui"
+import { PATH } from "../../utils/path"
+import styles from "../css/breadcrumb.module.scss"
 
 interface BreadcrumbProps {
 	name: string
@@ -21,15 +20,26 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
 				トップ
 			</TransitionLink>
 			<span className={styles.Breadcrumb__arrow}>
-				<ChevronRight />
+				<Image
+					src="/images/next-arrow.svg"
+					width={15}
+					height={15}
+					alt="スライドショーのナビゲーション"
+				/>
 			</span>
 			<TransitionLink href={link} className={styles.breadCrumb__second}>
 				{name}
 			</TransitionLink>
 			{thirdTitle && (
 				<>
-					<span className={styles.Breadcrumb__arrow}>
-						<ChevronRight />
+					<span className={styles.breadcrumb__arrow}>
+						<Image
+							src="/images/next-arrow.svg"
+							width={15}
+							height={15}
+							priority
+							alt="スライドショーのナビゲーション"
+						/>
 					</span>
 					<span className={styles.breadcrumb__second}>{thirdTitle}</span>
 				</>
