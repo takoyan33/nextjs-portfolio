@@ -5,6 +5,7 @@ import type React from "react"
 import { Clarity } from "../utils/clarity"
 import { Footer, Header } from "./components/layout"
 import { GoogleAnalytics } from "./components/layout/GoogleAnalytics"
+import { ReactScan } from "./components/ui/react-scan"
 import { siteConfig } from "./config/site"
 
 export const metadata: Metadata = {
@@ -38,12 +39,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="ja">
 			<head>
+				<script src="https://unpkg.com/react-scan/dist/auto.global.js" />
 				<GoogleAnalytics gaId={gaId} />
 				<GoogleTagManager gtmId={`GTM-${gtmId}`} />
 				<Clarity />
 			</head>
 			<body>
 				<Header />
+				<ReactScan />
 				{children}
 				<Footer />
 			</body>

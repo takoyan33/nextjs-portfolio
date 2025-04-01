@@ -10,9 +10,7 @@ export const HomeFvSection = () => {
 				<h2 className="fv__title slide__in__right">To You Design</h2>
 				<h3 className="fv__subtitle slide__in__right">Portfolio</h3>
 				<ScrollComponent>
-					<Suspense fallback={<>.</>}>
-						<ThreeModel />
-					</Suspense>
+					<ThreeModel />
 				</ScrollComponent>
 			</div>
 			{/* </div> */}

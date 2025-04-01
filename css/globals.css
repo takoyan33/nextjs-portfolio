@@ -1271,6 +1271,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  word-break: break-all;
 }
 .portfolioDetail__element-link:hover {
   opacity: 0.7;
