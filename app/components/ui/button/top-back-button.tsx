@@ -5,7 +5,8 @@ import { useEffect, useState } from "react"
 
 export const TopBackButton = () => {
 	const [showBackButton, setShowBackButton] = useState<boolean>(false)
-	// 150px以上スクロールしたらボタンを表示
+
+	/** 150px以上スクロールしたらボタンを表示 */
 	const handleScroll = () => {
 		setShowBackButton(window.scrollY > 150)
 	}

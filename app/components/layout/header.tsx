@@ -10,7 +10,7 @@ import { TransitionLink } from "../ui"
 export const Header = () => {
 	const [openMenu, setOpenMenu] = useState<boolean>(false)
 
-	// メニューの開閉
+	/** メニューの開閉 */
 	const toggleMenu = () => setOpenMenu((prev) => !prev)
 
 	const MENU_ITEMS: MenuItem[] = [

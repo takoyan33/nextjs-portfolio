@@ -13,6 +13,7 @@ interface SkillProps {
 export const SkillElement = ({ name, rank, tag, icon, about }: SkillProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 
+	/** アコーディオンの開閉 */
 	const handleToggle = () => {
 		setIsOpen(!isOpen)
 	}
