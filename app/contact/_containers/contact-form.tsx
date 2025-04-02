@@ -44,8 +44,11 @@ export const ContactForm = () => {
 	}
 
 	// 確認画面へ
-	const handleConfirm = (): void => {
+	const handleConfirm = (data): void => {
 		const isValid = Object.keys(errors).length === 0
+		setName(data.name)
+		setEmail(data.email)
+		setMessage(data.message)
 		if (isValid) {
 			setIsConfirming(true)
 		}
@@ -96,9 +99,7 @@ export const ContactForm = () => {
 						id="name"
 						placeholder="山田 太郎"
 						className="form-box-textarea"
-						value={name}
 						{...register("name", { required: "名前を入力してください" })}
-						onChange={(e) => setName(e.target.value)}
 						required
 					/>
 					<div />
@@ -115,8 +116,6 @@ export const ContactForm = () => {
 						placeholder="sample@email.com"
 						className="form-box-textarea"
 						{...register("email", { required: "emailを入力してください" })}
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
 					<div />
@@ -134,8 +133,6 @@ export const ContactForm = () => {
 							required: "メッセージを入力してください",
 						})}
 						rows={5}
-						value={message}
-						onChange={(e) => setMessage(e.target.value)}
 						required
 					/>
 					<div />
