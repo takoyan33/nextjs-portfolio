@@ -1359,6 +1359,7 @@ body {
 }
 html {
   scroll-behavior: smooth;
+  font-feature-settings: "palt";
 }
 
 body {
