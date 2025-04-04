@@ -10,6 +10,9 @@ interface ZennArticleItemProps {
 	zenn_path: string
 }
 
+/**
+ * Zennの記事
+ */
 export default function ZennArticleItem({
 	zenn_id,
 	zenn_title,

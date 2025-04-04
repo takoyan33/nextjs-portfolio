@@ -3,6 +3,9 @@ import React from "react"
 import licenses from "../../../../public/mock/api/licenses/index.json"
 // import type { License } from "../../../../types"
 
+/**
+ * 資格のタイムライン
+ */
 export const LicenseList = () => {
 	// const licenses = await fetchLicenses()
 

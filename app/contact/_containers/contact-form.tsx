@@ -7,6 +7,9 @@ import { CommonButton } from "../../../app/components/ui/button/common-button"
 import { emailjsConfig } from "../../../utils/emailjs"
 import { CommonLabel } from "../../components/ui/"
 
+/**
+ * お問い合わせフォーム
+ */
 export const ContactForm = () => {
 	const [name, setName] = useState<string>("")
 	const [email, setEmail] = useState<string>("")
@@ -19,7 +22,7 @@ export const ContactForm = () => {
 		formState: { errors },
 	} = useForm()
 
-	// お問い合わせフォーム送信
+	/** お問い合わせフォーム送信 */
 	const sendMail = (): void => {
 		if (
 			emailjsConfig.serviceId !== undefined &&
@@ -43,7 +46,7 @@ export const ContactForm = () => {
 		}
 	}
 
-	// 確認画面へ
+	/** 確認画面に遷移 */
 	const handleConfirm = (data): void => {
 		const isValid = Object.keys(errors).length === 0
 		setName(data.name)
@@ -54,7 +57,7 @@ export const ContactForm = () => {
 		}
 	}
 
-	// フォームに戻る
+	/** フォームに戻る */
 	const handleBack = (): void => {
 		setIsConfirming(false)
 	}

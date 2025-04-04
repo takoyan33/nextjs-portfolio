@@ -3,6 +3,9 @@ interface LowerTitleProps {
 	title: string
 }
 
+/**
+ * 下層タイトル
+ */
 export const LowerTitle: React.FC<LowerTitleProps> = ({ title, enTitle }) => {
 	return (
 		<div className="lower__bg">

@@ -8,6 +8,9 @@ interface CommonButtonProps {
 	handleClick?: () => void
 }
 
+/**
+ * ボタン
+ */
 export const CommonButton: React.FC<CommonButtonProps> = ({
 	text,
 	className = "more",

@@ -22,6 +22,9 @@ const PortfolioTags: React.FC<{ tags: string[] }> = ({ tags }) => (
 	</ul>
 )
 
+/**
+ * トップページのスライドショー要素
+ */
 const HomePortfolioSlideItem: React.FC<PortfolioItemProps> = React.memo(
 	({
 		portfolio_id,

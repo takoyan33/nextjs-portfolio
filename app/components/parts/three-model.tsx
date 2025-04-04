@@ -8,7 +8,9 @@ import type { Group } from "three"
 import type { MeshStandardMaterial } from "three"
 import * as THREE from "three"
 
-// モデルコンポーネント
+/**
+ * Three.jsのモデル
+ */
 const Model = ({
 	url,
 	scale,

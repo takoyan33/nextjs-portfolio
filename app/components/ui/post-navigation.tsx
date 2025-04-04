@@ -11,6 +11,9 @@ interface PostNavigationProps {
 	prev_article_id?: string
 }
 
+/**
+ * ポストナビゲーション
+ */
 export const PostNavigation = ({
 	next_title = "",
 	next_article_id = "",

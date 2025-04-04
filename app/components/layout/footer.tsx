@@ -4,7 +4,7 @@ import { TransitionLink } from "../ui"
 
 export const Footer = () => {
 	// 現在の年度
-	const currentYear = new Date().getFullYear()
+	const currentYear: number = new Date().getFullYear()
 
 	// Footerメニュー
 	const MENU_ITEMS: MenuItem[] = [

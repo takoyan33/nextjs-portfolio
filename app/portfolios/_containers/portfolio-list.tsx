@@ -7,6 +7,9 @@ import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
 import PortfolioItem from "../../components/ui/portfolio-item"
 
+/**
+ * ポートフォリオ一覧
+ */
 export const PortfolioList = () => {
 	// const portfolios = await fetchPortfolios()
 
@@ -24,7 +27,7 @@ export const PortfolioList = () => {
 		setPortfolios(portfoliosData)
 	}, [])
 
-	// ポートフォリオの絞り込み
+	/** ポートフォリオの絞り込み */
 	const filterPortfolio = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const value = e.target.value
 		const sortedData = portfolios ? [...portfolios] : []

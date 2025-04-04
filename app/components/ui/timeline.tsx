@@ -6,6 +6,9 @@ type TimelineProps = {
 	body: string
 }
 
+/**
+ * タイムライン
+ */
 export const Timeline = ({ title, date, body }: TimelineProps) => {
 	return (
 		<>

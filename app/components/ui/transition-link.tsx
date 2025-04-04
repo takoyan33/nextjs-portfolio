@@ -15,6 +15,9 @@ function sleep(ms: number): Promise<void> {
 	return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+/**
+ * アニメーション効果のあるリンク
+ */
 export const TransitionLink = ({
 	href,
 	children,

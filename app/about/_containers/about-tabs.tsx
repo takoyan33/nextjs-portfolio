@@ -2,8 +2,11 @@
 
 import { useState } from "react"
 import React from "react"
-import { HistoryTimeline, JobTimeline } from "../../components/ui/rsc"
+import { CareerHistoryTimeline, JobTimeline } from "../../components/ui/rsc"
 
+/**
+ * Aboutのタブ
+ */
 export const AboutTabs = () => {
 	const [activeTab, setActiveTab] = useState<"history" | "career">("history")
 
@@ -42,7 +45,7 @@ export const AboutTabs = () => {
 				{activeTab === "history" && (
 					<div aria-labelledby="tabA">
 						<h2 className="lower__subTitle">経歴</h2>
-						<HistoryTimeline />
+						<CareerHistoryTimeline />
 					</div>
 				)}
 				{activeTab === "career" && (
