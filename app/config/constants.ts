@@ -1,5 +1,8 @@
 import type { SocialLink } from "../types/social"
 
+/**
+ * SNSのリンク
+ */
 export const SOCIAL_LINKS: readonly SocialLink[] = [
 	{
 		href: "https://github.com/takoyan33",
@@ -24,6 +27,9 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
 	},
 ] as const
 
+/**
+ * プロフィール
+ */
 export const PROFILE = {
 	name: "阿部 舜平",
 	role: "フロントエンドエンジニア",

@@ -17,6 +17,9 @@ const skillCategories = [
 	{ title: "Other", skills: otherSkills },
 ] as const
 
+/**
+ * トップページのスキル
+ */
 export const HomeSkills = () => {
 	// const [frontSkills, setFrontSkills] = useState<skill[]>()
 

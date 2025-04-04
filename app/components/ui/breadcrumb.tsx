@@ -10,6 +10,9 @@ interface BreadcrumbProps {
 	thirdTitle?: string
 }
 
+/**
+ * パンくずリスト
+ */
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
 	name,
 	link,

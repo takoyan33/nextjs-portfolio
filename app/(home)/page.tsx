@@ -1,6 +1,6 @@
 import { TopBackButton } from "app/components/ui"
 import { CommonButton } from "app/components/ui/button/common-button"
-import { HistoryTimeline } from "app/components/ui/rsc"
+import { CareerHistoryTimeline } from "app/components/ui/rsc"
 import ScrollComponent from "hooks/use-fadeIn"
 import { PATH } from "utils/path"
 import {
@@ -45,7 +45,7 @@ const Home = () => {
 					</ScrollComponent>
 					<div>
 						<ScrollComponent>
-							<HistoryTimeline />
+							<CareerHistoryTimeline />
 						</ScrollComponent>
 					</div>
 					<CommonButton text="経歴をさらに見る" link={PATH.ABOUT} />

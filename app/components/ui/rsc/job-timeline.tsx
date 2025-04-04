@@ -7,6 +7,9 @@ import jobs from "../../../../public/mock/api/jobs/index.json"
 import type { Job } from "../../../../types"
 import styles from "../css/timeline.module.scss"
 
+/**
+ * 職歴のタイムライン
+ */
 export const JobTimeline = () => {
 	// const [jobs, setJobs] = useState<Job[]>([])
 

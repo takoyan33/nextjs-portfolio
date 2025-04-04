@@ -15,6 +15,9 @@ import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../../types"
 import HomePortfolioSlideItem from "./home-portfolio-slide-item"
 
+/**
+ * トップページのスライドショー
+ */
 export const HomePortfolioSlide = () => {
 	const BREAK_POINT = {
 		0: {

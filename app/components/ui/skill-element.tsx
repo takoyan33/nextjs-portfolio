@@ -10,6 +10,9 @@ interface SkillProps {
 	about: string
 }
 
+/**
+ * スキルの要素
+ */
 export const SkillElement = ({ name, rank, tag, icon, about }: SkillProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 

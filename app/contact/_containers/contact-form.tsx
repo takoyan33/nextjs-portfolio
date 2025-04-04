@@ -7,6 +7,9 @@ import { CommonButton } from "../../../app/components/ui/button/common-button"
 import { emailjsConfig } from "../../../utils/emailjs"
 import { CommonLabel } from "../../components/ui/"
 
+/**
+ * お問い合わせフォーム
+ */
 export const ContactForm = () => {
 	const [name, setName] = useState<string>("")
 	const [email, setEmail] = useState<string>("")

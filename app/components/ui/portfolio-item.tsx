@@ -11,6 +11,9 @@ interface PortfolioItemProps {
 	readonly portfolio_topImg: string
 }
 
+/**
+ * ポートフォリオの記事カード
+ */
 const PortfolioItem = React.memo(function PortfolioItem({
 	portfolio_id,
 	portfolio_name,

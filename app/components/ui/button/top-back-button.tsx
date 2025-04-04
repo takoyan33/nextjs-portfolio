@@ -3,6 +3,9 @@ import { ChevronUp } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
+/**
+ * 戻るボタン
+ */
 export const TopBackButton = () => {
 	const [showBackButton, setShowBackButton] = useState<boolean>(false)
 

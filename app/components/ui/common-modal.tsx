@@ -9,6 +9,9 @@ interface CommonModalProps {
 	closeModal: () => void
 }
 
+/**
+ * モーダル
+ */
 export const CommonModalComponent = ({
 	isOpen = false,
 	img,

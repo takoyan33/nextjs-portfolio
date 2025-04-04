@@ -7,7 +7,10 @@ import type { History } from "../../../../types"
 import styles from "../css/timeline.module.scss"
 import { Timeline } from "../timeline"
 
-export const HistoryTimeline = () => {
+/**
+ * 経歴のタイムライン
+ */
+export const CareerHistoryTimeline = () => {
 	// const [histories, setHistories] = useState<History[]>([])
 	// useEffect(() => {
 	// 	const fetchData = async () => {

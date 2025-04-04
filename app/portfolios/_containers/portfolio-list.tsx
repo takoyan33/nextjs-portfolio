@@ -7,6 +7,9 @@ import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
 import PortfolioItem from "../../components/ui/portfolio-item"
 
+/**
+ * ポートフォリオ一覧
+ */
 export const PortfolioList = () => {
 	// const portfolios = await fetchPortfolios()
 
