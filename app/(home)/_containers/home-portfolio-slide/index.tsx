@@ -7,10 +7,10 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
+// import Image from "next/image"
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-// import { fetchPortfoliosFront } from "../../../../hooks/fetch"
+import { fetchPortfoliosFront } from "../../../../hooks/fetch"
 import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../../types"
 import HomePortfolioSlideItem from "./home-portfolio-slide-item"
@@ -34,11 +34,11 @@ export const HomePortfolioSlide = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			// const data = await fetchPortfoliosFront()
-			// data.data.sort((a, b) => {
-			// 	return new Date(b.date).getTime() - new Date(a.date).getTime()
-			// })
-			// setPortfolios(data.data)
+			const data = await fetchPortfoliosFront()
+			data.data.sort((a, b) => {
+				return new Date(b.date).getTime() - new Date(a.date).getTime()
+			})
+			setPortfolios(data.data)
 			portfoliosData?.sort((a, b) => {
 				return new Date(b.date).getTime() - new Date(a.date).getTime()
 			})
