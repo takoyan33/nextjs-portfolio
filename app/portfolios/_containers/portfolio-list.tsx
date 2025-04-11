@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useEffect, useState } from "react"
-// import { fetchPortfoliosFront } from "../../../hooks/fetch"
+import { fetchPortfoliosFront } from "../../../hooks/fetch"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
 import PortfolioItem from "../../components/ui/portfolio-item"
@@ -16,11 +16,12 @@ export const PortfolioList = () => {
 	const [portfolios, setPortfolios] = useState<PortfolioType[]>()
 
 	useEffect(() => {
-		// const fetchData = async () => {
-		// 	const data = await fetchPortfoliosFront()
-		// 	setPortfolios(data.data)
-		// }
-		// fetchData()
+		const fetchData = async () => {
+			const data = await fetchPortfoliosFront()
+			setPortfolios(data.data)
+		}
+		fetchData()
+
 		portfoliosData?.sort((a, b) => {
 			return new Date(b.date).getTime() + new Date(a.date).getTime()
 		})

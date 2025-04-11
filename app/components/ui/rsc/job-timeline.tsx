@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 import React, { useEffect, useState } from "react"
 import { Timeline } from ".."
@@ -11,16 +11,16 @@ import styles from "../css/timeline.module.scss"
  * 職歴のタイムライン
  */
 export const JobTimeline = () => {
-	// const [jobs, setJobs] = useState<Job[]>([])
+	const [jobs, setJobs] = useState<Job[]>([])
 
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		const data = await fetchJobs()
-	// 		setJobs(data.data)
-	// 	}
+	useEffect(() => {
+		const fetchData = async () => {
+			const data = await fetchJobs()
+			setJobs(data.data)
+		}
 
-	// 	fetchData()
-	// }, [])
+		fetchData()
+	}, [])
 	return (
 		<div className={styles.timeline}>
 			<dl>

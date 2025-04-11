@@ -6,6 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import { fetchPortfolio } from "../../../hooks/fetch"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
 import { PATH } from "../../../utils/path"
@@ -37,15 +38,15 @@ const Post = () => {
 		}
 	}, [id])
 
-	// useEffect(() => {
-	// 	if (id) {
-	// 		const fetchData = async () => {
-	// 			const data = await fetchPortfolio(id)
-	// 			setPortfolio(data.data)
-	// 		}
-	// 		fetchData()
-	// 	}
-	// }, [])
+	useEffect(() => {
+		if (id) {
+			const fetchData = async () => {
+				const data = await fetchPortfolio(id)
+				setPortfolio(data.data)
+			}
+			fetchData()
+		}
+	}, [])
 
 	//サムネイル
 	const [isOpen, setIsOpen] = useState<boolean>(false)
