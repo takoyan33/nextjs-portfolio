@@ -8,18 +8,18 @@
     margin: 30px 0;
   }
   &__heading {
-    text-align: left;
-    font-size: 20px;
     margin-bottom: 10px;
+    font-size: 20px;
+    text-align: left;
   }
   &__text {
-    text-align: left;
     margin-bottom: 20px;
+    text-align: left;
   }
   &__link {
+  margin: 6px 0;
   color: #0066cc;
 	text-decoration: underline;
-  margin: 6px 0;
 
 	&:hover {
 		text-decoration: none;

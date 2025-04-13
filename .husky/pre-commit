@@ -1,2 +1,13 @@
+#!/usr/bin/env sh
+
+echo "----- start pre-commit -------"
+
 yarn format
+
 yarn build
+
+# yarn test
+
+# yarn lint:style:fix
+
+echo "----- end pre-commit -------"
