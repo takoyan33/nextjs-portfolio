@@ -28,6 +28,11 @@ export const Footer = () => {
 			title: "お問い合わせ",
 			link: PATH.CONTACT,
 		},
+		{
+			id: 4,
+			title: "プライバシーポリシー",
+			link: PATH.PRIVACY_POLICY,
+		},
 	]
 	return (
 		<footer className="footer" aria-label="フッター">

@@ -33,9 +33,7 @@ export const fetchJobs = async (): Promise<ResponseJob> => {
  * @return {ResponseLicense}
  */
 export const fetchLicenses = async (): Promise<ResponseLicense> => {
-	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/licenses`,
-	)
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`)
 	return response.json()
 }
 
