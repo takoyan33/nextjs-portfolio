@@ -41,6 +41,7 @@ const HomePortfolioSlideItem: React.FC<PortfolioItemProps> = React.memo(
 						alt="ポートフォリオ画像"
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
+						quality={60}
 						className={styles.SlideItem__img_item}
 					/>
 				</div>

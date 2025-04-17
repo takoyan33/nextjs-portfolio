@@ -34,6 +34,7 @@ const PortfolioItem = React.memo(function PortfolioItem({
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
 						className="portfolioItem__img-item"
+						quality={40}
 					/>
 				</div>
 				<div className="portfolioItem__content">

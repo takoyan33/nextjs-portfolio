@@ -63,7 +63,7 @@ export const PortfolioList = () => {
 			<div className="portfolio__List">
 				{portfolios?.map((portfolio: PortfolioType) => (
 					<PortfolioItem
-						key={portfolio.id}
+						key={portfolio.id + portfolio.name}
 						portfolio_id={portfolio.id}
 						portfolio_name={portfolio.name}
 						portfolio_date={portfolio.date}

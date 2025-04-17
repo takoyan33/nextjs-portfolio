@@ -60,7 +60,7 @@ export const Header = () => {
 					<nav aria-label="メインナビゲーション">
 						<ul>
 							{MENU_ITEMS.map((item) => (
-								<li key={item.id}>
+								<li key={item.id + item.title}>
 									<TransitionLink href={item.link}>{item.title}</TransitionLink>
 								</li>
 							))}
@@ -85,7 +85,7 @@ export const Header = () => {
 			<div className={`drawerMenu ${openMenu ? "open" : undefined}`}>
 				<ul>
 					{MENU_ITEMS.map((item) => (
-						<li key={item.id}>
+						<li key={item.id + item.title}>
 							<TransitionLink href={item.link} setOpenMenu={setOpenMenu}>
 								<span className="mainTitle">{item.title}</span>
 							</TransitionLink>
