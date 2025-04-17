@@ -6,7 +6,7 @@ export const ProfileSnsLinks = () => {
 	return (
 		<div className="about__container">
 			{SOCIAL_LINKS.map((link) => (
-				<Link key={link.href} href={link.href} target="_blank">
+				<Link key={link.href + link.alt} href={link.href} target="_blank">
 					<Image
 						src={link.src}
 						className="about__sns-icon"

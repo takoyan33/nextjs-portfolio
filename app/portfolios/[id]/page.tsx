@@ -129,7 +129,8 @@ const Post = () => {
 								{portfolio.topImg && (
 									<Image
 										src={portfolio.topImg}
-										fill
+										width={400}
+										height={600}
 										sizes="(min-width: 768px) 50vw"
 										priority
 										alt="ポートフォリオのトップ画像"
@@ -150,7 +151,8 @@ const Post = () => {
 										src={portfolio.aboutImg}
 										className="portfolioDetail__element-img"
 										alt="ポートフォリオの概要画像"
-										fill
+										width={400}
+										height={600}
 										sizes="(min-width: 768px) 50vw, 100vw"
 									/>
 								)}
@@ -172,7 +174,8 @@ const Post = () => {
 										src={portfolio.functionImg}
 										className="portfolioDetail__element-img"
 										alt="ポートフォリオの機能一覧画像"
-										fill
+										width={400}
+										height={600}
 										sizes="(min-width: 768px) 50vw, 100vw"
 									/>
 								)}
@@ -194,7 +197,8 @@ const Post = () => {
 										src={portfolio.appealImg}
 										className="portfolioDetail__element-img"
 										alt="ポートフォリオのアピール画像"
-										fill
+										width={400}
+										height={600}
 										sizes="(min-width: 768px) 50vw, 100vw"
 									/>
 								)}

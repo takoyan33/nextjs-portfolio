@@ -48,7 +48,7 @@ export const HomePortfolioSlide = () => {
 	}, [])
 
 	const slides = portfolios?.map((portfolio) => (
-		<SwiperSlide key={portfolio.id}>
+		<SwiperSlide key={portfolio.id + portfolio.name}>
 			<HomePortfolioSlideItem
 				portfolio_id={portfolio.id}
 				portfolio_name={portfolio.name}
