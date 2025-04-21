@@ -13,7 +13,7 @@ const About = () => {
 	return (
 		<main className="u-padding">
 			<div className="max_width">
-				<Breadcrumb name="About" link={PATH.ABOUT} />
+				<Breadcrumb items={[{ name: "About", link: PATH.ABOUT }]} />
 			</div>
 			<LowerTitle title="About" enTitle="プロフィール" />
 			<AboutTabs />

@@ -11,7 +11,9 @@ const PrivacyPolicy = () => {
 	return (
 		<main className="privacy-policy">
 			<div className="max_width">
-				<Breadcrumb name="プライバシーポリシー" link={PATH.PRIVACY_POLICY} />
+				<Breadcrumb
+					items={[{ name: "Privacy Policy", link: PATH.PRIVACY_POLICY }]}
+				/>
 			</div>
 			<LowerTitle title="プライバシーポリシー" enTitle="privacy policy" />
 			<div className="privacy-policy__content max_width">

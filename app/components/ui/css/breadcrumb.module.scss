@@ -1,53 +1,73 @@
 @use '../../../../styles/common/_variables.scss' as *;
 @use '../../../../styles/common/_mixin';
 
-
-//パンくずりすと
+// パンくずリスト
 .breadcrumb {
-  &__title {
+  &__list {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     align-items: center;
     margin: 10px auto;
-    text-align: left;
-    &-span {
-      font-weight: bold;
-    }
+    padding: 0;
+    list-style: none;
   }
-  &__first {
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__link {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
     &:hover {
-      color: $main-color;
+      color: #4485ff;
+    }
+
+    &[aria-current="page"] {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
   }
-  &__second {
+
+  &__text {
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 4px;
-    &:hover {
-      color: $main-color;
-    }
   }
-  &__arrow {
-    width: 15px;
-    height: 15px;
-    img {
-      display: block;
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+}
+
+@include mixin.tab {
+  .breadcrumb {
+    &__list {
+      margin-top: 70px;
     }
   }
 }
 
 @include mixin.sp {
   .breadcrumb {
-    &__title {
-      flex-wrap: wrap;
+    &__list {
       padding-top: 50px;
-      text-align: left;
     }
-    &__second {
-      font-weight: 600;
+
+    &__item {
+      gap: 8px;
     }
-    &__arrow {
-      margin: 0 8px;
+
+    &__separator {
+      margin: 0 4px;
     }
   }
 }

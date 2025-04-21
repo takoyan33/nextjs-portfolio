@@ -5,7 +5,7 @@ const Loading = () => {
 	return (
 		<div className="loading-body">
 			<div className="max_width">
-				<Breadcrumb name="Blog" link={PATH.BLOG} />
+				<Breadcrumb items={[{ name: "Blog", link: PATH.BLOG }]} />
 			</div>
 			<div className="lower__bg">
 				<div className="max_width">

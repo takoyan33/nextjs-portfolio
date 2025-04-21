@@ -15,6 +15,7 @@ interface ErrorPageProps {
 }
 
 const ErrorPage: NextPage<ErrorPageProps> = ({ error }) => {
+	console.log(error)
 	return (
 		<main className="errorPage">
 			<h1>404</h1>

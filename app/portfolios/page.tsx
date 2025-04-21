@@ -12,7 +12,7 @@ const Portfolio = () => {
 	return (
 		<main>
 			<div className="max_width">
-				<Breadcrumb name="Portfolio" link={PATH.PORTFOLIO} />
+				<Breadcrumb items={[{ name: "Portfolio", link: PATH.PORTFOLIO }]} />
 			</div>
 			<LowerTitle title="Portfolio" enTitle="制作物" />
 			<PortfolioList />
