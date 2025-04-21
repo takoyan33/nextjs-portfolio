@@ -130,12 +130,11 @@
       margin-inline: auto;
       margin-bottom: 80px;
       object-fit: contain;
-      border: 1px solid $grey;
     }
     &-img {
       position: relative;
       width: 100%;
-      height: auto;
+      height: 500px;
       aspect-ratio: 16 / 9;
       margin-inline: auto;
       object-fit: contain;
