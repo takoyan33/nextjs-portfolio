@@ -31,7 +31,7 @@ const Blog = async () => {
 	return (
 		<main>
 			<div className="max_width">
-				<Breadcrumb name="Blog" link={PATH.BLOG} />
+				<Breadcrumb items={[{ name: "Blog", link: PATH.BLOG }]} />
 			</div>
 			<LowerTitle title="Blog" enTitle="ブログ" />
 			<div className="blog__layout max_width">

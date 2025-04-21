@@ -13,6 +13,11 @@ interface PortfolioItemProps {
 
 /**
  * ポートフォリオの記事カード
+ * @param portfolio_id - ポートフォリオのID
+ * @param portfolio_name - ポートフォリオのタイトル
+ * @param portfolio_date - 作成日
+ * @param portfolio_tag - タグ一覧
+ * @param portfolio_topImg - サムネイル画像のパス
  */
 const PortfolioItem = React.memo(function PortfolioItem({
 	portfolio_id,
@@ -21,24 +26,33 @@ const PortfolioItem = React.memo(function PortfolioItem({
 	portfolio_tag,
 	portfolio_topImg,
 }: PortfolioItemProps) {
+	const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+		e.currentTarget.src = "/images/dummy-image.jpg"
+	}
+
 	return (
 		<article className="portfolio__List-item portfolioItem">
 			<TransitionLink
 				href={`portfolios/${portfolio_id}`}
 				className="portfolioItem__link"
+				aria-label={`${portfolio_name}の詳細を見る`}
 			>
 				<div className="portfolioItem__img">
 					<Image
 						src={portfolio_topImg}
-						alt="ポートフォリオ画像"
+						alt={`${portfolio_name}のサムネイル画像`}
 						fill
 						sizes="(min-width: 768px) 50vw, 100vw"
 						className="portfolioItem__img-item"
 						quality={40}
+						onError={handleImageError}
+						priority={false}
 					/>
 				</div>
 				<div className="portfolioItem__content">
-					<p className="portfolioItem__date">{portfolio_date}</p>
+					<time className="portfolioItem__date" dateTime={portfolio_date}>
+						{portfolio_date}
+					</time>
 					<h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
 					<ul className="portfolioItem__container">
 						{portfolio_tag.map((tag) => (
@@ -52,5 +66,7 @@ const PortfolioItem = React.memo(function PortfolioItem({
 		</article>
 	)
 })
+
+PortfolioItem.displayName = "PortfolioItem"
 
 export default PortfolioItem

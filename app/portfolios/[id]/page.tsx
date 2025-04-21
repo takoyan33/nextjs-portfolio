@@ -108,9 +108,10 @@ const Post = () => {
 				<article className="portfolioDetail__top">
 					<div className="max_width">
 						<Breadcrumb
-							name="Portfolio"
-							link={PATH.PORTFOLIO}
-							thirdTitle={portfolio.name}
+							items={[
+								{ name: "Portfolio", link: PATH.PORTFOLIO },
+								{ name: portfolio.name, link: "" },
+							]}
 						/>
 					</div>
 					<section className="portfolioDetail max_width">

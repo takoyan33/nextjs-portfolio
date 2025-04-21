@@ -12,7 +12,7 @@ const Contact = () => {
 	return (
 		<main>
 			<div className="max_width">
-				<Breadcrumb name="お問い合わせ" link={PATH.CONTACT} />
+				<Breadcrumb items={[{ name: "Contact", link: PATH.CONTACT }]} />
 			</div>
 			<LowerTitle title="お問い合わせ" enTitle="contact" />
 			<div className="max_width">
