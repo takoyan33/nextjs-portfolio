@@ -100,6 +100,13 @@ const Post = () => {
 		document.body.classList.remove("modal-open")
 	}
 
+	const scrollToSection = (id: string) => {
+		const element = document.getElementById(id)
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" })
+		}
+	}
+
 	return (
 		<main>
 			<title>To You Design - ポートフォリオ</title>
@@ -125,6 +132,58 @@ const Post = () => {
 							))}
 						</ul>
 
+						{/* 目次を追加 */}
+						<div className="portfolioDetail__toc">
+							<h3 className="portfolioDetail__toc-title">目次</h3>
+							<ul className="portfolioDetail__toc-list">
+								<li>
+									<button
+										type="button"
+										onClick={() => scrollToSection("about")}
+										className="portfolioDetail__toc-link"
+									>
+										About
+									</button>
+								</li>
+								<li>
+									<button
+										type="button"
+										onClick={() => scrollToSection("functions")}
+										className="portfolioDetail__toc-link"
+									>
+										機能一覧
+									</button>
+								</li>
+								<li>
+									<button
+										type="button"
+										onClick={() => scrollToSection("appeal")}
+										className="portfolioDetail__toc-link"
+									>
+										アピール
+									</button>
+								</li>
+								<li>
+									<button
+										type="button"
+										onClick={() => scrollToSection("development")}
+										className="portfolioDetail__toc-link"
+									>
+										制作期間・使用技術
+									</button>
+								</li>
+								<li>
+									<button
+										type="button"
+										onClick={() => scrollToSection("links")}
+										className="portfolioDetail__toc-link"
+									>
+										リンク
+									</button>
+								</li>
+							</ul>
+						</div>
+
 						<div className="portfolioDetail__element-topImg">
 							<button onClick={openModal} type="button">
 								{portfolio.topImg && (
@@ -144,7 +203,9 @@ const Post = () => {
 							closeModal={closeModal}
 							img={portfolio.topImg}
 						/>
-						<h3 className="portfolioDetail__element-subtitle">About</h3>
+						<h3 className="portfolioDetail__element-subtitle" id="about">
+							About
+						</h3>
 						<div className="portfolioDetail__element-img">
 							<button onClick={openModal2} type="button">
 								{portfolio.aboutImg && (
@@ -167,7 +228,9 @@ const Post = () => {
 						<div className="portfolioDetail__element-text">
 							{parse(portfolio?.about)}
 						</div>
-						<h3 className="portfolioDetail__element-subtitle">機能一覧</h3>
+						<h3 className="portfolioDetail__element-subtitle" id="functions">
+							機能一覧
+						</h3>
 						<div className="portfolioDetail__element-img">
 							<button onClick={openModal3} type="button">
 								{portfolio?.functionImg && (
@@ -190,7 +253,9 @@ const Post = () => {
 						<div className="portfolioDetail__element-text">
 							{parse(portfolio?.function)}
 						</div>
-						<h3 className="portfolioDetail__element-subtitle">アピール</h3>
+						<h3 className="portfolioDetail__element-subtitle" id="appeal">
+							アピール
+						</h3>
 						<div className="portfolioDetail__element-img">
 							<button onClick={openModal4} type="button">
 								{portfolio?.appealImg && (
@@ -214,7 +279,7 @@ const Post = () => {
 							{parse(portfolio?.appeal)}
 						</div>
 
-						<div className="portfolioDetail__element-text">
+						<div className="portfolioDetail__element-text" id="appeal">
 							<h3 className="portfolioDetail__element-subtitle">制作期間</h3>
 							{portfolio.time}
 						</div>
@@ -307,7 +372,7 @@ const Post = () => {
 							)}
 						</div>
 						{portfolio.front_url && (
-							<div className="portfolioDetail__element-text">
+							<div className="portfolioDetail__element-text" id="links">
 								<h3 className="portfolioDetail__element-subtitle">URL</h3>
 								<Link
 									href={portfolio.front_url}
