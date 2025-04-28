@@ -42,6 +42,47 @@
 .portfolio {
   background-color: $back-color;
 
+  &Detail{
+   &__toc {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    
+    &-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #333;
+      text-align: left;
+    }
+
+        &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    &-link {
+      display: block;
+      padding: 0.5rem 0;
+      color: #4485ff;
+      text-decoration: none;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      
+      &:hover {
+        color: #2563eb;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
   &__filter {
     display: flex;
     justify-content: flex-end;

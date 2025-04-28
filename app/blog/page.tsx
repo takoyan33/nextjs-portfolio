@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 const Blog = async () => {
 	let zennArticles: ZennProps | null = null
 
+	// zennの記事をfetch
 	try {
 		const response = await fetch(
 			"https://zenn.dev/api/articles?username=643866",
@@ -21,7 +22,7 @@ const Blog = async () => {
 	} catch (err) {
 		console.error(err)
 	}
-
+	//zennの記事を新しい順にsort
 	zennArticles?.articles.sort((a, b) => {
 		return (
 			new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
