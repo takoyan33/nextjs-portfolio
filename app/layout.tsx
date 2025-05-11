@@ -33,23 +33,19 @@ export const metadata: Metadata = {
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-	const gaId = process.env.NEXT_PUBLIC_GATAG ?? ""
 	const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
-
-	console.log(gaId)
 
 	return (
 		<html lang="ja">
 			<head>
 				{/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
-				<GoogleAnalytics gaId={gaId} />
+				<GoogleAnalytics />
 				<GoogleTagManager gtmId={`GTM-${gtmId}`} />
 				<Clarity />
 			</head>
 			<body>
 				<Header />
 				{/* <ReactScan /> */}
-				{gaId}
 				{children}
 				<Footer />
 			</body>
