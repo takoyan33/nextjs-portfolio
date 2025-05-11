@@ -1,26 +1,14 @@
-import { fetchPortfolio } from "../../../hooks/fetch"
+import { fetchPortfolio, fetchPortfoliosFront } from "../../../hooks/fetch"
 import type { PortfolioType } from "../../../types"
 import { PortfolioDetail } from "./portfolio-detail"
 
 // 静的生成用の関数
 export async function generateStaticParams() {
-	try {
-		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`,
-		)
-		if (!response.ok) {
-			throw new Error("Failed to fetch portfolios")
-		}
-		const data = await response.json()
-		const portfolios = data.data || []
+	const portfolios = await fetchPortfoliosFront()
 
-		return portfolios.map((portfolio: PortfolioType) => ({
-			id: portfolio.id.toString(),
-		}))
-	} catch (error) {
-		console.error("Error in generateStaticParams:", error)
-		return []
-	}
+	return portfolios.data.map((portfolio: PortfolioType) => ({
+		id: portfolio.id.toString(),
+	}))
 }
 
 // メタデータの生成
