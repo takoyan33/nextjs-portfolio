@@ -36,6 +36,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	const gaId = process.env.NEXT_PUBLIC_GATAG ?? ""
 	const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
+	console.log(gaId)
+
 	return (
 		<html lang="ja">
 			<head>
@@ -47,6 +49,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 			<body>
 				<Header />
 				{/* <ReactScan /> */}
+				{gaId}
 				{children}
 				<Footer />
 			</body>
