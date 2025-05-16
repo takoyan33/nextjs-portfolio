@@ -1,9 +1,9 @@
 module.exports = {
-  extends: ['prettier'],
+  extends: ['prettier', 'plugin:storybook/recommended'],
   root: true,
   rules: {
     // 使っていない変数を警告しない
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'on',
     // ReactHookのルールを無効化
     'react-hooks/rules-of-hooks': 'off',
     // インポート文の順序を統一
