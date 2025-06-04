@@ -1,0 +1,74 @@
+$main-color: oklch(63.8% 48.5% 261.57); //#4485ff
+
+//ブレークポイントを変数化
+$pc: 1200px; //パソコン
+$tab: 1024px; //タブレット
+$sp: 500px; //スマホ
+
+@mixin pc {
+  @media screen and (max-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (max-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+
+//パンくずりすと
+.breadcrumb {
+  &__title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px auto;
+    text-align: left;
+    &-span {
+      font-weight: bold;
+    }
+  }
+  &__first {
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__second {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__arrow {
+    width: 15px;
+    height: 15px;
+    img {
+      display: block;
+    }
+  }
+}
+
+@include sp {
+  .breadcrumb {
+    &__title {
+      flex-wrap: wrap;
+      padding-top: 50px;
+      text-align: left;
+    }
+    &__second {
+      font-weight: 600;
+    }
+    &__arrow {
+      margin: 0 8px;
+    }
+  }
+}

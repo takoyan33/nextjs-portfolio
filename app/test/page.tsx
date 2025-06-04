@@ -1,17 +1,10 @@
-import React from 'react'
-import { MoonLoader } from 'react-spinners'
-import type { NextPage } from 'next'
+import Link from "next/link"
 
-const Loading = () => {
-  return (
-    <div className='loading'>
-      <div className='spinner-box'>
-        <div className='circle-border'>
-          <div className='circle-core'></div>
-        </div>
-      </div>
-    </div>
-  )
+export default function Page() {
+	return (
+		<div>
+			<h1>Home</h1>
+			<Link href="/about">About</Link>
+		</div>
+	)
 }
-
-export default Loading
