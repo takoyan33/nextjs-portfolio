@@ -1,25 +1,19 @@
-"use client"
-
-import React, { useEffect, useState } from "react"
-import { fetchHistories } from "../../../../hooks/fetch"
-//import histories from "../../../../public/mock/api/histories/index.json"
-import type { History } from "../../../../types"
+import React from "react"
 import styles from "../css/timeline.module.scss"
 import { Timeline } from "../timeline"
 
 /**
  * 経歴のタイムライン
  */
-export const CareerHistoryTimeline = () => {
-	const [histories, setHistories] = useState<History[]>([])
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchHistories()
-			setHistories(data.data)
-		}
+export const CareerHistoryTimeline = async () => {
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
+		{
+			cache: "no-store",
+		},
+	)
+	const { data: histories } = await response.json()
 
-		fetchData()
-	}, [])
 	return (
 		<div className={styles.timeline}>
 			<dl>

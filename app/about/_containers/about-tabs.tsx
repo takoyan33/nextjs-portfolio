@@ -45,7 +45,7 @@ export const AboutTabs = () => {
 				{activeTab === "history" && (
 					<div aria-labelledby="tabA">
 						<h2 className="lower__subTitle">経歴</h2>
-						<CareerHistoryTimeline />
+						{CareerHistoryTimeline()}
 					</div>
 				)}
 				{activeTab === "career" && (
