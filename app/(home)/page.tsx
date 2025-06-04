@@ -11,7 +11,7 @@ import {
 } from "./_containers/"
 import { HomeAboutSection, HomeFvSection } from "./sections"
 
-const Home = () => {
+export default async function Home() {
 	return (
 		<div>
 			<main aria-label="本文">
@@ -45,7 +45,7 @@ const Home = () => {
 					</ScrollComponent>
 					<div>
 						<ScrollComponent>
-							<CareerHistoryTimeline />
+							{CareerHistoryTimeline()}
 						</ScrollComponent>
 					</div>
 					<CommonButton text="経歴をさらに見る" link={PATH.ABOUT} />
@@ -85,5 +85,3 @@ const Home = () => {
 		</div>
 	)
 }
-
-export default Home
