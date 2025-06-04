@@ -51,7 +51,7 @@ export const AboutTabs = () => {
 				{activeTab === "career" && (
 					<div aria-labelledby="tabB">
 						<h2 className="lower__subTitle">職歴</h2>
-						<JobTimeline />
+						{JobTimeline()}
 					</div>
 				)}
 			</div>

@@ -1,24 +1,17 @@
-"use client"
-
-import React, { useState, useEffect } from "react"
-import { fetchLicenses } from "../../../../hooks/fetch"
-//import licenses from "../../../../public/mock/api/licenses/index.json"
-import type { License } from "../../../../types"
+import React from "react"
 
 /**
  * 資格のタイムライン
  */
-export const LicenseList = () => {
-	const [licenses, setLicenses] = useState<License[]>([])
+export const LicenseList = async () => {
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}api/licenses`,
+		{
+			cache: "no-store",
+		},
+	)
+	const { data: licenses } = await response.json()
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchLicenses()
-			setLicenses(data.data)
-		}
-
-		fetchData()
-	}, [])
 	return (
 		<>
 			{licenses?.map((license) => (

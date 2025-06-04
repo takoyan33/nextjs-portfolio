@@ -1,26 +1,16 @@
-"use client"
-
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Timeline } from ".."
-import { fetchJobs } from "../../../../hooks/fetch"
-import jobs from "../../../../public/mock/api/jobs/index.json"
-import type { Job } from "../../../../types"
 import styles from "../css/timeline.module.scss"
 
 /**
  * 職歴のタイムライン
  */
-export const JobTimeline = () => {
-	const [jobs, setJobs] = useState<Job[]>([])
+export const JobTimeline = async () => {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
+		cache: "no-store",
+	})
+	const { data: jobs } = await response.json()
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = await fetchJobs()
-			setJobs(data.data)
-		}
-
-		fetchData()
-	}, [])
 	return (
 		<div className={styles.timeline}>
 			<dl>
