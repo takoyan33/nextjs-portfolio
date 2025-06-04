@@ -6,12 +6,9 @@ import styles from "../css/timeline.module.scss"
  * 職歴のタイムライン
  */
 export const JobTimeline = async () => {
-	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
-		{
-			cache: "no-store",
-		},
-	)
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
+		cache: "no-store",
+	})
 	const { data: jobs } = await response.json()
 
 	return (
