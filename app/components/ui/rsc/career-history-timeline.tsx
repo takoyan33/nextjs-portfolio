@@ -6,12 +6,9 @@ import { Timeline } from "../timeline"
  * 経歴のタイムライン
  */
 export const CareerHistoryTimeline = async () => {
-	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
-		{
-			cache: "no-store",
-		},
-	)
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
+		cache: "no-store",
+	})
 	const { data: histories } = await response.json()
 
 	return (
