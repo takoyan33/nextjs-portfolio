@@ -7,7 +7,7 @@ import styles from "../css/timeline.module.scss"
  */
 export const JobTimeline = async () => {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
-		cache: "no-store",
+		next: { revalidate: 3600 },
 	})
 	const { data: jobs } = await response.json()
 
