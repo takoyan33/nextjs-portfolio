@@ -7,7 +7,7 @@ export const LicenseList = async () => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/licenses`,
 		{
-			cache: "no-store",
+			next: { revalidate: 3600 },
 		},
 	)
 	const { data: licenses } = await response.json()

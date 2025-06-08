@@ -9,7 +9,7 @@ export const CareerHistoryTimeline = async () => {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}api/histories`,
 		{
-			cache: "no-store",
+			next: { revalidate: 3600 },
 		},
 	)
 	const { data: histories } = await response.json()
