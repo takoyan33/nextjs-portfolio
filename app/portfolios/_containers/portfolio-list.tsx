@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { fetchPortfoliosFront } from "../../../hooks/fetch"
 import portfoliosData from "../../../public/mock/api/portfolios/index.json"
 import type { PortfolioType } from "../../../types"
@@ -11,8 +11,6 @@ import PortfolioItem from "../../components/ui/portfolio-item"
  * ポートフォリオ一覧
  */
 export const PortfolioList = () => {
-	// const portfolios = await fetchPortfolios()
-
 	const [portfolios, setPortfolios] = useState<PortfolioType[]>()
 
 	useEffect(() => {
@@ -60,18 +58,20 @@ export const PortfolioList = () => {
 					</select>
 				</label>
 			</div>
-			<div className="portfolio__List">
-				{portfolios?.map((portfolio: PortfolioType) => (
-					<PortfolioItem
-						key={portfolio.id + portfolio.name}
-						portfolio_id={portfolio.id}
-						portfolio_name={portfolio.name}
-						portfolio_date={portfolio.date}
-						portfolio_tag={portfolio.tag}
-						portfolio_topImg={portfolio.topImg}
-					/>
-				))}
-			</div>
+			<Suspense fallback={<div>読み込み中...</div>}>
+				<div className="portfolio__List">
+					{portfolios?.map((portfolio: PortfolioType) => (
+						<PortfolioItem
+							key={portfolio.id + portfolio.name}
+							portfolio_id={portfolio.id}
+							portfolio_name={portfolio.name}
+							portfolio_date={portfolio.date}
+							portfolio_tag={portfolio.tag}
+							portfolio_topImg={portfolio.topImg}
+						/>
+					))}
+				</div>
+			</Suspense>
 		</div>
 	)
 }
