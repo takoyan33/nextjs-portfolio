@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import React from "react"
 import { CareerHistoryTimeline, JobTimeline } from "../../components/ui/rsc"
 
@@ -45,13 +45,17 @@ export const AboutTabs = () => {
 				{activeTab === "history" && (
 					<div aria-labelledby="tabA">
 						<h2 className="lower__subTitle">経歴</h2>
-						{CareerHistoryTimeline()}
+						<Suspense fallback={<div>読み込み中...</div>}>
+							{CareerHistoryTimeline()}
+						</Suspense>
 					</div>
 				)}
 				{activeTab === "career" && (
 					<div aria-labelledby="tabB">
 						<h2 className="lower__subTitle">職歴</h2>
-						{JobTimeline()}
+						<Suspense fallback={<div>読み込み中...</div>}>
+							{JobTimeline()}
+						</Suspense>
 					</div>
 				)}
 			</div>

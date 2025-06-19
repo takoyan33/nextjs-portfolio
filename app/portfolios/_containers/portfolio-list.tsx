@@ -11,14 +11,15 @@ import PortfolioItem from "../../components/ui/portfolio-item"
  * ポートフォリオ一覧
  */
 export const PortfolioList = () => {
-	// const portfolios = await fetchPortfolios()
-
 	const [portfolios, setPortfolios] = useState<PortfolioType[]>()
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setLoading(true)
 			const data = await fetchPortfoliosFront()
 			setPortfolios(data.data)
+			setLoading(false)
 		}
 		fetchData()
 
@@ -26,6 +27,7 @@ export const PortfolioList = () => {
 			return new Date(b.date).getTime() + new Date(a.date).getTime()
 		})
 		setPortfolios(portfoliosData)
+		setLoading(false)
 	}, [])
 
 	/** ポートフォリオの絞り込み */
@@ -47,31 +49,41 @@ export const PortfolioList = () => {
 	}
 	return (
 		<div className="max_width">
-			<h2 className="lower__subTitle">
-				全ての制作物
-				<span className="lower__subTitle-span">{portfolios?.length}件</span>
-			</h2>
-			<div className="portfolio__filter">
-				<label className="selectBox">
-					<select name="orders" id="order-select" onChange={filterPortfolio}>
-						<option value="new-order">並び替え</option>
-						<option value="new-order">新しい順</option>
-						<option value="old-order">古い順</option>
-					</select>
-				</label>
-			</div>
-			<div className="portfolio__List">
-				{portfolios?.map((portfolio: PortfolioType) => (
-					<PortfolioItem
-						key={portfolio.id + portfolio.name}
-						portfolio_id={portfolio.id}
-						portfolio_name={portfolio.name}
-						portfolio_date={portfolio.date}
-						portfolio_tag={portfolio.tag}
-						portfolio_topImg={portfolio.topImg}
-					/>
-				))}
-			</div>
+			{loading ? (
+				<div className="portfolio__loading">読み込み中...</div>
+			) : (
+				<>
+					<h2 className="lower__subTitle">
+						全ての制作物
+						<span className="lower__subTitle-span">{portfolios?.length}件</span>
+					</h2>
+					<div className="portfolio__filter">
+						<label className="selectBox">
+							<select
+								name="orders"
+								id="order-select"
+								onChange={filterPortfolio}
+							>
+								<option value="new-order">並び替え</option>
+								<option value="new-order">新しい順</option>
+								<option value="old-order">古い順</option>
+							</select>
+						</label>
+					</div>
+					<div className="portfolio__List">
+						{portfolios?.map((portfolio: PortfolioType) => (
+							<PortfolioItem
+								key={portfolio.id + portfolio.name}
+								portfolio_id={portfolio.id}
+								portfolio_name={portfolio.name}
+								portfolio_date={portfolio.date}
+								portfolio_tag={portfolio.tag}
+								portfolio_topImg={portfolio.topImg}
+							/>
+						))}
+					</div>
+				</>
+			)}
 		</div>
 	)
 }
