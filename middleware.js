@@ -10,7 +10,6 @@ export async function middleware(request) {
 		url.pathname = "/maintenance"
 		return NextResponse.rewrite(url)
 	}
-
 	// 通常どおりリクエストを続ける
 	return NextResponse.next()
 }
