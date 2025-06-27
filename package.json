@@ -26,6 +26,7 @@
 		"@react-three/drei": "^9.115.0",
 		"@react-three/fiber": "^8.17.10",
 		"@types/three": "^0.169.0",
+		"@vercel/edge-config": "^1.4.0",
 		"date-fns": "^2.11.1",
 		"dayjs": "^1.11.13",
 		"depcheck": "^1.4.7",
