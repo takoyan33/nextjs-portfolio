@@ -30,6 +30,9 @@
 
     &-textarea {
       padding: 8px;
+      &-error {
+        border: 1px solid red;
+      }
     }
 
     &-btn {
@@ -48,24 +51,11 @@
       font-size: 14px;
       color: $red;
       text-align: left;
+      margin-top: 4px;
     }
   }
 
-  /* 未記入でエラーがある場合に背景色を変更 */
-  // &:has(.form-box-textarea:invalid) {
-  //   background-color: #0d1014;
-  // }
 }
-
-// input:invalid,
-// textarea:invalid {
-//   border: solid 1px $red;
-// }
-
-
-  // .form-box-textarea:user-invalid {
-  //   border: 1px solid $red;
-  // }
 
 
   @include mixin.sp {

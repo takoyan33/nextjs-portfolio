@@ -101,7 +101,7 @@ export const ContactForm = () => {
 						type="text"
 						id="name"
 						placeholder="山田 太郎"
-						className="form-box-textarea"
+						className={`form-box-textarea${errors.name ? " form-box-textarea-error" : ""}`}
 						{...register("name", { required: "名前を入力してください" })}
 						required
 					/>
@@ -117,7 +117,7 @@ export const ContactForm = () => {
 						type="email"
 						id="email"
 						placeholder="sample@email.com"
-						className="form-box-textarea"
+						className={`form-box-textarea${errors.email ? " form-box-textarea-error" : ""}`}
 						{...register("email", { required: "emailを入力してください" })}
 						required
 					/>
@@ -131,11 +131,12 @@ export const ContactForm = () => {
 					<CommonLabel text="メッセージ" id="message" />
 					<textarea
 						id="message"
-						className="form-box-textarea"
+						className={`form-box-textarea${errors.message ? " form-box-textarea-error" : ""}`}
 						{...register("message", {
 							required: "メッセージを入力してください",
 						})}
 						rows={5}
+						placeholder="お問い合わせ"
 						required
 					/>
 					<div />
