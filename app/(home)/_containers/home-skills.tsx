@@ -1,11 +1,8 @@
 "use client"
 
 import ScrollComponent from "hooks/use-fadeIn"
-// import backSkills from "public/mock/api/skills/back.json"
-// import frontSkills from "public/mock/api/skills/front.json"
-// import infraSkills from "public/mock/api/skills/infra.json"
-// import otherSkills from "public/mock/api/skills/other.json"
-import React, { useEffect, useState } from "react"
+import React from "react"
+import useSWR from "swr"
 import {
 	fetchBackSkills,
 	fetchFrontSkills,
@@ -31,20 +28,12 @@ const fetchSkillData = async () => {
 	}
 }
 
-/**
- * トップページのスキル
- */
 export const HomeSkills = () => {
-	const [skills, setSkills] = useState<Record<string, Skill[]>>({})
+	const { data: skills, error, isLoading } = useSWR("skills", fetchSkillData)
 
-	useEffect(() => {
-		const loadSkills = async () => {
-			const data = await fetchSkillData()
-			setSkills(data)
-		}
-
-		loadSkills()
-	}, [])
+	if (isLoading) return <div>Loading...</div>
+	if (error) return <div>エラーが発生しました</div>
+	if (!skills) return null
 
 	return (
 		<div>
