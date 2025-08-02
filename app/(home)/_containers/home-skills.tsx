@@ -1,14 +1,14 @@
-'use client'
+"use client"
 
-import ScrollComponent from 'hooks/use-fadeIn'
-import useSWR from 'swr'
+import ScrollComponent from "hooks/use-fadeIn"
+import useSWR from "swr"
 import {
   fetchBackSkills,
   fetchFrontSkills,
   fetchInfraSkills,
   fetchOtherSkills,
-} from '../../../hooks/fetch'
-import { SkillElement } from '../../components/ui/skill-element'
+} from "../../../hooks/fetch"
+import { SkillElement } from "../../components/ui/skill-element"
 
 const fetchSkillData = async () => {
   const [front, back, infra, other] = await Promise.all([
@@ -27,7 +27,7 @@ const fetchSkillData = async () => {
 }
 
 export const HomeSkills = () => {
-  const { data: skills, error, isLoading } = useSWR('skills', fetchSkillData)
+  const { data: skills, error, isLoading } = useSWR("skills", fetchSkillData)
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>エラーが発生しました</div>
@@ -37,9 +37,9 @@ export const HomeSkills = () => {
     <div>
       {Object.entries(skills).map(([title, skillList]) => (
         <div key={title}>
-          <h3 className='skill__title'>{title}</h3>
+          <h3 className="skill__title">{title}</h3>
           <ScrollComponent>
-            <ul className='skill__container'>
+            <ul className="skill__container">
               {skillList.map((skill) => (
                 <SkillElement key={skill.name + skill.id} {...skill} />
               ))}

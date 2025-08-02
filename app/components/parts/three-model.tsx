@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { OrbitControls, useGLTF } from '@react-three/drei'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { memo, useRef } from 'react'
-import type { Group, MeshStandardMaterial } from 'three'
-import * as THREE from 'three'
+import { OrbitControls, useGLTF } from "@react-three/drei"
+import { Canvas, useFrame } from "@react-three/fiber"
+import { memo, useRef } from "react"
+import type { Group, MeshStandardMaterial } from "three"
+import * as THREE from "three"
 
 /**
  * Three.jsのモデル
@@ -53,7 +53,7 @@ const Model = ({
 // Three.js を利用した3Dモデル描画コンポーネント
 const ThreeModel = memo(() => {
   return (
-    <div className='canvas'>
+    <div className="canvas">
       <Canvas camera={{ position: [0, 0, 50], fov: 50 }}>
         {/* 環境光 */}
         <ambientLight intensity={1.5} />
@@ -61,11 +61,11 @@ const ThreeModel = memo(() => {
         <pointLight position={[10, 20, 0]} intensity={21} />
         {/* 3Dモデルの配置 */}
         <Model
-          url='/models/scene.gltf'
+          url="/models/scene.gltf"
           scale={8.5}
           position={[0, 0, 0]}
           rotation={[0, 0, Math.PI / 40]}
-          color='#4485ff'
+          color="#4485ff"
         />
         {/* カメラ操作用のオービットコントロール（ズームは無効） */}
         <OrbitControls enableZoom={false} />

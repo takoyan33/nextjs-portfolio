@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import Link from 'next/link'
-import styles from './css/post-navigation.module.scss'
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import Link from "next/link"
+import styles from "./css/post-navigation.module.scss"
 
 interface PostNavigationProps {
   next_title?: string
@@ -13,13 +13,13 @@ interface PostNavigationProps {
  * ポストナビゲーション
  */
 export const PostNavigation = ({
-  next_title = '',
-  next_article_id = '',
-  prev_title = '',
-  prev_article_id = '',
+  next_title = "",
+  next_article_id = "",
+  prev_title = "",
+  prev_article_id = "",
 }: PostNavigationProps) => {
   return (
-    <div className='max_width'>
+    <div className="max_width">
       <div className={styles.PostNavigation}>
         <div className={styles.PostNavigation__item}>
           {prev_title && (

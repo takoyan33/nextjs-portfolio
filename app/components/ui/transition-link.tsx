@@ -5,56 +5,54 @@ import { useRouter } from "next/navigation"
 import type React from "react"
 
 interface TransitionLinkProps extends LinkProps {
-	href: string
-	children: React.ReactNode
-	className?: string
-	setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>
+  href: string
+  children: React.ReactNode
+  className?: string
+  setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 function sleep(ms: number): Promise<void> {
-	return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 /**
  * アニメーション効果のあるリンク
  */
 export const TransitionLink = ({
-	href,
-	children,
-	className = "",
-	setOpenMenu,
-	...props
+  href,
+  children,
+  className = "",
+  setOpenMenu,
+  ...props
 }: TransitionLinkProps) => {
-	const router = useRouter()
+  const router = useRouter()
 
-	const handleTransition = async (
-		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-	) => {
-		e.preventDefault()
+  const handleTransition = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
 
-		const body = document.querySelector("body")
-		body?.classList.add("page-transition")
+    const body = document.querySelector("body")
+    body?.classList.add("page-transition")
 
-		await sleep(500)
+    await sleep(500)
 
-		router.push(href)
+    router.push(href)
 
-		await sleep(500)
+    await sleep(500)
 
-		body?.classList.remove("page-transition")
-		if (setOpenMenu) {
-			setOpenMenu(false)
-		}
-	}
+    body?.classList.remove("page-transition")
+    if (setOpenMenu) {
+      setOpenMenu(false)
+    }
+  }
 
-	return (
-		<Link
-			onClick={handleTransition}
-			href={href}
-			{...props}
-			className={className ? className : "transition-link"}
-		>
-			{children}
-		</Link>
-	)
+  return (
+    <Link
+      onClick={handleTransition}
+      href={href}
+      {...props}
+      className={className ? className : "transition-link"}
+    >
+      {children}
+    </Link>
+  )
 }

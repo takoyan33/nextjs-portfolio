@@ -1,6 +1,6 @@
-'use client'
-import Image from 'next/image'
-import { useState } from 'react'
+"use client"
+import Image from "next/image"
+import { useState } from "react"
 
 interface SkillProps {
   name: string
@@ -22,28 +22,28 @@ export const SkillElement = ({ name, rank, icon, about }: SkillProps) => {
   }
 
   return (
-    <div className='skill__element-wrapper'>
-      <button className='skill__element' onClick={handleToggle} type='button'>
-        <div className='skill__svg'>
+    <div className="skill__element-wrapper">
+      <button className="skill__element" onClick={handleToggle} type="button">
+        <div className="skill__svg">
           <Image
             src={icon}
-            alt='skill画像'
+            alt="skill画像"
             fill
-            className='skill__svg'
-            sizes='(min-width: 768px)'
+            className="skill__svg"
+            sizes="(min-width: 768px)"
           />
         </div>
-        <div className='skill__content'>
-          <p className='skill__text'>{name}</p>
-          <p className='skill__text'>{rank}</p>
+        <div className="skill__content">
+          <p className="skill__text">{name}</p>
+          <p className="skill__text">{rank}</p>
         </div>
-        <span className={`skill__toggle-icon ${isOpen ? 'is-open' : ''}`}>
-          {isOpen ? '−' : '＋'}
+        <span className={`skill__toggle-icon ${isOpen ? "is-open" : ""}`}>
+          {isOpen ? "−" : "＋"}
         </span>
       </button>
-      <div className={`skill__accordion ${isOpen ? 'is-open' : ''}`}>
-        <div className='skill__accordion-inner'>
-          <p className='skill__about'>{about}</p>
+      <div className={`skill__accordion ${isOpen ? "is-open" : ""}`}>
+        <div className="skill__accordion-inner">
+          <p className="skill__about">{about}</p>
         </div>
       </div>
     </div>

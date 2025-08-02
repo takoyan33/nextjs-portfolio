@@ -764,7 +764,6 @@ body {
 }
 .form {
   margin: 60px 0;
-  /* 未記入でエラーがある場合に背景色を変更 */
 }
 .form-box {
   display: grid;
@@ -788,6 +787,9 @@ body {
 .form-box-textarea {
   padding: 8px;
 }
+.form-box-textarea-error {
+  border: 1px solid red;
+}
 .form-box-btn {
   padding: 5px 20px;
   color: white;
@@ -802,6 +804,7 @@ body {
   font-size: 14px;
   color: oklch(63.62% 0.222 27.97);
   text-align: left;
+  margin-top: 4px;
 }
 
 @media screen and (max-width: 500px) {
@@ -1112,6 +1115,40 @@ body {
 .portfolio {
   background-color: oklch(96.72% 0 0);
 }
+.portfolioDetail__toc {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+.portfolioDetail__toc-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: left;
+}
+.portfolioDetail__toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.portfolioDetail__toc-link {
+  display: block;
+  padding: 0.5rem 0;
+  color: #4485ff;
+  text-decoration: none;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.portfolioDetail__toc-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
 .portfolio__filter {
   display: flex;
   justify-content: flex-end;
@@ -1195,12 +1232,11 @@ body {
   margin-bottom: 80px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid oklch(53.59% 0 0);
 }
 .portfolioDetail__element-img {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 500px;
   aspect-ratio: 16/9;
   margin-inline: auto;
   -o-object-fit: contain;
