@@ -1,14 +1,15 @@
 "use client"
 
-import { Suspense, useState } from "react"
+import { Suspense } from "react"
 import React from "react"
 import { CareerHistoryTimeline, JobTimeline } from "../../components/ui/rsc"
+import { useTabStore } from "../../stores/tabStore"
 
 /**
  * Aboutのタブ
  */
 export const AboutTabs = () => {
-	const [activeTab, setActiveTab] = useState<"history" | "career">("history")
+	const { activeTab, changeActiveTab } = useTabStore()
 
 	return (
 		<div>
@@ -22,7 +23,7 @@ export const AboutTabs = () => {
 						id="tabA"
 						aria-controls="panelB"
 						aria-selected={activeTab === "history"}
-						onClick={() => setActiveTab("history")}
+						onClick={() => changeActiveTab("history")}
 					/>
 					経歴
 				</label>
@@ -34,7 +35,7 @@ export const AboutTabs = () => {
 						id="tabB"
 						aria-controls="panelB"
 						aria-selected={activeTab === "career"}
-						onClick={() => setActiveTab("career")}
+						onClick={() => changeActiveTab("career")}
 					/>
 					職歴
 				</label>

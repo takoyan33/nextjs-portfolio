@@ -53,7 +53,8 @@
 		"stylelint-config-standard-scss": "^13.1.0",
 		"swiper": "^11.1.9",
 		"swr": "^2.3.4",
-		"three": "^0.169.0"
+		"three": "^0.169.0",
+		"zustand": "^5.0.7"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
