@@ -44,9 +44,7 @@ export default async function Home() {
 						</h2>
 					</ScrollComponent>
 					<div>
-						<ScrollComponent>
-							{CareerHistoryTimeline()}
-						</ScrollComponent>
+						<ScrollComponent>{CareerHistoryTimeline()}</ScrollComponent>
 					</div>
 					<CommonButton text="経歴をさらに見る" link={PATH.ABOUT} />
 				</section>
