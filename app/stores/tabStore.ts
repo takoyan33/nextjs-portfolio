@@ -16,7 +16,7 @@ export interface TabState {
 export const useTabStore = create<TabState>((set) => ({
 	activeTab: "history",
 
-	changeActiveTab: (tab: string) =>
+	changeActiveTab: (tab: "history" | "career") =>
 		set({
 			activeTab: tab,
 		}),

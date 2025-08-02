@@ -20,7 +20,7 @@ export const ZustandExampleComponent = () => {
 				<div className="flex gap-2">
 					<button
 						type="button"
-						onClick={() => openModal()}
+						onClick={() => openModal("test", { message: "テストメッセージ" })}
 						className="px-3 py-1 bg-blue-500 text-white rounded text-sm"
 					>
 						モーダルを開く

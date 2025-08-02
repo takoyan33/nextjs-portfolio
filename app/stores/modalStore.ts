@@ -24,17 +24,21 @@ export const useModalStore = create<ModalState>((set) => ({
 	modalType: null,
 	modalData: null,
 
-	openModal: (type: string, data?: unknown) =>
+	openModal: (type: string, data?: unknown) => {
+		console.log("openModal called with:", type, data)
 		set({
 			isOpen: true,
 			modalType: type,
 			modalData: data,
-		}),
+		})
+	},
 
-	closeModal: () =>
+	closeModal: () => {
+		console.log("closeModal called")
 		set({
 			isOpen: false,
 			modalType: null,
 			modalData: null,
-		}),
+		})
+	},
 }))
