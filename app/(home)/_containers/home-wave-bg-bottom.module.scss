@@ -1,6 +1,5 @@
-@use '../../../styles/common/_variables.scss' as *;
-@use '../../../styles/common/_mixin';
-
+@use "../../../styles/common/_variables.scss" as *;
+@use "../../../styles/common/_mixin";
 
 .wave__bg__bottom {
   position: relative;
@@ -9,11 +8,9 @@
 }
 
 @include mixin.sp {
-
-.wave__bg__bottom {
-  position: relative;
-  bottom: 10px;
-  z-index: -1;
-}
-
+  .wave__bg__bottom {
+    position: relative;
+    bottom: 10px;
+    z-index: -1;
+  }
 }
