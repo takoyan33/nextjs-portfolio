@@ -1,4 +1,4 @@
-@use '../../../../styles/common/_variables.scss' as *;
+@use "../../../../styles/common/_variables.scss" as *;
 
 .label {
   display: block;
@@ -19,4 +19,4 @@
     background-color: rgba(red, 0.1);
     border-radius: 2px;
   }
-} 
+}

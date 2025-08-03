@@ -1,5 +1,5 @@
-@use '../../../../styles/common/_variables.scss' as *;
-@use '../../../../styles/common/_mixin';
+@use "../../../../styles/common/_variables.scss" as *;
+@use "../../../../styles/common/_mixin";
 
 // timeline 過去の経歴
 .timeline {
@@ -8,7 +8,7 @@
     dt {
       position: relative;
       width: 8.5em;
-      padding: 8px 16px  8px  8px;
+      padding: 8px 16px 8px 8px;
       text-align: left;
       &::after {
         position: absolute;
@@ -16,7 +16,7 @@
         right: -0.55em;
         font-size: 22px;
         color: $main-color;
-        content: '●';
+        content: "●";
       }
     }
     dd {
@@ -37,10 +37,9 @@
   }
 }
 
-
 @include mixin.sp {
   .timeline {
-      margin: 30px auto;
+    margin: 30px auto;
     dl {
       dd {
         width: 100%;
