@@ -1,0 +1,63 @@
+name: Deploy to S3 and CloudFront
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  AWS_REGION: ap-northeast-1
+  S3_BUCKET: ${{ secrets.S3_BUCKET }}
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run linting
+        run: yarn lint
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Build application
+        run: yarn build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync ./out s3://${{ env.S3_BUCKET }} --delete --cache-control "public, max-age=31536000, immutable"
+          aws s3 cp ./out s3://${{ env.S3_BUCKET }} --recursive --exclude "*" --include "*.html" --cache-control "public, max-age=0, no-cache, no-store, must-revalidate"
+          aws s3 cp ./out s3://${{ env.S3_BUCKET }} --recursive --exclude "*" --include "*.json" --cache-control "public, max-age=0, no-cache, no-store, must-revalidate"
+
+      - name: Invalidate CloudFront cache
+        if: github.ref == 'refs/heads/main'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+
+      - name: Deploy status
+        run: echo "Deployment completed successfully!"
