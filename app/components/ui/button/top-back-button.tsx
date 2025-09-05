@@ -15,7 +15,6 @@ export const TopBackButton = () => {
 
   //最初にhandleScrollを登録
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     window.addEventListener("scroll", handleScroll)
 
     return () => {
