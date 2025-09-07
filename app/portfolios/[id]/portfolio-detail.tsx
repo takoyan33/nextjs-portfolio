@@ -5,6 +5,7 @@ import { SquareArrowOutUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { CloseModal, OpenModal } from "../../../hooks/use-modal"
 import type { PortfolioType } from "../../../types"
 import { PATH } from "../../../utils/path"
 import { Breadcrumb } from "../../components/ui/"
@@ -18,56 +19,17 @@ interface PortfolioDetailProps {
 export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
   //サムネイル
   const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  const openModal = (): void => {
-    setIsOpen(true)
-    document.body.classList.add("modal-open")
-  }
-
-  const closeModal = (): void => {
-    setIsOpen(false)
-    document.body.classList.remove("modal-open")
-  }
-
   //About
   const [isOpen2, setIsOpen2] = useState<boolean>(false)
-
-  const openModal2 = (): void => {
-    setIsOpen2(true)
-    document.body.classList.add("modal-open")
-  }
-
-  const closeModal2 = (): void => {
-    setIsOpen2(false)
-    document.body.classList.remove("modal-open")
-  }
-
   //function
   const [isOpen4, setIsOpen4] = useState<boolean>(false)
-
-  const openModal4 = (): void => {
-    setIsOpen4(true)
-    document.body.classList.add("modal-open")
-  }
-
-  const closeModal4 = (): void => {
-    setIsOpen4(false)
-    document.body.classList.remove("modal-open")
-  }
-
   //appeal
   const [isOpen3, setIsOpen3] = useState<boolean>(false)
 
-  const openModal3 = (): void => {
-    setIsOpen3(true)
-    document.body.classList.add("modal-open")
-  }
-
-  const closeModal3 = (): void => {
-    setIsOpen3(false)
-    document.body.classList.remove("modal-open")
-  }
-
+  /**
+   * セクションにスクロール
+   * @param id セクションのid
+   */
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -150,7 +112,7 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
           </div>
 
           <div className="portfolioDetail__element-topImg">
-            <button onClick={openModal} type="button">
+            <button onClick={() => OpenModal(setIsOpen)} type="button">
               {portfolio.topImg && (
                 <Image
                   src={portfolio.topImg}
@@ -163,12 +125,16 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
               )}
             </button>
           </div>
-          <CommonModal isOpen={isOpen} closeModal={closeModal} img={portfolio.topImg} />
+          <CommonModal
+            isOpen={isOpen}
+            closeModal={() => CloseModal(setIsOpen)}
+            img={portfolio.topImg}
+          />
           <h3 className="portfolioDetail__element-subtitle" id="about">
             About
           </h3>
           <div className="portfolioDetail__element-img">
-            <button onClick={openModal2} type="button">
+            <button onClick={() => OpenModal(setIsOpen2)} type="button">
               {portfolio.aboutImg && (
                 <Image
                   src={portfolio.aboutImg}
@@ -181,13 +147,17 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
               )}
             </button>
           </div>
-          <CommonModal isOpen={isOpen2} closeModal={closeModal2} img={portfolio.aboutImg} />
+          <CommonModal
+            isOpen={isOpen2}
+            closeModal={() => CloseModal(setIsOpen2)}
+            img={portfolio.aboutImg}
+          />
           <div className="portfolioDetail__element-text">{parse(portfolio?.about)}</div>
           <h3 className="portfolioDetail__element-subtitle" id="functions">
             機能一覧
           </h3>
           <div className="portfolioDetail__element-img">
-            <button onClick={openModal3} type="button">
+            <button onClick={() => OpenModal(setIsOpen3)} type="button">
               {portfolio?.functionImg && (
                 <Image
                   src={portfolio.functionImg}
@@ -200,13 +170,17 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
               )}
             </button>
           </div>
-          <CommonModal isOpen={isOpen3} closeModal={closeModal3} img={portfolio.functionImg} />
+          <CommonModal
+            isOpen={isOpen3}
+            closeModal={() => CloseModal(setIsOpen3)}
+            img={portfolio.functionImg}
+          />
           <div className="portfolioDetail__element-text">{parse(portfolio?.function)}</div>
           <h3 className="portfolioDetail__element-subtitle" id="appeal">
             アピール
           </h3>
           <div className="portfolioDetail__element-img">
-            <button onClick={openModal4} type="button">
+            <button onClick={() => OpenModal(setIsOpen4)} type="button">
               {portfolio?.appealImg && (
                 <Image
                   src={portfolio.appealImg}
@@ -219,7 +193,11 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
               )}
             </button>
           </div>
-          <CommonModal isOpen={isOpen4} closeModal={closeModal4} img={portfolio.appealImg} />
+          <CommonModal
+            isOpen={isOpen4}
+            closeModal={() => CloseModal(setIsOpen4)}
+            img={portfolio.appealImg}
+          />
           <div className="portfolioDetail__element-text">{parse(portfolio?.appeal)}</div>
 
           <div className="portfolioDetail__element-text" id="appeal">

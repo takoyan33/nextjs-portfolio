@@ -56,6 +56,7 @@ export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
 
 /**
  * 特定のポートフォリオの取得
+ * @param id ポートフォリオの記事id
  * @return {ResponsePortfolio}
  */
 export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePortfolio> => {
