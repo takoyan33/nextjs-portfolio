@@ -1,3 +1,6 @@
+"use client"
+
+import { fetchJobs } from "hooks/fetch"
 import { Timeline } from ".."
 import styles from "../css/timeline.module.scss"
 
@@ -5,18 +8,14 @@ import styles from "../css/timeline.module.scss"
  * 職歴のタイムライン
  */
 export const JobTimeline = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
-    next: { revalidate: 3600 },
-  })
-  const { data: jobs } = await response.json()
-
+  const data = await fetchJobs()
+  console.log(data)
   return (
     <div className={styles.timeline}>
       <dl>
-        {Array.isArray(jobs) &&
-          jobs.map((job) => (
-            <Timeline key={job.id} title={job.title} date={job.date} body={job.body} />
-          ))}
+        {data?.data.map((job) => (
+          <Timeline key={job.id} title={job.title} date={job.date} body={job.body} />
+        ))}
       </dl>
     </div>
   )

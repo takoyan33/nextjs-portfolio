@@ -1,10 +1,11 @@
-import "../styles/globals.scss"
 import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import type React from "react"
+import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
 import { Footer, Header } from "./components/layout"
 import { GoogleAnalytics } from "./components/layout/GoogleAnalytics"
+import { MockProvider } from "./components/msw/MockProvider"
 // import { ReactScan } from "./components/ui/react-scan"
 import { siteConfig } from "./config/site"
 
@@ -44,6 +45,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Clarity />
       </head>
       <body>
+        <MockProvider />
         <Header />
         {/* <ReactScan /> */}
         {children}
