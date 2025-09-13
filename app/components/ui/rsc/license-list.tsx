@@ -3,7 +3,7 @@ import { fetchLicenses } from "hooks/fetch"
 /**
  * 資格のタイムライン
  */
-export const LicenseList = async () => {
+export const LicenseList = async (): Promise<JSX.Element> => {
   const data = await fetchLicenses()
   console.log(data)
   return (

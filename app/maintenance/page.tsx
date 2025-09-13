@@ -9,20 +9,20 @@ const Maintenance = () => {
   return (
     <main
       className="u-padding"
-      style={{
-        minHeight: "60vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      // style={{
+      //   minHeight: "60vh",
+      //   display: "flex",
+      //   flexDirection: "column",
+      //   justifyContent: "center",
+      //   alignItems: "center",
+      // }}
     >
-      <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>メンテナンス中</h1>
+      {/* <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>メンテナンス中</h1>
       <p style={{ fontSize: "1.2rem" }}>
         ご不便をおかけして申し訳ありません。
         <br />
         現在メンテナンス中です。しばらくお待ちください。
-      </p>
+      </p> */}
     </main>
   )
 }

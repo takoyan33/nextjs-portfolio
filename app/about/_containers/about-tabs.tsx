@@ -1,7 +1,4 @@
 "use client"
-
-import { Suspense } from "react"
-import { CareerHistoryTimeline, JobTimeline } from "../../components/ui/rsc"
 import { useTabStore } from "../../stores/tabStore"
 
 /**
@@ -45,13 +42,15 @@ export const AboutTabs = () => {
         {activeTab === "history" && (
           <div aria-labelledby="tabA">
             <h2 className="lower__subTitle">経歴</h2>
-            <Suspense fallback={<div>読み込み中...</div>}>{CareerHistoryTimeline()}</Suspense>
+            {/* <CareerHistoryTimelineWrapper /> */}
+            <p>現在準備中です。</p>
           </div>
         )}
         {activeTab === "career" && (
           <div aria-labelledby="tabB">
             <h2 className="lower__subTitle">職歴</h2>
-            <Suspense fallback={<div>読み込み中...</div>}>{JobTimeline()}</Suspense>
+            {/* <JobTimeline /> */}
+            <p>現在準備中です。</p>
           </div>
         )}
       </div>

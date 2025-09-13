@@ -1,3 +1,5 @@
+"use"
+
 import { fetchHistories } from "hooks/fetch"
 import styles from "../css/timeline.module.scss"
 import { Timeline } from "../timeline"
