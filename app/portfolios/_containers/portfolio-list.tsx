@@ -53,8 +53,13 @@ export const PortfolioList = () => {
       </h2>
       <div className="portfolio__filter">
         <label className="selectBox">
-          <select name="orders" id="order-select" onChange={handleSortChange}>
-            <option value="" disabled selected>
+          <select
+            name="orders"
+            id="order-select"
+            onChange={handleSortChange}
+            defaultValue="default"
+          >
+            <option value="default" disabled>
               並び替え
             </option>
             <option value="new-order">新しい順</option>

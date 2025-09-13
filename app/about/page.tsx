@@ -26,7 +26,8 @@ const About = () => {
               <th className="license__table-th">日付</th>
               <th className="license__table-th">資格名</th>
             </tr>
-            {LicenseList()}
+            {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します */}
+            <LicenseList />
           </tbody>
         </table>
       </section>
