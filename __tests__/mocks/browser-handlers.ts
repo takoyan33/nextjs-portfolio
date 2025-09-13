@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw"
 
 export const handlers = [
   // 資格データのモック
-  http.get(`http:localhost:3000/api/licenses`, () => {
+  http.get(`*/api/licenses`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
@@ -13,7 +13,7 @@ export const handlers = [
     })
   }),
   // 職歴データのモック
-  http.get(`http:localhost:3000/api/jobs`, () => {
+  http.get(`/api/jobs`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
@@ -33,8 +33,8 @@ export const handlers = [
     })
   }),
   // 経歴データのモック
-  http.get(`http:localhost:3000/api/histories`, () => {
-    console.log("📡 Mock hit: GET /api/portfolios")
+  http.get(`*/api/histories`, () => {
+    console.log("📡 Mock hit: GET /api/histories")
     return HttpResponse.json({
       data: [
         {
@@ -53,48 +53,68 @@ export const handlers = [
     })
   }),
   // スキルデータのモック
-  http.get(`http:localhost:3000/api/skills/front`, () => {
+  http.get(`*/api/skills/front`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
-        { id: "1", name: "React", level: 90 },
-        { id: "2", name: "Next.js", level: 85 },
-        { id: "3", name: "TypeScript", level: 80 },
+        {
+          id: 1,
+          name: "HTML",
+          rank: "★★★★",
+          tag: "経験年数：3年",
+          about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
+          icon: "/images/skill/html5.svg",
+        },
       ],
     })
   }),
-  http.get(`http:localhost:3000/api/skills/back`, () => {
+  http.get(`*api/skills/back`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
-        { id: "1", name: "Node.js", level: 75 },
-        { id: "2", name: "Python", level: 70 },
-        { id: "3", name: "PostgreSQL", level: 65 },
+        {
+          id: 1,
+          name: "HTML",
+          rank: "★★★★",
+          tag: "経験年数：3年",
+          about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
+          icon: "/images/skill/html5.svg",
+        },
       ],
     })
   }),
-  http.get(`http:localhost:3000/api/skills/infra`, () => {
+  http.get(`*api/skills/infra`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
-        { id: "1", name: "AWS", level: 80 },
-        { id: "2", name: "Docker", level: 75 },
-        { id: "3", name: "Kubernetes", level: 60 },
+        {
+          id: 1,
+          name: "HTML",
+          rank: "★★★★",
+          tag: "経験年数：3年",
+          about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
+          icon: "/images/skill/html5.svg",
+        },
       ],
     })
   }),
-  http.get(`http:localhost:3000/api/skills/other`, () => {
+  http.get(`*/api/skills/other`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
-        { id: "1", name: "Git", level: 85 },
-        { id: "2", name: "Figma", level: 70 },
-        { id: "3", name: "Photoshop", level: 60 },
+        {
+          id: 1,
+          name: "HTML",
+          rank: "★★★★",
+          tag: "経験年数：3年",
+          about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
+          icon: "/images/skill/html5.svg",
+        },
       ],
     })
   }),
   // ポートフォリオデータのモック
-  http.get(`http:localhost:3000/api/portfolios`, () => {
+  http.get(`*/api/portfolios`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [

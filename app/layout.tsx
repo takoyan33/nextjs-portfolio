@@ -5,7 +5,6 @@ import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
 import { Footer, Header } from "./components/layout"
 import { GoogleAnalytics } from "./components/layout/GoogleAnalytics"
-import { MockProvider } from "./components/msw/MockProvider"
 // import { ReactScan } from "./components/ui/react-scan"
 import { siteConfig } from "./config/site"
 
@@ -33,6 +32,13 @@ export const metadata: Metadata = {
   },
 }
 
+const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
+if (mock) {
+  const { server } = await import("../__tests__/mocks/server")
+  console.log("🟢 MSW Import server")
+  server.listen()
+}
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
@@ -45,7 +51,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Clarity />
       </head>
       <body>
-        <MockProvider />
+        {/* <MockProvider /> */}
         <Header />
         {/* <ReactScan /> */}
         {children}

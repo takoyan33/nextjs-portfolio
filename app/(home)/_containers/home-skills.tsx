@@ -1,16 +1,19 @@
-"use client"
+"use server"
 
+import { SkillElement } from "app/components/ui/skill-element"
 import ScrollComponent from "hooks/use-fadeIn"
-import useSWR from "swr"
 import {
   fetchBackSkills,
   fetchFrontSkills,
   fetchInfraSkills,
   fetchOtherSkills,
 } from "../../../hooks/fetch"
-import { SkillElement } from "../../components/ui/skill-element"
 
-const fetchSkillData = async () => {
+/**
+ * サーバーコンポーネント用にスキルデータ取得
+ */
+export const HomeSkills = async () => {
+  // fetchSkillData の中身をそのままサーバーコンポーネントで実行
   const [front, back, infra, other] = await Promise.all([
     fetchFrontSkills(),
     fetchBackSkills(),
@@ -18,20 +21,17 @@ const fetchSkillData = async () => {
     fetchOtherSkills(),
   ])
 
-  return {
+  console.log(front, back, infra, other)
+
+  const skills = {
     Frontend: front.data,
     Backend: back.data,
     Infra: infra.data,
     Other: other.data,
   }
-}
 
-export const HomeSkills = () => {
-  const { data: skills, error, isLoading } = useSWR("skills", fetchSkillData)
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>エラーが発生しました</div>
-  if (!skills) return null
+  console.log(skills)
+  // 一旦表示部分はコメントアウト
 
   return (
     <div>
@@ -49,4 +49,7 @@ export const HomeSkills = () => {
       ))}
     </div>
   )
+
+  // デバッグ用に返す
+  // return <p>aaa</p>
 }
