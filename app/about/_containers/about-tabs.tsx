@@ -1,7 +1,5 @@
 "use client"
-
 import { Suspense } from "react"
-import React from "react"
 import { CareerHistoryTimeline, JobTimeline } from "../../components/ui/rsc"
 import { useTabStore } from "../../stores/tabStore"
 
