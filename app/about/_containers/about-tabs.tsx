@@ -44,7 +44,7 @@ export const AboutTabs = () => {
         {activeTab === "history" && (
           <div aria-labelledby="tabA">
             <Suspense fallback={<div>読み込み中...</div>}>
-              {/* @ts-expect-error Server Component ※ts側のバグ */}
+              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します */}
               <CareerHistoryTimeline />
             </Suspense>
           </div>
@@ -52,7 +52,7 @@ export const AboutTabs = () => {
         {activeTab === "career" && (
           <div aria-labelledby="tabB">
             <Suspense fallback={<div>読み込み中...</div>}>
-              {/* @ts-expect-error Server Component ※ts側のバグ */}
+              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します */}
               <JobTimeline />
             </Suspense>
           </div>

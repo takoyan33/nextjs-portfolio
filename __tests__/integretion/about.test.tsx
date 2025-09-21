@@ -11,7 +11,7 @@ vitest.mock("next/navigation", () => ({
   }),
 }))
 
-test("About", async () => {
+test("Aboutが表示されるか", async () => {
   let AboutComponent: React.ReactElement
 
   // Aboutコンポーネントは非同期なので、actでラップしてawaitで待つ
