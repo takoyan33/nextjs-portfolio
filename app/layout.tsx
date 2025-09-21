@@ -1,7 +1,7 @@
-import "../styles/globals.scss"
 import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import type React from "react"
+import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
 import { Footer, Header } from "./components/layout"
 import { GoogleAnalytics } from "./components/layout/GoogleAnalytics"
@@ -32,6 +32,15 @@ export const metadata: Metadata = {
   },
 }
 
+// テスト環境でのみMSWサーバーを起動
+const isTestEnvironment =
+  process.env.NODE_ENV === "test" || process.env.NEXT_PUBLIC_USE_MOCK === "true"
+if (isTestEnvironment) {
+  const { server } = await import("../__tests__/mocks/server")
+  console.log("🟢 MSW Import server")
+  server.listen()
+}
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
@@ -44,6 +53,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Clarity />
       </head>
       <body>
+        {/* <MockProvider /> */}
         <Header />
         {/* <ReactScan /> */}
         {children}

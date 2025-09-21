@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import React, { type ReactNode } from "react"
+import { type ReactNode } from "react"
 import { describe, expect, test, vitest } from "vitest"
 import { Breadcrumb } from "../../app/components/ui/breadcrumb"
 
@@ -22,6 +22,7 @@ vitest.mock("../../app/components/ui", () => ({
   ),
 }))
 
+// next/navigationのモック
 vitest.mock("next/navigation", () => ({
   useRouter: () => ({
     query: { id: "test-post-id" },
