@@ -1,6 +1,5 @@
-import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import React, { type ReactNode } from "react"
+import { type ReactNode } from "react"
 import { describe, expect, test, vitest } from "vitest"
 import { Breadcrumb } from "../../app/components/ui/breadcrumb"
 

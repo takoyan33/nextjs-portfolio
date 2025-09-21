@@ -43,14 +43,18 @@ export const AboutTabs = () => {
       <div className="tab-content max_width">
         {activeTab === "history" && (
           <div aria-labelledby="tabA">
-            <h2 className="lower__subTitle">経歴</h2>
-            <Suspense fallback={<div>読み込み中...</div>}>{CareerHistoryTimeline()}</Suspense>
+            <Suspense fallback={<div>読み込み中...</div>}>
+              {/* @ts-expect-error Server Component ※ts側のバグ */}
+              <CareerHistoryTimeline />
+            </Suspense>
           </div>
         )}
         {activeTab === "career" && (
           <div aria-labelledby="tabB">
-            <h2 className="lower__subTitle">職歴</h2>
-            <Suspense fallback={<div>読み込み中...</div>}>{JobTimeline()}</Suspense>
+            <Suspense fallback={<div>読み込み中...</div>}>
+              {/* @ts-expect-error Server Component ※ts側のバグ */}
+              <JobTimeline />
+            </Suspense>
           </div>
         )}
       </div>

@@ -9,7 +9,7 @@
     "format": "prettier --write ./app",
     "prepare": "husky",
     "test": "vitest",
-    "test:watch": "jest --watch",
+    "test:watch": "vitest --watch",
     "lint:style": "stylelint '**/*.{scss,sass}'",
     "lint:style:fix": "stylelint --fix '**/*.{scss,sass}'",
     "commitmsg": "commitlint --edit",

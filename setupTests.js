@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom/vitest"
-import { beforeAll, afterEach, afterAll, vi } from "vitest"
+import { afterAll, afterEach, beforeAll, vi } from "vitest"
 import { server } from "./__tests__/mocks/server"
 
 // server-only のモック
