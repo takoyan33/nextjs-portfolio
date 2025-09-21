@@ -1,46 +1,42 @@
 {
-	"compilerOptions": {
-		"target": "es2017",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": false,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"incremental": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"baseUrl": ".",
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
-		"strictNullChecks": true
-	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"pages/_app.tsx",
-		"pages/505.tsx",
-		"pages/404.tsx",
-		"pages/500.tsx",
-		"pages/posts/[id].js",
-		".next/types/**/*.ts",
-		"app/api/skills/back/router.js",
-		"app/api/back/router.js",
-		"next.config.js"
-, "__tests__/integretion/blog.test.jsx"	],
-	"exclude": [
-		"node_modules",
-		"**/*.test.tsx",
-		"**/*.storybook.tsx",
-		"app/cube/page.tsx",
-		"dist"
-	]
+  "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/_app.tsx",
+    "pages/505.tsx",
+    "pages/404.tsx",
+    "pages/500.tsx",
+    "pages/posts/[id].js",
+    ".next/types/**/*.ts",
+    "app/api/skills/back/router.js",
+    "app/api/back/router.js",
+    "next.config.js",
+    "__tests__/integretion/blog.test.jsx"
+  ],
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.storybook.tsx", "app/cube/page.tsx", "dist"]
 }

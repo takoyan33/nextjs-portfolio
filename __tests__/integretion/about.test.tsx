@@ -3,6 +3,7 @@ import React from "react"
 import { test, vitest } from "vitest"
 import About from "../../app/about/page"
 
+// next/navigationのモック
 vitest.mock("next/navigation", () => ({
   useRouter: () => ({
     query: { id: "test-post-id" },

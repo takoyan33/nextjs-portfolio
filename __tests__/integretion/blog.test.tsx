@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react"
 import React from "react"
 import { test, vitest } from "vitest"
-import Portfolios from "../../app/portfolios/page"
+import Blog from "../../app/blog/page"
 
 // next/navigationのモック
 vitest.mock("next/navigation", () => ({
@@ -11,6 +11,6 @@ vitest.mock("next/navigation", () => ({
   }),
 }))
 
-test("Portfolios", () => {
-  render(<Portfolios />)
+test("Blog", () => {
+  render(<Blog />)
 })
