@@ -23,8 +23,8 @@
 - npm: v9.8.1
 
 ### フロントエンド
-- [Next.js](https://nextjs.org/) v14.0.4
-- [React](https://ja.reactjs.org/) v18.2.0
+- [Next.js](https://nextjs.org/) v14.2.3
+- [React](https://ja.reactjs.org/) v19.0.0
 - [TypeScript](https://www.typescriptlang.org/) v4.5.5
 
 ### バックエンド

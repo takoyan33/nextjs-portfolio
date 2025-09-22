@@ -1,3 +1,4 @@
+"use client"
 import ThreeModel from "app/components/parts/three-model"
 import ScrollComponent from "hooks/use-fadeIn"
 
