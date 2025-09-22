@@ -23,13 +23,10 @@ vi.mock("../../stores/tabStore", () => {
 
 describe("AboutTabs", () => {
   test("初期表示は経歴タブが選択されている", async () => {
-    render(<AboutTabs />)
+    render(<AboutTabs careerContent={"aaa"} historyContent={"bbb"} />)
 
     // 経歴タブの見出しが表示される
-    expect(screen.getByText("経歴")).toBeInTheDocument()
-
-    // Suspense fallbackの「読み込み中...」が表示される
-    expect(screen.getByText("読み込み中...")).toBeInTheDocument()
+    expect(screen.getByText("経歴")).toBeVisible()
 
     // タブの選択状態を確認
     const tabs = screen.getAllByRole("tab")
@@ -38,7 +35,7 @@ describe("AboutTabs", () => {
   })
 
   // test("職歴タブをクリックすると切り替わる", async () => {
-  //   render(<AboutTabs />)
+  //   render(<AboutTabs careerContent={"aaa"} historyContent={"bbb"} />)
 
   //   // 職歴タブをクリック
   //   const tabs = screen.getAllByRole("tab")
@@ -47,7 +44,7 @@ describe("AboutTabs", () => {
 
   //   // fallback の「読み込み中...」が表示されるのを確認
   //   await waitFor(() => {
-  //     expect(screen.getByText("読み込み中...")).toBeInTheDocument()
+  //     expect(screen.getByText("読み込み中...")).toBeVisible()
   //   })
   // })
 })

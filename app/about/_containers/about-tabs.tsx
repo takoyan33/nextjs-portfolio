@@ -1,12 +1,15 @@
 "use client"
 import { Suspense } from "react"
-import { CareerHistoryTimeline, JobTimeline } from "../../components/ui/rsc"
 import { useTabStore } from "../../stores/tabStore"
 
+type AboutTabsProps = {
+  historyContent: React.ReactNode
+  careerContent: React.ReactNode
+}
 /**
  * Aboutのタブ
  */
-export const AboutTabs = () => {
+export const AboutTabs = ({ historyContent, careerContent }: AboutTabsProps) => {
   const { activeTab, changeActiveTab } = useTabStore()
 
   return (
@@ -43,18 +46,12 @@ export const AboutTabs = () => {
       <div className="tab-content max_width">
         {activeTab === "history" && (
           <div aria-labelledby="tabA">
-            <Suspense fallback={<div>読み込み中...</div>}>
-              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します */}
-              <CareerHistoryTimeline />
-            </Suspense>
+            <Suspense fallback={<div>読み込み中...</div>}>{historyContent}</Suspense>
           </div>
         )}
         {activeTab === "career" && (
           <div aria-labelledby="tabB">
-            <Suspense fallback={<div>読み込み中...</div>}>
-              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します */}
-              <JobTimeline />
-            </Suspense>
+            <Suspense fallback={<div>読み込み中...</div>}>{careerContent}</Suspense>
           </div>
         )}
       </div>

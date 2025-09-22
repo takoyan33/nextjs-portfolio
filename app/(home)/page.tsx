@@ -36,7 +36,10 @@ export default async function Home() {
             </h2>
           </ScrollComponent>
           <div>
-            <ScrollComponent>{CareerHistoryTimeline()}</ScrollComponent>
+            <ScrollComponent>
+              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します https://zenn.dev/duo3/articles/7be016e771c3e4 */}
+              <CareerHistoryTimeline />
+            </ScrollComponent>
           </div>
           <CommonButton text="経歴をさらに見る" link={PATH.ABOUT} />
         </section>

@@ -20,4 +20,6 @@ test("Aboutが表示されるか", async () => {
   })
 
   render(AboutComponent!)
+
+  //screen.debug()
 })
