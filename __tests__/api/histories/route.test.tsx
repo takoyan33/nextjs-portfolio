@@ -1,5 +1,4 @@
 import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
-// ✅ ここで route.ts から GET を import
 import { GET } from "../../../app/api/histories/route"
 
 // 環境変数のモック

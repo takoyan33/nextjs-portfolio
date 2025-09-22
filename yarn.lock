@@ -9692,6 +9692,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globrex@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "globrex@npm:0.1.2"
+  checksum: adca162494a176ce9ecf4dd232f7b802956bb1966b37f60c15e49d2e7d961b66c60826366dc2649093cad5a0d69970cfa8875bd1695b5a1a2f33dcd2aa88da3c
+  languageName: node
+  linkType: hard
+
 "glsl-noise@npm:^0.0.0":
   version: 0.0.0
   resolution: "glsl-noise@npm:0.0.0"
@@ -14218,6 +14225,7 @@ __metadata:
     three: ^0.169.0
     typescript: ^4.5.5
     typescript-eslint: ^8.1.0
+    vite-tsconfig-paths: ^5.1.4
     vitest: ^2.1.1
     zustand: ^5.0.7
   languageName: unknown
@@ -15806,6 +15814,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfck@npm:^3.0.3":
+  version: 3.1.6
+  resolution: "tsconfck@npm:3.1.6"
+  peerDependencies:
+    typescript: ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 9ccebfe1317e9890bd0d4743b91880c6c484d01ba16ecaa088031c3e5956591be26174b5780fba2e8328d14c8aefe097d1956ab3697157d15a4fd8eea8ac2843
+  languageName: node
+  linkType: hard
+
 "tsconfig-paths-webpack-plugin@npm:^4.0.1":
   version: 4.2.0
   resolution: "tsconfig-paths-webpack-plugin@npm:4.2.0"
@@ -16309,6 +16331,22 @@ __metadata:
   bin:
     vite-node: vite-node.mjs
   checksum: 716d37649834ecea547b43121ee89b2e4f9ca65ff6ce26214770ecfefe070b8c7245c9fdd0f92fb232d266e153629d04af9a4dc4fc350abfa521e5e46434b7b2
+  languageName: node
+  linkType: hard
+
+"vite-tsconfig-paths@npm:^5.1.4":
+  version: 5.1.4
+  resolution: "vite-tsconfig-paths@npm:5.1.4"
+  dependencies:
+    debug: ^4.1.1
+    globrex: ^0.1.2
+    tsconfck: ^3.0.3
+  peerDependencies:
+    vite: "*"
+  peerDependenciesMeta:
+    vite:
+      optional: true
+  checksum: 9d868fcad7ac59049c08ce60f65a0e1b1caebb3d849c60ebe6ed47645255007fd8275c22a42155666fd76ee947bc36481d83c0527b2d9fa45ccafac4dbf99722
   languageName: node
   linkType: hard
 

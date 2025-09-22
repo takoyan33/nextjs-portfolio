@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { type ReactNode } from "react"
 import { describe, expect, test, vitest } from "vitest"
@@ -40,11 +41,11 @@ describe("Breadcrumb", () => {
     render(<Breadcrumb items={singleItem} />)
 
     // ホームアイテムが表示されることを確認
-    expect(screen.getByText("トップ")).toBeInTheDocument()
+    expect(screen.getByText("トップ")).toBeVisible()
     // 指定したアイテムが表示されることを確認
-    expect(screen.getByText("About")).toBeInTheDocument()
+    expect(screen.getByText("About")).toBeVisible()
     // セパレーターが表示されることを確認
-    expect(screen.getByLabelText("パンくずリスト")).toBeInTheDocument()
+    expect(screen.getByLabelText("パンくずリスト")).toBeVisible()
   })
 
   // test("複数のアイテムを正しく表示する", () => {
