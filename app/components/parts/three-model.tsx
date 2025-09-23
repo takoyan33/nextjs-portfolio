@@ -43,10 +43,12 @@ const Model = ({
     }
   })
 
+  const group = new THREE.Group()
+
   return (
-    <group ref={groupRef}>
+    <primitive object={group} ref={groupRef}>
       <primitive object={scene} scale={scale} rotation={rotation} position={position} />
-    </group>
+    </primitive>
   )
 }
 
