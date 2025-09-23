@@ -19,11 +19,11 @@
 ## 使用技術について
 
 ### Node.js バージョン
-- Node.js: v18.18.0
+- Node.js: v20.14.0
 - npm: v9.8.1
 
 ### フロントエンド
-- [Next.js](https://nextjs.org/) v14.2.3
+- [Next.js](https://nextjs.org/) v15.5.3
 - [React](https://ja.reactjs.org/) v19.0.0
 - [TypeScript](https://www.typescriptlang.org/) v4.5.5
 
@@ -54,6 +54,9 @@
 - [Swiper](https://swiperjs.com/react) v6.8.1
 - [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) v7.0.0
 - [React Modal](https://reactcommunity.org/react-modal/) v3.14.3
+- [SWR](https://swr.vercel.app/ja) v2.3.4
+- [Zustand](https://zustand.docs.pmnd.rs/getting-started/) v5.0.7
+- [MSW](https://mswjs.io/) v2.11.2
 
 ## ディレクトリ構成
 
