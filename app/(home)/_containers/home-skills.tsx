@@ -1,7 +1,4 @@
-"use client"
-
 import ScrollComponent from "hooks/use-fadeIn"
-import useSWR from "swr"
 import {
   fetchBackSkills,
   fetchFrontSkills,
@@ -26,12 +23,8 @@ const fetchSkillData = async () => {
   }
 }
 
-export const HomeSkills = () => {
-  const { data: skills, error, isLoading } = useSWR("skills", fetchSkillData)
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>エラーが発生しました</div>
-  if (!skills) return null
+export const HomeSkills = async () => {
+  const skills = await fetchSkillData()
 
   return (
     <div>

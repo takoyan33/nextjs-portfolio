@@ -1,20 +1,12 @@
-"use client"
-
 import { TransitionLink } from "app/components/ui"
-import type { Metadata, NextPage } from "next"
+import type { Metadata } from "next"
 import { PATH } from "../utils/path"
 
 export const metadata: Metadata = {
   title: "404",
 }
 
-interface ErrorPageProps {
-  error?: {
-    message?: string
-  }
-}
-
-const ErrorPage: NextPage<ErrorPageProps> = ({ error }) => {
+const ErrorPage = ({ error }: { error?: { message?: string } }) => {
   return (
     <main className="errorPage">
       <h1>404</h1>
