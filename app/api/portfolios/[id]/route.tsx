@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from "next/server"
 export async function GET(req: NextRequest) {
   // URLオブジェクトを作る
   const requestUrl = new URL(req.url)
-  const searchParams = requestUrl.searchParams
-  console.log("searchParams:", searchParams.toString())
 
   // パスから id を取得
   const segments = requestUrl.pathname.split("/")

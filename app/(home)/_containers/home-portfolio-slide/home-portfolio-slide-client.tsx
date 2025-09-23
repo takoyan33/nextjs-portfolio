@@ -21,19 +21,26 @@ export const HomePortfolioSlideClient = ({ portfolios }: Props) => {
     768: { slidesPerView: 3.5 },
   }
 
-  const [firstSwiper, setFirstSwiper] = useState<number>(0)
+  const [isBeginning, setIsBeginning] = useState(true)
+  const [isEnd, setIsEnd] = useState(false)
 
   return (
     <div className="portfolio-content">
-      <div className="prev-button">{firstSwiper !== 0 && <ChevronLeft />}</div>
+      <div className="prev-button">{!isBeginning && <ChevronLeft />}</div>
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
         className="flx swiper"
         spaceBetween={30}
         slidesPerView={3.5}
-        onSwiper={(swiper) => setFirstSwiper(swiper.activeIndex)}
-        onSlideChange={(swiper) => setFirstSwiper(swiper.activeIndex)}
+        onSwiper={(swiper) => {
+          setIsBeginning(swiper.isBeginning)
+          setIsEnd(swiper.isEnd)
+        }}
+        onSlideChange={(swiper) => {
+          setIsBeginning(swiper.isBeginning)
+          setIsEnd(swiper.isEnd)
+        }}
         breakpoints={BREAK_POINT}
         navigation={{
           nextEl: ".next-button",
@@ -53,7 +60,7 @@ export const HomePortfolioSlideClient = ({ portfolios }: Props) => {
         ))}
       </Swiper>
 
-      <div className="next-button">{firstSwiper < 4 && <ChevronRight />}</div>
+      <div className="next-button">{!isEnd && <ChevronRight />}</div>
     </div>
   )
 }
