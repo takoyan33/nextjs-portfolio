@@ -22,7 +22,6 @@ export default async function Home() {
               </h2>
             </ScrollComponent>
             <ScrollComponent>
-              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します https://zenn.dev/duo3/articles/7be016e771c3e4 */}
               <HomePortfolioSlide />
               <CommonButton text="ポートフォリオをさらに見る" link={PATH.PORTFOLIO} />
             </ScrollComponent>
@@ -38,7 +37,6 @@ export default async function Home() {
           </ScrollComponent>
           <div>
             <ScrollComponent>
-              {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します https://zenn.dev/duo3/articles/7be016e771c3e4 */}
               <CareerHistoryTimeline />
             </ScrollComponent>
           </div>
@@ -53,7 +51,6 @@ export default async function Home() {
                 Skill
               </h2>
             </ScrollComponent>
-            {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します https://zenn.dev/duo3/articles/7be016e771c3e4 */}
             <HomeSkills />
           </div>
         </section>
