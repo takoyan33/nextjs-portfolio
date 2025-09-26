@@ -41,11 +41,16 @@ if (isTestEnvironment) {
   server.listen()
 }
 
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  console.log("🟢 MSW Import init")
+  import("../__tests__/mocks/init")
+}
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
   return (
-    <html lang="ja">
+    <html>
       <head>
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
         <GoogleAnalytics />

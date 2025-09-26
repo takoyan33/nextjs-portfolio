@@ -13,7 +13,7 @@ export const handlers = [
     })
   }),
   // 職歴データのモック
-  http.get(`/api/jobs`, () => {
+  http.get(`*/api/jobs`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
@@ -68,7 +68,7 @@ export const handlers = [
       ],
     })
   }),
-  http.get(`*api/skills/back`, () => {
+  http.get(`*/api/skills/back`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
@@ -83,7 +83,7 @@ export const handlers = [
       ],
     })
   }),
-  http.get(`*api/skills/infra`, () => {
+  http.get(`*/api/skills/infra`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
