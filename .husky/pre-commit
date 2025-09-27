@@ -6,7 +6,7 @@ yarn format
 
 yarn build
 
-# yarn test
+yarn test
 
 # yarn lint:style:fix
 

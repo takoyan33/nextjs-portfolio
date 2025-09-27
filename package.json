@@ -9,7 +9,7 @@
     "lint:fix": "eslint ./app --ext .ts,.tsx,.js,.jsx --fix",
     "format": "prettier --write ./app",
     "prepare": "husky",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
     "lint:style": "stylelint '**/*.{scss,sass}'",
     "lint:style:fix": "stylelint --fix '**/*.{scss,sass}'",
