@@ -5,7 +5,7 @@ import { useState } from "react"
 interface SkillProps {
   name: string
   rank: string
-  tag: string
+  tag?: string
   icon: string
   about: string
 }

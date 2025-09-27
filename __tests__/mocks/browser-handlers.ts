@@ -54,7 +54,7 @@ export const handlers = [
   }),
   // スキルデータのモック
   http.get(`*/api/skills/front`, () => {
-    console.log("📡 Mock hit: GET /api/portfolios")
+    console.log("📡 Mock hit: GET /api/skills/front")
     return HttpResponse.json({
       data: [
         {
@@ -69,12 +69,12 @@ export const handlers = [
     })
   }),
   http.get(`*/api/skills/back`, () => {
-    console.log("📡 Mock hit: GET /api/portfolios")
+    console.log("📡 Mock hit: GET /api/skills/back")
     return HttpResponse.json({
       data: [
         {
           id: 1,
-          name: "HTML",
+          name: "PHP",
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
@@ -84,12 +84,12 @@ export const handlers = [
     })
   }),
   http.get(`*/api/skills/infra`, () => {
-    console.log("📡 Mock hit: GET /api/portfolios")
+    console.log("📡 Mock hit: GET /api/skills/infra")
     return HttpResponse.json({
       data: [
         {
           id: 1,
-          name: "HTML",
+          name: "AWS",
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
@@ -99,12 +99,12 @@ export const handlers = [
     })
   }),
   http.get(`*/api/skills/other`, () => {
-    console.log("📡 Mock hit: GET /api/portfolios")
+    console.log("📡 Mock hit: GET /api/skills/other")
     return HttpResponse.json({
       data: [
         {
           id: 1,
-          name: "HTML",
+          name: "Figma",
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
@@ -120,7 +120,7 @@ export const handlers = [
       data: [
         {
           id: 3,
-          name: "To You Design(ポートフォリオサイト)",
+          name: "To You Design(ポートフォリオサイト)1",
           date: "2023-11-30",
           tag: ["React", "Next.js", "Ruby"],
           topImg: "/images/portfolio/portfolio_top3.png",
@@ -148,7 +148,7 @@ export const handlers = [
         },
         {
           id: 4,
-          name: "To You Design(ポートフォリオサイト)",
+          name: "To You Design(ポートフォリオサイト)2",
           date: "2023-11-30",
           tag: ["React", "Next.js", "Ruby"],
           topImg: "/images/portfolio/portfolio_top3.png",

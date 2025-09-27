@@ -1,5 +1,4 @@
-import { act, render } from "@testing-library/react"
-import React from "react"
+import { render } from "@testing-library/react"
 import { test, vitest } from "vitest"
 import About from "../../app/about/page"
 
@@ -12,14 +11,11 @@ vitest.mock("next/navigation", () => ({
 }))
 
 test("Aboutが表示されるか", async () => {
-  let AboutComponent: React.ReactElement
+  const ui = await About()
 
-  // Aboutコンポーネントは非同期なので、actでラップしてawaitで待つ
-  await act(async () => {
-    AboutComponent = await About()
-  })
+  render(ui)
 
-  render(AboutComponent!)
+  // expect(await screen.findByText("経歴")).toBeInTheDocument()
 
   //screen.debug()
 })

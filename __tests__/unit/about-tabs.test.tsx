@@ -3,11 +3,6 @@ import { render, screen } from "@testing-library/react"
 import { describe, expect, test, vi } from "vitest"
 import { AboutTabs } from "../../app/about/_containers/about-tabs"
 
-vi.mock("../../components/ui/rsc", () => ({
-  CareerHistoryTimeline: () => <div>📄 Career History Timeline Mock</div>,
-  JobTimeline: () => <div>💼 Job Timeline Mock</div>,
-}))
-
 // tabStoreのモック
 vi.mock("../../stores/tabStore", () => {
   let activeTab = "history"

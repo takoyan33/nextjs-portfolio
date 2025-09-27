@@ -1,15 +1,18 @@
-import { render } from "@testing-library/react"
-import { test, vitest } from "vitest"
+import { render, screen } from "@testing-library/react"
+import { expect, test, vi } from "vitest"
 import Portfolios from "../../app/portfolios/page"
 
-// next/navigationのモック
-vitest.mock("next/navigation", () => ({
+// --- next/navigation のモック ---
+vi.mock("next/navigation", () => ({
   useRouter: () => ({
     query: { id: "test-post-id" },
-    push: vitest.fn(),
+    push: vi.fn(),
   }),
 }))
 
-test("Portfoliosが表示されるか", () => {
+test("Portfolios が表示されるか", async () => {
   render(<Portfolios />)
+
+  expect(await screen.findByText("To You Design(ポートフォリオサイト)1")).toBeInTheDocument()
+  expect(await screen.findByText("To You Design(ポートフォリオサイト)2")).toBeInTheDocument()
 })
