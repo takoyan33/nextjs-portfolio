@@ -9,7 +9,6 @@ import styles from "../css/timeline.module.scss"
  */
 export const JobTimeline = async () => {
   const data = await fetchJobs()
-  console.log(data)
   return (
     <div className={styles.timeline}>
       <dl>

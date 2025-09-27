@@ -49,7 +49,7 @@ export default async function Home() {
                 Skill
               </h2>
             </ScrollComponent>
-            <HomeSkills />
+            {await HomeSkills()}
           </div>
         </section>
         <HomeWaveBgBottom />

@@ -1,5 +1,3 @@
-"use"
-
 import { fetchHistories } from "hooks/fetch"
 import styles from "../css/timeline.module.scss"
 import { Timeline } from "../timeline"
@@ -9,7 +7,6 @@ import { Timeline } from "../timeline"
  */
 export const CareerHistoryTimeline = async () => {
   const data = await fetchHistories()
-  console.log(data)
   return (
     <div className={styles.timeline}>
       <dl>

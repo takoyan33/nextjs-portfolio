@@ -6,7 +6,16 @@ import { Clarity } from "../utils/clarity"
 import { Footer, Header } from "./components/layout"
 import { GoogleAnalytics } from "./components/layout/GoogleAnalytics"
 // import { ReactScan } from "./components/ui/react-scan"
+import { MswProvider } from "../__tests__/mocks/MswProvider"
 import { siteConfig } from "./config/site"
+
+const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
+console.log("!!!!!!mock!!!!!!!!", mock)
+if (mock) {
+  const { server } = await import("../__tests__/mocks/server")
+  console.log("!!!!🟢 MSW Import server!!!!")
+  server.listen({ onUnhandledRequest: "warn" })
+}
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -32,13 +41,6 @@ export const metadata: Metadata = {
   },
 }
 
-const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
-if (mock) {
-  const { server } = await import("../__tests__/mocks/server")
-  console.log("🟢 MSW Import server")
-  server.listen()
-}
-
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
@@ -54,7 +56,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         {/* <MockProvider /> */}
         <Header />
         {/* <ReactScan /> */}
-        {children}
+        <MswProvider>{children}</MswProvider>
         <Footer />
       </body>
     </html>

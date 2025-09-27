@@ -2,7 +2,6 @@ import { type NextRequest, NextResponse } from "next/server"
 
 export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   const { id } = params
-  console.log("idaaa", id)
 
   const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios/${id}/`
 

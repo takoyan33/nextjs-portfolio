@@ -21,17 +21,12 @@ export const HomeSkills = async () => {
     fetchOtherSkills(),
   ])
 
-  console.log(front, back, infra, other)
-
   const skills = {
     Frontend: front.data,
     Backend: back.data,
     Infra: infra.data,
     Other: other.data,
   }
-
-  console.log(skills)
-  // 一旦表示部分はコメントアウト
 
   return (
     <div>
@@ -49,7 +44,4 @@ export const HomeSkills = async () => {
       ))}
     </div>
   )
-
-  // デバッグ用に返す
-  // return <p>aaa</p>
 }

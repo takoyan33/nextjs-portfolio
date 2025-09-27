@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
 import { Breadcrumb, LowerTitle } from "../components/ui/"
 import { LicenseList } from "../components/ui/rsc/"
-import { AboutTabs } from "./_containers/about-tabs"
 
 export const metadata: Metadata = {
   title: "To You Design - About",
@@ -16,7 +15,7 @@ const About = () => {
         <Breadcrumb items={[{ name: "About", link: PATH.ABOUT }]} />
       </div>
       <LowerTitle title="About" enTitle="プロフィール" />
-      <AboutTabs />
+      {/* <AboutTabs /> */}
       {/* ここからLicense*/}
       <section className="license max_width">
         <h3 className="lower__subTitle">資格</h3>
