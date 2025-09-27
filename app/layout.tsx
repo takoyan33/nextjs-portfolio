@@ -51,7 +51,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
   return (
-    <html>
+    <html lang="ja">
       <head>
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
         <GoogleAnalytics />
