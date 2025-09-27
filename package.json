@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:mock": "NEXT_PUBLIC_API_MOCKING=enabled next dev",
+    "dev:mock": "NEXT_PUBLIC_USE_MOCK=true next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ./app --ext .ts,.tsx,.js,.jsx",
