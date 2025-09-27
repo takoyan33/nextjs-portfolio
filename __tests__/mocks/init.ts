@@ -1,7 +1,7 @@
 import { worker } from "./browser"
 
 // ブラウザ環境でのみMSWを有効化
-if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   worker
     .start({
       onUnhandledRequest: "bypass",

@@ -25,7 +25,12 @@ export const HomePortfolioSlideClient = ({ portfolios }: Props) => {
   const [isEnd, setIsEnd] = useState(false)
 
   return (
-    <div className="portfolio-content">
+    <div
+      className="portfolio-content"
+      style={{
+        gridTemplateColumns: portfolios.length <= 4 ? "1fr" : "1.875rem 1fr 1.875rem",
+      }}
+    >
       <div className="prev-button">{!isBeginning && <ChevronLeft />}</div>
 
       <Swiper
@@ -33,6 +38,7 @@ export const HomePortfolioSlideClient = ({ portfolios }: Props) => {
         className="flx swiper"
         spaceBetween={30}
         slidesPerView={3.5}
+        centerInsufficientSlides={true}
         onSwiper={(swiper) => {
           setIsBeginning(swiper.isBeginning)
           setIsEnd(swiper.isEnd)

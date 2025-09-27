@@ -95,7 +95,9 @@ export const ContactForm = () => {
             required
           />
           <div />
-          {errors.name && <p className="form-box-error">{errors.name.message}</p>}
+          {errors.name?.message && typeof errors.name.message === "string" && (
+            <p className="form-box-error">{errors.name.message}</p>
+          )}
         </div>
 
         <div className="form-box">
@@ -109,7 +111,9 @@ export const ContactForm = () => {
             required
           />
           <div />
-          {errors.email && <p className="form-box-error">{errors.email.message}</p>}
+          {errors.email?.message && typeof errors.email.message === "string" && (
+            <p className="form-box-error">{errors.email.message}</p>
+          )}
         </div>
 
         <div className="form-box">
@@ -125,7 +129,9 @@ export const ContactForm = () => {
             required
           />
           <div />
-          {errors.message && <p className="form-box-error">{errors.message.message}</p>}
+          {errors.message?.message && typeof errors.message.message === "string" && (
+            <p className="form-box-error">{errors.message.message}</p>
+          )}
         </div>
 
         <CommonButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} />

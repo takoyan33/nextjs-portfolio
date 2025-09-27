@@ -16,7 +16,6 @@ const About = () => {
         <Breadcrumb items={[{ name: "About", link: PATH.ABOUT }]} />
       </div>
       <LowerTitle title="About" enTitle="プロフィール" />
-      {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します https://zenn.dev/duo3/articles/7be016e771c3e4 */}
       <AboutTabs historyContent={<CareerHistoryTimeline />} careerContent={<JobTimeline />} />
 
       {/* ここからLicense*/}
@@ -28,7 +27,6 @@ const About = () => {
               <th className="license__table-th">日付</th>
               <th className="license__table-th">資格名</th>
             </tr>
-            {/* @ts-expect-error 非同期サーバーコンポーネントはPromiseを返すため型エラーになりますが、Next.jsが実行時に解決します https://zenn.dev/duo3/articles/7be016e771c3e4 */}
             <LicenseList />
           </tbody>
         </table>

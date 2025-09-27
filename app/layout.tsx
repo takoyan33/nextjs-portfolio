@@ -35,10 +35,16 @@ export const metadata: Metadata = {
 // テスト環境でのみMSWサーバーを起動
 const isTestEnvironment =
   process.env.NODE_ENV === "test" || process.env.NEXT_PUBLIC_USE_MOCK === "true"
-if (isTestEnvironment) {
+const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
+if (isTestEnvironment || mock) {
   const { server } = await import("../__tests__/mocks/server")
-  console.log("🟢 MSW Import server")
+  console.log("!!!!🟢 MSW Import server!!!!")
   server.listen()
+}
+
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  console.log("🟢 MSW Import init")
+  import("../__tests__/mocks/init")
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
