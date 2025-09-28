@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // 共通クラスや変数
 // 色の定義
 $main-color: oklch(63.8% 48.5% 261.57); //#4485ff
@@ -21,7 +23,7 @@ $opacity: 0.7;
 $baseFontSize: 16;
 
 @function rem($pixels) {
-  @return $pixels / $baseFontSize * 1rem;
+  @return math.div($pixels, $baseFontSize) * 1rem;
 }
 
 //sp版の設定
