@@ -23,7 +23,13 @@ export default async function Home() {
             </ScrollComponent>
             <ScrollComponent>
               <HomePortfolioSlide />
-              <CommonButton text="ポートフォリオをさらに見る" link={PATH.PORTFOLIO} />
+              <CommonButton
+                text="ポートフォリオをさらに見る"
+                link={PATH.PORTFOLIO}
+                gtmEventCategory="home_portfolio"
+                gtmEventAction="click_more_portfolio"
+                gtmEventLabel="ホーム_ポートフォリオ_もっと見る"
+              />
             </ScrollComponent>
           </div>
         </section>
@@ -40,7 +46,13 @@ export default async function Home() {
               <CareerHistoryTimeline />
             </ScrollComponent>
           </div>
-          <CommonButton text="経歴をさらに見る" link={PATH.ABOUT} />
+          <CommonButton
+            text="経歴をさらに見る"
+            link={PATH.ABOUT}
+            gtmEventCategory="home_history"
+            gtmEventAction="click_more_history"
+            gtmEventLabel="ホーム_経歴_もっと見る"
+          />
         </section>
         <HomeWaveBgTop />
         {/* ここからSKill*/}
@@ -67,7 +79,13 @@ export default async function Home() {
               <div className="contact__box">
                 <h3 className="contact__box-title">CONTACT</h3>
                 <p className="contact__box-text">お問い合わせ</p>
-                <CommonButton text="お問い合せフォームへ" link={PATH.CONTACT} />
+                <CommonButton
+                  text="お問い合せフォームへ"
+                  link={PATH.CONTACT}
+                  gtmEventCategory="home_contact"
+                  gtmEventAction="click_more_contact"
+                  gtmEventLabel="ホーム_お問い合わせ_もっと見る"
+                />
               </div>
             </ScrollComponent>
           </div>
