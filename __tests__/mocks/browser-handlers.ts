@@ -113,6 +113,70 @@ export const handlers = [
       ],
     })
   }),
+  http.get(`https://zenn.dev/api/articles?username=643866`, () => {
+    console.log("📡 Mock hit: GET https://zenn.dev/api/articles?username=643866")
+    return HttpResponse.json({
+      articles: [
+        {
+          id: 463489,
+          post_type: "Article",
+          title:
+            "[Next.js]サーバーコンポーネントを呼び出すとJSX コンポーネントとして使用することはできません。と表示される",
+          slug: "f562975010d4fb",
+          comments_count: 0,
+          liked_count: 0,
+          bookmarked_count: 0,
+          body_letters_count: 2269,
+          article_type: "tech",
+          emoji: "💡",
+          is_suspending_private: false,
+          published_at: "2025-09-24T18:53:01.563+09:00",
+          body_updated_at: "2025-09-23T23:52:36.873+09:00",
+          source_repo_updated_at: null,
+          pinned: false,
+          path: "/643866/articles/f562975010d4fb",
+          principal_type: "User",
+          user: {
+            id: 55470,
+            username: "643866",
+            name: "たこ焼き",
+            avatar_small_url:
+              "https://res.cloudinary.com/zenn/image/fetch/s--cptBdMob--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_70/https://storage.googleapis.com/zenn-user-upload/avatar/e1ef61bf6b.jpeg",
+          },
+          publication: null,
+          publication_article_override: null,
+        },
+        {
+          id: 331143,
+          post_type: "Article",
+          title: "PlayWrightを用いたフロントエンドE2Eテスト(React, Next.js)",
+          slug: "e4bbb286e46060",
+          comments_count: 0,
+          liked_count: 6,
+          bookmarked_count: 0,
+          body_letters_count: 5629,
+          article_type: "tech",
+          emoji: "💨",
+          is_suspending_private: false,
+          published_at: "2024-11-12T23:15:50.874+09:00",
+          body_updated_at: "2024-11-14T20:50:21.401+09:00",
+          source_repo_updated_at: null,
+          pinned: false,
+          path: "/643866/articles/e4bbb286e46060",
+          principal_type: "User",
+          user: {
+            id: 55470,
+            username: "643866",
+            name: "たこ焼き",
+            avatar_small_url:
+              "https://res.cloudinary.com/zenn/image/fetch/s--cptBdMob--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_70/https://storage.googleapis.com/zenn-user-upload/avatar/e1ef61bf6b.jpeg",
+          },
+          publication: null,
+          publication_article_override: null,
+        },
+      ],
+    })
+  }),
   // ポートフォリオデータのモック
   http.get(`*/api/portfolios`, () => {
     console.log("📡 Mock hit: GET /api/portfolios")
