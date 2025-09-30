@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
-import { test } from "vitest"
+import { expect, test } from "vitest"
 import { CareerHistoryTimeline } from "../../app/components/ui/rsc/career-history-timeline"
 
 test("CareerHistoryTimelineが表示されるか", async () => {

@@ -1,5 +1,6 @@
+import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
-import { test } from "vitest"
+import { expect, test } from "vitest"
 import { HomeSkills } from "../../app/(home)/_containers/home-skills"
 
 test("HomeSkillsが表示されるか", async () => {
