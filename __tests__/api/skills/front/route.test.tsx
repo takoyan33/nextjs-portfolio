@@ -1,5 +1,5 @@
 import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
-import { GET } from "../../../app/api/portfolios/route"
+import { GET } from "../../../../app/api/skills/front/route"
 
 // 環境変数のモック
 const mockEnv = {
@@ -18,7 +18,7 @@ afterEach(() => {
   vi.clearAllMocks()
 })
 
-describe("GET /api/portfolios", () => {
+describe("GET /api/skills/front", () => {
   test("正常なレスポンスを返すこと", async () => {
     const mockData = [
       {
@@ -43,7 +43,7 @@ describe("GET /api/portfolios", () => {
     expect(response.status).toBe(200)
     expect(data).toEqual(mockData)
     expect(mockFetch).toHaveBeenCalledWith(
-      `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`,
+      `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/front_skills`,
     )
   })
 

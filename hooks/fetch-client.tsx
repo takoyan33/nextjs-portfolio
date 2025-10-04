@@ -2,11 +2,10 @@ import type { ResponsePortfolios } from "../types"
 
 /**
  * フロントエンドのポートフォリオの取得
- * @return {fetchPortfoliosFront}
+ * @returns {ResponsePortfolios}
  */
 export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`)
-  // console.log(response)
   return await response.json()
 }
 
