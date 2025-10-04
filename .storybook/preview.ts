@@ -1,15 +1,19 @@
 import type { Preview } from "@storybook/react"
+import { initialize, mswLoader } from "msw-storybook-addon"
 import "../styles/globals.scss"
 
+initialize()
+
 const preview: Preview = {
-	parameters: {
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/i,
-			},
-		},
-	},
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
+  loaders: [mswLoader],
 }
 
 export default preview

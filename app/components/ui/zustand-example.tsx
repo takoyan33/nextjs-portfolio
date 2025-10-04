@@ -9,7 +9,6 @@ export const ZustandExampleComponent = () => {
   return (
     <div className="p-6 space-y-4">
       <h2 className="text-2xl font-bold mb-4">Zustand使用例</h2>
-      aaa
       <p>isOpen: {isOpen ? "true" : "false"}</p>
       {/* モーダルストアの使用例 */}
       <div className="space-y-2">
