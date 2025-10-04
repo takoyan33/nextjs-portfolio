@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import { test } from "vitest"
+import { expect, test } from "vitest"
 import { SkillElement } from "../../app/components/ui/skill-element"
 
 test("SkillElementが表示されるか", () => {

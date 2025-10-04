@@ -3,7 +3,7 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import useSWR from "swr"
-import { fetchPortfoliosFront } from "../../../hooks/fetch"
+import { fetchPortfoliosFront } from "../../../hooks/fetch-client"
 import type { PortfolioType } from "../../../types"
 import PortfolioItem from "../../components/ui/portfolio-item"
 
@@ -16,8 +16,9 @@ export const PortfolioList = () => {
 
   // SWRでデータ取得後、stateにセット
   useEffect(() => {
+    console.log(data)
     if (data) {
-      // console.log(data)
+      console.log(data)
       setPortfolios(data.data)
     }
   }, [data])

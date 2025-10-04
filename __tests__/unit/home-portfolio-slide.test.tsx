@@ -1,5 +1,6 @@
+import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import { test, vitest } from "vitest"
+import { expect, test, vitest } from "vitest"
 import { HomePortfolioSlide } from "../../app/(home)/_containers/home-portfolio-slide"
 
 // next/navigationのモック

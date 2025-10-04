@@ -1,5 +1,6 @@
+import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import { test } from "vitest"
+import { expect, test } from "vitest"
 import { LowerTitle } from "../../app/components/ui/lower-title"
 
 test("LowerTitleが表示されるか", () => {

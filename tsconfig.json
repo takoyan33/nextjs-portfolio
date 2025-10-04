@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["vitest", "@testing-library/jest-dom"],
+    "types": ["node", "vitest", "@testing-library/jest-dom"],
     "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -39,7 +39,8 @@
     "app/api/skills/back/router.js",
     "app/api/back/router.js",
     "next.config.js",
-    "__tests__/integretion/blog.test.jsx"
-, "__tests__/unit/.test.tsx"  ],
+    "__tests__/integration/blog.test.jsx",
+    "__tests__/unit/.test.tsx"
+  ],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.storybook.tsx", "app/cube/page.tsx", "dist"]
 }

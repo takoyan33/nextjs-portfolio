@@ -1,5 +1,5 @@
 import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
-import { GET } from "../../../app/api/histories/route"
+import { GET } from "../../../app/api/licenses/route"
 
 // 環境変数のモック
 const mockEnv = {
@@ -18,23 +18,15 @@ afterEach(() => {
   vi.clearAllMocks()
 })
 
-describe("GET /api/histories", () => {
+describe("GET /api/licenses", () => {
   test("正常なレスポンスを返すこと", async () => {
     const mockData = [
-      {
-        id: "1",
-        title: "大学卒業",
-        date: "2020-03-01",
-        body: "情報工学専攻でコンピュータサイエンスの基礎を学ぶ",
-      },
-      {
-        id: "2",
-        title: "IT企業入社",
-        date: "2020-04-01",
-        body: "新卒としてWeb開発会社に入社し、エンジニアとしてのキャリアをスタート",
-      },
+      { id: "1", date: "2023-01-01", title: "AWS認定ソリューションアーキテクト" },
+      { id: "2", date: "2023-02-01", title: "AWS認定デベロッパー" },
+      { id: "3", date: "2023-03-01", title: "AWS認定SysOpsアドミニストレーター" },
     ]
 
+    // fetch をモック化
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve(mockData),
@@ -46,7 +38,7 @@ describe("GET /api/histories", () => {
     expect(response.status).toBe(200)
     expect(data).toEqual(mockData)
     expect(mockFetch).toHaveBeenCalledWith(
-      `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/histories`,
+      `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/licenses`,
     )
   })
 
