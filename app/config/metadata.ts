@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
+import { PATH } from "utils/path"
 
 export const siteConfig = {
   title: "To You Design",
   description: "To You Designは、ポートフォリオサイトです",
-  url: "https://to-you-design.vercel.app",
+  url: PATH.PROD_URL,
 } as const
 
 export const metadata: Metadata = {

@@ -5,4 +5,5 @@ export const PATH = {
   BLOG: "/blog",
   CONTACT: "/contact",
   PRIVACY_POLICY: "/privacy-policy",
+  PROD_URL: "https://to-you-design.vercel.app",
 } as const

@@ -1,15 +1,13 @@
+import { notFound } from "next/navigation"
 import { fetchPortfolio } from "../../../hooks/fetch"
 import { PortfolioDetail } from "./portfolio-detail"
 
-// ページコンポーネント
-export default async function PortfolioPage({ params }) {
-  console.log("PortfolioPage params:", params)
+export default async function PortfolioPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
 
-  try {
-    const portfolio = await fetchPortfolio(params.id)
-    return <PortfolioDetail portfolio={portfolio.data} />
-  } catch (error) {
-    console.error("Error fetching portfolio:", error)
-    return <div>データ取得に失敗しました。</div>
+  const portfolio = await fetchPortfolio(id)
+  if (portfolio.status == 404) {
+    notFound()
   }
+  return <PortfolioDetail portfolio={portfolio.data} />
 }
