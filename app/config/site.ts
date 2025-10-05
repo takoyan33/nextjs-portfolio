@@ -1,7 +1,9 @@
+import { PATH } from "utils/path"
+
 export const siteConfig = {
   name: "To You Design",
   description: "To You Designは、ポートフォリオサイトです",
-  url: "https://to-you-design.vercel.app",
+  url: PATH.PROD_URL,
   ogImage: "/images/ogp.png",
   links: {
     github: "https://github.com/takoyan33",

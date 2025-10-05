@@ -21,15 +21,7 @@ const About = () => {
       {/* ここからLicense*/}
       <section className="license max_width">
         <h3 className="lower__subTitle">資格</h3>
-        <table className="license__table">
-          <tbody>
-            <tr>
-              <th className="license__table-th">日付</th>
-              <th className="license__table-th">資格名</th>
-            </tr>
-            <LicenseList />
-          </tbody>
-        </table>
+        <LicenseList />
       </section>
     </main>
   )

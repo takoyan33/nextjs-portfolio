@@ -16,12 +16,12 @@ export async function GET(req: NextRequest) {
 
   try {
     const response = await fetch(apiUrl)
-    if (!response.ok) throw new Error(`API error ${response.status}`)
+
     const data = await response.json()
-    console.log("Fetched data:", data)
+
     return NextResponse.json(data)
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to fetch data" })
   }
 }
