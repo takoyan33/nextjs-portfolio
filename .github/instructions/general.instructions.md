@@ -8,8 +8,7 @@
   - semantic commit を使用する
 - コマンドの出力が確認できない場合、 get last command / check background terminal を使用して確認すること
 
-## documents
-- docs/guide.md : プロジェクト概要
+
 
 ## applyTo: "\*\*"
 
@@ -18,3 +17,10 @@
 - JSDOC コメントを使用して、関数の引数や戻り値の説明を追加してください。
 - マジックナンバーは避け、定数として定義してください。
 - コードの可読性を重視してください。
+
+## documents
+- docs/guide.md : プロジェクト概要
+- .github/instructions/react.instructions.md : react関連の指示
+- .github/instructions/storybook.interactions.md : storybook関連の指示
+- .github/instructions/test.interactions.md : test関連の指示
+- .github/instructions/docs.instructions.md : 設計書関連の指示

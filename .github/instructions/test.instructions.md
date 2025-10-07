@@ -13,6 +13,7 @@
 - .toBeInTheDocument() ではなく、 .toBeVisible() を使ってください。
 - debug() を使って、テスト実行時にDOMツリーを出力してください。
 - const router = useRouter()がある場合はモックにしてください
+- 正常系テストは1-2個、異常系テストも1個は作成してください
 
 ## pageテスト
 - ページでの単体テストは `@testing-library/react` を使い、テストランナーは `vitest` を使用してください。
