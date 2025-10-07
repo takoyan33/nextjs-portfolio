@@ -3,7 +3,7 @@ import { http, HttpResponse } from "msw"
 import { PortfolioList } from "./portfolio-list"
 
 const meta: Meta<typeof PortfolioList> = {
-  title: "Example/PortfolioList",
+  title: "UI/PortfolioList",
   component: PortfolioList,
   parameters: {
     layout: "centered",

@@ -3,7 +3,7 @@ import { CommonLabel } from "./common-label"
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof CommonLabel> = {
-  title: "Example/CommonLabel",
+  title: "UI/CommonLabel",
   component: CommonLabel,
   parameters: {
     layout: "centered",
