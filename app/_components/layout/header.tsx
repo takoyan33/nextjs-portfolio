@@ -1,6 +1,6 @@
 "use client"
 
-import { CommonButton } from "app/components/ui/button/common-button"
+import { CommonButton } from "@/app/_components/ui/button/common-button"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import type { MenuItem } from "../../../types"

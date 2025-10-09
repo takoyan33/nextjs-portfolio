@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { expect, test } from "vitest"
-import { CommonLabel } from "../../app/components/ui/common-label"
+import { CommonLabel } from "../../app/_components/ui/common-label"
 
 test("ラベルに名前が表示される", () => {
   render(<CommonLabel text="名前" id="name" />)

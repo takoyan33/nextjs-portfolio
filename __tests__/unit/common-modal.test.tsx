@@ -2,7 +2,7 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { describe, expect, test, vi } from "vitest"
-import { CommonModal } from "../../app/components/ui/common-modal"
+import { CommonModal } from "../../app/_components/ui/common-modal"
 
 describe("CommonModal", () => {
   test("モーダルが表示され画像が見える", () => {

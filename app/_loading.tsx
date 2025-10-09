@@ -1,5 +1,5 @@
 import { PATH } from "../utils/path"
-import { Breadcrumb } from "./components/ui"
+import { Breadcrumb } from "./_components/ui"
 
 const Loading = () => {
   return (

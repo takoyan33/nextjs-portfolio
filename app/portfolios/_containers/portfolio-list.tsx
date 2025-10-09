@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import useSWR from "swr"
 import { fetchPortfoliosFront } from "../../../hooks/fetch-client"
 import type { PortfolioType } from "../../../types"
-import PortfolioItem from "../../components/ui/portfolio-item"
+import PortfolioItem from "../../_components/ui/portfolio-item"
 
 /**
  * ポートフォリオ一覧

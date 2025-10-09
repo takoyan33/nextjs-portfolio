@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
-import { Breadcrumb, LowerTitle } from "../components/ui/"
+import { Breadcrumb, LowerTitle } from "../_components/ui"
 
 export const metadata: Metadata = {
   title: "To You Design - プライバシーポリシー",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import type { ZennProps } from "../../types"
 import { PATH } from "../../utils/path"
-import { Breadcrumb, LowerTitle } from "../components/ui/"
+import { Breadcrumb, LowerTitle } from "../_components/ui"
 import ZennArticleItem from "./_containers/zenn-article-item"
 import ZennAsideArticleItem from "./_containers/zenn-aside-article-item"
 

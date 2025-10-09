@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { TransitionLink } from "../"
+import { TransitionLink } from ".."
 
 interface CommonButtonProps {
   text: string

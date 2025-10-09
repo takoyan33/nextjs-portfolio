@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { expect, test } from "vitest"
-import { JobTimeline } from "../../app/components/ui/rsc/job-timeline"
+import { JobTimeline } from "../../app/_components/ui/rsc/job-timeline"
 
 test("JobTimelineが表示されるか", async () => {
   const ui = await JobTimeline()
