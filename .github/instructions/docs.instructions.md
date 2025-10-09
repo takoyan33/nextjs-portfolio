@@ -11,7 +11,6 @@
 
 ## documents
 - docs/frontend/`[page-name].md` : 各ページごとの詳細設計書
-- docs/frontend/components/ : コンポーネント単位の仕様書
 
 ---
 

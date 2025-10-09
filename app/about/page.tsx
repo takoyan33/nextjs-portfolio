@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { PATH } from "../../utils/path"
 import { Breadcrumb, LowerTitle } from "../_components/ui"
+import { LowerSubTitle } from "../_components/ui/lower-sub-title"
 import { CareerHistoryTimeline, JobTimeline, LicenseList } from "../_components/ui/rsc"
 import { AboutTabs } from "./_containers/about-tabs"
 
@@ -20,7 +21,7 @@ const About = () => {
 
       {/* ここからLicense*/}
       <section className="license max_width">
-        <h3 className="lower__subTitle">資格</h3>
+        <LowerSubTitle title="資格" />
         <LicenseList />
       </section>
     </main>

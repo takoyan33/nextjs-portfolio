@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import type { ZennProps } from "../../types"
 import { PATH } from "../../utils/path"
 import { Breadcrumb, LowerTitle } from "../_components/ui"
+import { LowerSubTitle } from "../_components/ui/lower-sub-title"
 import ZennArticleItem from "./_containers/zenn-article-item"
 import ZennAsideArticleItem from "./_containers/zenn-aside-article-item"
 
@@ -33,10 +34,8 @@ const Blog = async () => {
       <LowerTitle title="Blog" enTitle="ブログ" />
       <div className="blog__layout max_width">
         <div>
-          <h2 className="lower__subTitle">
-            Zenn
-            <span className="lower__subTitle-span">{zennArticles?.articles.length}件</span>
-          </h2>
+          <LowerSubTitle title="Zenn" count={zennArticles?.articles.length ?? 0} />
+
           <div className="blog__List">
             {zennArticles?.articles.map((article) => (
               <ZennArticleItem
