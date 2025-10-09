@@ -1,6 +1,6 @@
 "use client"
 import { Suspense } from "react"
-import { useTabStore } from "../../stores/tabStore"
+import { useTabStore } from "../../_stores/tabStore"
 
 type AboutTabsProps = {
   historyContent: React.ReactNode

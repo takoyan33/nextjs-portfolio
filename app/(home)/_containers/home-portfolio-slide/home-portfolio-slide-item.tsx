@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
-import { TransitionLink } from "../../../components/ui"
+import { TransitionLink } from "../../../_components/ui"
 import styles from "./home-portfolio-slide-item.module.scss"
 
 interface PortfolioItemProps {

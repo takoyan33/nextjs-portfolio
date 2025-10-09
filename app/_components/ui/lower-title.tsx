@@ -5,6 +5,8 @@ interface LowerTitleProps {
 
 /**
  * 下層タイトル
+ * @param title - 日本語タイトル
+ * @param enTitle - 英語タイトル
  */
 export const LowerTitle: React.FC<LowerTitleProps> = ({ title, enTitle }) => {
   return (

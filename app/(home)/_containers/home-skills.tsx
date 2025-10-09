@@ -5,7 +5,7 @@ import {
   fetchInfraSkills,
   fetchOtherSkills,
 } from "../../../hooks/fetch"
-import { SkillElement } from "../../components/ui/skill-element"
+import { SkillElement } from "../../_components/ui/skill-element"
 
 const fetchSkillData = async () => {
   const [front, back, infra, other] = await Promise.all([

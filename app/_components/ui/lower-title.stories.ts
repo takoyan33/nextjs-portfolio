@@ -3,7 +3,7 @@ import { LowerTitle } from "./lower-title"
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof LowerTitle> = {
-  title: "Example/LowerTitle",
+  title: "UI/LowerTitle",
   component: LowerTitle,
   parameters: {},
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs

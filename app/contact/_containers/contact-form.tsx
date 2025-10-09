@@ -3,9 +3,9 @@ import { send } from "emailjs-com"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { CommonButton } from "../../../app/components/ui/button/common-button"
 import { emailjsConfig } from "../../../utils/emailjs"
-import { CommonLabel } from "../../components/ui/"
+import { CommonLabel } from "../../_components/ui"
+import { CommonButton } from "../../_components/ui/button/common-button"
 
 /**
  * お問い合わせフォーム

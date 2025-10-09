@@ -78,8 +78,8 @@ a {
 .portfolio__List {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: rem(60) rem(50);
   justify-content: space-between;
   width: 100%;
@@ -87,7 +87,7 @@ a {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   &-item {
-    width: 30%;
+    width: 100%;
     margin: 0;
     overflow-wrap: break-word;
   }
@@ -717,8 +717,8 @@ li {
     text-align: left;
   }
   &__container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px 20px;
     justify-content: flex-start;
     margin-inline: auto;
@@ -726,7 +726,8 @@ li {
   }
   &__element-wrapper {
     position: relative;
-    width: 30%;
+    max-width: 400px;
+    width: 100%;
   }
 
   &__toggle-icon {
@@ -1129,8 +1130,8 @@ body.modal-open {
       text-align: left;
     }
     &__container {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
     &__element {
       gap: 0px 10px;
@@ -1249,9 +1250,8 @@ body.modal-open {
       text-align: left;
     }
     &__container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
       gap: 20px 10px;
       justify-content: flex-start;
       margin-inline: auto;

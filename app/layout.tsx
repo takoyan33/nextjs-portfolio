@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 import type React from "react"
 import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
-import { Footer, Header } from "./components/layout"
-import { GoogleAnalytics } from "./components/layout/GoogleAnalytics"
-// import { ReactScan } from "./components/ui/react-scan"
-import { siteConfig } from "./config/site"
+import { Footer, Header } from "./_components/layout"
+import { GoogleAnalytics } from "./_components/layout/GoogleAnalytics"
+// import { ReactScan } from "./_components/ui/react-scan"
+import { siteConfig } from "./_config/site"
 
 export const metadata: Metadata = {
   title: siteConfig.name,

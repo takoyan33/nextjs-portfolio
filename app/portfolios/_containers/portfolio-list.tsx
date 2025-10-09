@@ -5,7 +5,8 @@ import { useEffect, useState } from "react"
 import useSWR from "swr"
 import { fetchPortfoliosFront } from "../../../hooks/fetch-client"
 import type { PortfolioType } from "../../../types"
-import PortfolioItem from "../../components/ui/portfolio-item"
+import { LowerSubTitle } from "../../_components/ui/lower-sub-title"
+import PortfolioItem from "../../_components/ui/portfolio-item"
 
 /**
  * ポートフォリオ一覧
@@ -22,15 +23,66 @@ export const PortfolioList = () => {
   }, [data])
 
   if (isLoading) {
-    return <div className="portfolio__loading">読み込み中...</div>
+    return (
+      <div className="max_width">
+        <h2 className="lower__subTitle">全ての制作物</h2>
+
+        <div className="portfolio__filter">
+          <label className="selectBox">
+            <select name="orders" id="order-select" onChange={() => {}} defaultValue="default">
+              <option value="default" disabled>
+                並び替え
+              </option>
+              <option value="new-order">新しい順</option>
+              <option value="old-order">古い順</option>
+            </select>
+          </label>
+        </div>
+
+        <p className="portfolio__loading">読み込み中...</p>
+      </div>
+    )
   }
   if (error) {
-    return <div className="portfolio__loading">エラーが発生しました</div>
+    return (
+      <div className="max_width">
+        <h2 className="lower__subTitle">全ての制作物</h2>
+
+        <div className="portfolio__filter">
+          <label className="selectBox">
+            <select name="orders" id="order-select" onChange={() => {}} defaultValue="default">
+              <option value="default" disabled>
+                並び替え
+              </option>
+              <option value="new-order">新しい順</option>
+              <option value="old-order">古い順</option>
+            </select>
+          </label>
+        </div>
+        <p className="portfolio__loading">エラーが発生しました</p>
+      </div>
+    )
   }
   if (!data || !data.data) {
-    return <div className="portfolio__loading">データがありません</div>
-  }
+    return (
+      <div className="max_width">
+        <h2 className="lower__subTitle">全ての制作物</h2>
 
+        <div className="portfolio__filter">
+          <label className="selectBox">
+            <select name="orders" id="order-select" onChange={() => {}} defaultValue="default">
+              <option value="default" disabled>
+                並び替え
+              </option>
+              <option value="new-order">新しい順</option>
+              <option value="old-order">古い順</option>
+            </select>
+          </label>
+        </div>
+        <p className="portfolio__loading">記事がありません</p>
+      </div>
+    )
+  }
   /** ポートフォリオの絞り込み */
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value
@@ -47,10 +99,8 @@ export const PortfolioList = () => {
 
   return (
     <div className="max_width">
-      <h2 className="lower__subTitle">
-        全ての制作物
-        <span className="lower__subTitle-span">{portfolios.length}件</span>
-      </h2>
+      <LowerSubTitle title="全ての制作物" count={portfolios.length} />
+
       <div className="portfolio__filter">
         <label className="selectBox">
           <select
@@ -67,6 +117,7 @@ export const PortfolioList = () => {
           </select>
         </label>
       </div>
+
       <div className="portfolio__List">
         {portfolios.map((portfolio: PortfolioType) => (
           <PortfolioItem
