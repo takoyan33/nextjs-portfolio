@@ -21,6 +21,6 @@
 ## documents
 - docs/guide.md : プロジェクト概要
 - .github/instructions/react.instructions.md : react関連の指示
-- .github/instructions/storybook.interactions.md : storybook関連の指示
-- .github/instructions/test.interactions.md : test関連の指示
+- .github/instructions/storybook.instructions.md : storybook関連の指示
+- .github/instructions/test.instructions.md : test関連の指示
 - .github/instructions/docs.instructions.md : 設計書関連の指示
