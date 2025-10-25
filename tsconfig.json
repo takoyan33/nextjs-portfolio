@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "types": ["node", "vitest", "@testing-library/jest-dom"],
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -14,6 +15,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "plugins": [
       {
         "name": "next"
@@ -31,8 +36,11 @@
     "pages/500.tsx",
     "pages/posts/[id].js",
     ".next/types/**/*.ts",
-    "app/api/skill/back/router.js",
-    "app/api/back/router.js"
+    "app/api/skills/back/router.js",
+    "app/api/back/router.js",
+    "next.config.js",
+    "__tests__/integration/blog.test.jsx",
+    "__tests__/unit/.test.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.storybook.tsx", "app/cube/page.tsx", "dist"]
 }
