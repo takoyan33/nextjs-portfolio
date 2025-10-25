@@ -8,7 +8,8 @@ export const CareerHistoryTimeline = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, {
     next: { revalidate: 3600 },
   })
-  const { data: histories } = await response.json()
+  const json = await response.json()
+  const histories = Array.isArray(json?.data) ? json.data : []
 
   return (
     <div className={styles.timeline}>

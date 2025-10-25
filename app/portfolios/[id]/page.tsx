@@ -6,7 +6,7 @@ export default async function PortfolioPage({ params }: { params: Promise<{ id: 
   const { id } = await params
 
   const portfolio = await fetchPortfolio(id)
-  if (portfolio.status == 404) {
+  if (portfolio.status == 404 || !portfolio.data) {
     notFound()
   }
   return <PortfolioDetail portfolio={portfolio.data} />

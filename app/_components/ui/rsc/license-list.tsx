@@ -12,7 +12,14 @@ export const LicenseList = async () => {
           <th className="license__table-th">日付</th>
           <th className="license__table-th">資格名</th>
         </tr>
-        {data?.data.map((license) => (
+        {(data?.data ?? []).length === 0 && (
+          <tr>
+            <td className="license__table-td" colSpan={2}>
+              データはありません
+            </td>
+          </tr>
+        )}
+        {(data?.data ?? []).map((license) => (
           <tr key={license.id} className="license__table-tr">
             <td className="license__table-td">{license.date}</td>
             <td className="license__table-td">{license.title}</td>

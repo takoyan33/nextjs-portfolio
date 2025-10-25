@@ -21,7 +21,7 @@ export interface History {
  */
 export interface ResponseHistory {
   status: "SUCCESS" | 404
-  data: History[]
+  data: History[] | undefined
 }
 
 /**
@@ -47,7 +47,7 @@ export interface Job {
  */
 export interface ResponseJob {
   status: "SUCCESS" | 404
-  data: Job[]
+  data: Job[] | undefined
 }
 
 /**
@@ -71,7 +71,7 @@ export interface License {
  */
 export interface ResponseLicense {
   status: "SUCCESS" | 404
-  data: License[]
+  data: License[] | undefined
 }
 
 /**
@@ -101,7 +101,7 @@ export interface Skill {
  */
 export interface ResponseSkill {
   status: "SUCCESS" | 404
-  data: Skill[]
+  data: Skill[] | undefined
 }
 
 /**
@@ -172,7 +172,7 @@ export interface ResponsePortfolios {
  */
 export interface ResponsePortfolio {
   status: "SUCCESS" | 404
-  data: PortfolioType
+  data: PortfolioType | undefined
 }
 
 /**
