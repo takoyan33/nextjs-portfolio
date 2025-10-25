@@ -13,6 +13,6 @@ vi.mock("next/navigation", () => ({
 test("Portfolios が表示されるか", async () => {
   render(<Portfolios />)
 
-  expect(await screen.findByText("To You Design(ポートフォリオサイト)1")).toBeInTheDocument()
-  expect(await screen.findByText("To You Design(ポートフォリオサイト)2")).toBeInTheDocument()
+  expect(await screen.findByText("To You Design(ポートフォリオサイト)1")).toBeVisible()
+  expect(await screen.findByText("To You Design(ポートフォリオサイト)2")).toBeVisible()
 })

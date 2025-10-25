@@ -18,13 +18,13 @@ export const handlers = [
     return HttpResponse.json({
       data: [
         {
-          id: "1",
+          id: 1,
           title: "フロントエンドエンジニア",
           date: "2023-01-01",
           body: "React/Next.jsを使用したWebアプリケーション開発に従事",
         },
         {
-          id: "2",
+          id: 2,
           title: "フルスタックエンジニア",
           date: "2023-06-01",
           body: "フロントエンドとバックエンドの両方を担当し、システム全体の設計・開発を実施",

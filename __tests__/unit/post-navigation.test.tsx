@@ -3,7 +3,7 @@ import { describe, expect, test } from "vitest"
 import { PostNavigation } from "../../app/_components/ui/post-navigation"
 
 describe("PostNavigationの表示とリンク", () => {
-  test("前後の記事タイトルとリンクが表示される", () => {
+  test("正常系: 前後の記事タイトルとリンクが表示される", () => {
     render(
       <PostNavigation
         next_title="次の記事"
@@ -18,7 +18,7 @@ describe("PostNavigationの表示とリンク", () => {
     expect(screen.getByRole("link", { name: /次の記事/ })).toHaveAttribute("href", "/portfolios/2")
   })
 
-  test("タイトルが空の場合はリンクが表示されない", () => {
+  test("異常系: タイトルが空の場合はリンクが表示されない", () => {
     render(<PostNavigation />)
     expect(screen.queryByRole("link")).toBeNull()
   })
