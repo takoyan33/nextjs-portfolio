@@ -4,15 +4,17 @@ FROM node:20-alpine
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install dependencies
+# Copy only package files first
 COPY package.json yarn.lock ./
+
+# Use local cache dir for yarn
+RUN yarn config set cache-folder /usr/src/app/.yarn-cache
+
+# Install dependencies
 RUN yarn install
 
-# Copy source
+# Copy source code, but exclude node_modules
 COPY . .
 
-# Expose dev port
 EXPOSE 3000
-
-# Start in development mode
 CMD ["yarn", "dev"]
