@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react"
-import { PATH } from "../../../utils/path"
+import { PATH } from "../../utils/path"
 import styles from "./css/breadcrumb.module.scss"
 import { TransitionLink } from "./transition-link"
 

@@ -1,5 +1,5 @@
 "use client"
-import ThreeModel from "@/app/_components/parts/three-model"
+import ThreeModel from "components/parts/three-model"
 import ScrollComponent from "hooks/use-fadeIn"
 
 export const HomeFvSection = () => {

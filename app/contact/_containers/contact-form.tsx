@@ -3,9 +3,9 @@ import { send } from "emailjs-com"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { CommonLabel } from "../../../components/ui"
+import { ActionButton } from "../../../components/ui/button/common-button"
 import { emailjsConfig } from "../../../utils/emailjs"
-import { CommonLabel } from "../../_components/ui"
-import { CommonButton } from "../../_components/ui/button/common-button"
 
 /**
  * お問い合わせフォーム
@@ -134,7 +134,7 @@ export const ContactForm = () => {
           )}
         </div>
 
-        <CommonButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} />
+        <ActionButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} />
       </form>
     </div>
   )

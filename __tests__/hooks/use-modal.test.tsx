@@ -1,10 +1,9 @@
 import { describe, expect, test, vi } from "vitest"
 import { CloseModal, OpenModal } from "../../hooks/use-modal"
 
-describe("use-modal hooks", () => {
-  test("OpenModal sets open state and adds body class", () => {
+describe("use-modal フックのテスト", () => {
+  test("OpenModal が状態を開き、body にクラスを追加すること", () => {
     const setIsOpen = vi.fn()
-    // JSDOM document body classList available
     document.body.className = ""
 
     OpenModal(setIsOpen)
@@ -13,7 +12,7 @@ describe("use-modal hooks", () => {
     expect(document.body.classList.contains("modal-open")).toBe(true)
   })
 
-  test("CloseModal unsets open state and removes body class", () => {
+  test("CloseModal が状態を閉じ、body からクラスを削除すること", () => {
     const setIsOpen = vi.fn()
     document.body.className = "modal-open"
 
