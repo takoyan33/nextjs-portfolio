@@ -217,12 +217,6 @@ a {
         color: $main-color;
         text-align: left;
         content: attr(data-ja);
-        &--white {
-          margin-bottom: rem(20);
-          font-size: rem(20);
-          color: white;
-          text-align: left;
-        }
       }
     }
     &__subtitle {
@@ -1001,12 +995,6 @@ li {
       color: white;
       text-align: left;
       content: attr(data-ja);
-      &--white {
-        margin-bottom: rem(20);
-        font-size: rem(20);
-        color: white;
-        text-align: left;
-      }
     }
   }
   &__subTitle {
@@ -1471,12 +1459,6 @@ body.modal-open {
         color: white;
         text-align: left;
         content: attr(data-ja);
-        &--white {
-          margin-bottom: rem(20);
-          font-size: rem(20);
-          color: white;
-          text-align: left;
-        }
       }
     }
     &__subTitle {

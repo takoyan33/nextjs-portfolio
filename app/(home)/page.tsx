@@ -6,7 +6,7 @@ import { PATH } from "utils/path"
 import { HomePortfolioSlide, HomeSkills, HomeWaveBgBottom, HomeWaveBgTop } from "./_containers/"
 import { HomeAboutSection, HomeFvSection } from "./sections"
 
-export default async function Home() {
+export default function Home() {
   return (
     <div>
       <main aria-label="本文">
