@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import { describe, expect, test, vi } from "vitest"
 import { ContactForm } from "../../app/contact/_containers/contact-form"
 
-vi.mock("emailjs-com", () => ({
+vi.mock("@emailjs/browser", () => ({
   send: vi.fn().mockResolvedValue({}),
 }))
 vi.mock("next/navigation", () => ({

@@ -1,4 +1,4 @@
-import { init } from "emailjs-com"
+import { init } from "@emailjs/browser"
 
 const config = {
   userId: process.env.NEXT_PUBLIC_USER_ID,

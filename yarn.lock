@@ -7603,13 +7603,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emailjs-com@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "emailjs-com@npm:3.2.0"
-  checksum: 10/a60d431fe0f24f29b93a685e19074a5b40dfb0ef8602c542fe910e9384de23bcd60675eb612ad4830f0cffb361eeebb74a4d9a551a0013ebe85d30a8be60be14
-  languageName: node
-  linkType: hard
-
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -13137,7 +13130,6 @@ __metadata:
     date-fns: "npm:^2.11.1"
     dayjs: "npm:^1.11.13"
     depcheck: "npm:^1.4.7"
-    emailjs-com: "npm:^3.2.0"
     eslint: "npm:^9.9.0"
     eslint-config-next: "npm:latest"
     eslint-config-prettier: "npm:^9.1.0"

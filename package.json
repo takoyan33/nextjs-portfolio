@@ -32,7 +32,6 @@
     "date-fns": "^2.11.1",
     "dayjs": "^1.11.13",
     "depcheck": "^1.4.7",
-    "emailjs-com": "^3.2.0",
     "eslint": "^9.9.0",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^9.1.0",

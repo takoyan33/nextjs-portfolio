@@ -1,5 +1,5 @@
 "use client"
-import { send } from "emailjs-com"
+import { send } from "@emailjs/browser"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
