@@ -24,6 +24,7 @@
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@hookform/resolvers": "^5.2.2",
     "@next/third-parties": "^15.1.2",
     "@react-three/drei": "^10.0.0-rc.1",
     "@react-three/fiber": "^9.0.0-alpha.8",
@@ -56,6 +57,7 @@
     "swiper": "^11.1.9",
     "swr": "^2.3.4",
     "three": "^0.169.0",
+    "zod": "^4.1.12",
     "zustand": "^5.0.7"
   },
   "devDependencies": {
