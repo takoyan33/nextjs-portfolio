@@ -16,5 +16,5 @@ RUN yarn install
 # Copy source code, but exclude node_modules
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001
 CMD ["yarn", "dev"]
