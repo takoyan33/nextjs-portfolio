@@ -30,6 +30,7 @@
     "@react-three/fiber": "^9.0.0-alpha.8",
     "@types/three": "^0.169.0",
     "@vercel/edge-config": "^1.4.0",
+    "camera-controls": "2.8.0",
     "date-fns": "^2.11.1",
     "dayjs": "^1.11.13",
     "depcheck": "^1.4.7",
