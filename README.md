@@ -58,6 +58,9 @@
 - [SWR](https://swr.vercel.app/ja) v2.3.4
 - [Zustand](https://zustand.docs.pmnd.rs/getting-started/) v5.0.7
 - [MSW](https://mswjs.io/) v2.11.2
+- [EmailJS](https://www.emailjs.com/) v3.14.0
+- [React Hook Form](https://react-hook-form.com/) v7.45.1
+- [Zod](https://zod.dev/) v3.25.1
 
 ## ディレクトリ構成
 

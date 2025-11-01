@@ -1,11 +1,11 @@
 import ScrollComponent from "hooks/use-fadeIn"
+import { SkillElement } from "../../../components/ui/skill-element"
 import {
   fetchBackSkills,
   fetchFrontSkills,
   fetchInfraSkills,
   fetchOtherSkills,
 } from "../../../hooks/fetch"
-import { SkillElement } from "../../_components/ui/skill-element"
 
 const fetchSkillData = async () => {
   const [front, back, infra, other] = await Promise.all([

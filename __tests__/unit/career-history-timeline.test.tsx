@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { afterEach, describe, expect, test, vi } from "vitest"
-import { CareerHistoryTimeline } from "../../app/_components/ui/rsc/career-history-timeline"
+import { CareerHistoryTimeline } from "../../components/ui/rsc/career-history-timeline"
 
 const mockHistories = [
   { id: "h1", title: "大学卒業", date: "2018-03-01", body: "卒業しました" },

@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   define: {
-    "process.env.NEXT_PUBLIC_API_URL": JSON.stringify("http://localhost:3000/"),
+    "process.env.NEXT_PUBLIC_API_URL": JSON.stringify("http://localhost:3001/"),
   },
   test: {
     globals: true,

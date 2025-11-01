@@ -1,4 +1,4 @@
-import { TransitionLink } from "@/app/_components/ui"
+import { TransitionLink } from "components/ui"
 import type { Metadata } from "next"
 import { PATH } from "../utils/path"
 

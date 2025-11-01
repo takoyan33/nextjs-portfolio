@@ -1,5 +1,5 @@
 ---
-applyTo: "app/_components/**/*.tsx"
+applyTo: "components/**/*.tsx"
 ---
 
 - クラスコンポーネントではなく、関数コンポーネントとフックを使ってください。

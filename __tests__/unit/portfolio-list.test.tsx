@@ -1,8 +1,7 @@
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
-import { describe } from "node:test"
 import useSWR, { SWRResponse } from "swr"
-import { expect, test, vi, vitest } from "vitest"
+import { describe, expect, test, vi, vitest } from "vitest"
 import { PortfolioList } from "../../app/portfolios/_containers/portfolio-list.tsx"
 
 // useSWRをモック

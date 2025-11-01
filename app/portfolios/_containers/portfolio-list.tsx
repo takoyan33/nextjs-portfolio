@@ -3,10 +3,10 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import useSWR from "swr"
+import { LowerSubTitle } from "../../../components/ui/lower-sub-title"
+import PortfolioItem from "../../../components/ui/portfolio-item"
 import { fetchPortfoliosFront } from "../../../hooks/fetch-client"
 import type { PortfolioType } from "../../../types"
-import { LowerSubTitle } from "../../_components/ui/lower-sub-title"
-import PortfolioItem from "../../_components/ui/portfolio-item"
 
 /**
  * ポートフォリオ一覧

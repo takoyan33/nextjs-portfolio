@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
+import { Breadcrumb, LowerTitle } from "../../components/ui"
+import { LowerSubTitle } from "../../components/ui/lower-sub-title"
+import { CareerHistoryTimeline, JobTimeline, LicenseList } from "../../components/ui/rsc"
 import { PATH } from "../../utils/path"
-import { Breadcrumb, LowerTitle } from "../_components/ui"
-import { LowerSubTitle } from "../_components/ui/lower-sub-title"
-import { CareerHistoryTimeline, JobTimeline, LicenseList } from "../_components/ui/rsc"
 import { AboutTabs } from "./_containers/about-tabs"
 
 export const metadata: Metadata = {

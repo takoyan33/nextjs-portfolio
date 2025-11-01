@@ -1,12 +1,13 @@
 "use client"
-import { send } from "emailjs-com"
+import { send } from "@emailjs/browser"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { CommonLabel } from "../../../components/ui"
+import { ActionButton } from "../../../components/ui/button/common-button"
 import { emailjsConfig } from "../../../utils/emailjs"
-import { CommonLabel } from "../../_components/ui"
-import { CommonButton } from "../../_components/ui/button/common-button"
-
+import { ContactSchema, PostContactSchema } from "./schema"
 /**
  * お問い合わせフォーム
  */
@@ -20,7 +21,30 @@ export const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<ContactSchema>({
+    resolver: zodResolver(PostContactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  })
+
+  /** 確認画面に遷移 */
+  const handleConfirm = (data: ContactSchema): void => {
+    const isValid = Object.keys(errors).length === 0
+    setName(data.name)
+    setEmail(data.email)
+    setMessage(data.message)
+    if (isValid) {
+      setIsConfirming(true)
+    }
+  }
+
+  /** フォームに戻る */
+  const handleBack = (): void => {
+    setIsConfirming(false)
+  }
 
   /** お問い合わせフォーム送信 */
   const sendMail = (): void => {
@@ -37,22 +61,6 @@ export const ContactForm = () => {
     } else {
       window.alert("お問い合わせを送信失敗しました。")
     }
-  }
-
-  /** 確認画面に遷移 */
-  const handleConfirm = (data): void => {
-    const isValid = Object.keys(errors).length === 0
-    setName(data.name)
-    setEmail(data.email)
-    setMessage(data.message)
-    if (isValid) {
-      setIsConfirming(true)
-    }
-  }
-
-  /** フォームに戻る */
-  const handleBack = (): void => {
-    setIsConfirming(false)
   }
 
   if (isConfirming) {
@@ -95,7 +103,7 @@ export const ContactForm = () => {
             required
           />
           <div />
-          {errors.name?.message && typeof errors.name.message === "string" && (
+          {errors.name && typeof errors.name.message === "string" && (
             <p className="form-box-error">{errors.name.message}</p>
           )}
         </div>
@@ -111,7 +119,7 @@ export const ContactForm = () => {
             required
           />
           <div />
-          {errors.email?.message && typeof errors.email.message === "string" && (
+          {errors.email && typeof errors.email.message === "string" && (
             <p className="form-box-error">{errors.email.message}</p>
           )}
         </div>
@@ -129,12 +137,12 @@ export const ContactForm = () => {
             required
           />
           <div />
-          {errors.message?.message && typeof errors.message.message === "string" && (
+          {errors.message && typeof errors.message.message === "string" && (
             <p className="form-box-error">{errors.message.message}</p>
           )}
         </div>
 
-        <CommonButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} />
+        <ActionButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} />
       </form>
     </div>
   )

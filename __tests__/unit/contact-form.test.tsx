@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import { describe, expect, test, vi } from "vitest"
 import { ContactForm } from "../../app/contact/_containers/contact-form"
 
-vi.mock("emailjs-com", () => ({
+vi.mock("@emailjs/browser", () => ({
   send: vi.fn().mockResolvedValue({}),
 }))
 vi.mock("next/navigation", () => ({
@@ -24,8 +24,8 @@ describe("ContactFormの表示とバリデーション", () => {
     render(<ContactForm />)
     const button = screen.getByRole("button", { name: "確認画面へ" })
     await userEvent.click(button)
-    expect(await screen.findByText("名前を入力してください")).toBeVisible()
-    expect(await screen.findByText("emailを入力してください")).toBeVisible()
-    expect(await screen.findByText("メッセージを入力してください")).toBeVisible()
+    expect(await screen.findByText("名前は入力必須です")).toBeVisible()
+    expect(await screen.findByText("正しいメールアドレスを入力してください")).toBeVisible()
+    expect(await screen.findByText("問い合わせ内容は5文字以上必要です")).toBeVisible()
   })
 })

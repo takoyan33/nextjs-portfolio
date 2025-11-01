@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
+import { Breadcrumb, LowerTitle } from "../../components/ui"
 import { PATH } from "../../utils/path"
-import { Breadcrumb, LowerTitle } from "../_components/ui"
 import { ContactForm } from "./_containers/contact-form"
 
 export const metadata: Metadata = {

@@ -1,4 +1,4 @@
-import { useModalStore } from "../../_stores/modalStore"
+import { useModalStore } from "../../app/_stores/modalStore"
 
 /**
  * Zustandの使用例を示すサンプルコンポーネント

@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, test, vi } from "vitest"
-import { JobTimeline } from "../../app/_components/ui/rsc/job-timeline"
+import { JobTimeline } from "../../components/ui/rsc/job-timeline"
 import { fetchJobs } from "../../hooks/fetch.tsx"
 
 // ✅ fetchJobsをモック

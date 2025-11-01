@@ -1,5 +1,5 @@
-import type { MenuItem } from "../../../types"
-import { PATH } from "../../../utils/path"
+import type { MenuItem } from "../../app/types"
+import { PATH } from "../../utils/path"
 import { TransitionLink } from "../ui"
 
 export const Footer = () => {

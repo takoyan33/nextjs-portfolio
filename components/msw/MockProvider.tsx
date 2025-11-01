@@ -10,7 +10,7 @@ export const MockProvider = () => {
     // 環境変数でMSWの使用を制御
     if (process.env.NEXT_PUBLIC_USE_MOCK === "true") {
       // 動的インポートでブラウザ環境でのみMSWを読み込み
-      import("../../../__tests__/mocks/init")
+      import("../../__tests__/mocks/init")
         .then(() => {
           console.log("🚀 MSW (Mock Service Worker) が起動しました")
         })

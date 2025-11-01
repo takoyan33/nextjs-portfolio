@@ -1,12 +1,12 @@
-import { TopBackButton } from "@/app/_components/ui"
-import { CommonButton } from "@/app/_components/ui/button/common-button"
-import { CareerHistoryTimeline } from "@/app/_components/ui/rsc"
+import { TopBackButton } from "components/ui"
+import { LinkButton } from "components/ui/button/common-button"
+import { CareerHistoryTimeline } from "components/ui/rsc"
 import ScrollComponent from "hooks/use-fadeIn"
 import { PATH } from "utils/path"
 import { HomePortfolioSlide, HomeSkills, HomeWaveBgBottom, HomeWaveBgTop } from "./_containers/"
 import { HomeAboutSection, HomeFvSection } from "./sections"
 
-export default async function Home() {
+export default function Home() {
   return (
     <div>
       <main aria-label="本文">
@@ -23,7 +23,7 @@ export default async function Home() {
             </ScrollComponent>
             <ScrollComponent>
               <HomePortfolioSlide />
-              <CommonButton
+              <LinkButton
                 text="ポートフォリオをさらに見る"
                 link={PATH.PORTFOLIO}
                 gtmEventCategory="home_portfolio"
@@ -46,7 +46,7 @@ export default async function Home() {
               <CareerHistoryTimeline />
             </ScrollComponent>
           </div>
-          <CommonButton
+          <LinkButton
             text="経歴をさらに見る"
             link={PATH.ABOUT}
             gtmEventCategory="home_history"
@@ -79,7 +79,7 @@ export default async function Home() {
               <div className="contact__box">
                 <h3 className="contact__box-title">CONTACT</h3>
                 <p className="contact__box-text">お問い合わせ</p>
-                <CommonButton
+                <LinkButton
                   text="お問い合せフォームへ"
                   link={PATH.CONTACT}
                   gtmEventCategory="home_contact"

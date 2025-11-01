@@ -1115,6 +1115,10 @@ body {
 .portfolio {
   background-color: #f7f7f7;
 }
+.portfolio__loading {
+  text-align: center;
+  padding-block: 100px;
+}
 .portfolioDetail__toc {
   padding: 1.5rem;
   margin: 2rem 0;
@@ -1614,12 +1618,6 @@ a :hover {
     color: oklch(63.8% 48.5% 261.57);
     text-align: left;
     content: attr(data-ja);
-  }
-  .main__title::after--white {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    color: white;
-    text-align: left;
   }
   .main__subtitle {
     margin: 0;
@@ -2154,12 +2152,6 @@ li {
   text-align: left;
   content: attr(data-ja);
 }
-.lower__title::after--white {
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
-  color: white;
-  text-align: left;
-}
 .lower__subTitle {
   padding-top: 0.9375rem;
   padding-bottom: 0.625rem;
@@ -2373,7 +2365,7 @@ body.modal-open {
   }
   .skill__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px 10px;
     justify-content: flex-start;
     margin-inline: auto;
@@ -2573,12 +2565,6 @@ body.modal-open {
     color: white;
     text-align: left;
     content: attr(data-ja);
-  }
-  .lower__title::after--white {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    color: white;
-    text-align: left;
   }
   .lower__subTitle {
     font-size: 22px;
