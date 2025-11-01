@@ -1,0 +1,47 @@
+import type { Meta, StoryObj } from "@storybook/react"
+import { LicenseList } from "./license-list"
+import { setupServer } from "msw/node"
+
+const server = setupServer();
+
+const meta = {
+  title: "Example/LicenseList",
+  component: LicenseList,
+  parameters: {
+    layout: "centered",
+    nextjs: {
+      appDirectory: true,
+    },
+  },
+  tags: ["autodocs"],
+  decorators: [
+    (Story) => {
+      server.listen();
+      return <Story />;
+    },
+  ],
+} satisfies Meta<typeof LicenseList>;
+
+export default meta
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  decorators: [
+    (Story) => {
+      server.use(
+        rest.get(
+          "*/api/licenses",
+          (req, res, ctx) => {
+            return res(
+              ctx.json([
+                { id: 1, title: "Do the dishes" },
+                { id: 2, title: "Take out the trash" },
+              ])
+            );
+          }
+        )
+      );
+      return <Story />;
+    },
+  ],
+};
