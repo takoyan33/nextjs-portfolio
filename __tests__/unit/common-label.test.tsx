@@ -9,7 +9,7 @@ test("ラベルに名前が表示される", () => {
 })
 
 test("ラベルに必須マークが表示される", () => {
-  render(<CommonLabel text="名前" id="name" />)
+  render(<CommonLabel text="名前" id="name" required />)
   const requiredMarks = screen.getAllByText("必須")
   expect(requiredMarks.length).toBeGreaterThan(0)
 })

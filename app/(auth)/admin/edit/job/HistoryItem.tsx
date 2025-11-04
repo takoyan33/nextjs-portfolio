@@ -1,0 +1,25 @@
+"use client"
+
+import "./adminHistoryTable.scss"
+
+interface Props {
+  history: any
+}
+
+const HistoryItem = ({ history }: Props) => {
+  return (
+    <tr>
+      <td>{history.id}</td>
+      <td>{history.title}</td>
+      <td>{history.date}</td>
+      <td>{history.body}</td>
+      <td>
+        <a href={`/admin/edit/job/${history.id}`} className="portfolioTable__editBtn">
+          編集
+        </a>
+      </td>
+    </tr>
+  )
+}
+
+export default HistoryItem

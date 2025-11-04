@@ -121,10 +121,11 @@ export interface ResponseSkill {
  * @returns aboutImg: ポートフォリオ説明画像
  * @returns function: ポートフォリオ機能
  * @returns functionImg: ポートフォリオ機能画像
- * @returns appeal: ポーport_skill: ポートフォリオフロントスキル
+ * @returns appeal: ポートフォリオアピール
+ * @returns front_skill: ポートフォリオフロントスキル
  * @returns back_skill: ポートフォリオバックスキル
  * @returns infra_skill: ポートフォリオインフラスキル
- * @returns time: ポートフォリオ所要時間
+ * @returns time: ポートフォリオ作成所要時間
  */
 export interface PortfolioType {
   id: number

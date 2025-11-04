@@ -19,11 +19,33 @@ export const fetchHistories = async (): Promise<ResponseHistory> => {
 }
 
 /**
+ * 特定の経歴の取得
+ * @param id 経歴のid
+ * @return {ResponseHistory}
+ */
+export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
+  console.log("fetchHistory", id)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`)
+  console.log(response)
+  return response.json()
+}
+
+/**
  * 職歴の取得
  * @return {ResponseJob}
  */
 export const fetchJobs = async (): Promise<ResponseJob> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`)
+  return response.json()
+}
+
+/**
+ * 特定の職歴の取得
+ * @param id 職歴のid
+ * @return {ResponseJob}
+ */
+export const fetchJob = async (id: string): Promise<ResponseJob> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs/${id}`)
   return response.json()
 }
 
