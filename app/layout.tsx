@@ -6,6 +6,8 @@ import { GoogleAnalytics } from "../components/layout/GoogleAnalytics"
 import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
 // import { ReactScan } from "./_components/ui/react-scan"
+import { AdminHeader } from "@/components/layout/AdminHeader"
+import { cookies } from "next/headers"
 import { siteConfig } from "./_config/site"
 
 export const metadata: Metadata = {
@@ -47,9 +49,11 @@ if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "en
   import("../__tests__/mocks/init")
 }
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
+  const cookieStore = cookies()
+  const isAuth = (await cookieStore).get("auth")?.value === "true"
   return (
     <html lang="ja">
       <head>
@@ -60,6 +64,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body>
         {/* <MockProvider /> */}
+        <AdminHeader isAuth={isAuth} />
         <Header />
         {/* <ReactScan /> */}
         {children}
