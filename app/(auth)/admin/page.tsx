@@ -25,7 +25,7 @@ const Admin = () => {
   return (
     <main className="u-padding">
       <div className="max_width">
-        <Breadcrumb items={[{ name: "Admin", link: PATH.ABOUT }]} />
+        <Breadcrumb items={[{ name: "Admin", link: PATH.ADMIN }]} />
       </div>
 
       <LowerTitle title="Admin" enTitle="認証" />

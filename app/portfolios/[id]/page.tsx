@@ -9,5 +9,6 @@ export default async function PortfolioPage({ params }: { params: Promise<{ id: 
   if (portfolio.status == 404 || !portfolio.data) {
     notFound()
   }
+
   return <PortfolioDetail portfolio={portfolio.data} />
 }

@@ -8,6 +8,6 @@ yarn build
 
 yarn test
 
-# yarn lint:style:fix
+yarn lint
 
 echo "----- end pre-commit -------"
