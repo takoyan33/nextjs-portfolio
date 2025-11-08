@@ -1,9 +1,9 @@
-"use client"
+import type { History } from "types"
 
 import "./adminHistoryTable.scss"
 
 interface Props {
-  history: any
+  history: History
 }
 
 const HistoryItem = ({ history }: Props) => {

@@ -1,12 +1,13 @@
 "use client"
 
+import { License } from "@/types"
 import "./adminHistoryTable.scss"
 
 interface Props {
-  license: any
+  license: License
 }
 
-const HistoryItem = ({ license }: Props) => {
+const LicenseItem = ({ license }: Props) => {
   return (
     <tr>
       <td>{license.id}</td>
@@ -21,4 +22,4 @@ const HistoryItem = ({ license }: Props) => {
   )
 }
 
-export default HistoryItem
+export default LicenseItem

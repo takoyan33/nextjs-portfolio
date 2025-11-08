@@ -1,7 +1,7 @@
-import type { PortfolioType } from "types"
+import type { Job } from "types"
 import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
-import HistoryItem from "./HistoryItem"
+import JobItem from "./JobItem"
 
 const Admin = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
@@ -33,8 +33,8 @@ const Admin = async () => {
             </tr>
           </thead>
           <tbody>
-            {jobs.map((job: PortfolioType) => (
-              <HistoryItem key={job.id} history={job} />
+            {jobs.map((job: Job) => (
+              <JobItem key={job.id} job={job} />
             ))}
           </tbody>
         </table>

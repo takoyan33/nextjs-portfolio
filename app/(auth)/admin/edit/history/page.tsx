@@ -1,4 +1,4 @@
-import type { PortfolioType } from "types"
+import type { History } from "types"
 import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import HistoryItem from "./HistoryItem"
@@ -33,7 +33,7 @@ const Admin = async () => {
             </tr>
           </thead>
           <tbody>
-            {histories.map((history: PortfolioType) => (
+            {histories.map((history: History) => (
               <HistoryItem key={history.id} history={history} />
             ))}
           </tbody>

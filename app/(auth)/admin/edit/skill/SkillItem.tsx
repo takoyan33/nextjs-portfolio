@@ -3,7 +3,12 @@
 import { Skill } from "@/types"
 import "./adminHistoryTable.scss"
 
-const SkillItem = ({ skill, type }: { skill: Skill; type: string }) => {
+interface Props {
+  skill: Skill
+  type: "front" | "back" | "infra" | "other"
+}
+
+const SkillItem = ({ skill, type }: Props) => {
   return (
     <tr>
       <td>{skill.id}</td>

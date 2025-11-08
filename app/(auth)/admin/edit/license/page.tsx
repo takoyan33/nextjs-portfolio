@@ -1,7 +1,7 @@
-import type { PortfolioType } from "types"
+import { License } from "@/app/types"
 import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
-import HistoryItem from "./HistoryItem"
+import HistoryItem from "./LicenseItem"
 
 const Admin = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`, {
@@ -32,7 +32,7 @@ const Admin = async () => {
             </tr>
           </thead>
           <tbody>
-            {licenses.map((license: PortfolioType) => (
+            {licenses.map((license: License) => (
               <HistoryItem key={license.id} license={license} />
             ))}
           </tbody>
