@@ -34,9 +34,9 @@ const Admin = async () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>タイトル</th>
-              <th>日付</th>
-              <th>内容</th>
+              <th>名前</th>
+              <th>ランク</th>
+              <th>概要</th>
               <th>編集</th>
             </tr>
           </thead>
@@ -52,9 +52,9 @@ const Admin = async () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>タイトル</th>
-              <th>日付</th>
-              <th>内容</th>
+              <th>名前</th>
+              <th>ランク</th>
+              <th>概要</th>
               <th>編集</th>
             </tr>
           </thead>
@@ -70,9 +70,9 @@ const Admin = async () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>タイトル</th>
-              <th>日付</th>
-              <th>内容</th>
+              <th>名前</th>
+              <th>ランク</th>
+              <th>概要</th>
               <th>編集</th>
             </tr>
           </thead>
@@ -88,9 +88,9 @@ const Admin = async () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>タイトル</th>
-              <th>日付</th>
-              <th>内容</th>
+              <th>名前</th>
+              <th>ランク</th>
+              <th>概要</th>
               <th>編集</th>
             </tr>
           </thead>

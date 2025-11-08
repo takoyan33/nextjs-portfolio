@@ -20,7 +20,7 @@ export async function editPortfolio(formData: FormData, id) {
 
   // ✅ エラーならデータを返す（redirectしない）
   if (!res.ok) {
-    return { ok: false, error: "メールまたはパスワードが違います" }
+    return { ok: false, error: "更新に失敗しました。" }
   }
   revalidatePath("/admin/edit/license")
 

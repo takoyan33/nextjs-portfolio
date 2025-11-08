@@ -1,5 +1,6 @@
 import { Job } from "@/types"
 import "./adminHistoryTable.scss"
+import Link from "next/link"
 
 interface Props {
   job: Job
@@ -13,9 +14,9 @@ const JobItem = ({ job }: Props) => {
       <td>{job.date}</td>
       <td>{job.body}</td>
       <td>
-        <a href={`/admin/edit/job/${job.id}`} className="portfolioTable__editBtn">
+        <Link href={`/admin/edit/job/${job.id}`} className="portfolioTable__editBtn">
           編集
-        </a>
+        </Link>
       </td>
     </tr>
   )

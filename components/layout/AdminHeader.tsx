@@ -26,7 +26,11 @@ export const AdminHeader = ({ isAuth }: Props) => {
                 <TransitionLink href={item.link}>{item.title}</TransitionLink>
               </li>
             ))}
-            <button onClick={LogOut}>ログアウト</button>
+            <form action={LogOut}>
+              <button type="submit" className="action-button">
+                ログアウト
+              </button>
+            </form>
           </ul>
         </nav>
       </div>

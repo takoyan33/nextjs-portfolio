@@ -2,7 +2,7 @@ import { fetchInfraSkill } from "@/hooks/fetch"
 import { notFound } from "next/navigation"
 import EditDetail from "./edit-detail"
 
-export default async function Portfolio({ params }: { params: Promise<{ id: string }> }) {
+export default async function Skill({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
 
   const skill = await fetchInfraSkill(id)

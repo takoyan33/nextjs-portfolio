@@ -2,7 +2,7 @@ import { fetchLicense } from "@/hooks/fetch"
 import { notFound } from "next/navigation"
 import EditDetail from "./edit-detail"
 
-export default async function Portfolio({ params }: { params: Promise<{ id: string }> }) {
+export default async function License({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
 
   const license = await fetchLicense(id)

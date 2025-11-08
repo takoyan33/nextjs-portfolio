@@ -1,6 +1,7 @@
 "use client"
 
 import { License } from "@/types"
+import Link from "next/link"
 import "./adminHistoryTable.scss"
 
 interface Props {
@@ -14,9 +15,9 @@ const LicenseItem = ({ license }: Props) => {
       <td>{license.title}</td>
       <td>{license.date}</td>
       <td>
-        <a href={`/admin/edit/license/${license.id}`} className="portfolioTable__editBtn">
+        <Link href={`/admin/edit/license/${license.id}`} className="portfolioTable__editBtn">
           編集
-        </a>
+        </Link>
       </td>
     </tr>
   )

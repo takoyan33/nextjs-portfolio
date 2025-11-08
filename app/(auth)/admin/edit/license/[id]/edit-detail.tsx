@@ -39,17 +39,17 @@ const EditDetail = ({ license }) => {
         <div className="form">
           <form action={onSubmit} className="mt-8 flex flex-col gap-4 max-w-sm">
             <div className="form-box">
-              <CommonLabel text="職歴名" id="historyTitle" required />
+              <CommonLabel text="資格名" id="historyTitle" required />
               <input
                 type="text"
                 name="historyTitle"
-                placeholder="職歴名"
+                placeholder="資格名"
                 required
                 defaultValue={license?.title}
               />
             </div>
             <div className="form-box">
-              <CommonLabel text="職歴取得日" id="historyDate" required />
+              <CommonLabel text="資格取得日" id="historyDate" required />
               <input type="text" name="historyDate" required defaultValue={license?.date} />
             </div>
             <button type="submit" disabled={loading}>

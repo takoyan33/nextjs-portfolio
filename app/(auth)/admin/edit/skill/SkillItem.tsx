@@ -1,6 +1,7 @@
 "use client"
 
 import { Skill } from "@/types"
+import Link from "next/link"
 import "./adminHistoryTable.scss"
 
 interface Props {
@@ -16,9 +17,9 @@ const SkillItem = ({ skill, type }: Props) => {
       <td>{skill.rank}</td>
       <td>{skill.about}</td>
       <td>
-        <a href={`/admin/edit/skill/${type}/${skill.id}`} className="portfolioTable__editBtn">
+        <Link href={`/admin/edit/skill/${type}/${skill.id}`} className="portfolioTable__editBtn">
           編集
-        </a>
+        </Link>
       </td>
     </tr>
   )

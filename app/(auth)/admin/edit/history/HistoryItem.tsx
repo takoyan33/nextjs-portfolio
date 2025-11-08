@@ -1,5 +1,6 @@
 import type { History } from "types"
 
+import Link from "next/link"
 import "./adminHistoryTable.scss"
 
 interface Props {
@@ -14,9 +15,9 @@ const HistoryItem = ({ history }: Props) => {
       <td>{history.date}</td>
       <td>{history.body}</td>
       <td>
-        <a href={`/admin/edit/history/${history.id}`} className="portfolioTable__editBtn">
+        <Link href={`/admin/edit/history/${history.id}`} className="portfolioTable__editBtn">
           編集
-        </a>
+        </Link>
       </td>
     </tr>
   )

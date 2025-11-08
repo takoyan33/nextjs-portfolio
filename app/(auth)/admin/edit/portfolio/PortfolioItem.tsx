@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import type { PortfolioType } from "types"
 import "./adminPortfolioTable.scss"
 
@@ -20,9 +21,9 @@ const PortfolioItem = ({ portfolio }: Props) => {
         )}
       </td>
       <td>
-        <a href={`/admin/edit/portfolio/${portfolio.id}`} className="portfolioTable__editBtn">
+        <Link href={`/admin/edit/portfolio/${portfolio.id}`} className="portfolioTable__editBtn">
           編集
-        </a>
+        </Link>
       </td>
     </tr>
   )
