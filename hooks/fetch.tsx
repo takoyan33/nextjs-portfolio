@@ -59,6 +59,16 @@ export const fetchLicenses = async (): Promise<ResponseLicense> => {
 }
 
 /**
+ * 特定の資格の取得
+ * @param id 資格のid
+ * @return {ResponseJob}
+ */
+export const fetchLicense = async (id: string): Promise<ResponseLicense> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses/${id}`)
+  return response.json()
+}
+
+/**
  * フロントエンドのポートフォリオの取得
  * @returns {ResponsePortfolios}
  */
@@ -96,11 +106,31 @@ export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
 }
 
 /**
+ * 特定のフロントスキルの取得
+ * @param id フロントスキルのid
+ * @return {ResponseSkill}
+ */
+export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front/${id}`)
+  return response.json()
+}
+
+/**
  * バックエンドスキルの取得
  * @return {ResponseSkill}
  */
 export const fetchBackSkills = async (): Promise<ResponseSkill> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`)
+  return response.json()
+}
+
+/**
+ * 特定のバックエンドスキルの取得
+ * @param id バックエンドスキルのid
+ * @return {ResponseSkill}
+ */
+export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back/${id}`)
   return response.json()
 }
 
@@ -114,10 +144,30 @@ export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
 }
 
 /**
+ * 特定のインフラスキルの取得
+ * @param id インフラスキルのid
+ * @return {ResponseSkill}
+ */
+export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra/${id}`)
+  return response.json()
+}
+
+/**
  * インフラスキルの取得
  * @return {ResponseSkill}
  */
 export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`)
+  return response.json()
+}
+
+/**
+ * 特定のその他スキルの取得
+ * @param id その他スキルのid
+ * @return {ResponseSkill}
+ */
+export const fetchOtherSkill = async (id: string): Promise<ResponseSkill> => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other/${id}`)
   return response.json()
 }

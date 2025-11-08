@@ -3,18 +3,17 @@
 import "./adminHistoryTable.scss"
 
 interface Props {
-  history: any
+  license: any
 }
 
-const HistoryItem = ({ history }: Props) => {
+const HistoryItem = ({ license }: Props) => {
   return (
     <tr>
-      <td>{history.id}</td>
-      <td>{history.title}</td>
-      <td>{history.date}</td>
-      <td>{history.body}</td>
+      <td>{license.id}</td>
+      <td>{license.title}</td>
+      <td>{license.date}</td>
       <td>
-        <a href={`/admin/edit/job/${history.id}`} className="portfolioTable__editBtn">
+        <a href={`/admin/edit/license/${license.id}`} className="portfolioTable__editBtn">
           編集
         </a>
       </td>

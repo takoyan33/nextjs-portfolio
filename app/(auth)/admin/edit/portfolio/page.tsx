@@ -1,13 +1,11 @@
-import { fetchPortfoliosFront } from "hooks/fetch-client"
+import { fetchPortfolios } from "hooks/fetch"
 import type { PortfolioType } from "types"
 import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import PortfolioItem from "./PortfolioItem"
 
 const Admin = async () => {
-  const data = await fetchPortfoliosFront()
-
-  console.log(data)
+  const data = await fetchPortfolios()
 
   return (
     <main className="u-padding">

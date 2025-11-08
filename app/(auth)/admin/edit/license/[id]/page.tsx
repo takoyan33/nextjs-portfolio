@@ -1,15 +1,17 @@
-import { fetchJob } from "@/hooks/fetch"
+import { fetchLicense } from "@/hooks/fetch"
 import { notFound } from "next/navigation"
 import EditDetail from "./edit-detail"
 
 export default async function Portfolio({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
 
-  const history = await fetchJob(id)
+  const license = await fetchLicense(id)
 
-  if (history.status == 404 || !history.data) {
+  console.log("license", license)
+
+  if (license.status == 404 || !license.data) {
     notFound()
   }
 
-  return <EditDetail history={history.data} />
+  return <EditDetail license={license.data} />
 }

@@ -7,16 +7,14 @@ export async function editPortfolio(formData: FormData, id) {
   console.log(formData)
   const title = formData.get("historyTitle") as string
   const date = formData.get("historyDate") as string
-  const body = formData.get("historyBody") as string
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/jobs/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/licenses/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       id,
       title,
       date,
-      body,
     }),
   })
 
@@ -24,8 +22,8 @@ export async function editPortfolio(formData: FormData, id) {
   if (!res.ok) {
     return { ok: false, error: "メールまたはパスワードが違います" }
   }
-  revalidatePath("/admin/edit/job")
+  revalidatePath("/admin/edit/license")
 
   // ✅ 成功時のみリダイレクト
-  redirect("/admin/edit/job")
+  redirect("/admin/edit/license")
 }

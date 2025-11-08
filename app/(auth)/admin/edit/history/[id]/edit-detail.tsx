@@ -28,35 +28,35 @@ const EditDetail = ({ history }) => {
         <Breadcrumb
           items={[
             { name: "管理画面", link: PATH.DASHBOARD },
-            { name: "経歴", link: PATH.EDIT_PORTFOLIO },
-            { name: "経歴修正", link: PATH.ABOUT },
+            { name: "職歴", link: PATH.EDIT_PORTFOLIO },
+            { name: "職歴修正", link: PATH.ABOUT },
           ]}
         />
       </div>
 
-      <LowerTitle title="経歴修正" enTitle="Edit" />
+      <LowerTitle title="職歴修正" enTitle="Edit" />
       <div className="max_width">
         <div className="form">
           <form action={onSubmit} className="mt-8 flex flex-col gap-4 max-w-sm">
             <div className="form-box">
-              <CommonLabel text="経歴名" id="historyTitle" required />
+              <CommonLabel text="職歴名" id="historyTitle" required />
               <input
                 type="text"
                 name="historyTitle"
-                placeholder="経歴名"
+                placeholder="職歴名"
                 required
                 defaultValue={history?.title}
               />
             </div>
             <div className="form-box">
-              <CommonLabel text="経歴取得日" id="historyDate" required />
+              <CommonLabel text="職歴取得日" id="historyDate" required />
               <input type="text" name="historyDate" required defaultValue={history?.date} />
             </div>
             <div className="form-box">
-              <CommonLabel text="経歴概要" id="historyBody" required />
+              <CommonLabel text="職歴概要" id="historyBody" required />
               <textarea
                 name="historyBody"
-                placeholder="経歴概要"
+                placeholder="職歴概要"
                 required
                 defaultValue={history?.body}
                 rows={6}
