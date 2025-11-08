@@ -1,27 +1,35 @@
-import type { PortfolioType } from "types"
+import {
+  fetchBackSkills,
+  fetchFrontSkills,
+  fetchInfraSkills,
+  fetchOtherSkills,
+} from "@/hooks/fetch"
+import { Skill } from "@/types"
 import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
-import HistoryItem from "./HistoryItem"
+import SkillItem from "./SkillItem"
 
 const Admin = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
-    next: { revalidate: 3600 },
-  })
-  const json = await response.json()
-  const jobs = Array.isArray(json?.data) ? json.data : []
+  const [front, back, infra, other] = await Promise.all([
+    fetchFrontSkills(),
+    fetchBackSkills(),
+    fetchInfraSkills(),
+    fetchOtherSkills(),
+  ])
   return (
     <main className="u-padding">
       <div className="max_width">
         <Breadcrumb
           items={[
             { name: "管理画面", link: PATH.DASHBOARD },
-            { name: "経歴", link: PATH.EDIT_PORTFOLIO },
+            { name: "スキル", link: PATH.EDIT_PORTFOLIO },
           ]}
         />
       </div>
 
-      <LowerTitle title="経歴" enTitle="dashboard" />
+      <LowerTitle title="スキル" enTitle="skill" />
       <div className="max_width">
+        <h2>フロントスキル</h2>
         <table className="portfolioTable">
           <thead>
             <tr>
@@ -33,8 +41,62 @@ const Admin = async () => {
             </tr>
           </thead>
           <tbody>
-            {jobs.map((job: PortfolioType) => (
-              <HistoryItem key={job.id} history={job} />
+            {front.data?.map((skill: Skill) => (
+              <SkillItem key={skill.id} skill={skill} type="front" />
+            ))}
+          </tbody>
+        </table>
+
+        <h2>バックエンドスキル</h2>
+        <table className="portfolioTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>タイトル</th>
+              <th>日付</th>
+              <th>内容</th>
+              <th>編集</th>
+            </tr>
+          </thead>
+          <tbody>
+            {back.data?.map((skill: Skill) => (
+              <SkillItem key={skill.id} skill={skill} type="back" />
+            ))}
+          </tbody>
+        </table>
+
+        <h2>インフラスキル</h2>
+        <table className="portfolioTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>タイトル</th>
+              <th>日付</th>
+              <th>内容</th>
+              <th>編集</th>
+            </tr>
+          </thead>
+          <tbody>
+            {infra.data?.map((skill: Skill) => (
+              <SkillItem key={skill.id} skill={skill} type="infra" />
+            ))}
+          </tbody>
+        </table>
+
+        <h2>その他スキル</h2>
+        <table className="portfolioTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>タイトル</th>
+              <th>日付</th>
+              <th>内容</th>
+              <th>編集</th>
+            </tr>
+          </thead>
+          <tbody>
+            {other.data?.map((skill: Skill) => (
+              <SkillItem key={skill.id} skill={skill} type="other" />
             ))}
           </tbody>
         </table>

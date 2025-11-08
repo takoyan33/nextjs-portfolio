@@ -1,15 +1,15 @@
-import { fetchJob } from "@/hooks/fetch"
+import { fetchInfraSkill } from "@/hooks/fetch"
 import { notFound } from "next/navigation"
 import EditDetail from "./edit-detail"
 
 export default async function Portfolio({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
 
-  const history = await fetchJob(id)
+  const skill = await fetchInfraSkill(id)
 
-  if (history.status == 404 || !history.data) {
+  if (skill.status == 404 || !skill.data) {
     notFound()
   }
 
-  return <EditDetail history={history.data} />
+  return <EditDetail skill={skill.data} />
 }

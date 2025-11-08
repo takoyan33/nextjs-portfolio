@@ -3,17 +3,19 @@
 import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
 import { useState } from "react"
 import { PATH } from "utils/path"
-import { editPortfolio } from "./actions"
+import { ediSkill } from "./actions"
 
-const EditDetail = ({ history }) => {
+const EditDetail = ({ skill }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+
+  console.log(skill)
 
   const onSubmit = async (formData: FormData) => {
     setLoading(true)
     setError("")
 
-    const result = await editPortfolio(formData, history?.id)
+    const result = await ediSkill(formData, skill?.id, skill?.icon)
 
     if (result?.error) {
       setLoading(false)
@@ -28,39 +30,37 @@ const EditDetail = ({ history }) => {
         <Breadcrumb
           items={[
             { name: "管理画面", link: PATH.DASHBOARD },
-            { name: "職歴", link: PATH.EDIT_PORTFOLIO },
-            { name: "職歴修正", link: PATH.ABOUT },
+            { name: "スキル", link: PATH.EDIT_PORTFOLIO },
+            { name: "スキル修正", link: PATH.ABOUT },
           ]}
         />
       </div>
 
-      <LowerTitle title="職歴修正" enTitle="Edit" />
+      <LowerTitle title="スキル修正" enTitle="Edit" />
       <div className="max_width">
         <div className="form">
           <form action={onSubmit} className="mt-8 flex flex-col gap-4 max-w-sm">
             <div className="form-box">
-              <CommonLabel text="職歴名" id="historyTitle" required />
+              <CommonLabel text="スキル名" id="skillName" required />
               <input
                 type="text"
-                name="historyTitle"
-                placeholder="職歴名"
+                name="skillName"
+                placeholder="スキル名"
                 required
-                defaultValue={history?.title}
+                defaultValue={skill?.name}
               />
             </div>
             <div className="form-box">
-              <CommonLabel text="職歴取得日" id="historyDate" required />
-              <input type="text" name="historyDate" required defaultValue={history?.date} />
+              <CommonLabel text="スキルランク" id="skillRank" required />
+              <input type="text" name="skillRank" required defaultValue={skill?.rank} />
             </div>
             <div className="form-box">
-              <CommonLabel text="職歴概要" id="historyBody" required />
-              <textarea
-                name="historyBody"
-                placeholder="職歴概要"
-                required
-                defaultValue={history?.body}
-                rows={6}
-              />
+              <CommonLabel text="スキル概要" id="skillAbout" required />
+              <textarea name="skillAbout" required defaultValue={skill?.about} rows={6} />
+            </div>
+            <div className="form-box">
+              <CommonLabel text="スキルタグ" id="skillTag" required />
+              <input type="text" name="skillTag" required defaultValue={skill?.tag} />
             </div>
             <button type="submit" disabled={loading}>
               {loading ? "認証中..." : "編集"}
