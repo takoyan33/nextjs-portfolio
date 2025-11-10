@@ -7,6 +7,7 @@ import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
 // import { ReactScan } from "./_components/ui/react-scan"
 import { AdminHeader } from "@/components/layout/AdminHeader"
+import { MockProvider } from "@/components/msw/MockProvider"
 import { cookies } from "next/headers"
 import { siteConfig } from "./_config/site"
 
@@ -44,6 +45,7 @@ if (isTestEnvironment || mock) {
   server.listen()
 }
 
+// dev:mockでのみMSWサーバーを起動
 if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
   console.log("🟢 MSW Import init")
   import("../__tests__/mocks/init")
@@ -63,7 +65,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <Clarity />
       </head>
       <body>
-        {/* <MockProvider /> */}
+        <MockProvider />
         <AdminHeader isAuth={isAuth} />
         <Header />
         {/* <ReactScan /> */}
