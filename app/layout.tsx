@@ -45,6 +45,12 @@ if (isTestEnvironment || mock) {
   server.listen()
 }
 
+// dev:mockでのみMSWサーバーを起動
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+  console.log("🟢 MSW Import init")
+  import("../__tests__/mocks/init")
+}
+
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
