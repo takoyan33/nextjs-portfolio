@@ -5,7 +5,9 @@ import type { ResponsePortfolios } from "../types"
  * @returns {ResponsePortfolios}
  */
 export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`, {
+    cache: "force-cache",
+  })
   return await response.json()
 }
 
@@ -14,6 +16,8 @@ export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolios}
  */
 export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`, {
+    cache: "force-cache",
+  })
   return await response.json()
 }

@@ -16,7 +16,9 @@ const Blog = async () => {
 
   // zennの記事をfetch
   try {
-    const response = await fetch("https://zenn.dev/api/articles?username=643866")
+    const response = await fetch("https://zenn.dev/api/articles?username=643866", {
+      next: { revalidate: 2592000 },
+    })
     zennArticles = await response.json()
   } catch (err) {
     console.error(err)

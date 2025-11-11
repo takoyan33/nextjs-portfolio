@@ -14,7 +14,9 @@ import type {
  * @return {ResponseHistory}
  */
 export const fetchHistories = async (): Promise<ResponseHistory> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -25,7 +27,9 @@ export const fetchHistories = async (): Promise<ResponseHistory> => {
  */
 export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
   console.log("fetchHistory", id)
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`, {
+    cache: "force-cache",
+  })
   console.log(response)
   return response.json()
 }
@@ -35,7 +39,9 @@ export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
  * @return {ResponseJob}
  */
 export const fetchJobs = async (): Promise<ResponseJob> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -45,7 +51,9 @@ export const fetchJobs = async (): Promise<ResponseJob> => {
  * @return {ResponseJob}
  */
 export const fetchJob = async (id: string): Promise<ResponseJob> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -54,7 +62,9 @@ export const fetchJob = async (id: string): Promise<ResponseJob> => {
  * @return {ResponseLicense}
  */
 export const fetchLicenses = async (): Promise<ResponseLicense> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -64,7 +74,9 @@ export const fetchLicenses = async (): Promise<ResponseLicense> => {
  * @return {ResponseJob}
  */
 export const fetchLicense = async (id: string): Promise<ResponseLicense> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -73,7 +85,9 @@ export const fetchLicense = async (id: string): Promise<ResponseLicense> => {
  * @returns {ResponsePortfolios}
  */
 export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`, {
+    cache: "force-cache",
+  })
   return await response.json()
 }
 
@@ -82,7 +96,9 @@ export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolios}
  */
 export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`, {
+    cache: "force-cache",
+  })
   return await response.json()
 }
 
@@ -92,7 +108,9 @@ export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolio}
  */
 export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePortfolio> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -101,7 +119,9 @@ export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePor
  * @return {ResponseSkill}
  */
 export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -111,7 +131,9 @@ export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -120,7 +142,9 @@ export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchBackSkills = async (): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -130,7 +154,9 @@ export const fetchBackSkills = async (): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -139,7 +165,9 @@ export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -149,7 +177,9 @@ export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -158,7 +188,9 @@ export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
 
@@ -168,6 +200,8 @@ export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
  * @return {ResponseSkill}
  */
 export const fetchOtherSkill = async (id: string): Promise<ResponseSkill> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other/${id}`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other/${id}`, {
+    cache: "force-cache",
+  })
   return response.json()
 }
