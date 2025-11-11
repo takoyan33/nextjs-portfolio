@@ -28,7 +28,6 @@ export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`, {
     cache: "force-cache",
   })
-  console.log(response)
   return response.json()
 }
 
@@ -37,9 +36,7 @@ export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
  * @return {ResponseJob}
  */
 export const fetchJobs = async (): Promise<ResponseJob> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
-    cache: "force-cache",
-  })
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, CACHE_OPTIONS)
   return response.json()
 }
 
