@@ -9,7 +9,7 @@ import { Clarity } from "../utils/clarity"
 import { AdminHeader } from "@/components/layout/AdminHeader"
 import { MockProvider } from "@/components/msw/MockProvider"
 import { cookies } from "next/headers"
-import { siteConfig } from "./_config/site"
+import { siteConfig } from "../utils/site"
 
 export const metadata: Metadata = {
   title: siteConfig.name,

@@ -1,3 +1,4 @@
+# キャッシュ戦略
 / 
 /about
 /portfolios
@@ -9,3 +10,5 @@
 
 /admin
 - データを更新後revalidatePath()で、キャッシュエントリを削除し、更新します。
+
+※ 今後は最近追加されたuse cache などに変更予定
