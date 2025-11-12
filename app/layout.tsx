@@ -7,8 +7,9 @@ import "../styles/globals.scss"
 import { Clarity } from "../utils/clarity"
 // import { ReactScan } from "./_components/ui/react-scan"
 import { AdminHeader } from "@/components/layout/AdminHeader"
+import { MockProvider } from "@/components/msw/MockProvider"
 import { cookies } from "next/headers"
-import { siteConfig } from "./_config/site"
+import { siteConfig } from "../utils/site"
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -34,19 +35,14 @@ export const metadata: Metadata = {
   },
 }
 
-// テスト環境でのみMSWサーバーを起動
+// dev, テスト環境でのみMSWサーバーを起動
 const isTestEnvironment =
   process.env.NODE_ENV === "test" || process.env.NEXT_PUBLIC_USE_MOCK === "true"
 const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
 if (isTestEnvironment || mock) {
-  const { server } = await import("../__tests__/mocks/server")
+  const { server } = await import("__tests__/mocks/server")
   console.log("!!!!🟢 MSW Import server!!!!")
   server.listen()
-}
-
-if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-  console.log("🟢 MSW Import init")
-  import("../__tests__/mocks/init")
 }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
@@ -63,7 +59,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <Clarity />
       </head>
       <body>
-        {/* <MockProvider /> */}
+        <MockProvider />
         <AdminHeader isAuth={isAuth} />
         <Header />
         {/* <ReactScan /> */}

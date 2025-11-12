@@ -29,3 +29,5 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
     width: 30,
   },
 ] as const
+
+export const CACHE_OPTIONS = { cache: "force-cache" } as const
