@@ -1,3 +1,4 @@
+import { CACHE_OPTIONS } from "../../../utils/data"
 import styles from "../css/timeline.module.scss"
 import { Timeline } from "../timeline"
 
@@ -5,9 +6,7 @@ import { Timeline } from "../timeline"
  * 経歴のタイムライン
  */
 export const CareerHistoryTimeline = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, {
-    next: { revalidate: 3600 },
-  })
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, CACHE_OPTIONS)
   const json = await response.json()
   const histories = Array.isArray(json?.data) ? json.data : []
 

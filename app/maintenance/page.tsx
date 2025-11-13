@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 
+export const dynamic = "force-static"
+
 export const metadata: Metadata = {
   title: "メンテナンス中 | To You Design",
   description: "現在メンテナンス中です。しばらくお待ちください。",
