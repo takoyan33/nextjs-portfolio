@@ -25,9 +25,10 @@ export const fetchHistories = async (): Promise<ResponseHistory> => {
  * @return {ResponseHistory}
  */
 export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`, {
-    cache: "force-cache",
-  })
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`,
+    CACHE_OPTIONS,
+  )
   return response.json()
 }
 

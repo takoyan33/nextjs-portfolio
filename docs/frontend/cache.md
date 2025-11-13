@@ -39,17 +39,10 @@ Page Routes
 /contact
 /500
 
+- SSR
+
 API Routes
 /api/histories
 /api/jobs
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 - SSG (静的サイト生成)
-=======
-- SSG (静的サイト生成)
->>>>>>> 4f53b94 (fix: キャッシュの持ち方の修正)
-=======
-- SSG (静的サイト生成)
->>>>>>> 75af8a1 (fix: reviewの修正)
