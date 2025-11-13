@@ -6,6 +6,8 @@ import { PATH } from "utils/path"
 import { HomePortfolioSlide, HomeSkills, HomeWaveBgBottom, HomeWaveBgTop } from "./_containers/"
 import { HomeAboutSection, HomeFvSection } from "./sections"
 
+export const dynamic = "force-static"
+
 export default function Home() {
   return (
     <div>

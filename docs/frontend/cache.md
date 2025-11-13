@@ -12,3 +12,36 @@
 - データを更新後revalidatePath()で、キャッシュエントリを削除し、更新します。
 
 ※ 今後は最近追加されたuse cache などに変更予定
+
+# レンダリング形式
+
+Page Routes
+/about
+/blog
+/admin
+/404
+
+API Routes
+/api/licenses
+/api/skills/back
+/api/skills/front
+/api/skills/infra
+/api/skills/other
+/api/portfolios
+
+- SSR (サーバーサイドレンダリング)
+
+Page Routes
+/
+/portfolios
+/privacy-policy
+/maintenance
+/contact
+/500
+
+API Routes
+/api/histories
+/api/jobs
+
+
+- SSG (静的サイト生成)
