@@ -729,10 +729,6 @@ li {
     right: 15px;
     font-size: 1.2rem;
     transition: transform 0.3s ease;
-
-    &.is-open {
-      transform: rotate(180deg);
-    }
   }
   &__element {
     display: flex;
@@ -759,10 +755,6 @@ li {
     margin-top: 6px;
     overflow: hidden;
     transition: max-height 0.3s ease;
-
-    &.is-open {
-      max-height: 200px;
-    }
   }
 
   &__accordion-inner {
@@ -797,6 +789,16 @@ li {
     position: relative;
     width: 60px !important;
     height: 60px !important;
+  }
+
+  details[open] {
+    .skill__toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .skill__accordion {
+      max-height: 200px;
+    }
   }
 }
 

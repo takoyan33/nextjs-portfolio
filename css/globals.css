@@ -1881,6 +1881,7 @@ li {
 .skill {
   padding-bottom: 40px;
   background-color: #f7f7f7;
+  max-height: 200px;
 }
 .skill__title {
   margin-bottom: 14px;
@@ -1906,9 +1907,6 @@ li {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
-.skill__toggle-icon.is-open {
-  transform: rotate(180deg);
-}
 .skill__element {
   display: flex;
   gap: 0px 60px;
@@ -1933,9 +1931,6 @@ li {
   margin-top: 6px;
   overflow: hidden;
   transition: max-height 0.3s ease;
-}
-.skill__accordion.is-open {
-  max-height: 200px;
 }
 .skill__accordion-inner {
   position: relative;
@@ -1965,6 +1960,9 @@ li {
   position: relative;
   width: 60px !important;
   height: 60px !important;
+}
+.skill details[open] .skill__toggle-icon {
+  transform: rotate(180deg);
 }
 
 .swiper-horizontal {

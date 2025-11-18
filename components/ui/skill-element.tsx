@@ -1,6 +1,5 @@
-"use client"
+import { ChevronUp } from "lucide-react"
 import Image from "next/image"
-import { useState } from "react"
 
 interface SkillProps {
   name: string
@@ -18,16 +17,9 @@ interface SkillProps {
  * @param about スキルの説明
  */
 export const SkillElement = ({ name, rank, icon, about }: SkillProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
-  /** アコーディオンの開閉 */
-  const handleToggle = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
-    <div className="skill__element-wrapper">
-      <button className="skill__element" onClick={handleToggle} type="button">
+    <details className="skill__element-wrapper">
+      <summary className="skill__element">
         <div className="skill__svg">
           <Image
             src={icon}
@@ -41,15 +33,15 @@ export const SkillElement = ({ name, rank, icon, about }: SkillProps) => {
           <p className="skill__text">{name}</p>
           <p className="skill__text">{rank}</p>
         </div>
-        <span className={`skill__toggle-icon ${isOpen ? "is-open" : ""}`}>
-          {isOpen ? "−" : "＋"}
+        <span className="skill__toggle-icon">
+          <ChevronUp />
         </span>
-      </button>
-      <div className={`skill__accordion ${isOpen ? "is-open" : ""}`}>
+      </summary>
+      <div className="skill__accordion">
         <div className="skill__accordion-inner">
           <p className="skill__about">{about}</p>
         </div>
       </div>
-    </div>
+    </details>
   )
 }
