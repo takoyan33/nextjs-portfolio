@@ -26,8 +26,8 @@ export const SkillElement = ({ name, rank, icon, about }: SkillProps) => {
   }
 
   return (
-    <div className="skill__element-wrapper">
-      <button className="skill__element" onClick={handleToggle} type="button">
+    <details className="skill__element-wrapper">
+      <summary className="skill__element" onClick={handleToggle}>
         <div className="skill__svg">
           <Image
             src={icon}
@@ -44,12 +44,12 @@ export const SkillElement = ({ name, rank, icon, about }: SkillProps) => {
         <span className={`skill__toggle-icon ${isOpen ? "is-open" : ""}`}>
           {isOpen ? "−" : "＋"}
         </span>
-      </button>
+      </summary>
       <div className={`skill__accordion ${isOpen ? "is-open" : ""}`}>
         <div className="skill__accordion-inner">
           <p className="skill__about">{about}</p>
         </div>
       </div>
-    </div>
+    </details>
   )
 }
