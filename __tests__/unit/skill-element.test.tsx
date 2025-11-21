@@ -33,7 +33,7 @@ test("SkillElementのアコーディオンが表示される", async () => {
   if (!summary) throw new Error("summary not found")
 
   await userEvent.click(summary)
-  screen.debug()
+
 
   expect(screen.getByText("JavaScriptdescription")).toBeVisible()
 })

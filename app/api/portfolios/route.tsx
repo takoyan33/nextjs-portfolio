@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server"
-import { messages } from "../../../app/types/social"
 
 import type { ResponsePortfolio } from "types"
 
@@ -22,9 +21,7 @@ export async function GET() {
       return NextResponse.json({ error: "No data found" }, { status: 404 })
     }
 
-    if (data.status !== "SUCCESS") {
-      console.log(messages[data.status] || "Unknown error occurred")
-    }
+
     return NextResponse.json(data)
   } catch (error) {
     console.error("Error fetching data:", error)
