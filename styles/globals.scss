@@ -372,11 +372,9 @@ body {
   font-size: rem(20);
   color: white;
   cursor: pointer;
-  background-color: #6499ff;
+  background-color: #4284ff;
   border: 0 solid;
   border-radius: 100%;
-  &-icon {
-  }
   &:hover {
     opacity: $opacity;
   }
@@ -981,7 +979,7 @@ li {
 .lower {
   &__bg {
     height: 250px;
-    background-color: #6499ff;
+    background-color: #4284ff;
   }
   &__title {
     padding-top: 50px;
@@ -1445,7 +1443,7 @@ body.modal-open {
   .lower {
     &__bg {
       height: 180px;
-      background-color: #6499ff;
+      background-color: #4284ff;
     }
     &__title {
       padding-top: 40px;
