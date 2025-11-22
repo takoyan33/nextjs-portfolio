@@ -18,7 +18,6 @@ export const PortfolioList = () => {
 
   // SWRでデータ取得後、stateにセット
   useEffect(() => {
-    console.log(data)
     if (data) {
       setPortfolios(data.data)
     }
