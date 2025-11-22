@@ -1,6 +1,6 @@
 // 個別ページ
 
-@use '../common/variables' as *;
+@use "../common/variables" as *;
 
 //About タブ切り替え
 .tab-1 {
@@ -14,7 +14,7 @@
     order: -1;
     min-width: 100px;
     padding: 0.9em 1em 0.5em;
-    font-size: 0.9em;
+    font-size: 18px;
     font-weight: bold;
     color: #535353;
     text-align: center;

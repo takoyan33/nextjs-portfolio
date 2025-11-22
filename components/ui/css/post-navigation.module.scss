@@ -1,0 +1,43 @@
+@use "../../../styles/common/_variables.scss" as *;
+@use "../../../styles/common/_mixin";
+
+//ナビゲーション
+.PostNavigation {
+  display: flex;
+  margin: rem(40) auto;
+  margin-top: rem(120);
+  border-top: 1px solid rgb(206, 206, 206);
+  border-bottom: 1px solid rgb(206, 206, 206);
+  &__item {
+    width: 50%;
+    padding-block: rem(20);
+    color: #000081;
+    text-align: center;
+  }
+  &__arrow {
+    width: 18px;
+    height: auto;
+  }
+  &__container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@include mixin.sp {
+  .PostNavigation {
+    display: flex;
+    margin: rem(20) auto;
+    margin-top: rem(60);
+    border-top: 2px solid rgb(206, 206, 206);
+    border-bottom: 2px solid rgb(206, 206, 206);
+    &__item {
+      width: 50%;
+      padding-block: rem(10);
+      color: #000081;
+      text-align: center;
+    }
+  }
+}

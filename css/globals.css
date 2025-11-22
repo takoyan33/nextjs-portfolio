@@ -571,7 +571,7 @@ body {
   order: -1;
   min-width: 100px;
   padding: 0.9em 1em 0.5em;
-  font-size: 0.9em;
+  font-size: 18px;
   font-weight: bold;
   color: #535353;
   text-align: center;
@@ -764,7 +764,6 @@ body {
 }
 .form {
   margin: 60px 0;
-  /* 未記入でエラーがある場合に背景色を変更 */
 }
 .form-box {
   display: grid;
@@ -788,6 +787,9 @@ body {
 .form-box-textarea {
   padding: 8px;
 }
+.form-box-textarea-error {
+  border: 1px solid red;
+}
 .form-box-btn {
   padding: 5px 20px;
   color: white;
@@ -799,6 +801,7 @@ body {
   background-color: oklch(63.8% 48.5% 261.57);
 }
 .form-box-error {
+  margin-top: 4px;
   font-size: 14px;
   color: oklch(63.62% 0.222 27.97);
   text-align: left;
@@ -1110,7 +1113,45 @@ body {
 }
 
 .portfolio {
-  background-color: oklch(96.72% 0 0);
+  background-color: #f7f7f7;
+}
+.portfolio__loading {
+  text-align: center;
+  padding-block: 100px;
+}
+.portfolioDetail__toc {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+.portfolioDetail__toc-title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+}
+.portfolioDetail__toc-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.portfolioDetail__toc-link {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #4485ff;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.portfolioDetail__toc-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
 }
 .portfolio__filter {
   display: flex;
@@ -1195,12 +1236,11 @@ body {
   margin-bottom: 80px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid oklch(53.59% 0 0);
 }
 .portfolioDetail__element-img {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 500px;
   aspect-ratio: 16/9;
   margin-inline: auto;
   -o-object-fit: contain;
@@ -1443,8 +1483,9 @@ a :hover {
 }
 
 .portfolio__List {
-  display: flex;
-  flex-wrap: wrap;
+  display: -ms-flexbox;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3.75rem 3.125rem;
   justify-content: space-between;
   width: 100%;
@@ -1453,7 +1494,7 @@ a :hover {
   -ms-flex-pack: center;
 }
 .portfolio__List-item {
-  width: 30%;
+  width: 100%;
   margin: 0;
   overflow-wrap: break-word;
 }
@@ -1577,12 +1618,6 @@ a :hover {
     color: oklch(63.8% 48.5% 261.57);
     text-align: left;
     content: attr(data-ja);
-  }
-  .main__title::after--white {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    color: white;
-    text-align: left;
   }
   .main__subtitle {
     margin: 0;
@@ -1845,7 +1880,8 @@ li {
 
 .skill {
   padding-bottom: 40px;
-  background-color: oklch(96.72% 0 0);
+  background-color: #f7f7f7;
+  max-height: 200px;
 }
 .skill__title {
   margin-bottom: 14px;
@@ -1853,8 +1889,8 @@ li {
   text-align: left;
 }
 .skill__container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px 20px;
   justify-content: flex-start;
   margin-inline: auto;
@@ -1862,16 +1898,14 @@ li {
 }
 .skill__element-wrapper {
   position: relative;
-  width: 30%;
+  max-width: 400px;
+  width: 100%;
 }
 .skill__toggle-icon {
   position: absolute;
   right: 15px;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
-}
-.skill__toggle-icon.is-open {
-  transform: rotate(180deg);
 }
 .skill__element {
   display: flex;
@@ -1897,9 +1931,6 @@ li {
   margin-top: 6px;
   overflow: hidden;
   transition: max-height 0.3s ease;
-}
-.skill__accordion.is-open {
-  max-height: 200px;
 }
 .skill__accordion-inner {
   position: relative;
@@ -1929,6 +1960,9 @@ li {
   position: relative;
   width: 60px !important;
   height: 60px !important;
+}
+.skill details[open] .skill__toggle-icon {
+  transform: rotate(180deg);
 }
 
 .swiper-horizontal {
@@ -2116,12 +2150,6 @@ li {
   text-align: left;
   content: attr(data-ja);
 }
-.lower__title::after--white {
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
-  color: white;
-  text-align: left;
-}
 .lower__subTitle {
   padding-top: 0.9375rem;
   padding-bottom: 0.625rem;
@@ -2231,18 +2259,18 @@ body.modal-open {
     text-align: left;
   }
   .skill__container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
   .skill__element {
-    width: 100%;
     gap: 0px 10px;
+    width: 100%;
   }
   .skill__text {
+    width: 140px;
+    font-size: 16px;
     font-weight: bold;
     text-align: left;
-    font-size: 16px;
-    width: 140px;
   }
   .skill__svg {
     position: relative;
@@ -2326,7 +2354,7 @@ body.modal-open {
   }
   .skill {
     padding-bottom: 40px;
-    background-color: oklch(96.72% 0 0);
+    background-color: #f7f7f7;
   }
   .skill__title {
     margin-bottom: 14px;
@@ -2334,9 +2362,8 @@ body.modal-open {
     text-align: left;
   }
   .skill__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px 10px;
     justify-content: flex-start;
     margin-inline: auto;
@@ -2370,10 +2397,10 @@ body.modal-open {
     opacity: 0.7;
   }
   .skill__text {
+    width: auto;
     margin: 0 auto;
     font-size: 16;
     font-weight: bold;
-    width: auto;
   }
   .skill__accordion {
     max-height: 0;
@@ -2536,12 +2563,6 @@ body.modal-open {
     color: white;
     text-align: left;
     content: attr(data-ja);
-  }
-  .lower__title::after--white {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    color: white;
-    text-align: left;
   }
   .lower__subTitle {
     font-size: 22px;

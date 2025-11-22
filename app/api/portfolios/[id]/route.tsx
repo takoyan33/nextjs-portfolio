@@ -1,32 +1,27 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export async function GET(
-	request: NextRequest,
-	{ params }: { params: { id: string } },
-) {
-	const { id } = params
-	console.log("idaaa", id)
+export async function GET(req: NextRequest) {
+  // URLオブジェクトを作る
+  const requestUrl = new URL(req.url)
 
-	const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios/${id}/`
+  // パスから id を取得
+  const segments = requestUrl.pathname.split("/")
+  const id = segments[segments.length - 1] // 最後の要素が [id]
 
-	if (!url) {
-		return NextResponse.json(
-			{ error: "Missing API_URL environment variable" },
-			{ status: 500 },
-		)
-	}
+  if (!id) {
+    return NextResponse.json({ error: "Missing id" }, { status: 400 })
+  }
 
-	try {
-		const response = await fetch(url)
+  const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios/${id}/`
 
-		if (!response.ok) {
-			throw new Error(`API request failed with status ${response.status}`)
-		}
+  try {
+    const response = await fetch(apiUrl)
 
-		const data = await response.json()
-		return NextResponse.json(data)
-	} catch (error) {
-		console.error("Error fetching data:", error)
-		return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 })
-	}
+    const data = await response.json()
+
+    return NextResponse.json(data)
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: "Failed to fetch data" })
+  }
 }

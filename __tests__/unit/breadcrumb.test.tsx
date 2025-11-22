@@ -1,15 +1,50 @@
+import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
-import React from "react"
-import { expect, test, vitest } from "vitest"
-import { Breadcrumb } from "../../app/components/ui/breadcrumb"
+import { type ReactNode } from "react"
+import { describe, expect, test, vitest } from "vitest"
+import { Breadcrumb } from "../../components/ui/breadcrumb"
 
-vitest.mock("next/navigation", () => ({
-	useRouter: () => ({
-		query: { id: "test-post-id" },
-		push: vitest.fn(),
-	}),
+// TransitionLinkコンポーネントのモック
+vitest.mock("../../components/ui", () => ({
+  TransitionLink: ({
+    children,
+    href,
+    className,
+    "aria-current": ariaCurrent,
+  }: {
+    children: ReactNode
+    href: string
+    className?: string
+    "aria-current"?: "page" | "step" | "location" | "date" | "time" | "true" | "false"
+  }) => (
+    <a href={href} className={className} aria-current={ariaCurrent}>
+      {children}
+    </a>
+  ),
 }))
 
-test("Breadcrumb", () => {
-	render(<Breadcrumb name="aaa" link="aaa" />)
+// next/navigationのモック
+vitest.mock("next/navigation", () => ({
+  useRouter: () => ({
+    query: { id: "test-post-id" },
+    push: vitest.fn(),
+  }),
+}))
+
+describe("Breadcrumb", () => {
+  test("単一のアイテムを正しく表示する", () => {
+    const singleItem = {
+      name: "About",
+      link: "/about",
+    }
+
+    render(<Breadcrumb items={singleItem} />)
+
+    // ホームアイテムが表示されることを確認
+    expect(screen.getByText("トップ")).toBeVisible()
+    // 指定したアイテムが表示されることを確認
+    expect(screen.getByText("About")).toBeVisible()
+    // セパレーターが表示されることを確認
+    expect(screen.getByLabelText("パンくずリスト")).toBeVisible()
+  })
 })

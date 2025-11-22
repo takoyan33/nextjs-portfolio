@@ -1,0 +1,66 @@
+.adminHeader {
+  width: 100%;
+  background: #1f2937;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &_container {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_logo {
+    .logo {
+      letter-spacing: 0.05em;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      li {
+        list-style: none;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 0.95rem;
+          transition: 0.2s ease;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      // ログアウトボタン
+      .action-button {
+        background: #ef4444;
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+        color: #fff;
+        border: none;
+
+        &:hover {
+          background: #dc2626;
+        }
+      }
+    }
+  }
+}

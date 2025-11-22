@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // 共通クラスや変数
 // 色の定義
 $main-color: oklch(63.8% 48.5% 261.57); //#4485ff
@@ -12,7 +14,7 @@ $tag-color-5: oklch(68.78% 0.1911 45.73); // #fd6d39
 $white: oklch(100% 0 0); // #ffffff
 $grey: oklch(53.59% 0 0); // grey
 $black: oklch(16.01% 0 0); // rgb(39, 39, 39)
-$back-color: oklch(96.72% 0 0); // #f7f7f7
+$back-color: #f7f7f7; // #f7f7f7
 $red: oklch(63.62% 0.222 27.97); // rgb(251, 77, 77)
 
 //不透明度
@@ -21,27 +23,27 @@ $opacity: 0.7;
 $baseFontSize: 16;
 
 @function rem($pixels) {
-  @return $pixels / $baseFontSize * 1rem;
+  @return math.div($pixels, $baseFontSize) * 1rem;
 }
 
 //sp版の設定
 $breakpoints: (
-  'xs': (
+  "xs": (
     min-width: 0,
   ),
-  'sm': (
+  "sm": (
     min-width: 576px,
   ),
-  'md': (
+  "md": (
     min-width: 768px,
   ),
-  'lg': (
+  "lg": (
     min-width: 992px,
   ),
-  'xl': (
+  "xl": (
     min-width: 1200px,
   ),
-  'xxl': (
+  "xxl": (
     min-width: 1400px,
   ),
 ) !default;

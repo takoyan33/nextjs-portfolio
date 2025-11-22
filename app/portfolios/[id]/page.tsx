@@ -1,32 +1,16 @@
-import { fetchPortfolio, fetchPortfoliosFront } from "../../../hooks/fetch"
-import type { PortfolioType } from "../../../types"
+import { notFound } from "next/navigation"
+import { fetchPortfolio } from "../../../hooks/fetch"
 import { PortfolioDetail } from "./portfolio-detail"
 
-// 静的生成用の関数
-export async function generateStaticParams() {
-	const portfolios = await fetchPortfoliosFront()
+export const dynamic = "force-static"
 
-	return portfolios.data.map((portfolio: PortfolioType) => ({
-		id: portfolio.id.toString(),
-	}))
-}
+export default async function PortfolioPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
 
-// メタデータの生成
-export async function generateMetadata({ params }: { params: { id: string } }) {
-	const portfolio = await fetchPortfolio(params.id)
+  const portfolio = await fetchPortfolio(id)
+  if (portfolio.status == 404 || !portfolio.data) {
+    notFound()
+  }
 
-	return {
-		title: `${portfolio.data.name} - To You Design`,
-		description: portfolio.data.about,
-	}
-}
-
-export default async function PortfolioPage({
-	params,
-}: {
-	params: { id: string }
-}) {
-	const portfolio = await fetchPortfolio(params.id)
-
-	return <PortfolioDetail portfolio={portfolio.data} />
+  return <PortfolioDetail portfolio={portfolio.data} />
 }

@@ -1,0 +1,73 @@
+@use "../../../styles/common/_variables.scss" as *;
+@use "../../../styles/common/_mixin";
+
+// パンくずリスト
+.breadcrumb {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 0;
+    margin: 10px auto;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__link {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #4485ff;
+    }
+
+    &[aria-current="page"] {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+}
+
+@include mixin.tab {
+  .breadcrumb {
+    &__list {
+      margin-top: 70px;
+    }
+  }
+}
+
+@include mixin.sp {
+  .breadcrumb {
+    &__list {
+      padding-top: 50px;
+    }
+
+    &__item {
+      gap: 8px;
+    }
+
+    &__separator {
+      margin: 0 4px;
+    }
+  }
+}

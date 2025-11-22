@@ -1,16 +1,39 @@
 import { render, screen } from "@testing-library/react"
-import React from "react"
+import userEvent from "@testing-library/user-event"
 import { expect, test } from "vitest"
-import { SkillElement } from "../../app/components/ui/skill-element"
+import { SkillElement } from "../../components/ui/skill-element"
 
-test("SkillElement", () => {
-	render(
-		<SkillElement
-			name="aaa"
-			rank="aaa"
-			tag="aaa"
-			icon="/images/skill/html5.svg"
-			about="aaaa"
-		/>,
-	)
+test("SkillElementが表示される", () => {
+  render(
+    <SkillElement
+      name="JavaScript"
+      rank="⭐️"
+      icon="/images/skill/html5.svg"
+      about="JavaScriptdescription"
+    />,
+  )
+  expect(screen.getByText("JavaScript")).toBeVisible()
+  expect(screen.getByText("⭐️")).toBeVisible()
+})
+
+test("SkillElementのアコーディオンが表示される", async () => {
+  render(
+    <SkillElement
+      name="JavaScript"
+      rank="⭐️"
+      icon="/images/skill/html5.svg"
+      about="JavaScriptdescription"
+    />,
+  )
+
+  const label = screen.getByText("JavaScript")
+  //親の <summary> を取得
+  const summary = label.closest("summary")
+
+  if (!summary) throw new Error("summary not found")
+
+  await userEvent.click(summary)
+
+
+  expect(screen.getByText("JavaScriptdescription")).toBeVisible()
 })

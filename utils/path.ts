@@ -1,10 +1,16 @@
-import PrivacyPolicy from "app/privacy-policy/page";
-
 export const PATH = {
-  INDEX: '/',
-  ABOUT: '/about',
-  PORTFOLIO: '/portfolios',
-  BLOG: '/blog',
-  CONTACT: '/contact',
-  PRIVACY_POLICY: '/privacy-policy'
+  INDEX: "/",
+  ABOUT: "/about",
+  PORTFOLIO: "/portfolios",
+  BLOG: "/blog",
+  CONTACT: "/contact",
+  PRIVACY_POLICY: "/privacy-policy",
+  PROD_URL: "https://to-you-design.vercel.app",
+  ADMIN: "/admin",
+  DASHBOARD: "/admin/dashboard",
+  EDIT_PORTFOLIO: "/admin/edit/portfolio",
+  EDIT_HISTORY: "/admin/edit/history",
+  EDIT_JOB: "/admin/edit/job",
+  EDIT_LICENSE: "/admin/edit/license",
+  EDIT_SKILL: "/admin/edit/skill",
 } as const

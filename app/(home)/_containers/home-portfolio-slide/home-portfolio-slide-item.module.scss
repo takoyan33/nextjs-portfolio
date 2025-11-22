@@ -1,6 +1,5 @@
-@use '../../../../styles/common/_variables.scss' as *;
-@use '../../../../styles/common/_mixin';
-
+@use "../../../../styles/common/_variables.scss" as *;
+@use "../../../../styles/common/_mixin";
 
 // ポートフォリオ Home
 .SlideItem {
@@ -35,7 +34,7 @@
     color: $black;
     text-align: left;
   }
-  &__content{
+  &__content {
     padding: 5px;
   }
   &__img {
@@ -55,7 +54,6 @@
     }
   }
 }
-
 
 //tablet
 @include mixin.tab {

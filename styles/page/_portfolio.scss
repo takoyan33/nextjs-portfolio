@@ -1,8 +1,7 @@
 // ポートフォリオぺージ
 
-@use '../common/variables' as *;
-@use '../common/mixin';
-
+@use "../common/variables" as *;
+@use "../common/mixin";
 
 //ポートフォリオ filter
 .selectBox {
@@ -10,18 +9,18 @@
   display: inline-flex;
   align-items: center;
 
-    &::after {
+  &::after {
     position: absolute;
     right: 15px;
     width: 10px;
     height: 7px;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     pointer-events: none;
-    content: '';
+    content: "";
     background-color: $grey;
   }
 
-    select {
+  select {
     min-width: 230px;
     height: 2.8em;
     padding: 0.4em calc(0.8em + 30px) 0.4em 0.8em;
@@ -33,55 +32,60 @@
     border-bottom: 2px solid #d0d0d0;
 
     &:focus {
-    outline: none;
-    }
-  }
-  }
-
-  // ポートフォリオページ用
-.portfolio {
-  background-color: $back-color;
-
-  &Detail{
-   &__toc {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    
-    &-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      color: #333;
-      text-align: left;
-    }
-
-        &-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    &-link {
-      display: block;
-      padding: 0.5rem 0;
-      color: #4485ff;
-      text-decoration: none;
-      font-size: 1rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-      
-      &:hover {
-        color: #2563eb;
-        text-decoration: underline;
-      }
+      outline: none;
     }
   }
 }
+
+// ポートフォリオページ用
+.portfolio {
+  background-color: $back-color;
+
+  &__loading {
+    text-align: center;
+    padding-block: 100px;
+  }
+
+  &Detail {
+    &__toc {
+      padding: 1.5rem;
+      margin: 2rem 0;
+      background: #f8f9fa;
+      border-radius: 8px;
+
+      &-title {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+      }
+
+      &-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      &-link {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        color: #4485ff;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+
+        &:hover {
+          color: #2563eb;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 
   &__filter {
     display: flex;
@@ -106,8 +110,8 @@
       padding: 2px 10px;
       margin: 11px 0px;
       font-size: 14px;
-      color: $main-color;
-      background-color: #d2e3ff;
+      color: white;
+      background-color: #5f5dcd;
       border-radius: 20px;
     }
     &__title {
@@ -144,7 +148,6 @@
     }
   }
 }
-
 
 // [id]ページ
 .portfolioDetail {
@@ -208,7 +211,7 @@
       color: $main-color;
       background-color: #d2e3ff;
       border-radius: 5px;
-      &-img{
+      &-img {
         width: 18px;
         height: 18px;
       }
@@ -237,7 +240,7 @@
         justify-content: flex-start;
         margin-block: rem(10);
         margin-bottom: 30px;
-    }
+      }
     }
     &-link {
       display: flex;
@@ -253,7 +256,6 @@
 }
 
 @include mixin.sp {
-
   .portfolio {
     &Item__img {
       height: 230px;
@@ -333,5 +335,4 @@
       }
     }
   }
-
 }

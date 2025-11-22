@@ -19,12 +19,12 @@
 ## 使用技術について
 
 ### Node.js バージョン
-- Node.js: v18.18.0
+- Node.js: v20.14.0
 - npm: v9.8.1
 
 ### フロントエンド
-- [Next.js](https://nextjs.org/) v14.0.4
-- [React](https://ja.reactjs.org/) v18.2.0
+- [Next.js](https://nextjs.org/) v15.5.3
+- [React](https://ja.reactjs.org/) v19.0.0
 - [TypeScript](https://www.typescriptlang.org/) v4.5.5
 
 ### バックエンド
@@ -32,7 +32,9 @@
 - [Rails](https://rubyonrails.org/) v7.0.2
 
 ### リンター
-- [Biome](https://biomejs.dev/ja/) v1.9.4
+- [ESLint](https://eslint.org/) v9.9.0
+- [Prettier](https://prettier.io/) v3.3.3
+- [Stylelint](https://stylelint.io/) v16.8.2
 - [Husky](https://typicode.github.io/husky/) v9.1.4
 - [Lint-staged](https://github.com/lint-staged/lint-staged) 
 
@@ -44,7 +46,8 @@
 - [Google Analytics](https://developers.google.com/analytics?hl=ja)
 - [Clarity](https://clarity.microsoft.com/)
 
-### ホスティング
+### ホスティング・インフラ
+- [Docker](https://www.docker.com/)
 - [Vercel](https://vercel.com/)
 - [Render](https://render.com/)
 
@@ -52,6 +55,12 @@
 - [Swiper](https://swiperjs.com/react) v6.8.1
 - [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) v7.0.0
 - [React Modal](https://reactcommunity.org/react-modal/) v3.14.3
+- [SWR](https://swr.vercel.app/ja) v2.3.4
+- [Zustand](https://zustand.docs.pmnd.rs/getting-started/) v5.0.7
+- [MSW](https://mswjs.io/) v2.11.2
+- [EmailJS](https://www.emailjs.com/) v3.14.0
+- [React Hook Form](https://react-hook-form.com/) v7.45.1
+- [Zod](https://zod.dev/) v3.25.1
 
 ## ディレクトリ構成
 
