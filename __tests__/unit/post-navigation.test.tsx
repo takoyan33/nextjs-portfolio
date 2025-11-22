@@ -1,6 +1,37 @@
+import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
-import { describe, expect, test } from "vitest"
+import { describe, expect, test, vi } from "vitest"
 import { PostNavigation } from "../../components/ui/post-navigation"
+
+// モック関数をhoistedで作成して共有する
+const { pushMock } = vi.hoisted(() => {
+  return { pushMock: vi.fn() }
+})
+
+// next/navigationのモック
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: pushMock,
+    prefetch: vi.fn(),
+  }),
+}))
+
+// next/linkのモック
+vi.mock("next/link", () => {
+  return {
+    default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+      <a
+        href={href}
+        onClick={(e) => {
+          e.preventDefault()
+          pushMock(href)
+        }}
+      >
+        {children}
+      </a>
+    ),
+  }
+})
 
 describe("PostNavigationの表示とリンク", () => {
   test("正常系: 前後の記事タイトルとリンクが表示される", () => {
@@ -18,7 +49,7 @@ describe("PostNavigationの表示とリンク", () => {
     expect(screen.getByRole("link", { name: /次の記事/ })).toHaveAttribute("href", "/portfolios/2")
   })
 
-  test("正常系: リンクに遷移される", () => async () => {
+  test("正常系: リンクに遷移される", async () => {
     render(
       <PostNavigation
         next_title="次の記事"
@@ -29,7 +60,12 @@ describe("PostNavigationの表示とリンク", () => {
     )
 
     await screen.getByRole("link", { name: /前の記事/ }).click()
-    expect(window.location.pathname).toBe("/portfolios/1")
+
+    pushMock.mockClear()
+    
+    await screen.getByRole("link", { name: /前の記事/ }).click()
+    
+    expect(pushMock).toHaveBeenCalledWith("/portfolios/1")
   })
 
   test("異常系: タイトルが空の場合はリンクが表示されない", () => {
