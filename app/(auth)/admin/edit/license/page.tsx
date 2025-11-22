@@ -3,10 +3,10 @@ import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import HistoryItem from "./LicenseItem"
 
+export const dynamic = "force-dynamic"
+
 const Admin = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`, {
-    next: { revalidate: 3600 },
-  })
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`)
   const json = await response.json()
   const licenses = Array.isArray(json?.data) ? json.data : []
   return (

@@ -3,10 +3,10 @@ import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import JobItem from "./JobItem"
 
+export const dynamic = "force-dynamic"
+
 const Admin = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, {
-    next: { revalidate: 3600 },
-  })
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`)
   const json = await response.json()
   const jobs = Array.isArray(json?.data) ? json.data : []
   return (
