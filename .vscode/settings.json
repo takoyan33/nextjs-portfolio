@@ -15,7 +15,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "stylelint.packageManager": "yarn",
-  "stylelint.configFile": "../.stylelintrc.mjs",
+  "stylelint.configFile": ".stylelintrc.mjs",
   "css.validate": true,
   "less.validate": true,
   "scss.validate": false,
