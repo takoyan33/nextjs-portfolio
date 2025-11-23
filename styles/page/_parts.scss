@@ -99,15 +99,6 @@
 }
 
 @media (max-width: 1024px) {
-  .btn-trigger {
-    position: relative;
-    z-index: 100;
-    width: 50px;
-    height: 38px;
-    cursor: pointer;
-    background-color: $white;
-    border: 0;
-  }
   .btn-trigger span {
     position: absolute;
     left: 0;
@@ -121,30 +112,6 @@
     box-sizing: border-box;
     display: inline-block;
     transition: all 0.5s;
-  }
-  .btn-trigger span:nth-of-type(1) {
-    top: 0;
-  }
-  .btn-trigger span:nth-of-type(2) {
-    top: 17px;
-  }
-  .btn-trigger span:nth-of-type(3) {
-    bottom: 0;
-  }
-
-  /*=============================
-#btn01
-=============================*/
-  #btn01.active span:nth-of-type(1) {
-    -webkit-transform: translateY(10px) rotate(-45deg);
-    transform: translateY(15px) rotate(-45deg);
-  }
-  #btn01.active span:nth-of-type(2) {
-    opacity: 0;
-  }
-  #btn01.active span:nth-of-type(3) {
-    -webkit-transform: translateY(-17px) rotate(45deg);
-    transform: translateY(-17px) rotate(45deg);
   }
 
   .container {
@@ -191,6 +158,42 @@
       padding-right: 1px;
       font-size: 11px;
       text-align: right;
+    }
+  }
+
+  .btn-trigger {
+    position: relative;
+    z-index: 100;
+    width: 50px;
+    height: 38px;
+    cursor: pointer;
+    background-color: $white;
+    border: 0;
+    span:nth-of-type(1) {
+      top: 0;
+    }
+    span:nth-of-type(2) {
+      top: 17px;
+    }
+    span:nth-of-type(3) {
+      bottom: 0;
+    }
+  }
+
+  /*=============================
+#btn01
+=============================*/
+  #btn01.active {
+    span:nth-of-type(1) {
+      -webkit-transform: translateY(10px) rotate(-45deg);
+      transform: translateY(15px) rotate(-45deg);
+    }
+    span:nth-of-type(2) {
+      opacity: 0;
+    }
+    span:nth-of-type(3) {
+      -webkit-transform: translateY(-17px) rotate(45deg);
+      transform: translateY(-17px) rotate(45deg);
     }
   }
   .drawerMenu {

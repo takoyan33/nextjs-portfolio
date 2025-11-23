@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 
-:where(:disabled, label:has(> :disabled, + disabled)) {
+:where(:disabled, label:has(> :disabled)) {
   cursor: not-allowed;
 }
 
@@ -276,6 +276,17 @@
   .loading-body {
     height: 125rem;
   }
+  .circle-border {
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    border-radius: 50%;
+  }
+  .spinner-box {
+    top: 40%;
+    left: 34%;
+    width: 300px;
+  }
   @-webkit-keyframes spin {
     from {
       transform: rotate(0);
@@ -291,17 +302,6 @@
     to {
       transform: rotate(359deg);
     }
-  }
-  .circle-border {
-    width: 150px;
-    height: 150px;
-    padding: 3px;
-    border-radius: 50%;
-  }
-  .spinner-box {
-    top: 40%;
-    left: 34%;
-    width: 300px;
   }
 }
 body {
@@ -679,8 +679,8 @@ body {
   padding: 2px 5px;
   margin: 11px 2px;
   font-size: 14px;
-  color: oklch(63.8% 48.5% 261.57);
-  border: 1px solid oklch(63.8% 48.5% 261.57);
+  color: white;
+  background-color: #5f5dcd;
   border-radius: 10px;
 }
 .zennArticle__emoji {
@@ -718,8 +718,8 @@ body {
   padding: 2px 5px;
   margin: 11px 2px;
   font-size: 14px;
-  color: oklch(63.8% 48.5% 261.57);
-  border: 1px solid oklch(63.8% 48.5% 261.57);
+  color: white;
+  background-color: #5f5dcd;
   border-radius: 10px;
 }
 .zennAsideArticle__emoji {
@@ -751,8 +751,6 @@ body {
     padding: 2px 5px;
     margin: 11px 2px;
     font-size: 14px;
-    color: oklch(63.8% 48.5% 261.57);
-    border: 1px solid oklch(63.8% 48.5% 261.57);
     border-radius: 20px;
   }
   .zennArticle__title {
@@ -940,15 +938,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .btn-trigger {
-    position: relative;
-    z-index: 100;
-    width: 50px;
-    height: 38px;
-    cursor: pointer;
-    background-color: oklch(100% 0 0);
-    border: 0;
-  }
   .btn-trigger span {
     position: absolute;
     left: 0;
@@ -962,27 +951,6 @@ body {
     box-sizing: border-box;
     display: inline-block;
     transition: all 0.5s;
-  }
-  .btn-trigger span:nth-of-type(1) {
-    top: 0;
-  }
-  .btn-trigger span:nth-of-type(2) {
-    top: 17px;
-  }
-  .btn-trigger span:nth-of-type(3) {
-    bottom: 0;
-  }
-  /*=============================
-  #btn01
-  =============================*/
-  #btn01.active span:nth-of-type(1) {
-    transform: translateY(15px) rotate(-45deg);
-  }
-  #btn01.active span:nth-of-type(2) {
-    opacity: 0;
-  }
-  #btn01.active span:nth-of-type(3) {
-    transform: translateY(-17px) rotate(45deg);
   }
   .container {
     margin: 0 0 0 auto;
@@ -1029,6 +997,36 @@ body {
     padding-right: 1px;
     font-size: 11px;
     text-align: right;
+  }
+  .btn-trigger {
+    position: relative;
+    z-index: 100;
+    width: 50px;
+    height: 38px;
+    cursor: pointer;
+    background-color: oklch(100% 0 0);
+    border: 0;
+  }
+  .btn-trigger span:nth-of-type(1) {
+    top: 0;
+  }
+  .btn-trigger span:nth-of-type(2) {
+    top: 17px;
+  }
+  .btn-trigger span:nth-of-type(3) {
+    bottom: 0;
+  }
+  /*=============================
+  #btn01
+  =============================*/
+  #btn01.active span:nth-of-type(1) {
+    transform: translateY(15px) rotate(-45deg);
+  }
+  #btn01.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #btn01.active span:nth-of-type(3) {
+    transform: translateY(-17px) rotate(45deg);
   }
   .drawerMenu {
     position: fixed;
@@ -1116,8 +1114,8 @@ body {
   background-color: #f7f7f7;
 }
 .portfolio__loading {
-  text-align: center;
   padding-block: 100px;
+  text-align: center;
 }
 .portfolioDetail__toc {
   padding: 1.5rem;
@@ -1142,7 +1140,7 @@ body {
   width: 100%;
   padding: 0.5rem 0;
   font-size: 1rem;
-  color: #4485ff;
+  color: black;
   text-align: left;
   text-decoration: none;
   cursor: pointer;
@@ -1173,8 +1171,8 @@ body {
   padding: 2px 10px;
   margin: 11px 0px;
   font-size: 14px;
-  color: oklch(63.8% 48.5% 261.57);
-  background-color: #d2e3ff;
+  color: white;
+  background-color: #5f5dcd;
   border-radius: 20px;
 }
 .portfolioItem__title {
@@ -1209,6 +1207,11 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 500px) {
+  .portfolioItem__img {
+    height: 230px;
+  }
+}
 .portfolioDetail {
   margin: 50px auto;
   border-radius: 1.25rem;
@@ -1293,8 +1296,8 @@ body {
   display: inline;
   padding: 2px 10px;
   font-size: 14px;
-  color: oklch(63.8% 48.5% 261.57);
-  background-color: #d2e3ff;
+  color: #fff;
+  background-color: #5f5dcd;
   border-radius: 20px;
 }
 .portfolioDetail__element-tagList {
@@ -1317,9 +1320,6 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-  .portfolioItem__img {
-    height: 230px;
-  }
   .portfolioDetail {
     margin-top: 30px;
     border-radius: 1.25rem;
@@ -1379,8 +1379,6 @@ body {
     display: inline-block;
     padding: 5px 10px;
     margin: 5px 2px;
-    color: oklch(63.8% 48.5% 261.57);
-    border: 1px solid oklch(63.8% 48.5% 261.57);
     border-radius: 20px;
   }
   .portfolioDetail__element-tagList {
@@ -1427,6 +1425,7 @@ body {
   font-family: noto-sans-cjk-jp, sans-serif;
   font-size: 0.625rem;
   font-size: 16px;
+  color: oklch(16.01% 0 0);
   letter-spacing: 0.1em;
   scroll-behavior: smooth;
 }
@@ -1683,16 +1682,8 @@ a :hover {
     height: 1.875rem;
   }
 }
-a {
-  cursor: pointer;
-}
-
 .u-padding {
   padding-bottom: 60px;
-}
-
-body {
-  color: oklch(16.01% 0 0);
 }
 
 .fv {
@@ -1770,7 +1761,7 @@ body {
   font-size: 1.25rem;
   color: white;
   cursor: pointer;
-  background-color: #6499ff;
+  background-color: #4284ff;
   border: 0 solid;
   border-radius: 100%;
 }
@@ -1827,6 +1818,30 @@ body {
   bottom: 5px;
 }
 
+.modal {
+  position: relative;
+  max-width: 95%;
+  max-height: 95%;
+  padding: 30px;
+  overflow: auto;
+  background: white;
+  border-radius: 10px;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.modal-close img {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  aspect-ratio: 16/9;
+}
 .modal-text {
   margin-left: 1.25rem;
 }
@@ -1881,7 +1896,6 @@ li {
 .skill {
   padding-bottom: 40px;
   background-color: #f7f7f7;
-  max-height: 200px;
 }
 .skill__title {
   margin-bottom: 14px;
@@ -1892,14 +1906,16 @@ li {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px 20px;
+  gap: 20px;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-inline: auto;
   margin-bottom: 60px;
 }
 .skill__element-wrapper {
   position: relative;
-  max-width: 400px;
   width: 100%;
+  max-width: 400px;
 }
 .skill__toggle-icon {
   position: absolute;
@@ -1952,10 +1968,6 @@ li {
   line-height: 1.4;
   text-align: left;
 }
-.skill__container {
-  gap: 20px;
-  align-items: flex-start;
-}
 .skill__svg {
   position: relative;
   width: 60px !important;
@@ -1963,6 +1975,9 @@ li {
 }
 .skill details[open] .skill__toggle-icon {
   transform: rotate(180deg);
+}
+.skill details[open] .skill__accordion {
+  max-height: 200px;
 }
 
 .swiper-horizontal {
@@ -2132,7 +2147,7 @@ li {
 
 .lower__bg {
   height: 250px;
-  background-color: #6499ff;
+  background-color: #4284ff;
 }
 .lower__title {
   padding-top: 50px;
@@ -2178,31 +2193,6 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal {
-  position: relative;
-  max-width: 95%;
-  max-height: 95%;
-  padding: 30px;
-  overflow: auto;
-  background: white;
-  border-radius: 10px;
-}
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-.modal-close img {
-  width: 100%;
-  max-width: 1100px;
-  height: auto;
-  aspect-ratio: 16/9;
 }
 
 @media screen and (max-width: 1024px) {
@@ -2365,6 +2355,8 @@ body.modal-open {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px 10px;
+    gap: 10px;
+    align-items: flex-start;
     justify-content: flex-start;
     margin-inline: auto;
     margin-bottom: 60px;
@@ -2428,10 +2420,6 @@ body.modal-open {
     font-size: 0.9rem;
     line-height: 1.4;
     text-align: left;
-  }
-  .skill__container {
-    gap: 10px;
-    align-items: flex-start;
   }
   .skill__svg {
     position: relative;
@@ -2546,7 +2534,7 @@ body.modal-open {
   }
   .lower__bg {
     height: 180px;
-    background-color: #6499ff;
+    background-color: #4284ff;
   }
   .lower__title {
     padding-top: 40px;

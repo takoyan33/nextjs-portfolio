@@ -1,7 +1,6 @@
 // 個別ページ
 
-@use '../common/variables' as *;
-
+@use "../common/variables" as *;
 
 .privacy-policy {
   &__content {
@@ -17,12 +16,12 @@
     text-align: left;
   }
   &__link {
-  margin: 6px 0;
-  color: #0066cc;
-	text-decoration: underline;
+    margin: 6px 0;
+    color: #0066cc;
+    text-decoration: underline;
 
-	&:hover {
-		text-decoration: none;
-	}
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
