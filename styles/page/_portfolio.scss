@@ -42,8 +42,8 @@
   background-color: $back-color;
 
   &__loading {
-    text-align: center;
     padding-block: 100px;
+    text-align: center;
   }
 
   &Detail {
@@ -72,7 +72,7 @@
         width: 100%;
         padding: 0.5rem 0;
         font-size: 1rem;
-        color: #4485ff;
+        color: black;
         text-align: left;
         text-decoration: none;
         cursor: pointer;
@@ -149,190 +149,10 @@
   }
 }
 
-// [id]ページ
-.portfolioDetail {
-  margin: 50px auto;
-  border-radius: rem(20);
-  &_btn {
-    position: relative;
-    top: rem(20);
-    display: block;
-    width: 46px;
-    margin-right: rem(10);
-    margin-left: auto;
-    background-color: $white;
-    border: 0px solid;
-  }
-  &__element {
-    width: 45%;
-    &-topImg {
-      position: relative;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      margin: 20px auto;
-      margin-inline: auto;
-      margin-bottom: 80px;
-      object-fit: contain;
-    }
-    &-img {
-      position: relative;
-      width: 100%;
-      height: 500px;
-      aspect-ratio: 16 / 9;
-      margin-inline: auto;
-      object-fit: contain;
-      button {
-        background-color: $white;
-        border: 0;
-      }
-    }
-    &-title {
-      font-size: 26px;
-      text-align: left;
-    }
-    &-subtitle {
-      padding-bottom: 10px;
-      margin: 30px 0;
-      font-size: 26px;
-      text-align: left;
-      border-bottom: 2px solid $main-color;
-    }
-    &-h4 {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      padding-bottom: 10px;
-      margin: 10px 0;
-      font-size: 18px;
-    }
-    &-icon {
-      padding: 5px;
-      color: $main-color;
-      background-color: #d2e3ff;
-      border-radius: 5px;
-      &-img {
-        width: 18px;
-        height: 18px;
-      }
-    }
-    &-text {
-      text-align: left;
-      li {
-        list-style: square;
-      }
-    }
-    &-date {
-      color: $grey;
-      text-align: left;
-    }
-    &-tag {
-      display: inline;
-      padding: 2px 10px;
-      font-size: 14px;
-      color: $main-color;
-      background-color: #d2e3ff;
-      border-radius: 20px;
-      &List {
-        display: flex;
-        flex-wrap: wrap;
-        gap: rem(10);
-        justify-content: flex-start;
-        margin-block: rem(10);
-        margin-bottom: 30px;
-      }
-    }
-    &-link {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      color: $tag-color-4;
-      word-break: break-all;
-      &:hover {
-        opacity: $opacity;
-      }
-    }
-  }
-}
-
 @include mixin.sp {
   .portfolio {
     &Item__img {
       height: 230px;
-    }
-  }
-
-  .portfolioDetail {
-    margin-top: 30px;
-    border-radius: rem(20);
-    &_btn {
-      position: relative;
-      top: rem(20);
-      display: block;
-      width: 46px;
-      margin-right: rem(10);
-      margin-left: auto;
-      background-color: $white;
-      border: 0px solid;
-    }
-    &__top {
-      margin-top: rem(20);
-    }
-    &__element {
-      width: 45%;
-      &-topImg {
-        position: relative;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        margin-inline: auto;
-        object-fit: cover;
-      }
-      &-img {
-        position: relative;
-        width: 90%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        margin-inline: auto;
-        object-fit: contain;
-      }
-      &-title {
-        text-align: left;
-      }
-      &-subtitle {
-        margin: 10px 0;
-        font-size: 20px;
-        text-align: left;
-      }
-      &-text {
-        text-align: left;
-        li {
-          list-style: square;
-        }
-      }
-      &-date {
-        text-align: left;
-      }
-      &-tag {
-        display: inline-block;
-        padding: 5px 10px;
-        margin: 5px 2px;
-        color: $main-color;
-        border: 1px solid $main-color;
-        border-radius: 20px;
-      }
-      &-tagList {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-      &-link {
-        margin-bottom: rem(20);
-        color: $tag-color-4;
-        &:hover {
-          opacity: $opacity;
-        }
-      }
     }
   }
 }

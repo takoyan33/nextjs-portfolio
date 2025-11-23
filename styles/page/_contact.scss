@@ -1,12 +1,11 @@
 // お問い合わせぺージ
 
-@use '../common/variables' as *;
-@use '../common/mixin';
-
+@use "../common/variables" as *;
+@use "../common/mixin";
 
 .form {
   margin: 60px 0;
-  
+
   &-box {
     display: grid;
     grid-template-columns: 0.2fr 0.6fr;
@@ -16,7 +15,7 @@
     &-label {
       font-weight: 500;
       text-align: left;
-      
+
       &-required {
         padding: 3px 6px;
         margin-left: 5px;
@@ -54,12 +53,9 @@
       text-align: left;
     }
   }
-
 }
 
-
-  @include mixin.sp {
-
+@include mixin.sp {
   .form {
     margin: 60px 0;
     &-box {
@@ -100,4 +96,4 @@
       }
     }
   }
-  }
+}

@@ -1,7 +1,7 @@
 // footer
 
-@use '../common/variables' as *;
-@use '../common/mixin';
+@use "../common/variables" as *;
+@use "../common/mixin";
 
 .footer {
   border-top: 2px solid $main-color;
@@ -41,7 +41,7 @@
   }
 }
 
-  @include mixin.sp {
+@include mixin.sp {
   .footer {
     ul {
       margin-left: 30px;
@@ -62,4 +62,4 @@
       -webkit-box-direction: normal;
     }
   }
-  }
+}

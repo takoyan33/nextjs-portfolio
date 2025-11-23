@@ -1,7 +1,8 @@
 {
   "editor.codeActionsOnSave": {
     "quickfix.eslint": "explicit",
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
@@ -12,5 +13,11 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "stylelint.packageManager": "yarn",
+  "stylelint.configFile": ".stylelintrc.mjs",
+  "css.validate": true,
+  "less.validate": true,
+  "scss.validate": false,
+  "stylelint.validate": ["scss"]
 }
