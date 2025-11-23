@@ -64,7 +64,7 @@ export const Header = () => {
                   <TransitionLink href={item.link}>{item.title}</TransitionLink>
                 </li>
               ))}
-              <LinkButton text="お問い合わせ" link={PATH.CONTACT} />
+              <li> <LinkButton text="お問い合わせ" link={PATH.CONTACT} /></li>
             </ul>
           </nav>
         </div>

@@ -20,7 +20,7 @@ export interface History {
  * @returns data: 経歴一覧
  */
 export interface ResponseHistory {
-  status: "SUCCESS" | 404
+  status: "SUCCESS" | "PENDING" | 404 | 500
   data: History[] | undefined
 }
 
@@ -46,7 +46,7 @@ export interface Job {
  * @returns data: 職歴一覧
  */
 export interface ResponseJob {
-  status: "SUCCESS" | 404
+  status: "SUCCESS" | "PENDING" | 404 | 500
   data: Job[] | undefined
 }
 
@@ -70,7 +70,7 @@ export interface License {
  * @returns data: 資格一覧
  */
 export interface ResponseLicense {
-  status: "SUCCESS" | 404
+  status: "SUCCESS" | "PENDING" | 404 | 500
   data: License[] | undefined
 }
 
@@ -100,7 +100,7 @@ export interface Skill {
  * @returns data: スキル一覧
  */
 export interface ResponseSkill {
-  status: "SUCCESS" | 404
+  status: "SUCCESS" | "PENDING" | 404 | 500
   data: Skill[] | undefined
 }
 
@@ -161,7 +161,7 @@ export interface PortfolioType {
  * @returns data: ポートフォリオ一覧
  */
 export interface ResponsePortfolios {
-  status: "SUCCESS" | 404
+  status: "SUCCESS" | "PENDING" | 404 | 500
   data: PortfolioType[]
 }
 
@@ -172,7 +172,7 @@ export interface ResponsePortfolios {
  * @returns data: ポートフォリオ一覧
  */
 export interface ResponsePortfolio {
-  status: "SUCCESS" | 404
+  status: "SUCCESS" | "PENDING" | 404 | 500
   data: PortfolioType | undefined
 }
 

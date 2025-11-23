@@ -1,6 +1,13 @@
 module.exports = {
   extends: ["prettier", "plugin:storybook/recommended"],
   root: true,
+  ignores: [
+    "**/node_modules/**",
+    "**/public/**",
+    "**/.next/**",
+    "next.config.js",
+    "stylelintrc.mjs",
+  ],
   rules: {
     // 使っていない変数を警告しない
     "no-unused-vars": "on",

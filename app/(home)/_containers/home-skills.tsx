@@ -32,9 +32,11 @@ export const HomeSkills = async () => {
         <div key={title}>
           <h3 className="skill__title">{title}</h3>
           <ScrollComponent>
-            <ul className="skill__container">
-              {skillList?.map((skill) => <SkillElement key={skill.name + skill.id} {...skill} />)}
-            </ul>
+            <div className="skill__container">
+              {skillList?.map((skill) => (
+                <SkillElement key={skill.name + skill.id} {...skill} />
+              ))}
+            </div>
           </ScrollComponent>
         </div>
       ))}

@@ -3,6 +3,7 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import useSWR from "swr"
+import { messages } from "../../../app/types/social"
 import { LowerSubTitle } from "../../../components/ui/lower-sub-title"
 import PortfolioItem from "../../../components/ui/portfolio-item"
 import { fetchPortfoliosFront } from "../../../hooks/fetch-client"
@@ -60,6 +61,26 @@ export const PortfolioList = () => {
           </label>
         </div>
         <p className="portfolio__loading">エラーが発生しました</p>
+      </div>
+    )
+  }
+  if (data?.status !== "SUCCESS" && data?.data.length === 0) {
+    return (
+      <div className="max_width">
+        <h2 className="lower__subTitle">全ての制作物</h2>
+
+        <div className="portfolio__filter">
+          <label className="selectBox">
+            <select name="orders" id="order-select" onChange={() => {}} defaultValue="default">
+              <option value="default" disabled>
+                並び替え
+              </option>
+              <option value="new-order">新しい順</option>
+              <option value="old-order">古い順</option>
+            </select>
+          </label>
+        </div>
+        <p className="portfolio__loading">{messages[data?.status || ""]}</p>
       </div>
     )
   }

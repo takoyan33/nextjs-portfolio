@@ -1,7 +1,7 @@
 // header
 
-@use '../common/variables' as *;
-@use '../common/mixin';
+@use "../common/variables" as *;
+@use "../common/mixin";
 
 //ヘッダー
 .logo {
@@ -208,7 +208,6 @@
   }
 }
 
-
 @include mixin.sp {
   .header {
     width: 100%;
@@ -216,7 +215,7 @@
     &_container {
       flex-direction: column;
       align-items: flex-start;
-  }
+    }
   }
 
   .humburger {
@@ -234,5 +233,4 @@
     width: 140px !important;
     height: 40px !important;
   }
-
 }

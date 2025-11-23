@@ -198,4 +198,12 @@ export const handlers = [
       ],
     })
   }),
+  // ポートフォリオデータのモック
+  http.get(`*/api/v1/portfolios`, () => {
+    console.log("📡 Mock hit: GET /api/portfolios")
+    return HttpResponse.json({
+      status: 404,
+      data: [],
+    })
+  }),
 ]

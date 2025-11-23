@@ -140,15 +140,6 @@
   // }
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-
 .circle-border {
   width: 150px;
   height: 150px;
@@ -160,6 +151,15 @@
   top: 40%;
   left: 34%;
   width: 300px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 }

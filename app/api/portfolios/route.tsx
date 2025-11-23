@@ -1,21 +1,30 @@
 import { NextResponse } from "next/server"
-export const dynamic = "force-static"
+import { messages } from "../../../app/types/social"
+
+import type { ResponsePortfolio } from "types"
 
 export async function GET() {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`
-
-  if (!url) {
-    return NextResponse.json({ error: "Missing API_URL environment variable" }, { status: 500 })
-  }
 
   try {
     const response = await fetch(url)
 
     if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`)
+      return NextResponse.json(
+        { error: `API request failed with status ${response.status}` },
+        { status: response.status },
+      )
     }
 
-    const data = await response.json()
+    const data: ResponsePortfolio = await response.json()
+
+    if (!data) {
+      return NextResponse.json({ error: "No data found" }, { status: 404 })
+    }
+
+    if (data.status !== "SUCCESS") {
+      console.log(messages[data.status] || "Unknown error occurred")
+    }
     return NextResponse.json(data)
   } catch (error) {
     console.error("Error fetching data:", error)

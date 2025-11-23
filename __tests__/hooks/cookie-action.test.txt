@@ -1,0 +1,24 @@
+// import { beforeEach, describe, expect, it, vi } from "vitest"
+// import { LogOut } from "../../hooks/cookie-action"
+
+// const mockDelete = vi.fn()
+// const mockRedirect = vi.fn()
+
+// vi.mock("next/headers", () => ({
+//   cookies: () => Promise.resolve({ delete: mockDelete }),
+// }))
+// vi.mock("next/navigation", () => ({
+//   redirect: mockRedirect,
+// }))
+
+// describe("LogOut", () => {
+//   beforeEach(() => {
+//     vi.clearAllMocks()
+//   })
+
+//   it("authクッキーを削除し、トップページにリダイレクトする", async () => {
+//     await LogOut()
+//     expect(mockDelete).toHaveBeenCalledWith("auth")
+//     expect(mockRedirect).toHaveBeenCalledWith("/")
+//   })
+// })
