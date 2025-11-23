@@ -20,7 +20,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: ["./setupTests.js"],
+    setupFiles: isBrowser ? ["./setupTests.browser.ts"] : ["./setupTests.js"],
     // Server Componentのテスト用設定
     server: {
       deps: {
@@ -30,7 +30,11 @@ export default defineConfig({
     browser: {
       enabled: isBrowser,
       provider: playwright(),
-      instances: [{ browser: "chromium" }],
+      instances: [
+        {
+          browser: "chromium",
+        },
+      ],
     },
   },
 })
