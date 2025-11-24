@@ -11,13 +11,13 @@ vitest.mock("next/navigation", () => ({
   }),
 }))
 
-// test("HomePortfolioSlideが表示されるか", async () => {
-//   const ui = await HomePortfolioSlide()
+test.skip("HomePortfolioSlideが表示されるか", async () => {
+  const ui = await HomePortfolioSlide()
 
-//   render(ui)
+  render(ui)
 
-//   expect(await screen.findByText("To You Design(ポートフォリオサイト)1")).toBeVisible()
-//   expect(await screen.findByText("To You Design(ポートフォリオサイト)2")).toBeVisible()
+  expect(await screen.findByText("To You Design(ポートフォリオサイト)1")).toBeVisible()
+  expect(await screen.findByText("To You Design(ポートフォリオサイト)2")).toBeVisible()
 
-//   //screen.debug()
-// })
+  //screen.debug()
+})
