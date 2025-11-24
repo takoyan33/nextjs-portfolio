@@ -55,19 +55,17 @@ const Blog = async () => {
         <div className="blog__aside">
           <h2>おすすめ記事</h2>
           <div className="blog__aside__List">
-            {zennArticles?.articles
-              .slice(0, 4)
-              .map((article) => (
-                <ZennAsideArticleItem
-                  key={article.id}
-                  zenn_id={article.id}
-                  zenn_title={article.title}
-                  zenn_published_at={article.published_at}
-                  zenn_article_type={article.article_type}
-                  zenn_emoji={article.emoji}
-                  zenn_path={article.path}
-                />
-              ))}
+            {zennArticles?.articles.slice(0, 4).map((article) => (
+              <ZennAsideArticleItem
+                key={article.id}
+                zenn_id={article.id}
+                zenn_title={article.title}
+                zenn_published_at={article.published_at}
+                zenn_article_type={article.article_type}
+                zenn_emoji={article.emoji}
+                zenn_path={article.path}
+              />
+            ))}
           </div>
         </div>
       </div>

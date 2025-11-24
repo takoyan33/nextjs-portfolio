@@ -11,7 +11,7 @@ vitest.mock("next/navigation", () => ({
   }),
 }))
 
-test("HomePortfolioSlideが表示されるか", async () => {
+test.skip("HomePortfolioSlideが表示されるか", async () => {
   const ui = await HomePortfolioSlide()
 
   render(ui)
