@@ -4,8 +4,6 @@ import { playwright } from "@vitest/browser-playwright"
 import path from "path"
 import { defineConfig } from "vitest/config"
 
-const isBrowser = process.env.VITEST_BROWSER === "true"
-
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -19,22 +17,40 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: isBrowser ? ["./setupTests.browser.ts"] : ["./setupTests.js"],
-    // Server Componentのテスト用設定
-    server: {
-      deps: {
-        inline: ["server-only"],
-      },
-    },
-    browser: {
-      enabled: isBrowser,
-      provider: playwright(),
-      instances: [
-        {
-          browser: "chromium",
+    projects: [
+      {
+        extends: true,
+        test: {
+          name: "browser",
+          setupFiles: "./setupTests.browser.ts",
+          include: ["**/*.browser.test.tsx"],
+          environment: "jsdom",
+          browser: {
+            enabled: true,
+            provider: playwright(),
+            instances: [
+              {
+                browser: "chromium",
+              },
+            ],
+          },
         },
-      ],
-    },
+      },
+      {
+        extends: true,
+        test: {
+          name: "node",
+          include: ["**/*.node.test.tsx"],
+          setupFiles: "./setupTests.js",
+          environment: "jsdom",
+          // Server Componentのテスト用設定
+          server: {
+            deps: {
+              inline: ["server-only"],
+            },
+          },
+        },
+      },
+    ],
   },
 })
