@@ -1,15 +1,10 @@
 import "@testing-library/jest-dom/vitest"
 import { fireEvent, render, screen } from "@testing-library/react"
 import React from "react"
-import { afterEach, describe, expect, test, vi, vitest } from "vitest"
+import { afterEach, describe, expect, test, vi } from "vitest"
 import { Header } from "../../components/layout/header"
 
-// Mocks for next/image and internal link/button components to keep the test focused
-vi.mock("next/image", () => ({
-  __esModule: true,
-  default: (props: Record<string, unknown>) =>
-    React.createElement("img", props as unknown as React.ImgHTMLAttributes<HTMLImageElement>),
-}))
+// Mocks for internal link/button components to keep the test focused
 vi.mock("components/ui/button/common-button", () => ({
   LinkButton: ({ text, link }: { text: string; link: string }) => <a href={link}>{text}</a>,
 }))
@@ -27,14 +22,6 @@ vi.mock("components/ui", () => ({
       {children}
     </a>
   ),
-}))
-
-// next/navigationのモック
-vitest.mock("next/navigation", () => ({
-  useRouter: () => ({
-    query: { id: "test-post-id" },
-    push: vitest.fn(),
-  }),
 }))
 
 describe("Header component", () => {

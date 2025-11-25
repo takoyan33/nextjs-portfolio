@@ -91,7 +91,32 @@ developブランチが開発環境でmainが本番環境です。
 | ---------- | ---------------------------------- | ------- | --------------- |
 | main       | 公開するものを置くブランチ         |         |                 |
 | develop    | 開発中のものを置くブランチ         | main    | main            |
-| feature-\* | 新機能開発中に使うブランチ         | develop | develop         |
+| feature\* | 新機能開発中に使うブランチ          | develop | develop         |
+
+## コマンド
+
+```bash
+# 開発環境起動
+yarn dev
+
+# ビルド
+yarn build
+
+# 本番環境起動
+yarn start
+
+# Lint実行
+yarn lint
+
+# 通常のTest実行
+yarn test --project node
+
+# Vitest Browse modeでのTest実行
+yarn test --project browser
+
+# Storybook起動
+yarn storybook
+```
 
 # Author
  

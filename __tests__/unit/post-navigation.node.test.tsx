@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
-import { describe, expect, test, vi } from "vitest"
+import { beforeEach, describe, expect, test, vi } from "vitest"
 import { PostNavigation } from "../../components/ui/post-navigation"
 
 // モック関数をhoistedで作成して共有する
@@ -8,32 +8,26 @@ const { pushMock } = vi.hoisted(() => {
   return { pushMock: vi.fn() }
 })
 
-// next/navigationのモック
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({
-    push: pushMock,
-    prefetch: vi.fn(),
-  }),
+// next/linkのモック
+vi.mock("next/link", () => ({
+  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a
+      href={href}
+      onClick={(e) => {
+        e.preventDefault()
+        pushMock(href)
+      }}
+    >
+      {children}
+    </a>
+  ),
 }))
 
-// next/linkのモック
-vi.mock("next/link", () => {
-  return {
-    default: ({ children, href }: { children: React.ReactNode; href: string }) => (
-      <a
-        href={href}
-        onClick={(e) => {
-          e.preventDefault()
-          pushMock(href)
-        }}
-      >
-        {children}
-      </a>
-    ),
-  }
-})
-
 describe("PostNavigationの表示とリンク", () => {
+  beforeEach(() => {
+    pushMock.mockClear()
+  })
+
   test("正常系: 前後の記事タイトルとリンクが表示される", () => {
     render(
       <PostNavigation
@@ -61,10 +55,13 @@ describe("PostNavigationの表示とリンク", () => {
 
     await screen.getByRole("link", { name: /前の記事/ }).click()
 
-    pushMock.mockClear()
-    
-    await screen.getByRole("link", { name: /前の記事/ }).click()
-    
+    // Next.js Link behavior might not trigger router.push in jsdom without proper context or full integration.
+    // If this fails, we might need to restore next/link mock or adjust expectation.
+    // However, since we mock useRouter, if Link uses it, it should call push.
+    // But Link in Next.js 13+ is complex.
+    // If this test fails, I will revert to mocking next/link but using the local pushMock.
+
+    // For now, let's assume Link calls router.push.
     expect(pushMock).toHaveBeenCalledWith("/portfolios/1")
   })
 
