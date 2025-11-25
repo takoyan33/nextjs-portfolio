@@ -23,14 +23,6 @@ vitest.mock("../../components/ui", () => ({
   ),
 }))
 
-// next/navigationのモック
-vitest.mock("next/navigation", () => ({
-  useRouter: () => ({
-    query: { id: "test-post-id" },
-    push: vitest.fn(),
-  }),
-}))
-
 describe("Breadcrumb", () => {
   test("単一のアイテムを正しく表示する", () => {
     const singleItem = {

@@ -7,9 +7,6 @@ import { ContactForm } from "../../app/contact/_containers/contact-form"
 vi.mock("@emailjs/browser", () => ({
   send: vi.fn().mockResolvedValue({}),
 }))
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({ push: vi.fn() }),
-}))
 
 describe("ContactFormの表示とバリデーション", () => {
   test("フォームの各項目が画面に表示される", () => {

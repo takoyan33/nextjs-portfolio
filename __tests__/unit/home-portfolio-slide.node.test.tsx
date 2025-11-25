@@ -1,15 +1,7 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import { expect, test, vitest } from "vitest"
+import { expect, test } from "vitest"
 import { HomePortfolioSlide } from "../../app/(home)/_containers/home-portfolio-slide"
-
-// next/navigationのモック
-vitest.mock("next/navigation", () => ({
-  useRouter: () => ({
-    query: { id: "test-post-id" },
-    push: vitest.fn(),
-  }),
-}))
 
 test.skip("HomePortfolioSlideが表示されるか", async () => {
   const ui = await HomePortfolioSlide()
