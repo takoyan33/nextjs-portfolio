@@ -1,8 +1,16 @@
 {
   "compilerOptions": {
-    "types": ["node", "vitest", "@testing-library/jest-dom"],
+    "types": [
+      "node",
+      "vitest",
+      "@testing-library/jest-dom"
+    ],
     "target": "es2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -14,10 +22,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "plugins": [
       {
@@ -38,9 +48,16 @@
     ".next/types/**/*.ts",
     "app/api/skills/back/router.js",
     "app/api/back/router.js",
-    "next.config.js",
+    "next.config.ys",
     "__tests__/integration/blog.test.jsx",
-    "__tests__/unit/.test.tsx"
+    "__tests__/unit/.test.tsx",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "**/*.test.tsx", "**/*.storybook.tsx", "app/cube/page.tsx", "dist"]
+  "exclude": [
+    "node_modules",
+    "**/*.test.tsx",
+    "**/*.storybook.tsx",
+    "app/cube/page.tsx",
+    "dist"
+  ]
 }
