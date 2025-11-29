@@ -1,10 +1,10 @@
 import { get } from "@vercel/edge-config"
 import { NextResponse } from "next/server"
 
-export async function middleware(request) {
+export async function proxy(request) {
   const isInMaintenanceMode = await get("isMaintenance")
 
-  // ✅ middleware では request.cookies で読む
+  // ✅ proxy では request.cookies で読む
   const isAuth = request.cookies.get("auth")?.value === "true"
 
   const url = request.nextUrl.clone()

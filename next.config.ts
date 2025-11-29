@@ -1,12 +1,8 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from "next"
+import headers from "./headers"
 
-const headers = require("./headers")
-
-module.exports = {
+const config: NextConfig = {
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   async headers() {
     return [
       {
@@ -17,3 +13,5 @@ module.exports = {
     ]
   },
 }
+
+export default config
