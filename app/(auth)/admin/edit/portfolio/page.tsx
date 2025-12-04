@@ -4,6 +4,8 @@ import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import PortfolioItem from "./PortfolioItem"
 
+export const dynamic = "force-dynamic"
+
 const Admin = async () => {
   const data = await fetchPortfolios()
 

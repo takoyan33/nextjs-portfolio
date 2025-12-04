@@ -40,7 +40,7 @@ const isTestEnvironment =
   process.env.NODE_ENV === "test" || process.env.NEXT_PUBLIC_USE_MOCK === "true"
 const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
 if (isTestEnvironment || mock) {
-  const { server } = await import("__tests__/mocks/server")
+  const { server } = await import("@/mocks/server")
   console.log("!!!!🟢 MSW Import server!!!!")
   server.listen()
 }

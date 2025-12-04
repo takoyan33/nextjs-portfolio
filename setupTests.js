@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/vitest"
 import React from "react"
 import { afterAll, afterEach, beforeAll, vi } from "vitest"
-import { server } from "./__tests__/mocks/server"
+import { server } from "./mocks/server"
 
 // server-only のモック
 vi.mock("server-only", () => ({}))

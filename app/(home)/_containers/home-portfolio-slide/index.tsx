@@ -7,9 +7,17 @@ import { HomePortfolioSlideClient } from "./home-portfolio-slide-client"
  * トップページのスライドショー（サーバー側でデータを取得）
  */
 export const HomePortfolioSlide = async () => {
-  // 本番用のAPIから取得
-  const res = await fetchPortfoliosFront()
-  let portfolios: PortfolioType[] = res?.data || []
+  let portfolios: PortfolioType[] = []
+
+  try {
+    // 本番用のAPIから取得
+    const res = await fetchPortfoliosFront()
+    portfolios = res?.data || []
+  } catch (error) {
+    console.error("Failed to fetch portfolios from API, falling back to mock data:", error)
+    // APIが失敗した場合はモックデータを使用
+    portfolios = portfoliosData
+  }
 
   // モックがある場合は fallback
   if (!portfolios?.length) {
