@@ -3,6 +3,8 @@ import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import HistoryItem from "./LicenseItem"
 
+export const dynamic = "force-dynamic"
+
 const Admin = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`, {
     next: { revalidate: 3600 },

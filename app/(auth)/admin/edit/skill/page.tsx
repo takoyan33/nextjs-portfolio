@@ -9,6 +9,8 @@ import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
 import { PATH } from "../../../../../utils/path"
 import SkillItem from "./SkillItem"
 
+export const dynamic = "force-dynamic"
+
 const Admin = async () => {
   const [front, back, infra, other] = await Promise.all([
     fetchFrontSkills(),

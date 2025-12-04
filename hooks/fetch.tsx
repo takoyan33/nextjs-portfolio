@@ -16,6 +16,13 @@ import { CACHE_OPTIONS } from "../utils/data"
  */
 export const fetchHistories = async (): Promise<ResponseHistory> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch histories: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch histories: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -29,6 +36,13 @@ export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
     `${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch history ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch history ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -38,6 +52,13 @@ export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
  */
 export const fetchJobs = async (): Promise<ResponseJob> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch jobs: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch jobs: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -48,6 +69,13 @@ export const fetchJobs = async (): Promise<ResponseJob> => {
  */
 export const fetchJob = async (id: string): Promise<ResponseJob> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs/${id}`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch job ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch job ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -57,6 +85,13 @@ export const fetchJob = async (id: string): Promise<ResponseJob> => {
  */
 export const fetchLicenses = async (): Promise<ResponseLicense> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch licenses: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch licenses: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -70,6 +105,13 @@ export const fetchLicense = async (id: string): Promise<ResponseLicense> => {
     `${process.env.NEXT_PUBLIC_API_URL}api/licenses/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch license ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch license ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -79,6 +121,13 @@ export const fetchLicense = async (id: string): Promise<ResponseLicense> => {
  */
 export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch portfolios (front): ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch portfolios: ${response.status}`)
+  }
+
   return await response.json()
 }
 
@@ -91,6 +140,13 @@ export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
     `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch portfolios (backend): ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch portfolios from backend: ${response.status}`)
+  }
+
   return await response.json()
 }
 
@@ -104,6 +160,13 @@ export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePor
     `${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch portfolio ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch portfolio ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -113,6 +176,13 @@ export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePor
  */
 export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch front skills: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch front skills: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -126,6 +196,13 @@ export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/front/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch front skill ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch front skill ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -135,6 +212,13 @@ export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
  */
 export const fetchBackSkills = async (): Promise<ResponseSkill> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch back skills: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch back skills: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -148,6 +232,13 @@ export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/back/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch back skill ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch back skill ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -157,6 +248,13 @@ export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
  */
 export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch infra skills: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch infra skills: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -170,6 +268,13 @@ export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/infra/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch infra skill ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch infra skill ${id}: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -179,6 +284,13 @@ export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
  */
 export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch other skills: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch other skills: ${response.status}`)
+  }
+
   return response.json()
 }
 
@@ -192,5 +304,12 @@ export const fetchOtherSkill = async (id: string): Promise<ResponseSkill> => {
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/other/${id}`,
     CACHE_OPTIONS,
   )
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch other skill ${id}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch other skill ${id}: ${response.status}`)
+  }
+
   return response.json()
 }

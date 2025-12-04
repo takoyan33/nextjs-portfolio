@@ -3,6 +3,8 @@ import { messages } from "../../../app/types/social"
 
 import type { ResponsePortfolio } from "types"
 
+export const dynamic = "force-dynamic"
+
 export async function GET() {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`
 
