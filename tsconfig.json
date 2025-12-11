@@ -43,5 +43,5 @@
     "__tests__/unit/.test.tsx",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "**/*.test.tsx", "**/*.storybook.tsx", "app/cube/page.tsx", "dist"]
+  "exclude": ["node_modules", "app/cube/page.tsx", "dist"]
 }

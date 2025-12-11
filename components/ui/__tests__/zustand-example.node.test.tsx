@@ -1,5 +1,7 @@
+import { ZustandExampleComponent } from "@/components/ui/zustand-example"
+import "@testing-library/jest-dom/vitest"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { ZustandExampleComponent } from "../zustand-example"
+import { describe, expect, it } from "vitest"
 
 describe("ZustandExampleComponent", () => {
   it("初期状態でモーダルが閉じていることを表示する", () => {

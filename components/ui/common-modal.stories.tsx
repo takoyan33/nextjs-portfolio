@@ -1,5 +1,5 @@
+import { CommonModal } from "@/components/ui/common-modal"
 import type { Meta, StoryObj } from "@storybook/react"
-import { CommonModal } from "./common-modal"
 
 const meta: Meta<typeof CommonModal> = {
   title: "UI/CommonModal",

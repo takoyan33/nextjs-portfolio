@@ -1,6 +1,6 @@
+import { Timeline } from "@/components/ui"
+import styles from "@/components/ui/css/timeline.module.scss"
 import { fetchJobs } from "hooks/fetch"
-import { Timeline } from ".."
-import styles from "../css/timeline.module.scss"
 
 /**
  * 職歴のタイムライン

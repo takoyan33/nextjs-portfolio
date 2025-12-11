@@ -2,7 +2,7 @@ import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, test, vi } from "vitest"
 import { mockSWRResponse } from "../../__tests__/utils/swr-helper"
-import { PortfolioList } from "../../app/portfolios/_containers/portfolio-list.tsx"
+import { PortfolioList } from "../../app/portfolios/_containers/portfolio-list"
 
 // useSWRをモック
 vi.mock("swr")

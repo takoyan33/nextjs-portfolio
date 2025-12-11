@@ -1,6 +1,6 @@
-import { CACHE_OPTIONS } from "../../../utils/data"
-import styles from "../css/timeline.module.scss"
-import { Timeline } from "../timeline"
+import styles from "@/components/ui/css/timeline.module.scss"
+import { Timeline } from "@/components/ui/timeline"
+import { CACHE_OPTIONS } from "@/utils/data"
 
 /**
  * 経歴のタイムライン
