@@ -1,7 +1,7 @@
 import { fetchPortfolios } from "hooks/fetch"
 import type { PortfolioType } from "types"
-import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
-import { PATH } from "../../../../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import PortfolioItem from "./PortfolioItem"
 
 export const dynamic = "force-dynamic"

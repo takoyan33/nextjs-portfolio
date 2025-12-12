@@ -1,6 +1,6 @@
 import { TransitionLink } from "components/ui"
 import type { Metadata } from "next"
-import { PATH } from "../../../utils/path"
+import { PATH } from "@/utils/path"
 
 export const metadata: Metadata = {
   title: "404",

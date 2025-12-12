@@ -1,13 +1,13 @@
 "use client"
+import { ContactSchema, PostContactSchema } from "@/app/contact/_containers/schema"
+import { CommonLabel } from "@/components/ui"
+import { ActionButton } from "@/components/ui/button/common-button"
+import { emailjsConfig } from "@/utils/emailjs"
 import { send } from "@emailjs/browser"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { CommonLabel } from "../../../components/ui"
-import { ActionButton } from "../../../components/ui/button/common-button"
-import { emailjsConfig } from "../../../utils/emailjs"
-import { ContactSchema, PostContactSchema } from "./schema"
 /**
  * お問い合わせフォーム
  */

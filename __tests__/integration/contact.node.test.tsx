@@ -1,6 +1,6 @@
+import Contact from "@/app/contact/page"
 import { render } from "@testing-library/react"
 import { test, vitest } from "vitest"
-import Contact from "../../app/contact/page"
 
 // next/navigationのモック
 vitest.mock("next/navigation", () => ({

@@ -1,7 +1,7 @@
+import { PortfolioList } from "@/app/portfolios/_containers/portfolio-list"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
-import { Breadcrumb, LowerTitle } from "../../components/ui"
-import { PATH } from "../../utils/path"
-import { PortfolioList } from "./_containers/portfolio-list"
 
 export const dynamic = "force-static"
 

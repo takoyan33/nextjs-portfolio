@@ -1,8 +1,8 @@
+import { Header } from "@/components/layout/header"
 import "@testing-library/jest-dom/vitest"
 import { fireEvent, render, screen } from "@testing-library/react"
 import React from "react"
 import { afterEach, describe, expect, test, vi } from "vitest"
-import { Header } from "../../components/layout/header"
 
 // Mocks for internal link/button components to keep the test focused
 vi.mock("components/ui/button/common-button", () => ({

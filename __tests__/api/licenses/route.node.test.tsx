@@ -1,5 +1,5 @@
+import { GET } from "@/app/api/licenses/route"
 import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
-import { GET } from "../../../app/api/licenses/route"
 
 // 環境変数のモック
 const mockEnv = {

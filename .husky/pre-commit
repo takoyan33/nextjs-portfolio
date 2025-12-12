@@ -8,6 +8,8 @@ yarn build
 
 yarn test --project node
 
+yarn test --project browser
+
 yarn lint
 
 echo "----- end pre-commit -------"

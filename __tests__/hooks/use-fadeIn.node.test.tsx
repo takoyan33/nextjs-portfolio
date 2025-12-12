@@ -1,6 +1,6 @@
+import ScrollComponent from "@/hooks/use-fadeIn"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, test } from "vitest"
-import ScrollComponent from "../../hooks/use-fadeIn"
 
 // Mock IntersectionObserver
 class MockIntersectionObserver {

@@ -1,10 +1,15 @@
-import { TopBackButton } from "components/ui"
-import { LinkButton } from "components/ui/button/common-button"
-import { CareerHistoryTimeline } from "components/ui/rsc"
-import ScrollComponent from "hooks/use-fadeIn"
-import { PATH } from "utils/path"
-import { HomePortfolioSlide, HomeSkills, HomeWaveBgBottom, HomeWaveBgTop } from "./_containers/"
-import { HomeAboutSection, HomeFvSection } from "./sections"
+import {
+  HomePortfolioSlide,
+  HomeSkills,
+  HomeWaveBgBottom,
+  HomeWaveBgTop,
+} from "@/app/(home)/_containers/"
+import { HomeAboutSection, HomeFvSection } from "@/app/(home)/sections"
+import { TopBackButton } from "@/components/ui"
+import { LinkButton } from "@/components/ui/button/common-button"
+import { CareerHistoryTimeline } from "@/components/ui/rsc"
+import ScrollComponent from "@/hooks/use-fadeIn"
+import { PATH } from "@/utils/path"
 
 export const dynamic = "force-static"
 

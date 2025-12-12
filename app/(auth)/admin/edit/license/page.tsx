@@ -1,6 +1,6 @@
 import { License } from "@/app/types"
-import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
-import { PATH } from "../../../../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import HistoryItem from "./LicenseItem"
 
 export const dynamic = "force-dynamic"

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { messages } from "../../../app/types/social"
+import { messages } from "@/app/types/social"
 
 import type { ResponsePortfolio } from "types"
 

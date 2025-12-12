@@ -1,6 +1,6 @@
+import { PortfolioDetail } from "@/app/portfolios/[id]/portfolio-detail"
+import { fetchPortfolio } from "@/hooks/fetch"
 import { notFound } from "next/navigation"
-import { fetchPortfolio } from "../../../hooks/fetch"
-import { PortfolioDetail } from "./portfolio-detail"
 
 export const dynamic = "force-static"
 

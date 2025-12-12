@@ -1,6 +1,6 @@
+import Portfolios from "@/app/portfolios/page"
 import { render, screen } from "@testing-library/react"
 import { expect, test, vi } from "vitest"
-import Portfolios from "../../app/portfolios/page"
 
 // --- next/navigation のモック ---
 vi.mock("next/navigation", () => ({

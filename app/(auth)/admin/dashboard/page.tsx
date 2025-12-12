@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Breadcrumb, LowerTitle } from "../../../../components/ui"
-import { PATH } from "../../../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import styles from "./admin.module.scss"
 
 const Admin = () => {

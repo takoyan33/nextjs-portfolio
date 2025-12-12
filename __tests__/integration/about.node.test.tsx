@@ -1,6 +1,6 @@
+import About from "@/app/about/page"
 import { render } from "@testing-library/react"
 import { test, vitest } from "vitest"
-import About from "../../app/about/page"
 
 // next/navigationのモック
 vitest.mock("next/navigation", () => ({

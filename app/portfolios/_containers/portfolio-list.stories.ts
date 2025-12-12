@@ -1,6 +1,6 @@
+import { PortfolioList } from "@/app/portfolios/_containers/portfolio-list"
 import type { Meta, StoryObj } from "@storybook/react"
 import { http, HttpResponse } from "msw"
-import { PortfolioList } from "./portfolio-list"
 
 const meta: Meta<typeof PortfolioList> = {
   title: "UI/PortfolioList",

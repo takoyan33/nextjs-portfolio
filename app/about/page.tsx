@@ -1,9 +1,9 @@
+import { AboutTabs } from "@/app/about/_containers/about-tabs"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { LowerSubTitle } from "@/components/ui/lower-sub-title"
+import { CareerHistoryTimeline, JobTimeline, LicenseList } from "@/components/ui/rsc"
+import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
-import { Breadcrumb, LowerTitle } from "../../components/ui"
-import { LowerSubTitle } from "../../components/ui/lower-sub-title"
-import { CareerHistoryTimeline, JobTimeline, LicenseList } from "../../components/ui/rsc"
-import { PATH } from "../../utils/path"
-import { AboutTabs } from "./_containers/about-tabs"
 
 export const metadata: Metadata = {
   title: "To You Design - About",

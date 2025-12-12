@@ -1,7 +1,7 @@
-import { fetchPortfoliosFront } from "../../../../hooks/fetch"
-import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
-import type { PortfolioType } from "../../../../types"
-import { HomePortfolioSlideClient } from "./home-portfolio-slide-client"
+import { HomePortfolioSlideClient } from "@/app/(home)/_containers/home-portfolio-slide/home-portfolio-slide-client"
+import { fetchPortfoliosFront } from "@/hooks/fetch"
+import portfoliosData from "@/public/mock/api/portfolios/index.json"
+import type { PortfolioType } from "@/types"
 
 /**
  * トップページのスライドショー（サーバー側でデータを取得）

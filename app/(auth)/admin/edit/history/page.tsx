@@ -1,6 +1,6 @@
 import type { History } from "types"
-import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
-import { PATH } from "../../../../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import HistoryItem from "./HistoryItem"
 
 export const dynamic = "force-dynamic"
