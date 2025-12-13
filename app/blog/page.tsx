@@ -3,6 +3,7 @@ import ZennAsideArticleItem from "@/app/blog/_containers/zenn-aside-article-item
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { LowerSubTitle } from "@/components/ui/lower-sub-title"
 import type { ZennProps } from "@/types"
+import { logger } from "@/utils/logger"
 import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
 
@@ -16,12 +17,20 @@ const Blog = async () => {
 
   // zennの記事をfetch
   try {
+    logger.info("Fetching Zenn articles")
     const response = await fetch("https://zenn.dev/api/articles?username=643866", {
       next: { revalidate: 60 * 60 * 24 * 30 }, // 30日間キャッシュ
     })
     zennArticles = await response.json()
+    logger.info(
+      {
+        length: zennArticles?.articles.length,
+        data: zennArticles?.articles[0],
+      },
+      "https://zenn.dev/api/articles?username=643866",
+    )
   } catch (err) {
-    console.error(err)
+    logger.error(err, "Failed to fetch Zenn articles")
   }
   //zennの記事を新しい順にsort
   zennArticles?.articles.sort((a, b) => {

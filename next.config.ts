@@ -19,6 +19,7 @@ const config: NextConfig = {
       },
     ]
   },
+  serverExternalPackages: ["pino"],
 }
 
 export default config

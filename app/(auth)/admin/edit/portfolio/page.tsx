@@ -1,13 +1,18 @@
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { logger } from "@/utils/logger"
+import { PATH } from "@/utils/path"
 import { fetchPortfolios } from "hooks/fetch"
 import type { PortfolioType } from "types"
-import { Breadcrumb, LowerTitle } from "@/components/ui"
-import { PATH } from "@/utils/path"
 import PortfolioItem from "./PortfolioItem"
 
 export const dynamic = "force-dynamic"
 
 const Admin = async () => {
   const data = await fetchPortfolios()
+  logger.info(
+    { length: data?.data?.length, data: data?.data?.[0], status: data?.status },
+    "/admin/edit/portfolio",
+  )
 
   return (
     <main className="u-padding">
