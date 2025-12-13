@@ -1,6 +1,6 @@
+import Blog from "@/app/blog/page"
 import { render } from "@testing-library/react"
 import { test, vitest } from "vitest"
-import Blog from "../../app/blog/page"
 
 // next/navigationのモック
 vitest.mock("next/navigation", () => ({

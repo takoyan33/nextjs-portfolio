@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import { Breadcrumb, LowerTitle } from "../../components/ui"
-import { PATH } from "../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 
 export const dynamic = "force-static"
 

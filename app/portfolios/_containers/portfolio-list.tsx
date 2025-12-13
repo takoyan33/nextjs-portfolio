@@ -1,13 +1,13 @@
 "use client"
 
+import type { PortfolioType } from "@/app/types"
+import { messages } from "@/app/types/social"
+import { LowerSubTitle } from "@/components/ui/lower-sub-title"
+import PortfolioItem from "@/components/ui/portfolio-item"
+import { fetchPortfoliosFront } from "@/hooks/fetch-client"
 import type React from "react"
 import { useEffect, useState } from "react"
 import useSWR from "swr"
-import { messages } from "../../../app/types/social"
-import { LowerSubTitle } from "../../../components/ui/lower-sub-title"
-import PortfolioItem from "../../../components/ui/portfolio-item"
-import { fetchPortfoliosFront } from "../../../hooks/fetch-client"
-import type { PortfolioType } from "../../../types"
 
 /**
  * ポートフォリオ一覧

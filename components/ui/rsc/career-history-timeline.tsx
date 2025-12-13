@@ -1,13 +1,17 @@
-import { CACHE_OPTIONS } from "../../../utils/data"
-import styles from "../css/timeline.module.scss"
-import { Timeline } from "../timeline"
+import styles from "@/components/ui/css/timeline.module.scss"
+import { Timeline } from "@/components/ui/timeline"
+import { fetchHistories } from "@/hooks/fetch"
+import { logger } from "@/utils/logger"
 
 /**
  * 経歴のタイムライン
  */
 export const CareerHistoryTimeline = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, CACHE_OPTIONS)
-  const json = await response.json()
+  const json = await fetchHistories()
+  logger.info(
+    { length: json?.data?.length, data: json?.data?.[0], status: json?.status },
+    "/histories",
+  )
   const histories = Array.isArray(json?.data) ? json.data : []
 
   return (

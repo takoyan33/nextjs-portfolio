@@ -1,6 +1,6 @@
+import styles from "@/components/ui/css/post-navigation.module.scss"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import styles from "./css/post-navigation.module.scss"
 
 interface PostNavigationProps {
   next_title?: string

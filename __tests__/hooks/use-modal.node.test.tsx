@@ -1,5 +1,5 @@
+import { CloseModal, OpenModal } from "@/hooks/use-modal"
 import { describe, expect, test, vi } from "vitest"
-import { CloseModal, OpenModal } from "../../hooks/use-modal"
 
 describe("use-modal フックのテスト", () => {
   test("OpenModal が状態を開き、body にクラスを追加すること", () => {

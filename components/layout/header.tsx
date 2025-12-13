@@ -1,11 +1,11 @@
 "use client"
 
+import type { MenuItem } from "@/app/types"
+import { TransitionLink } from "@/components/ui"
+import { LinkButton } from "@/components/ui/button/common-button"
+import { PATH } from "@/utils/path"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import type { MenuItem } from "../../app/types"
-import { PATH } from "../../utils/path"
-import { TransitionLink } from "../ui"
-import { LinkButton } from "../ui/button/common-button"
 
 export const Header = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false)
@@ -64,7 +64,10 @@ export const Header = () => {
                   <TransitionLink href={item.link}>{item.title}</TransitionLink>
                 </li>
               ))}
-              <li> <LinkButton text="お問い合わせ" link={PATH.CONTACT} /></li>
+              <li>
+                {" "}
+                <LinkButton text="お問い合わせ" link={PATH.CONTACT} />
+              </li>
             </ul>
           </nav>
         </div>

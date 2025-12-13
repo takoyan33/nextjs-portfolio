@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Breadcrumb, CommonLabel, LowerTitle } from "../../../components/ui"
-import { PATH } from "../../../utils/path"
+import { Breadcrumb, CommonLabel, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import { authenticate } from "./actions"
 
 const Admin = () => {

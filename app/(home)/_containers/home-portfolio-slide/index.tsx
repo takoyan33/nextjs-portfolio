@@ -1,7 +1,8 @@
-import { fetchPortfoliosFront } from "../../../../hooks/fetch"
-import portfoliosData from "../../../../public/mock/api/portfolios/index.json"
-import type { PortfolioType } from "../../../../types"
-import { HomePortfolioSlideClient } from "./home-portfolio-slide-client"
+import { HomePortfolioSlideClient } from "@/app/(home)/_containers/home-portfolio-slide/home-portfolio-slide-client"
+import { fetchPortfoliosFront } from "@/hooks/fetch"
+import portfoliosData from "@/public/mock/api/portfolios/index.json"
+import type { PortfolioType } from "@/types"
+import { logger } from "@/utils/logger"
 
 /**
  * トップページのスライドショー（サーバー側でデータを取得）
@@ -12,6 +13,10 @@ export const HomePortfolioSlide = async () => {
   try {
     // 本番用のAPIから取得
     const res = await fetchPortfoliosFront()
+    logger.info(
+      { length: res?.data?.length, data: res?.data?.[0], status: res?.status },
+      "/home/portfolio-slide",
+    )
     portfolios = res?.data || []
   } catch (error) {
     console.error("Failed to fetch portfolios from API, falling back to mock data:", error)

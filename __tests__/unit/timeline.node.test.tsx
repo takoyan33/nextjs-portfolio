@@ -1,6 +1,6 @@
+import { Timeline } from "@/components/ui/timeline"
 import { render, screen } from "@testing-library/react"
 import { expect, test } from "vitest"
-import { Timeline } from "../../components/ui/timeline"
 
 test("Timelineが表示されるか", () => {
   render(<Timeline title="高校入学" date="2024-01-01" body="高校入学の説明" />)

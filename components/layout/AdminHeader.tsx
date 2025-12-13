@@ -1,8 +1,8 @@
+import "@/components/layout/adminHeader.scss"
+import { TransitionLink } from "@/components/ui"
 import { LogOut } from "@/hooks/cookie-action"
 import { MenuItem } from "@/types"
-import { PATH } from "../../utils/path"
-import { TransitionLink } from "../ui"
-import "./adminHeader.scss"
+import { PATH } from "@/utils/path"
 
 type Props = {
   isAuth: boolean

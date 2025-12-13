@@ -1,5 +1,7 @@
 "use client"
 
+import HomePortfolioSlideItem from "@/app/(home)/_containers/home-portfolio-slide/home-portfolio-slide-item"
+import type { PortfolioType } from "@/types"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState } from "react"
 import "swiper/css"
@@ -8,8 +10,6 @@ import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 import { A11y, Controller, Navigation, Pagination, Scrollbar } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import type { PortfolioType } from "../../../../types"
-import HomePortfolioSlideItem from "./home-portfolio-slide-item"
 
 type Props = {
   portfolios: PortfolioType[]

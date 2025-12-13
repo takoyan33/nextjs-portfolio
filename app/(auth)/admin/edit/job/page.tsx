@@ -1,6 +1,6 @@
 import type { Job } from "types"
-import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
-import { PATH } from "../../../../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import JobItem from "./JobItem"
 
 export const dynamic = "force-dynamic"

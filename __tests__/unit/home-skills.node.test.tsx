@@ -1,13 +1,13 @@
-import "@testing-library/jest-dom/vitest"
-import { render, screen } from "@testing-library/react"
-import { describe, expect, test, vi } from "vitest"
-import { HomeSkills } from "../../app/(home)/_containers/home-skills"
+import { HomeSkills } from "@/app/(home)/_containers/home-skills"
 import {
   fetchBackSkills,
   fetchFrontSkills,
   fetchInfraSkills,
   fetchOtherSkills,
-} from "../../hooks/fetch"
+} from "@/hooks/fetch"
+import "@testing-library/jest-dom/vitest"
+import { render, screen } from "@testing-library/react"
+import { describe, expect, test, vi } from "vitest"
 
 // hooks の fetch をモック
 vi.mock("hooks/fetch", () => ({

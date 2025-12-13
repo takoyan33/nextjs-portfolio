@@ -1,15 +1,15 @@
+import { Footer, Header } from "@/components/layout"
+import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics"
+import "@/styles/globals.scss"
+import { Clarity } from "@/utils/clarity"
 import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import type React from "react"
-import { Footer, Header } from "../components/layout"
-import { GoogleAnalytics } from "../components/layout/GoogleAnalytics"
-import "../styles/globals.scss"
-import { Clarity } from "../utils/clarity"
-// import { ReactScan } from "./_components/ui/react-scan"
+// import { ReactScan } from "@/app/_components/ui/react-scan"
 import { AdminHeader } from "@/components/layout/AdminHeader"
 import { MockProvider } from "@/components/msw/MockProvider"
+import { siteConfig } from "@/utils/site"
 import { cookies } from "next/headers"
-import { siteConfig } from "../utils/site"
 
 export const metadata: Metadata = {
   title: siteConfig.name,

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "types": ["node", "vitest", "@testing-library/jest-dom"],
-    "target": "es2017",
+    "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -11,7 +11,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -43,5 +43,5 @@
     "__tests__/unit/.test.tsx",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "**/*.test.tsx", "**/*.storybook.tsx", "app/cube/page.tsx", "dist"]
+  "exclude": ["node_modules", "app/cube/page.tsx", "dist"]
 }

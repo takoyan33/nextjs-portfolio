@@ -1,6 +1,6 @@
-import type { MenuItem } from "../../app/types"
-import { PATH } from "../../utils/path"
-import { TransitionLink } from "../ui"
+import type { MenuItem } from "@/app/types"
+import { TransitionLink } from "@/components/ui"
+import { PATH } from "@/utils/path"
 
 export const Footer = () => {
   // 現在の年度

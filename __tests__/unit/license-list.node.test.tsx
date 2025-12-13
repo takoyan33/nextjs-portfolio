@@ -1,8 +1,8 @@
+import { LicenseList } from "@/components/ui/rsc/license-list"
+import { fetchLicenses } from "@/hooks/fetch"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, test, vi } from "vitest"
-import { LicenseList } from "../../components/ui/rsc/license-list"
-import { fetchLicenses } from "../../hooks/fetch.tsx"
 
 // ✅ fetchLicensesをモック
 vi.mock("hooks/fetch", () => ({

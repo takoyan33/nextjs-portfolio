@@ -1,14 +1,14 @@
+import { TransitionLink } from "@/components/ui/transition-link"
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
-import { TransitionLink } from "./transition-link"
 
 interface PortfolioItemProps {
-  readonly portfolio_id: number
-  readonly portfolio_name: string
-  readonly portfolio_date: string
-  readonly portfolio_tag: string[]
-  readonly portfolio_topImg: string
+  portfolio_id: number
+  portfolio_name: string
+  portfolio_date: string
+  portfolio_tag: string[]
+  portfolio_topImg: string
 }
 
 /**

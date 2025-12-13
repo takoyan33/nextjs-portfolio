@@ -1,7 +1,7 @@
+import { PostNavigation } from "@/components/ui/post-navigation"
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { beforeEach, describe, expect, test, vi } from "vitest"
-import { PostNavigation } from "../../components/ui/post-navigation"
 
 // モック関数をhoistedで作成して共有する
 const { pushMock } = vi.hoisted(() => {

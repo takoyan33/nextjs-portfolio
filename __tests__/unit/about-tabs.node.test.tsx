@@ -1,10 +1,10 @@
+import { AboutTabs } from "@/app/about/_containers/about-tabs"
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { describe, expect, test, vi } from "vitest"
-import { AboutTabs } from "../../app/about/_containers/about-tabs"
 
 // tabStoreのモック
-vi.mock("../../stores/tabStore", () => {
+vi.mock("@/stores/tabStore", () => {
   let activeTab = "history"
   return {
     useTabStore: () => ({

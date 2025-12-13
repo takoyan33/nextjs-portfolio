@@ -9,17 +9,16 @@
 - [ブランチについて](#branch-structure)
 - [ライセンス](#license)
 
-[デモサイト](https://to-you-design.vercel.app/)
+[URL](https://to-you-design.vercel.app/)
 
 ## システムの特徴
-これは、自分のポートフォリオサイトです。<br>
+自分のポートフォリオサイトとして、作成しました<br>
 特徴としては、Next.jsで作っており、コンポーネント化できるところは、コンポーネント化をしています。<br>
-また、Tailwind CSSやFontAwesomeなどを用いています。
 
 ## 使用技術について
 
 ### Node.js バージョン
-- Node.js: v20.14.0
+- Node.js: v22.14.0
 - npm: v9.8.1
 
 ### フロントエンド
@@ -61,6 +60,7 @@
 - [EmailJS](https://www.emailjs.com/) v3.14.0
 - [React Hook Form](https://react-hook-form.com/) v7.45.1
 - [Zod](https://zod.dev/) v3.25.1
+- [pino](https://github.com/pinojs/pino) v8.17.2
 
 ## ディレクトリ構成
 

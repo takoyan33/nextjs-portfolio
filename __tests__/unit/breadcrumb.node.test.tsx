@@ -1,11 +1,11 @@
+import { Breadcrumb } from "@/components/ui/breadcrumb"
 import "@testing-library/jest-dom/vitest"
 import { render, screen } from "@testing-library/react"
 import { type ReactNode } from "react"
 import { describe, expect, test, vitest } from "vitest"
-import { Breadcrumb } from "../../components/ui/breadcrumb"
 
 // TransitionLinkコンポーネントのモック
-vitest.mock("../../components/ui", () => ({
+vitest.mock("@/components/ui", () => ({
   TransitionLink: ({
     children,
     href,

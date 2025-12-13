@@ -5,8 +5,8 @@ import {
   fetchOtherSkills,
 } from "@/hooks/fetch"
 import { Skill } from "@/types"
-import { Breadcrumb, LowerTitle } from "../../../../../components/ui"
-import { PATH } from "../../../../../utils/path"
+import { Breadcrumb, LowerTitle } from "@/components/ui"
+import { PATH } from "@/utils/path"
 import SkillItem from "./SkillItem"
 
 export const dynamic = "force-dynamic"

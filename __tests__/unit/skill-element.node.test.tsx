@@ -1,7 +1,7 @@
+import { SkillElement } from "@/components/ui/skill-element"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { expect, test } from "vitest"
-import { SkillElement } from "../../components/ui/skill-element"
 
 test("SkillElementが表示される", () => {
   render(
@@ -33,7 +33,6 @@ test("SkillElementのアコーディオンが表示される", async () => {
   if (!summary) throw new Error("summary not found")
 
   await userEvent.click(summary)
-
 
   expect(screen.getByText("JavaScriptdescription")).toBeVisible()
 })
