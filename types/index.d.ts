@@ -25,6 +25,17 @@ export interface ResponseHistory {
 }
 
 /**
+ * 経歴詳細の型定義
+ *
+ * @returns status: データ成功かの判定
+ * @returns data: 経歴詳細
+ */
+export interface ResponseHistoryDetail {
+  status: "SUCCESS" | "PENDING" | 404 | 500
+  data: History | undefined
+}
+
+/**
  * 職歴一覧の型定義
  *
  * @returns id: 職歴ID
@@ -51,6 +62,17 @@ export interface ResponseJob {
 }
 
 /**
+ * 職歴詳細の型定義
+ *
+ * @returns status: データ成功かの判定
+ * @returns data: 職歴詳細
+ */
+export interface ResponseJobDetail {
+  status: "SUCCESS" | "PENDING" | 404 | 500
+  data: Job | undefined
+}
+
+/**
  * 資格一覧の型定義
  *
  * @returns status: データ成功かの判定
@@ -72,6 +94,17 @@ export interface License {
 export interface ResponseLicense {
   status: "SUCCESS" | "PENDING" | 404 | 500
   data: License[] | undefined
+}
+
+/**
+ * 資格詳細の型定義
+ *
+ * @returns status: データ成功かの判定
+ * @returns data: 資格詳細
+ */
+export interface ResponseLicenseDetail {
+  status: "SUCCESS" | "PENDING" | 404 | 500
+  data: License | undefined
 }
 
 /**

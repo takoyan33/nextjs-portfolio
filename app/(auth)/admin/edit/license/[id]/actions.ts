@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export async function editPortfolio(formData: FormData, id) {
+export async function editPortfolio(formData: FormData, id: number) {
   console.log(formData)
   const title = formData.get("historyTitle") as string
   const date = formData.get("historyDate") as string

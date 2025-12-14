@@ -16,7 +16,8 @@
     "test:watch": "vitest --watch",
     "commitmsg": "commitlint --edit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "unlighthouse": "npx unlighthouse --site http://localhost:3001"
   },
   "dependencies": {
     "@commitlint/cli": "^19.4.0",
@@ -60,6 +61,7 @@
     "swiper": "^11.1.9",
     "swr": "^2.3.4",
     "three": "^0.169.0",
+    "unlighthouse": "^0.17.4",
     "zod": "^4.1.12",
     "zustand": "^5.0.7"
   },

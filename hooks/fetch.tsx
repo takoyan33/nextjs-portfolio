@@ -2,8 +2,11 @@
 import "server-only"
 import type {
   ResponseHistory,
+  ResponseHistoryDetail,
   ResponseJob,
+  ResponseJobDetail,
   ResponseLicense,
+  ResponseLicenseDetail,
   ResponsePortfolio,
   ResponsePortfolios,
   ResponseSkill,
@@ -31,7 +34,7 @@ export const fetchHistories = async (): Promise<ResponseHistory> => {
  * @param id 経歴のid
  * @return {ResponseHistory}
  */
-export const fetchHistory = async (id: string): Promise<ResponseHistory> => {
+export const fetchHistory = async (id: string): Promise<ResponseHistoryDetail> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`,
     CACHE_OPTIONS,
@@ -67,7 +70,7 @@ export const fetchJobs = async (): Promise<ResponseJob> => {
  * @param id 職歴のid
  * @return {ResponseJob}
  */
-export const fetchJob = async (id: string): Promise<ResponseJob> => {
+export const fetchJob = async (id: string): Promise<ResponseJobDetail> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
@@ -100,7 +103,7 @@ export const fetchLicenses = async (): Promise<ResponseLicense> => {
  * @param id 資格のid
  * @return {ResponseJob}
  */
-export const fetchLicense = async (id: string): Promise<ResponseLicense> => {
+export const fetchLicense = async (id: string): Promise<ResponseLicenseDetail> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}api/licenses/${id}`,
     CACHE_OPTIONS,

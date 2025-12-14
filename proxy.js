@@ -4,6 +4,12 @@ import { NextResponse } from "next/server"
 export async function proxy(request) {
   const isInMaintenanceMode = await get("isMaintenance")
 
+  const nextpathname = request.nextUrl.pathname
+
+  if (nextpathname.startsWith("/__unlighthouse") || nextpathname.startsWith("/.unlighthouse")) {
+    return NextResponse.next()
+  }
+
   // ✅ proxy では request.cookies で読む
   const isAuth = request.cookies.get("auth")?.value === "true"
 
