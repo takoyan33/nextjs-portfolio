@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react"
  * @param children 子要素
  * @returns 子要素
  */
-const ScrollComponent = ({ children }) => {
+const ScrollComponent = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef(null)
 
   useEffect(() => {

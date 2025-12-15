@@ -11,4 +11,5 @@ declare global {
       pointLight: ReactThreeFiber.Object3DNode<THREE.PointLight, typeof THREE.PointLight>
     }
   }
+  declare module "react-modal"
 }

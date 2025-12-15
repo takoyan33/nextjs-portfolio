@@ -9,7 +9,8 @@ import type {
   ResponseLicenseDetail,
   ResponsePortfolio,
   ResponsePortfolios,
-  ResponseSkill,
+  ResponseSkillDetail,
+  ResponseSkills,
 } from "../types"
 import { CACHE_OPTIONS } from "../utils/data"
 
@@ -175,9 +176,9 @@ export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePor
 
 /**
  * フロントスキルの取得
- * @return {ResponseSkill}
+ * @return {ResponseSkills}
  */
-export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
+export const fetchFrontSkills = async (): Promise<ResponseSkills> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`, CACHE_OPTIONS)
 
   if (!response.ok) {
@@ -192,9 +193,9 @@ export const fetchFrontSkills = async (): Promise<ResponseSkill> => {
 /**
  * 特定のフロントスキルの取得
  * @param id フロントスキルのid
- * @return {ResponseSkill}
+ * @return {ResponseSkillDetail}
  */
-export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
+export const fetchFrontSkill = async (id: string): Promise<ResponseSkillDetail> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/front/${id}`,
     CACHE_OPTIONS,
@@ -211,9 +212,9 @@ export const fetchFrontSkill = async (id: string): Promise<ResponseSkill> => {
 
 /**
  * バックエンドスキルの取得
- * @return {ResponseSkill}
+ * @return {ResponseSkills}
  */
-export const fetchBackSkills = async (): Promise<ResponseSkill> => {
+export const fetchBackSkills = async (): Promise<ResponseSkills> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`, CACHE_OPTIONS)
 
   if (!response.ok) {
@@ -228,9 +229,9 @@ export const fetchBackSkills = async (): Promise<ResponseSkill> => {
 /**
  * 特定のバックエンドスキルの取得
  * @param id バックエンドスキルのid
- * @return {ResponseSkill}
+ * @return {ResponseSkillDetail}
  */
-export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
+export const fetchBackSkill = async (id: string): Promise<ResponseSkillDetail> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/back/${id}`,
     CACHE_OPTIONS,
@@ -247,9 +248,9 @@ export const fetchBackSkill = async (id: string): Promise<ResponseSkill> => {
 
 /**
  * バックエンドスキルの取得
- * @return {ResponseSkill}
+ * @return {ResponseSkills}
  */
-export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
+export const fetchInfraSkills = async (): Promise<ResponseSkills> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`, CACHE_OPTIONS)
 
   if (!response.ok) {
@@ -264,9 +265,9 @@ export const fetchInfraSkills = async (): Promise<ResponseSkill> => {
 /**
  * 特定のインフラスキルの取得
  * @param id インフラスキルのid
- * @return {ResponseSkill}
+ * @return {ResponseSkillDetail}
  */
-export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
+export const fetchInfraSkill = async (id: string): Promise<ResponseSkillDetail> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/infra/${id}`,
     CACHE_OPTIONS,
@@ -283,9 +284,9 @@ export const fetchInfraSkill = async (id: string): Promise<ResponseSkill> => {
 
 /**
  * インフラスキルの取得
- * @return {ResponseSkill}
+ * @return {ResponseSkills}
  */
-export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
+export const fetchOtherSkills = async (): Promise<ResponseSkills> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`, CACHE_OPTIONS)
 
   if (!response.ok) {
@@ -300,9 +301,9 @@ export const fetchOtherSkills = async (): Promise<ResponseSkill> => {
 /**
  * 特定のその他スキルの取得
  * @param id その他スキルのid
- * @return {ResponseSkill}
+ * @return {ResponseSkillDetail}
  */
-export const fetchOtherSkill = async (id: string): Promise<ResponseSkill> => {
+export const fetchOtherSkill = async (id: string): Promise<ResponseSkillDetail> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}api/skills/other/${id}`,
     CACHE_OPTIONS,

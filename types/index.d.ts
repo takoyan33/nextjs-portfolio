@@ -132,9 +132,20 @@ export interface Skill {
  * @returns status: データ成功かの判定
  * @returns data: スキル一覧
  */
-export interface ResponseSkill {
+export interface ResponseSkills {
   status: "SUCCESS" | "PENDING" | 404 | 500
   data: Skill[] | undefined
+}
+
+/**
+ * スキルの型定義
+ *
+ * @returns status: データ成功かの判定
+ * @returns data: スキル一覧
+ */
+export interface ResponseSkillDetail {
+  status: "SUCCESS" | "PENDING" | 404 | 500
+  data: Skill | undefined
 }
 
 /**
