@@ -3,7 +3,13 @@
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export async function editPortfolio(formData: FormData, id, aboutImg, appealImg, functionImg) {
+export async function editPortfolio(
+  formData: FormData,
+  id: number,
+  aboutImg: string,
+  appealImg: string,
+  functionImg: string,
+) {
   const name = formData.get("portfolioName") as string
   const date = formData.get("portfolioDate") as string
   const tag = (formData.get("portfolioTag") as string)?.split(",").map((v) => v.trim())

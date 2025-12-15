@@ -12,6 +12,8 @@
 /.next/
 /out/
 
+.unlighthouse/
+
 # production
 /build
 
@@ -30,3 +32,4 @@ yarn-error.log*
 /atoms/
 /css/
 .yarn
+.mcp.json

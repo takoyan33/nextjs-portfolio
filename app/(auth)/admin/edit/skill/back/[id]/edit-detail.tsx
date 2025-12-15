@@ -2,20 +2,23 @@
 
 import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
 import { useState } from "react"
+import type { Skill } from "types"
 import { PATH } from "utils/path"
 import { ediSkill } from "./actions"
 
-const EditDetail = ({ skill }) => {
+type Props = {
+  skill: Skill
+}
+
+const EditDetail = ({ skill }: Props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-
-  console.log(skill)
 
   const onSubmit = async (formData: FormData) => {
     setLoading(true)
     setError("")
 
-    const result = await ediSkill(formData, skill?.id, skill?.icon)
+    const result = await ediSkill(formData, skill.id, skill.icon)
 
     if (result?.error) {
       setLoading(false)

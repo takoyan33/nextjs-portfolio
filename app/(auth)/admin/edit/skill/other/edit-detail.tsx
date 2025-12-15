@@ -1,11 +1,16 @@
 "use client"
 
+import { Skill } from "@/types"
 import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
 import { useState } from "react"
 import { PATH } from "utils/path"
 import { ediSkill } from "./[id]/actions"
 
-const EditDetail = ({ skill }) => {
+type Props = {
+  skill: Skill
+}
+
+const EditDetail = ({ skill }: Props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 

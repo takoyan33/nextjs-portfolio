@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export async function ediSkill(formData: FormData, id, icon) {
+export async function ediSkill(formData: FormData, id: number, icon: string) {
   const name = formData.get("skillName") as string
   const rank = formData.get("skillRank") as string
   const about = formData.get("skillAbout") as string

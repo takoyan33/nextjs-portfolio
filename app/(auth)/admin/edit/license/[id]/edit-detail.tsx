@@ -5,7 +5,9 @@ import { useState } from "react"
 import { PATH } from "utils/path"
 import { editPortfolio } from "./actions"
 
-const EditDetail = ({ license }) => {
+import { License } from "@/types"
+
+const EditDetail = ({ license }: { license: License }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
@@ -13,7 +15,7 @@ const EditDetail = ({ license }) => {
     setLoading(true)
     setError("")
 
-    const result = await editPortfolio(formData, license?.id)
+    const result = await editPortfolio(formData, license.id)
 
     if (result?.error) {
       setLoading(false)

@@ -4,12 +4,15 @@ import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
 import { useState } from "react"
 import { PATH } from "utils/path"
 import { ediSkill } from "./actions"
+import { Skill } from "@/types"
 
-const EditDetail = ({ skill }) => {
+type Props = {
+  skill: Skill
+}
+
+const EditDetail = ({ skill }: Props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-
-  console.log(skill)
 
   const onSubmit = async (formData: FormData) => {
     setLoading(true)
