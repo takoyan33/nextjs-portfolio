@@ -5,6 +5,7 @@ import { TransitionLink } from ".."
 
 interface BaseButtonProps {
   text: string
+  id?: string
   className?: string
   handleClick?: () => void
   gtmEventCategory?: string
@@ -44,6 +45,7 @@ export const ActionButton: React.FC<BaseButtonProps> = (props) => {
         <button
           type="button"
           onClick={onClick}
+          id={props.id}
           className={`common__btn slide ${props.className ?? "more"}`}
           aria-label={props.text}
         >

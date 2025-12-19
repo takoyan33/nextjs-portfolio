@@ -73,10 +73,10 @@ export const ContactForm = () => {
         <p>メールアドレス：{email}</p>
         <p>メッセージ：{message}</p>
         <div className="text-center">
-          <button onClick={handleBack} type="button" className="form-box-btn mr-4">
+          <button onClick={handleBack} type="button" className="form-box-btn mr-4" id="back">
             戻る
           </button>
-          <button onClick={sendMail} type="button" className="form-box-btn">
+          <button onClick={sendMail} type="button" className="form-box-btn" id="send">
             送信する
           </button>
         </div>
@@ -142,7 +142,7 @@ export const ContactForm = () => {
           )}
         </div>
 
-        <ActionButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} />
+        <ActionButton text="確認画面へ" handleClick={handleSubmit(handleConfirm)} id="confirm" />
       </form>
     </div>
   )
