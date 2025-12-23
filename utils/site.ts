@@ -1,4 +1,4 @@
-import { PATH } from "utils/path"
+import { PATH } from "@/utils/path"
 
 export const siteConfig = {
   name: "To You Design",

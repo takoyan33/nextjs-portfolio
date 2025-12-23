@@ -12,7 +12,7 @@ vi.mock("hooks/fetch", () => ({
 describe("LicenseList", () => {
   test("正常系: 資格一覧が表示される", async () => {
     // モックデータ
-    vi.mocked(fetchLicenses).mockResolvedValueOnce({
+    vi.mocked(fetchLicenses).mockResolvedValue({
       status: "SUCCESS",
       data: [
         { id: 1, date: "2023-01-01", title: "AWS認定デベロッパー" },
@@ -30,7 +30,7 @@ describe("LicenseList", () => {
 
   test("異常系: データが空の場合は資格が表示されない", async () => {
     // 空データを返すモック
-    vi.mocked(fetchLicenses).mockResolvedValueOnce({
+    vi.mocked(fetchLicenses).mockResolvedValue({
       status: 404,
       data: undefined,
     })
@@ -38,9 +38,9 @@ describe("LicenseList", () => {
     const ui = await LicenseList()
     render(ui)
 
-    expect(screen.queryByText("AWS認定デベロッパー")).toBeNull()
-    expect(screen.queryByText("AWS認定SysOpsアドミニストレーター")).toBeNull()
-    expect(await screen.findByText("データはありません")).toBeVisible()
+    expect(screen.queryByText("AWS認定デベロッパー")).not.toBeInTheDocument()
+    expect(screen.queryByText("AWS認定SysOpsアドミニストレーター")).not.toBeInTheDocument()
+    expect(screen.getByText("データはありません")).toBeVisible()
     //screen.debug()
   })
 

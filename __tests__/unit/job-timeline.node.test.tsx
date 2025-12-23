@@ -12,7 +12,7 @@ vi.mock("hooks/fetch", () => ({
 describe("JobTimeline", () => {
   test("正常系: JobTimelineが表示されるか", async () => {
     // モックデータ
-    vi.mocked(fetchJobs).mockResolvedValueOnce({
+    vi.mocked(fetchJobs).mockResolvedValue({
       status: "SUCCESS",
       data: [
         {
@@ -41,7 +41,7 @@ describe("JobTimeline", () => {
 
   test("異常系: データが空の場合は職歴が表示されない", async () => {
     // 空データを返すモック
-    vi.mocked(fetchJobs).mockResolvedValueOnce({
+    vi.mocked(fetchJobs).mockResolvedValue({
       status: 404,
       data: undefined,
     })
@@ -49,11 +49,9 @@ describe("JobTimeline", () => {
     const ui = await JobTimeline()
     render(ui)
 
-    //screen.debug()
-
     expect(screen.queryByText("フロントエンドエンジニア")).toBeNull()
     expect(screen.queryByText("フルスタックエンジニア")).toBeNull()
-    //expect(await screen.findByText("データはありません")).toBeVisible()
+    expect(await screen.findByText("データはありません")).toBeVisible()
     //screen.debug()
   })
 })

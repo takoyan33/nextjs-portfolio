@@ -1,7 +1,7 @@
 import { test } from "@playwright/test"
 
 test("お問い合わせの実行", async ({ page }) => {
-  await page.goto("http://localhost:3001/contact")
+  await page.goto("http://localhost:3000/contact")
   await page.getByRole("textbox", { name: "名前" }).click()
   await page.getByRole("textbox", { name: "名前" }).fill("test 太郎")
   await page.getByRole("textbox", { name: "メールアドレス" }).click()

@@ -55,13 +55,6 @@ describe("PostNavigationの表示とリンク", () => {
 
     await screen.getByRole("link", { name: /前の記事/ }).click()
 
-    // Next.js Link behavior might not trigger router.push in jsdom without proper context or full integration.
-    // If this fails, we might need to restore next/link mock or adjust expectation.
-    // However, since we mock useRouter, if Link uses it, it should call push.
-    // But Link in Next.js 13+ is complex.
-    // If this test fails, I will revert to mocking next/link but using the local pushMock.
-
-    // For now, let's assume Link calls router.push.
     expect(pushMock).toHaveBeenCalledWith("/portfolios/1")
   })
 
