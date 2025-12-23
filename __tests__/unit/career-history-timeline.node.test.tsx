@@ -14,7 +14,7 @@ describe("CareerHistoryTimeline コンポーネント", () => {
   })
 
   test("正常系: 経歴が表示される", async () => {
-    vi.spyOn(global, "fetch").mockResolvedValueOnce({
+    vi.spyOn(global, "fetch").mockResolvedValue({
       ok: true,
       json: async () => ({ data: mockHistories }),
     } as unknown as Response)
@@ -27,7 +27,7 @@ describe("CareerHistoryTimeline コンポーネント", () => {
   })
 
   test("空データ: data が undefined の場合は何も描画されない", async () => {
-    vi.spyOn(global, "fetch").mockResolvedValueOnce({
+    vi.spyOn(global, "fetch").mockResolvedValue({
       ok: true,
       json: async () => ({ data: undefined }),
     } as unknown as Response)

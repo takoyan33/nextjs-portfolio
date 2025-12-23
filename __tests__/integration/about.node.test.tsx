@@ -11,11 +11,8 @@ vitest.mock("next/navigation", () => ({
 }))
 
 test("Aboutが表示されるか", async () => {
+  // 子コンポーネントのmswが動かない
   const ui = await About()
 
   render(ui)
-
-  // expect(await screen.findByText("経歴")).toBeInTheDocument()
-
-  //screen.debug()
 })

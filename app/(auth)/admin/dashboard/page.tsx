@@ -1,11 +1,11 @@
 "use client"
 
-import Link from "next/link"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { PATH } from "@/utils/path"
+import Link from "next/link"
 import styles from "./admin.module.scss"
 
-const Admin = () => {
+const AdminDashboard = () => {
   const items = [
     { title: "ポートフォリオ", path: PATH.EDIT_PORTFOLIO },
     { title: "スキル", path: PATH.EDIT_SKILL },
@@ -35,4 +35,4 @@ const Admin = () => {
   )
 }
 
-export default Admin
+export default AdminDashboard

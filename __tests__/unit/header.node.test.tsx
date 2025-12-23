@@ -27,7 +27,6 @@ vi.mock("components/ui", () => ({
 describe("Header component", () => {
   afterEach(() => {
     vi.restoreAllMocks()
-    // clean up any style set on body
     document.body.style.overflow = ""
   })
 
