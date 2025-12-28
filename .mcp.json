@@ -6,7 +6,7 @@
     },
     "chrome-devtools": {
       "command": "npx",
-      "args": ["chrome-devtools-mcp@latest", "-y"]
+      "args": ["-y", "chrome-devtools-mcp@latest"]
     }
   }
 }
