@@ -9,6 +9,7 @@
   - semantic commit を使用する
 - コマンドの出力が確認できない場合、適切なツールを使用して確認すること
 - yarn コマンドで基本実施する
+- マージ、リバートをする際は、許可を得てから行うこと
 
 ---
 
@@ -29,14 +30,27 @@
 - `.gemini/antigravity/storybook.md` : Storybook関連の指示
 - `.gemini/antigravity/test.md` : テスト関連の指示
 - `.gemini/antigravity/docs.md` : 設計書関連の指示
+- `.gemini/antigravity/general.md` : その他
 
 ---
 
-## mcp serever
+## MCP Server
 
 - yarn dev or yarn dev:mockで動かす
 
-- next-devtools-mcp
-- chrome-devtools-mcp
+### 設定ファイル
+
+- **Google Gemini (Antigravity)**: 自動設定済み
+- **Claude Code**: `.claude/mcp_config.json` に設定ファイルがあります
+  - 詳細な設定方法は `.claude/README.md` を参照してください
+
+### 利用可能なMCPサーバー
+
+1. **next-devtools-mcp** - Next.js開発ツール（リアルタイム診断、ルート情報、エラー検出）
+2. **chrome-devtools-mcp** - Chrome DevTools統合（ブラウザテスト、ビジュアル検証）
+3. **context7** (`@upstash/context7-mcp`) - 最新のライブラリドキュメント提供
+4. **serena** - AI コーディングエージェント（セマンティックコード分析、IDE機能）※Geminiのみ
+
+---
 
 ## applyTo: "\*\*"
