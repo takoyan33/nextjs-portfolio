@@ -18,7 +18,6 @@ const config = defineUnlighthouseConfig({
       await page.setExtraHTTPHeaders({
         "x-unlighthouse": "true",
       })
-      console.log("Hook: puppeteer:before-goto executing")
       const cookieLocalhost = {
         name: "auth",
         value: "true",
@@ -34,7 +33,6 @@ const config = defineUnlighthouseConfig({
         path: "/",
       }
       await page.browserContext().setCookie(cookieLocalhost, cookieIp)
-      console.log("Hook: Cookie set via puppeteer")
     },
   },
   cookies: [

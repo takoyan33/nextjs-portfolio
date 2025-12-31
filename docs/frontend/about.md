@@ -16,13 +16,8 @@
 - レイアウト：max_width, u-padding, section分割
 
 ## 3. データフロー
-```mermaid
-flowchart TD
-  A["ユーザー操作"] --> B["タブ切り替え"]
-  B --> C["activeTab更新（Zustand）"]
-  C --> D["タブコンテンツ表示(データ取得済み)"]
-  D --> E["画面更新"]
-```
+
+mermaid/about.mmd
 
 ## 4. 状態管理・ロジック
 - Zustandストア：activeTab, changeActiveTab
