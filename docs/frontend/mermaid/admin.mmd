@@ -1,0 +1,8 @@
+flowchart TD
+  A["ユーザー（フォーム送信）"] --> B["onSubmit (Client Component)"]
+  B --> C["authenticate (Server Action)"]
+  C --> D["バックエンドAPI (/api/v1/auth/login)"]
+  D -- 成功 --> E["Cookieセット (auth=true)"]
+  E --> F["リダイレクト (/admin/dashboard)"]
+  D -- 失敗 --> G["エラーメッセージ返却"]
+  G --> H["画面にエラー表示"]

@@ -12,13 +12,8 @@
 - ページレイアウト: `.max_width`内で2カラム（メイン+サイド）
 
 ## 3. データフロー
-```mermaid
-flowchart TD
-  A[ページロード] --> B[API: /api/zenn/articles を呼ぶ]
-  B --> C[記事データ取得]
-  C --> D[`ZennArticleItem` を map で描画]
-  D --> E[ユーザー操作（記事クリック） -> 外部リンク遷移]
-```
+
+mermaid/blog.mmd
 
 ## 4. 状態管理・ロジック
 - ページ内部state: articles: ZennArticle[]

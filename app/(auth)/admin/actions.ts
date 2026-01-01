@@ -23,7 +23,9 @@ export async function authenticate(formData: FormData) {
   ;(await cookies()).set("auth", "true", {
     httpOnly: true,
     path: "/",
-    maxAge: 60 * 60 * 24,
+    maxAge: 60 * 60 * 24, // 1日
+    sameSite: "lax",
+    secure: true,
   })
 
   revalidatePath("/admin/dashboard")
