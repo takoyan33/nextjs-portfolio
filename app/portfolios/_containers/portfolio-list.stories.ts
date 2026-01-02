@@ -1,5 +1,5 @@
 import { PortfolioList } from "@/app/portfolios/_containers/portfolio-list"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { http, HttpResponse } from "msw"
 
 const meta: Meta<typeof PortfolioList> = {
