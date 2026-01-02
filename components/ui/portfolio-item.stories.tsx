@@ -1,5 +1,5 @@
 import PortfolioItem from "@/components/ui/portfolio-item"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 
 const meta: Meta<typeof PortfolioItem> = {
   title: "UI/PortfolioItem",

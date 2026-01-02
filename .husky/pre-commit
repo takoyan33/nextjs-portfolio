@@ -2,14 +2,25 @@
 
 echo "----- start pre-commit -------"
 
+# コードフォーマット
 yarn format
 
+# リンター（ESLint）
+yarn lint
+
+# スタイルリンター（Stylelint）
+yarn lint:stylelint
+
+# ビルド（型チェックも含む）
 yarn build
 
+# Storybookビルド
+yarn build-storybook
+
+# テスト（Node環境）
 yarn test --project node
 
+# テスト（ブラウザ環境）
 yarn test --project browser
-
-yarn lint
 
 echo "----- end pre-commit -------"

@@ -37,7 +37,7 @@ argTypes: {
 
 1. **コンポーネントのインポート**
    ```tsx
-   import type { Meta, StoryObj } from "@storybook/react"
+   import type { Meta, StoryObj } from "@storybook/nextjs-vite"
    import { ComponentName } from "./ComponentName"
    ```
    Meta の定義
