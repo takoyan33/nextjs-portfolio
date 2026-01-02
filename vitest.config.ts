@@ -5,6 +5,7 @@ import path from "path"
 import { defineConfig } from "vitest/config"
 
 export default defineConfig({
+  // @ts-expect-error - ViteとVitestのバージョン不一致による型エラーを回避
   plugins: [react()],
   resolve: {
     alias: {
