@@ -21,5 +21,14 @@ const config: StorybookConfig = {
   // features: {
   //   experimentalRSC: true,
   // },
+  webpackFinal: async (config) => {
+    if (config.resolve) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "next/config": require.resolve("../mocks/next-config.js"),
+      }
+    }
+    return config
+  },
 }
 export default config
