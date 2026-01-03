@@ -1,44 +1,39 @@
-# 任意のワークフローの名前を定義
 name: nextjs-ci
 
-# どのGitHubイベントに対して実行されるかを定義
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
-# このワークフローで実行されるジョブを定義
 jobs:
-  # ジョブの名前を定義
   nextjs-ci:
-    # このジョブを実行する環境（GitHub Actionsランナー）を指定
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        # 使用するNode.jsのバージョンを定義
-        node-version: [20.x]
-    # 自動化したい作業を定義
+        node-version: [24.x]
+
     steps:
-      # 実行環境にソースコードを取り込む
       - uses: actions/checkout@v3
 
-      # 実行環境に対してNode.jsのセットアップをする
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: "yarn"
 
-      # プロジェクトの依存関係をインストール
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Prepare Yarn
+        run: corepack prepare yarn@4.12.0 --activate
+
       - name: Install dependencies
         run: yarn install
 
-      # Prettierでフォーマット
       - name: Format code
         run: yarn format
 
-      # ESLintで静的解析の実行
       - name: Lint code
         run: yarn lint
