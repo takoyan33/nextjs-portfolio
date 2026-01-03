@@ -7,15 +7,17 @@
 ## 単体テストについて
 
 - 単体テストは `@testing-library/react` を使い、テストランナーは `vitest` を使用してください。
-- 外部モジュールのモック化には `vi.mock` を使ってください。
-- **テストコードは `__tests__/unit` ディレクトリ以下に配置してください（例: `__tests__/unit/Button.test.tsx`）。**
+- **テストコードは `__tests__/unit` ディレクトリ以下に配置してください（例: `__tests__/unit/Button.node.test.tsx`）。**
+- テストファイルの命名規則は `[component-name].node.test.tsx` とする。
 - 実装詳細ではなく、**ユーザーの操作や画面上の振る舞いをテスト**してください。
-- `describe` / `it` ブロックの説明は、何をテストしているか明確に記述してください。
-- import は**相対パス**で指定してください
-  - 例: `import { ContactForm } from "../../app/contact/_containers/contact-form"`
+- `describe` / `test` ブロックの説明は、何をテストしているか明確に記述してください（`it` ではなく `test` を使用）。
+- `describe`は基本的に1つで良いです
+- import は**@/で指定してください
+  - 例: `import { ContactForm } from "@/app/contact/_containers/contact-form"`
 - `.toBeInTheDocument()` ではなく、`.toBeVisible()` を使ってください。
-- `debug()` を使って、テスト実行時にDOMツリーを出力してください。
-- `const router = useRouter()` がある場合はモックにしてください
+- テストに失敗する場合、`debug()` を使って、テスト実行時にDOMツリーを出力してください。
+- 外部モジュールのモック化には `vi.mock` を使ってください。
+- `const router = useRouter()` や fetch関数がある場合はモックにしてください。
 - **正常系テストは1-2個、異常系テストも1個は作成してください**
 - **テスト名は日本語でお願いします。**
 
@@ -23,24 +25,20 @@
 
 ## ページテスト（統合テスト）について
 
-- ページでの統合テストは `@testing-library/react` を使い、テストランナーは `vitest` を使用してください。
-- 外部モジュールのモック化には `vi.mock` を使ってください。
 - **テストコードは `__tests__/integration` ディレクトリ以下に配置してください（例: `__tests__/integration/page.test.tsx`）。**
-- 実装詳細ではなく、**ユーザーの操作や画面上の振る舞いをテスト**してください。
-- `describe` / `it` ブロックの説明は、何をテストしているか明確に記述してください。
-- import は**相対パス**で指定してください
-  - 例: `import { ContactForm } from "../../app/contact/_containers/contact-form"`
-- `.toBeInTheDocument()` ではなく、`.toBeVisible()` を使ってください。
-- `debug()` を使って、テスト実行時にDOMツリーを出力してください。
-- `const router = useRouter()` がある場合はモックにしてください
+- ページ全体の挙動や正しく要素が表示されているかや遷移できるかのテストを記載してください。
+- 上記以外は、[単体テストについて](#単体テストについて)のルールを適用してください。
+
 
 ---
 
 ## E2Eテストについて
 
 - E2E テストは **Playwright** を使用してください。
-- E2E テストファイルは `e2e/` ディレクトリに配置してください。
+- E2E テストファイルは `__tests__/e2e/` ディレクトリに配置してください（例: `__tests__/e2e/top.spec.ts`）。
+- テストファイルの拡張子は `.spec.ts` とする。
 - **ユーザーの操作フローや画面遷移を中心にテスト**してください。
+- `test` と `test.describe` を使用してテストを構造化してください。
 
 ---
 

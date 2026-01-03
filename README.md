@@ -24,13 +24,14 @@
 ## 技術スタック
 
 ### Node.js バージョン
-- Node.js: v22.14.0
-- npm: v9.8.1
+- Node.js: v24.1.0
+- npm: v11.3.0
+- yarn: v4.12.0
 
 ### フロントエンド
-- [Next.js](https://nextjs.org/) v15.5.3
-- [React](https://ja.reactjs.org/) v19.0.0
-- [TypeScript](https://www.typescriptlang.org/) v4.5.5
+- [Next.js](https://nextjs.org/) v16.0.10
+- [React](https://ja.reactjs.org/) v19.0.1
+- [TypeScript](https://www.typescriptlang.org/) v5.6.2
 
 ### バックエンド
 - [Ruby](https://www.ruby-lang.org/ja/) v3.2.6
@@ -44,10 +45,10 @@
 - [Lint-staged](https://github.com/lint-staged/lint-staged)
 
 ### テスト
-- [Vitest](https://vitest.dev/) v2.1.1
-- [Vitest Browser](https://vitest.dev/guide/browser.html) v2.1.1
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) v10.4.0
-- [Playwright](https://playwright.dev/) v1.42.1
+- [Vitest](https://vitest.dev/) v4.0.13
+- [Vitest Browser](https://vitest.dev/guide/browser.html) v4.0.13
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) v16.0.1
+- [Playwright](https://playwright.dev/) v1.57.0
 
 ### ホスティング・インフラ
 - [Docker](https://www.docker.com/)
@@ -60,22 +61,22 @@
 - [MSW](https://mswjs.io/) v2.11.2
 
 ### フォーム / バリデーション
-- [React Hook Form](https://react-hook-form.com/) v7.45.1
-- [Zod](https://zod.dev/) v3.25.1
+- [React Hook Form](https://react-hook-form.com/) v7.53.0
+- [Zod](https://zod.dev/) v4.1.12
 
 ### 分析・監視
 - [Google Analytics](https://developers.google.com/analytics?hl=ja)
 - [Microsoft Clarity](https://clarity.microsoft.com/)
-- [pino](https://github.com/pinojs/pino) v8.17.2
+- [pino](https://github.com/pinojs/pino) v10.1.0
 
 ### UI / 表現
-- [Swiper](https://swiperjs.com/react) v6.8.1
-- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) v7.0.0
-- [React Modal](https://reactcommunity.org/react-modal/) v3.14.3
+- [Swiper](https://swiperjs.com/react) v11.1.9
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) v9.0.0-alpha.8
+- [React Modal](https://reactcommunity.org/react-modal/) v3.16.3
 
 ### ライブラリ
-- [EmailJS](https://www.emailjs.com/) v3.14.0
-- [unlighthouse](https://github.com/unlighthouse/unlighthouse) v1.0.0
+- [EmailJS](https://www.emailjs.com/) v4.4.1
+- [unlighthouse](https://github.com/unlighthouse/unlighthouse) v0.17.4
 
 ## ディレクトリ構成
 
