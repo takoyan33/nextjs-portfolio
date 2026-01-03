@@ -10,7 +10,7 @@
 - コマンドの出力が確認できない場合、適切なツールを使用して確認すること
 - yarn コマンドで基本実施する
 - マージ、リバートをする際は、許可を得てから行うこと
-- **yarn dev:mockでローカル環境を立ち上げる**
+- yarn dev:mockでローカル環境を立ち上げる
 
 ---
 
@@ -57,38 +57,41 @@
 
 適用対象: `**/*.test.@(ts|tsx|js|jsx)`, `**/tests/**/*`
 
-### 単体テストについて
+## 単体テストについて
 
-- 単体テストは `@testing-library/react` を使い、テストランナーは `vitest` を使用してください
-- 外部モジュールのモック化には `vi.mock` を使ってください
-- **テストコードは `__tests__/unit` ディレクトリ以下に配置してください（例: `__tests__/unit/Button.test.tsx`）**
-- 実装詳細ではなく、**ユーザーの操作や画面上の振る舞いをテスト**してください
-- `describe` / `it` ブロックの説明は、何をテストしているか明確に記述してください
-- import は**相対パス**で指定してください
-  - 例: `import { ContactForm } from "../../app/contact/_containers/contact-form"`
-- `.toBeInTheDocument()` ではなく、`.toBeVisible()` を使ってください
-- `debug()` を使って、テスト実行時にDOMツリーを出力してください
-- `const router = useRouter()` がある場合はモックにしてください
+- 単体テストは `@testing-library/react` を使い、テストランナーは `vitest` を使用してください。
+- **テストコードは `__tests__/unit` ディレクトリ以下に配置してください（例: `__tests__/unit/Button.node.test.tsx`）。**
+- テストファイルの命名規則は `[component-name].node.test.tsx` とする。
+- 実装詳細ではなく、**ユーザーの操作や画面上の振る舞いをテスト**してください。
+- `describe` / `test` ブロックの説明は、何をテストしているか明確に記述してください（`it` ではなく `test` を使用）。
+- `describe`は基本的に1つで良いです
+- import は**@/で指定してください
+  - 例: `import { ContactForm } from "@/app/contact/_containers/contact-form"`
+- `.toBeInTheDocument()` ではなく、`.toBeVisible()` を使ってください。
+- テストに失敗する場合、`debug()` を使って、テスト実行時にDOMツリーを出力してください。
+- 外部モジュールのモック化には `vi.mock` を使ってください。
+- `const router = useRouter()` や fetch関数がある場合はモックにしてください。
 - **正常系テストは1-2個、異常系テストも1個は作成してください**
-- **テスト名は日本語でお願いします**
+- **テスト名は日本語でお願いします。**
 
-### ページテスト（統合テスト）について
+---
 
-- ページでの統合テストは `@testing-library/react` を使い、テストランナーは `vitest` を使用してください
-- 外部モジュールのモック化には `vi.mock` を使ってください
-- **テストコードは `__tests__/integration` ディレクトリ以下に配置してください（例: `__tests__/integration/page.test.tsx`）**
-- 実装詳細ではなく、**ユーザーの操作や画面上の振る舞いをテスト**してください
-- `describe` / `it` ブロックの説明は、何をテストしているか明確に記述してください
-- import は**相対パス**で指定してください
-- `.toBeInTheDocument()` ではなく、`.toBeVisible()` を使ってください
-- `debug()` を使って、テスト実行時にDOMツリーを出力してください
-- `const router = useRouter()` がある場合はモックにしてください
+## ページテスト（統合テスト）について
 
-### E2Eテストについて
+- **テストコードは `__tests__/integration` ディレクトリ以下に配置してください（例: `__tests__/integration/page.test.tsx`）。**
+- ページ全体の挙動や正しく要素が表示されているかや遷移できるかのテストを記載してください。
+- 上記以外は、[単体テストについて](#単体テストについて)のルールを適用してください。
 
-- E2E テストは **Playwright** を使用してください
-- E2E テストファイルは `__tests__/e2e/` ディレクトリに配置してください
-- **ユーザーの操作フローや画面遷移を中心にテスト**してください
+
+---
+
+## E2Eテストについて
+
+- E2E テストは **Playwright** を使用してください。
+- E2E テストファイルは `__tests__/e2e/` ディレクトリに配置してください（例: `__tests__/e2e/top.spec.ts`）。
+- テストファイルの拡張子は `.spec.ts` とする。
+- **ユーザーの操作フローや画面遷移を中心にテスト**してください。
+- `test` と `test.describe` を使用してテストを構造化してください。
 
 ### テスト作成時のポイント
 
@@ -124,6 +127,7 @@
 - Story ファイルの拡張子は `.stories.tsx` とする
 - **正常パターンと引数で値が変わる場合（真偽値がある場合）は、複数のストーリーを作成してください**
 - **異常パターンのストーリーも1つは作成してください**
+- storybook mcpも活用しながらストーリーを作成してください。
 
 ### Storybook 作成手順
 
@@ -241,6 +245,7 @@ export const Default: Story = {
 ## MCP Server
 
 - MCP Serverを起動の際は、yarn dev:mockで動かす
+- StorybookのMCP Serverは、yarn storybookで動かす
 
 ### 利用可能なMCPサーバー
 
@@ -248,6 +253,7 @@ export const Default: Story = {
 2. **chrome-devtools-mcp** - Chrome DevTools統合（ブラウザテスト、ビジュアル検証）
 3. **context7** (`@upstash/context7-mcp`) - 最新のライブラリドキュメント提供
 4. **playwright-mcp** - Playwrightブラウザ自動化
+5. **storybook-mcp** - Storybookドキュメント提供
 
 ---
 
