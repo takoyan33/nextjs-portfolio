@@ -126,6 +126,10 @@ export const handlers = [
             id: 463489,
             post_type: "Article",
             title: "[Next.js] サンプル記事",
+            published_at: "2023-01-01",
+            article_type: "tech",
+            emoji: "🚀",
+            path: "/articles/463489",
           },
         ],
       })
@@ -226,11 +230,12 @@ export const handlers = [
       ],
     })
   }),
-  http.get(`*/api/portfolios/4`, () => {
-    console.log("📡 Mock hit: GET /api/portfolios/3")
+  http.get(`*/api/portfolios/:id`, ({ params }) => {
+    const { id } = params
+    console.log("📡 Mock hit: GET /api/portfolios/:id")
     return HttpResponse.json({
       data: {
-        id: 3,
+        id: id,
         name: "To You Design(ポートフォリオサイト)1",
         date: "2023-11-30",
         tag: ["React", "Next.js", "Ruby"],

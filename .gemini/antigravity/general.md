@@ -10,6 +10,7 @@
 - コマンドの出力が確認できない場合、適切なツールを使用して確認すること
 - yarn コマンドで基本実施する
 - マージ、リバートをする際は、許可を得てから行うこと
+- yarn dev:mockでローカル環境を立ち上げる
 
 ---
 
@@ -36,7 +37,7 @@
 
 ## MCP Server
 
-- yarn dev or yarn dev:mockで動かす
+-MCP Serverを起動の際は、yarn dev:mockで動かす
 
 ### 設定ファイル
 
@@ -49,7 +50,7 @@
 1. **next-devtools-mcp** - Next.js開発ツール（リアルタイム診断、ルート情報、エラー検出）
 2. **chrome-devtools-mcp** - Chrome DevTools統合（ブラウザテスト、ビジュアル検証）
 3. **context7** (`@upstash/context7-mcp`) - 最新のライブラリドキュメント提供
-4. **serena** - AI コーディングエージェント（セマンティックコード分析、IDE機能）※Geminiのみ
+4. **playwright-mcp** 
 
 ---
 
