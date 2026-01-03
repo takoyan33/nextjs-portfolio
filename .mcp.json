@@ -22,6 +22,10 @@
         "chromium",
         "--no-sandbox"
       ]
+    },
+    "storybook": {
+      "command": "npx",
+      "args": ["-y", "storybook-mcp@latest"]
     }
   }
 }
