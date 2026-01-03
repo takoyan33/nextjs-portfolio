@@ -15,12 +15,11 @@ jobs:
         node-version: [24.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24.x
           cache: "yarn"
 
       - name: Enable Corepack
@@ -28,6 +27,12 @@ jobs:
 
       - name: Prepare Yarn
         run: corepack prepare yarn@4.12.0 --activate
+
+      - name: Check versions
+        run: |
+          node -v
+          corepack --version
+          yarn -v
 
       - name: Install dependencies
         run: yarn install
