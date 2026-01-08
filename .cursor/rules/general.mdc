@@ -68,6 +68,7 @@ alwaysApply: true
 3. **context7**  - 最新のライブラリドキュメント提供
 4. **playwright-mcp** - Playwrightブラウザ自動化
 5. **storybook-mcp** - Storybookドキュメント提供
+6. **serena** - コード解析とトークン節約
 ---
 
 ## applyTo: "\*\*"
