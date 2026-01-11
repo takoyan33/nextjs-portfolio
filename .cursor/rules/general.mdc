@@ -28,7 +28,7 @@ alwaysApply: true
 - コンポーネント名・型名はPascalCase、関数・変数名はcamelCaseを使用する
 - インデントは2スペース、タブは使用しない
 - 波括弧 {} はJSX/JSの標準スタイル（改行せず同じ行に書く）
-- 短い説明には//、詳細な説明や複数行には/* ... */を使う
+- 短い説明には//、詳細な説明や複数行には/_ ... _/を使う
 
 ## スタイリング
 
@@ -41,11 +41,11 @@ alwaysApply: true
 ## ドキュメント構成
 
 - `docs/guide.md` : プロジェクト概要
-- `.gemini/antigravity/react.md` : React関連の指示
-- `.gemini/antigravity/storybook.md` : Storybook関連の指示
-- `.gemini/antigravity/test.md` : テスト関連の指示
-- `.gemini/antigravity/docs.md` : 設計書関連の指示
-- `.gemini/antigravity/general.md` : その他
+- `.cursor/rules/react.mdc` : React関連の指示
+- `.cursor/rules/storybook.mdc` : Storybook関連の指示
+- `.cursor/rules/test.mdc` : テスト関連の指示
+- `.cursor/rules/docs.mdc` : 設計書関連の指示
+- `.cursor/rules/general.mdc` : その他
 
 ---
 
@@ -53,7 +53,6 @@ alwaysApply: true
 
 - MCP Serverを起動の際は、`yarn dev:mock` で動かす
 - StorybookのMCP Serverは、`yarn storybook` で動かす
-
 
 ### 設定ファイル
 
@@ -65,10 +64,11 @@ alwaysApply: true
 
 1. **next-devtools-mcp** - Next.js開発ツール（リアルタイム診断、ルート情報、エラー検出）
 2. **chrome-devtools-mcp** - Chrome DevTools統合（ブラウザテスト、ビジュアル検証）
-3. **context7**  - 最新のライブラリドキュメント提供
+3. **context7** - 最新のライブラリドキュメント提供
 4. **playwright-mcp** - Playwrightブラウザ自動化
 5. **storybook-mcp** - Storybookドキュメント提供
 6. **serena** - コード解析とトークン節約
+
 ---
 
 ## applyTo: "\*\*"
