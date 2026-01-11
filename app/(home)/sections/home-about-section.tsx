@@ -30,7 +30,7 @@ export const HomeAboutSection = () => {
               <ScrollComponent>
                 <p className="about__name">阿部 舜平</p>
                 <p className="about__profile">
-                  北海道在住の社会人1年目のエンジニア。
+                  北海道在住の社会人2年目のエンジニア。
                   <br />
                   大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。
                   <br />
