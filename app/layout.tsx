@@ -36,14 +36,15 @@ export const metadata: Metadata = {
 }
 
 // dev, テスト環境でのみMSWサーバーを起動
-const isTestEnvironment =
-  process.env.NODE_ENV === "test" || process.env.NEXT_PUBLIC_USE_MOCK === "true"
-const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
-if (isTestEnvironment || mock) {
-  const { server } = await import("@/mocks/server")
-  console.log("!!!!🟢 MSW Import server!!!!")
-  server.listen()
-}
+// const isTestEnvironment =
+//   process.env.NODE_ENV === "test" || process.env.NEXT_PUBLIC_USE_MOCK === "true"
+// const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
+// if (isTestEnvironment || mock) {
+//   // instrumentation.tsで初期化するため削除
+//   // const { server } = await import("@/mocks/server")
+//   // console.log("!!!!🟢 MSW Import server!!!!")
+//   // server.listen()
+// }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
