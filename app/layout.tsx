@@ -55,9 +55,13 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     <html lang="ja">
       <head>
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
-        <GoogleAnalytics />
-        <GoogleTagManager gtmId={`GTM-${gtmId}`} />
-        <Clarity />
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <GoogleAnalytics />
+            <GoogleTagManager gtmId={`GTM-${gtmId}`} />
+            <Clarity />
+          </>
+        )}
       </head>
       <body>
         <MockProvider />

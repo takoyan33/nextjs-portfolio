@@ -1,16 +1,16 @@
 "use client"
-import { Suspense } from "react"
 import { useTabStore } from "@/stores/tabStore"
+import React from "react"
 
 type AboutTabsProps = {
-  historyContent: React.ReactNode
-  careerContent: React.ReactNode
+  children: React.ReactNode
 }
 /**
  * Aboutのタブ
  */
-export const AboutTabs = ({ historyContent, careerContent }: AboutTabsProps) => {
+export const AboutTabs = ({ children }: AboutTabsProps) => {
   const { activeTab, changeActiveTab } = useTabStore()
+  const [historyContent, careerContent] = React.Children.toArray(children)
 
   return (
     <div>
@@ -22,7 +22,7 @@ export const AboutTabs = ({ historyContent, careerContent }: AboutTabsProps) => 
             name="tab-1"
             role="tab"
             id="tabA"
-            aria-controls="panelB"
+            aria-controls="panelA"
             aria-selected={activeTab === "history"}
             onClick={() => changeActiveTab("history")}
           />
@@ -45,13 +45,13 @@ export const AboutTabs = ({ historyContent, careerContent }: AboutTabsProps) => 
       {/* タブコンテンツ */}
       <div className="tab-content max_width">
         {activeTab === "history" && (
-          <div aria-labelledby="tabA">
-            <Suspense fallback={<div>読み込み中...</div>}>{historyContent}</Suspense>
+          <div aria-labelledby="tabA" role="tabpanel">
+            {historyContent}
           </div>
         )}
         {activeTab === "career" && (
-          <div aria-labelledby="tabB">
-            <Suspense fallback={<div>読み込み中...</div>}>{careerContent}</Suspense>
+          <div aria-labelledby="tabB" role="tabpanel">
+            {careerContent}
           </div>
         )}
       </div>
