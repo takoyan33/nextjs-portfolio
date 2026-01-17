@@ -1,4 +1,5 @@
 import { TransitionLink } from "@/components/ui/transition-link"
+import dayjs from "dayjs"
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
@@ -30,6 +31,8 @@ const PortfolioItem = React.memo(function PortfolioItem({
     e.currentTarget.src = "/images/dummy-image.jpg"
   }
 
+  const formatDate = (date: string): string => dayjs(date).format("YYYY年MM年DD日")
+
   return (
     <article className="portfolio__List-item portfolioItem">
       <TransitionLink
@@ -51,7 +54,7 @@ const PortfolioItem = React.memo(function PortfolioItem({
         </div>
         <div className="portfolioItem__content">
           <time className="portfolioItem__date" dateTime={portfolio_date}>
-            {portfolio_date}
+            {formatDate(portfolio_date)}
           </time>
           <h3 className="portfolioItem__title">{parse(portfolio_name)}</h3>
           <ul className="portfolioItem__container">

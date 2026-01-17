@@ -20,7 +20,7 @@ export default function ZennAsideArticleItem({
   zenn_path,
 }: ZennArticleItemProps) {
   //日付のフォーマット
-  const formatDate = (date: Date): string => dayjs(date).format("YYYY-MM-DD")
+  const formatDate = (date: Date): string => dayjs(date).format("YYYY年MM年DD日")
   return (
     <article className="zennAsideArticle" key={zenn_id}>
       <Link href={`https://zenn.dev${zenn_path}`} target="_blank">
