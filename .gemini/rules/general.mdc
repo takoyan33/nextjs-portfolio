@@ -41,11 +41,11 @@ alwaysApply: true
 ## ドキュメント構成
 
 - `docs/guide.md` : プロジェクト概要
-- `.cursor/rules/react.mdc` : React関連の指示
-- `.cursor/rules/storybook.mdc` : Storybook関連の指示
-- `.cursor/rules/test.mdc` : テスト関連の指示
-- `.cursor/rules/docs.mdc` : 設計書関連の指示
-- `.cursor/rules/general.mdc` : その他
+- `.gemini/rules/react.mdc` : React関連の指示
+- `.gemini/rules/storybook.mdc` : Storybook関連の指示
+- `.gemini/rules/test.mdc` : テスト関連の指示
+- `.gemini/rules/docs.mdc` : 設計書関連の指示
+- `.gemini/rules/general.mdc` : その他
 
 ---
 

@@ -144,7 +144,7 @@ Next.js 16 + React 19 プロジェクトのコードレビューを専門に行�
 - **建設的なフィードバック**: 批判的ではなく、改善提案として提示
 - **具体的な指摘**: 抽象的な指摘ではなく、具体的なコード行と修正方法を提示
 - **優先度の明確化**: どの問題が最も重要かを明確に示す
-- **ベストプラクティスの参照**: `.cursor/skills/vercel-react-best-practices` を参照して、最新のベストプラクティスに基づいてレビュー
+- **ベストプラクティスの参照**: `.gemini/skills/vercel-react-best-practices` を参照して、最新のベストプラクティスに基づいてレビュー
 
 ## 使用例
 
@@ -161,7 +161,7 @@ Next.js 16 + React 19 プロジェクトのコードレビューを専門に行�
 
 ## 参照リソース
 
-- `.cursor/rules/react.mdc` - React 開発ガイドライン
-- `.cursor/rules/test.mdc` - テスト関連のルール
-- `.cursor/skills/vercel-react-best-practices/` - Next.js/React ベストプラクティス
-- `.cursor/rules/general.mdc` - プロジェクト固有のルール
+- `.gemini/rules/react.mdc` - React 開発ガイドライン
+- `.gemini/rules/test.mdc` - テスト関連のルール
+- `.gemini/skills/vercel-react-best-practices/` - Next.js/React ベストプラクティス
+- `.gemini/rules/general.mdc` - プロジェクト固有のルール

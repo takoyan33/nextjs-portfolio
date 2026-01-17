@@ -8,7 +8,7 @@ description: コードレビューのコマンド
    - 変更されたファイルの種類（コンポーネント、ページ、API、ユーティリティなど）を分類する
 
 1. **Vercel React Best Practices に基づくレビュー**
-   - `.cursor/skills/vercel-react-best-practices/` のスキルを参照する
+   - `.gemini/skills/vercel-react-best-practices/` のスキルを参照する
    - 以下の観点からレビューする：
      - **CRITICAL**: Waterfall の排除、Bundle Size 最適化（Barrel Imports の回避、Dynamic Imports）
      - **HIGH**: Server-Side Performance（並列フェッチ、シリアライゼーション最小化）
@@ -16,10 +16,10 @@ description: コードレビューのコマンド
    - 各問題に対して、具体的な修正方法とコード例を提示する
 
 1. **多角的なレビュー**
-   - **プロジェクト固有のルール**: `.cursor/rules/` のルールに準拠しているか確認
-     - React コンポーネントの設計規則（`.cursor/rules/react.mdc`）
-     - テストのルール（`.cursor/rules/test.mdc`）
-     - コーディング規約（`.cursor/rules/general.mdc`）
+   - **プロジェクト固有のルール**: `.gemini/rules/` のルールに準拠しているか確認
+     - React コンポーネントの設計規則（`.gemini/rules/react.mdc`）
+     - テストのルール（`.gemini/rules/test.mdc`）
+     - コーディング規約（`.gemini/rules/general.mdc`）
    - **TypeScript 型安全性**: 適切な型定義がされているか、`any` の使用がないか
    - **セキュリティ**: XSS対策、環境変数の適切な使用、入力検証
    - **エラーハンドリング**: 適切なエラーハンドリングが実装されているか
