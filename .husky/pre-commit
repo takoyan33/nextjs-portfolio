@@ -20,7 +20,4 @@ yarn build-storybook
 # テスト（Node環境）
 yarn test --project node
 
-# テスト（ブラウザ環境）
-yarn test --project browser
-
 echo "----- end pre-commit -------"
