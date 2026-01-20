@@ -2,7 +2,7 @@
 
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { memo, useRef } from "react"
+import { memo, useEffect, useRef } from "react"
 import type { Group, MeshStandardMaterial } from "three"
 import * as THREE from "three"
 
@@ -36,19 +36,19 @@ const Model = ({
     }
   })
 
-  // モデルのマテリアルの色を変更
-  scene.traverse((child: THREE.Object3D) => {
-    if (child instanceof THREE.Mesh) {
-      ;(child.material as MeshStandardMaterial).color.set(color)
-    }
-  })
-
-  const group = new THREE.Group()
+  // モデルのマテリアルの色を初回のみ変更
+  useEffect(() => {
+    scene.traverse((child: THREE.Object3D) => {
+      if (child instanceof THREE.Mesh) {
+        ;(child.material as MeshStandardMaterial).color.set(color)
+      }
+    })
+  }, [scene, color])
 
   return (
-    <primitive object={group} ref={groupRef}>
+    <group ref={groupRef}>
       <primitive object={scene} scale={scale} rotation={rotation} position={position} />
-    </primitive>
+    </group>
   )
 }
 
@@ -56,7 +56,7 @@ const Model = ({
 const ThreeModel = memo(() => {
   return (
     <div className="canvas">
-      <Canvas camera={{ position: [0, 0, 50], fov: 50 }}>
+      <Canvas camera={{ position: [0, 0, 50], fov: 50 }} dpr={0.8}>
         {/* 環境光 */}
         <ambientLight intensity={1.5} />
         {/* ポイントライト（強めの照明） */}
