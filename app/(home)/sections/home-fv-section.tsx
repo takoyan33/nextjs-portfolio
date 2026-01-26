@@ -1,6 +1,4 @@
-"use client"
 import ThreeModel from "components/parts/three-model"
-import ScrollComponent from "hooks/use-fadeIn"
 
 export const HomeFvSection = () => {
   return (
@@ -8,9 +6,7 @@ export const HomeFvSection = () => {
       <div>
         <h2 className="fv__title slide__in__right">To You Design</h2>
         <h3 className="fv__subtitle slide__in__right">Portfolio</h3>
-        <ScrollComponent>
-          <ThreeModel />
-        </ScrollComponent>
+        <ThreeModel />
       </div>
     </section>
   )
