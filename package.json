@@ -18,6 +18,7 @@
     "playwright:ui": "playwright test --ui",
     "commitmsg": "commitlint --edit",
     "unlighthouse": "npx unlighthouse --site http://localhost:3001",
+    "perf:api": "artillery run perf/api-basic.yml",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -79,6 +80,7 @@
     "@vitest/browser-playwright": "^4.0.13",
     "@vitest/coverage-v8": "2.1.9",
     "@vitest/ui": "^4.0.13",
+    "artillery": "^2.0.27",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-storybook": "^0.11.2",
     "husky": "^9.1.4",
@@ -96,5 +98,6 @@
     "workerDirectory": [
       "public"
     ]
-  }
+  },
+  "packageManager": "yarn@4.12.0+sha512.f45ab632439a67f8bc759bf32ead036a1f413287b9042726b7cc4818b7b49e14e9423ba49b18f9e06ea4941c1ad062385b1d8760a8d5091a1a31e5f6219afca8"
 }

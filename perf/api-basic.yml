@@ -1,0 +1,45 @@
+config:
+  target: "http://localhost:3001"
+  phases:
+    # 30秒かけてVUsを0→20に増加
+    - duration: 30
+      arrivalRate: 5
+      name: "warm up"
+    # 60秒間、安定した負荷をかける
+    - duration: 60
+      arrivalRate: 20
+      name: "steady load"
+  defaults:
+    headers:
+      Accept: "application/json"
+  plugins:
+    metrics-by-endpoint: {}
+  ensure:
+    # 95パーセンタイルのレイテンシやエラー率のしきい値
+    maxErrorRate: 0.01
+
+scenarios:
+  - name: "GET /api/portfolios 一覧の性能"
+    flow:
+      - get:
+          url: "/api/portfolios"
+
+  - name: "GET /api/skills/front スキル(front)一覧の性能"
+    flow:
+      - get:
+          url: "/api/skills/front"
+
+  - name: "GET /api/jobs 職歴一覧の性能"
+    flow:
+      - get:
+          url: "/api/jobs"
+
+  - name: "GET /api/histories 学習・歴史一覧の性能"
+    flow:
+      - get:
+          url: "/api/histories"
+
+  - name: "GET /api/licenses 資格一覧の性能"
+    flow:
+      - get:
+          url: "/api/licenses"
