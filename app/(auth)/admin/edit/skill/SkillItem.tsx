@@ -1,8 +1,8 @@
 "use client"
 
+import "@/styles/page/_adminTable.scss"
 import { Skill } from "@/types"
 import Link from "next/link"
-import "./adminHistoryTable.scss"
 
 interface Props {
   skill: Skill
