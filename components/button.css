@@ -1,0 +1,28 @@
+.ui-button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+
+  background-color: #2563eb; /* 少し落ち着いた青 */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.ui-button:hover {
+  background-color: #1d4ed8;
+}
+
+.ui-button:active {
+  transform: translateY(1px);
+}
+
+.ui-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}

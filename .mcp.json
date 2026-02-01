@@ -25,7 +25,10 @@
     },
     "storybook": {
       "command": "npx",
-      "args": ["-y", "storybook-mcp@latest"]
+      "args": ["-y", "storybook-mcp@latest"],
+      "env": {
+        "STORYBOOK_URL": "http://localhost:6006"
+      }
     },
     "serena": {
       "command": "uvx",
