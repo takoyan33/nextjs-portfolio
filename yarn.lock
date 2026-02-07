@@ -7997,6 +7997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/newrelic@npm:^9.14.8":
+  version: 9.14.8
+  resolution: "@types/newrelic@npm:9.14.8"
+  checksum: 10/4e9df35eccf145918e0f89512e7a0ac4f397db25eb07ffbd6db573f656a59f8ed85e7a0463c6e246a4eaa9f03b32c018a9bf3414887864530eb351c7007d4ed3
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*, @types/node@npm:>=13.7.0":
   version: 25.0.3
   resolution: "@types/node@npm:25.0.3"
@@ -17946,6 +17953,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.8.0"
     "@testing-library/react": "npm:^16.0.1"
     "@testing-library/user-event": "npm:^14.6.1"
+    "@types/newrelic": "npm:^9.14.8"
     "@types/node": "npm:^20.0.0"
     "@types/react": "npm:^18.0.0"
     "@types/react-modal": "npm:^3.16.3"
