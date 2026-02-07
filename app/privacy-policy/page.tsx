@@ -1,6 +1,7 @@
-import type { Metadata } from "next"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
+import "@/styles/page/_policy.scss"
 import { PATH } from "@/utils/path"
+import type { Metadata } from "next"
 
 export const dynamic = "force-static"
 

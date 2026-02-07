@@ -1,5 +1,5 @@
+import "@/styles/page/_adminTable.scss"
 import { Job } from "@/types"
-import "./adminHistoryTable.scss"
 import Link from "next/link"
 
 interface Props {

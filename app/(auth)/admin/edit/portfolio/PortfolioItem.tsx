@@ -1,8 +1,8 @@
 "use client"
 
+import "@/styles/page/_adminTable.scss"
 import Link from "next/link"
 import type { PortfolioType } from "types"
-import "./adminPortfolioTable.scss"
 
 interface Props {
   portfolio: PortfolioType

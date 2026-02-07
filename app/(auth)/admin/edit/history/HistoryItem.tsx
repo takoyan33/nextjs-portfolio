@@ -1,7 +1,7 @@
 import type { History } from "types"
 
+import "@/styles/page/_adminTable.scss"
 import Link from "next/link"
-import "./adminHistoryTable.scss"
 
 interface Props {
   history: History

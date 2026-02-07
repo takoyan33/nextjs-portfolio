@@ -1,8 +1,8 @@
 "use client"
 
+import "@/styles/page/_adminTable.scss"
 import { License } from "@/types"
 import Link from "next/link"
-import "./adminHistoryTable.scss"
 
 interface Props {
   license: License

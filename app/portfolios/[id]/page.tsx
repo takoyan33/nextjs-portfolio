@@ -1,5 +1,6 @@
 import { PortfolioDetail } from "@/app/portfolios/[id]/portfolio-detail"
 import { fetchPortfolio } from "@/hooks/fetch"
+import "@/styles/page/_portfolioId.scss"
 import { logger } from "@/utils/logger"
 import { notFound } from "next/navigation"
 

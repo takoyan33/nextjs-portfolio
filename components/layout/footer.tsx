@@ -1,5 +1,6 @@
 import type { MenuItem } from "@/app/types"
 import { TransitionLink } from "@/components/ui"
+import "@/styles/component/_footer.scss"
 import { PATH } from "@/utils/path"
 
 export const Footer = () => {

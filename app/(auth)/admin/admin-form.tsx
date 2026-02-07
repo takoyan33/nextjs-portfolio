@@ -18,18 +18,17 @@ const AdminForm = ({ auth }: { auth: string | undefined }) => {
     if (result?.error) {
       setLoading(false)
       setError(result.error)
-      alert(result.error)
       return
     }
   }
   return (
-    <main className="u-padding">
+    <main>
       <div className="max_width">
         <Breadcrumb items={[{ name: "Admin", link: PATH.ADMIN }]} />
       </div>
 
       <LowerTitle title="Admin" enTitle="認証" />
-      <div className="max_width">
+      <div className="max_width u-padding">
         <div className="form">
           <form action={onSubmit} className="mt-8 flex flex-col gap-4 max-w-sm">
             <div className="form-box">
@@ -45,7 +44,9 @@ const AdminForm = ({ auth }: { auth: string | undefined }) => {
               {loading ? "認証中..." : "ログイン"}
             </button>
 
-            {auth ? "認証済み" : "未認証"}
+            <p className={`auth-status ${auth ? "is-auth" : "is-unauth"}`}>
+              {auth ? "認証済み" : "未認証"}
+            </p>
 
             {error && <p className="text-red-600 text-sm">{error}</p>}
           </form>

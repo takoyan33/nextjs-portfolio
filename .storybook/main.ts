@@ -7,15 +7,27 @@ const config: StorybookConfig = {
     "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    // "@storybook/addon-essentials",
+    // "@storybook/addon-interactions",
     "@chromatic-com/storybook",
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
     "@storybook/addon-onboarding",
-    "@storybook/addon-mcp",
+    {
+      name: "@storybook/addon-mcp",
+      options: {
+        toolsets: {
+          dev: true, // 開発用ツールを有効化
+          docs: true, // ドキュメント用ツールを有効化
+        },
+        experimentalFormat: "markdown", // マークダウン形式で出力
+      },
+    },
   ],
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public"],
+  features: {
+    experimentalComponentsManifest: true,
+  },
 }
 export default config

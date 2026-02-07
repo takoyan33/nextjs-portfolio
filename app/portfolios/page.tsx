@@ -1,5 +1,6 @@
 import { PortfolioList } from "@/app/portfolios/_containers/portfolio-list"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
+import "@/styles/page/_portfolio.scss"
 import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
 

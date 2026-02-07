@@ -20,7 +20,6 @@ export const HomeAboutSection = () => {
                     src="/images/myphoto.png"
                     alt="プロフィール画像"
                     fill
-                    priority
                     sizes="(min-width: 768px) 50vw, 100vw"
                   />
                 </div>
