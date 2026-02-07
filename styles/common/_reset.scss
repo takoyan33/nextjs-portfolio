@@ -109,8 +109,6 @@
 }
 
 :where(:focus-visible) {
-  outline: 3px solid CanvasText;
-  outline-offset: 1px;
   box-shadow: 0 0 0 5px Canvas;
 }
 

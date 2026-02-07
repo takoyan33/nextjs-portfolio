@@ -3,6 +3,7 @@
 import type { MenuItem } from "@/app/types"
 import { TransitionLink } from "@/components/ui"
 import { LinkButton } from "@/components/ui/button/common-button"
+import "@/styles/component/_header.scss"
 import { PATH } from "@/utils/path"
 import Image from "next/image"
 import { useEffect, useState } from "react"

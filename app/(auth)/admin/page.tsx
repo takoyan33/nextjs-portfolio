@@ -1,3 +1,4 @@
+import "@/styles/page/_admin.scss"
 import { cookies } from "next/headers"
 import AdminForm from "./admin-form"
 

@@ -3,7 +3,7 @@
 @use "./common/mixin";
 @use "./common/reset";
 @use "./common/animation";
-@use "./component";
+// @use "./component";
 @use "./page";
 
 // 共通スタイル
@@ -162,6 +162,10 @@ a {
       content: attr(data-ja);
     }
   }
+}
+
+.portfolio {
+  background-color: #f7f7f7;
 }
 
 @media (max-width: 1024px) {

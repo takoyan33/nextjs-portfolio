@@ -1,0 +1,121 @@
+/* =========================
+  Admin Auth Layout
+========================= */
+
+.u-padding {
+  padding: 3rem 1rem;
+}
+
+.max_width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+  Form Wrapper
+========================= */
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* =========================
+  Auth Form
+========================= */
+
+.form form {
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+  Form Box
+========================= */
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* =========================
+  Input
+========================= */
+
+.form-box input {
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+
+  &:focus {
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  }
+
+  &::placeholder {
+    color: #aaa;
+  }
+}
+
+/* =========================
+  Submit Button
+========================= */
+
+.form button {
+  padding: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: #111;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
+
+  &:hover {
+    background: #333;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+/* =========================
+  Auth Status
+========================= */
+
+.auth-status {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+
+  &.is-auth {
+    color: #16a34a; // green
+  }
+
+  &.is-unauth {
+    color: #dc2626; // red
+  }
+}
+
+/* =========================
+  Error Message
+========================= */
+
+.form p {
+  margin-top: 0.5rem;
+}

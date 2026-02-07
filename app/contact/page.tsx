@@ -1,5 +1,6 @@
 import { ContactForm } from "@/app/contact/_containers/contact-form"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
+import "@/styles/page/_contact.scss"
 import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
 

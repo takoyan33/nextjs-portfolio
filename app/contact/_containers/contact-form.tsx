@@ -16,6 +16,8 @@ export const ContactForm = () => {
   const [email, setEmail] = useState<string>("")
   const [message, setMessage] = useState<string>("")
   const [isConfirming, setIsConfirming] = useState<boolean>(false)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+
   const router = useRouter()
   const {
     register,
@@ -48,6 +50,13 @@ export const ContactForm = () => {
 
   /** お問い合わせフォーム送信 */
   const sendMail = (): void => {
+    if (isSubmitting) {
+      window.alert("送信中です。しばらくお待ちください。")
+      return
+    }
+
+    setIsSubmitting(true)
+    console.log("emailjsConfig")
     if (emailjsConfig.serviceId !== undefined && emailjsConfig.templateId !== undefined) {
       const template_param = {
         to_name: name,
@@ -56,27 +65,45 @@ export const ContactForm = () => {
       }
       send(emailjsConfig.serviceId, emailjsConfig.templateId, template_param).then(() => {
         window.alert("お問い合わせを送信致しました。")
+        setIsSubmitting(false)
         router.push("/")
       })
     } else {
       window.alert("お問い合わせを送信失敗しました。")
+      setIsSubmitting(false)
     }
   }
 
   if (isConfirming) {
     // プレビュー画面
     return (
-      <div className="form">
-        <h2>お問い合わせ内容確認</h2>
-        <p>下記の内容で送信します。よろしいですか？</p>
-        <p>名前：{name}</p>
-        <p>メールアドレス：{email}</p>
-        <p>メッセージ：{message}</p>
-        <div className="text-center">
-          <button onClick={handleBack} type="button" className="form-box-btn mr-4" id="back">
+      <div className="confirm-container">
+        <h2 className="confirm-title">お問い合わせ内容確認</h2>
+        <p className="confirm-lead">下記の内容で送信します。よろしいですか？</p>
+
+        <div className="confirm-item">
+          <CommonLabel text="名前" id="name" />
+          <p className="confirm-value">{name}</p>
+        </div>
+        <div className="confirm-item">
+          <CommonLabel text="メールアドレス" id="email" />
+          <p className="confirm-value">{email}</p>
+        </div>
+        <div className="confirm-item">
+          <CommonLabel text="メッセージ" id="message" />
+          <p className="confirm-value">{message}</p>
+        </div>
+        <div className="confirm-actions">
+          <button onClick={handleBack} className="confirm-btn btn-secondary" id="back">
             戻る
           </button>
-          <button onClick={sendMail} type="button" className="form-box-btn" id="send">
+          <button
+            onClick={sendMail}
+            disabled={isSubmitting}
+            type="submit"
+            className="confirm-btn btn-primary"
+            id="send"
+          >
             送信する
           </button>
         </div>
