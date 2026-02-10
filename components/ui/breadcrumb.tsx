@@ -27,7 +27,11 @@ export const Breadcrumb = ({ items }: BreadcrumbProps): JSX.Element => {
   const allItems = [homeItem, ...itemsArray]
 
   return (
-    <nav aria-label="パンくずリスト" className={styles.breadcrumb}>
+    <nav
+      aria-label="パンくずリスト"
+      className={styles.breadcrumb}
+      data-testid="breadcrumb-root"
+    >
       <ol className={styles.breadcrumb__list}>
         {allItems.map((item, index) => (
           <li key={item.name} className={styles.breadcrumb__item}>
