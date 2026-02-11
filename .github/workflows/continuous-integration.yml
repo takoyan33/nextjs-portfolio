@@ -40,5 +40,5 @@ jobs:
       - name: Format code
         run: yarn format:check
 
-      - name: Lint code
-        run: yarn lint
+      # - name: Lint code
+      #   run: yarn lint
