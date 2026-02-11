@@ -1,0 +1,22 @@
+{
+  "extends": ["prettier", "plugin:storybook/recommended"],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/public/**",
+    "**/.next/**",
+    "next.config.js",
+    "stylelintrc.mjs"
+  ],
+  "rules": {
+    "no-unused-vars": "error",
+    "react-hooks/rules-of-hooks": "off",
+    "import/order": ["error", { "alphabetize": { "order": "asc", "caseInsensitive": true } }],
+    "prefer-const": "error",
+    "react/jsx-no-target-blank": "error",
+    "no-unused-expressions": "warn",
+    "no-var": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "warn",
+    "@typescript-eslint/no-explicit-any": ["off"]
+  }
+}

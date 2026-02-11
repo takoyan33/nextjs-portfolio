@@ -12,7 +12,6 @@ import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "To You Design - About",
-  description: "プロフィール、経歴、職歴、資格について",
 }
 
 export const dynamic = "force-static"

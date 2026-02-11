@@ -1,42 +1,42 @@
 [
-	{
-		"id": 1,
-		"name": "Figma",
-		"rank": "★★★",
-		"tag": "経験年数：2年",
-		"about": "デザイン設計やコーディングなどで使用",
-		"icon": "/images/skill/figma.svg"
-	},
-	{
-		"id": 2,
-		"name": "Github",
-		"rank": "★★★",
-		"tag": "経験年数：3年",
-		"about": "個人開発や仕事でのソース管理で利用",
-		"icon": "/images/skill/github.svg"
-	},
-	{
-		"id": 3,
-		"name": "Adobe",
-		"rank": "★★★",
-		"tag": "経験年数：1年半",
-		"about": "PhotoShop/Illustratorなどをデザイン制作などで使用",
-		"icon": "/images/skill/laptop.svg"
-	},
-	{
-		"id": 4,
-		"name": "Bitbucket",
-		"rank": "★★",
-		"tag": "経験年数：1年半",
-		"about": "仕事でのGitを用いたバージョン管理で利用",
-		"icon": "/images/skill/bitbucket.svg"
-	},
-	{
-		"id": 5,
-		"name": "Docker",
-		"rank": "★★",
-		"tag": "経験年数：2年",
-		"about": "コンテナ技術を活用した開発環境の構築を個人開発などで経験有り",
-		"icon": "/images/skill/bitbucket.svg"
-	}
+  {
+    "id": 1,
+    "name": "Figma",
+    "rank": "★★★",
+    "tag": "経験年数：2年",
+    "about": "デザイン設計やコーディングなどで使用",
+    "icon": "/images/skill/figma.svg"
+  },
+  {
+    "id": 2,
+    "name": "Github",
+    "rank": "★★★",
+    "tag": "経験年数：3年",
+    "about": "個人開発や仕事でのソース管理で利用",
+    "icon": "/images/skill/github.svg"
+  },
+  {
+    "id": 3,
+    "name": "Adobe",
+    "rank": "★★★",
+    "tag": "経験年数：1年半",
+    "about": "PhotoShop/Illustratorなどをデザイン制作などで使用",
+    "icon": "/images/skill/laptop.svg"
+  },
+  {
+    "id": 4,
+    "name": "Bitbucket",
+    "rank": "★★",
+    "tag": "経験年数：1年半",
+    "about": "仕事でのGitを用いたバージョン管理で利用",
+    "icon": "/images/skill/bitbucket.svg"
+  },
+  {
+    "id": 5,
+    "name": "Docker",
+    "rank": "★★",
+    "tag": "経験年数：2年",
+    "about": "コンテナ技術を活用した開発環境の構築を個人開発などで経験有り",
+    "icon": "/images/skill/bitbucket.svg"
+  }
 ]

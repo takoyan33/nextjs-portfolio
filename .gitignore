@@ -46,3 +46,4 @@ storybook-static
 .playwright-mcp/
 next-env.d.ts
 ai-output/
+.vitest-attachments/

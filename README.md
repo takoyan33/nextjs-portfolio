@@ -38,7 +38,7 @@
 - [Rails](https://rubyonrails.org/) v7.0.2
 
 ### リンター
-- [ESLint](https://eslint.org/) v9.9.0
+- [OxLint](https://oxlint.io/) v1.0.0
 - [Prettier](https://prettier.io/) v3.3.3
 - [Stylelint](https://stylelint.io/) v16.8.2
 - [Husky](https://typicode.github.io/husky/) v9.1.4

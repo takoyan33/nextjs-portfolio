@@ -8,7 +8,6 @@ const isDev = process.env.NODE_ENV !== "production"
 let stream
 if (isDev && typeof window === "undefined") {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const pretty = require("pino-pretty")
     stream = pretty({
       colorize: true,

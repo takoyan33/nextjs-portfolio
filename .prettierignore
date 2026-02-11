@@ -18,3 +18,7 @@ yarn.lock
 
 # yarn
 /.yarn/
+
+.pnp.cjs
+.pnp.loader.mjs
+public/mockServiceWorker.js

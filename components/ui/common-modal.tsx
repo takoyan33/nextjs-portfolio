@@ -5,7 +5,6 @@ import type React from "react"
 import type { ComponentType } from "react"
 import ReactModal from "react-modal"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Modal = ReactModal as unknown as ComponentType<any>
 
 interface CommonModalProps {

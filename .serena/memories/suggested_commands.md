@@ -10,9 +10,9 @@
 - `yarn start`: Start the production server.
 
 ## Linting & Formatting
-- `yarn lint`: Run ESLint only.
+- `yarn lint`: Run OxLint only.
 - `yarn format`: Run Prettier to format code.
-- `yarn lint:fix`: Run ESLint and fix issues.
+- `yarn lint:fix`: Run OxLint and fix issues.
 - `yarn lint:stylelint`: Run Stylelint for SCSS.
 - `yarn lint:stylelint:fix`: Run Stylelint and fix SCSS issues.
 

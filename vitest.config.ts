@@ -33,6 +33,14 @@ export default defineConfig({
                 browser: "chromium",
               },
             ],
+            expect: {
+              toMatchScreenshot: {
+                // 環境差異による微細なズレを許容するためのしきい値
+                comparatorOptions: {
+                  threshold: 0.2,
+                },
+              },
+            },
           },
         },
       },

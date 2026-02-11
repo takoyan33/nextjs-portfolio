@@ -14,6 +14,7 @@ import { cookies } from "next/headers"
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
   metadataBase: new URL(siteConfig.url),
   openGraph: {
     title: siteConfig.name,

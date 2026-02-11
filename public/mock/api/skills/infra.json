@@ -1,26 +1,26 @@
 [
-	{
-		"id": 1,
-		"name": "AWS",
-		"rank": "★★★★",
-		"tag": "経験年数：3年",
-		"about": "S3でのファイルストレージ管理、CloudFrontを用いたCDN構築、Cognitoでの認証実装などで使用",
-		"icon": "/images/skill/aws.svg"
-	},
-	{
-		"id": 2,
-		"name": "Vercel",
-		"rank": "★★★★",
-		"tag": "経験年数：3年",
-		"about": "ReactやVue.jsのデプロイで利用",
-		"icon": "/images/skill/server.svg"
-	},
-	{
-		"id": 3,
-		"name": "Render",
-		"rank": "★★★★",
-		"tag": "経験年数：3年",
-		"about": "Ruby on Railsのデプロイで利用",
-		"icon": "/images/skill/server.svg"
-	}
+  {
+    "id": 1,
+    "name": "AWS",
+    "rank": "★★★★",
+    "tag": "経験年数：3年",
+    "about": "S3でのファイルストレージ管理、CloudFrontを用いたCDN構築、Cognitoでの認証実装などで使用",
+    "icon": "/images/skill/aws.svg"
+  },
+  {
+    "id": 2,
+    "name": "Vercel",
+    "rank": "★★★★",
+    "tag": "経験年数：3年",
+    "about": "ReactやVue.jsのデプロイで利用",
+    "icon": "/images/skill/server.svg"
+  },
+  {
+    "id": 3,
+    "name": "Render",
+    "rank": "★★★★",
+    "tag": "経験年数：3年",
+    "about": "Ruby on Railsのデプロイで利用",
+    "icon": "/images/skill/server.svg"
+  }
 ]
