@@ -19,7 +19,6 @@ class IntersectionObserverMock {
   disconnect() {}
 }
 
-// eslint-disable-next-line no-undef
 Object.defineProperty(window, "IntersectionObserver", {
   writable: true,
   configurable: true,

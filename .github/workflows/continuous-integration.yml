@@ -38,7 +38,7 @@ jobs:
         run: yarn install
 
       - name: Format code
-        run: yarn format
+        run: yarn format:check
 
       - name: Lint code
         run: yarn lint

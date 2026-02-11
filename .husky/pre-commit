@@ -5,7 +5,7 @@ echo "----- start pre-commit -------"
 # コードフォーマット
 yarn format
 
-# リンター（ESLint）
+# リンター（OxLint）
 yarn lint
 
 # スタイルリンター（Stylelint）

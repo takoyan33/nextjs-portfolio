@@ -83,10 +83,7 @@ export const fetchUser = async (id: string) => {
 
 ## 🧹 Lint / 整形ルール
 
-### ESLint
-
-* `eslint-config-next` 使用
-* AirBnB, Standard, Prettier のいずれかに統一
+### OxLint
 
 ### Prettier
 

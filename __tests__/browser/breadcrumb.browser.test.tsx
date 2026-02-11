@@ -21,14 +21,7 @@ vi.mock("@/components/ui/transition-link", () => ({
     children: ReactNode
     href: string
     className?: string
-    "aria-current"?:
-      | "page"
-      | "step"
-      | "location"
-      | "date"
-      | "time"
-      | "true"
-      | "false"
+    "aria-current"?: "page" | "step" | "location" | "date" | "time" | "true" | "false"
   }) => (
     <a href={href} className={className} aria-current={ariaCurrent}>
       {children}
@@ -41,9 +34,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb"
 test("Breadcrumb - 単一アイテムの見た目が崩れていないこと", async () => {
   render(<Breadcrumb items={{ name: "About", link: "/about" }} />)
 
-  await expect(page.getByTestId("breadcrumb-root")).toMatchScreenshot(
-    "breadcrumb-single",
-  )
+  await expect(page.getByTestId("breadcrumb-root")).toMatchScreenshot("breadcrumb-single")
 })
 
 test("Breadcrumb - 複数アイテムの見た目が崩れていないこと", async () => {
@@ -56,8 +47,5 @@ test("Breadcrumb - 複数アイテムの見た目が崩れていないこと", a
     />,
   )
 
-  await expect(page.getByTestId("breadcrumb-root")).toMatchScreenshot(
-    "breadcrumb-multiple",
-  )
+  await expect(page.getByTestId("breadcrumb-root")).toMatchScreenshot("breadcrumb-multiple")
 })
-
