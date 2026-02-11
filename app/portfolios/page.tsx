@@ -4,6 +4,7 @@ import { fetchPortfoliosFront } from "@/hooks/fetch"
 import "@/styles/page/_portfolio.scss"
 import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
+import { PortfolioType } from "../types"
 
 export const dynamic = "force-static"
 
@@ -11,9 +12,9 @@ export const metadata: Metadata = {
   title: "To You Design - Portfolio",
 }
 
-const Portfolio = async ({ searchParams }: any) => {
+const Portfolio = async ({ searchParams }: { searchParams: { order?: "new" | "old" } }) => {
   const res = await fetchPortfoliosFront()
-  const portfolios: any[] = res.data ?? []
+  const portfolios: PortfolioType[] = res.data ?? []
 
   const sorted = [...portfolios]
 
