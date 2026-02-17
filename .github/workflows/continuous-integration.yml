@@ -10,6 +10,11 @@ jobs:
   nextjs-ci:
     runs-on: ubuntu-latest
 
+    env:
+      # CIでは Yarn の Plug'n'Play (.pnp.loader.mjs) を使わず node_modules 方式に切り替える
+      # Node 24.x + PnP + Ubuntu 環境で発生する EBADF (fstat) を回避するため
+      YARN_NODE_LINKER: node-modules
+
     strategy:
       matrix:
         node-version: [24.x]
