@@ -1,7 +1,7 @@
 // ポートフォリオぺージ
 
-@use "../common/variables" as *;
-@use "../common/mixin";
+@use '../common/variables' as *;
+@use '../common/mixin';
 
 //ポートフォリオ filter
 .selectBox {
@@ -16,7 +16,7 @@
     height: 7px;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     pointer-events: none;
-    content: "";
+    content: '';
     background-color: $grey;
   }
 
@@ -37,54 +37,12 @@
   }
 }
 
-// ポートフォリオページ用
 .portfolio {
   background-color: $back-color;
 
   &__loading {
     padding-block: 100px;
     text-align: center;
-  }
-
-  &Detail {
-    &__toc {
-      padding: 1.5rem;
-      margin: 2rem 0;
-      background: #f8f9fa;
-      border-radius: 8px;
-
-      &-title {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #333;
-        text-align: left;
-      }
-
-      &-list {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
-
-      &-link {
-        display: block;
-        width: 100%;
-        padding: 0.5rem 0;
-        font-size: 1rem;
-        color: black;
-        text-align: left;
-        text-decoration: none;
-        cursor: pointer;
-        background: none;
-        border: none;
-
-        &:hover {
-          color: #2563eb;
-          text-decoration: underline;
-        }
-      }
-    }
   }
 
   &__filter {
