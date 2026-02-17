@@ -1566,6 +1566,7 @@ body.modal-open {
   }
   img {
     width: 100%;
+    height: auto;
   }
   .back__btn {
     padding: 12px;
