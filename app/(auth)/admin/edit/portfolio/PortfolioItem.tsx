@@ -1,6 +1,7 @@
 "use client"
 
 import "@/styles/page/_adminTable.scss"
+import Image from "next/image"
 import Link from "next/link"
 import type { PortfolioType } from "types"
 
@@ -17,7 +18,7 @@ const PortfolioItem = ({ portfolio }: Props) => {
       <td>{portfolio.tag}</td>
       <td>
         {portfolio.topImg && (
-          <img src={portfolio.topImg} alt={portfolio.name} className="portfolioTable__image" />
+          <Image src={portfolio.topImg} alt={portfolio.name} className="portfolioTable__image" />
         )}
       </td>
       <td>

@@ -15,7 +15,7 @@ export const TopBackButton = () => {
 
   //最初にhandleScrollを登録
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
