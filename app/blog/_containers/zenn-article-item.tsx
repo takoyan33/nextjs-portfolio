@@ -1,4 +1,4 @@
-import dayjs from "dayjs"
+import { formatDate } from "@/hooks/date"
 import Link from "next/link"
 
 interface ZennArticleItemProps {
@@ -22,7 +22,7 @@ export default function ZennArticleItem({
   zenn_path,
 }: ZennArticleItemProps) {
   //日付のフォーマット
-  const formatDate = (date: Date): string => dayjs(date).format("YYYY年MM年DD日")
+
   return (
     <article className="zennArticle" key={zenn_id}>
       <Link href={`https://zenn.dev${zenn_path}`} target="_blank">
