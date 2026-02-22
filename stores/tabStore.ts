@@ -3,7 +3,7 @@ import { create } from "zustand"
 /**
  * タブの状態を管理するストア
  */
-export interface TabState {
+interface TabState {
   /** タブが開いているかどうか */
   activeTab: "history" | "career"
   /** タブを開く */

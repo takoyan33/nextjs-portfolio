@@ -3,7 +3,7 @@ import { create } from "zustand"
 /**
  * モーダルの状態を管理するストア
  */
-export interface ModalState {
+interface ModalState {
   /** モーダルが開いているかどうか */
   isOpen: boolean
   /** モーダルのタイプ */
