@@ -46,6 +46,6 @@ const securityHeaders = [
       "connect-src 'self'",
     ].join("; "),
   },
-];
+]
 
-module.exports = securityHeaders;
+module.exports = securityHeaders
