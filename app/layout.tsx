@@ -1,15 +1,16 @@
-import { Footer, Header } from "@/components/layout"
-import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics"
-import "@/styles/globals.scss"
-import { Clarity } from "@/utils/clarity"
-import { GoogleTagManager } from "@next/third-parties/google"
-import type { Metadata } from "next"
-import type React from "react"
+import { Footer, Header } from "@/components/layout";
+import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics";
+import "@/styles/globals.scss";
+import { Clarity } from "@/utils/clarity";
+import { GoogleTagManager } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import type React from "react";
 // import { ReactScan } from "@/app/_components/ui/react-scan"
-import { AdminHeader } from "@/components/layout/AdminHeader"
-import { MockProvider } from "@/components/msw/MockProvider"
-import { siteConfig } from "@/utils/site"
-import { cookies } from "next/headers"
+import { AdminHeader } from "@/components/layout/AdminHeader";
+import { MockProvider } from "@/components/msw/MockProvider";
+import { siteConfig } from "@/utils/site";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-}
+};
 
 // dev, テスト環境でのみMSWサーバーを起動
 // const isTestEnvironment =
@@ -48,10 +49,10 @@ export const metadata: Metadata = {
 // }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
+  const gtmId = process.env.NEXT_PUBLIC_GTM ?? "";
 
-  const cookieStore = cookies()
-  const isAuth = (await cookieStore).get("auth")?.value === "true"
+  const cookieStore = cookies();
+  const isAuth = (await cookieStore).get("auth")?.value === "true";
   return (
     <html lang="ja">
       <head>
@@ -60,6 +61,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
         {process.env.NODE_ENV === "production" && (
           <>
+            <SpeedInsights />
             <GoogleAnalytics />
             <GoogleTagManager gtmId={`GTM-${gtmId}`} />
             <Clarity />
@@ -75,7 +77,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <Footer />
       </body>
     </html>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;
