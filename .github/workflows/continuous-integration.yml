@@ -45,5 +45,19 @@ jobs:
       - name: Format code
         run: yarn format:check
 
-      # - name: Lint code
-      #   run: yarn lint
+      - name: Lint code
+        run: yarn lint
+
+      - name: React Doctor
+        id: react-doctor
+        run: |
+          npx -y react-doctor@latest . --verbose
+        continue-on-error: true
+
+      - name: React Doctor Score
+        id: score
+        run: |
+          SCORE=$(npx -y react-doctor@latest . --score 2>/dev/null || echo "0")
+          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
+          echo "React Doctor Health Score: $SCORE"
+        continue-on-error: true

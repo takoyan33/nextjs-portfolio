@@ -1,7 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
   extends: ["stylelint-config-recommended-scss", "stylelint-config-recess-order"],
-  plugins: ["stylelint-order"],
   rules: {
     // ::before, ::afterのコロンを2つにする
     "selector-pseudo-element-colon-notation": "double",

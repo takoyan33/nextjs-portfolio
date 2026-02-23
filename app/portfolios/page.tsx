@@ -4,6 +4,7 @@ import { fetchPortfoliosFront } from "@/hooks/fetch"
 import "@/styles/page/_portfolio.scss"
 import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { PortfolioType } from "../types"
 
 export const dynamic = "force-static"
@@ -34,7 +35,9 @@ const Portfolio = async ({ searchParams }: { searchParams: { order?: "new" | "ol
 
       <LowerTitle title="Portfolio" enTitle="制作物" />
 
-      <PortfolioList portfolios={sorted} />
+      <Suspense fallback={<div>Loading portfolios...</div>}>
+        <PortfolioList portfolios={sorted} />
+      </Suspense>
     </main>
   )
 }

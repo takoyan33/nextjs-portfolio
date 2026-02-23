@@ -22,7 +22,7 @@ const About = () => {
       <div className="max_width">
         <Breadcrumb items={[{ name: "About", link: PATH.ABOUT }]} />
       </div>
-      <LowerTitle title="About" enTitle="プロフィール" />
+      <LowerTitle title="プロフィール" enTitle="About" />
       <AboutTabs>
         <Suspense fallback={<div>読み込み中...</div>}>
           <CareerHistoryTimeline />

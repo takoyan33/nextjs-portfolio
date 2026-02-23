@@ -1,5 +1,5 @@
 import { TransitionLink } from "@/components/ui/transition-link"
-import dayjs from "dayjs"
+import { formatDate } from "@/hooks/date"
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
@@ -30,8 +30,6 @@ const PortfolioItem = React.memo(function PortfolioItem({
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = "/images/dummy-image.jpg"
   }
-
-  const formatDate = (date: string): string => dayjs(date).format("YYYY年MM年DD日")
 
   return (
     <article className="portfolio__List-item portfolioItem">

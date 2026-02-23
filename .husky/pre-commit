@@ -3,7 +3,7 @@
 echo "----- start pre-commit -------"
 
 # コードフォーマット
-yarn format
+yarn oxfmt --write .
 
 # リンター（OxLint）
 yarn lint

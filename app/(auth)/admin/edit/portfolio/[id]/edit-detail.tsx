@@ -2,9 +2,9 @@
 
 import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
 import { useState } from "react"
+import { PortfolioType } from "types"
 import { PATH } from "utils/path"
 import { editPortfolio } from "./actions"
-import { PortfolioType } from "types"
 
 const EditDetail = ({ portfolio }: { portfolio: PortfolioType }) => {
   const [loading, setLoading] = useState(false)
