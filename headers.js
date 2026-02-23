@@ -39,13 +39,13 @@ const securityHeaders = [
     value: [
       "default-src 'self'",
       // TODO: 本番では unsafe-eval / unsafe-inline を外すのが理想
-      "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+      "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
       "font-src 'self' data:",
-      "connect-src 'self'",
+      "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com https://vitals.vercel-insights.com",
     ].join("; "),
   },
-]
+];
 
-module.exports = securityHeaders
+module.exports = securityHeaders;
