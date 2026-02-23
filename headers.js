@@ -46,6 +46,6 @@ const securityHeaders = [
       "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com https://vitals.vercel-insights.com",
     ].join("; "),
   },
-];
+]
 
-module.exports = securityHeaders;
+module.exports = securityHeaders
