@@ -9,6 +9,7 @@ import type React from "react"
 import { AdminHeader } from "@/components/layout/AdminHeader"
 import { MockProvider } from "@/components/msw/MockProvider"
 import { siteConfig } from "@/utils/site"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { cookies } from "next/headers"
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
         {process.env.NODE_ENV === "production" && (
           <>
+            <SpeedInsights />
             <GoogleAnalytics />
             <GoogleTagManager gtmId={`GTM-${gtmId}`} />
             <Clarity />
