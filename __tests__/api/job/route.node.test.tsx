@@ -1,22 +1,22 @@
-import { GET } from "@/app/api/jobs/route";
-import { afterEach, beforeAll, describe, expect, test, vi } from "vitest";
+import { GET } from "@/app/api/jobs/route"
+import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
 
 // 環境変数のモック
 const mockEnv = {
   BACKEND_API_URL: "http://localhost:3000/",
-};
+}
 
 // fetchのモック
-const mockFetch = vi.fn();
+const mockFetch = vi.fn()
 
 beforeAll(() => {
-  process.env.BACKEND_API_URL = mockEnv.BACKEND_API_URL;
-  global.fetch = mockFetch;
-});
+  process.env.BACKEND_API_URL = mockEnv.BACKEND_API_URL
+  global.fetch = mockFetch
+})
 
 afterEach(() => {
-  vi.clearAllMocks();
-});
+  vi.clearAllMocks()
+})
 
 describe("GET /api/jobs", () => {
   test("正常なレスポンスを返すこと", async () => {
@@ -33,31 +33,29 @@ describe("GET /api/jobs", () => {
         date: "2023-06-01",
         body: "フロントエンドとバックエンドの両方を担当し、システム全体の設計・開発を実施",
       },
-    ];
+    ]
 
     // fetch をモック化
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve(mockData),
-    });
+    })
 
-    const response = await GET();
-    const data = await response.json();
+    const response = await GET()
+    const data = await response.json()
 
-    expect(response.status).toBe(200);
-    expect(data).toEqual(mockData);
-    expect(mockFetch).toHaveBeenCalledWith(
-      `${process.env.BACKEND_API_URL}api/v1/jobs`
-    );
-  });
+    expect(response.status).toBe(200)
+    expect(data).toEqual(mockData)
+    expect(mockFetch).toHaveBeenCalledWith(`${process.env.BACKEND_API_URL}api/v1/jobs`)
+  })
 
   test("APIエラー時に適切なエラーレスポンスを返すこと", async () => {
-    mockFetch.mockRejectedValueOnce(new Error("API request failed"));
+    mockFetch.mockRejectedValueOnce(new Error("API request failed"))
 
-    const response = await GET();
-    const data = await response.json();
+    const response = await GET()
+    const data = await response.json()
 
-    expect(response.status).toBe(500);
-    expect(data).toEqual({ error: "Failed to fetch data" });
-  });
-});
+    expect(response.status).toBe(500)
+    expect(data).toEqual({ error: "Failed to fetch data" })
+  })
+})

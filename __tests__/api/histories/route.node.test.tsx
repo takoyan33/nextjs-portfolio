@@ -1,22 +1,22 @@
-import { GET } from "@/app/api/histories/route";
-import { afterEach, beforeAll, describe, expect, test, vi } from "vitest";
+import { GET } from "@/app/api/histories/route"
+import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
 
 // 環境変数のモック
 const mockEnv = {
   BACKEND_API_URL: "http://localhost:3000/",
-};
+}
 
 // fetchのモック
-const mockFetch = vi.fn();
+const mockFetch = vi.fn()
 
 beforeAll(() => {
-  process.env.BACKEND_API_URL = mockEnv.BACKEND_API_URL;
-  global.fetch = mockFetch;
-});
+  process.env.BACKEND_API_URL = mockEnv.BACKEND_API_URL
+  global.fetch = mockFetch
+})
 
 afterEach(() => {
-  vi.clearAllMocks();
-});
+  vi.clearAllMocks()
+})
 
 describe("GET /api/histories", () => {
   test("正常なレスポンスを返すこと", async () => {
@@ -33,31 +33,29 @@ describe("GET /api/histories", () => {
         date: "2020-04-01",
         body: "新卒としてWeb開発会社に入社し、エンジニアとしてのキャリアをスタート",
       },
-    ];
+    ]
 
     // fetch をモック化
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve(mockData),
-    });
+    })
 
-    const response = await GET();
-    const data = await response.json();
+    const response = await GET()
+    const data = await response.json()
 
-    expect(response.status).toBe(200);
-    expect(data).toEqual(mockData);
-    expect(mockFetch).toHaveBeenCalledWith(
-      `${process.env.BACKEND_API_URL}api/v1/histories`
-    );
-  });
+    expect(response.status).toBe(200)
+    expect(data).toEqual(mockData)
+    expect(mockFetch).toHaveBeenCalledWith(`${process.env.BACKEND_API_URL}api/v1/histories`)
+  })
 
   test("APIエラー時に適切なエラーレスポンスを返すこと", async () => {
-    mockFetch.mockRejectedValueOnce(new Error("API request failed"));
+    mockFetch.mockRejectedValueOnce(new Error("API request failed"))
 
-    const response = await GET();
-    const data = await response.json();
+    const response = await GET()
+    const data = await response.json()
 
-    expect(response.status).toBe(500);
-    expect(data).toEqual({ error: "Failed to fetch data" });
-  });
-});
+    expect(response.status).toBe(500)
+    expect(data).toEqual({ error: "Failed to fetch data" })
+  })
+})

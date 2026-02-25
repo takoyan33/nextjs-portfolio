@@ -1,36 +1,33 @@
-"use server";
+"use server"
 
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
 
 export async function ediSkill(formData: FormData, id: number, icon: string) {
-  const name = formData.get("skillName") as string;
-  const rank = formData.get("skillRank") as string;
-  const about = formData.get("skillAbout") as string;
+  const name = formData.get("skillName") as string
+  const rank = formData.get("skillRank") as string
+  const about = formData.get("skillAbout") as string
 
-  console.log("name", name);
+  console.log("name", name)
 
-  const res = await fetch(
-    `${process.env.BACKEND_API_URL}api/v1/other_skills/${id}`,
-    {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id,
-        name,
-        rank,
-        about,
-        icon,
-      }),
-    }
-  );
+  const res = await fetch(`${process.env.BACKEND_API_URL}api/v1/other_skills/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id,
+      name,
+      rank,
+      about,
+      icon,
+    }),
+  })
 
   // ✅ エラーならデータを返す（redirectしない）
   if (!res.ok) {
-    return { ok: false, error: "更新に失敗しました。" };
+    return { ok: false, error: "更新に失敗しました。" }
   }
-  revalidatePath("/admin/edit/skill");
+  revalidatePath("/admin/edit/skill")
 
   // ✅ 成功時のみリダイレクト
-  redirect("/admin/edit/skill");
+  redirect("/admin/edit/skill")
 }
