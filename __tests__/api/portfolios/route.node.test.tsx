@@ -1,22 +1,22 @@
-import { GET } from "@/app/api/portfolios/route"
-import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
+import { GET } from "@/app/api/portfolios/route";
+import { afterEach, beforeAll, describe, expect, test, vi } from "vitest";
 
 // 環境変数のモック
 const mockEnv = {
-  NEXT_PUBLIC_BACKEND_API_URL: "http://localhost:3000/",
-}
+  BACKEND_API_URL: "http://localhost:3000/",
+};
 
 // fetchのモック
-const mockFetch = vi.fn()
+const mockFetch = vi.fn();
 
 beforeAll(() => {
-  process.env.NEXT_PUBLIC_BACKEND_API_URL = mockEnv.NEXT_PUBLIC_BACKEND_API_URL
-  global.fetch = mockFetch
-})
+  process.env.BACKEND_API_URL = mockEnv.BACKEND_API_URL;
+  global.fetch = mockFetch;
+});
 
 afterEach(() => {
-  vi.clearAllMocks()
-})
+  vi.clearAllMocks();
+});
 
 describe("GET /api/portfolios", () => {
   test("正常なレスポンスを返すこと", async () => {
@@ -29,7 +29,8 @@ describe("GET /api/portfolios", () => {
         topImg: "/images/portfolio/portfolio_top3.png",
         front_url: "https://to-you-design.vercel.app/",
         front_github: "https://github.com/takoyan33/nextjs-portfolio",
-        back_github: "https://github.com/takoyan33/next-portfolio-backend-posgre",
+        back_github:
+          "https://github.com/takoyan33/next-portfolio-backend-posgre",
         color: "portfolio__tag--color4",
         about:
           "<p>自分についての経歴や経験を振り返るために、ポートフォリオサイトとして、Next.jsとRuby on Railsで制作しました。</p>",
@@ -49,23 +50,23 @@ describe("GET /api/portfolios", () => {
         next_title: "サークル管理App",
         next_article_id: "4",
       },
-    ]
+    ];
 
     // fetch をモック化
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve(mockData),
-    })
+    });
 
-    const response = await GET()
-    const data = await response.json()
+    const response = await GET();
+    const data = await response.json();
 
-    expect(response.status).toBe(200)
-    expect(data).toEqual(mockData)
+    expect(response.status).toBe(200);
+    expect(data).toEqual(mockData);
     expect(mockFetch).toHaveBeenCalledWith(
-      `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`,
-    )
-  })
+      `${process.env.BACKEND_API_URL}api/v1/portfolios`
+    );
+  });
 
   // test("APIエラー時に適切なエラーレスポンスを返すこと", async () => {
   //   mockFetch.mockRejectedValueOnce(new Error("API request failed"))
@@ -76,4 +77,4 @@ describe("GET /api/portfolios", () => {
   //   expect(response.status).toBe(500)
   //   expect(data).toEqual({ error: "Failed to fetch data" })
   // })
-})
+});
