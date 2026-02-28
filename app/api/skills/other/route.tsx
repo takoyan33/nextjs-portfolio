@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 
 export async function GET() {
-  const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/other_skills`
+  const url = `${process.env.BACKEND_API_URL}api/v1/other_skills`
 
   if (!url) {
     return NextResponse.json({ error: "Missing API_URL environment variable" }, { status: 500 })

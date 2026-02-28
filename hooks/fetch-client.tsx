@@ -15,9 +15,6 @@ export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolios}
  */
 export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.BACKEND_API_URL}api/v1/portfolios`, CACHE_OPTIONS)
   return await response.json()
 }

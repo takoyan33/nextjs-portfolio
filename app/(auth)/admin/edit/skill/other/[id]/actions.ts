@@ -10,7 +10,7 @@ export async function ediSkill(formData: FormData, id: number, icon: string) {
 
   console.log("name", name)
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/other_skills/${id}`, {
+  const res = await fetch(`${process.env.BACKEND_API_URL}api/v1/other_skills/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

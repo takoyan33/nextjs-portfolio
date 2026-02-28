@@ -32,7 +32,7 @@ export async function editPortfolio(
     .map((v) => v.trim())
   const time = formData.get("portfolioTime") as string
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios/${id}`, {
+  const res = await fetch(`${process.env.BACKEND_API_URL}api/v1/portfolios/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
