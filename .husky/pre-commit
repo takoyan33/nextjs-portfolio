@@ -11,6 +11,9 @@ yarn lint
 # スタイルリンター（Stylelint）
 yarn lint:stylelint
 
+# フォーマットチェック
+yarn format:check
+
 # ビルド（型チェックも含む）
 yarn build
 

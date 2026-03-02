@@ -54,10 +54,14 @@ jobs:
           npx -y react-doctor@latest . --verbose
         continue-on-error: true
 
-      - name: React Doctor Score
-        id: score
+      - name: Get React Doctor Score
+        id: reactdoctor
+        run: zd
+          SCORE=$(CI=true npx -y react-doctor@latest . --score 2>/dev/null | tail -n 1 | tr -d '[:space:]')
+          echo "score=$SCORE" >> $GITHUB_OUTPUT
+
+      - name: Show Score
+        env:
+          REACT_DOCTOR_SCORE: ${{ steps.reactdoctor.outputs.score }}
         run: |
-          SCORE=$(npx -y react-doctor@latest . --score 2>/dev/null || echo "0")
-          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
-          echo "React Doctor Health Score: $SCORE"
-        continue-on-error: true
+          echo "React Doctor Health Score: $REACT_DOCTOR_SCORE"
