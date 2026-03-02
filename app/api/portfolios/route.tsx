@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server"
 import { messages } from "@/app/types/social"
+import { NextResponse } from "next/server"
 
 import type { ResponsePortfolio } from "types"
 
 export const dynamic = "force-dynamic"
 
 export async function GET() {
-  const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/portfolios`
+  const url = `${process.env.BACKEND_API_URL}api/v1/portfolios`
 
   try {
     const response = await fetch(url)

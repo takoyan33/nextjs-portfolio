@@ -9,7 +9,11 @@ export async function editPortfolio(formData: FormData, id: number) {
   const date = formData.get("historyDate") as string
   const body = formData.get("historyBody") as string
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/histories/${id}`, {
+  if (isNaN(Number(id))) {
+    return { ok: false, error: "Invalid ID" }
+  }
+
+  const res = await fetch(`${process.env.BACKEND_API_URL}api/v1/histories/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

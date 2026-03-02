@@ -8,9 +8,11 @@ export async function ediSkill(formData: FormData, id: number, icon: string) {
   const rank = formData.get("skillRank") as string
   const about = formData.get("skillAbout") as string
 
-  console.log("name", name)
+  if (isNaN(Number(id))) {
+    return { ok: false, error: "Invalid ID" }
+  }
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}api/v1/back_skills/${id}`, {
+  const res = await fetch(`${process.env.BACKEND_API_URL}api/v1/back_skills/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

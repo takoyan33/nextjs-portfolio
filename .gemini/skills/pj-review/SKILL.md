@@ -1,4 +1,5 @@
 ---
+name:  "pj-check"
 description: コードレビューのコマンド
 ---
 
