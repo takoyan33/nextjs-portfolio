@@ -10,7 +10,10 @@ class MockIntersectionObserver {
   }
   observe = (el: Element) => {
     // simulate intersecting
-    this.callback([{ isIntersecting: true, target: el } as IntersectionObserverEntry], this)
+    this.callback(
+      [{ isIntersecting: true, target: el } as IntersectionObserverEntry],
+      this as unknown as IntersectionObserver,
+    )
   }
   disconnect = () => {}
 }
