@@ -2,36 +2,37 @@ import { formatDate } from "@/hooks/date"
 import Link from "next/link"
 
 interface ZennArticleItemProps {
-  zenn_id: number
-  zenn_title: string
-  zenn_published_at: Date
-  zenn_article_type: string
-  zenn_emoji: string
-  zenn_path: string
+  id: number
+  title: string
+  published_at: Date
+  article_type: string
+  emoji: string
+  path: string
+  liked_count: number
 }
 
 /**
  * Zennの記事
  */
 export default function ZennArticleItem({
-  zenn_id,
-  zenn_title,
-  zenn_published_at,
-  zenn_article_type,
-  zenn_emoji,
-  zenn_path,
+  id,
+  title,
+  published_at,
+  article_type,
+  emoji,
+  path,
+  liked_count,
 }: ZennArticleItemProps) {
-  //日付のフォーマット
-
   return (
-    <article className="zennArticle" key={zenn_id}>
-      <Link href={`https://zenn.dev${zenn_path}`} target="_blank">
-        <div className="zennArticle__emoji">{zenn_emoji}</div>
+    <article className="zennArticle" key={id}>
+      <Link href={`https://zenn.dev${path}`} target="_blank">
+        <div className="zennArticle__emoji">{emoji}</div>
         <div className="zennArticle__content">
-          <p className="zennArticle__date">{formatDate(zenn_published_at)}</p>
-          <h3 className="zennArticle__title"> {zenn_title} </h3>
+          <p className="zennArticle__date">{formatDate(published_at)}</p>
+          <h3 className="zennArticle__title"> {title} </h3>
           <ul className="zennArticle__container">
-            <li className="zennArticle__tag">{zenn_article_type}</li>
+            <li className="zennArticle__tag">{article_type}</li>
+            <p>♡{liked_count}</p>
           </ul>
         </div>
       </Link>

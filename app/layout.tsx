@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 // HMRでも起動するため、layout.tsxにも記載
 const isDevEnvironment = process.env.NODE_ENV === "development"
 const mock = !!process.env.NEXT_PUBLIC_USE_MOCK
-if (isDevEnvironment || mock) {
+if (isDevEnvironment && mock) {
   const { server } = await import("@/mocks/server")
   server.listen()
 }
