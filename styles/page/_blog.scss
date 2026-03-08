@@ -36,6 +36,70 @@
   text-align: left;
 }
 
+/* ページネーション */
+.blog-pagination {
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link,
+  &__link--current,
+  &__link--disabled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+    font-size: rem(14);
+    font-weight: 600;
+    text-decoration: none;
+    background-color: $white;
+    border: 1px solid $grey;
+    border-radius: 6px;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s;
+  }
+
+  &__link {
+    color: $black;
+
+    &:hover {
+      color: $main-color;
+      background-color: $back-color;
+      border-color: $main-color;
+    }
+  }
+
+  &__link--current {
+    color: $white;
+    cursor: default;
+    background-color: $main-color;
+    border-color: $main-color;
+  }
+
+  &__link--disabled {
+    color: $grey;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
 .zennArticle {
   width: 30%;
   box-shadow:
@@ -44,6 +108,8 @@
 
   &__container {
     display: flex;
+    gap: 10px;
+    align-items: center;
     justify-content: flex-start;
     margin-top: 10px;
   }
@@ -126,6 +192,20 @@
     display: grid;
     grid-template-columns: 1fr;
     padding-block: 20px;
+  }
+
+  .blog-pagination {
+    margin-top: 30px;
+    margin-bottom: 16px;
+
+    &__link,
+    &__link--current,
+    &__link--disabled {
+      min-width: 36px;
+      height: 36px;
+      padding: 0 10px;
+      font-size: rem(13);
+    }
   }
 
   .blog__aside {

@@ -18,7 +18,12 @@ vi.mock("@/stores/tabStore", () => {
 
 describe("AboutTabs", () => {
   test("初期表示は経歴タブが選択されている", async () => {
-    render(<AboutTabs careerContent={"aaa"} historyContent={"bbb"} />)
+    render(
+      <AboutTabs>
+        <div>aaa</div>
+        <div>bbb</div>
+      </AboutTabs>,
+    )
 
     // 経歴タブの見出しが表示される
     expect(screen.getByText("経歴")).toBeVisible()

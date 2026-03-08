@@ -11,7 +11,7 @@ vi.mock("next/navigation", () => ({
 }))
 
 test.skip("Portfolios が表示されるか", async () => {
-  render(<Portfolios />)
+  render(<Portfolios searchParams={{ order: "new" }} />)
 
   expect(await screen.findByText("To You Design(ポートフォリオサイト)1")).toBeVisible()
   expect(await screen.findByText("To You Design(ポートフォリオサイト)2")).toBeVisible()
