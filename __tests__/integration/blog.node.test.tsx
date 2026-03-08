@@ -10,6 +10,8 @@ vitest.mock("next/navigation", () => ({
   }),
 }))
 
-test("Blogが表示されるか", () => {
-  render(<Blog />)
+test("Blogが表示されるか", async () => {
+  const searchParams = Promise.resolve({})
+  const element = await Blog({ searchParams })
+  render(element)
 })
