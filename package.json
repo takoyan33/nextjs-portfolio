@@ -97,6 +97,9 @@
     "vitest": "^4.0.13",
     "vitest-browser-react": "^2.0.2"
   },
+  "resolutions": {
+    "fast-xml-parser": "4.3.6"
+  },
   "msw": {
     "workerDirectory": [
       "public"
