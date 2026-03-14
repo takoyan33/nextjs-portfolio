@@ -1,8 +1,12 @@
 import { ProfileSnsLinks } from "@/components/parts/profile/profile-sns-links"
+import { fetchProfile } from "@/hooks/fetch"
 import ScrollComponent from "hooks/use-fadeIn"
+import parse from "html-react-parser"
 import Image from "next/image"
 
-export const HomeAboutSection = () => {
+export const HomeAboutSection = async () => {
+  const data = await fetchProfile()
+
   return (
     <section className="about">
       <div className="max_width">
@@ -28,26 +32,18 @@ export const HomeAboutSection = () => {
             <div className="aboutTop_container-item">
               <ScrollComponent>
                 <p className="about__name">阿部 舜平</p>
-                <p className="about__profile">
-                  北海道在住の社会人2年目のエンジニア。
-                  <br />
-                  大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。
-                  <br />
-                  文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。
-                  <br />
-                  現在はReactやVueを中心に、更なるフロントエンド技術の向上を目指しています。
-                </p>
+                <p className="about__profile">{parse(data.data[0].content)}</p>
                 <dl className="about__text">
                   <dt className="about__text">
                     <strong>趣味：</strong>
                   </dt>
-                  <dd>旅行、ギター</dd>
+                  <dd>{data.data[0].hobby}</dd>
                 </dl>
                 <dl className="about__text">
                   <dt className="about__text">
                     <strong>資格：</strong>
                   </dt>
-                  <dd>基本情報技術者試験</dd>
+                  <dd>{data.data[0].license}</dd>
                 </dl>
                 <ProfileSnsLinks />
               </ScrollComponent>
