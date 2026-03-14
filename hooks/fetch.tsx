@@ -314,3 +314,18 @@ export const fetchOtherSkill = async (id: string): Promise<ResponseSkillDetail> 
 
   return response.json()
 }
+
+/**
+ * プロフィールの取得
+ */
+export const fetchProfile = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/profiles`, CACHE_OPTIONS)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`Failed to fetch other skills: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch other skills: ${response.status}`)
+  }
+
+  return response.json()
+}
