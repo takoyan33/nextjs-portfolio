@@ -6,9 +6,17 @@ export const handlers = [
     console.log("📡 Mock hit: GET /api/portfolios")
     return HttpResponse.json({
       data: [
-        { id: "1", date: "2023-01-01", title: "AWS認定ソリューションアーキテクト" },
+        {
+          id: "1",
+          date: "2023-01-01",
+          title: "AWS認定ソリューションアーキテクト",
+        },
         { id: "2", date: "2023-02-01", title: "AWS認定デベロッパー" },
-        { id: "3", date: "2023-03-01", title: "AWS認定SysOpsアドミニストレーター" },
+        {
+          id: "3",
+          date: "2023-03-01",
+          title: "AWS認定SysOpsアドミニストレーター",
+        },
       ],
     })
   }),
@@ -303,6 +311,20 @@ export const handlers = [
     return HttpResponse.json({
       status: 404,
       data: [],
+    })
+  }),
+  http.get(`*/api/profiles`, () => {
+    console.log("📡 Mock hit: GET /api/profiles")
+    return HttpResponse.json({
+      data: [
+        {
+          id: 1,
+          content:
+            "北海道在住の社会人2年目のエンジニア。<br />大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。<br />文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。<br />現在はReactやVueを中心に、更なるフロントエンド技術の向上を目指しています。",
+          hobby: "ボードゲーム、ギター",
+          license: "基本情報技術者試験",
+        },
+      ],
     })
   }),
 ]
