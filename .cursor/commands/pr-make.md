@@ -1,4 +1,5 @@
 ---
+name: "pr-make"
 description: 現在の変更内容でプルリクエストを作成します
 argument-hint: "PR名"
 ---

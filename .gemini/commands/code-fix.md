@@ -1,4 +1,5 @@
 ---
+name: "code-fix"
 description: コードベースで改善点を見つけ、修正する
 ---
 

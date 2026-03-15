@@ -1,4 +1,5 @@
 ---
+name: "ui-fix"
 description: UIで改善点を見つけ、修正する
 ---
 
