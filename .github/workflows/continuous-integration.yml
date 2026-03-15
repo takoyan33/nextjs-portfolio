@@ -24,7 +24,7 @@ jobs:
 
     steps:
       # リポジトリをチェックアウト
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # Node.jsセットアップ
       - uses: actions/setup-node@v3
