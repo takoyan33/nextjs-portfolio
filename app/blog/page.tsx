@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 /** 1ページあたりの記事数 */
-const ARTICLES_PER_PAGE = 10
+const ARTICLES_PER_PAGE = 9
 
 interface BlogPageProps {
   searchParams: Promise<{ page?: string }>
