@@ -1,59 +1,80 @@
+# Workflow名（GitHub Actions画面に表示される）
 name: nextjs-ci
 
+# 実行トリガー
 on:
   push:
-    branches: [main]
+    branches: [main] # mainブランチへのpush時
   pull_request:
-    branches: [main]
+    branches: [main] # main向けPR作成時
 
 jobs:
   nextjs-ci:
+    # 実行環境（GitHubのUbuntuランナー）
     runs-on: ubuntu-latest
 
     env:
-      # CIでは Yarn の Plug'n'Play (.pnp.loader.mjs) を使わず node_modules 方式に切り替える
-      # Node 24.x + PnP + Ubuntu 環境で発生する EBADF (fstat) を回避するため
+      # node_modules方式で依存関係をインストール
       YARN_NODE_LINKER: node-modules
 
+    # Node.jsのマトリックス設定
     strategy:
       matrix:
         node-version: [24.x]
 
     steps:
+      # リポジトリをチェックアウト
       - uses: actions/checkout@v4
 
+      # Node.jsセットアップ
       - uses: actions/setup-node@v3
         with:
           node-version: 24.x
-          cache: "yarn"
+          cache: "yarn" # Yarnキャッシュを有効化（CI高速化）
 
+      # Corepack有効化
+      # Node標準のパッケージマネージャ管理ツール
       - name: Enable Corepack
         run: corepack enable
 
+      # Yarnバージョン固定
+      # ローカル環境とCIのYarnを一致させる
       - name: Prepare Yarn
         run: corepack prepare yarn@4.12.0 --activate
 
+      # Node / Yarn / Corepack のバージョン確認
+      # CIトラブル時のデバッグ用
       - name: Check versions
         run: |
           node -v
           corepack --version
           yarn -v
 
+      # 依存関係インストール
       - name: Install dependencies
         run: yarn install
 
+      # コードフォーマットチェック
+      # Prettierなどでフォーマットが崩れていないか確認
       - name: Format code
         run: yarn format:check
 
+      # Lintチェック
+      # ESLintなどによるコード品質チェック
       - name: Lint code
         run: yarn lint
 
+      # React Doctor 実行
+      # Reactのアンチパターンやパフォーマンス問題を検出
       - name: React Doctor
         id: react-doctor
         run: |
           npx -y react-doctor@latest . --verbose
         continue-on-error: true
+        # エラーでもCIを落とさない（診断目的）
 
+      # React Doctor スコア取得
+      # プロジェクトのReact健全度スコアを取得
       - name: React Doctor Score
         id: score
         run: |
@@ -61,3 +82,4 @@ jobs:
           echo "score=$SCORE" >> "$GITHUB_OUTPUT"
           echo "React Doctor Health Score: $SCORE"
         continue-on-error: true
+        # スコア取得失敗でもCIを止めない
