@@ -1106,6 +1106,7 @@ li {
   position: relative;
   width: 60px !important;
   height: 60px !important;
+  margin-left: 12px;
 }
 .skill details[open] .skill__toggle-icon {
   transform: rotate(180deg);
@@ -1400,6 +1401,7 @@ body.modal-open {
     position: relative;
     width: 50px !important;
     height: 50px !important;
+    margin-left: 3px;
   }
 }
 @media screen and (max-width: 500px) {
@@ -1559,6 +1561,7 @@ body.modal-open {
     position: relative;
     width: 50px !important;
     height: 50px !important;
+    margin-left: 6px;
   }
   .logo_sns {
     width: 50%;
