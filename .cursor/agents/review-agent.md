@@ -1,19 +1,4 @@
 ---
-name: review-agent
-model: fast
----
-
----
-name: review-agent
-model: fast
----
-
----
-name: review-agent
-model: fast
----
-
----
 name: code-review-agent
 description: Next.js/React プロジェクトのコードレビューを専門に行うエージェント。パフォーマンス、セキュリティ、コード品質、ベストプラクティスを包括的にチェックします。
 model: fast

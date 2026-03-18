@@ -1,6 +1,5 @@
-import { TransitionLink } from "components/ui"
+import { HistoryBackButton } from "components/ui"
 import type { Metadata } from "next"
-import { PATH } from "@/utils/path"
 
 export const metadata: Metadata = {
   title: "404",
@@ -12,9 +11,9 @@ const ErrorPage = () => {
       <h1>404</h1>
       <h2>Page Not Found</h2>
       <p>この記事はすでに削除されているか、URLが間違っている可能性があります。</p>
-      <TransitionLink href={PATH.INDEX} className="contact__btn padding-bottom">
-        トップに戻る
-      </TransitionLink>
+      <div className="flex gap-4 justify-center padding-bottom">
+        <HistoryBackButton className="contact__btn">トップに戻る</HistoryBackButton>
+      </div>
     </main>
   )
 }
