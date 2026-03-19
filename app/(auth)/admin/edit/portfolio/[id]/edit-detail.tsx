@@ -1,5 +1,6 @@
 "use client"
 
+import { HistoryBackButton } from "@/components/ui/button/history-back-button"
 import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
 import { useState } from "react"
 import { PortfolioType } from "types"
@@ -189,9 +190,12 @@ const EditDetail = ({ portfolio }: { portfolio: PortfolioType }) => {
                 defaultValue={portfolio?.time}
               />
             </div>
-            <button type="submit" disabled={loading}>
-              {loading ? "認証中..." : "編集"}
-            </button>
+            <div>
+              <HistoryBackButton>キャンセル</HistoryBackButton>
+              <button type="submit" disabled={loading} className="flex-1">
+                {loading ? "認証中..." : "編集"}
+              </button>
+            </div>
             {error && <p className="text-red-600 text-sm">{error}</p>}
           </form>
         </div>

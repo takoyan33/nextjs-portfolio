@@ -36,6 +36,8 @@ alwaysApply: true
 - SCSS/CSS Moduleを使用（`ComponentName.module.scss`）
 - グローバルCSSは `styles/globals.scss` に限定
 - 共通変数は `styles/common/_variables.scss` を使用
+- Tailwind CSSは未導入なので、利用しない
+
 
 ---
 
