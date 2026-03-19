@@ -1,10 +1,10 @@
-import { PATH } from "@/utils/path";
-import { TransitionLink } from "components/ui";
-import type { Metadata } from "next";
+import { PATH } from "@/utils/path"
+import { TransitionLink } from "components/ui"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "404",
-};
+}
 
 const ErrorPage = ({ error }: { error?: { message?: string } }) => {
   return (
@@ -13,15 +13,12 @@ const ErrorPage = ({ error }: { error?: { message?: string } }) => {
       <h2>Page Not Found</h2>
       <p>{error?.message || "The page you are looking for does not exist."}</p>
       <div>
-        <TransitionLink
-          href={PATH.INDEX}
-          className="contact__btn padding-bottom"
-        >
+        <TransitionLink href={PATH.INDEX} className="contact__btn padding-bottom">
           トップに戻る
         </TransitionLink>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default ErrorPage;
+export default ErrorPage
