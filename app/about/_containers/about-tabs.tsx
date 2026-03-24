@@ -1,21 +1,21 @@
-"use client"
-import { useTabStore } from "@/stores/tabStore"
-import React from "react"
+"use client";
+import { useTabStore } from "@/stores/tabStore";
+import React from "react";
 
 type AboutTabsProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 /**
  * Aboutのタブ
  */
 export const AboutTabs = ({ children }: AboutTabsProps) => {
-  const { activeTab, changeActiveTab } = useTabStore()
-  const [historyContent, careerContent] = React.Children.toArray(children)
+  const { activeTab, changeActiveTab } = useTabStore();
+  const [historyContent, careerContent] = React.Children.toArray(children);
 
   return (
     <div>
       {/* タブボタン */}
-      <div className="tab-1" role="tablist">
+      <div className="tab-1" role="tablist" data-testid="about-tabs-root">
         <label className={activeTab === "history" ? "active" : ""}>
           <input
             type="radio"
@@ -56,5 +56,5 @@ export const AboutTabs = ({ children }: AboutTabsProps) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
