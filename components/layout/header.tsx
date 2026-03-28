@@ -1,53 +1,48 @@
-"use client";
+"use client"
 
-import type { MenuItem } from "@/app/types";
-import { TransitionLink } from "@/components/ui";
-import { LinkButton } from "@/components/ui/button/common-button";
-import "@/styles/component/_header.scss";
-import { PATH } from "@/utils/path";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import type { MenuItem } from "@/app/types"
+import { TransitionLink } from "@/components/ui"
+import { LinkButton } from "@/components/ui/button/common-button"
+import "@/styles/component/_header.scss"
+import { PATH } from "@/utils/path"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export const Header = () => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openMenu, setOpenMenu] = useState<boolean>(false)
 
   /** メニューの開閉 */
-  const toggleMenu = () => setOpenMenu((prev) => !prev);
+  const toggleMenu = () => setOpenMenu((prev) => !prev)
 
   const MENU_ITEMS: MenuItem[] = [
     { id: 1, title: "About", link: PATH.ABOUT },
     { id: 2, title: "ポートフォリオ", link: PATH.PORTFOLIO },
     { id: 3, title: "ブログ", link: PATH.BLOG },
-  ];
+  ]
 
   useEffect(() => {
     // メニューが開いた時にフォーカスをハンバーガーメニューに移動
-    const focusTrap = document.getElementById("js-focus-trap");
-    const hamburger = document.getElementById("btn01");
+    const focusTrap = document.getElementById("js-focus-trap")
+    const hamburger = document.getElementById("btn01")
 
-    const handleFocus = () => hamburger?.focus();
+    const handleFocus = () => hamburger?.focus()
 
     if (focusTrap && hamburger) {
-      focusTrap.addEventListener("focus", handleFocus);
+      focusTrap.addEventListener("focus", handleFocus)
     }
 
     // メニューが開いた時にスクロールを禁止
-    document.body.style.overflow = openMenu ? "hidden" : "";
+    document.body.style.overflow = openMenu ? "hidden" : ""
 
     return () => {
-      document.body.style.overflow = "";
-      focusTrap?.removeEventListener("focus", handleFocus);
-    };
-  }, [openMenu]);
+      document.body.style.overflow = ""
+      focusTrap?.removeEventListener("focus", handleFocus)
+    }
+  }, [openMenu])
 
   return (
     <>
-      <header
-        id="header"
-        className="header"
-        aria-label="ヘッダー"
-        data-testid="header-root"
-      >
+      <header id="header" className="header" aria-label="ヘッダー" data-testid="header-root">
         <div className="header_container">
           <div className="header_logo">
             <div className="logo">
@@ -106,5 +101,5 @@ export const Header = () => {
         </a>
       </div>
     </>
-  );
-};
+  )
+}

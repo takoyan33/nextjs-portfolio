@@ -1,10 +1,10 @@
-import styles from "@/components/ui/css/common-label.module.scss";
-import type React from "react";
+import styles from "@/components/ui/css/common-label.module.scss"
+import type React from "react"
 
 interface CommonLabelProps {
-  text: string;
-  id?: string;
-  required?: boolean;
+  text: string
+  id?: string
+  required?: boolean
 }
 
 /**
@@ -12,11 +12,7 @@ interface CommonLabelProps {
  * @param text - ラベルテキスト
  * @param id - 関連付けるフォーム要素のID
  */
-export const CommonLabel: React.FC<CommonLabelProps> = ({
-  text,
-  id = "",
-  required = false,
-}) => {
+export const CommonLabel: React.FC<CommonLabelProps> = ({ text, id = "", required = false }) => {
   return (
     <label
       htmlFor={id}
@@ -27,5 +23,5 @@ export const CommonLabel: React.FC<CommonLabelProps> = ({
       <span className={styles.label__text}>{text}</span>
       {required && <span className={styles.label__required}>必須</span>}
     </label>
-  );
-};
+  )
+}

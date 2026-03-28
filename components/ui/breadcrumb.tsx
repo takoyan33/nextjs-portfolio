@@ -1,15 +1,15 @@
-import styles from "@/components/ui/css/breadcrumb.module.scss";
-import { TransitionLink } from "@/components/ui/transition-link";
-import { PATH } from "@/utils/path";
-import { ChevronRight } from "lucide-react";
+import styles from "@/components/ui/css/breadcrumb.module.scss"
+import { TransitionLink } from "@/components/ui/transition-link"
+import { PATH } from "@/utils/path"
+import { ChevronRight } from "lucide-react"
 
 interface BreadcrumbItem {
-  name: string;
-  link?: string;
+  name: string
+  link?: string
 }
 
 interface BreadcrumbProps {
-  items: BreadcrumbItem | BreadcrumbItem[];
+  items: BreadcrumbItem | BreadcrumbItem[]
 }
 
 /**
@@ -20,18 +20,14 @@ export const Breadcrumb = ({ items }: BreadcrumbProps): JSX.Element => {
   const homeItem: BreadcrumbItem = {
     name: "トップ",
     link: PATH.INDEX,
-  };
+  }
 
   // itemsが配列でない場合は配列に変換
-  const itemsArray = Array.isArray(items) ? items : [items];
-  const allItems = [homeItem, ...itemsArray];
+  const itemsArray = Array.isArray(items) ? items : [items]
+  const allItems = [homeItem, ...itemsArray]
 
   return (
-    <nav
-      aria-label="パンくずリスト"
-      className={styles.breadcrumb}
-      data-testid="breadcrumb-root"
-    >
+    <nav aria-label="パンくずリスト" className={styles.breadcrumb} data-testid="breadcrumb-root">
       <ol className={styles.breadcrumb__list}>
         {allItems.map((item, index) => (
           <li key={item.name} className={styles.breadcrumb__item}>
@@ -39,9 +35,7 @@ export const Breadcrumb = ({ items }: BreadcrumbProps): JSX.Element => {
               <TransitionLink
                 href={item.link}
                 className={styles.breadcrumb__link}
-                aria-current={
-                  index === allItems.length - 1 ? "page" : undefined
-                }
+                aria-current={index === allItems.length - 1 ? "page" : undefined}
               >
                 {item.name}
               </TransitionLink>
@@ -59,7 +53,7 @@ export const Breadcrumb = ({ items }: BreadcrumbProps): JSX.Element => {
         ))}
       </ol>
     </nav>
-  );
-};
+  )
+}
 
-Breadcrumb.displayName = "Breadcrumb";
+Breadcrumb.displayName = "Breadcrumb"
