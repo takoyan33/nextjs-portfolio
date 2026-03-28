@@ -15,7 +15,7 @@ export const AboutTabs = ({ children }: AboutTabsProps) => {
   return (
     <div>
       {/* タブボタン */}
-      <div className="tab-1" role="tablist">
+      <div className="tab-1" role="tablist" data-testid="about-tabs-root">
         <label className={activeTab === "history" ? "active" : ""}>
           <input
             type="radio"

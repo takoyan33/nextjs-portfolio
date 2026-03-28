@@ -33,18 +33,4 @@ describe("AboutTabs", () => {
     expect(tabs[0]).toHaveAttribute("aria-selected", "true")
     expect(tabs[1]).toHaveAttribute("aria-selected", "false")
   })
-
-  // test("職歴タブをクリックすると切り替わる", async () => {
-  //   render(<AboutTabs careerContent={"aaa"} historyContent={"bbb"} />)
-
-  //   // 職歴タブをクリック
-  //   const tabs = screen.getAllByRole("tab")
-  //   const careerTab = tabs[1]
-  //   await userEvent.click(careerTab)
-
-  //   // fallback の「読み込み中...」が表示されるのを確認
-  //   await waitFor(() => {
-  //     expect(screen.getByText("読み込み中...")).toBeVisible()
-  //   })
-  // })
 })
