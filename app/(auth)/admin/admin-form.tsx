@@ -33,12 +33,18 @@ const AdminForm = ({ auth }: { auth: string | undefined }) => {
           <form action={onSubmit} className="mt-8 flex flex-col gap-4 max-w-sm">
             <div className="form-box">
               <CommonLabel text="メールアドレス" id="email" />
-              <input type="email" name="email" placeholder="sample@email.com" required />
+              <input type="email" id="email" name="email" placeholder="sample@email.com" required />
             </div>
 
             <div className="form-box">
               <CommonLabel text="パスワード" id="password" />
-              <input type="password" name="password" placeholder="パスワード" required />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="パスワード"
+                required
+              />
             </div>
             <button type="submit" disabled={loading}>
               {loading ? "認証中..." : "ログイン"}
