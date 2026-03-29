@@ -38,7 +38,13 @@ const AdminForm = ({ auth }: { auth: string | undefined }) => {
 
             <div className="form-box">
               <CommonLabel text="パスワード" id="password" />
-              <input type="password" id="password" name="password" placeholder="パスワード" required />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="パスワード"
+                required
+              />
             </div>
             <button type="submit" disabled={loading}>
               {loading ? "認証中..." : "ログイン"}

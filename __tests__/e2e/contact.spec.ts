@@ -38,5 +38,5 @@ test("本番環境 お問い合わせの実行", async ({ page }) => {
     console.log(`Dialog message: ${dialog.message()}`)
     dialog.dismiss().catch(() => {})
   })
-  await page.waitForURL("https://to-you-design.vercel.app/");
+  await page.waitForURL("https://to-you-design.vercel.app/")
 })

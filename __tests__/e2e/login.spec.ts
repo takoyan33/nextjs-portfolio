@@ -20,8 +20,8 @@ test("本番環境 ログインの実行", async ({ page }) => {
   await page.getByLabel("パスワード").fill("password")
   await page.getByRole("button", { name: "ログイン" }).click()
   await page.waitForTimeout(3000)
-  await page.waitForURL("https://to-you-design.vercel.app/admin/dashboard");
+  await page.waitForURL("https://to-you-design.vercel.app/admin/dashboard")
   await page.getByRole("button", { name: "ログアウト" }).click()
   await page.waitForTimeout(3000)
-  await page.waitForURL("https://to-you-design.vercel.app");
+  await page.waitForURL("https://to-you-design.vercel.app")
 })
