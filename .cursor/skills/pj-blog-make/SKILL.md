@@ -18,6 +18,7 @@ description: コミット履歴やメッセージでZenn記事の下書きを生
 
 - pj-blog-make `タイトル`があれば、タイトルを優先して作成する
 - 過去1〜3ヶ月のコミット履歴を分析
+   - `/scripts/git-log.ts`を実行
 - フロントエンド / AI関連の変更を抽出
 - 記事ネタを3〜4個に絞る
 
@@ -39,9 +40,10 @@ description: コミット履歴やメッセージでZenn記事の下書きを生
 
 ### Step4: 保存
 
-- ../../ai-output/ai-blog.md に保存
-- Zenn投稿可能形式にする
-- 文字数を記載する
+- `/scripts/git-log.ts`を実行
+   - ../../ai-output/ai-blog.md に保存
+   - Zenn投稿可能形式にする
+   - 文字数を記載する
 
 ---
 
