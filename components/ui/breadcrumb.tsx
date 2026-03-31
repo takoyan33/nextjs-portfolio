@@ -16,7 +16,7 @@ interface BreadcrumbProps {
  * パンくずリストコンポーネント
  * @param items - パンくずリストの項目（単一または配列）
  */
-export const Breadcrumb = ({ items }: BreadcrumbProps): JSX.Element => {
+export const Breadcrumb = ({ items }: BreadcrumbProps) => {
   const homeItem: BreadcrumbItem = {
     name: "トップ",
     link: PATH.INDEX,

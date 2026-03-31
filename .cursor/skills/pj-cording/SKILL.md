@@ -3,7 +3,7 @@ name:  "pj-cording"
 description: 指定した内容で実装・修正する
 ---
 
-1. `./CORDING_SUBMIT.md`を参考に実装作業を行う
+1. `./assets/CORDING_SUBMIT.md`を参考に実装作業を行う
 1. 先にplanModeで計画を考え、それをユーザーに確認する
 1. 問題点があれば、その通りに修正する
 1. 問題なければ、選択した内容で実装する
