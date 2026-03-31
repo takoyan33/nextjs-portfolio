@@ -31,7 +31,7 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
-    "@next/third-parties": "16",
+    "@next/third-parties": "16.2.1",
     "@react-three/drei": "10.0.0-rc.1",
     "@react-three/fiber": "9.0.0-alpha.8",
     "@types/newrelic": "^9.14.8",
@@ -42,11 +42,11 @@
     "html-react-parser": "^5.1.18",
     "lucide-react": "^0.485.0",
     "newrelic": "^13.8.1",
-    "next": "16.0.10",
+    "next": "16.2.1",
     "pino": "^10.1.0",
     "prettier": "^3.3.3",
-    "react": "19.0.1",
-    "react-dom": "19.0.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-hook-form": "^7.53.0",
     "react-modal": "^3.16.3",
     "react-scan": "^0.3.3",
@@ -75,7 +75,7 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^25.3.2",
-    "@types/react": "^18.0.0",
+    "@types/react": "19.2.14",
     "@types/react-modal": "^3.16.3",
     "@typescript/native-preview": "^7.0.0-dev.20260306.1",
     "@vitejs/plugin-react": "^4.3.1",
@@ -98,6 +98,7 @@
     "vitest-browser-react": "^2.0.2"
   },
   "resolutions": {
+    "@types/react": "19.2.14",
     "fast-xml-parser": "4.3.6"
   },
   "msw": {
