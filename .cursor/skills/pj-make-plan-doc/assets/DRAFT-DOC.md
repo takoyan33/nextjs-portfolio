@@ -1,12 +1,15 @@
-# Adminページ（ログイン） 詳細設計書
+# [page-name] 詳細設計書
 
 ## 1. ページ概要
 
-## 2. UI構成
+## 2. 画面仕様
+
+drawio/pc/[page-name].drawio
+drawio/sp/[page-name].drawio
 
 ## 3. データフロー
 
-mermaid/admin.mmd
+mermaid/[page-name].mmd
 
 ## 4. 状態管理・ロジック
 

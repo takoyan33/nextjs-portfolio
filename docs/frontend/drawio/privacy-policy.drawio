@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="n3m-S0B99B9fB7bU7fQ" name="Page-1">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <!-- 左側：画面図 (Screen Diagram) -->
+                <mxCell id="2" value="プライバシーポリシー 画面構成 (Desktop)" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="340" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="No1: ヘッダー" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="23" width="340" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="No2: パンくずリスト" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2">
+                    <mxGeometry x="10" y="80" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="No3: ヒーローエリア (Title)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=none;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="120" width="340" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="No4/No5: メインコンテンツ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" vertex="1" parent="2">
+                    <mxGeometry x="20" y="240" width="300" height="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="No6: フッター" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="690" width="340" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- 右側：画面要素の説明 (Table Format in Japanese) -->
+                <mxCell id="8" value="画面要素・機能仕様" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="40" width="400" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; style=&quot;border-collapse:collapse;&quot;&gt;&lt;tr&gt;&lt;th&gt;No&lt;/th&gt;&lt;th&gt;要素名&lt;/th&gt;&lt;th&gt;仕様・機能詳細&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No1&lt;/td&gt;&lt;td&gt;ヘッダー&lt;/td&gt;&lt;td&gt;サイトロゴ、ナビ、お問い合わせボタン。モバイル時はハンバーガーメニューに切り替わる。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No2&lt;/td&gt;&lt;td&gt;パンくず&lt;/td&gt;&lt;td&gt;「トップ &amp;gt; Privacy Policy」を表示。ホバーでアンダーライン。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No3&lt;/td&gt;&lt;td&gt;タイトル&lt;/td&gt;&lt;td&gt;青背景のブロックに「プライバシーポリシー」と英字タイトルを表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No4&lt;/td&gt;&lt;td&gt;コンテンツ&lt;/td&gt;&lt;td&gt;個人情報の利用目的、解析ツールの利用について説明するテキストブロック。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No5&lt;/td&gt;&lt;td&gt;外部リンク&lt;/td&gt;&lt;td&gt;各ツールの規約等へ遷移。target=&apos;_blank&apos; rel=&apos;noopener&apos; を付与。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No6&lt;/td&gt;&lt;td&gt;フッター&lt;/td&gt;&lt;td&gt;ナビ、ロゴ、コピーライトを表示。ヘッダーと同様のリンク構成。&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="8">
+                    <mxGeometry x="10" y="30" width="380" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;b&gt;【メタデータ・技術仕様】&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Title: To You Design - プライバシーポリシー&lt;/li&gt;&lt;li&gt;Rendering: force-static (静的生成)&lt;/li&gt;&lt;li&gt;Conditional: 表示内容自体に条件分岐はないが、リンク先は全て外部タブで開く実装。&lt;/li&gt;&lt;li&gt;Responsiveness: max_width クラスによる中央寄せ。&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="8">
+                    <mxGeometry x="10" y="350" width="380" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,6 @@
+flowchart TD
+  A["ユーザーが /privacy-policy にアクセス"] --> B["静的HTMLを表示"]
+  B --> C["外部計測ツール（Google/MS）のCookie設定確認"]
+  C -- "Cookie有効時" --> D["Google Analytics / Microsoft Clarity データ収集"]
+  B --> F["ユーザーが外部リンクをクリック"]
+  F -- "target='_blank'" --> G["外部利用規約サイトを別タブで表示"]
