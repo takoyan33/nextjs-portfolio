@@ -1,4 +1,4 @@
-import styles from "@/app/(home)/_containers/home-wave-bg-top.module.scss"
+import styles from "@/components/ui/css/home-wave-bg-top.module.scss"
 
 export const HomeWaveBgTop = () => {
   return (

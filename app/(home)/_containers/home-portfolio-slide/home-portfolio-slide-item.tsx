@@ -2,7 +2,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
 import { TransitionLink } from "@/components/ui"
-import styles from "./home-portfolio-slide-item.module.scss"
+import styles from "@/components/ui/css/home-portfolio-slide-item.module.scss"
 
 interface PortfolioItemProps {
   portfolio_id: number

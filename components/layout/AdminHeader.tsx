@@ -1,4 +1,4 @@
-import "@/components/layout/adminHeader.scss"
+import "@/components/ui/css/adminHeader.scss"
 import { TransitionLink } from "@/components/ui"
 import { LogOut } from "@/hooks/cookie-action"
 import { MenuItem } from "@/types"
