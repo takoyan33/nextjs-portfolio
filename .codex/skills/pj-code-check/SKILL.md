@@ -1,6 +1,6 @@
 ---
-name:  "pj-check"
-description: コードレビューのコマンド
+name:  "pj-code-check"
+description: 現状のコミット履歴を取得し、コードレビューを行うスキル
 ---
 
 ## Step1: 差分取得
