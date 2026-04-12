@@ -1,57 +1,53 @@
-# Aboutページ 詳細設計書
+# About 詳細設計書
 
 ## 1. ページ概要
-- プロフィール・経歴・職歴・資格情報を表示するページ
-- 対象ユーザー：サイト訪問者・採用担当者
-- 利用シナリオ：自己紹介・経歴確認・資格一覧の閲覧
-- 関連ページ：トップ（/）、ポートフォリオ（/portfolios）
 
-## 2. UI構成
-- パンくずリスト（Breadcrumb）
-- タイトル（LowerTitle）
-- タブ切り替え（AboutTabs）
-  - 経歴（CareerHistoryTimeline）
-  - 職歴（JobTimeline）
-- 資格セクション（LicenseList）
-- レイアウト：max_width, u-padding, section分割
+- 開発者の経歴、職歴、および取得資格をユーザーに提示するページ。
+- タブ切り替えにより「経歴(History)」と「職歴(Career)」を動的に切り替えて表示する。
+- 静的生成（`export const dynamic = "force-static"`）されるが、タブ切り替えはクライアントサイトの状態管理（Zustand）で行われる。
+
+## 2. 画面仕様
+
+drawio/about.drawio
 
 ## 3. データフロー
+
+- MSW (Mock Service Worker) により、経歴、職歴、資格の各エンドポイントからデータを取得。
+- `Suspense` コンポーネントにより、データ取得中はローディング表示（「読み込み中...」）が行われる。
 
 mermaid/about.mmd
 
 ## 4. 状態管理・ロジック
-- Zustandストア：activeTab, changeActiveTab
-- state一覧：activeTab（"history" or "career"）
-- action：changeActiveTab(tab: string)
-- Suspenseでローディング表示
-- エラー時はfallbackで"読み込み中..."表示
+
+- **Zustand (`useTabStore`)**: グローバルなタブ状態 (`activeTab`) を保持し、`changeActiveTab` アクションで切り替えを行う。
+- **AboutTabs**: クライアントコンポーネントであり、`activeTab` の値に基づいて表示する子要素（`CareerHistoryTimeline` or `JobTimeline`）を切り替える。
+- **モバイル対応**: 画面幅が一定以下になると、ヘッダーのナビゲーションがハンバーガーメニューに格納される。
 
 ## 5. ルーティング
-- パス：/about
-- パンくずリストで現在位置表示
-- 他ページへの遷移：PATH.ABOUT, PATH.PORTFOLIO
+
+- `/about`
 
 ## 6. イベント・アクション仕様
+
 | イベント | 発火条件 | 処理内容 | 結果 |
 |----------|----------|----------|------|
-| click    | タブラベル押下 | changeActiveTabでstate更新 | タブ内容切り替え |
-| Suspense | API/データ取得中 | fallback表示 | "読み込み中..."表示 |
+| ページアクセス | `/about` にアクセス | 静的HTMLの表示 + コンポーネントのハイドレーション | プロフィールの表示 |
+| タブクリック | 「経歴」または「職歴」をクリック | `changeActiveTab` の呼び出し | ステート更新とコンテンツの切り替え |
+| メニュー開閉 | モバイル時にメニューアイコンをクリック | ナビゲーションの表示フラグ更新 | メニューの開閉 |
 
-## 7. APIインターフェース
-| エンドポイント | メソッド | リクエスト例 | レスポンス例 |
-|----------------|---------|--------------|--------------|
-| /api/histories | GET     | -            | { data: [...] } |
-| /api/jobs      | GET     | -            | { data: [...] } |
-| /api/licenses  | GET     | -            | { data: [...] } |
+## 7. APIインターフェース (Backend)
+
+| エンドポイント | メソッド | 内容 |
+|----------------|----------|------|
+| `/api/histories` | GET | 経歴データ（大学卒業、個人開発開始など）を取得 |
+| `/api/job` | GET | 職歴データ（従事したプロジェクト情報など）を取得 |
+| `/api/licenses` | GET | 取得した資格一覧を取得 |
 
 ## 8. エラーハンドリング
-- バリデーションエラー：なし（表示のみ）
-- API失敗時：fallbackで"読み込み中..."表示
-- 再試行処理：なし
+
+- データ取得失敗時は、基本的な `error.tsx` へのフォールバック、または `Suspense` の境界での処理が行われる。
 
 ## 9. その他仕様
-- SEO：title, description, meta情報
-- パフォーマンス：Suspense活用、画像最適化
-- アクセシビリティ：role="tablist"/"tab"/"tabpanel"、ラベル明示
 
----
+- SEO用メタデータ: `title: "To You Design - About"`
+- コンポーネント構成: RSC (ページ) + クライアントコンポーネント (タブ) のハイブリッド構成。

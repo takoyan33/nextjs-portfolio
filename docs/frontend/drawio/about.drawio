@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+    <diagram id="n3m-S0B99B9fB7bU7fQ" name="Page-1">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <!-- 左側：画面図 (Screen Diagram) -->
+                <mxCell id="2" value="About ページ 画面構成 (Desktop)" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="340" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="No1: ヘッダー" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="23" width="340" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="No2: パンくずリスト" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2">
+                    <mxGeometry x="10" y="80" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="No3: ヒーローエリア (Title)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3b82f6;fontColor=#ffffff;strokeColor=none;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="120" width="340" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="No4: タブメニュー" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="230" width="340" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="No5: タイムライン (コンテンツ)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" vertex="1" parent="2">
+                    <mxGeometry x="20" y="280" width="300" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="No6: 資格セクション" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdfdfe;strokeColor=#dee2e6;" vertex="1" parent="2">
+                    <mxGeometry x="20" y="600" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="No7: フッター" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="2">
+                    <mxGeometry x="0" y="690" width="340" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- 右側：画面要素の説明 (Table Format in Japanese) -->
+                <mxCell id="10" value="画面要素・機能仕様" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="40" width="400" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; style=&quot;border-collapse:collapse;&quot;&gt;&lt;tr&gt;&lt;th&gt;No&lt;/th&gt;&lt;th&gt;要素名&lt;/th&gt;&lt;th&gt;仕様・機能詳細&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No1&lt;/td&gt;&lt;td&gt;ヘッダー&lt;/td&gt;&lt;td&gt;ロゴとグローバルナビゲーション。モバイル時はハンバーガーメニュー。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No2&lt;/td&gt;&lt;td&gt;パンくず&lt;/td&gt;&lt;td&gt;「トップ &amp;gt; About」を表示。カレントページはリンクなし。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No3&lt;/td&gt;&lt;td&gt;タイトル&lt;/td&gt;&lt;td&gt;作品的な青背景(#3b82f6)に「プロフィール」と「About」を表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No4&lt;/td&gt;&lt;td&gt;タブ&lt;/td&gt;&lt;td&gt;Zustand (useTabStore) を利用したステート切り替え。アクティブなタブに青い上線を表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No5&lt;/td&gt;&lt;td&gt;タイムライン&lt;/td&gt;&lt;td&gt;経歴(History)または職歴(Career)を表示。青色のサークルマーカーが各項目に付随。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No6&lt;/td&gt;&lt;td&gt;資格リスト&lt;/td&gt;&lt;td&gt;LicenseListコンポーネント。取得日付と資格名をリスト形式で表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No7&lt;/td&gt;&lt;td&gt;フッター&lt;/td&gt;&lt;td&gt;全ページ共通のフッター。コピーライト情報を含む。&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="10">
+                    <mxGeometry x="10" y="30" width="380" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;b&gt;【メタデータ・技術仕様】&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Title: To You Design - About&lt;/li&gt;&lt;li&gt;Rendering: force-static (静的生成)&lt;/li&gt;&lt;li&gt;State Management: Zustand によるタブ切り替え。&lt;/li&gt;&lt;li&gt;Conditional: {activeTab === &apos;history&apos; &amp;&amp; &amp;lt;HistoryContent /&amp;gt;} のような論理積による条件分岐描画。&lt;/li&gt;&lt;li&gt;Data Fetching: MSW経由でモックデータを取得 (Suspense利用)。&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="10">
+                    <mxGeometry x="10" y="390" width="380" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
