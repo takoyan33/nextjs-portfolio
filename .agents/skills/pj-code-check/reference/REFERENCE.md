@@ -1,47 +1,33 @@
 # Code Review Reference
 
-## 1. Vercel React Best Practices
+## project rulesを参照
+- .cursor/rules/react.md
+- .cursor/rules/test.md
+- .cursor/rules/general.md
+- .cursor/rules/storybook.md
 
-### CRITICAL
-- Waterfall の排除
-- Dynamic Import の活用
-- Barrel Imports 回避
+## 観点
 
-### HIGH
-- 並列フェッチ
-- Server Component最適化
+- バグ・不具合がないか
+ - null / undefined 考慮漏れ
+ - 非同期の扱いミス（race condition, waterfall）
+ - stateの不整合
+ - エラーハンドリング不足
 
-### MEDIUM
-- re-render最適化
+- パフォーマンス
+ - 無駄な再レンダリング
+ - useEffectの依存配列ミス
+ - 重い処理の直実行
+ - waterfallになってないか
 
----
+- 設計（地味だけど超重要）
+ - 責務分離できてる？
+ - UIとロジック分離されてる？
+ - 再利用できる構造になってる？
+ - hooks / utils の切り出し適切？
 
-## 2. Project Rules
-- .cursor/rules/react.mdc
-- .cursor/rules/test.mdc
-- .cursor/rules/general.mdc
+## 出力フォーマット
 
----
-
-## 3. 観点
-
-### TypeScript
-- any禁止
-- 型安全
-
-### セキュリティ
-- XSS
-- env管理
-
-### アクセシビリティ
-- ARIA
-- セマンティックHTML
-
----
-
-## 4. 出力フォーマット
-
-### 概要
-### 修正点（CRITICAL / HIGH / MEDIUM / LOW）
-### 疑問点
-### 良い点
+## 概要
+## 修正点
+## 疑問点
