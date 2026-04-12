@@ -81,7 +81,7 @@
     "@typescript/native-preview": "^7.0.0-dev.20260306.1",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/browser": "^4.0.13",
-    "@vitest/browser-playwright": "^4.0.13",
+    "@vitest/browser-playwright": "^4.1.4",
     "@vitest/coverage-v8": "2.1.9",
     "@vitest/ui": "^4.0.13",
     "artillery": "^2.0.27",
