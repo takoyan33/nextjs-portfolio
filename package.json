@@ -55,7 +55,7 @@
     "server-only": "^0.0.1",
     "stylelint": "^16.8.2",
     "stylelint-config-recess-order": "^5.1.0",
-    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-recommended-scss": "^17.0.1",
     "swiper": "^11.1.9",
     "swr": "^2.3.4",
     "three": "^0.169.0",
