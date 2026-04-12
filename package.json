@@ -33,7 +33,7 @@
     "@hookform/resolvers": "^5.2.2",
     "@next/third-parties": "16.2.1",
     "@react-three/drei": "10.0.0-rc.1",
-    "@react-three/fiber": "9.0.0-alpha.8",
+    "@react-three/fiber": "9.5.0",
     "@types/newrelic": "^9.14.8",
     "@types/three": "^0.169.0",
     "@vercel/edge-config": "^1.4.0",
