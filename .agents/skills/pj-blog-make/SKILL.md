@@ -1,6 +1,6 @@
 ---
 name: pj-blog-make
-description: コミット履歴やメッセージでZenn記事の下書きを生成する。ブログ作成や記事ネタ出しをしたいときに使う。
+description: コミット履歴やメッセージでZenn記事の下書きを生成する。ブログ作成を行いたい時に利用する。
 ---
 
 # pj-blog-make
@@ -33,8 +33,9 @@ description: コミット履歴やメッセージでZenn記事の下書きを生
 ### Step3: 記事生成
 
 - 4000〜5000文字で記事作成
-- assets/DRAFT.md のフォーマットで作成
-- refereces/REFERENCE.md を参考にする
+- `assets/DRAFT.md` のフォーマットで作成
+  - 記事によっては、`assets/DRAFT.md` を変更する
+- `references/REFERENCE.md` を参考にする
 - 実コードがあれば含める
 
 ---
@@ -42,7 +43,7 @@ description: コミット履歴やメッセージでZenn記事の下書きを生
 ### Step4: 保存
 
 - `/scripts/git-log.ts`を実行
-   - ../../ai-output/ai-blog.md に保存
+   - `../../ai-output/ai-blog.md` に保存
    - Zenn投稿可能形式にする
    - 文字数を記載する
 
