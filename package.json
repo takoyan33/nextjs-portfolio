@@ -43,7 +43,7 @@
     "html-react-parser": "^5.1.18",
     "lucide-react": "^0.485.0",
     "newrelic": "^13.8.1",
-    "next": "16.2.1",
+    "next": "16.2.3",
     "pino": "^10.1.0",
     "prettier": "^3.3.3",
     "react": "19.2.4",
@@ -56,7 +56,7 @@
     "stylelint": "^16.8.2",
     "stylelint-config-recess-order": "^5.1.0",
     "stylelint-config-recommended-scss": "^14.1.0",
-    "swiper": "^11.1.9",
+    "swiper": "12.1.2",
     "swr": "^2.3.4",
     "three": "^0.169.0",
     "unlighthouse": "^0.17.4",
@@ -106,5 +106,6 @@
     "workerDirectory": [
       "public"
     ]
-  }
+  },
+  "packageManager": "yarn@4.12.0+sha512.f45ab632439a67f8bc759bf32ead036a1f413287b9042726b7cc4818b7b49e14e9423ba49b18f9e06ea4941c1ad062385b1d8760a8d5091a1a31e5f6219afca8"
 }
