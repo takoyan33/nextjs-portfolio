@@ -30,7 +30,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 24.x
-          cache: "yarn" # Yarnキャッシュを有効化（CI高速化）
 
       # Corepack有効化
       # Node標準のパッケージマネージャ管理ツール
