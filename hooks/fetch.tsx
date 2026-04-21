@@ -1,16 +1,16 @@
 "use server"
 import "server-only"
 import type {
-    ResponseHistory,
-    ResponseHistoryDetail,
-    ResponseJob,
-    ResponseJobDetail,
-    ResponseLicense,
-    ResponseLicenseDetail,
-    ResponsePortfolio,
-    ResponsePortfolios,
-    ResponseSkillDetail,
-    ResponseSkills,
+  ResponseHistory,
+  ResponseHistoryDetail,
+  ResponseJob,
+  ResponseJobDetail,
+  ResponseLicense,
+  ResponseLicenseDetail,
+  ResponsePortfolio,
+  ResponsePortfolios,
+  ResponseSkillDetail,
+  ResponseSkills,
 } from "../types"
 import { CACHE_OPTIONS } from "../utils/data"
 
