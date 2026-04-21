@@ -6,7 +6,7 @@ import type { ResponsePortfolio } from "types"
 export const dynamic = "force-dynamic"
 
 export async function GET() {
-  const url = `${process.env.BACKEND_API_URL}api/v1/portfolios`
+  const url = `${process.env.BASE_API_URL}api/v1/portfolios`
 
   try {
     const response = await fetch(url)

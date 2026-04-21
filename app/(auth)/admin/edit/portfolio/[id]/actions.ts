@@ -36,7 +36,7 @@ export async function editPortfolio(
     return { ok: false, error: "Invalid ID" }
   }
 
-  const res = await fetch(`${process.env.BACKEND_API_URL}api/v1/portfolios/${id}`, {
+  const res = await fetch(`${process.env.BASE_API_URL}api/v1/portfolios/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
