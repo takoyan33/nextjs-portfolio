@@ -1,16 +1,16 @@
 "use server"
 import "server-only"
 import type {
-  ResponseHistory,
-  ResponseHistoryDetail,
-  ResponseJob,
-  ResponseJobDetail,
-  ResponseLicense,
-  ResponseLicenseDetail,
-  ResponsePortfolio,
-  ResponsePortfolios,
-  ResponseSkillDetail,
-  ResponseSkills,
+    ResponseHistory,
+    ResponseHistoryDetail,
+    ResponseJob,
+    ResponseJobDetail,
+    ResponseLicense,
+    ResponseLicenseDetail,
+    ResponsePortfolio,
+    ResponsePortfolios,
+    ResponseSkillDetail,
+    ResponseSkills,
 } from "../types"
 import { CACHE_OPTIONS } from "../utils/data"
 
@@ -140,7 +140,7 @@ export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolios}
  */
 export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.BACKEND_API_URL}api/v1/portfolios`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.BASE_API_URL}api/v1/portfolios`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()

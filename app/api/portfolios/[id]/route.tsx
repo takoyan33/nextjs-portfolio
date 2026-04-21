@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Missing id" }, { status: 400 })
   }
 
-  const apiUrl = `${process.env.BACKEND_API_URL}api/v1/portfolios/${id}/`
+  const apiUrl = `${process.env.BASE_API_URL}api/v1/portfolios/${id}/`
 
   try {
     const response = await fetch(apiUrl)
