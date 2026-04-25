@@ -2,20 +2,20 @@
 
 // 共通クラスや変数
 // 色の定義
-$main-color: oklch(63.8% 48.5% 261.57); //#4485ff
-$main-color-disabled: oklch(55% 48.5% 261.57); //#090061
+$main-color: oklch(65% 50% 261.57); //#4485ff
+$main-color-disabled: oklch(55% 50% 261.57); //#090061
 
-$tag-color-1: oklch(50.18% 0.2331 29.27); // #d50303
-$tag-color-2: oklch(62.32% 0.1969 145.56); // #00a339
-$tag-color-3: oklch(63.77% 0.1635 327.74); // #ce61c8
-$tag-color-4: oklch(36.59% 0.1644 251.34); // #063997
-$tag-color-5: oklch(68.78% 0.1911 45.73); // #fd6d39
+$tag-color-1: oklch(60% 0.18 29.27); // #d50303
+$tag-color-2: oklch(60% 0.18 145.56); // #00a339
+$tag-color-3: oklch(60% 0.18 327.74); // #ce61c8
+$tag-color-4: oklch(60% 0.18 251.34); // #063997
+$tag-color-5: oklch(60% 0.18 45.73); // #fd6d39
 
 $white: oklch(100% 0 0); // #ffffff
-$grey: oklch(53.59% 0 0); // grey
+$grey: oklch(54% 0 0); // grey
 $black: oklch(16.01% 0 0); // rgb(39, 39, 39)
 $back-color: #f7f7f7; // #f7f7f7
-$red: oklch(63.62% 0.222 27.97); // rgb(251, 77, 77)
+$red: oklch(60% 0.18 27.97); // rgb(251, 77, 77)
 
 //不透明度
 $opacity: 0.7;
