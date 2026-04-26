@@ -71,7 +71,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/front/html5.svg",
         },
       ],
     })
@@ -86,7 +86,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/front/html5.svg",
         },
       ],
     })
@@ -101,7 +101,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/front/html5.svg",
         },
       ],
     })
@@ -116,7 +116,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/front/html5.svg",
         },
       ],
     })
