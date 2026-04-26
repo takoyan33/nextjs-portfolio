@@ -1,185 +1,45 @@
-# Pino Logger サンプル
+## 📐 現在のログ設計ルール
 
-Next.jsプロジェクトでPinoを使用したロギングのサンプルコードです。
+### 1. ロガーの利用場所
 
-## 📁 作成したファイル
+- ログ出力は `utils/logger.ts` の `logger` に統一する
+- クライアントコンポーネントで直接ログ出力しない（サーバー側で記録する）
+- `console.log` / `console.error` の常用は禁止し、検証用に限定する
 
-### 1. `lib/logger.ts`
+### 2. 出力形式と環境別設定
 
-Pinoロガーの設定ファイル
+- **開発環境**: `pino-pretty` による可読性重視の出力
+- **本番環境**: JSON形式の構造化ログを出力
+- ログレベルは `LOG_LEVEL` で制御し、未指定時は `info` を使用する
 
-- **開発環境**: `pino-pretty`で見やすいカラー出力
-- **本番環境**: JSON形式で構造化ログ
-- **ブラウザ対応**: クライアントサイドでは何もしないダミーロガーを返す
+### 3. ログレベル運用
 
-### 2. `app/api/log-sample/route.ts`
+- `debug`: 詳細なデバッグ情報（本番では最小化）
+- `info`: 正常系の開始・完了、業務イベント
+- `warn`: リトライ可能な失敗、想定内の異常入力
+- `error`: 処理失敗や例外発生（継続可能）
+- `fatal`: プロセス継続が難しい致命的障害
 
-API Routeでのログ使用例
+### 4. 構造化ログの必須項目
 
-- 基本的なログレベル（info, debug, warn, error, fatal）
-- 構造化ログ（オブジェクト形式）
-- エラーハンドリングとスタックトレース
-- GET/POSTの両方のサンプル
+- 文字列連結ではなくオブジェクトで出力する
+- 追跡のために `action` / `status` / `userId` / `requestId` などのコンテキストを付与する
+- パフォーマンス計測時は `duration`（ms）を含める
 
-### 3. `app/log-example/page.tsx`
+### 5. エラーログの方針
 
-Server Componentでのログ使用例
+- 例外発生時は `error.message` と `error.stack` を記録する
+- 「どの処理で失敗したか」が分かる `context` を必ず付与する
+- 監視側で集計しやすいように、メッセージは短く一貫した文言にする
 
-- ページレンダリング時のログ
-- データフェッチのログ
-- パフォーマンス測定
+### 6. セキュリティとマスキング
 
-## 🚀 使い方
+- パスワード、トークン、Cookie、個人情報（PII）は出力しない
+- 必要な場合はマスク（例: メールアドレスの一部伏せ字）して記録する
+- リクエストボディ全体の生ログ保存は禁止する
 
-### 1. 開発サーバーを起動
+### 7. 追跡性（トレーサビリティ）
 
-\`\`\`bash
-npm run dev
-\`\`\`
-
-### 2. サンプルページにアクセス
-
-ブラウザで以下にアクセス:
-\`\`\`
-http://localhost:3001/log-example
-\`\`\`
-
-ターミナルに以下のようなログが出力されます（開発環境）:
-\`\`\`
-[15:00:00] INFO: Log example page rendered
-[15:00:00] INFO (fetchData): Fetching data...
-action: "fetchData"
-status: "started"
-[15:00:00] INFO (fetchData): Data fetched successfully
-action: "fetchData"
-status: "success"
-duration: 5
-count: 3
-\`\`\`
-
-### 3. API Routeをテスト
-
-#### 成功ケース
-
-\`\`\`bash
-curl "http://localhost:3001/api/log-sample?user=john&action=login"
-\`\`\`
-
-#### エラーケース
-
-\`\`\`bash
-curl "http://localhost:3001/api/log-sample?user=john&action=error"
-\`\`\`
-
-#### POSTリクエスト
-
-\`\`\`bash
-curl -X POST http://localhost:3001/api/log-sample \
- -H "Content-Type: application/json" \
- -d '{"username":"john","email":"john@example.com"}'
-\`\`\`
-
-## 📊 ログレベル
-
-| レベル    | 用途         | 例                                     |
-| --------- | ------------ | -------------------------------------- |
-| **debug** | デバッグ情報 | 詳細な変数の値、処理の流れ             |
-| **info**  | 一般的な情報 | リクエスト受信、処理完了               |
-| **warn**  | 警告         | バリデーションエラー、非推奨機能の使用 |
-| **error** | エラー       | リクエスト失敗、予期しないエラー       |
-| **fatal** | 致命的エラー | アプリケーションのクラッシュ           |
-
-## 🎨 ログの書き方
-
-### 基本的な使い方
-
-\`\`\`typescript
-import logger from '@/lib/logger'
-
-logger.info('シンプルなメッセージ')
-\`\`\`
-
-### 構造化ログ（推奨）
-
-\`\`\`typescript
-logger.info(
-{
-userId: '123',
-action: 'login',
-timestamp: new Date().toISOString(),
-ip: '192.168.1.1',
-},
-'ユーザーがログインしました'
-)
-\`\`\`
-
-### エラーログ
-
-\`\`\`typescript
-try {
-// 処理
-} catch (error) {
-logger.error(
-{
-error: error instanceof Error ? error.message : 'Unknown error',
-stack: error instanceof Error ? error.stack : undefined,
-context: { userId: '123' },
-},
-'エラーが発生しました'
-)
-}
-\`\`\`
-
-### パフォーマンス測定
-
-\`\`\`typescript
-const startTime = Date.now()
-
-// 処理
-
-logger.info(
-{
-duration: Date.now() - startTime,
-operation: 'データベースクエリ',
-},
-'処理完了'
-)
-\`\`\`
-
-## ⚙️ 環境変数
-
-\`.env.local\` で設定可能:
-
-\`\`\`env
-
-# ログレベル (debug, info, warn, error, fatal)
-
-LOG_LEVEL=info
-
-# 環境
-
-NODE_ENV=development
-\`\`\`
-
-## 📝 本番環境での出力
-
-本番環境ではJSON形式で出力されます:
-
-\`\`\`json
-{"level":"info","time":1702123456789,"env":"production","msg":"User action logged","user":"john","action":"login","timestamp":"2024-12-09T15:00:00.000Z","ip":"192.168.1.1"}
-\`\`\`
-
-この形式はログ収集ツール（Datadog, CloudWatch, etc.）で簡単にパースできます。
-
-## 🔍 ベストプラクティス
-
-1. **構造化ログを使う**: 文字列の連結ではなく、オブジェクトで情報を渡す
-2. **適切なレベルを選ぶ**: debug < info < warn < error < fatal
-3. **機密情報を含めない**: パスワード、トークンなどはログに出力しない
-4. **コンテキストを含める**: userId, requestId など追跡に必要な情報を含める
-5. **エラーにはスタックトレースを**: デバッグが容易になる
-
-## 📚 参考リンク
-
-- [Pino公式ドキュメント](https://getpino.io/)
-- [pino-pretty](https://github.com/pinojs/pino-pretty)
+- APIリクエスト単位で `requestId` を採番・伝播する
+- 主要業務イベントには `action` と結果ステータスを付与し、時系列で追える形にする
+- フロントイベントを記録する場合も、サーバー側に集約して同じスキーマで扱う

@@ -2,6 +2,9 @@ import type { NextConfig } from "next"
 import securityHeaders from "./headers"
 
 const config: NextConfig = {
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
   reactStrictMode: true,
   reactCompiler: true,
   images: {

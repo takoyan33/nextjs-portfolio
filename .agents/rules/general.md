@@ -43,11 +43,18 @@ alwaysApply: true
 ## ドキュメント構成
 
 - `docs/guide.md` : プロジェクト概要
-- `.cursor/rules/react.mdc` : React関連の指示
-- `.cursor/rules/storybook.mdc` : Storybook関連の指示
-- `.cursor/rules/test.mdc` : テスト関連の指示
-- `.cursor/rules/docs.mdc` : 設計書関連の指示
-- `.cursor/rules/general.mdc` : その他
+- `docs/ai.md` : AI関連
+- `docs/design.md` : デザインシステム
+- `docs/docker.md` : Docker概要
+- `docs/pino.md` : ログ設計概要
+
+
+rules関連
+- `.agents/rules/react.md` : React関連の指示
+- `.agents/rules/storybook.mdc` : Storybook関連の指示
+- `.agents/rules/test.mdc` : テスト関連の指示
+- `.agents/rules/docs.mdc` : 設計書関連の指示
+- `.agents/rules/general.mdc` : その他
 
 ---
 
