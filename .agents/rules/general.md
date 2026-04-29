@@ -44,6 +44,7 @@ alwaysApply: true
 
 - `docs/guide.md` : プロジェクト概要
 - `docs/ai.md` : AI関連
+- `docs/api.md` : API関連
 - `docs/design.md` : デザインシステム
 - `docs/docker.md` : Docker概要
 - `docs/pino.md` : ログ設計概要
