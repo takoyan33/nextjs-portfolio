@@ -11,7 +11,7 @@ import { CareerHistoryTimeline } from "@/components/ui/rsc"
 import ScrollComponent from "@/hooks/use-fadeIn"
 import { PATH } from "@/utils/path"
 
-export const dynamic = "force-static"
+// export const dynamic = "force-static"
 
 export default function Home() {
   return (

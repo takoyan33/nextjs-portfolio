@@ -3,7 +3,7 @@ import "@/styles/page/_policy.scss"
 import { PATH } from "@/utils/path"
 import type { Metadata } from "next"
 
-export const dynamic = "force-static"
+// export const dynamic = "force-static"
 
 export const metadata: Metadata = {
   title: "To You Design - プライバシーポリシー",
