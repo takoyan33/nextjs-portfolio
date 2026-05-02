@@ -12,6 +12,7 @@ import type {
   ResponseSkillDetail,
   ResponseSkills,
 } from "../types"
+import { backendUrl } from "../utils/backend-url"
 import { CACHE_OPTIONS } from "../utils/data"
 
 /**
@@ -157,15 +158,13 @@ export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolio}
  */
 export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePortfolio> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`,
-    CACHE_OPTIONS,
-  )
+  const portfolioId = Array.isArray(id) ? id[0] : id
+  const response = await fetch(backendUrl(`api/v1/portfolios/${portfolioId}/`), CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
-    console.error(`Failed to fetch portfolio ${id}: ${response.status} - ${errorText}`)
-    throw new Error(`Failed to fetch portfolio ${id}: ${response.status}`)
+    console.error(`Failed to fetch portfolio ${portfolioId}: ${response.status} - ${errorText}`)
+    throw new Error(`Failed to fetch portfolio ${portfolioId}: ${response.status}`)
   }
 
   return response.json()
