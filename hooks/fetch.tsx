@@ -36,10 +36,7 @@ export const fetchHistories = async (): Promise<ResponseHistory> => {
  * @return {ResponseHistory}
  */
 export const fetchHistory = async (id: string): Promise<ResponseHistoryDetail> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/histories/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.BASE_API_URL}api/v1/histories/${id}/`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -105,10 +102,7 @@ export const fetchLicenses = async (): Promise<ResponseLicense> => {
  * @return {ResponseJob}
  */
 export const fetchLicense = async (id: string): Promise<ResponseLicenseDetail> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/licenses/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.BASE_API_URL}api/v1/licenses/${id}/`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -157,10 +151,7 @@ export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolio}
  */
 export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePortfolio> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/portfolios/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.BASE_API_URL}api/v1/portfolios/${id}/`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
