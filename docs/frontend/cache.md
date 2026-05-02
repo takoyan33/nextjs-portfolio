@@ -6,7 +6,7 @@
 - Data Cacheがない場合は、再度データを取得し、Data Cacheを更新します。
 
 /blog
-- 約1ヶ月毎に更新している為、1ヶ月間はキャッシュを利用します。(ISR化)
+- ISRで1日ごとのキャッシュを更新します。
 
 /admin
 - データを更新後revalidatePath()で、キャッシュエントリを削除し、更新します。
@@ -15,13 +15,16 @@
 
 # レンダリング形式
 
+- SSR (サーバーサイドレンダリング)
+
 Page Routes
-/about
-/blog
-/admin
-/404
+/contact
+/500
+/admin 配下
 
 API Routes
+/api/histories
+/api/jobs
 /api/licenses
 /api/skills/back
 /api/skills/front
@@ -29,20 +32,12 @@ API Routes
 /api/skills/other
 /api/portfolios
 
-- SSR (サーバーサイドレンダリング)
+- ISR 
+/blog 1日ごとのキャッシュを更新します。
 
-Page Routes
+- SSG (静的サイト生成)
 /
+/about
 /portfolios
 /privacy-policy
 /maintenance
-/contact
-/500
-
-- SSR
-
-API Routes
-/api/histories
-/api/jobs
-
-- SSG (静的サイト生成)

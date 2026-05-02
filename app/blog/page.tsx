@@ -29,7 +29,7 @@ const Blog = async ({ searchParams }: BlogPageProps) => {
   try {
     logger.info("Fetching Zenn articles")
     const response = await fetch("https://zenn.dev/api/articles?username=643866", {
-      next: { revalidate: 60 * 60 * 24 * 30 }, // 30日間キャッシュ
+      next: { revalidate: 60 * 60 * 24 * 1 }, // 1日間キャッシュ
     })
     zennArticles = await response.json()
     logger.info(
