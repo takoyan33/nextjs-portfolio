@@ -27,7 +27,7 @@ export async function GET() {
     if (data.status !== "SUCCESS") {
       console.log(messages[data.status] || "Unknown error occurred")
     }
-    return NextResponse.json(data)
+    return NextResponse.json(data, { status: response.status })
   } catch (error) {
     console.error("Error fetching data:", error)
     return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 })
