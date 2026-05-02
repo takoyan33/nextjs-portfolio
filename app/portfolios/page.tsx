@@ -7,7 +7,7 @@ import type { Metadata } from "next"
 import { Suspense } from "react"
 import { PortfolioType } from "../types"
 
-// export const dynamic = "force-static"
+export const dynamic = "force-static"
 
 export const metadata: Metadata = {
   title: "To You Design - Portfolio",

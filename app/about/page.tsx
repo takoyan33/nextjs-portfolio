@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "To You Design - About",
 }
 
-// export const dynamic = "force-static"
+export const dynamic = "force-static"
 
 const About = () => {
   return (
