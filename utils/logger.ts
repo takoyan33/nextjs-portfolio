@@ -1,6 +1,6 @@
 import pino from "pino"
 
-const isDev = process.env.NODE_ENV !== "production"
+const isDev = process.env.NODE_ENV !== "production" && process.env.VERCEL !== "1"
 
 // 開発環境かつサーバーサイドの場合のみ pino-pretty を使用
 // Next.js (Turbopack) 環境下で transport を使うと worker のパス解決エラーになるため、
