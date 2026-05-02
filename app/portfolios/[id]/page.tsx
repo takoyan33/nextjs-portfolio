@@ -4,14 +4,23 @@ import "@/styles/page/_portfolioId.scss"
 import { logger } from "@/utils/logger"
 import { notFound } from "next/navigation"
 
-export const dynamic = "force-static"
+/**
+ * 動的 [id] はオンデマンド／ISR で生成する
+ */
+export const revalidate = 3600
 
 export default async function PortfolioPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
 
-  const portfolio = await fetchPortfolio(id)
+  let portfolio: Awaited<ReturnType<typeof fetchPortfolio>>
+  try {
+    portfolio = await fetchPortfolio(id)
+  } catch {
+    notFound()
+  }
+
   logger.info({ data: portfolio?.data, status: portfolio?.status }, `/portfolios/${id}`)
-  if (portfolio.status == 404 || !portfolio.data) {
+  if (!portfolio.data || portfolio.status === 404) {
     notFound()
   }
 
