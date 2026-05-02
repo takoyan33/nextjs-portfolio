@@ -7,14 +7,14 @@ STAGED_FILES=$(git diff --cached --name-only)
 
 # 次のいずれか「だけ」の変更なら format / lint / build / test をスキップ:
 # - *.md
-# - .agents/ .codex/ .cursor/ .gemini/ .husky/ .github/ docs/ public/ .vscode/ perf/ mocks/ 配下
+# - .agents/ .codex/ .cursor/ .gemini/ .husky/ .github/ docs/ public/ .vscode/ perf/ mocks/ .serena/ 配下
 # grep . は一致なしで exit 1 のため || true（set -e 対策）
 NON_TARGET_FILES=$(printf '%s\n' "$STAGED_FILES" \
-  | grep -vE '\.md$|^\.agents/|^\.codex/|^\.cursor/|^\.gemini/|^\.husky/|^\.github/|^\.docs/|^\public/|^\.vscode/|^\perf/|^\mocks/' \
+  | grep -vE '\.md$|^\.agents/|^\.codex/|^\.cursor/|^\.gemini/|^\.husky/|^\.github/|^\.docs/|^\public/|^\.vscode/|^\perf/|^\mocks/|^\.serena/' \
   | grep . || true)
 
 if [ -z "$NON_TARGET_FILES" ]; then
-  echo "Only *.md or under .agents / .codex / .cursor / .gemini / .husky / .github / .docs / public / .vscode perf/ mocks/ Skipping format, lint, typecheck, build, and tests."
+  echo "Only *.md or under .agents / .codex / .cursor / .gemini / .husky / .github / .docs / public / .vscode perf/ mocks/ .serena/ Skipping format, lint, typecheck, build, and tests."
   echo "----- end pre-commit (skipped) -------"
   exit 0
 fi

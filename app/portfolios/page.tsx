@@ -17,7 +17,9 @@ const Portfolio = async ({ searchParams }: { searchParams: { order?: "new" | "ol
   const res = await fetchPortfoliosFront()
   const portfolios: PortfolioType[] = res.data ?? []
 
-  const sorted = [...portfolios]
+  const sorted = [
+    ...portfolios.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+  ]
 
   if (searchParams.order === "new") {
     sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
