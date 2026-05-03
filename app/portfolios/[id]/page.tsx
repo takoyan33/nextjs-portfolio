@@ -1,13 +1,19 @@
 import { PortfolioDetail } from "@/app/portfolios/[id]/portfolio-detail"
-import { fetchPortfolio } from "@/hooks/fetch"
+import { fetchPortfolio, fetchPortfoliosFront } from "@/hooks/fetch"
 import "@/styles/page/_portfolioId.scss"
 import { logger } from "@/utils/logger"
 import { notFound } from "next/navigation"
 
-/**
- * 動的 [id] はオンデマンド／ISR で生成する
- */
-export const revalidate = 3600
+export const dynamic = "force-static"
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const res = await fetchPortfoliosFront()
+
+  return (res.data ?? []).map((portfolio) => ({
+    id: String(portfolio.id),
+  }))
+}
 
 export default async function PortfolioPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
