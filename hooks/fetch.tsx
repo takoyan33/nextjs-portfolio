@@ -19,7 +19,7 @@ import { CACHE_OPTIONS } from "../utils/data"
  * @return {ResponseHistory}
  */
 export const fetchHistories = async (): Promise<ResponseHistory> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/histories`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -36,7 +36,7 @@ export const fetchHistories = async (): Promise<ResponseHistory> => {
  * @return {ResponseHistory}
  */
 export const fetchHistory = async (id: string): Promise<ResponseHistoryDetail> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/histories/${id}/`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/histories/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -52,7 +52,7 @@ export const fetchHistory = async (id: string): Promise<ResponseHistoryDetail> =
  * @return {ResponseJob}
  */
 export const fetchJobs = async (): Promise<ResponseJob> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/jobs`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -69,7 +69,7 @@ export const fetchJobs = async (): Promise<ResponseJob> => {
  * @return {ResponseJob}
  */
 export const fetchJob = async (id: string): Promise<ResponseJobDetail> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/jobs/${id}/`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/jobs/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -85,7 +85,7 @@ export const fetchJob = async (id: string): Promise<ResponseJobDetail> => {
  * @return {ResponseLicense}
  */
 export const fetchLicenses = async (): Promise<ResponseLicense> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/licenses`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -102,7 +102,7 @@ export const fetchLicenses = async (): Promise<ResponseLicense> => {
  * @return {ResponseJob}
  */
 export const fetchLicense = async (id: string): Promise<ResponseLicenseDetail> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/licenses/${id}/`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/licenses/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -118,7 +118,7 @@ export const fetchLicense = async (id: string): Promise<ResponseLicenseDetail> =
  * @returns {ResponsePortfolios}
  */
 export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/portfolios`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -134,7 +134,7 @@ export const fetchPortfoliosFront = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolios}
  */
 export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/portfolios`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -151,7 +151,7 @@ export const fetchPortfolios = async (): Promise<ResponsePortfolios> => {
  * @return {ResponsePortfolio}
  */
 export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePortfolio> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/portfolios/${id}/`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/portfolios/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -167,7 +167,7 @@ export const fetchPortfolio = async (id: string | string[]): Promise<ResponsePor
  * @return {ResponseSkills}
  */
 export const fetchFrontSkills = async (): Promise<ResponseSkills> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/front_skills`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -184,10 +184,7 @@ export const fetchFrontSkills = async (): Promise<ResponseSkills> => {
  * @return {ResponseSkillDetail}
  */
 export const fetchFrontSkill = async (id: string): Promise<ResponseSkillDetail> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/front_skills/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/front/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -203,7 +200,7 @@ export const fetchFrontSkill = async (id: string): Promise<ResponseSkillDetail> 
  * @return {ResponseSkills}
  */
 export const fetchBackSkills = async (): Promise<ResponseSkills> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/back_skills`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -220,10 +217,7 @@ export const fetchBackSkills = async (): Promise<ResponseSkills> => {
  * @return {ResponseSkillDetail}
  */
 export const fetchBackSkill = async (id: string): Promise<ResponseSkillDetail> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/back_skills/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/back/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -239,7 +233,7 @@ export const fetchBackSkill = async (id: string): Promise<ResponseSkillDetail> =
  * @return {ResponseSkills}
  */
 export const fetchInfraSkills = async (): Promise<ResponseSkills> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/infra_skills`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -256,10 +250,7 @@ export const fetchInfraSkills = async (): Promise<ResponseSkills> => {
  * @return {ResponseSkillDetail}
  */
 export const fetchInfraSkill = async (id: string): Promise<ResponseSkillDetail> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/infra_skills/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/infra/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -275,7 +266,7 @@ export const fetchInfraSkill = async (id: string): Promise<ResponseSkillDetail> 
  * @return {ResponseSkills}
  */
 export const fetchOtherSkills = async (): Promise<ResponseSkills> => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/other_skills`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -292,10 +283,7 @@ export const fetchOtherSkills = async (): Promise<ResponseSkills> => {
  * @return {ResponseSkillDetail}
  */
 export const fetchOtherSkill = async (id: string): Promise<ResponseSkillDetail> => {
-  const response = await fetch(
-    `${process.env.BASE_API_URL}api/v1/other_skills/${id}/`,
-    CACHE_OPTIONS,
-  )
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/skills/other/${id}`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
@@ -310,7 +298,7 @@ export const fetchOtherSkill = async (id: string): Promise<ResponseSkillDetail> 
  * プロフィールの取得
  */
 export const fetchProfile = async () => {
-  const response = await fetch(`${process.env.BASE_API_URL}api/v1/profiles`, CACHE_OPTIONS)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/profiles`, CACHE_OPTIONS)
 
   if (!response.ok) {
     const errorText = await response.text()
