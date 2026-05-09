@@ -8,6 +8,26 @@ alwaysApply: false
 
 ## React コンポーネント作成規則
 
+
+### fetch
+
+- データフェッチはServer Componentsで行うこと
+- server-onlyを利用してモジュールを保護すること
+- 末端のコンポーネントへデータフェッチをコロケーションすること
+- N+1データフェッチが発生しないように避ける
+  参考： https://zenn.dev/akfm/books/nextjs-basic-principle/viewer/part_1_data_loader
+- fetch関数はデフォルトでキャッシュが無効になっている
+
+
+### Server Functions
+- ユーザー操作にともなってデータを操作し、その後の結果を再取得などの場合は、Server ActionsとrevalidatePath()/revalidateTag()を組み合わせ実行することで実現する
+
+### キャッシュ
+
+`../../docs/cache.md`
+
+### シンプルなコンポーネントの場合
+
 - クラスコンポーネントではなく、**関数コンポーネントとフックを使ってください**。
 - props は TypeScript の  `type` で定義してください。
 - スタイリングには **SCSS/CSS Module** を使用してください（ファイル名: `ComponentName.module.scss`）。
@@ -44,3 +64,15 @@ const Button = ({ label, onClick, disabled = false }: ButtonProps) => {
 
 export default Button
 ```
+
+### 複雑なコンポーネントの場合
+
+- Container/Presentationalパターンでコンポーネント設計を行う
+  - 責務を分けられる点とサーバーコンポーネントのテスト対応が不十分な部分があるため。
+- 参考： https://zenn.dev/akfm/books/nextjs-basic-principle/viewer/part_2_container_presentational_pattern
+- コンテナーはロジックを持たず、プレゼンテーション層はロジックを持つ
+- コンテナーはプレゼンテーション層を参照し、プレゼンテーション層はコンテナーを参照する
+
+例：
+- `app/(home)/_containers/home-portfolio-slide/home-portfolio-slide-client.tsx`
+- `app/(home)/_containers/home-portfolio-slide/home-portfolio-slide-item.tsx`

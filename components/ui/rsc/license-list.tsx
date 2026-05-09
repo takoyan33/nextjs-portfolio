@@ -6,10 +6,7 @@ import { fetchLicenses } from "hooks/fetch"
  */
 export const LicenseList = async () => {
   const data = await fetchLicenses()
-  logger.info(
-    { length: data?.data?.length, data: data?.data?.[0], status: data?.status },
-    "/licenses",
-  )
+  logger.info({ length: data.data?.length, data: data.data?.[0], status: data.status }, "/licenses")
   return (
     <table className="license__table">
       <tbody>
