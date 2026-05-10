@@ -17,6 +17,7 @@ alwaysApply: false
 - N+1データフェッチが発生しないように避ける
   参考： https://zenn.dev/akfm/books/nextjs-basic-principle/viewer/part_1_data_loader
 - fetch関数はデフォルトでキャッシュが無効になっている
+- 基本的には`cache: "force-cache"`を設定する
 
 
 ### Server Functions
