@@ -22,28 +22,23 @@ jobs:
       # リポジトリをチェックアウト
       - uses: actions/checkout@v4
 
+      # pnpmセットアップ
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.0.0
+          run_install: false
+
       # Node.jsセットアップ
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
 
-      # Corepack有効化
-      # Node標準のパッケージマネージャ管理ツール
-      - name: Enable Corepack
-        run: corepack enable
-
-      # pnpmバージョン固定
-      # ローカル環境とCIのpnpmを一致させる
-      - name: Prepare pnpm
-        run: corepack prepare pnpm@10.0.0 --activate
-
       # Node / pnpm / Corepack のバージョン確認
       # CIトラブル時のデバッグ用
       - name: Check versions
         run: |
           node -v
-          corepack --version
           pnpm -v
 
       # 依存関係インストール
