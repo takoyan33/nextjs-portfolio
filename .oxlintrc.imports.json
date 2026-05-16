@@ -10,20 +10,12 @@
     "stylelintrc.mjs"
   ],
   "rules": {
-    "no-unused-vars": "error",
-    "react-hooks/rules-of-hooks": "off",
     "import-js/order": [
-      "warn",
+      "error",
       {
         "alphabetize": { "order": "asc", "caseInsensitive": true },
         "newlines-between": "always"
       }
-    ],
-    "prefer-const": "error",
-    "react/jsx-no-target-blank": "error",
-    "no-unused-expressions": "warn",
-    "no-var": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/no-explicit-any": ["off"]
+    ]
   }
 }
