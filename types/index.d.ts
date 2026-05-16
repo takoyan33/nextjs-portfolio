@@ -289,3 +289,21 @@ export interface MenuItem {
   title: string
   link: string
 }
+
+/**
+ * プロフィールの型定義
+ *
+ * @returns status: データ成功かの判定
+ * @returns data: プロフィール
+ */
+export interface ResponseProfiles {
+  status: "SUCCESS" | "PENDING" | 404 | 500
+  data: [
+    {
+      id: number
+      content: string
+      hobby: string
+      license: string
+    },
+  ]
+}

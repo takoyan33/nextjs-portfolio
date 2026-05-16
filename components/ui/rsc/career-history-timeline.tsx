@@ -9,10 +9,10 @@ import { logger } from "@/utils/logger"
 export const CareerHistoryTimeline = async () => {
   const json = await fetchHistories()
   logger.info(
-    { length: json?.data?.length, data: json?.data?.[0], status: json?.status },
+    { length: json.data?.length, data: json.data?.[0], status: json.status },
     "/histories",
   )
-  const histories = Array.isArray(json?.data) ? json.data : []
+  const histories = Array.isArray(json.data) ? json.data : []
 
   return (
     <div className={styles.timeline}>
