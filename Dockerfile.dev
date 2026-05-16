@@ -5,16 +5,13 @@ FROM node:20-alpine
 WORKDIR /usr/src/app
 
 # Copy only package files first
-COPY package.json yarn.lock ./
-
-# Use local cache dir for yarn
-RUN yarn config set cache-folder /usr/src/app/.yarn-cache
+COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies
-RUN yarn install
+RUN corepack enable && pnpm install --frozen-lockfile
 
 # Copy source code, but exclude node_modules
 COPY . .
 
 EXPOSE 3001
-CMD ["yarn", "dev"]
+CMD ["pnpm", "dev"]

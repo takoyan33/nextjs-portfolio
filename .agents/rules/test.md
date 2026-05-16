@@ -61,15 +61,15 @@ alwaysApply: false
 
 ```bash
 # テスト実行
-yarn test
+pnpm test
 
 # ウォッチモード
-yarn test:watch
+pnpm test:watch
 
 # カバレッジ確認
-yarn test:coverage
+pnpm test:coverage
 
 # E2Eテスト
-yarn playwright
-yarn playwright:ui
+pnpm playwright
+pnpm playwright:ui
 ```

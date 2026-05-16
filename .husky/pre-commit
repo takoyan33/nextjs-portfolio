@@ -21,27 +21,27 @@ fi
 
 
 # コードフォーマット
-yarn format
+pnpm format
 
 # リンター（OxLint）
-yarn lint
+pnpm lint
 
 # スタイルリンター（Stylelint）
-yarn lint:stylelint
+pnpm lint:stylelint
 
 # フォーマットチェック
-yarn format:check
+pnpm format:check
 
 # 型チェック
-yarn typecheck
+pnpm typecheck
 
 # ビルド（型チェックも含む）
-yarn build
+pnpm build
 
 # Storybookビルド
-yarn build-storybook
+pnpm build-storybook
 
 # テスト（Node環境）
-yarn test --project node
+pnpm test --project node
 
 echo "----- end pre-commit -------"

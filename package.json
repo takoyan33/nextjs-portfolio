@@ -18,6 +18,7 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch",
     "playwright": "playwright test",
+    "playwright:install": "playwright install",
     "playwright:ui": "playwright test --ui",
     "commitmsg": "commitlint --edit",
     "unlighthouse": "npx unlighthouse --site http://localhost:3001",
@@ -82,7 +83,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/browser": "^4.0.13",
     "@vitest/browser-playwright": "^4.0.13",
-    "@vitest/coverage-v8": "2.1.9",
+    "@vitest/coverage-v8": "^4.1.6",
     "@vitest/ui": "^4.0.13",
     "artillery": "^2.0.27",
     "husky": "^9.1.4",
@@ -98,11 +99,13 @@
     "vitest": "^4.0.13",
     "vitest-browser-react": "^2.0.2"
   },
-  "resolutions": {
-    "@types/react": "19.2.14",
-    "fast-xml-parser": "4.3.6"
+  "packageManager": "pnpm@10.0.0",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.14",
+      "fast-xml-parser": "4.3.6"
+    }
   },
-  "packageManager": "yarn@4.12.0",
   "msw": {
     "workerDirectory": [
       "public"

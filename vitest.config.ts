@@ -28,7 +28,16 @@ export default defineConfig({
           environment: "jsdom",
           browser: {
             enabled: true,
-            provider: playwright(),
+            headless: true,
+            viewport: {
+              width: 414,
+              height: 896,
+            },
+            provider: playwright({
+              contextOptions: {
+                deviceScaleFactor: 1,
+              },
+            }),
             instances: [
               {
                 browser: "chromium",
@@ -36,7 +45,6 @@ export default defineConfig({
             ],
             expect: {
               toMatchScreenshot: {
-                // 環境差異による微細なズレを許容するためのしきい値
                 comparatorOptions: {
                   threshold: 0.2,
                 },

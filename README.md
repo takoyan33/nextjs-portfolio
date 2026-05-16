@@ -26,7 +26,7 @@
 ### Node.js バージョン
 - Node.js: v24.1.0
 - npm: v11.3.0
-- yarn: v4.12.0
+- pnpm: v10.x
 
 ### フロントエンド
 - [Next.js](https://nextjs.org/) v16.0.10
@@ -112,35 +112,41 @@ developブランチが開発環境でmainが本番環境です。
 ## コマンド
 
 ```bash
+# 依存関係のインストール
+pnpm install
+
+# ブラウザテスト / E2E 用ブラウザの導入
+pnpm playwright:install
+
 # 開発環境起動
-yarn dev
+pnpm dev
 
 # モック環境で起動
-yarn dev:mock
+pnpm dev:mock
 
 # ビルド
-yarn build
+pnpm build
 
 # 本番環境起動
-yarn start
+pnpm start
 
 # Lint実行
-yarn lint
+pnpm lint
 
 # 通常のTest実行
-yarn test --project node
+pnpm test --project node
 
 # Vitest Browse modeでのTest実行
-yarn test --project browser
+pnpm test --project browser
 
 # Storybook起動
-yarn storybook
+pnpm storybook
 
 # Playwright起動
-yarn playwright
+pnpm playwright
 
 # Lighthouse起動
-yarn unlighthouse
+pnpm unlighthouse
 ```
 
 # Author
