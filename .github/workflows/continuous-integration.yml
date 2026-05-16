@@ -13,10 +13,6 @@ jobs:
     # 実行環境（GitHubのUbuntuランナー）
     runs-on: ubuntu-latest
 
-    env:
-      # node_modules方式で依存関係をインストール
-      YARN_NODE_LINKER: node-modules
-
     # Node.jsのマトリックス設定
     strategy:
       matrix:
@@ -26,42 +22,38 @@ jobs:
       # リポジトリをチェックアウト
       - uses: actions/checkout@v4
 
-      # Node.jsセットアップ
-      - uses: actions/setup-node@v3
+      # pnpmセットアップ
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 24.x
+          version: 10.0.0
+          run_install: false
 
-      # Corepack有効化
-      # Node標準のパッケージマネージャ管理ツール
-      - name: Enable Corepack
-        run: corepack enable
+      # Node.jsセットアップ
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
 
-      # Yarnバージョン固定
-      # ローカル環境とCIのYarnを一致させる
-      - name: Prepare Yarn
-        run: corepack prepare yarn@4.12.0 --activate
-
-      # Node / Yarn / Corepack のバージョン確認
+      # Node / pnpm / Corepack のバージョン確認
       # CIトラブル時のデバッグ用
       - name: Check versions
         run: |
           node -v
-          corepack --version
-          yarn -v
+          pnpm -v
 
       # 依存関係インストール
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install --frozen-lockfile
 
       # コードフォーマットチェック
       # Prettierなどでフォーマットが崩れていないか確認
       - name: Format code
-        run: yarn format:check
+        run: pnpm format:check
 
       # Lintチェック
       # ESLintなどによるコード品質チェック
       - name: Lint code
-        run: yarn lint
+        run: pnpm lint
 
       # React Doctor 実行
       # Reactのアンチパターンやパフォーマンス問題を検出

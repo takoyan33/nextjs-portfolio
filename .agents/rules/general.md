@@ -12,9 +12,9 @@ alwaysApply: true
 - 作業項目が多い場合は、段階に区切り、git commit を行いながら進めること
 - semantic commit を使用する
 - コマンドの出力が確認できない場合、適切なツールを使用して確認すること
-- yarn コマンドで基本実施する
+- pnpm コマンドで基本実施する
 - マージ、リバートをする際は、許可を得てから行うこと
-- yarn dev:mockでローカル環境を立ち上げる
+- pnpm dev:mockでローカル環境を立ち上げる
 - スキルセット項目のsvgアイコンは、https://svgl.app/ のSVG画像を利用しています。
 
 ---
@@ -61,8 +61,8 @@ rules関連
 
 ## MCP Server
 
-- MCP Serverを起動の際は、`yarn dev:mock` で動かす
-- StorybookのMCP Serverは、`yarn storybook` で動かす
+- MCP Serverを起動の際は、`pnpm dev:mock` で動かす
+- StorybookのMCP Serverは、`pnpm storybook` で動かす
 
 ### 設定ファイル
 

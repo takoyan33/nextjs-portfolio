@@ -1,3 +1,3 @@
 #!/bin/bash
-yarn format
-yarn lint
+pnpm format
+pnpm lint
