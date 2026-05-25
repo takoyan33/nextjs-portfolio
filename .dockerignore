@@ -1,5 +1,5 @@
 node_modules
-.yarn/cache
+.git
 .next
 .DS_Store
 *.log

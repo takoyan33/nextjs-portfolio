@@ -1,17 +1,20 @@
-# Use official Node.js image as base
+# Node.js 公式イメージをベースに使用
 FROM node:20-alpine
 
-# Create app directory
+# アプリケーション用ディレクトリを作成
 WORKDIR /usr/src/app
 
-# Copy only package files first
+# package ファイルのみ先にコピー
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
+# pnpm を有効化して依存関係をインストール
 RUN corepack enable && pnpm install --frozen-lockfile
 
-# Copy source code, but exclude node_modules
+# ソースコードをコピー（node_modules は .dockerignore 推奨）
 COPY . .
 
+# 使用ポートを公開
 EXPOSE 3001
-CMD ["pnpm", "dev"]
+
+# 開発サーバーを起動
+CMD ["pnpm", "dev:mock"]
