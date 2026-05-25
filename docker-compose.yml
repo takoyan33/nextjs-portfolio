@@ -1,15 +1,24 @@
 version: "3.8"
+
 services:
   front:
+    # Dockerfile.dev を使用してビルド
     build:
       context: .
       dockerfile: Dockerfile.dev
+    # ボリュームマウント設定
     volumes:
+      # ローカルのソースコードをコンテナへ同期
       - ./:/usr/src/app
+      # node_modules はコンテナ側を使用
       - /usr/src/app/node_modules
+    # ポート公開
     ports:
       - "3001:3001"
+    # 開発環境用の環境変数
     environment:
       - NODE_ENV=development
+      # Docker 上でファイル変更検知を有効化
       - CHOKIDAR_USEPOLLING=true
+    # コンテナ起動時に実行するコマンド
     command: pnpm dev

@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3001
 
 # 開発サーバーを起動
-CMD ["pnpm", "dev:mock"]
+CMD ["pnpm", "dev"]
