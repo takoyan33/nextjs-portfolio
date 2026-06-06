@@ -1,4 +1,5 @@
 import {
+  HomeBlog,
   HomePortfolioSlide,
   HomeSkills,
   HomeWaveBgBottom,
@@ -74,6 +75,25 @@ export default function Home() {
           </div>
         </section>
         <HomeWaveBgBottom />
+        {/* ここからBlog */}
+        <section className="news max_width">
+          <ScrollComponent>
+            <h2 className="main__title" data-ja="ブログ">
+              Blog
+            </h2>
+          </ScrollComponent>
+          <ScrollComponent>
+            <HomeBlog />
+            <LinkButton
+              text="ブログをさらに見る"
+              link={PATH.BLOG}
+              gtmEventCategory="home_blog"
+              gtmEventAction="click_more_blog"
+              gtmEventLabel="ホーム_ブログ_もっと見る"
+            />
+          </ScrollComponent>
+        </section>
+        <HomeWaveBgTop />
         {/* ここからcontact*/}
         <section className="contact">
           <div className="max_width">
