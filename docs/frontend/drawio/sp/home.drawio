@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e">
+  <diagram id="home-sp" name="Home SP">
+    <mxGraphModel dx="900" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="screen" value="Home ページ 画面構成 (SP)" style="swimlane;whiteSpace=wrap;html=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="310" height="1320" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-1" value="No1: ヘッダー&#xa;ハンバーガーナビ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="28" width="310" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-2" value="No2: FV&#xa;大見出し / 3Dモデル" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4284ff;fontColor=#4284ff;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="84" width="310" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-3" value="No3: About&#xa;画像 → テキスト縦積み" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="290" width="270" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-4" value="No4: Portfolio&#xa;Swiper 1.5枚表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fbff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="470" width="270" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-5" value="No5: History&#xa;タイムライン / CTA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="640" width="270" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-6" value="No6: Skill&#xa;カテゴリ別に縦積み" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f7fb;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="785" width="270" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-7" value="No7: Blog&#xa;Zenn 最新記事 / CTA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="965" width="270" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-8" value="No8: Contact&#xa;お問い合わせボックス" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4284ff;fontColor=#ffffff;strokeColor=none;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="1105" width="310" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-9" value="No9: フッター / TopBackButton" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="1245" width="310" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="spec" value="画面要素・機能仕様" style="swimlane;whiteSpace=wrap;html=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="370" y="40" width="420" height="1320" as="geometry"/>
+        </mxCell>
+        <mxCell id="table" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; style=&quot;border-collapse:collapse;&quot;&gt;&lt;tr&gt;&lt;th&gt;No&lt;/th&gt;&lt;th&gt;要素名&lt;/th&gt;&lt;th&gt;仕様・機能詳細&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No1&lt;/td&gt;&lt;td&gt;ヘッダー&lt;/td&gt;&lt;td&gt;モバイル幅ではナビゲーションをハンバーガーメニューに格納。RootLayout の Header を使用。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No2&lt;/td&gt;&lt;td&gt;FV&lt;/td&gt;&lt;td&gt;タイトル文字と Three.js モデルをファーストビュー内に表示。Canvas はクライアント側で描画。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No3&lt;/td&gt;&lt;td&gt;About&lt;/td&gt;&lt;td&gt;プロフィール画像、名前、本文、趣味、資格、SNSリンクを縦方向に配置。fetchProfile のデータを使用。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No4&lt;/td&gt;&lt;td&gt;Portfolio&lt;/td&gt;&lt;td&gt;Swiper breakpoints により 0px 以上は slidesPerView 1.5。カードクリックで /portfolios/[id] へ遷移。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No5&lt;/td&gt;&lt;td&gt;History&lt;/td&gt;&lt;td&gt;CareerHistoryTimeline を表示し、CTA で /about に遷移。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No6&lt;/td&gt;&lt;td&gt;Skill&lt;/td&gt;&lt;td&gt;4カテゴリのスキルを取得し、モバイルではカードを縦方向中心に表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No7&lt;/td&gt;&lt;td&gt;Blog&lt;/td&gt;&lt;td&gt;Zenn API 取得結果から最新3件を表示。取得失敗時または0件時は一覧を表示しない。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No8&lt;/td&gt;&lt;td&gt;Contact&lt;/td&gt;&lt;td&gt;青背景の Contact セクションに問い合わせフォームへの CTA を表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No9&lt;/td&gt;&lt;td&gt;フッター / 戻るボタン&lt;/td&gt;&lt;td&gt;Footer と右下固定の TopBackButton を表示。&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="spec">
+          <mxGeometry x="12" y="40" width="396" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="meta" value="&lt;b&gt;【メタデータ・技術仕様】&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Route: /&lt;/li&gt;&lt;li&gt;Rendering: force-static&lt;/li&gt;&lt;li&gt;Responsive: Portfolio は 0px 以上 1.5枚、768px 以上 3.5枚表示。&lt;/li&gt;&lt;li&gt;Conditional: Blog 記事0件は null、Portfolio は API失敗時に mock JSON。&lt;/li&gt;&lt;li&gt;Meta: RootLayout の siteConfig を利用。&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="spec">
+          <mxGeometry x="12" y="710" width="396" height="210" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

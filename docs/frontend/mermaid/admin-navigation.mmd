@@ -1,0 +1,53 @@
+%% 管理画面 画面遷移図（要認証）
+
+flowchart TB
+  ADMIN_LOGIN["Admin ログイン<br/>/admin"]
+  DASHBOARD["ダッシュボード<br/>/admin/dashboard"]
+
+  EDIT_PF_LIST["ポートフォリオ一覧<br/>/admin/edit/portfolio"]
+  EDIT_PF_DETAIL["ポートフォリオ編集<br/>/admin/edit/portfolio/:id"]
+
+  EDIT_SKILL["スキル一覧<br/>/admin/edit/skill"]
+  EDIT_SKILL_FRONT["フロント編集<br/>/admin/edit/skill/front/:id"]
+  EDIT_SKILL_BACK["バック編集<br/>/admin/edit/skill/back/:id"]
+  EDIT_SKILL_INFRA["インフラ編集<br/>/admin/edit/skill/infra/:id"]
+  EDIT_SKILL_OTHER["その他編集<br/>/admin/edit/skill/other/:id"]
+
+  EDIT_HISTORY_LIST["経歴一覧<br/>/admin/edit/history"]
+  EDIT_HISTORY_DETAIL["経歴編集<br/>/admin/edit/history/:id"]
+
+  EDIT_JOB_LIST["職歴一覧<br/>/admin/edit/job"]
+  EDIT_JOB_DETAIL["職歴編集<br/>/admin/edit/job/:id"]
+
+  EDIT_LICENSE_LIST["資格一覧<br/>/admin/edit/license"]
+  EDIT_LICENSE_DETAIL["資格編集<br/>/admin/edit/license/:id"]
+
+  ADMIN_LOGIN -->|"認証成功<br/>Cookie: auth=true"| DASHBOARD
+  ADMIN_LOGIN -->|"認証失敗"| ADMIN_LOGIN
+
+  DASHBOARD --> EDIT_PF_LIST
+  DASHBOARD --> EDIT_SKILL
+  DASHBOARD --> EDIT_HISTORY_LIST
+  DASHBOARD --> EDIT_JOB_LIST
+  DASHBOARD --> EDIT_LICENSE_LIST
+
+  EDIT_PF_LIST --> EDIT_PF_DETAIL
+  EDIT_PF_DETAIL --> EDIT_PF_LIST
+
+  EDIT_SKILL --> EDIT_SKILL_FRONT
+  EDIT_SKILL --> EDIT_SKILL_BACK
+  EDIT_SKILL --> EDIT_SKILL_INFRA
+  EDIT_SKILL --> EDIT_SKILL_OTHER
+  EDIT_SKILL_FRONT --> EDIT_SKILL
+  EDIT_SKILL_BACK --> EDIT_SKILL
+  EDIT_SKILL_INFRA --> EDIT_SKILL
+  EDIT_SKILL_OTHER --> EDIT_SKILL
+
+  EDIT_HISTORY_LIST --> EDIT_HISTORY_DETAIL
+  EDIT_HISTORY_DETAIL --> EDIT_HISTORY_LIST
+
+  EDIT_JOB_LIST --> EDIT_JOB_DETAIL
+  EDIT_JOB_DETAIL --> EDIT_JOB_LIST
+
+  EDIT_LICENSE_LIST --> EDIT_LICENSE_DETAIL
+  EDIT_LICENSE_DETAIL --> EDIT_LICENSE_LIST

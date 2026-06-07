@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e">
+  <diagram id="portfolio-pc" name="Portfolio PC">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="screen" value="Portfolio ページ 画面構成 (PC)" style="swimlane;whiteSpace=wrap;html=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="500" height="920" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-1" value="No1: 共通ヘッダー / グローバルナビ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="28" width="500" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-2" value="No2: パンくず&#xa;トップ ＞ Portfolio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="35" y="110" width="430" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-3" value="No3: 下層タイトル&#xa;Portfolio / 制作物" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4284ff;fontColor=#ffffff;strokeColor=none;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="176" width="500" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-4" value="No4: セクション見出し&#xa;全ての制作物 + 件数" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="35" y="330" width="250" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-5" value="No5: 並び替えセレクト&#xa;並び替え / 新しい順 / 古い順" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;" vertex="1" parent="screen">
+          <mxGeometry x="300" y="330" width="165" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-6" value="No6: 制作実績カード一覧&#xa;PC: グリッド表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fbff;" vertex="1" parent="screen">
+          <mxGeometry x="35" y="420" width="430" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-7" value="No7: カード要素&#xa;画像 / 日付 / タイトル / タグ / 詳細リンク" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;dashed=1;" vertex="1" parent="screen">
+          <mxGeometry x="60" y="465" width="180" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="pc-8" value="No8: 共通フッター" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="820" width="500" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="spec" value="画面要素・機能仕様" style="swimlane;whiteSpace=wrap;html=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="580" y="40" width="540" height="920" as="geometry"/>
+        </mxCell>
+        <mxCell id="table" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; style=&quot;border-collapse:collapse;&quot;&gt;&lt;tr&gt;&lt;th&gt;No&lt;/th&gt;&lt;th&gt;要素名&lt;/th&gt;&lt;th&gt;仕様・機能詳細&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No1&lt;/td&gt;&lt;td&gt;共通ヘッダー&lt;/td&gt;&lt;td&gt;RootLayout の Header / AdminHeader を表示。全ページ共通ナビゲーションを提供。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No2&lt;/td&gt;&lt;td&gt;パンくず&lt;/td&gt;&lt;td&gt;Breadcrumb で「トップ ＞ Portfolio」を表示。最終要素には aria-current=page を付与。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No3&lt;/td&gt;&lt;td&gt;下層タイトル&lt;/td&gt;&lt;td&gt;LowerTitle で h1「Portfolio」と data-ja「制作物」を表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No4&lt;/td&gt;&lt;td&gt;一覧見出し&lt;/td&gt;&lt;td&gt;LowerSubTitle で「全ての制作物」と件数を表示。実画面確認時は3件。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No5&lt;/td&gt;&lt;td&gt;並び替え&lt;/td&gt;&lt;td&gt;select の値は空、新しい順(new)、古い順(old)。変更時に order state と URL クエリを同期。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No6&lt;/td&gt;&lt;td&gt;カード一覧&lt;/td&gt;&lt;td&gt;PortfolioList が portfolios を受け取り、現在の order に応じて sortPortfolios を実行。0件時は「制作物がありません」を表示。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No7&lt;/td&gt;&lt;td&gt;カード&lt;/td&gt;&lt;td&gt;PortfolioItem で next/image のサムネイル、formatDate 済み日付、HTML parse 済みタイトル、タグを表示。クリックで /portfolios/[id] へ遷移。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;No8&lt;/td&gt;&lt;td&gt;フッター&lt;/td&gt;&lt;td&gt;RootLayout の Footer を表示。&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="spec">
+          <mxGeometry x="12" y="40" width="516" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="meta" value="&lt;b&gt;【メタデータ・技術仕様】&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Route: /portfolios（/portfolio は未定義）&lt;/li&gt;&lt;li&gt;Rendering: force-static&lt;/li&gt;&lt;li&gt;Title: To You Design - Portfolio&lt;/li&gt;&lt;li&gt;Data: GET /api/portfolios&lt;/li&gt;&lt;li&gt;Query: order=new / order=old&lt;/li&gt;&lt;li&gt;Client Hooks: useSearchParams / useRouter / usePathname&lt;/li&gt;&lt;li&gt;Conditional: 0件時は「制作物がありません」、画像エラー時は dummy-image.jpg。&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="spec">
+          <mxGeometry x="12" y="590" width="516" height="220" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
