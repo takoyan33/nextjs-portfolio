@@ -1,0 +1,11 @@
+%% Contact 画面遷移（同一URL内のステート遷移 + 送信後）
+
+flowchart TD
+  A["Contact ページ<br/>/contact"] --> B["入力フォーム<br/>isConfirming = false"]
+  B -->|"バリデーションOK<br/>確認画面へ"| C["確認画面<br/>isConfirming = true"]
+  C -->|"戻る"| B
+  C -->|"送信する<br/>EmailJS"| D{"送信結果"}
+  D -->|"成功"| E["アラート表示"]
+  E --> F["トップページへ<br/>router.push('/')"]
+  D -->|"失敗"| G["エラーアラート"]
+  G --> C

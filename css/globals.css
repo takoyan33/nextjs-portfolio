@@ -334,7 +334,7 @@ body {
   display: none;
   width: 100%;
   height: 0;
-  background-color: oklch(63.8% 48.5% 261.57);
+  background-color: oklch(65% 50% 261.57);
   opacity: 0;
   transition: 0.5s;
 }
@@ -411,7 +411,7 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: oklch(63.8% 48.5% 261.57);
+    background-color: oklch(65% 50% 261.57);
     border-radius: 4px;
   }
   .btn-trigger,
@@ -503,7 +503,7 @@ body {
     display: none;
     width: 100%;
     height: 0;
-    background-color: oklch(63.8% 48.5% 261.57);
+    background-color: oklch(65% 50% 261.57);
     opacity: 0;
     transition: 0.5s;
   }
@@ -667,7 +667,7 @@ a :hover {
 .main__title {
   margin: 0;
   font-size: 3.75rem;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
   text-align: left;
 }
 .main__title-white {
@@ -692,7 +692,7 @@ a :hover {
   margin-bottom: 2.5rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
   text-align: left;
   content: attr(data-ja);
 }
@@ -728,7 +728,7 @@ a :hover {
   .main__title {
     margin: 0;
     font-size: 2.125rem;
-    color: oklch(63.8% 48.5% 261.57);
+    color: oklch(65% 50% 261.57);
     text-align: left;
   }
   .main__title-white {
@@ -748,14 +748,14 @@ a :hover {
     margin: 0;
     margin-bottom: 0.625rem;
     font-size: 1.25rem;
-    color: oklch(63.8% 48.5% 261.57);
+    color: oklch(65% 50% 261.57);
     text-align: left;
     content: attr(data-ja);
   }
   .main__subtitle {
     margin: 0;
     font-size: 1.125rem;
-    color: oklch(63.8% 48.5% 261.57);
+    color: oklch(65% 50% 261.57);
     text-align: left;
   }
   .main__subtitle-white {
@@ -842,7 +842,7 @@ a :hover {
   margin: 0.625rem auto;
   font-family: futura-pt-bold, sans-serif;
   font-size: 7.5rem;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
   text-align: left;
   letter-spacing: 4px;
   background-color: white;
@@ -856,7 +856,7 @@ a :hover {
   margin-top: 7.5rem;
   font-family: futura-pt-bold, sans-serif;
   font-size: 5rem;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
   text-align: left;
   letter-spacing: 4px;
   background-color: white;
@@ -931,13 +931,14 @@ a :hover {
 }
 .about_img {
   position: relative;
-  width: 400px;
+  width: 270px;
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.about_sns-icon {
+.about__sns-icon {
   width: 30px;
+  height: 30px;
 }
 .about__container {
   display: flex;
@@ -985,7 +986,7 @@ a :hover {
   margin: 1.25rem auto;
   color: white;
   text-align: center;
-  background-color: oklch(36.59% 0.1644 251.34);
+  background-color: oklch(60% 0.18 251.34);
   border: none;
   border-radius: 0.3125rem;
 }
@@ -1024,7 +1025,7 @@ li {
 
 .size {
   margin-top: 40px;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
 }
 
 .skill {
@@ -1170,13 +1171,13 @@ li {
   height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid oklch(53.59% 0 0);
+  border: 1px solid oklch(54% 0 0);
 }
 .modalBox__element__text {
   text-align: left;
 }
 .modalBox__element__link {
-  color: oklch(36.59% 0.1644 251.34);
+  color: oklch(60% 0.18 251.34);
 }
 .modalBox__element__link:hover {
   opacity: 0.7;
@@ -1201,9 +1202,9 @@ li {
   margin: 0 auto;
   overflow: hidden;
   font-size: 14px;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
   background-color: #fff;
-  border: 1.5px solid oklch(63.8% 48.5% 261.57);
+  border: 1.5px solid oklch(65% 50% 261.57);
   border-radius: 8px;
   transition: color 0.2s ease-in-out;
 }
@@ -1212,13 +1213,13 @@ li {
   height: 6px;
   margin-left: 6px;
   content: "";
-  border-top: 2px solid oklch(63.8% 48.5% 261.57);
-  border-right: 2px solid oklch(63.8% 48.5% 261.57);
+  border-top: 2px solid oklch(65% 50% 261.57);
+  border-right: 2px solid oklch(65% 50% 261.57);
   transform: rotate(45deg);
 }
 .common__btn:hover {
   color: white;
-  background-color: oklch(63.8% 48.5% 261.57);
+  background-color: oklch(65% 50% 261.57);
 }
 .common__btn:hover::after {
   border-top: 2px solid white;
@@ -1226,7 +1227,7 @@ li {
 }
 .common__btn.slide {
   position: relative;
-  color: oklch(63.8% 48.5% 261.57);
+  color: oklch(65% 50% 261.57);
   background: #fff;
 }
 .common__btn.slide::before {
@@ -1237,7 +1238,7 @@ li {
   width: 100%;
   height: 100%;
   content: "";
-  background: oklch(63.8% 48.5% 261.57);
+  background: oklch(65% 50% 261.57);
   transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
   transform: scale(0, 1);
   transform-origin: left top;
@@ -1273,7 +1274,7 @@ li {
   padding: 10px 20px;
   font-weight: bold;
   color: white;
-  background-color: oklch(63.8% 48.5% 261.57);
+  background-color: oklch(65% 50% 261.57);
   border-radius: 10px;
 }
 .contact__btn:hover {
@@ -1358,7 +1359,7 @@ body.modal-open {
     left: 1.25rem;
     font-family: futura-pt-bold, sans-serif;
     font-size: 3.75rem;
-    color: oklch(63.8% 48.5% 261.57);
+    color: oklch(65% 50% 261.57);
     text-align: left;
     letter-spacing: 4px;
     background-color: white;
@@ -1370,7 +1371,7 @@ body.modal-open {
     margin-inline: auto;
     font-family: futura-pt-bold, sans-serif;
     font-size: 2.5rem;
-    color: oklch(63.8% 48.5% 261.57);
+    color: oklch(65% 50% 261.57);
     text-align: left;
     letter-spacing: 4px;
     background-color: white;
@@ -1407,7 +1408,7 @@ body.modal-open {
 @media screen and (max-width: 500px) {
   .size {
     margin-top: 1.25rem;
-    color: oklch(63.8% 48.5% 261.57);
+    color: oklch(65% 50% 261.57);
   }
   .border_company {
     margin-left: 0;
@@ -1601,13 +1602,13 @@ body.modal-open {
     height: 162px;
     -o-object-fit: contain;
        object-fit: contain;
-    border: 1px solid oklch(53.59% 0 0);
+    border: 1px solid oklch(54% 0 0);
   }
   .modalBox__element__text {
     text-align: left;
   }
   .modalBox__element__link {
-    color: oklch(36.59% 0.1644 251.34);
+    color: oklch(60% 0.18 251.34);
   }
   .modalBox__element__link:hover {
     opacity: 0.7;
@@ -1664,7 +1665,7 @@ body.modal-open {
     display: inline-block;
     padding: 10px 20px;
     color: white;
-    background-color: oklch(63.8% 48.5% 261.57);
+    background-color: oklch(65% 50% 261.57);
     border-radius: 10px;
   }
   .contact__btn:hover {

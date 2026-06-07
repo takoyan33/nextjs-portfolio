@@ -4,6 +4,7 @@
     "dev": "next dev --turbopack -p 3001",
     "dev:mock": "NEXT_PUBLIC_USE_MOCK=true next dev",
     "build": "rm -rf .next && next build --debug-prerender",
+    "build:prd": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "typecheck:tsgo": "tsgo --noEmit --skipLibCheck",

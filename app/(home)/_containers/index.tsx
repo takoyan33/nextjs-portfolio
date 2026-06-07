@@ -1,3 +1,4 @@
+export * from "@/app/(home)/_containers/home-blog"
 export * from "@/app/(home)/_containers/home-portfolio-slide"
 export * from "@/app/(home)/_containers/home-skills"
 export * from "@/app/(home)/_containers/home-wave-bg-bottom"
