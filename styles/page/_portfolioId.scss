@@ -146,6 +146,13 @@
       }
     }
   }
+  a {
+    color: #2563eb;
+    text-decoration: underline;
+    &:hover {
+      opacity: $opacity;
+    }
+  }
 }
 
 @include mixin.sp {
