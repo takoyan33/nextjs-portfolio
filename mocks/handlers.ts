@@ -258,8 +258,7 @@ export const handlers = [
         function:
           "<p>内容としては</p><ul><li>経歴、職歴紹介</li><li>ポートフォリオ紹介</li><li>ブログ表示</li><li>プロフィール画面</li></ul><p>があります</p>",
         functionImg: "/images/portfolio/portfolio_function3.png",
-        appeal:
-          "<p>意識した点は、1つはCSS設計を意識して、綺麗にコーディングしている点です。レスポンシブを意識した実装をしました。<br>2つ目は、App Routerで実装し、読み込みを早めるため、Server Componentを利用しながら実装している点です。<br>3つ目にRuby on RailsでバックエンドのAPIを作っており、そこからデータを取得している点です。</p>",
+        appeal: `<p>意識した点は、1つはCSS設計を意識し、PC,SP共に綺麗にコーディングしている点です。<br>2つ目は、App Routerで実装し、読み込みを早めるため、Server Componentを利用しながら実装している点です。<br>3つ目にRuby on RailsでバックエンドのAPIを作っており、コスト削減のため、AWSではなく、Neon + Renderの構成で構築している点です。</p><br><a href="https://github.com/takoyan33/nextjs-portfolio/tree/main/docs/frontend">画面仕様書</a><br><a href="https://miro.com/app/board/uXjVHIkuQME=/?share_link_id=612941383020">画面遷移図、アーキテクチャ図</a><br><a href=" https://github.com/takoyan33/next-portfolio-backend-posgre/blob/main/docs/er_diagram.md">ER図</a><br><a href=" https://github.com/takoyan33/next-portfolio-backend-posgre/blob/main/docs/table.md">テーブル定義書 </a><br><a href=" https://github.com/takoyan33/nextjs-portfolio/blob/main/docs/api.md">API設計書 </a><br>`,
         appealImg: "/images/portfolio/portfolio_appeal3.png",
         front_skill: ["React", "Next.js", "SCSS", "Biome"],
         back_skill: ["Ruby on Rails", "Ruby"],
