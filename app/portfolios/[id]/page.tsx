@@ -1,8 +1,9 @@
+import { notFound } from "next/navigation"
+
 import { PortfolioDetail } from "@/app/portfolios/[id]/portfolio-detail"
 import { fetchPortfolio, fetchPortfoliosFront } from "@/hooks/fetch"
 import "@/styles/page/_portfolioId.scss"
 import { logger } from "@/utils/logger"
-import { notFound } from "next/navigation"
 
 export const dynamic = "force-static"
 export const dynamicParams = false

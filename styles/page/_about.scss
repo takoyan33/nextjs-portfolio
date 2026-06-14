@@ -61,6 +61,27 @@
     &-td {
       padding: rem(10);
       text-align: left;
+      @include body-text;
+    }
+  }
+}
+
+/* モバイル対応 */
+@media (max-width: 500px) {
+  .license {
+    ul {
+      text-align: left;
+    }
+    &__table {
+      margin-top: rem(20);
+      font-size: rem(18);
+
+      &-td {
+        padding: rem(10);
+        padding-left: 0;
+        text-align: left;
+        @include body-text;
+      }
     }
   }
 }

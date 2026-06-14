@@ -43,6 +43,7 @@
         color: $main-color;
       }
     }
+    @include body-text;
   }
 
   &_btn_contact {

@@ -1,5 +1,7 @@
 import parse from "html-react-parser"
 
+import { formatDate } from "@/hooks/date"
+
 type TimelineProps = {
   title: string
   date: string
@@ -12,7 +14,7 @@ type TimelineProps = {
 export const Timeline = ({ title, date, body }: TimelineProps) => {
   return (
     <>
-      <dt>{date}</dt>
+      <dt>{formatDate(date)}</dt>
       <dd>
         <h2>{title}</h2>
         {parse(body)}

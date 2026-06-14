@@ -1,8 +1,10 @@
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
+
 import { TransitionLink } from "@/components/ui"
 import styles from "@/components/ui/css/home-portfolio-slide-item.module.scss"
+import { formatDate } from "@/hooks/date"
 
 interface PortfolioItemProps {
   portfolio_id: number
@@ -40,7 +42,7 @@ const HomePortfolioSlideItem: React.FC<PortfolioItemProps> = React.memo(
           />
         </div>
         <div className={styles.SlideItem__content}>
-          <p className={styles.SlideItem__date}>{portfolio_date}</p>
+          <p className={styles.SlideItem__date}>{formatDate(portfolio_date)}</p>
           <h3 className={styles.SlideItem__title}>{parse(portfolio_name)}</h3>
           <PortfolioTags tags={portfolio_tag} />
         </div>

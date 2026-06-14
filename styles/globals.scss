@@ -389,20 +389,18 @@ a {
     display: flex;
     margin-top: rem(20);
     margin-bottom: rem(20);
-    font-size: $baseFontSize;
-    line-height: 1.6;
     text-align: left;
+    @include body-text;
   }
   &__text {
     display: flex;
-    font-size: $baseFontSize;
-    line-height: 1.6;
     text-align: left;
     &-span {
       font-weight: bold;
     }
     dd {
       margin: 0;
+      @include body-text;
     }
   }
   &_img {

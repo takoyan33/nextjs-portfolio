@@ -26,6 +26,16 @@ $baseFontSize: 16;
   @return math.div($pixels, $baseFontSize) * 1rem;
 }
 
+// フォント
+
+// body (本文)
+@mixin body-text {
+  font-size: rem(16);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+
 //sp版の設定
 $breakpoints: (
   "xs": (
