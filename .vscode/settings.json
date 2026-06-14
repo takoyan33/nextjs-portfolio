@@ -4,7 +4,6 @@
     "source.organizeImports": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
-
   "editor.defaultFormatter": "oxc.oxc-vscode",
 
   "[javascript]": {
@@ -16,6 +15,12 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
-
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "stylelint.validate": ["css", "scss"],
   "editor.formatOnSave": true
 }
