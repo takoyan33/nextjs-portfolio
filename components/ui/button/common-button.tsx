@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+
 import { TransitionLink } from ".."
 
 interface BaseButtonProps {

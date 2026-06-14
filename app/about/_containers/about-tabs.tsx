@@ -1,6 +1,7 @@
 "use client"
-import { useTabStore } from "@/stores/tabStore"
 import React from "react"
+
+import { useTabStore } from "@/stores/tabStore"
 
 type AboutTabsProps = {
   children: React.ReactNode

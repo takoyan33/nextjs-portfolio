@@ -1,7 +1,8 @@
+import { ChevronRight } from "lucide-react"
+
 import styles from "@/components/ui/css/breadcrumb.module.scss"
 import { TransitionLink } from "@/components/ui/transition-link"
 import { PATH } from "@/utils/path"
-import { ChevronRight } from "lucide-react"
 
 interface BreadcrumbItem {
   name: string

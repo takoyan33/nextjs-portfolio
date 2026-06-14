@@ -1,10 +1,11 @@
+import type { Metadata } from "next"
+import { Suspense } from "react"
+
 import { PortfolioList } from "@/app/portfolios/_containers/portfolio-list"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { fetchPortfoliosFront } from "@/hooks/fetch"
 import "@/styles/page/_portfolio.scss"
 import { PATH } from "@/utils/path"
-import type { Metadata } from "next"
-import { Suspense } from "react"
 import { PortfolioType } from "../types"
 
 export const dynamic = "force-static"

@@ -7,7 +7,7 @@
   dl {
     dt {
       position: relative;
-      width: 8.5em;
+      width: 11.5em;
       padding: 8px 16px 8px 8px;
       text-align: left;
       &::after {
@@ -24,14 +24,15 @@
       padding: 8px 32px 48px;
       text-align: left;
       border-left: rem(2) solid #ccc;
+      h2 {
+        margin: 0 0 rem(5);
+        font-size: 22px;
+        font-weight: bold;
+        text-align: left;
+      }
+      @include body-text;
     }
     p {
-      text-align: left;
-    }
-    dd h2 {
-      margin: 0 0 rem(5);
-      font-size: 22px;
-      font-weight: bold;
       text-align: left;
     }
   }

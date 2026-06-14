@@ -1,3 +1,4 @@
+import { formatDate } from "@/hooks/date"
 import { logger } from "@/utils/logger"
 import { fetchLicenses } from "hooks/fetch"
 
@@ -23,7 +24,7 @@ export const LicenseList = async () => {
         )}
         {(data?.data ?? []).map((license) => (
           <tr key={license.id} className="license__table-tr">
-            <td className="license__table-td">{license.date}</td>
+            <td className="license__table-td">{formatDate(license.date)}</td>
             <td className="license__table-td">{license.title}</td>
           </tr>
         ))}

@@ -1,16 +1,17 @@
 "use client"
-
-import { Breadcrumb } from "@/components/ui"
-import { CommonModal } from "@/components/ui/common-modal"
-import { PostNavigation } from "@/components/ui/post-navigation"
-import { CloseModal, OpenModal } from "@/hooks/use-modal"
-import type { PortfolioType } from "@/types"
-import { PATH } from "@/utils/path"
 import parse from "html-react-parser"
 import { SquareArrowOutUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+
+import { Breadcrumb } from "@/components/ui"
+import { CommonModal } from "@/components/ui/common-modal"
+import { PostNavigation } from "@/components/ui/post-navigation"
+import { formatDate } from "@/hooks/date"
+import { CloseModal, OpenModal } from "@/hooks/use-modal"
+import type { PortfolioType } from "@/types"
+import { PATH } from "@/utils/path"
 
 interface PortfolioDetailProps {
   portfolio: PortfolioType
@@ -49,7 +50,7 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
           />
         </div>
         <section className="portfolioDetail max_width">
-          <p className="portfolioDetail__element-date">{portfolio.date}</p>
+          <p className="portfolioDetail__element-date">{formatDate(portfolio.date)}</p>
           <h2 className="portfolioDetail__element-title">{portfolio.name}</h2>
           <ul className="portfolioDetail__element-tagList">
             {portfolio.tag.map((skill) => (
