@@ -18,7 +18,7 @@ html {
 body {
   margin: 0;
   font-family: noto-sans-cjk-jp, sans-serif;
-  font-size: 16px; 
+  font-size: 16px;
   color: $black;
   letter-spacing: 0.1em;
   scroll-behavior: smooth;
@@ -54,7 +54,7 @@ li {
 }
 
 .text-center {
-  padding-top: 30px; 
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -224,7 +224,7 @@ li {
 }
 
 .title-border-right {
-  display: flex; 
+  display: flex;
   align-items: center;
   &::after {
     flex-grow: 1;
@@ -328,7 +328,6 @@ li {
     padding: 12px;
   }
 }
-
 
 // ==========================================================================
 // 3. ファーストビュー (FV) & メインビジュアル
@@ -448,7 +447,6 @@ li {
   }
 }
 
-
 // ==========================================================================
 // 4. 各コンテンツセクション設定
 // ==========================================================================
@@ -556,7 +554,7 @@ li {
 }
 
 .portfolio__List {
-  display: grid; 
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: rem(60) rem(50);
   justify-content: space-between;
@@ -572,7 +570,7 @@ li {
 
 @media (max-width: 1024px) {
   .portfolio__List {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     gap: rem(20) rem(20);
     justify-content: center;
@@ -585,7 +583,7 @@ li {
 
 @include mixin.sp {
   .portfolio__List {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     gap: rem(50) rem(0);
     justify-content: space-between;
@@ -658,7 +656,7 @@ li {
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px; 
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     margin-inline: auto;
@@ -901,11 +899,10 @@ li {
     @include mixin.sp {
       margin-left: 0;
       background-color: white;
-      box-shadow: -rem(5) rem(5) 0 rem(5) #000081; 
+      box-shadow: -rem(5) rem(5) 0 rem(5) #000081;
     }
   }
 }
-
 
 // ==========================================================================
 // 5. モーダル・ポップアップ表示系
@@ -1015,7 +1012,6 @@ li {
   }
 }
 
-
 // ==========================================================================
 // 6. ローディング & アニメーション演出
 // ==========================================================================
@@ -1029,12 +1025,12 @@ li {
   border-right: 1.1em solid rgba(255, 255, 255, 0.2);
   border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
   border-left: 1.1em solid #000081;
-  transform: translateZ(0); 
+  transform: translateZ(0);
   animation: load8 1.1s infinite linear;
 
   &-wrap {
     position: fixed;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
