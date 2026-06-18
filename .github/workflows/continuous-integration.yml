@@ -20,7 +20,7 @@ jobs:
 
     steps:
       # リポジトリをチェックアウト
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # pnpmセットアップ
       - uses: pnpm/action-setup@v4
