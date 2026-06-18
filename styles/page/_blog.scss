@@ -6,7 +6,6 @@
 .blog__layout {
   display: grid;
   grid-template-columns: 1fr 300px;
-  padding-block: 50px;
 }
 
 .blog__List {
@@ -68,7 +67,7 @@
     font-size: rem(14);
     font-weight: 600;
     text-decoration: none;
-    background-color: $white;
+    background-color: $main-white;
     border: 1px solid $grey;
     border-radius: 6px;
     transition:
@@ -81,13 +80,13 @@
 
     &:hover {
       color: $main-color;
-      background-color: $back-color;
+      background-color: $main-back-color;
       border-color: $main-color;
     }
   }
 
   &__link--current {
-    color: $white;
+    color: $main-white;
     cursor: default;
     background-color: $main-color;
     border-color: $main-color;
@@ -137,7 +136,7 @@
     margin: 11px 2px;
     font-size: 14px;
     color: white;
-    background-color: #5f5dcd;
+    background-color: $portfolio-tag;
     border-radius: 10px;
   }
   &__emoji {
@@ -179,7 +178,7 @@
     margin: 11px 2px;
     font-size: 14px;
     color: white;
-    background-color: #5f5dcd;
+    background-color: $portfolio-tag;
     border-radius: 10px;
   }
   &__emoji {

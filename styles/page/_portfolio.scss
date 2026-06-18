@@ -27,7 +27,7 @@
     font-size: 1em;
     appearance: none;
     cursor: pointer;
-    background-color: $white;
+    background-color: $main-white;
     border: none;
     border-bottom: 2px solid #d0d0d0;
 
@@ -38,7 +38,7 @@
 }
 
 .portfolio {
-  background-color: $back-color;
+  background-color: $main-back-color;
 
   &__loading {
     padding-block: 100px;
@@ -71,7 +71,7 @@
       margin: 11px 0px;
       font-size: 14px;
       color: white;
-      background-color: #5f5dcd;
+      background-color: $portfolio-tag;
       border-radius: 20px;
     }
     &__title {
