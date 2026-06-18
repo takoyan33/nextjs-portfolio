@@ -3,7 +3,7 @@
 
 // ポートフォリオ Home
 .SlideItem {
-  background-color: $back-color;
+  background-color: $main-back-color;
 
   &__container {
     display: flex;
@@ -25,7 +25,7 @@
     padding: 2px 10px;
     font-size: 14px;
     color: $main-color;
-    background-color: #d2e3ff;
+    background-color: $portfolio-bg-tag;
     border-radius: 20px;
   }
   &__title {
@@ -58,7 +58,7 @@
 //tablet
 @include mixin.tab {
   .SlideItem {
-    background-color: $back-color;
+    background-color: $main-back-color;
 
     &__date {
       margin-top: 6px;
@@ -70,7 +70,7 @@
       padding: 2px 10px;
       font-size: 14px;
       color: $main-color;
-      background-color: #d2e3ff;
+      background-color: $portfolio-bg-tag;
       border-radius: 20px;
     }
     &__title {
@@ -94,7 +94,7 @@
 @include mixin.sp {
   // ポートフォリオ
   .SlideItem {
-    background-color: $back-color;
+    background-color: $main-back-color;
 
     &__date {
       margin: 6px 0;
@@ -106,7 +106,7 @@
       padding: 2px 10px;
       font-size: 14px;
       color: #fff;
-      background-color: #5f5dcd;
+      background-color: $portfolio-tag;
       border-radius: 20px;
     }
     &__title {
@@ -140,7 +140,7 @@
         margin: 11px 2px;
         font-size: 14px;
         color: #fff;
-        background-color: #5f5dcd;
+        background-color: $portfolio-tag;
         border-radius: 10px;
       }
       &__title {

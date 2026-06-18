@@ -77,7 +77,7 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: $white;
+  background-color: $main-white;
 
   h1 {
     margin-top: 0;
@@ -126,13 +126,13 @@
   .mainTitle {
     margin-bottom: 5px;
     font-size: 26px;
-    color: $white;
+    color: $main-white;
     text-align: left;
     letter-spacing: 2px;
   }
   .subTitle {
     font-size: 15px;
-    color: $white;
+    color: $main-white;
   }
   .close {
     padding-right: 3px;
@@ -144,7 +144,7 @@
       height: 2px;
       margin: 0 8px 10px auto;
       margin-bottom: 10px;
-      background-color: $white;
+      background-color: $main-white;
       &:first-child {
         transform: translateY(6px) rotate(150deg);
       }
@@ -166,7 +166,7 @@
     width: 50px;
     height: 38px;
     cursor: pointer;
-    background-color: $white;
+    background-color: $main-white;
     border: 0;
     span:nth-of-type(1) {
       top: 0;
