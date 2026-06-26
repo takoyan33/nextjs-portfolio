@@ -139,6 +139,6 @@ describe("PortfolioList", () => {
 
     await user.selectOptions(screen.getByRole("combobox"), "")
 
-    expect(replace).toHaveBeenCalledWith("/portfolios?")
+    expect(replace).toHaveBeenCalledWith("/portfolios")
   })
 })
