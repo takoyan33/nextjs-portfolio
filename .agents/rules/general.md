@@ -46,8 +46,11 @@ alwaysApply: true
 - `docs/ai.md` : AI関連
 - `docs/api.md` : API関連
 - `docs/design.md` : デザインシステム
+- `docs/concept.md` : デザインの方針
 - `docs/docker.md` : Docker概要
 - `docs/pino.md` : ログ設計概要
+- `docs/analytics.md` : google analytics, Clarity設計概要
+- `docs/backend/docs` : APIのドキュメント類を格納
 
 
 rules関連
