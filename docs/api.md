@@ -24,47 +24,48 @@
 
 ## エンドポイント一覧
 
-| Method | Path | Summary |
-| --- | --- | --- |
-| `POST` | `/api/v1/auth/register` | ユーザー新規登録 |
-| `POST` | `/api/v1/auth/login` | ログインして JWT トークンを取得 |
-| `GET` | `/api/v1/auth/validate` | ログイン中トークンの有効性を確認 |
-| `GET` | `/api/v1/histories` | 経歴一覧を取得 |
-| `POST` | `/api/v1/histories` | 経歴を新規作成 |
-| `GET` | `/api/v1/histories/{id}` | 経歴詳細を取得 |
-| `PATCH` | `/api/v1/histories/{id}` | 経歴を更新 |
-| `GET` | `/api/v1/licenses` | 資格一覧を取得 |
-| `POST` | `/api/v1/licenses` | 資格を新規作成 |
-| `GET` | `/api/v1/licenses/{id}` | 資格詳細を取得 |
-| `PATCH` | `/api/v1/licenses/{id}` | 資格を更新 |
-| `GET` | `/api/v1/jobs` | 職歴一覧を取得 |
-| `POST` | `/api/v1/jobs` | 職歴を新規作成 |
-| `GET` | `/api/v1/jobs/{id}` | 職歴詳細を取得 |
-| `PATCH` | `/api/v1/jobs/{id}` | 職歴を更新 |
-| `GET` | `/api/v1/portfolios` | ポートフォリオ一覧を取得 |
-| `POST` | `/api/v1/portfolios` | ポートフォリオを新規作成 |
-| `GET` | `/api/v1/portfolios/{id}` | ポートフォリオ詳細を取得 |
-| `PATCH` | `/api/v1/portfolios/{id}` | ポートフォリオを更新 |
-| `GET` | `/api/v1/front_skills` | フロントエンドスキル一覧を取得 |
-| `POST` | `/api/v1/front_skills` | フロントエンドスキルを新規作成 |
-| `GET` | `/api/v1/front_skills/{id}` | フロントエンドスキル詳細を取得 |
-| `PATCH` | `/api/v1/front_skills/{id}` | フロントエンドスキルを更新 |
-| `GET` | `/api/v1/back_skills` | バックエンドスキル一覧を取得 |
-| `POST` | `/api/v1/back_skills` | バックエンドスキルを新規作成 |
-| `GET` | `/api/v1/back_skills/{id}` | バックエンドスキル詳細を取得 |
-| `PATCH` | `/api/v1/back_skills/{id}` | バックエンドスキルを更新 |
-| `GET` | `/api/v1/infra_skills` | インフラスキル一覧を取得 |
-| `POST` | `/api/v1/infra_skills` | インフラスキルを新規作成 |
-| `GET` | `/api/v1/infra_skills/{id}` | インフラスキル詳細を取得 |
-| `PATCH` | `/api/v1/infra_skills/{id}` | インフラスキルを更新 |
-| `GET` | `/api/v1/other_skills` | その他スキル一覧を取得 |
-| `POST` | `/api/v1/other_skills` | その他スキルを新規作成 |
-| `GET` | `/api/v1/other_skills/{id}` | その他スキル詳細を取得 |
-| `PATCH` | `/api/v1/other_skills/{id}` | その他スキルを更新 |
-| `GET` | `/api/v1/profiles` | プロフィール一覧を取得 |
-| `POST` | `/api/v1/profiles` | プロフィールを新規作成 |
-| `GET` | `/api/v1/profiles/{id}` | プロフィール詳細を取得 |
-| `PATCH` | `/api/v1/profiles/{id}` | プロフィールを更新 |
+|  API No |  Method | Path                        | Summary            |
+| :-----: | :-----: | --------------------------- | ------------------ |
+| API-001 |  `POST` | `/api/v1/auth/register`     | ユーザー新規登録           |
+| API-002 |  `POST` | `/api/v1/auth/login`        | ログインして JWT トークンを取得 |
+| API-003 |  `GET`  | `/api/v1/auth/validate`     | ログイン中トークンの有効性を確認   |
+| API-004 |  `GET`  | `/api/v1/histories`         | 経歴一覧を取得            |
+| API-005 |  `POST` | `/api/v1/histories`         | 経歴を新規作成            |
+| API-006 |  `GET`  | `/api/v1/histories/{id}`    | 経歴詳細を取得            |
+| API-007 | `PATCH` | `/api/v1/histories/{id}`    | 経歴を更新              |
+| API-008 |  `GET`  | `/api/v1/licenses`          | 資格一覧を取得            |
+| API-009 |  `POST` | `/api/v1/licenses`          | 資格を新規作成            |
+| API-010 |  `GET`  | `/api/v1/licenses/{id}`     | 資格詳細を取得            |
+| API-011 | `PATCH` | `/api/v1/licenses/{id}`     | 資格を更新              |
+| API-012 |  `GET`  | `/api/v1/jobs`              | 職歴一覧を取得            |
+| API-013 |  `POST` | `/api/v1/jobs`              | 職歴を新規作成            |
+| API-014 |  `GET`  | `/api/v1/jobs/{id}`         | 職歴詳細を取得            |
+| API-015 | `PATCH` | `/api/v1/jobs/{id}`         | 職歴を更新              |
+| API-016 |  `GET`  | `/api/v1/portfolios`        | ポートフォリオ一覧を取得       |
+| API-017 |  `POST` | `/api/v1/portfolios`        | ポートフォリオを新規作成       |
+| API-018 |  `GET`  | `/api/v1/portfolios/{id}`   | ポートフォリオ詳細を取得       |
+| API-019 | `PATCH` | `/api/v1/portfolios/{id}`   | ポートフォリオを更新         |
+| API-020 |  `GET`  | `/api/v1/front_skills`      | フロントエンドスキル一覧を取得    |
+| API-021 |  `POST` | `/api/v1/front_skills`      | フロントエンドスキルを新規作成    |
+| API-022 |  `GET`  | `/api/v1/front_skills/{id}` | フロントエンドスキル詳細を取得    |
+| API-023 | `PATCH` | `/api/v1/front_skills/{id}` | フロントエンドスキルを更新      |
+| API-024 |  `GET`  | `/api/v1/back_skills`       | バックエンドスキル一覧を取得     |
+| API-025 |  `POST` | `/api/v1/back_skills`       | バックエンドスキルを新規作成     |
+| API-026 |  `GET`  | `/api/v1/back_skills/{id}`  | バックエンドスキル詳細を取得     |
+| API-027 | `PATCH` | `/api/v1/back_skills/{id}`  | バックエンドスキルを更新       |
+| API-028 |  `GET`  | `/api/v1/infra_skills`      | インフラスキル一覧を取得       |
+| API-029 |  `POST` | `/api/v1/infra_skills`      | インフラスキルを新規作成       |
+| API-030 |  `GET`  | `/api/v1/infra_skills/{id}` | インフラスキル詳細を取得       |
+| API-031 | `PATCH` | `/api/v1/infra_skills/{id}` | インフラスキルを更新         |
+| API-032 |  `GET`  | `/api/v1/other_skills`      | その他スキル一覧を取得        |
+| API-033 |  `POST` | `/api/v1/other_skills`      | その他スキルを新規作成        |
+| API-034 |  `GET`  | `/api/v1/other_skills/{id}` | その他スキル詳細を取得        |
+| API-035 | `PATCH` | `/api/v1/other_skills/{id}` | その他スキルを更新          |
+| API-036 |  `GET`  | `/api/v1/profiles`          | プロフィール一覧を取得        |
+| API-037 |  `POST` | `/api/v1/profiles`          | プロフィールを新規作成        |
+| API-038 |  `GET`  | `/api/v1/profiles/{id}`     | プロフィール詳細を取得        |
+| API-039 | `PATCH` | `/api/v1/profiles/{id}`     | プロフィールを更新          |
+
 
 ## 認証 API
 
