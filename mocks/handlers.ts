@@ -139,6 +139,24 @@ export const handlers = [
             emoji: "🚀",
             path: "/articles/463489",
           },
+          {
+            id: 463490,
+            post_type: "Article",
+            title: "[Next.js] サンプル記事",
+            published_at: "2023-01-01",
+            article_type: "tech",
+            emoji: "🚀",
+            path: "/articles/463489",
+          },
+          {
+            id: 463491,
+            post_type: "Article",
+            title: "[Next.js] サンプル記事",
+            published_at: "2023-01-01",
+            article_type: "tech",
+            emoji: "🚀",
+            path: "/articles/463489",
+          },
         ],
       })
     }
@@ -154,7 +172,7 @@ export const handlers = [
         {
           id: 3,
           name: "To You Design(ポートフォリオサイト)1",
-          date: "2023-11-30",
+          date: "2024-11-30",
           tag: ["React", "Next.js", "Ruby"],
           topImg: "/images/portfolio/portfolio_top3.png",
           front_url: "https://to-you-design.vercel.app/",
@@ -182,7 +200,7 @@ export const handlers = [
         {
           id: 4,
           name: "To You Design(ポートフォリオサイト)2",
-          date: "2023-11-30",
+          date: "2026-11-30",
           tag: ["React", "Next.js", "Ruby"],
           topImg: "/images/portfolio/portfolio_top3.png",
           front_url: "https://to-you-design.vercel.app/",
