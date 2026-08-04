@@ -9,8 +9,91 @@
 
 ## 2. 画面仕様
 
-drawio/pc/portfolio.drawio
-drawio/sp/portfolio.drawio
+### 画面構成図
+
+- PC: `drawio/pc/portfolio.drawio`
+- SP: `drawio/portfolio.drawio`
+
+### 画面項目（SP）
+
+SP 版の画面構成は上から下へ 8 ブロックで構成する。各項目の詳細は以下のとおり。
+
+#### No1: ヘッダー
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |
+| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |
+| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |
+| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |
+| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |
+
+#### No2: パンくず
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |
+| 表示階層 | トップ → Portfolio |
+| 区切り | `ChevronRight` アイコン |
+| 操作 | トップリンククリックで `/` へ遷移。カレントページ（Portfolio）は `aria-current="page"` |
+| SP レイアウト | `.max_width` 内に左寄せ。左右 20px 相当の余白 |
+
+#### No3: 下層タイトル
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |
+| 表示要素 | 見出し `Portfolio`（`h1`）、英字補助（`data-ja="制作物"`） |
+| 背景 | 青背景（`.lower__bg`、`#4284ff` 系）の全幅ブロック |
+| SP レイアウト | 画面全幅。テキストは `.max_width` 内に配置 |
+
+#### No4: 見出し / 件数
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `LowerSubTitle`（`components/ui/lower-sub-title.tsx`） |
+| 表示要素 | 「全ての制作物」+ 件数（例: `3件`） |
+| データ | `PortfolioList` に渡された制作実績配列の length |
+| SP レイアウト | `.max_width` 内。件数は `span.lower__subTitle-span` で表示 |
+
+#### No5: 並び替えセレクト
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `PortfolioList` 内の `select` |
+| 選択肢 | 「並び替え」（デフォルト）/「新しい順」/「古い順」 |
+| 状態管理 | `order` state（`""` / `"new"` / `"old"`） |
+| URL 同期 | 選択値をクエリ `order` と同期。`router.replace()` で URL を更新 |
+| 操作 | セレクト変更で制作実績の表示順を切り替え |
+| SP レイアウト | 横幅 230px 以上。`.portfolio__filter` 内に配置 |
+
+#### No6: 制作実績カード一覧
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `PortfolioList` + `PortfolioItem` |
+| データ取得 | Server 側で `fetchPortfoliosFront()` → `/api/portfolios` |
+| 並び順 | 初期は日付降順。クライアント側で `order` に応じて再ソート |
+| SP レイアウト | `.portfolio__List` 内でカードを縦積み（1 カラム）表示 |
+| 空状態 | 0 件時は「制作物がありません」を表示 |
+
+#### No7: カード要素
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `PortfolioItem`（`components/ui/portfolio-item.tsx`） |
+| 表示要素 | サムネイル画像、日付（`time`）、タイトル（`h3`）、タグ（`#tag` 形式） |
+| タイトル | `html-react-parser` で HTML を描画 |
+| 操作 | カード全体が `TransitionLink` により `/portfolios/[id]` へ遷移 |
+| 画像フォールバック | 読み込み失敗時は `/images/dummy-image.jpg` へ差し替え |
+| SP レイアウト | 画像高さは `auto`。`sizes="100vw"` で全幅表示 |
+
+#### No8: フッター
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |
+| SP レイアウト | 画面下部全幅。コピーライト・サイトマップリンクを表示 |
 
 ## 3. データフロー
 

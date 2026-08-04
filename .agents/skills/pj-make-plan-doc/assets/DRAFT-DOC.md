@@ -4,8 +4,16 @@
 
 ## 2. 画面仕様
 
-drawio/pc/[page-name].drawio
-drawio/sp/[page-name].drawio
+drawio/[page-name].drawio
+
+### 画面項目
+
+画面構成は上から下へ 9 ブロックで構成する。各項目の詳細は以下のとおり。
+
+#### No1: ヘッダー
+
+| 項目 | 内容 |
+|------|------|
 
 ## 3. データフロー
 

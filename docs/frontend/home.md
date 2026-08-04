@@ -8,8 +8,124 @@
 
 ## 2. 画面仕様
 
-drawio/pc/home.drawio
-drawio/sp/home.drawio
+### 画面構成図
+
+- `drawio/home.drawio`
+
+### 画面項目
+
+画面構成は上から下へ 9 ブロックで構成する。各項目の詳細は以下のとおり。
+
+#### No1: ヘッダー
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |
+| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |
+| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |
+| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |
+| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |
+| アクセシビリティ | `aria-expanded`、`aria-controls="navigation"`、フォーカストラップ（`#js-focus-trap`）を設定 |
+
+#### No2: FV（ファーストビュー）
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `HomeFvSection`（`app/(home)/sections/home-fv-section.tsx`） |
+| 表示要素 | 大見出し `To You Design`、サブ見出し `Portfolio`、Three.js 3D モデル |
+| 3D モデル | `ThreeModel`（クライアントコンポーネント）。GLTF `/models/scene.gltf` を Canvas 上に描画 |
+| アニメーション | モデルは上下移動（sin 波）と Y 軸回転を自動実行。`OrbitControls` によりドラッグ操作可能（ズーム無効） |
+| 演出 | 見出しに `slide__in__right` クラスを付与し、右からスライドインする |
+| SP レイアウト | 見出しと 3D モデルを縦方向に配置。Canvas は画面幅いっぱいに表示 |
+
+#### No3: About
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `HomeAboutSection`（Server Component） |
+| セクション見出し | `About`（`data-ja="To You Designについて"`） |
+| データ取得 | `fetchProfile()` → `/api/profiles` |
+| 表示要素 | プロフィール画像、氏名（阿部 舜平）、本文、趣味、資格、SNS リンク |
+| プロフィール画像 | `/images/myphoto.png`。SP では `sizes="100vw"` で全幅表示 |
+| 本文 | `html-react-parser` で HTML を描画 |
+| SNS リンク | `ProfileSnsLinks`。GitHub / X / Zenn 等を外部リンク（`target="_blank"`）で表示 |
+| SP レイアウト | 画像 → テキストの順に縦積み。左右に 20px 相当の余白（`.max_width` 内） |
+| 演出 | `ScrollComponent` によりスクロール時フェードイン |
+
+#### No4: Portfolio
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `HomePortfolioSlide`（Server）+ `HomePortfolioSlideClient`（Client） |
+| セクション見出し | `Portfolio`（`data-ja="ポートフォリオ"`） |
+| データ取得 | `fetchPortfoliosFront()` → `/api/portfolios`。失敗時または 0 件時は `public/mock/api/portfolios/index.json` を使用 |
+| 並び順 | 制作日（`date`）の降順 |
+| スライダー | Swiper を使用。SP（0px 以上）は `slidesPerView: 1.5`、768px 以上は `3.5` |
+| カード要素 | サムネイル画像、日付、タイトル、タグ（`#tag` 形式） |
+| カード操作 | カードクリックで `TransitionLink` により `/portfolios/[id]` へ遷移 |
+| 前後ボタン | 制作物が 5 件以上の場合のみ左右ナビ（`ChevronLeft` / `ChevronRight`）を表示 |
+| CTA | `LinkButton`「ポートフォリオをさらに見る」→ `/portfolios`。GTM: `home_portfolio` / `click_more_portfolio` |
+| SP レイアウト | 1.5 枚表示により次カードの一部が見える peep 表示。左右 20px 余白 |
+
+#### No5: History
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `CareerHistoryTimeline`（Server Component） |
+| セクション見出し | `History`（`data-ja="過去の経歴"`） |
+| データ取得 | `fetchHistories()` → `/api/histories` |
+| 表示要素 | 経歴タイムライン（日付、タイトル、本文）を `Timeline` コンポーネントで縦並び表示 |
+| CTA | `LinkButton`「経歴をさらに見る」→ `/about`。GTM: `home_history` / `click_more_history` |
+| SP レイアウト | タイムラインを 1 カラムで表示。CTA はセクション下部に配置 |
+| 演出 | `ScrollComponent` によりスクロール時フェードイン |
+
+#### No6: Skill
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `HomeSkills`（Server Component） |
+| セクション見出し | `Skill`（`data-ja="スキルセット"`） |
+| データ取得 | `Promise.all` で 4 カテゴリを並列取得（`/api/skills/front`, `/back`, `/infra`, `/other`） |
+| カテゴリ | Frontend / Backend / Infra / Other の 4 区分 |
+| 表示要素 | 各カテゴリ見出し（`h3.skill__title`）+ スキルカード（`SkillElement`：アイコン、スキル名） |
+| SP レイアウト | カテゴリごとに縦積み。スキルカードは 1 カラム中心配置 |
+| 演出 | 各カテゴリのスキル一覧に `ScrollComponent` を適用 |
+
+#### No7: Blog
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `HomeBlog`（Server Component）+ `HomeBlogItem` |
+| セクション見出し | `Blog`（`data-ja="ブログ"`） |
+| データ取得 | `fetchZennArticles()` → Zenn API（`https://zenn.dev/api/articles?username=643866`） |
+| 表示件数 | 最新 3 件（`HOME_BLOG_COUNT = 3`） |
+| 記事要素 | 公開日（`time`）、タイトル（`h3`） |
+| 記事操作 | クリックで Zenn 記事ページへ外部リンク（`target="_blank"`） |
+| 条件分岐 | 記事 0 件または取得失敗時は一覧を描画せず `null` を返す（CTA のみ表示） |
+| CTA | `LinkButton`「ブログをさらに見る」→ `/blog`。GTM: `home_blog` / `click_more_blog` |
+| SP レイアウト | 記事を縦並びリスト（ニュース風）で表示 |
+
+#### No8: Contact
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `page.tsx` 内の Contact セクション |
+| セクション見出し | `Contact`（`main__title-white`、`data-ja="お問い合わせ"`） |
+| 背景 | 青背景（`.contact` セクション、`#4284ff` 系） |
+| 表示要素 | CONTACT ボックス（`h3.contact__box-title`）、説明文「お問い合わせ」、CTA ボタン |
+| CTA | `LinkButton`「お問い合せフォームへ」→ `/contact`。GTM: `home_contact` / `click_more_contact` |
+| SP レイアウト | セクション全幅。ボックスは `.max_width` 内に中央配置 |
+| 演出 | `ScrollComponent` によりスクロール時フェードイン |
+
+#### No9: フッター / TopBackButton
+
+| 項目 | 内容 |
+|------|------|
+| フッター | `RootLayout` の `Footer`（全ページ共通） |
+| 戻るボタン | `TopBackButton`（`components/ui/button/top-back-button.tsx`） |
+| 表示条件 | スクロール 150px 超で右下固定ボタン（`ChevronUp` アイコン）を表示 |
+| 操作 | ボタンクリックで `window.scrollTo(0, 0)` によりページ先頭へ戻る |
+| SP レイアウト | フッターは画面下部全幅。TopBackButton は右下に固定表示 |
 
 ## 3. データフロー
 
