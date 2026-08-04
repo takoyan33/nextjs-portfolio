@@ -1006,8 +1006,32 @@ li {
   }
 
   .modal-close {
-    img {
-      height: 200px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 28px;
+    line-height: 1;
+    color: white;
+    cursor: pointer;
+    background: rgb(255 255 255 / 90%);
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+    transition:
+      transform 0.2s,
+      background-color 0.2s,
+      color 0.2s;
+
+    &:hover {
+      color: #fff;
+      background: #333;
+      transform: scale(1.08);
     }
   }
 }
