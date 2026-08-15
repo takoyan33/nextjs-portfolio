@@ -11,8 +11,7 @@
 
 ### 画面構成図
 
-- PC: `drawio/portfolio-detail.drawio`
-- SP: `drawio/portfolio-detail.drawio`
+`drawio/portfolio-article.drawio`
 
 ### 画面項目
 
@@ -72,7 +71,7 @@
 | コンポーネント | `PortfolioDetail` 内 |
 | 表示要素 | "About" 見出し（`h3`）、`portfolio.aboutImg`、`portfolio.about` テキスト |
 | 画像モーダル | 画像クリック時に拡大モーダルを開く（`isOpen2` state） |
-| テキストパース | HTML記述に対応するため、`html-react-parser`（`parse`）を使用して描画 |
+| テキストパース | HTML記述に対応するため、`html-react-parser`（`parse`）を使用して描画し、サニタイズを行う |
 
 #### No7: 機能一覧 セクション
 
@@ -81,7 +80,7 @@
 | コンポーネント | `PortfolioDetail` 内 |
 | 表示要素 | "機能一覧" 見出し（`h3`）、`portfolio.functionImg`、`portfolio.function` テキスト |
 | 画像モーダル | 画像クリック時に拡大モーダルを開く（`isOpen3` state） |
-| テキストパース | `html-react-parser` を使用して描画 |
+| テキストパース | `html-react-parser` を使用して描画し、サニタイズを行う |
 
 #### No8: アピール セクション
 
@@ -90,7 +89,7 @@
 | コンポーネント | `PortfolioDetail` 内 |
 | 表示要素 | "アピール" 見出し（`h3`）、`portfolio.appealImg`、`portfolio.appeal` テキスト |
 | 画像モーダル | 画像クリック時に拡大モーダルを開く（`isOpen4` state） |
-| テキストパース | `html-react-parser` を使用して描画 |
+| テキストパース | `html-react-parser` を使用して描画し、サニタイズを行う |
 
 #### No9: 制作期間
 
@@ -105,7 +104,7 @@
 |------|------|
 | コンポーネント | `PortfolioDetail` 内 |
 | カテゴリ | フロントエンド（`portfolio.front_skill`）、バックエンド（`portfolio.back_skill`）、インフラ（`portfolio.infra_skill`） |
-| 表示ロジック | バックエンド、インフラのスキルが存在しない場合は各ブロックを非表示にする |
+| 表示ロジック | フロントエンド、バックエンド、インフラのスキルが存在しない場合は各ブロックを非表示にする |
 | 装飾 | カテゴリごとにSVGアイコンを表示。各スキル名はタグ形式のリストで出力 |
 
 #### No11: 外部リンク (URL / GitHub)

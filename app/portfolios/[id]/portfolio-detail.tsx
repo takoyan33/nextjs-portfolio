@@ -1,9 +1,9 @@
 "use client"
-import parse from "html-react-parser"
+import parse, { type DOMNode } from "html-react-parser"
 import { SquareArrowOutUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { type ReactNode, useState } from "react"
 
 import { Breadcrumb } from "@/components/ui"
 import { CommonModal } from "@/components/ui/common-modal"
@@ -16,6 +16,30 @@ import { PATH } from "@/utils/path"
 interface PortfolioDetailProps {
   portfolio: PortfolioType
 }
+
+const unsafeElementNames = new Set(["iframe", "object", "embed", "script", "style", "svg"])
+const safeUrlPattern = /^(?:https?:|mailto:|tel:|\/|#)/i
+
+/** Render rich-text fields without executable content or unsafe URLs from the API. */
+const parseSanitizedHtml = (html: string): ReactNode =>
+  parse(html, {
+    replace: (node: DOMNode) => {
+      if (node.type !== "tag" && node.type !== "script" && node.type !== "style") return
+      if (unsafeElementNames.has(node.name)) return <></>
+
+      for (const [attribute, value] of Object.entries(node.attribs)) {
+        const normalizedAttribute = attribute.toLowerCase()
+        if (
+          normalizedAttribute.startsWith("on") ||
+          normalizedAttribute === "style" ||
+          ((normalizedAttribute === "href" || normalizedAttribute === "src") &&
+            !safeUrlPattern.test(value))
+        ) {
+          delete node.attribs[attribute]
+        }
+      }
+    },
+  })
 
 export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
   //サムネイル
@@ -153,7 +177,7 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
             closeModal={() => CloseModal(setIsOpen2)}
             img={portfolio.aboutImg}
           />
-          <div className="portfolioDetail__element-text">{parse(portfolio?.about)}</div>
+          <div className="portfolioDetail__element-text">{parseSanitizedHtml(portfolio.about)}</div>
           <h3 className="portfolioDetail__element-subtitle" id="functions">
             機能一覧
           </h3>
@@ -176,7 +200,9 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
             closeModal={() => CloseModal(setIsOpen3)}
             img={portfolio.functionImg}
           />
-          <div className="portfolioDetail__element-text">{parse(portfolio?.function)}</div>
+          <div className="portfolioDetail__element-text">
+            {parseSanitizedHtml(portfolio.function)}
+          </div>
           <h3 className="portfolioDetail__element-subtitle" id="appeal">
             アピール
           </h3>
@@ -199,39 +225,45 @@ export const PortfolioDetail = ({ portfolio }: PortfolioDetailProps) => {
             closeModal={() => CloseModal(setIsOpen4)}
             img={portfolio.appealImg}
           />
-          <div className="portfolioDetail__element-text">{parse(portfolio?.appeal)}</div>
+          <div className="portfolioDetail__element-text">
+            {parseSanitizedHtml(portfolio.appeal)}
+          </div>
 
-          <div className="portfolioDetail__element-text" id="appeal">
+          <div className="portfolioDetail__element-text" id="development">
             <h3 className="portfolioDetail__element-subtitle">制作期間</h3>
             {portfolio.time}
           </div>
           <div className="portfolioDetail__element-text">
             <h3 className="portfolioDetail__element-subtitle">使用技術</h3>
-            <h4 className="portfolioDetail__element-h4">
-              <span className="portfolioDetail__element-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-                </svg>
-              </span>
-              フロントエンド
-            </h4>
-            <ul className="portfolioDetail__element-tagList">
-              {portfolio.front_skill.map((skill) => (
-                <li className="portfolioDetail__element-tag" key={skill}>
-                  {skill}
-                </li>
-              ))}
-            </ul>
+            {portfolio.front_skill?.length > 0 && (
+              <div>
+                <h4 className="portfolioDetail__element-h4">
+                  <span className="portfolioDetail__element-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                    </svg>
+                  </span>
+                  フロントエンド
+                </h4>
+                <ul className="portfolioDetail__element-tagList">
+                  {portfolio.front_skill.map((skill) => (
+                    <li className="portfolioDetail__element-tag" key={skill}>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {portfolio.back_skill && portfolio.back_skill.length > 0 && (
               <div>
                 <h4 className="portfolioDetail__element-h4">
