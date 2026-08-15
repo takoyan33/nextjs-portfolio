@@ -5,6 +5,9 @@
 - ユーザーに対して個人情報の取り扱い、アクセス解析ツール（Google Analytics, Microsoft Clarity）の使用等について明示するページ。
 - 静的生成（`export const dynamic = "force-static"`）される。
 
+### meta
+- `title: "To You Design - Privacy Policy"`
+
 ## 2. 画面仕様
 
 ### 画面構成図
