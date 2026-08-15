@@ -6,6 +6,9 @@
 - タブ切り替えにより「経歴(History)」と「職歴(Career)」を動的に切り替えて表示する。
 - 静的生成（`export const dynamic = "force-static"`）されるが、タブ切り替えはクライアントサイトの状態管理（Zustand）で行われる。
 
+### meta
+- `title: "To You Design - About"`
+
 ## 2. 画面仕様
 
 ### 画面構成図

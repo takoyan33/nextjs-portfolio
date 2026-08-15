@@ -6,6 +6,9 @@
 - `app/(home)/page.tsx` で `export const dynamic = "force-static"` を指定し、静的生成を前提に構成する。
 - FV では Three.js の GLTF モデルを表示し、主要セクションはスクロール時のフェードイン演出を行う。
 
+### meta
+- `title: "To You Design - Home"`
+
 ## 2. 画面仕様
 
 ### 画面構成図

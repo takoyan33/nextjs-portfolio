@@ -7,6 +7,10 @@
 - 対象ユーザー: 管理者
 - 関連ページ: 管理画面ダッシュボード（`/admin/dashboard`）
 
+### meta
+- `title: "To You Design - Admin"`
+
+
 ## 2. 画面仕様
 
 ### 画面構成図

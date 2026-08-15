@@ -7,6 +7,9 @@
 - 対象ユーザー: サイト訪問者、採用担当者、制作実績を確認したいユーザー。
 - 備考: 依頼パスは `/portfolio` だが、アプリの公開ルートは `/portfolios`。
 
+### meta
+- `title: "To You Design - Portfolio"`
+
 ## 2. 画面仕様
 
 ### 画面構成図
