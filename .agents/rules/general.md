@@ -235,6 +235,8 @@ alwaysApply: true
 - `docs/concept.md` : デザインの方針
 - `docs/docker.md` : Docker概要
 - `docs/pino.md` : ログ設計概要
+- `docs/site-plan.md` : サイト計画書
+- `docs/deploy.md` : デプロイガイド
 - `docs/analytics.md` : google analytics, Clarity設計概要
 - `docs/backend/docs` : APIのドキュメント類を格納
 
