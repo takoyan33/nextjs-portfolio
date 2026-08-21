@@ -1,76 +1,76 @@
-# Workflow名（GitHub Actions画面に表示される）
 name: nextjs-ci
 
-# 実行トリガー
 on:
   push:
-    branches: [main] # mainブランチへのpush時
+    branches: [main]
   pull_request:
-    branches: [main] # main向けPR作成時
+    branches: [main]
+
+# 共通の実行環境定義
+defaults:
+  run:
+    shell: bash
 
 jobs:
-  nextjs-ci:
-    # 実行環境（GitHubのUbuntuランナー）
+  # ----------------------------------------------------
+  # 1. Format チェック（最軽量・高速）
+  # ----------------------------------------------------
+  format:
     runs-on: ubuntu-latest
-
-    # Node.jsのマトリックス設定
-    strategy:
-      matrix:
-        node-version: [24.x]
-
     steps:
-      # リポジトリをチェックアウト
       - uses: actions/checkout@v4
-
-      # pnpmセットアップ
       - uses: pnpm/action-setup@v4
         with:
           version: 10.0.0
-          run_install: false
-
-      # Node.jsセットアップ
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24.x
           cache: pnpm
-
-      # Node / pnpm / Corepack のバージョン確認
-      # CIトラブル時のデバッグ用
-      - name: Check versions
-        run: |
-          node -v
-          pnpm -v
-
-      # 依存関係インストール
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      # コードフォーマットチェック
-      # Prettierなどでフォーマットが崩れていないか確認
       - name: Format code
         run: pnpm format:check
 
-      # Lintチェック
-      # ESLintなどによるコード品質チェック
+  # ----------------------------------------------------
+  # 2. Lint チェック
+  # ----------------------------------------------------
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Lint code
         run: pnpm lint
 
-      # React Doctor 実行
-      # Reactのアンチパターンやパフォーマンス問題を検出
-      - name: React Doctor
-        id: react-doctor
+  # ----------------------------------------------------
+  # 3. React Doctor 実行（重めの処理）
+  # ----------------------------------------------------
+  react-doctor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.0.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 診断とスコア取得を1回にまとめて高速化
+      - name: Run React Doctor
         run: |
           npx -y react-doctor@latest . --verbose
-        continue-on-error: true
-        # エラーでもCIを落とさない（診断目的）
-
-      # React Doctor スコア取得
-      # プロジェクトのReact健全度スコアを取得
-      - name: React Doctor Score
-        id: score
-        run: |
           SCORE=$(npx -y react-doctor@latest . --score 2>/dev/null || echo "0")
-          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
           echo "React Doctor Health Score: $SCORE"
         continue-on-error: true
-        # スコア取得失敗でもCIを止めない
