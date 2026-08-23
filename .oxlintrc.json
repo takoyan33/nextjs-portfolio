@@ -1,5 +1,7 @@
 {
-  "extends": ["prettier", "plugin:storybook/recommended"],
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["unicorn", "typescript", "oxc", "react", "import"],
+  "jsPlugins": [{ "name": "import-js", "specifier": "eslint-plugin-import" }],
   "ignorePatterns": [
     "**/node_modules/**",
     "**/public/**",
@@ -10,13 +12,18 @@
   "rules": {
     "no-unused-vars": "error",
     "react-hooks/rules-of-hooks": "off",
-    "import/order": ["error", { "alphabetize": { "order": "asc", "caseInsensitive": true } }],
+    "import-js/order": [
+      "warn",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "newlines-between": "always"
+      }
+    ],
     "prefer-const": "error",
     "react/jsx-no-target-blank": "error",
     "no-unused-expressions": "warn",
     "no-var": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/prop-types": "warn",
     "@typescript-eslint/no-explicit-any": ["off"]
   }
 }

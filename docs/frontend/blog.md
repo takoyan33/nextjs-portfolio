@@ -1,50 +1,141 @@
 # Blogページ 詳細設計書
 
 ## 1. ページ概要
-- ページ: `/blog`
-- 目的: 外部（Zenn）から取得した記事一覧を表示し、記事詳細や外部リンクへ遷移させる
-- 対象ユーザー: サイト訪問者、読者
-- 関連ページ: トップ、個別ポートフォリオ
 
-## 2. UI構成
-- メイン一覧（`ZennArticleItem` コンポーネントのリスト）
-- サイドバー（`ZennAsideArticleItem` コンポーネント）
-- ページレイアウト: `.max_width`内で2カラム（メイン+サイド）
+- ページ: `/blog`
+- 目的: 外部（Zenn）から取得したブログ記事の一覧をページネーション付きで表示し、サイドバーにおすすめ記事を表示する。
+- 対象ユーザー: サイト訪問者、技術情報や活動内容に関心があるユーザー。
+- 関連ページ: トップページ、各制作実績詳細ページ。
+
+### meta
+- `title: "To You Design - Blog"`
+
+## 2. 画面仕様
+
+### 画面構成図
+
+- PC: `drawio/blog.drawio`
+- SP: `drawio/blog.drawio`
+
+### 画面項目
+
+画面構成は上から下へ 8 ブロックで構成する。各項目の詳細は以下のとおり。
+
+#### No1: ヘッダー
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |
+| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |
+| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |
+| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |
+| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |
+
+#### No2: パンくず
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |
+| 表示階層 | トップ → Blog |
+| 区切り | `ChevronRight` アイコン |
+| 操作 | トップリンククリックで `/` へ遷移。カレントページ（Blog）は `aria-current="page"`（リンクなし） |
+| SP レイアウト | `.max_width` 内に左寄せ。左右 20px 相当の余白 |
+
+#### No3: 下層タイトル
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |
+| 表示要素 | 見出し `Blog`（`h1`）、英字補助（`data-ja="ブログ"`） |
+| 背景 | 青背景（`.lower__bg`、`#4284ff` 系）の全幅ブロック |
+| SP レイアウト | 画面全幅。テキストは `.max_width` 内に配置 |
+
+#### No4: 見出し / 件数
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `LowerSubTitle`（`components/ui/lower-sub-title.tsx`） |
+| 表示要素 | 「Zenn」+ 件数（例: `15件`） |
+| データ | 取得されたZenn記事配列全体の length |
+| SP レイアウト | `.max_width` 内。件数は `span.lower__subTitle-span` で表示 |
+
+#### No5: 記事一覧
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `ZennArticleItem` (`app/blog/_containers/zenn-article-item.tsx`) |
+| 表示要素 | 絵文字（`emoji`）、公開日付（`published_at`）、タイトル（`title`）、記事タイプ（`article_type`）、いいね数（`liked_count`） |
+| 操作 | 記事全体が外部リンク `https://zenn.dev${path}` へ `target="_blank"` で遷移 |
+| SP レイアウト | 1カラムの縦積み。カード形式で表示 |
+
+#### No6: ページネーション
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `BlogPagination` (`app/blog/_containers/blog-pagination.tsx`) |
+| 表示要素 | 「前へ」ボタン、各ページ番号へのリンク、「次へ」ボタン |
+| 制御ロジック | 1ページあたり9件表示。全1ページ以下の場合は非表示。現在のページは非活性かつ `aria-current="page"` を付与 |
+| 操作 | リンククリックで `/blog?page=[num]` へ遷移 |
+
+#### No7: サイドバー（おすすめ記事）
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `ZennAsideArticleItem` (`app/blog/_containers/zenn-aside-article-item.tsx`) |
+| 表示要素 | 公開日付、タイトル、いいね数 |
+| 制御ロジック | 取得した全記事からリロード（リクエスト）ごとにランダムに4件抽出して表示 |
+| 操作 | 外部リンク `https://zenn.dev${path}` へ `target="_blank"` で遷移 |
+| レイアウト | PC版は右側サイドバー、SP版はメイン一覧の下部へ縦並びで表示 |
+
+#### No8: フッター
+
+| 項目 | 内容 |
+|------|------|
+| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |
+| SP レイアウト | 画面下部全幅。コピーライト・サイトマップリンクを表示 |
 
 ## 3. データフロー
+
+- ページアクセス時、Server Component の `Blog` が `fetchZennArticles({ cache: "no-store" })` を実行し、Zennの公開記事データを取得する。
+- 取得した記事データから `pickRandomArticles` でランダムに4件を抽出し、サイドバーのおすすめ記事とする。
+- URLクエリパラメータの `page` を読み取り、現在の表示対象となるページ（最大ページ数を超えないようクランプ）を算出し、9件分スライスして `ZennArticleItem` に渡す。
+- メイン一覧下部に `BlogPagination` を配置し、ページネーションコントロールを描画する。
 
 mermaid/blog.mmd
 
 ## 4. 状態管理・ロジック
-- ページ内部state: articles: ZennArticle[]
-- 非同期取得: fetch または hooks/fetch-client を利用
-- ローディング: 取得中はプレースホルダー表示
-- エラー: エラーメッセージと再試行ボタンを表示
+
+- **動的レンダリング**: ページアクセス（リロード）ごとにおすすめ記事のランダムな抽選を反映させるため、`export const dynamic = "force-dynamic"` を指定し、`noStore()` を実行する。
+- **ページネーション制御**: 
+  - 1ページあたりの表示数: `9` 件 (`ARTICLES_PER_PAGE`)
+  - クランプ処理: クエリから取得した `page` が総ページ数を超える場合は、最大ページ番号に強制補正する。
 
 ## 5. ルーティング
+
 - パス: `/blog`
-- 記事クリック: 外部リンク（Zenn記事）へ遷移（target=_blank）
+- パラメータ: `/blog?page=[ページ番号]` （2ページ目以降）
+- 記事の遷移先: `https://zenn.dev${path}` （外部サイト・新規タブ）
 
 ## 6. イベント・アクション仕様
-| イベント | 発火条件 | 処理 | 結果 |
-| --- | --- | --- | --- |
-| click | 記事カード押下 | 外部リンクへ遷移 | 新しいタブで記事を開く |
-| fetch | ページロード | API呼び出し | 記事リスト表示/エラー処理 |
 
-## 7. APIインターフェース（内部プロキシ）
-- GET /api/zenn/articles
-  - 説明: Zenn API から記事一覧を取得し、サイトで使いやすい形式で返す
-  - レスポンス例:
-  ```json
-  {"data": [{"id":"1","title":"...","url":"https://zenn.dev/..."} ]}
-  ```
+| イベント | 発火条件 | 処理内容 | 結果 |
+|----------|----------|----------|------|
+| ページアクセス | `/blog` へのアクセス | Zenn記事の一覧データを取得し、ページ割り当てとおすすめ記事のランダム抽出を行う | Blogページ及び初期ページの記事が表示される |
+| 記事カードクリック | 記事一覧またはおすすめ記事のカードを押下 | 外部リンクを別タブで開く | 新しいタブで `https://zenn.dev/...` の記事が開く |
+| ページ番号クリック | ページネーションリンクを押下 | URLクエリの `page` を変更してリダイレクト | 指定されたページの該当記事リストが表示される |
+
+## 7. APIインターフェース (Backend / 外部通信)
+
+| エンドポイント / 参照先 | メソッド | 内容 |
+|-------------------------|----------|------|
+| `fetchZennArticles` 経由の通信 | GET | Zenn APIまたはプロキシから記事一覧を取得 |
 
 ## 8. エラーハンドリング
-- ネットワークエラー: 「記事を取得できませんでした。再試行してください」表示
-- 空データ: 「記事はまだありません」表示
 
-## 9. コンポーネント一覧
-- `ZennArticleItem` (app/blog/_containers/zenn-article-item.tsx)
-- `ZennAsideArticleItem` (app/blog/_containers/zenn-aside-article-item.tsx)
+- Zennからの記事データ取得に失敗した場合は、エラーログの出力及び取得関数のエラーバブリングにより、Next.jsの共通エラー境界に処理が委譲される。
+- 取得できた記事が 0 件の場合は、空データ用の表示処理を行う。
 
----
+## 9. その他仕様
+
+- 実画面確認: `http://localhost:3000/blog`
+- 主要コンポーネント: `Breadcrumb`, `LowerTitle`, `LowerSubTitle`, `ZennArticleItem`, `ZennAsideArticleItem`, `BlogPagination`

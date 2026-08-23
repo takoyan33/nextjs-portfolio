@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+
 import { TransitionLink } from ".."
 
 interface BaseButtonProps {
@@ -23,7 +24,7 @@ const BaseButton: React.FC<
         window.dataLayer = []
       }
       window.dataLayer.push({
-        event: "custom_event",
+        event: gtmEventAction,
         eventCategory: gtmEventCategory,
         eventAction: gtmEventAction,
         eventLabel: gtmEventLabel ?? text,

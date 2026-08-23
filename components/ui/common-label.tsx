@@ -14,7 +14,12 @@ interface CommonLabelProps {
  */
 export const CommonLabel: React.FC<CommonLabelProps> = ({ text, id = "", required = false }) => {
   return (
-    <label htmlFor={id} className={styles.label} aria-required={required}>
+    <label
+      htmlFor={id}
+      className={styles.label}
+      aria-required={required}
+      data-testid="common-label-root"
+    >
       <span className={styles.label__text}>{text}</span>
       {required && <span className={styles.label__required}>必須</span>}
     </label>

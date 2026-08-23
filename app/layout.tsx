@@ -57,7 +57,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <link rel="preconnect" href="https://y.clarity.ms" />
         <link rel="preconnect" href="https://www.clarity.ms" />
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
-        {process.env.NODE_ENV === "production" && (
+        {process.env.NEXT_PUBLIC_NODE_ENV === "production" && (
           <>
             <SpeedInsights />
             <GoogleAnalytics />

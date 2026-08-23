@@ -6,7 +6,7 @@ import type { ResponsePortfolio } from "types"
 export const dynamic = "force-dynamic"
 
 export async function GET() {
-  const url = `${process.env.BACKEND_API_URL}api/v1/portfolios`
+  const url = `${process.env.BASE_API_URL}api/v1/portfolios`
 
   try {
     const response = await fetch(url)
@@ -27,7 +27,7 @@ export async function GET() {
     if (data.status !== "SUCCESS") {
       console.log(messages[data.status] || "Unknown error occurred")
     }
-    return NextResponse.json(data)
+    return NextResponse.json(data, { status: response.status })
   } catch (error) {
     console.error("Error fetching data:", error)
     return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 })

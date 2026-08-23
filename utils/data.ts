@@ -1,12 +1,12 @@
 type SocialLink = {
-  readonly href: string
-  readonly src: string
-  readonly alt: string
-  readonly height: number
-  readonly width: number
+  href: string
+  src: string
+  alt: string
+  height: number
+  width: number
 }
 
-export const SOCIAL_LINKS: readonly SocialLink[] = [
+export const SOCIAL_LINKS: SocialLink[] = [
   {
     href: "https://github.com/takoyan33",
     src: "/images/github-logo.png",
@@ -30,4 +30,5 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
   },
 ] as const
 
+// 強制的にキャッシュする
 export const CACHE_OPTIONS = { cache: "force-cache" } as const

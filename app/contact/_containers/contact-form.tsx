@@ -63,11 +63,16 @@ export const ContactForm = () => {
         from_email: email,
         message: message,
       }
-      send(emailjsConfig.serviceId, emailjsConfig.templateId, template_param).then(() => {
-        window.alert("お問い合わせを送信致しました。")
-        setIsSubmitting(false)
-        router.push("/")
-      })
+      send(emailjsConfig.serviceId, emailjsConfig.templateId, template_param)
+        .then(() => {
+          window.alert("お問い合わせを送信致しました。")
+          setIsSubmitting(false)
+          router.push("/")
+        })
+        .catch(() => {
+          window.alert("お問い合わせを送信失敗しました。")
+          setIsSubmitting(false)
+        })
     } else {
       window.alert("お問い合わせを送信失敗しました。")
       setIsSubmitting(false)

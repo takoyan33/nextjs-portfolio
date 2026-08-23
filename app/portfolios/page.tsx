@@ -1,10 +1,11 @@
+import type { Metadata } from "next"
+import { Suspense } from "react"
+
 import { PortfolioList } from "@/app/portfolios/_containers/portfolio-list"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { fetchPortfoliosFront } from "@/hooks/fetch"
 import "@/styles/page/_portfolio.scss"
 import { PATH } from "@/utils/path"
-import type { Metadata } from "next"
-import { Suspense } from "react"
 import { PortfolioType } from "../types"
 
 export const dynamic = "force-static"
@@ -17,7 +18,9 @@ const Portfolio = async ({ searchParams }: { searchParams: { order?: "new" | "ol
   const res = await fetchPortfoliosFront()
   const portfolios: PortfolioType[] = res.data ?? []
 
-  const sorted = [...portfolios]
+  const sorted = [
+    ...portfolios.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+  ]
 
   if (searchParams.order === "new") {
     sorted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

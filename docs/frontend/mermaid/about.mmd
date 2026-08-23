@@ -1,5 +1,10 @@
 flowchart TD
-  A["ユーザー操作"] --> B["タブ切り替え"]
-  B --> C["activeTab更新（Zustand）"]
-  C --> D["タブコンテンツ表示(データ取得済み)"]
-  D --> E["画面更新"]
+  A["ページアクセス (/about)"] --> B["AboutTabs コンポーネントの初期化"]
+  B --> C{"activeTab の値を確認 (Zustand)"}
+  C -- "history (初期値)" --> D["CareerHistoryTimeline を表示"]
+  C -- "career" --> E["JobTimeline を表示"]
+  B --> F["ユーザーがタブをクリック"]
+  F --> G["changeActiveTab(tabName) を実行"]
+  G --> H["Zustand のステート更新"]
+  H --> C
+  B --> I["資格セクションを表示 (常に表示)"]

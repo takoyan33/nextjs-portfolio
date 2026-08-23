@@ -1,23 +1,26 @@
 {
   "editor.codeActionsOnSave": {
-    "quickfix.eslint": "explicit",
+    "source.fixAll.oxlint": "explicit",
     "source.organizeImports": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   },
-  "stylelint.packageManager": "yarn",
-  "stylelint.configFile": ".stylelintrc.mjs",
-  "css.validate": true,
-  "less.validate": true,
-  "scss.validate": false,
-  "stylelint.validate": ["scss"]
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "stylelint.validate": ["css", "scss"],
+  "editor.formatOnSave": true
 }

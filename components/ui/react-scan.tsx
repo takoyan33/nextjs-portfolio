@@ -5,7 +5,7 @@ import { scan } from "react-scan"
 /**
  * React Scan
  */
-export function ReactScan(): JSX.Element {
+export function ReactScan() {
   useEffect(() => {
     scan({
       enabled: true,

@@ -3,7 +3,7 @@
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { PATH } from "@/utils/path"
 import Link from "next/link"
-import styles from "./admin.module.scss"
+import styles from "@/components/ui/css/admin.module.scss"
 
 const AdminDashboard = () => {
   const items = [
