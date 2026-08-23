@@ -15,6 +15,7 @@ import type {
   ResponseSkills,
 } from "../types"
 
+import { cookies } from "next/headers"
 import { fetcher } from "./fetcher"
 
 /**
@@ -114,3 +115,31 @@ export const fetchOtherSkill = async (id: string) =>
  * プロフィール取得
  */
 export const fetchProfile = async () => fetcher<ResponseProfiles>("api/profiles")
+
+/**
+ * Cookieから認証トークンを取得するヘルパー関数
+ */
+async function getAuthToken(): Promise<string | undefined> {
+  const cookieStore = await cookies()
+  return cookieStore.get("auth_token")?.value
+}
+
+/**
+ * トークンの有効性検証 (API-003)
+ */
+export const validateToken = async () => {
+  const token = await getAuthToken()
+  if (!token) return { ok: false, error: "トークンが存在しません" }
+  console.log(token)
+  try {
+    const res = await fetch(`${process.env.BASE_API_URL}api/v1/auth/validate`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    if (res.status !== 200) return { ok: false, error: "認証に失敗しました" }
+    return { ok: true, message: "認証に成功しました" }
+  } catch {
+    return { ok: false, error: "認証に失敗しました" }
+  }
+}

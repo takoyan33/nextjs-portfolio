@@ -15,8 +15,7 @@
 
 ### 画面構成図
 
-- PC: `drawio/admin.drawio`
-- SP: `drawio/admin.drawio`
+- `drawio/admin.drawio`
 
 ### 画面項目
 
@@ -64,18 +63,28 @@
 
 ## 3. データフロー
 
-- サーバーサイド（`app/(auth)/admin/page.tsx`）で、クライアントの Cookie から `auth` の値を取得し、`AdminForm` に引き渡す。
 - ユーザーがフォームを入力して送信ボタンを押すと、クライアント側で `loading = true` に設定し、Server Action である `authenticate(formData)` を呼び出す。
 - `authenticate` は、環境変数 `BASE_API_URL` からバックエンドのログインAPI `/api/v1/auth/login` へ POST 送信する。
+
 - **ログイン成功時**: 
-  - Cookie に `auth="true"` を設定（`httpOnly: true`, `secure: true`, `maxAge: 1日`）。
-  - `/admin/dashboard` へのパス再検証（`revalidatePath`）を行う。
+  - APIからレスポンス { token: "eyJhbGci...", user: { ... } } を取得。
+  - レスポンスに含まれる JWTトークン文字列そのもの を Cookie auth_token に保存する。
+  - httpOnly: true（JavaScriptからの不正読み取り防止）
+  - secure: true（HTTPS通信のみ送信）
+  - sameSite: "lax"（CSRF対策）
+  - maxAge: 60 * 60 * 24（24時間有効）
+  - `/admin/dashboard` へのパス再検証（revalidatePath）を実行。
   - `redirect("/admin/dashboard")` を使ってダッシュボードへ遷移させる。
 - **ログイン失敗時**:
-  - クライアント側へエラーメッセージ `{ ok: false, error: "メールまたはパスワードが違います" }` を返す。
-  - クライアント側で `loading = false` に戻し、エラーメッセージを画面上に表示する。
+  - バックエンドから 401 Unauthorized 等が返却された場合、Cookieは設定せず、エラーオブジェクト `{ ok: false, error: "メールアドレスまたはパスワードが正しくありません" }` を返却。
+  - クライアント側でローディングを解除し、エラーメッセージを表示。
 
-mermaid/admin.mmd
+  proxy.js
+  - **初期アクセス**: 
+  - サーバーサイドで Cookie から auth_token を取得。
+  - トークンが存在する場合、バックエンドの GET /api/v1/auth/validate にリクエストしてトークンの有効性を検証。
+  - トークンがない/無効な場合: ログインフォームを表示。
+- ログイン後の各ページでも、同様に認証チェックを行い、認証されていない（トークンがない/無効）場合は /admin へリダイレクトする。
 
 ## 4. 状態管理・ロジック
 
@@ -83,15 +92,22 @@ mermaid/admin.mmd
   - `loading`: サーバーでの認証処理実行中のローディング表示制御。
   - `error`: バックエンド認証失敗時のエラー文言保持。
 - **Cookieによるセッション管理**:
-  - Cookie名: `auth`
-  - 値: `true` (認証成功時)
-  - 有効期限: 24時間 (`maxAge: 60 * 60 * 24`)
-  - セキュリティ設定: `httpOnly: true`, `secure: true`, `sameSite: "lax"`, `path: "/"`
+  - Cookie名: auth_token
+  - 値: バックエンドが発行した JWTアクセストークン
+  - 有効期限: 24時間 (maxAge: 60 * 60 * 24)
+  - セキュリティ設定:
+    - httpOnly: true (XSS対策)
+    - secure: process.env.NODE_NODE_ENV === "production" (盗聴対策)
+    - sameSite: "lax" (CSRF対策)
+    - path: "/"
 
 ## 5. ルーティング
 
 - ログインページ: `/admin`
 - 成功時の遷移先: `/admin/dashboard`
+- Next.js Proxy (`proxy.js`):
+  - `/admin/dashboard` 以下のリクエストに対し、auth_token Cookieの存在を判定。
+  - トークンが存在しない場合は即座に /admin へリダイレクト。
 
 ## 6. イベント・アクション仕様
 

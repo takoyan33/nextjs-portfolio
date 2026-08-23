@@ -2,6 +2,7 @@ import { get } from "@vercel/edge-config"
 import { NextResponse } from "next/server"
 
 export async function proxy(request) {
+  // メンテナンスモードの取得
   const isInMaintenanceMode = await get("isMaintenance")
 
   const nextpathname = request.nextUrl.pathname
@@ -10,22 +11,29 @@ export async function proxy(request) {
     return NextResponse.next()
   }
 
-  // ✅ proxy では request.cookies で読む
-  const isAuth = request.cookies.get("auth")?.value === "true"
+  // ✅ Cookieから JWT トークン (auth_token) の存在を確認
+  const token = request.cookies.get("auth_token")?.value
+  const isAuth = Boolean(token)
 
   const url = request.nextUrl.clone()
 
-  // ✅ メンテナンスモード
+  // ✅ メンテナンスモード時の判定
   if (isInMaintenanceMode) {
     url.pathname = "/maintenance"
     return NextResponse.rewrite(url)
   }
 
-  // ✅ 管理画面へのアクセス制御
   const pathname = url.pathname
 
+  // ✅ 未ログイン時の保護ページ制御 (/admin/dashboard や /admin/edit へアクセスされたら /admin へリダイレクト)
   if (!isAuth && (pathname.startsWith("/admin/dashboard") || pathname.startsWith("/admin/edit"))) {
     url.pathname = "/admin"
+    return NextResponse.redirect(url)
+  }
+
+  // ✅ ログイン済み状態で /admin (ログイン画面) にアクセスされたら /admin/dashboard へリダイレクト
+  if (isAuth && pathname === "/admin") {
+    url.pathname = "/admin/dashboard"
     return NextResponse.redirect(url)
   }
 

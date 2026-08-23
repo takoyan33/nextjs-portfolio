@@ -50,7 +50,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const gtmId = process.env.NEXT_PUBLIC_GTM ?? ""
 
   const cookieStore = cookies()
-  const isAuth = (await cookieStore).get("auth")?.value === "true"
+  const isAuth = (await cookieStore).get("auth_token")?.value !== undefined
   return (
     <html lang="ja">
       <head>

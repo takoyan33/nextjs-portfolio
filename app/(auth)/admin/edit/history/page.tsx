@@ -2,6 +2,8 @@ import type { History } from "types"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { PATH } from "@/utils/path"
 import HistoryItem from "./HistoryItem"
+import { validateToken } from "@/hooks/fetch"
+import { redirect } from "next/navigation"
 
 export const dynamic = "force-dynamic"
 
@@ -11,6 +13,11 @@ const Admin = async () => {
   })
   const json = await response.json()
   const histories = Array.isArray(json?.data) ? json.data : []
+
+  const token = await validateToken()
+  if (!token.ok) {
+    redirect("/api/auth/logout")
+  }
   return (
     <main className="u-padding">
       <div className="max_width">

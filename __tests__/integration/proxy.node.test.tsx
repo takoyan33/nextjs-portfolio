@@ -24,7 +24,7 @@ test("未ログインで /admin/dashboard にアクセスすると /admin にリ
 test("ログイン済みで /admin/dashboard にアクセスすると /admin/dashboard にアクセスできる", async () => {
   const request = new NextRequest("http://localhost:3001/admin/dashboard", {
     headers: {
-      cookie: "auth=true",
+      cookie: "auth_token=xxx",
     },
   })
 

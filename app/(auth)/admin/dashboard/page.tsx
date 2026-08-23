@@ -1,11 +1,9 @@
-"use client"
-
 import { Breadcrumb, LowerTitle } from "@/components/ui"
+import styles from "@/components/ui/css/admin.module.scss"
 import { PATH } from "@/utils/path"
 import Link from "next/link"
-import styles from "@/components/ui/css/admin.module.scss"
 
-const AdminDashboard = () => {
+const AdminDashboard = async () => {
   const items = [
     { title: "ポートフォリオ", path: PATH.EDIT_PORTFOLIO },
     { title: "スキル", path: PATH.EDIT_SKILL },
