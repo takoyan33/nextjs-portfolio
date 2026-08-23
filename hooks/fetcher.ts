@@ -1,6 +1,7 @@
 "use server"
 import "server-only"
 
+import { redirect } from "next/navigation"
 import { CACHE_OPTIONS } from "../utils/data"
 
 export const fetcher = async <T>(path: string, options: RequestInit = {}): Promise<T> => {
@@ -15,7 +16,7 @@ export const fetcher = async <T>(path: string, options: RequestInit = {}): Promi
 
     console.error(`Failed to fetch ${path}: ${response.status} - ${errorText}`)
 
-    throw new Error(`Failed to fetch ${path}: ${response.status}`)
+    redirect("/404")
   }
 
   return response.json()

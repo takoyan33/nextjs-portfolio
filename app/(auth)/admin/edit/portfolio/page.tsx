@@ -1,9 +1,10 @@
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { logger } from "@/utils/logger"
 import { PATH } from "@/utils/path"
-import { fetchPortfolios } from "hooks/fetch"
+import { fetchPortfolios, validateToken } from "hooks/fetch"
 import type { PortfolioType } from "types"
 import PortfolioItem from "./PortfolioItem"
+import { redirect } from "next/navigation"
 
 export const dynamic = "force-dynamic"
 
@@ -13,6 +14,11 @@ const Admin = async () => {
     { length: data?.data?.length, data: data?.data?.[0], status: data?.status },
     "/admin/edit/portfolio",
   )
+
+  const token = await validateToken()
+  if (!token.ok) {
+    redirect("/api/auth/logout")
+  }
 
   return (
     <main className="u-padding">

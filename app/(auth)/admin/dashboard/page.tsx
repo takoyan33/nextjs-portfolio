@@ -1,9 +1,7 @@
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import styles from "@/components/ui/css/admin.module.scss"
-import { validateToken } from "@/hooks/fetch"
 import { PATH } from "@/utils/path"
 import Link from "next/link"
-import { redirect } from "next/navigation"
 
 const AdminDashboard = async () => {
   const items = [
@@ -13,11 +11,6 @@ const AdminDashboard = async () => {
     { title: "職歴", path: PATH.EDIT_JOB },
     { title: "資格", path: PATH.EDIT_LICENSE },
   ]
-
-  const token = await validateToken()
-  if (!token.ok) {
-    redirect("/api/auth/logout")
-  }
 
   return (
     <main className="u-padding">

@@ -1,12 +1,14 @@
+import { Breadcrumb, LowerTitle } from "@/components/ui"
 import {
   fetchBackSkills,
   fetchFrontSkills,
   fetchInfraSkills,
   fetchOtherSkills,
+  validateToken,
 } from "@/hooks/fetch"
 import { Skill } from "@/types"
-import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { PATH } from "@/utils/path"
+import { redirect } from "next/navigation"
 import SkillItem from "./SkillItem"
 
 export const dynamic = "force-dynamic"
@@ -18,6 +20,12 @@ const Admin = async () => {
     fetchInfraSkills(),
     fetchOtherSkills(),
   ])
+
+  const token = await validateToken()
+  if (!token.ok) {
+    redirect("/api/auth/logout")
+  }
+
   return (
     <main className="u-padding">
       <div className="max_width">

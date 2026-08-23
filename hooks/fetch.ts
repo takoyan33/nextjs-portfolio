@@ -132,15 +132,13 @@ export const validateToken = async () => {
   if (!token) return { ok: false, error: "トークンが存在しません" }
   console.log(token)
   try {
-    const res = await fetcher<{ message: string; user: { id: number; email: string } }>(
-      "api/v1/auth/validate",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    const res = await fetch(`${process.env.BASE_API_URL}api/v1/auth/validate`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
-    )
-    return { ok: true, message: res.message }
+    })
+    if (res.status !== 200) return { ok: false, error: "認証に失敗しました" }
+    return { ok: true, message: "認証に成功しました" }
   } catch {
     return { ok: false, error: "認証に失敗しました" }
   }
