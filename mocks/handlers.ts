@@ -344,4 +344,78 @@ export const handlers = [
       ],
     })
   }),
+
+  // ==========================================
+  // 認証系のモック (Auth Handlers)
+  // ==========================================
+
+  // API-001: ユーザー登録
+  http.post(`*/api/v1/auth/register`, async ({ request }) => {
+    console.log("📡 Mock hit: POST /api/v1/auth/register")
+    const body = (await request.json()) as { email?: string; password?: string }
+
+    // バリデーションエラーのモック (例: 重複メールアドレス)
+    if (body.email === "existing@example.com") {
+      return HttpResponse.json(
+        { message: "Validation failed: Email has already been taken" },
+        { status: 400 },
+      )
+    }
+
+    return HttpResponse.json(
+      {
+        token: "mocked-jwt-token-register-12345",
+        user: {
+          id: 1,
+          email: body.email || "user@example.com",
+        },
+      },
+      { status: 201 },
+    )
+  }),
+
+  // API-002: ログイン
+  http.post(`*/api/v1/auth/login`, async ({ request }) => {
+    console.log("📡 Mock hit: POST /api/v1/auth/login")
+    const body = (await request.json()) as { email?: string; password?: string }
+
+    // 認証失敗の判定（メールかパスワードが一致しない場合）
+    if (body.email !== "admin@example.com" || body.password !== "password123") {
+      return HttpResponse.json({ error: "Invalid email or password" }, { status: 401 })
+    }
+
+    // 認証成功
+    return HttpResponse.json(
+      {
+        token: "mocked-jwt-token-login-67890",
+        user: {
+          id: 1,
+          email: "admin@example.com",
+        },
+      },
+      { status: 200 },
+    )
+  }),
+
+  // API-003: トークン検証 (validate)
+  http.get(`*/api/v1/auth/validate`, ({ request }) => {
+    console.log("📡 Mock hit: GET /api/v1/auth/validate")
+    const authHeader = request.headers.get("Authorization")
+
+    // Authorization ヘッダーが存在し、Bearer トークンが含まれているか判定
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return HttpResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
+    return HttpResponse.json(
+      {
+        message: "Token is valid",
+        user: {
+          id: 1,
+          email: "admin@example.com",
+        },
+      },
+      { status: 200 },
+    )
+  }),
 ]

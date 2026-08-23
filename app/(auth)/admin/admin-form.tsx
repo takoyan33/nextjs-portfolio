@@ -5,7 +5,7 @@ import { PATH } from "@/utils/path"
 import { useState } from "react"
 import { authenticate } from "./actions"
 
-const AdminForm = ({ auth }: { auth: string | undefined }) => {
+const AdminForm = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
@@ -49,10 +49,6 @@ const AdminForm = ({ auth }: { auth: string | undefined }) => {
             <button type="submit" disabled={loading}>
               {loading ? "認証中..." : "ログイン"}
             </button>
-
-            <p className={`auth-status ${auth ? "is-auth" : "is-unauth"}`}>
-              {auth ? "認証済み" : "未認証"}
-            </p>
 
             {error && <p className="text-red-600 text-sm">{error}</p>}
           </form>
