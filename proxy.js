@@ -1,7 +1,7 @@
 import { get } from "@vercel/edge-config"
-import { NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 
-export async function proxy(request: NextRequest) {
+export async function proxy(request) {
   // メンテナンスモードの取得
   const isInMaintenanceMode = await get("isMaintenance")
 

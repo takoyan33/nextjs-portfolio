@@ -3,8 +3,12 @@ import "server-only"
 
 import { CACHE_OPTIONS } from "../utils/data"
 
-export const fetcher = async <T>(path: string): Promise<T> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}`, CACHE_OPTIONS)
+export const fetcher = async <T>(path: string, options: RequestInit = {}): Promise<T> => {
+  // headersの統合と、optionsのスプレッド展開処理
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}`, {
+    ...CACHE_OPTIONS,
+    ...options,
+  })
 
   if (!response.ok) {
     const errorText = await response.text()

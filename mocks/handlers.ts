@@ -402,11 +402,19 @@ export const handlers = [
     console.log("📡 Mock hit: GET /api/v1/auth/validate")
     const authHeader = request.headers.get("Authorization")
 
-    // Authorization ヘッダーが存在し、Bearer トークンが含まれているか判定
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    // 許容する有効なトークンのリスト
+    const validTokens = [
+      "Bearer mocked-jwt-token-login-67890",
+      "Bearer mocked-jwt-token-register-12345",
+    ]
+
+    // Authorization ヘッダーが存在しない、またはトークンが一致しない場合
+    if (!authHeader || !validTokens.includes(authHeader)) {
+      console.log("❌ Token invalid or missing:", authHeader)
       return HttpResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
+    // トークンが正しかった場合
     return HttpResponse.json(
       {
         message: "Token is valid",

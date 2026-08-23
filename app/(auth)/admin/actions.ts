@@ -13,6 +13,8 @@ export async function authenticate(formData: FormData) {
     return { ok: false, error: "メールアドレスとパスワードを入力してください。" }
   }
 
+  console.log(`${process.env.BASE_API_URL}/api/v1/auth/login`)
+
   try {
     const res = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/login`, {
       method: "POST",
