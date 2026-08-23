@@ -20,3 +20,34 @@ test.describe("SP", () => {
     await expect(page.locator(".btn-trigger")).toBeVisible()
   })
 })
+
+test.describe("本番環境でのトラッキングタグ", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://to-you-design.vercel.app/")
+  })
+
+  test("Google AnalyticsとMicrosoft Clarityが適切に設定されている（本番環境のみ）", async ({
+    page,
+  }) => {
+    // Google Analytics のスクリプトタグ (gtag.js) が G-R47KRGK42T で読み込まれていること
+    const gaScript = page.locator("script[src*='googletagmanager.com/gtag/js?id=G-R47KRGK42T']")
+    await expect(gaScript).toBeAttached()
+
+    // window.dataLayer が定義されていること
+    const dataLayer = await page.evaluate(() => (window as any).dataLayer)
+    expect(dataLayer).toBeDefined()
+    expect(Array.isArray(dataLayer)).toBe(true)
+
+    // Microsoft Clarity のインラインスクリプトにプロジェクトID (pbadl6xwcf) が含まれていること
+    const clarityScript = page.locator("script#clarity-tag")
+    await expect(clarityScript).toBeAttached()
+
+    // Microsoft Clarity の動的スクリプトが読み込まれていること
+    const clarityRuntimeScript = page.locator('script[src*="clarity.ms/tag/pbadl6xwcf"]')
+    await expect(clarityRuntimeScript).toBeAttached()
+
+    // window.clarity が定義されていること
+    const clarityFunction = await page.evaluate(() => typeof (window as any).clarity)
+    expect(clarityFunction).toBe("function")
+  })
+})

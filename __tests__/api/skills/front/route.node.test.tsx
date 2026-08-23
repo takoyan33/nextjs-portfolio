@@ -3,14 +3,14 @@ import { afterEach, beforeAll, describe, expect, test, vi } from "vitest"
 
 // 環境変数のモック
 const mockEnv = {
-  BACKEND_API_URL: "http://localhost:3000/",
+  BASE_API_URL: "http://localhost:3000/",
 }
 
 // fetchのモック
 const mockFetch = vi.fn()
 
 beforeAll(() => {
-  process.env.BACKEND_API_URL = mockEnv.BACKEND_API_URL
+  process.env.BASE_API_URL = mockEnv.BASE_API_URL
   global.fetch = mockFetch
 })
 
@@ -42,7 +42,7 @@ describe("GET /api/skills/front", () => {
 
     expect(response.status).toBe(200)
     expect(data).toEqual(mockData)
-    expect(mockFetch).toHaveBeenCalledWith(`${process.env.BACKEND_API_URL}api/v1/front_skills`)
+    expect(mockFetch).toHaveBeenCalledWith(`${process.env.BASE_API_URL}api/v1/front_skills`)
   })
 
   test("APIエラー時に適切なエラーレスポンスを返すこと", async () => {

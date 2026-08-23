@@ -54,7 +54,8 @@ export const PortfolioList = ({ portfolios }: Props) => {
       params.delete("order")
     }
 
-    router.replace(`${pathname}?${params.toString()}`)
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname)
   }
 
   const sortedPortfolios = sortPortfolios(portfolios, order)

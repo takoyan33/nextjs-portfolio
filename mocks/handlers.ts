@@ -8,13 +8,13 @@ export const handlers = [
       data: [
         {
           id: "1",
-          date: "2023-01-01",
+          date: "2020年03月01日",
           title: "AWS認定ソリューションアーキテクト",
         },
-        { id: "2", date: "2023-02-01", title: "AWS認定デベロッパー" },
+        { id: "2", date: "2020年03月01日", title: "AWS認定デベロッパー" },
         {
           id: "3",
-          date: "2023-03-01",
+          date: "2020年03月01日",
           title: "AWS認定SysOpsアドミニストレーター",
         },
       ],
@@ -28,13 +28,13 @@ export const handlers = [
         {
           id: 1,
           title: "フロントエンドエンジニア",
-          date: "2023-01-01",
+          date: "2020年03月01日",
           body: "React/Next.jsを使用したWebアプリケーション開発に従事",
         },
         {
           id: 2,
           title: "フルスタックエンジニア",
-          date: "2023-06-01",
+          date: "2020年03月01日",
           body: "フロントエンドとバックエンドの両方を担当し、システム全体の設計・開発を実施",
         },
       ],
@@ -48,13 +48,13 @@ export const handlers = [
         {
           id: "1",
           title: "大学卒業",
-          date: "2020-03-01",
+          date: "2020年03月01日",
           body: "情報工学専攻でコンピュータサイエンスの基礎を学ぶ",
         },
         {
           id: "2",
           title: "IT企業入社",
-          date: "2020-04-01",
+          date: "2020年03月01日",
           body: "新卒としてWeb開発会社に入社し、エンジニアとしてのキャリアをスタート",
         },
       ],
@@ -71,7 +71,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/front/html5.svg",
         },
       ],
     })
@@ -86,7 +86,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/back/php.svg",
         },
       ],
     })
@@ -101,7 +101,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/infra/aws.svg",
         },
       ],
     })
@@ -116,7 +116,7 @@ export const handlers = [
           rank: "★★★★",
           tag: "経験年数：3年",
           about: "ホームページ制作などで長年利用。セマンティックなマークアップを意識している。",
-          icon: "/images/skill/html5.svg",
+          icon: "/images/skill/other/figma.svg",
         },
       ],
     })
@@ -139,6 +139,24 @@ export const handlers = [
             emoji: "🚀",
             path: "/articles/463489",
           },
+          {
+            id: 463490,
+            post_type: "Article",
+            title: "[Next.js] サンプル記事",
+            published_at: "2023-01-01",
+            article_type: "tech",
+            emoji: "🚀",
+            path: "/articles/463489",
+          },
+          {
+            id: 463491,
+            post_type: "Article",
+            title: "[Next.js] サンプル記事",
+            published_at: "2023-01-01",
+            article_type: "tech",
+            emoji: "🚀",
+            path: "/articles/463489",
+          },
         ],
       })
     }
@@ -154,7 +172,7 @@ export const handlers = [
         {
           id: 3,
           name: "To You Design(ポートフォリオサイト)1",
-          date: "2023-11-30",
+          date: "2024-11-30",
           tag: ["React", "Next.js", "Ruby"],
           topImg: "/images/portfolio/portfolio_top3.png",
           front_url: "https://to-you-design.vercel.app/",
@@ -182,7 +200,7 @@ export const handlers = [
         {
           id: 4,
           name: "To You Design(ポートフォリオサイト)2",
-          date: "2023-11-30",
+          date: "2026-11-30",
           tag: ["React", "Next.js", "Ruby"],
           topImg: "/images/portfolio/portfolio_top3.png",
           front_url: "https://to-you-design.vercel.app/",
@@ -258,8 +276,7 @@ export const handlers = [
         function:
           "<p>内容としては</p><ul><li>経歴、職歴紹介</li><li>ポートフォリオ紹介</li><li>ブログ表示</li><li>プロフィール画面</li></ul><p>があります</p>",
         functionImg: "/images/portfolio/portfolio_function3.png",
-        appeal:
-          "<p>意識した点は、1つはCSS設計を意識して、綺麗にコーディングしている点です。レスポンシブを意識した実装をしました。<br>2つ目は、App Routerで実装し、読み込みを早めるため、Server Componentを利用しながら実装している点です。<br>3つ目にRuby on RailsでバックエンドのAPIを作っており、そこからデータを取得している点です。</p>",
+        appeal: `<p>意識した点は、1つはCSS設計を意識し、PC,SP共に綺麗にコーディングしている点です。<br>2つ目は、App Routerで実装し、読み込みを早めるため、Server Componentを利用しながら実装している点です。<br>3つ目にRuby on RailsでバックエンドのAPIを作っており、コスト削減のため、AWSではなく、Neon + Renderの構成で構築している点です。</p><br><a href="https://github.com/takoyan33/nextjs-portfolio/tree/main/docs/frontend">画面仕様書</a><br><a href="https://miro.com/app/board/uXjVHIkuQME=/?share_link_id=612941383020">画面遷移図、アーキテクチャ図</a><br><a href=" https://github.com/takoyan33/next-portfolio-backend-posgre/blob/main/docs/er_diagram.md">ER図</a><br><a href=" https://github.com/takoyan33/next-portfolio-backend-posgre/blob/main/docs/table.md">テーブル定義書 </a><br><a href=" https://github.com/takoyan33/nextjs-portfolio/blob/main/docs/api.md">API設計書 </a><br>`,
         appealImg: "/images/portfolio/portfolio_appeal3.png",
         front_skill: ["React", "Next.js", "SCSS", "Biome"],
         back_skill: ["Ruby on Rails", "Ruby"],
@@ -320,7 +337,7 @@ export const handlers = [
         {
           id: 1,
           content:
-            "北海道在住の社会人2年目のエンジニア。<br />大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。<br />文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。<br />現在はReactやVueを中心に、更なるフロントエンド技術の向上を目指しています。",
+            "北海道在住の社会人3年目のエンジニア。<br />大学在学中に、プログラミングに興味を持ち、HTML/CSSから学習を始めました。<br />文系大学を卒業後、フロントエンドエンジニアとして、WebサイトやWebシステムの構築をしています。<br />現在はReactやVueを中心に、更なるフロントエンド技術の向上を目指しています。<br />好きな食べ物は、豚丼と山岡家のラーメンです🍜。<br />「To You Design」という名前には、UI/UX・設計からアーキテクチャ・実装まで「ものづくり」のすべてをデザインし、<br />それをユーザーに届けたい、という想いを込めています。",
           hobby: "ボードゲーム、ギター",
           license: "基本情報技術者試験",
         },

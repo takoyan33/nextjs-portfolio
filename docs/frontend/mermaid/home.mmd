@@ -1,0 +1,28 @@
+flowchart TD
+  A["ページアクセス (/)"] --> B["RootLayout を描画"]
+  B --> C["Header / AdminHeader / MockProvider を表示"]
+  C --> D["Home ページを静的生成"]
+  D --> E["FV: To You Design と ThreeModel を表示"]
+  D --> F["About: fetchProfile でプロフィール取得"]
+  D --> G["Portfolio: fetchPortfoliosFront で制作実績取得"]
+  G --> H{"制作実績 API 取得成功か"}
+  H -- "成功" --> I["日付降順にソート"]
+  H -- "失敗または0件" --> J["mock portfolios にフォールバック"]
+  J --> I
+  I --> K["HomePortfolioSlideClient に渡す"]
+  K --> L["Swiper でカードと前後ボタンを表示"]
+  D --> M["History: CareerHistoryTimeline を表示"]
+  M --> N["fetchHistories で経歴一覧を取得"]
+  D --> O["Skill: 4カテゴリのスキルを並列取得"]
+  O --> P["Frontend / Backend / Infra / Other を表示"]
+  D --> Q["Blog: fetchZennArticles を実行"]
+  Q --> R{"記事が存在するか"}
+  R -- "あり" --> S["最新3件を表示"]
+  R -- "なし" --> T["Blog一覧を非表示"]
+  D --> U["Contact: お問い合わせ CTA を表示"]
+  L --> V["ユーザーが Portfolio CTA / カードをクリック"]
+  S --> W["ユーザーが Blog CTA をクリック"]
+  U --> X["ユーザーが Contact CTA をクリック"]
+  V --> Y["該当ページへ遷移"]
+  W --> Y
+  X --> Y

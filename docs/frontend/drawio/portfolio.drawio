@@ -1,0 +1,37 @@
+<mxfile host="65bd71144e">
+  <diagram id="portfolio-sp" name="Portfolio SP">
+    <mxGraphModel dx="900" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="370" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="screen" value="Portfolio ページ 画面構成 (SP)" style="swimlane;whiteSpace=wrap;html=1;startSize=28;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="310" height="980" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-1" value="No1: ヘッダー&#xa;ハンバーガーナビ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="28" width="310" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-2" value="No2: パンくず&#xa;トップ ＞ Portfolio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="105" width="270" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-3" value="No3: 下層タイトル&#xa;Portfolio / 制作物" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4284ff;fontColor=#ffffff;strokeColor=none;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="175" width="310" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-4" value="No4: 見出し / 件数" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="310" width="270" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-5" value="No5: 並び替えセレクト" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="380" width="270" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-6" value="No6: 制作実績カード一覧&#xa;SP: 縦積み表示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fbff;" vertex="1" parent="screen">
+          <mxGeometry x="20" y="465" width="270" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-7" value="No7: カード要素&#xa;画像 / 日付 / タイトル / タグ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;dashed=1;" vertex="1" parent="screen">
+          <mxGeometry x="45" y="505" width="220" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp-8" value="No8: フッター" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="screen">
+          <mxGeometry x="0" y="865" width="310" height="80" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

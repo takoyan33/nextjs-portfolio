@@ -47,3 +47,5 @@ storybook-static
 next-env.d.ts
 ai-output/
 .vitest-attachments/
+dev_server.log
+next-env.d.ts

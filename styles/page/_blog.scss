@@ -6,7 +6,6 @@
 .blog__layout {
   display: grid;
   grid-template-columns: 1fr 300px;
-  padding-block: 50px;
 }
 
 .blog__List {
@@ -68,7 +67,7 @@
     font-size: rem(14);
     font-weight: 600;
     text-decoration: none;
-    background-color: $white;
+    background-color: $main-white;
     border: 1px solid $grey;
     border-radius: 6px;
     transition:
@@ -81,13 +80,13 @@
 
     &:hover {
       color: $main-color;
-      background-color: $back-color;
+      background-color: $main-back-color;
       border-color: $main-color;
     }
   }
 
   &__link--current {
-    color: $white;
+    color: $main-white;
     cursor: default;
     background-color: $main-color;
     border-color: $main-color;
@@ -102,9 +101,14 @@
 
 .zennArticle {
   width: 30%;
+  overflow: hidden;
+  border-radius: 14px;
   box-shadow:
-    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    rgba(0, 0, 0, 0.08) 0 8px 24px,
+    rgba(0, 0, 0, 0.04) 0 2px 6px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
   &__container {
     display: flex;
@@ -120,16 +124,17 @@
 
   &__title {
     margin-inline: auto;
-    margin-top: 0;
     margin-top: 10px;
     font-weight: 600;
     text-align: left;
   }
+
   &__date {
     font-size: rem(14);
     color: $grey;
     text-align: left;
   }
+
   &__tag {
     display: inline-block;
     height: 25px;
@@ -137,9 +142,10 @@
     margin: 11px 2px;
     font-size: 14px;
     color: white;
-    background-color: #5f5dcd;
+    background-color: $portfolio-tag;
     border-radius: 10px;
   }
+
   &__emoji {
     font-size: 80px;
   }
@@ -162,16 +168,17 @@
 
   &__title {
     margin-inline: auto;
-    margin-top: 0;
     margin-top: 10px;
     font-size: rem(16);
     font-weight: 600;
     text-align: left;
   }
+
   &__date {
     font-size: rem(14);
     text-align: left;
   }
+
   &__tag {
     display: inline-block;
     height: 25px;
@@ -179,9 +186,10 @@
     margin: 11px 2px;
     font-size: 14px;
     color: white;
-    background-color: #5f5dcd;
+    background-color: $portfolio-tag;
     border-radius: 10px;
   }
+
   &__emoji {
     font-size: 80px;
   }
@@ -189,7 +197,6 @@
 
 @include mixin.sp {
   .blog__layout {
-    display: grid;
     grid-template-columns: 1fr;
     padding-block: 20px;
   }
@@ -219,22 +226,13 @@
       display: flex;
       justify-content: center;
     }
-    &__date {
-      font-size: rem(14);
-    }
-    &__tag {
-      display: inline-block;
-      height: 25px;
-      padding: 2px 5px;
-      margin: 11px 2px;
-      font-size: 14px;
-      border-radius: 20px;
-    }
+
     &__title {
       margin-top: 0;
     }
-    &__emoji {
-      font-size: 80px;
+
+    &__tag {
+      border-radius: 20px;
     }
   }
 }

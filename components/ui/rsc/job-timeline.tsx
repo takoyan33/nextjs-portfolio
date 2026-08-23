@@ -8,12 +8,12 @@ import { fetchJobs } from "hooks/fetch"
  */
 export const JobTimeline = async () => {
   const data = await fetchJobs()
-  logger.info({ length: data?.data?.length, data: data?.data?.[0], status: data?.status }, "/job")
+  logger.info({ length: data.data?.length, data: data.data?.[0], status: data.status }, "/job")
   return (
     <div className={styles.timeline}>
       <dl>
-        {(data?.data ?? []).length === 0 && <dt className="job__table-td">データはありません</dt>}
-        {(data?.data ?? []).map((job) => (
+        {(data.data ?? []).length === 0 && <dt className="job__table-td">データはありません</dt>}
+        {(data.data ?? []).map((job) => (
           <Timeline key={job.id} title={job.title} date={job.date} body={job.body} />
         ))}
       </dl>

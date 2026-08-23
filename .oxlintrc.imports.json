@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["unicorn", "typescript", "oxc", "react", "import"],
+  "jsPlugins": [{ "name": "import-js", "specifier": "eslint-plugin-import" }],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/public/**",
+    "**/.next/**",
+    "next.config.js",
+    "stylelintrc.mjs"
+  ],
+  "rules": {
+    "import-js/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "newlines-between": "always"
+      }
+    ]
+  }
+}

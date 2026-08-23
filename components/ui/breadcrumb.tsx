@@ -1,7 +1,8 @@
+import { ChevronRight } from "lucide-react"
+
 import styles from "@/components/ui/css/breadcrumb.module.scss"
 import { TransitionLink } from "@/components/ui/transition-link"
 import { PATH } from "@/utils/path"
-import { ChevronRight } from "lucide-react"
 
 interface BreadcrumbItem {
   name: string
@@ -16,7 +17,7 @@ interface BreadcrumbProps {
  * パンくずリストコンポーネント
  * @param items - パンくずリストの項目（単一または配列）
  */
-export const Breadcrumb = ({ items }: BreadcrumbProps): JSX.Element => {
+export const Breadcrumb = ({ items }: BreadcrumbProps) => {
   const homeItem: BreadcrumbItem = {
     name: "トップ",
     link: PATH.INDEX,

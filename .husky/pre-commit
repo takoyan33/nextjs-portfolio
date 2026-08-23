@@ -2,28 +2,46 @@
 
 echo "----- start pre-commit -------"
 
+# ステージされたファイル一覧
+STAGED_FILES=$(git diff --cached --name-only)
+
+# 次のいずれか「だけ」の変更なら format / lint / build / test をスキップ:
+# - *.md
+# - .agents/ .codex/ .cursor/ .gemini/ .husky/ .github/ docs/ public/ .vscode/ perf/ mocks/ .serena/ 配下
+# grep . は一致なしで exit 1 のため || true（set -e 対策）
+NON_TARGET_FILES=$(printf '%s\n' "$STAGED_FILES" \
+  | grep -vE '\.md$|^\.agents/|^\.codex/|^\.cursor/|^\.gemini/|^\.husky/|^\.github/|^\.docs/|^\public/|^\.vscode/|^\perf/|^\mocks/|^\.serena/' \
+  | grep . || true)
+
+if [ -z "$NON_TARGET_FILES" ]; then
+  echo "Only *.md or under .agents / .codex / .cursor / .gemini / .husky / .github / .docs / public / .vscode perf/ mocks/ .serena/ Skipping format, lint, typecheck, build, and tests."
+  echo "----- end pre-commit (skipped) -------"
+  exit 0
+fi
+
+
 # コードフォーマット
-# yarn oxfmt --write .
+pnpm format
 
 # リンター（OxLint）
-yarn lint
+pnpm lint
 
 # スタイルリンター（Stylelint）
-yarn lint:stylelint
+pnpm lint:stylelint
 
 # フォーマットチェック
-yarn format:check
+pnpm format:check
 
 # 型チェック
-yarn typecheck
+pnpm typecheck
 
 # ビルド（型チェックも含む）
-yarn build
+pnpm build
 
 # Storybookビルド
-yarn build-storybook
+pnpm build-storybook
 
 # テスト（Node環境）
-yarn test --project node
+pnpm test --project node
 
 echo "----- end pre-commit -------"

@@ -1,0 +1,59 @@
+@use "@/styles/common/variables" as *;
+@use "@/styles/common/mixin";
+
+.homeBlog {
+  &__list {
+    width: 100%;
+    margin: 0 auto rem(40);
+    text-align: left;
+  }
+
+  &__item {
+    border-bottom: 1px solid $grey;
+
+    &:first-child {
+      border-top: 1px solid $grey;
+    }
+  }
+
+  &__link {
+    display: flex;
+    gap: rem(24);
+    align-items: baseline;
+    padding: rem(16) rem(8);
+    color: $black;
+
+    &:hover {
+      opacity: $opacity;
+    }
+  }
+
+  &__date {
+    flex-shrink: 0;
+    width: rem(140);
+    font-size: rem(14);
+    color: $grey;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: left;
+  }
+}
+
+@include mixin.sp {
+  .homeBlog {
+    &__link {
+      flex-direction: column;
+      gap: rem(6);
+      padding: rem(14) rem(4);
+    }
+
+    &__date {
+      width: auto;
+    }
+  }
+}

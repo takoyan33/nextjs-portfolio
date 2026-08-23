@@ -1,5 +1,14 @@
 flowchart TD
-  A[ページロード] --> B[API: /api/zenn/articles を呼ぶ]
-  B --> C[記事データ取得]
-  C --> D[`ZennArticleItem` を map で描画]
-  D --> E[ユーザー操作（記事クリック） -> 外部リンク遷移]
+  A["ページアクセス (/blog)"] --> B["Blog page.tsx を実行 (force-dynamic / no-store)"]
+  B --> C["fetchZennArticles() を呼び出し Zenn 記事一覧を取得"]
+  B --> D["pickRandomArticles() でおすすめ記事をランダムに4件抽出"]
+  C --> E["URLクエリ page から現在のページ番号 (currentPage) を取得"]
+  E --> F["totalPages を計算し、現在のページを範囲内 (1 〜 totalPages) にクランプ"]
+  F --> G["articles を 1ページあたり9件 (ARTICLES_PER_PAGE) にスライス"]
+  G --> H["ZennArticleItem でメイン記事一覧を描画 (計9件以内)"]
+  H --> I["BlogPagination で前へ/次へと各ページ番号のナビゲーションを描画"]
+  D --> J["ZennAsideArticleItem でサイドバーのおすすめ記事 (4件) を描画"]
+  H --> K["ユーザーが記事カードをクリック"]
+  K --> L["外部リンク (https://zenn.dev + path) へ別タブで遷移"]
+  J --> M["ユーザーがおすすめ記事をクリック"]
+  M --> L

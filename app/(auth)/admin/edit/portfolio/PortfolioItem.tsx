@@ -18,7 +18,13 @@ const PortfolioItem = ({ portfolio }: Props) => {
       <td>{portfolio.tag}</td>
       <td>
         {portfolio.topImg && (
-          <Image src={portfolio.topImg} alt={portfolio.name} className="portfolioTable__image" />
+          <Image
+            src={portfolio.topImg}
+            alt={portfolio.name}
+            width={80}
+            height={60}
+            className="portfolioTable__image"
+          />
         )}
       </td>
       <td>

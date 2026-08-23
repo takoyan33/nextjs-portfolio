@@ -1,0 +1,28 @@
+flowchart TD
+  A["ページアクセス (/portfolios)"] --> B["Portfolio page.tsx を実行"]
+  B --> C["metadata.title = To You Design - Portfolio"]
+  B --> D["fetchPortfoliosFront() を実行"]
+  D --> E["/api/portfolios から制作実績一覧を取得"]
+  E --> F["Server Component 側で日付降順にソート"]
+  F --> G{"searchParams.order の値"}
+  G -- "new" --> H["新しい順に再ソート"]
+  G -- "old" --> I["古い順に再ソート"]
+  G -- "未指定" --> J["初期順を維持"]
+  H --> K["PortfolioList に portfolios を渡す"]
+  I --> K
+  J --> K
+  K --> L["useSearchParams で order を同期"]
+  L --> M{"制作実績が存在するか"}
+  M -- "0件" --> N["制作物がありません を表示"]
+  M -- "1件以上" --> O["LowerSubTitle とセレクトを表示"]
+  O --> P["PortfolioItem をカード一覧表示"]
+  P --> Q["ユーザーがセレクトを変更"]
+  Q --> R["setOrder(value)"]
+  R --> S["URLSearchParams を更新"]
+  S --> T["router.replace(pathname + query)"]
+  T --> L
+  P --> U["ユーザーがカードをクリック"]
+  U --> V["TransitionLink で /portfolios/[id] へ遷移"]
+  P --> W{"画像ロード成功か"}
+  W -- "成功" --> X["サムネイルを表示"]
+  W -- "失敗" --> Y["/images/dummy-image.jpg を表示"]

@@ -1,8 +1,9 @@
-import { TransitionLink } from "@/components/ui/transition-link"
-import { formatDate } from "@/hooks/date"
 import parse from "html-react-parser"
 import Image from "next/image"
 import React from "react"
+
+import { TransitionLink } from "@/components/ui/transition-link"
+import { formatDate } from "@/hooks/date"
 
 interface PortfolioItemProps {
   portfolio_id: number
@@ -20,13 +21,13 @@ interface PortfolioItemProps {
  * @param portfolio_tag - タグ一覧
  * @param portfolio_topImg - サムネイル画像のパス
  */
-const PortfolioItem = React.memo(function PortfolioItem({
+const PortfolioItem = ({
   portfolio_id,
   portfolio_name,
   portfolio_date,
   portfolio_tag,
   portfolio_topImg,
-}: PortfolioItemProps) {
+}: PortfolioItemProps) => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = "/images/dummy-image.jpg"
   }
@@ -66,7 +67,7 @@ const PortfolioItem = React.memo(function PortfolioItem({
       </TransitionLink>
     </article>
   )
-})
+}
 
 PortfolioItem.displayName = "PortfolioItem"
 

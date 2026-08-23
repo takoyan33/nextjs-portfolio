@@ -27,7 +27,7 @@
     font-size: 1em;
     appearance: none;
     cursor: pointer;
-    background-color: $white;
+    background-color: $main-white;
     border: none;
     border-bottom: 2px solid #d0d0d0;
 
@@ -38,7 +38,7 @@
 }
 
 .portfolio {
-  background-color: $back-color;
+  background-color: $main-back-color;
 
   &__loading {
     padding-block: 100px;
@@ -51,9 +51,14 @@
   }
   // portfolioList
   &Item {
+    overflow: hidden;
+    border-radius: 14px;
     box-shadow:
-      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      rgba(0, 0, 0, 0.08) 0 8px 24px,
+      rgba(0, 0, 0, 0.04) 0 2px 6px;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
 
     &__content {
       padding: 10px;
@@ -71,7 +76,7 @@
       margin: 11px 0px;
       font-size: 14px;
       color: white;
-      background-color: #5f5dcd;
+      background-color: $portfolio-tag;
       border-radius: 20px;
     }
     &__title {
@@ -112,7 +117,7 @@
 @include mixin.sp {
   .portfolio {
     &Item__img {
-      height: 230px;
+      height: auto;
     }
   }
 }

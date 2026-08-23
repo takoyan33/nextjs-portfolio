@@ -1,4 +1,5 @@
 "use client"
+import "@/styles/globals.scss"
 
 import Image from "next/image"
 import type React from "react"
@@ -35,11 +36,40 @@ export const CommonModal = ({
     >
       <button
         onClick={closeModal}
-        className="modal-close"
         type="button"
         aria-label="モーダルを閉じる"
+        style={{
+          position: "absolute",
+          top: "12px",
+          right: "12px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "42px",
+          height: "42px",
+          border: "none",
+          borderRadius: "50%",
+          background: "rgba(255,255,255,0.9)",
+          color: "#555",
+          fontSize: "30px",
+          lineHeight: 1,
+          cursor: "pointer",
+          boxShadow: "0 2px 8px rgba(0,0,0,.15)",
+          transition: "all .2s ease",
+          zIndex: 10,
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = "#333"
+          e.currentTarget.style.color = "#fff"
+          e.currentTarget.style.transform = "scale(1.08)"
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = "rgba(255,255,255,0.9)"
+          e.currentTarget.style.color = "#555"
+          e.currentTarget.style.transform = "scale(1)"
+        }}
       >
-        &times;
+        ×
       </button>
 
       <div className="modal-content">

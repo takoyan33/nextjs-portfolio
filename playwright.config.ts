@@ -27,7 +27,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "yarn dev:mock",
+    command: "pnpm dev:mock",
     port: 3000,
     reuseExistingServer: true,
   },

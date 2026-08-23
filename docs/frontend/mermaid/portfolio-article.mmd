@@ -1,0 +1,12 @@
+flowchart TD
+  A["ページアクセス (/portfolios/[id])"] --> B["PortfolioPage page.tsx を実行"]
+  B --> C["fetchPortfolio(id) を実行"]
+  C --> D{"データが存在するか / 404以外か"}
+  D -- "No (エラー or 404)" --> E["notFound() で404ページへ遷移"]
+  D -- "Yes" --> F["PortfolioDetail に portfolio データを渡す"]
+  F --> G["画面要素を描画 (Breadcrumb, TOC, タイトル, タグ)"]
+  G --> H["About, 機能一覧, アピール, 制作期間, 使用技術, リンク等のレンダリング"]
+  H --> I["モーダル表示管理 (isOpen, isOpen2, isOpen3, isOpen4)"]
+  I --> J["画像クリック時に OpenModal で拡大表示"]
+  H --> K["目次 (TOC) ボタンクリック時に scrollToSection でアンカーへスクロール"]
+  H --> L["PostNavigation で前後のポートフォリオ詳細へ遷移可能"]
