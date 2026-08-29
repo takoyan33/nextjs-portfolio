@@ -1,6 +1,6 @@
 # To You Design Portfolio
 
-![Portfolio Top](./public/images/portfolio/portfolio_top8.png)
+![Portfolio Top](./public/images/portfolio/portfolio_top3.png)
 
 制作実績・スキルセットを伝える個人ポートフォリオです。  
 公開サイト: [https://to-you-design.vercel.app/](https://to-you-design.vercel.app/)
