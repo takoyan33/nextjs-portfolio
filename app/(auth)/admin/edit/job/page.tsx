@@ -1,4 +1,4 @@
-import type { Job } from "types"
+import type { Job } from "@/types"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { PATH } from "@/utils/path"
 import JobItem from "./JobItem"

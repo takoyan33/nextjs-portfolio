@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { SOCIAL_LINKS } from "utils/data"
+import { SOCIAL_LINKS } from "@/utils/data"
 
 export const ProfileSnsLinks = () => {
   return (

@@ -1,8 +1,8 @@
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { logger } from "@/utils/logger"
 import { PATH } from "@/utils/path"
-import { fetchPortfolios, validateToken } from "hooks/fetch"
-import type { PortfolioType } from "types"
+import { fetchPortfolios, validateToken } from "@/hooks/fetch"
+import type { PortfolioType } from "@/types"
 import PortfolioItem from "./PortfolioItem"
 import { redirect } from "next/navigation"
 

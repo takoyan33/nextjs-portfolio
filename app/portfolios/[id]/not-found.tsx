@@ -1,5 +1,5 @@
 import { PATH } from "@/utils/path"
-import { TransitionLink } from "components/ui"
+import { TransitionLink } from "@/components/ui"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {

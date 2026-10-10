@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>フロントエンド設計書・画面仕様書プレビュー</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.min.js"></script>
+    <style>
+      :root {
+        --header: #0f9d58;
+        --grid: #c7c7c7;
+        --text: #202124;
+        --panel: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        font-family: "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+        color: var(--text);
+        background: #e9eaed;
+        overflow: hidden;
+      }
+      .app {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        height: 100vh;
+      }
+      .toolbar {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 16px;
+        background: var(--header);
+        color: #fff;
+        z-index: 10;
+      }
+      .toolbar h1 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .toolbar button {
+        margin-left: auto;
+        background: #fff;
+        color: var(--header);
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 12px;
+        transition: opacity 0.2s;
+      }
+      .toolbar button:hover {
+        opacity: 0.9;
+      }
+      /* プレビュー本体 (左右分割 + ドラッグ用スプリッター) */
+      .preview-container {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+      }
+      .pane {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background: var(--panel);
+        overflow: hidden;
+      }
+      #pane-left {
+        width: 45%;
+        flex-shrink: 0;
+      }
+      .splitter {
+        width: 6px;
+        background: #d0d5dd;
+        cursor: col-resize;
+        transition: background 0.2s;
+        flex-shrink: 0;
+        z-index: 5;
+      }
+      .splitter:hover,
+      .splitter.dragging {
+        background: var(--header);
+      }
+      #pane-right {
+        flex: 1;
+        min-width: 0;
+      }
+      .pane-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: #f1f3f4;
+        border-bottom: 1px solid var(--grid);
+        font-size: 13px;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .pane-body {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: auto;
+        padding: 20px;
+        background: #fff;
+        min-height: 0;
+      }
+      /* Draw.io 簡易レンダリング用スタイル */
+      .wire-stage {
+        position: relative;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 0 auto;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+      .wire-cell {
+        position: absolute;
+        box-sizing: border-box;
+        border: 1px solid #666;
+        padding: 6px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: #fff;
+        white-space: pre-wrap;
+        border-radius: 2px;
+      }
+      /* Markdown スタイル */
+      .md-body {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.6;
+      }
+      .md-body h1 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        color: #1a73e8;
+        border-bottom: 2px solid #e8f0fe;
+        padding-bottom: 8px;
+      }
+      .md-body h2 {
+        font-size: 1.2rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 4px;
+        margin-top: 24px;
+        color: #202124;
+      }
+      .md-body h3 {
+        font-size: 1.05rem;
+        margin-top: 18px;
+        color: #3c4043;
+      }
+      .md-body h4 {
+        font-size: 0.95rem;
+        margin-top: 14px;
+        color: #495057;
+      }
+      .md-body table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 640px;
+        margin: 16px 0;
+        font-size: 13px;
+      }
+      .md-body th,
+      .md-body td {
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        text-align: left;
+        vertical-align: middle;
+      }
+      .md-body th {
+        background: #f1f3f4;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .md-body tr:nth-child(even) {
+        background: #fafafa;
+      }
+      .md-body code {
+        background: #f1f3f4;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: Consolas, Monaco, monospace;
+        font-size: 0.88em;
+        color: #c7254e;
+      }
+      .md-body pre {
+        background: #282c34;
+        color: #abb2bf;
+        padding: 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+      }
+      .md-body pre code {
+        background: none;
+        color: inherit;
+        padding: 0;
+        font-size: 12px;
+      }
+      .md-body ul,
+      .md-body ol {
+        padding-left: 20px;
+        line-height: 1.6;
+      }
+      .md-body hr {
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        margin: 24px 0;
+      }
+
+      /* スプレッドシート風フッタータブバー */
+      .spreadsheet-bar {
+        display: flex;
+        align-items: center;
+        background: #f8f9fa;
+        border-top: 1px solid #c7c7c7;
+        padding: 0 8px;
+        height: 38px;
+        gap: 4px;
+        flex-shrink: 0;
+        z-index: 10;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .ss-tab {
+        background: #e9ecef;
+        border: 1px solid #ced4da;
+        border-bottom: none;
+        padding: 6px 16px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: #495057;
+        user-select: none;
+        transition: all 0.15s ease;
+        flex-shrink: 0;
+      }
+      .ss-tab:hover {
+        background: #dee2e6;
+        color: #212529;
+      }
+      .ss-tab.active {
+        background: #fff;
+        color: var(--header);
+        font-weight: 700;
+        border-top: 3px solid var(--header);
+        border-bottom: 1px solid #fff;
+        margin-bottom: -1px;
+      }
+      /* インタラクティブ・タブリンクのスタイル */
+      .tab-link {
+        color: #1a73e8;
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 2px 4px;
+        border-radius: 3px;
+        white-space: nowrap;
+        display: inline-block;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .tab-link:hover {
+        background: #e8f0fe;
+        color: #0d47a1;
+        text-decoration: none;
+      }
+      .tab-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 8px;
+        background: #e8f0fe;
+        color: #1a73e8;
+        border: 1px solid #c2e7ff;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.15s;
+      }
+      .tab-badge:hover {
+        background: #1a73e8;
+        color: #fff;
+      }
+      .interactive-node {
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s,
+          border-color 0.15s;
+      }
+      .interactive-node:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 115, 232, 0.25) !important;
+        border-color: #1a73e8 !important;
+      }
+
+      /* Mermaid ダイアグラム表示用スタイル */
+      .mermaid {
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        padding: 18px;
+        margin: 20px 0;
+        text-align: center;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        overflow: auto;
+        cursor: zoom-in;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+      }
+      .mermaid:hover {
+        border-color: #1a73e8;
+        box-shadow: 0 2px 10px rgba(26, 115, 232, 0.2);
+      }
+      .mermaid svg {
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 120px;
+      }
+      .mermaid::after {
+        content: "🔍 クリックで拡大";
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: rgba(26, 115, 232, 0.92);
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.15s;
+        pointer-events: none;
+      }
+      .mermaid:hover::after {
+        opacity: 1;
+      }
+      .mermaid-error {
+        border: 1px solid #f1aeb5;
+        background: #fff5f5;
+        color: #842029;
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin: 20px 0;
+        font-size: 13px;
+      }
+      .mermaid-error pre {
+        background: #282c34;
+        color: #abb2bf;
+        padding: 10px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 12px;
+        margin: 8px 0 0;
+      }
+
+      /* Mermaid 拡大モーダル */
+      #mz-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        background: rgba(15, 23, 42, 0.82);
+        backdrop-filter: blur(2px);
+      }
+      #mz-overlay.open {
+        display: block;
+      }
+      #mz-stage {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        cursor: grab;
+        touch-action: none;
+      }
+      #mz-stage.grabbing {
+        cursor: grabbing;
+      }
+      #mz-canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      }
+      #mz-canvas svg {
+        display: block;
+        max-width: none !important;
+        height: auto;
+      }
+      #mz-bar {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.96);
+        padding: 6px 8px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+      #mz-bar button {
+        border: 1px solid #d0d7de;
+        background: #fff;
+        color: #202124;
+        border-radius: 6px;
+        min-width: 34px;
+        height: 32px;
+        font-size: 15px;
+        cursor: pointer;
+        padding: 0 8px;
+      }
+      #mz-bar button:hover {
+        background: #e8f0fe;
+        border-color: #1a73e8;
+      }
+      #mz-bar #mz-close {
+        background: #d93025;
+        color: #fff;
+        border-color: #d93025;
+      }
+      #mz-zoom {
+        font-size: 12px;
+        min-width: 44px;
+        text-align: center;
+        color: #444;
+      }
+      #mz-hint {
+        position: absolute;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.55);
+        padding: 5px 12px;
+        border-radius: 999px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="toolbar">
+        <h1 id="main-title">画面仕様書・構成図 プレビュー</h1>
+        <button id="fs-btn">全画面表示</button>
+      </div>
+
+      <!-- プレビューエリア（左右分割） -->
+      <div class="preview-container" id="preview-container">
+        <!-- 画面構成図 (drawio / ワイヤーフレーム) -->
+        <section class="pane" id="pane-left">
+          <div class="pane-head" id="drawio-title">画面構成図</div>
+          <div class="pane-body" id="drawio-container"></div>
+        </section>
+
+        <!-- ドラッグリサイズ用の境界線 -->
+        <div class="splitter" id="splitter" title="ドラッグして幅を調整"></div>
+
+        <!-- 詳細設計書 (md) -->
+        <section class="pane" id="pane-right">
+          <div class="pane-head" id="md-title">詳細設計書</div>
+          <div class="pane-body md-body" id="md-container"></div>
+        </section>
+      </div>
+
+      <!-- スプレッドシート風タブバー（下部固定） -->
+      <div class="spreadsheet-bar">
+        <div class="ss-tab active" data-target="readme">📖 README (パス一覧)</div>
+        <div class="ss-tab" data-target="sitemap">🗺️ サイト構成 & 画面遷移ツリー</div>
+        <div class="ss-tab" data-target="home">Home ページ</div>
+        <div class="ss-tab" data-target="about">About ページ</div>
+        <div class="ss-tab" data-target="portfolio">Portfolio ページ</div>
+        <div class="ss-tab" data-target="portfolioArticle">Portfolio 詳細</div>
+        <div class="ss-tab" data-target="blog">Blog ページ</div>
+        <div class="ss-tab" data-target="contact">Contact ページ</div>
+        <div class="ss-tab" data-target="admin">Admin ページ</div>
+        <div class="ss-tab" data-target="privacyPolicy">プライバシーポリシー</div>
+      </div>
+    </div>
+
+    <!-- Mermaid 拡大モーダル -->
+    <div id="mz-overlay" role="dialog" aria-modal="true" aria-label="図の拡大表示">
+      <div id="mz-stage"><div id="mz-canvas"></div></div>
+      <div id="mz-bar">
+        <button id="mz-out" title="縮小 (-)">－</button>
+        <span id="mz-zoom">100%</span>
+        <button id="mz-in" title="拡大 (+)">＋</button>
+        <button id="mz-fit" title="画面に合わせる (0)">フィット</button>
+        <button id="mz-100" title="等倍 (1)">100%</button>
+        <button id="mz-close" title="閉じる (Esc)">✕</button>
+      </div>
+      <div id="mz-hint">
+        ホイール: 拡大縮小 ／ ドラッグ: 移動 ／ ダブルクリック: フィット切替 ／ Esc: 閉じる
+      </div>
+    </div>
+
+    <script>
+      const data = {
+        readme: {
+          drawioTitle: "クイック画面マップ & 画面構成概要",
+          mdTitle: "フロントエンド設計書・画面仕様書 パス一覧 (README)",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 380px; min-height: 860px; background: #fff; padding: 18px;">\n        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; border-bottom: 2px solid #0f9d58; padding-bottom: 8px;">\n          <div style="font-weight: bold; font-size: 15px; color: #0f9d58;">\n            📑 画面仕様書 クイックマップ\n          </div>\n          <button class="tab-badge" data-tab="sitemap" style="font-size: 12px; padding: 4px 10px;">\n            🗺️ 詳細ツリーへ\n          </button>\n        </div>\n        <p style="font-size: 11px; color: #666; margin: 0 0 12px 0; line-height: 1.4;">\n          ※ カードをクリックすると各画面の仕様書タブへ直接ジャンプします。\n        </p>\n\n        <div style="display: flex; flex-direction: column; gap: 9px;">\n          <!-- Home -->\n          <div class="interactive-node" data-tab="home" style="border: 2px solid #4284ff; border-radius: 6px; padding: 10px 12px; background: #f0f6ff; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 13px;">🏠 Home (トップページ)</span>\n              <span style="font-size: 10px; background: #4284ff; color: #fff; padding: 2px 6px; border-radius: 10px;">RSC + Client</span>\n            </div>\n            <div style="font-size: 11px; color: #555; margin-top: 4px;">パス: <code>/</code></div>\n            <div style="font-size: 11px; color: #777; margin-top: 2px;">FV 3Dモデル / Swiper実績 / 経歴 / スキル / ブログ最新</div>\n          </div>\n\n          <div style="text-align: center; color: #888; font-size: 11px; line-height: 1;">│<br>▼ 共通グローバルナビゲーション</div>\n\n          <!-- 2nd level grid -->\n          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">\n            <div class="interactive-node" data-tab="about" style="border: 1px solid #1a73e8; border-radius: 5px; padding: 9px; background: #fafcff;">\n              <div style="font-weight: 600; font-size: 12px; color: #1a73e8;">👤 About</div>\n              <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/about</code></div>\n              <div style="font-size: 10px; color: #888; margin-top: 3px;">経歴 ⇔ 職歴 (Zustand)<br>取得資格テーブル</div>\n            </div>\n            <div class="interactive-node" data-tab="portfolio" style="border: 1px solid #1a73e8; border-radius: 5px; padding: 9px; background: #fafcff;">\n              <div style="font-weight: 600; font-size: 12px; color: #1a73e8;">🎨 Portfolio</div>\n              <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/portfolios</code></div>\n              <div style="font-size: 10px; color: #888; margin-top: 3px;">制作実績一覧カード<br>並び替え (?order)</div>\n            </div>\n            <div class="interactive-node" data-tab="blog" style="border: 1px solid #1a73e8; border-radius: 5px; padding: 9px; background: #fafcff;">\n              <div style="font-weight: 600; font-size: 12px; color: #1a73e8;">📝 Blog</div>\n              <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/blog</code></div>\n              <div style="font-size: 10px; color: #888; margin-top: 3px;">Zenn API連携 (SSR)<br>ページネーション / おすすめ</div>\n            </div>\n            <div class="interactive-node" data-tab="contact" style="border: 1px solid #1a73e8; border-radius: 5px; padding: 9px; background: #fafcff;">\n              <div style="font-weight: 600; font-size: 12px; color: #1a73e8;">✉️ Contact</div>\n              <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/contact</code></div>\n              <div style="font-size: 10px; color: #888; margin-top: 3px;">入力 ⇔ 確認画面 (2相)<br>EmailJS メール送信</div>\n            </div>\n          </div>\n\n          <div style="text-align: center; color: #888; font-size: 11px; line-height: 1;">│<br>▼ 実績カードクリック (動的ルート)</div>\n\n          <!-- Portfolio Detail -->\n          <div class="interactive-node" data-tab="portfolioArticle" style="border: 1px dashed #4284ff; border-radius: 6px; padding: 10px 12px; background: #f8fbff; margin-left: 20px;">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: 600; font-size: 12px; color: #1a73e8;">📄 Portfolio 詳細</span>\n              <span style="font-size: 9px; background: #e8f0fe; color: #1a73e8; padding: 2px 6px; border-radius: 8px;">generateStaticParams</span>\n            </div>\n            <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/portfolios/[id]</code></div>\n            <div style="font-size: 10px; color: #777; margin-top: 2px;">目次 (TOC) / 4箇所画像モーダル / 前後記事ナビ</div>\n          </div>\n\n          <div style="text-align: center; color: #888; font-size: 11px; line-height: 1;">│<br>▼ 管理認証 & フッターポリシー</div>\n\n          <!-- Bottom Pages -->\n          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">\n            <div class="interactive-node" data-tab="admin" style="border: 1px solid #d93025; border-radius: 5px; padding: 9px; background: #fffbfa;">\n              <div style="font-weight: 600; font-size: 11px; color: #c5221f;">🔒 Admin (認証)</div>\n              <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/admin</code></div>\n              <div style="font-size: 9px; color: #888; margin-top: 2px;">Server Actions<br>JWT Cookie発行</div>\n            </div>\n            <div class="interactive-node" data-tab="privacyPolicy" style="border: 1px solid #5f6368; border-radius: 5px; padding: 9px; background: #fafafa;">\n              <div style="font-weight: 600; font-size: 11px; color: #3c4043;">📄 Privacy Policy</div>\n              <div style="font-size: 10px; color: #666; margin-top: 2px;"><code>/privacy-policy</code></div>\n              <div style="font-size: 9px; color: #888; margin-top: 2px;">静的生成 (force-static)<br>GA / Clarity 規約</div>\n            </div>\n          </div>\n\n          <!-- 詳細ツリータブ誘導バナー -->\n          <div class="interactive-node" data-tab="sitemap" style="margin-top: 10px; border: 2px dashed #0f9d58; border-radius: 6px; padding: 10px; background: #f6fdf9; text-align: center;">\n            <div style="font-weight: bold; color: #0f9d58; font-size: 12px;">🗺️ 詳細なサイト構成 & 画面遷移ツリーを見る</div>\n            <div style="font-size: 10px; color: #666; margin-top: 2px;">全画面の遷移条件、クエリ、モーダル、認証ガードを網羅</div>\n          </div>\n        </div>\n      </div>\n  ',
+          mdContent:
+            '# フロントエンド設計書・画面仕様書 パス一覧\n\n当プロジェクト（Next.js Portfolio）のフロントエンド画面仕様書、詳細設計書、画面構成図、関連パスの一覧です。\n下部のタブバーまたは下記の表・クイックマップから各画面のプレビュー（画面構成図＋詳細設計書）を閲覧できます。\n\n> 💡 **インタラクティブ機能**:\n> 表内の **画面名**・**URLパス**・**詳細設計書**、または左ペインの各カードをクリックすると、**直接該当の画面仕様書タブへ切り替わります**。\n> 画面遷移やルーティング全体の網羅的な構造は、新設された <a href="javascript:void(0)" class="tab-badge" data-tab="sitemap">🗺️ サイト構成 & 画面遷移ツリー</a> タブをご覧ください。\n\n---\n\n## 1. 画面仕様書 & URLパス一覧\n\n| 画面名 | URLパス | 詳細設計書 | 画面構成図 (drawio / ワイヤー) | シーケンス・フロー図 | レンダリング方式 |\n|:---|:---|:---|:---|:---|:---|\n| <a href="javascript:void(0)" class="tab-link" data-tab="home">🏠 <strong>Home (トップ)</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="home"><code>/</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="home">home.md</a> | `drawio/home.drawio` | `mermaid/home.mmd` | RSC + Client (Three.js / Swiper) |\n| <a href="javascript:void(0)" class="tab-link" data-tab="about">👤 <strong>About (プロフィール)</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="about"><code>/about</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="about">about.md</a> | `drawio/about.drawio` | `mermaid/about.mmd` | 静的生成 (force-static) + Zustand |\n| <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">🎨 <strong>Portfolio (制作実績一覧)</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolio"><code>/portfolios</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">portfolio.md</a> | `drawio/portfolio.drawio` | `mermaid/portfolio.mmd` | 静的生成 (force-static) + URLクエリ管理 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">📄 <strong>Portfolio 詳細</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle"><code>/portfolios/[id]</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">portfolio-article.md</a> | ワイヤーフレーム | `mermaid/portfolio-article.mmd` | 静的生成 (generateStaticParams) |\n| <a href="javascript:void(0)" class="tab-link" data-tab="blog">📝 <strong>Blog (ブログ一覧)</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="blog"><code>/blog</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="blog">blog.md</a> | `drawio/blog.drawio` | `mermaid/blog.mmd` | 動的レンダリング (force-dynamic) |\n| <a href="javascript:void(0)" class="tab-link" data-tab="contact">✉️ <strong>Contact (お問い合わせ)</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="contact"><code>/contact</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="contact">contact.md</a> | ワイヤーフレーム | `mermaid/contact-flow.mmd` | クライアント (React Hook Form + EmailJS) |\n| <a href="javascript:void(0)" class="tab-link" data-tab="admin">🔒 <strong>Admin (管理者認証)</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="admin"><code>/admin</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="admin">admin.md</a> | ワイヤーフレーム | `mermaid/admin.mmd` / `admin-navigation.mmd` | Server Actions + JWT Cookie |\n| <a href="javascript:void(0)" class="tab-link" data-tab="privacyPolicy">📄 <strong>プライバシーポリシー</strong></a> | <a href="javascript:void(0)" class="tab-link" data-tab="privacyPolicy"><code>/privacy-policy</code></a> | <a href="javascript:void(0)" class="tab-link" data-tab="privacyPolicy">privacy-policy.md</a> | `drawio/privacy-policy.drawio` | `mermaid/privacy-policy.mmd` | 静的生成 (force-static) |\n\n---\n\n## 2. API エンドポイント一覧\n\n| エンドポイント | メソッド | 用途 | 参照・利用画面 |\n|:---|:---:|:---|:---|\n| `/api/portfolios` | GET | 制作実績一覧データの取得 | <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">Portfolio ページ</a> |\n| `/api/portfolios/[id]` | GET | 指定IDの制作実績詳細データ取得 | <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio 詳細ページ</a> |\n| `/api/histories` | GET | 経歴データの取得 | <a href="javascript:void(0)" class="tab-link" data-tab="about">About ページ</a> |\n| `/api/job` | GET | 職歴データの取得 | <a href="javascript:void(0)" class="tab-link" data-tab="about">About ページ</a> |\n| `/api/licenses` | GET | 取得資格一覧データの取得 | <a href="javascript:void(0)" class="tab-link" data-tab="about">About ページ</a> |\n| `https://zenn.dev/api/articles` | GET | Zenn公開記事一覧の取得 | <a href="javascript:void(0)" class="tab-link" data-tab="home">Home</a>, <a href="javascript:void(0)" class="tab-link" data-tab="blog">Blog ページ</a> |\n| `/api/v1/auth/login` | POST | 管理者ログイン認証 (JWT発行) | <a href="javascript:void(0)" class="tab-link" data-tab="admin">Admin ページ</a> |\n| `/api/v1/auth/validate` | GET | JWTトークンの有効性検証 | Proxy / Middleware |\n| `EmailJS API` | POST | お問い合わせメール送信 | <a href="javascript:void(0)" class="tab-link" data-tab="contact">Contact ページ</a> |\n\n---\n\n## 3. ディレクトリ構成\n\n```bash\ndocs/frontend/\n├── 画面仕様書一覧.html       # 設計書・構成図統合ビューア (本ファイル)\n├── about.md                 # About ページ詳細設計書\n├── admin.md                 # Admin ページ詳細設計書\n├── blog.md                  # Blog ページ詳細設計書\n├── contact.md               # Contact ページ詳細設計書\n├── home.md                  # Home ページ詳細設計書\n├── portfolio.md             # Portfolio 一覧詳細設計書\n├── portfolio-article.md     # Portfolio 詳細ページ詳細設計書\n├── privacy-policy.md        # プライバシーポリシー詳細設計書\n├── drawio/                  # draw.io 画面構成図\n│   ├── about.drawio\n│   ├── blog.drawio\n│   ├── home.drawio\n│   ├── portfolio.drawio\n│   └── privacy-policy.drawio\n└── mermaid/                 # Mermaid フロー図 / シーケンス図\n    ├── about.mmd\n    ├── admin-navigation.mmd\n    ├── admin.mmd\n    ├── blog.mmd\n    ├── contact-flow.mmd\n    ├── home.mmd\n    ├── portfolio-article.mmd\n    ├── portfolio.mmd\n    └── privacy-policy.mmd\n```\n\n---\n\n## 4. ビューアの操作方法\n1. **ハイパーリンクタブ切り替え**: 表内のリンクや構成図内の各画面カードをクリックすると、対象画面のタブへ一瞬で切り替わります。\n2. **スプレッドシート風フッタータブ**: 下部のタブバーをクリックして自由に画面を行き来できます。\n3. **境界線ドラッグ**: 画面中央の縦境界線（スプリッター）を左右にドラッグして、構成図と設計書の表示幅を自由に調整できます。\n4. **全画面表示**: 右上の「全画面表示」ボタンを押すことで、大画面で快適に仕様書を確認できます。\n',
+        },
+        sitemap: {
+          drawioTitle: "🗺️ サイト構成 & 画面遷移ツリー (インタラクティブ図)",
+          mdTitle: "🗺️ サイト構成 & 画面遷移ツリー 詳細設計書",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 440px; min-height: 1560px; background: #fff; padding: 20px;">\n        <div style="font-weight: bold; margin-bottom: 8px; font-size: 16px; color: #0f9d58; border-bottom: 2px solid #0f9d58; padding-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">\n          <span>🗺️ サイト構成 & 画面遷移詳細ツリー</span>\n          <span style="font-size: 11px; background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 10px;">クリックで各画面へ移動</span>\n        </div>\n        <p style="font-size: 11px; color: #666; margin: 0 0 14px 0; line-height: 1.4;">\n          ノードをクリックすると各画面の詳細設計書・画面構成図タブへジャンプします。\n        </p>\n\n        <div style="display: flex; flex-direction: column; gap: 12px;">\n          <!-- 共通レイアウト枠 -->\n          <div style="border: 1px dashed #9aa0a6; border-radius: 6px; padding: 8px 12px; background: #f8f9fa;">\n            <div style="font-size: 11px; font-weight: bold; color: #5f6368;">🌐 共通レイアウト (RootLayout: app/layout.tsx)</div>\n            <div style="font-size: 10px; color: #666; margin-top: 3px;">\n              ・ヘッダー (ロゴ, ナビリンク, ハンバーガーメニュー)<br>\n              ・フッター (コピーライト, サイトマップ)<br>\n              ・計測: GA, GTM, Clarity, Vercel Speed Insights<br>\n              ・MSW (Mock Service Worker) 自動注入\n            </div>\n          </div>\n\n          <!-- Home (トップ) -->\n          <div class="interactive-node" data-tab="home" style="border: 2px solid #1a73e8; border-radius: 8px; padding: 12px; background: #f0f6ff; box-shadow: 0 2px 6px rgba(26,115,232,0.12);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 14px;">🏠 1. Home (トップページ)</span>\n              <span style="font-size: 10px; background: #1a73e8; color: #fff; padding: 2px 6px; border-radius: 10px;">force-static</span>\n            </div>\n            <div style="font-size: 11px; color: #3c4043; margin-top: 4px;">パス: <code>/</code></div>\n            <div style="font-size: 11px; color: #555; margin-top: 4px; line-height: 1.4;">\n              • FV: Three.js 3Dモデル (回転/ドラッグ)<br>\n              • About概要 → CTA: <code>/about</code><br>\n              • Portfolioスライダー (Swiper) → CTA: <code>/portfolios</code><br>\n              • Historyタイムライン → CTA: <code>/about</code><br>\n              • Skill (4カテゴリ並列取得)<br>\n              • Blog最新3件 (Zenn API) → CTA: <code>/blog</code><br>\n              • Contactセクション → CTA: <code>/contact</code>\n            </div>\n          </div>\n\n          <!-- 分岐コネクタ: グローバルナビ -->\n          <div style="padding: 4px 8px; background: #e8f0fe; border-left: 3px solid #1a73e8; font-size: 11px; color: #1a73e8; font-weight: bold; border-radius: 0 4px 4px 0;">\n            ▼ グローバルナビゲーション & 各セクションCTA経由\n          </div>\n\n          <!-- 第2階層: 公開主要ページ -->\n          <!-- About -->\n          <div class="interactive-node" data-tab="about" style="border: 1px solid #4284ff; border-radius: 6px; padding: 10px; background: #ffffff; margin-left: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 13px;">👤 2-A. About (プロフィール)</span>\n              <span style="font-size: 10px; background: #e8f0fe; color: #1a73e8; padding: 1px 6px; border-radius: 8px;">force-static</span>\n            </div>\n            <div style="font-size: 11px; color: #666; margin-top: 2px;">パス: <code>/about</code></div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • タブ切替 (Zustand: <code>useTabStore</code>):<br>\n              &nbsp;&nbsp;├ 経歴 (History) タイムライン (<code>/api/histories</code>)<br>\n              &nbsp;&nbsp;└ 職歴 (Career) タイムライン (<code>/api/job</code>)<br>\n              • 取得資格テーブル (<code>/api/licenses</code>)\n            </div>\n          </div>\n\n          <!-- Portfolio 一覧 -->\n          <div class="interactive-node" data-tab="portfolio" style="border: 2px solid #4284ff; border-radius: 6px; padding: 10px; background: #f8fbff; margin-left: 14px; box-shadow: 0 1px 4px rgba(66,132,255,0.12);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 13px;">🎨 2-B. Portfolio (制作実績一覧)</span>\n              <span style="font-size: 10px; background: #e8f0fe; color: #1a73e8; padding: 1px 6px; border-radius: 8px;">force-static</span>\n            </div>\n            <div style="font-size: 11px; color: #666; margin-top: 2px;">パス: <code>/portfolios</code></div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • 実績カード一覧 (サムネイル, 日付, タイトル, タグ)<br>\n              • URLクエリ同期並び替え: <code>?order=new</code> / <code>?order=old</code><br>\n              • データ: <code>/api/portfolios</code> (フォールバックモック完備)\n            </div>\n          </div>\n\n          <!-- Portfolio 詳細 (第3階層) -->\n          <div style="margin-left: 36px; padding: 3px 8px; background: #f1f3f4; border-left: 3px solid #ea4335; font-size: 10px; color: #555; font-weight: 600;">\n            ▼ 制作実績カードクリック (動的ルート遷移)\n          </div>\n          <div class="interactive-node" data-tab="portfolioArticle" style="border: 2px dashed #4284ff; border-radius: 6px; padding: 10px; background: #ffffff; margin-left: 36px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 12px;">📄 3. Portfolio 詳細 (動的ルート)</span>\n              <span style="font-size: 9px; background: #fce8e6; color: #c5221f; padding: 1px 6px; border-radius: 8px;">generateStaticParams</span>\n            </div>\n            <div style="font-size: 10px; color: #666; margin-top: 2px;">パス: <code>/portfolios/[id]</code> (未定義IDは 404 notFound)</div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • 目次 (TOC) スムーズスクロール (<code>scrollIntoView</code>)<br>\n              • 4画面画像拡大モーダル (トップ, About, 機能, アピール)<br>\n              • 前後記事ナビゲーション (<code>/portfolios/[prev_id]</code>, <code>[next_id]</code>)<br>\n              • 外部リンク: WebサイトURL / GitHub (別タブ)\n            </div>\n          </div>\n\n          <!-- Blog -->\n          <div class="interactive-node" data-tab="blog" style="border: 1px solid #4284ff; border-radius: 6px; padding: 10px; background: #ffffff; margin-left: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 13px;">📝 2-C. Blog (ブログ一覧)</span>\n              <span style="font-size: 10px; background: #fef7e0; color: #b06000; padding: 1px 6px; border-radius: 8px;">force-dynamic (SSR)</span>\n            </div>\n            <div style="font-size: 11px; color: #666; margin-top: 2px;">パス: <code>/blog</code></div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • Zenn API 外部通信 (<code>fetchZennArticles</code>)<br>\n              • ページネーション: <code>?page=[ページ番号]</code> (9件/ページ)<br>\n              • ランダム抽出おすすめ記事 (リクエスト毎に4件再抽選)<br>\n              • カードクリック → 外部 Zenn 記事ページ (別タブ)\n            </div>\n          </div>\n\n          <!-- Contact -->\n          <div class="interactive-node" data-tab="contact" style="border: 1px solid #4284ff; border-radius: 6px; padding: 10px; background: #ffffff; margin-left: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #1a73e8; font-size: 13px;">✉️ 2-D. Contact (お問い合わせ)</span>\n              <span style="font-size: 10px; background: #e8f0fe; color: #1a73e8; padding: 1px 6px; border-radius: 8px;">CSR (RHF+Zod)</span>\n            </div>\n            <div style="font-size: 11px; color: #666; margin-top: 2px;">パス: <code>/contact</code></div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • 2段階画面遷移 (内部ステート: <code>isConfirming</code>):<br>\n              &nbsp;&nbsp;[入力フォーム] ──(バリデーション通過)──▶ [確認プレビュー]<br>\n              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;◀──(「戻る」ボタン)──────┘<br>\n              • 送信実行 (EmailJS SDK) ──(送信完了)──▶ トップ (<code>/</code>) リダイレクト\n            </div>\n          </div>\n\n          <!-- Privacy Policy -->\n          <div class="interactive-node" data-tab="privacyPolicy" style="border: 1px solid #70757a; border-radius: 6px; padding: 9px; background: #fdfdfd; margin-left: 14px;">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #3c4043; font-size: 12px;">📄 2-E. プライバシーポリシー</span>\n              <span style="font-size: 10px; background: #f1f3f4; color: #5f6368; padding: 1px 6px; border-radius: 8px;">force-static</span>\n            </div>\n            <div style="font-size: 11px; color: #666; margin-top: 2px;">パス: <code>/privacy-policy</code> (フッター等から遷移)</div>\n            <div style="font-size: 10px; color: #666; margin-top: 2px;">\n              • 個人情報利用目的、GA・Clarity利用規約 (外部リンク)\n            </div>\n          </div>\n\n          <!-- 分岐コネクタ: 管理領域 -->\n          <div style="padding: 4px 8px; background: #fce8e6; border-left: 3px solid #d93025; font-size: 11px; color: #c5221f; font-weight: bold; border-radius: 0 4px 4px 0;">\n            ▼ 管理者認証 & 保護ルート (Protected Admin Area)\n          </div>\n\n          <!-- Admin ログイン -->\n          <div class="interactive-node" data-tab="admin" style="border: 2px solid #d93025; border-radius: 6px; padding: 10px; background: #fffbfa; margin-left: 14px; box-shadow: 0 1px 4px rgba(217,48,37,0.12);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #c5221f; font-size: 13px;">🔒 4-A. Admin ログイン</span>\n              <span style="font-size: 10px; background: #fce8e6; color: #c5221f; padding: 1px 6px; border-radius: 8px;">Server Actions</span>\n            </div>\n            <div style="font-size: 11px; color: #666; margin-top: 2px;">パス: <code>/admin</code></div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • メール & パスワード送信 ──▶ <code>authenticate</code> (POST <code>/api/v1/auth/login</code>)<br>\n              • 認証成功: JWTを <code>auth_token</code> Cookie (httpOnly) に格納<br>\n              • リダイレクト: <code>/admin/dashboard</code> へ自動遷移\n            </div>\n          </div>\n\n          <!-- Admin ダッシュボード (保護領域) -->\n          <div style="border: 1px solid #ea4335; border-radius: 6px; padding: 9px; background: #fff; margin-left: 36px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">\n            <div style="display: flex; justify-content: space-between; align-items: center;">\n              <span style="font-weight: bold; color: #b31412; font-size: 12px;">🛡️ 4-B. 管理画面 (Dashboard / Edit)</span>\n              <span style="font-size: 9px; background: #fad2cf; color: #b31412; padding: 1px 6px; border-radius: 8px;">Proxy Guard</span>\n            </div>\n            <div style="font-size: 10px; color: #666; margin-top: 2px;">パス: <code>/admin/dashboard</code>, <code>/admin/edit/...</code></div>\n            <div style="font-size: 10px; color: #555; margin-top: 3px;">\n              • <code>proxy.js</code> / ミドルウェアによる認証検証:<br>\n              &nbsp;&nbsp;├ <code>auth_token</code> 有効 ──▶ ダッシュボード・マスタ管理表示<br>\n              &nbsp;&nbsp;└ 未認証/無効 ──────▶ 即座に <code>/admin</code> へリダイレクト\n            </div>\n          </div>\n\n          <!-- 共通エラー -->\n          <div style="border: 1px solid #dadce0; border-radius: 6px; padding: 8px; background: #f8f9fa; font-size: 10px; color: #5f6368;">\n            <b>⚠️ エラー境界 & フォールバック:</b><br>\n            • <code>404 Not Found</code>: 未定義ルート、存在しない実績ID (<code>notFound()</code>)<br>\n            • <code>500 Error</code>: 共通 <code>error.tsx</code> によるエラー表示\n          </div>\n        </div>\n      </div>\n  ',
+          mdContent:
+            '# 🗺️ サイト構成 & 画面遷移ツリー 詳細設計書\n\n当プロジェクト（Next.js Portfolio）における画面構造、ルーティング階層、遷移トリガー、URLクエリ、モーダル・ドロワー、認証ガード（Middleware/Proxy）の網羅的仕様書です。\n\n> 💡 **各画面へのジャンプ**:\n> ドキュメント内のリンクや、左ペインの図内の各ノードをクリックすると、**該当画面の仕様書プレビュータブに切り替わります**。\n\n---\n\n## 1. サイト階層アーキテクチャ概要\n\n本システムは Next.js 16 (App Router) を採用し、**公開フロントエンド** と **管理者認証領域** の2大ドメインで構成されています。\n\n```\n[RootLayout] (全ページ共通: ヘッダー / フッター / GA・GTM・Clarity / MSW)\n │\n ├── 🏠 1. Home (トップ) [/] ─── (RSC + force-static)\n │    │\n │    ├── 👤 2-A. About [/about] ─── (force-static + Zustand)\n │    │     ├── 経歴タイムライン (History)\n │    │     ├── 職歴タイムライン (Career)\n │    │     └── 取得資格一覧テーブル\n │    │\n │    ├── 🎨 2-B. Portfolio 一覧 [/portfolios] ─── (force-static + URLクエリ)\n │    │     └── 並び替え (?order=new | ?order=old)\n │    │           │\n │    │           └── 📄 3. Portfolio 詳細 [/portfolios/[id]] ─── (generateStaticParams)\n │    │                 ├── 目次 (TOC) スムーズスクロール\n │    │                 ├── 4画面画像拡大モーダル\n │    │                 └── 前後実績ナビゲーション\n │    │\n │    ├── 📝 2-C. Blog 一覧 [/blog] ─── (force-dynamic / SSR)\n │    │     ├── Zenn API 記事一覧\n │    │     ├── ページネーション (?page=N)\n │    │     └── おすすめ記事 (ランダム4件)\n │    │\n │    ├── ✉️ 2-D. Contact [/contact] ─── (CSR: React Hook Form + Zod)\n │    │     ├── 入力フォーム画面 (isConfirming: false)\n │    │     └── 確認プレビュー画面 (isConfirming: true) ──▶ EmailJS送信 ──▶ [/] へ遷移\n │    │\n │    └── 📄 2-E. プライバシーポリシー [/privacy-policy] ─── (force-static)\n │\n └── 🔒 4. 管理者エリア (Protected Area)\n      ├── 4-A. Admin ログイン [/admin] ─── (Server Actions + JWT Cookie)\n      └── 4-B. Admin ダッシュボード・編集 [/admin/dashboard, /admin/edit/...] ─── (Proxy Guard)\n```\n\n---\n\n## 2. 詳細画面遷移フロー (Mermaid)\n\n```mermaid\nflowchart TD\n    %% 共通ノード\n    HOME["🏠 Home (/)\\n[force-static]"]\n    ABOUT["👤 About (/about)\\n[force-static + Zustand]"]\n    PORTFOLIO["🎨 Portfolio (/portfolios)\\n[force-static]"]\n    DETAIL["📄 Portfolio 詳細 (/portfolios/[id])\\n[generateStaticParams]"]\n    BLOG["📝 Blog (/blog)\\n[force-dynamic / SSR]"]\n    CONTACT["✉️ Contact (/contact)\\n[CSR: RHF + Zod]"]\n    POLICY["📄 Privacy Policy (/privacy-policy)\\n[force-static]"]\n    ADMIN["🔒 Admin ログイン (/admin)\\n[Server Actions]"]\n    DASHBOARD["🛡️ Dashboard (/admin/dashboard)\\n[JWT Proxy Guard]"]\n\n    %% 外部\n    ZENN_EXT["🌐 Zenn 記事ページ (外部)"]\n    GITHUB_EXT["🌐 GitHub / 実績サイト (外部)"]\n\n    %% 共通ヘッダー導線\n    HOME -->|"ヘッダー / ドロワー"| ABOUT\n    HOME -->|"ヘッダー / ドロワー"| PORTFOLIO\n    HOME -->|"ヘッダー / ドロワー"| BLOG\n    HOME -->|"ヘッダー / お問い合わせボタン"| CONTACT\n    HOME -->|"フッターリンク"| POLICY\n\n    %% Homeセクション導線\n    HOME -->|"About セクション CTA"| ABOUT\n    HOME -->|"Portfolio スライダー CTA"| PORTFOLIO\n    HOME -->|"Portfolio カードクリック"| DETAIL\n    HOME -->|"History セクション CTA"| ABOUT\n    HOME -->|"Blog セクション CTA"| BLOG\n    HOME -->|"Blog 最新記事クリック"| ZENN_EXT\n    HOME -->|"Contact セクション CTA"| CONTACT\n\n    %% 下層ページ間遷移\n    ABOUT -->|"パンくず"| HOME\n    PORTFOLIO -->|"パンくず"| HOME\n    PORTFOLIO -->|"実績カードクリック"| DETAIL\n    PORTFOLIO -->|"並び替えセレクト"| PORTFOLIO\n    DETAIL -->|"パンくず \'Portfolio\'"| PORTFOLIO\n    DETAIL -->|"パンくず \'トップ\'"| HOME\n    DETAIL -->|"前後ナビ (次/前へ)"| DETAIL\n    DETAIL -->|"外部リンク"| GITHUB_EXT\n    BLOG -->|"パンくず"| HOME\n    BLOG -->|"記事カードクリック"| ZENN_EXT\n    BLOG -->|"ページネーション (?page=N)"| BLOG\n    CONTACT -->|"パンくず"| HOME\n    CONTACT -->|"メール送信完了"| HOME\n    POLICY -->|"パンくず"| HOME\n\n    %% 管理領域\n    HOME -.->|"直接URL / 管理導線"| ADMIN\n    ADMIN -->|"ログイン成功 (JWT Cookie保存)"| DASHBOARD\n    DASHBOARD -.->|"未認証 / トークン期限切れ"| ADMIN\n```\n\n---\n\n## 3. 画面遷移マトリクス & トリガー一覧\n\n| 遷移元 | 遷移先 | ユーザーアクション / トリガー | パラメータ / 条件 | 認証要否 |\n|:---|:---|:---|:---|:---:|\n| **全画面** | <a href="javascript:void(0)" class="tab-link" data-tab="home">Home (/)</a> | ヘッダーロゴクリック / パンくず「トップ」クリック | なし | 不要 |\n| **全画面** | <a href="javascript:void(0)" class="tab-link" data-tab="about">About (/about)</a> | ヘッダーナビ / ドロワードロワー「About」 | なし | 不要 |\n| **全画面** | <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">Portfolio (/portfolios)</a> | ヘッダーナビ / ドロワードロワー「ポートフォリオ」 | なし | 不要 |\n| **全画面** | <a href="javascript:void(0)" class="tab-link" data-tab="blog">Blog (/blog)</a> | ヘッダーナビ / ドロワードロワー「ブログ」 | なし | 不要 |\n| **全画面** | <a href="javascript:void(0)" class="tab-link" data-tab="contact">Contact (/contact)</a> | ヘッダー右「お問い合わせ」ボタン | なし | 不要 |\n| **全画面** | <a href="javascript:void(0)" class="tab-link" data-tab="privacyPolicy">Privacy Policy (/privacy-policy)</a> | フッター「プライバシーポリシー」リンク | なし | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="home">Home</a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio詳細 (/portfolios/[id])</a> | Swiper スライダー内の実績カードクリック | パス引数: `[id]` | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="home">Home</a> | 外部 Zenn 記事 | Blogセクション 最新記事カードクリック | 外部リンク (`target="_blank"`) | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">Portfolio</a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio詳細 (/portfolios/[id])</a> | 制作実績カードクリック | パス引数: `[id]` | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">Portfolio</a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">Portfolio (/portfolios)</a> | 並び替えセレクト操作 | クエリ: `?order=new` / `?order=old` | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio詳細</a> | <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio詳細 (/portfolios/[id])</a> | 記事下部「前の記事」「次の記事」クリック | パス引数: `[prev_id]` / `[next_id]` | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio詳細</a> | 外部 GitHub / 公開サイト | 「Webサイト」「GitHub」リンククリック | 外部リンク (`target="_blank"`) | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="blog">Blog</a> | <a href="javascript:void(0)" class="tab-link" data-tab="blog">Blog (/blog)</a> | ページネーション番号 / 前へ / 次へクリック | クエリ: `?page=N` | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="blog">Blog</a> | 外部 Zenn 記事 | メイン一覧 / おすすめ記事カードクリック | 外部リンク (`target="_blank"`) | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="contact">Contact</a> | <a href="javascript:void(0)" class="tab-link" data-tab="home">Home (/)</a> | お問い合わせ送信完了（EmailJS成功時） | 自動リダイレクト (`router.push(\'/\')`) | 不要 |\n| 任意 | <a href="javascript:void(0)" class="tab-link" data-tab="admin">Admin (/admin)</a> | 直接URLアクセス | ログイン画面 | 不要 |\n| <a href="javascript:void(0)" class="tab-link" data-tab="admin">Admin</a> | Admin Dashboard (/admin/dashboard) | ログインフォーム認証成功 | Cookie `auth_token` 付与の上リダイレクト | 要認証 |\n| Admin Dashboard | <a href="javascript:void(0)" class="tab-link" data-tab="admin">Admin (/admin)</a> | Cookie未所持 / トークン検証エラー時 | Proxy/Middlewareによる自動リダイレクト | 要認証 |\n\n---\n\n## 4. URLパラメータ & クエリ仕様一覧\n\n| ルート | 種類 | パラメータ名 | 値の型 / 形式 | 説明 / 動作 |\n|:---|:---:|:---|:---|:---|\n| `/portfolios/[id]` | パス引数 | `id` | 数値文字列 (例: `1`, `2`) | `generateStaticParams` でビルド時に全件事前生成。存在しないIDは `notFound()` により 404 へ遷移。 |\n| `/portfolios` | クエリ | `order` | `new` \\| `old` \\| `""` | 制作実績の並び替え条件。`router.replace` で URL とローカルステートを同期。 |\n| `/blog` | クエリ | `page` | 1以上の整数 (例: `?page=2`) | Zenn記事一覧のページ番号 (1ページあたり9件)。総ページ数超過時は最大値へ自動クランプ。 |\n\n---\n\n## 5. レンダリング戦略 & キャッシュアーキテクチャ\n\n| 画面名 | パス | レンダリング方式 | Next.js 設定 | データソース & キャッシュ動作 |\n|:---|:---|:---|:---|:---|\n| **Home (トップ)** | `/` | RSC + Client | `dynamic = "force-static"` | ビルド時静的生成。Three.js と Swiper はクライアントハイドレーション。 |\n| **About** | `/about` | 静的生成 + CSR | `dynamic = "force-static"` | ページ全体は静的生成。経歴/職歴の表示切替は Zustand でクライアント制御。 |\n| **Portfolio 一覧** | `/portfolios` | 静的生成 + URL同期 | `dynamic = "force-static"` | ビルド時静的生成。クエリパラメータによるソートは Client Component で即座に実行。 |\n| **Portfolio 詳細** | `/portfolios/[id]` | SSG | `dynamic = "force-static"`<br>`dynamicParams = false` | ビルド時に全実績ページを完全静的生成。未定義IDは即座に 404 判定。 |\n| **Blog 一覧** | `/blog` | SSR (動的) | `dynamic = "force-dynamic"`<br>`noStore()` | 毎アクセス時に最新の Zenn 記事を取得。リクエスト毎におすすめ記事をランダム4件抽出。 |\n| **Contact** | `/contact` | CSR | Client Component (`"use client"`) | React Hook Form + Zod による完全クライアント制御。EmailJS SDK 通信。 |\n| **Admin** | `/admin` | Hybrid | Server Action (`"use server"`) | フォーム送信時にサーバーアクション `authenticate` を呼び出し、JWT Cookie をセット。 |\n| **Privacy Policy** | `/privacy-policy` | 静的生成 | `dynamic = "force-static"` | 外部データ取得なしの純粋な静的ページ。 |\n\n---\n\n## 6. モーダル・ドロワー・内部状態遷移（ステート遷移）\n\n画面遷移を伴わず、同一画面内で発生する主要なUI状態遷移の一覧です。\n\n### 1) モバイル・ハンバーガードロワーメニュー (全画面共通)\n- **状態**: `isOpen` (boolean)\n- **トリガー**: ヘッダーのハンバーガーボタンクリック\n- **動作**: 画面右側からドロワーメニューがスライドイン。開閉中は背面の `body` スクロールを固定 (`overflow: hidden`)。フォーカストラップを有効化。\n\n### 2) お問い合わせフォーム 2相状態遷移 (`/contact`)\n- **状態**: `isConfirming` (boolean)\n- **フロー**:\n  1. `[入力画面]`: ユーザーが入力し「確認画面へ」ボタン押下 ──▶ Zod バリデーション実行\n  2. バリデーション成功時 ──▶ `isConfirming = true` となり `[確認画面プレビュー]` へ切り替え\n  3. 「戻る」ボタン押下 ──▶ `isConfirming = false` で入力値を保持したまま入力画面へ復帰\n  4. 「送信する」ボタン押下 ──▶ `isSubmitting = true` (二重送信防止) ──▶ EmailJS送信 ──▶ トップへ自動遷移\n\n### 3) Portfolio 詳細 4セクション画像拡大モーダル (`/portfolios/[id]`)\n- **状態**: `isOpen` (トップ画像), `isOpen2` (About画像), `isOpen3` (機能一覧画像), `isOpen4` (アピール画像)\n- **トリガー**: 各セクションのサムネイル画像クリック\n- **動作**: `CommonModal` (React Modal) により、画面中央に拡大画像を表示。モーダル外クリックまたは Esc キーで閉じる。\n\n### 4) About タブ切り替え (`/about`)\n- **状態**: Zustand `useTabStore` (`activeTab: "history" | "career"`)\n- **トリガー**: タブボタン「経歴」または「職歴」をクリック\n- **動作**: クライアントサイドでステートを更新し、タイムラインコンポーネントを即座に動的スイッチ。\n\n---\n\n## 7. 認証・認可ガード仕様 (Admin)\n\n```mermaid\nsequenceDiagram\n    autonumber\n    actor Admin as 管理者\n    participant Browser as ブラウザ\n    participant Action as Server Actions (/admin)\n    participant Backend as Rails API (/api/v1/auth)\n    participant Proxy as Next.js Proxy (proxy.js)\n    participant Dashboard as /admin/dashboard\n\n    Admin->>Browser: メール・パスワード入力してログイン\n    Browser->>Action: authenticate(formData) 呼び出し\n    Action->>Backend: POST /api/v1/auth/login\n    alt 認証成功\n        Backend-->>Action: 200 OK (JWTトークン返却)\n        Action->>Browser: Set-Cookie: auth_token=JWT#59; HttpOnly#59; SameSite=Lax\n        Action->>Browser: redirect("/admin/dashboard")\n        Browser->>Proxy: GET /admin/dashboard (Cookie送信)\n        Proxy->>Backend: GET /api/v1/auth/validate (JWT検証)\n        Backend-->>Proxy: 200 OK (有効)\n        Proxy->>Dashboard: 画面描画\n    else 認証失敗\n        Backend-->>Action: 401 Unauthorized\n        Action-->>Browser: { ok: false, error: "認証エラー" }\n        Browser->>Admin: エラー文言をフォームに表示\n    end\n```\n\n---\n\n## 8. 各画面の詳細仕様書へのリンク\n\n以下のリンクから、各画面ごとの詳細設計書（項目定義、APIインターフェース、イベント一覧）および画面構成図を閲覧できます。\n\n- 🏠 <a href="javascript:void(0)" class="tab-link" data-tab="home">Home (トップページ) 仕様書</a>\n- 👤 <a href="javascript:void(0)" class="tab-link" data-tab="about">About (プロフィール) 仕様書</a>\n- 🎨 <a href="javascript:void(0)" class="tab-link" data-tab="portfolio">Portfolio (制作実績一覧) 仕様書</a>\n- 📄 <a href="javascript:void(0)" class="tab-link" data-tab="portfolioArticle">Portfolio 詳細仕様書</a>\n- 📝 <a href="javascript:void(0)" class="tab-link" data-tab="blog">Blog (ブログ一覧) 仕様書</a>\n- ✉️ <a href="javascript:void(0)" class="tab-link" data-tab="contact">Contact (お問い合わせ) 仕様書</a>\n- 🔒 <a href="javascript:void(0)" class="tab-link" data-tab="admin">Admin (管理者認証) 仕様書</a>\n- 📄 <a href="javascript:void(0)" class="tab-link" data-tab="privacyPolicy">プライバシーポリシー 仕様書</a>\n',
+        },
+        home: {
+          drawioTitle: "画面構成図: drawio/home.drawio",
+          mdTitle: "詳細設計書: home.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 1340px;">\n        <div class="wire-cell" style="left: 30px; top: 40px; width: 310px; height: 1320px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">Home ページ 画面構成 (SP)</div>\n        <div class="wire-cell" style="left: 30px; top: 68px; width: 310px; height: 56px; background: #f5f5f5;">No1: ヘッダー<br>ハンバーガーナビ</div>\n        <div class="wire-cell" style="left: 30px; top: 124px; width: 310px; height: 180px; background: #ffffff; color: #4284ff; border-color: #4284ff;">No2: FV<br>大見出し / 3Dモデル</div>\n        <div class="wire-cell" style="left: 50px; top: 330px; width: 270px; height: 150px; background: #ffffff;">No3: About<br>画像 → テキスト縦積み</div>\n        <div class="wire-cell" style="left: 50px; top: 510px; width: 270px; height: 140px; background: #f8fbff;">No4: Portfolio<br>Swiper 1.5枚表示</div>\n        <div class="wire-cell" style="left: 50px; top: 680px; width: 270px; height: 115px; background: #ffffff;">No5: History<br>タイムライン / CTA</div>\n        <div class="wire-cell" style="left: 50px; top: 825px; width: 270px; height: 150px; background: #f5f7fb;">No6: Skill<br>カテゴリ別に縦積み</div>\n        <div class="wire-cell" style="left: 50px; top: 1005px; width: 270px; height: 110px; background: #ffffff;">No7: Blog<br>Zenn 最新記事 / CTA</div>\n        <div class="wire-cell" style="left: 30px; top: 1145px; width: 310px; height: 115px; background: #4284ff; color: #fff;">No8: Contact<br>お問い合わせボックス</div>\n        <div class="wire-cell" style="left: 30px; top: 1285px; width: 310px; height: 75px; background: #f5f5f5;">No9: フッター / TopBackButton</div>\n      </div>\n    ',
+          mdContent:
+            '# Home 詳細設計書\n\n## 1. ページ概要\n\n- サイトトップとして、ブランド、プロフィール概要、制作実績、経歴、スキル、ブログ、お問い合わせ導線を縦方向に提示するページ。\n- `app/(home)/page.tsx` で `export const dynamic = "force-static"` を指定し、静的生成を前提に構成する。\n- FV では Three.js の GLTF モデルを表示し、主要セクションはスクロール時のフェードイン演出を行う。\n\n### meta\n- `title: "To You Design - Home"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- `drawio/home.drawio`\n\n### 画面項目\n\n画面構成は上から下へ 9 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |\n| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |\n| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |\n| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |\n| アクセシビリティ | `aria-expanded`、`aria-controls="navigation"`、フォーカストラップ（`#js-focus-trap`）を設定 |\n\n#### No2: FV（ファーストビュー）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `HomeFvSection`（`app/(home)/sections/home-fv-section.tsx`） |\n| 表示要素 | 大見出し `To You Design`、サブ見出し `Portfolio`、Three.js 3D モデル |\n| 3D モデル | `ThreeModel`（クライアントコンポーネント）。GLTF `/models/scene.gltf` を Canvas 上に描画 |\n| アニメーション | モデルは上下移動（sin 波）と Y 軸回転を自動実行。`OrbitControls` によりドラッグ操作可能（ズーム無効） |\n| 演出 | 見出しに `slide__in__right` クラスを付与し、右からスライドインする |\n| SP レイアウト | 見出しと 3D モデルを縦方向に配置。Canvas は画面幅いっぱいに表示 |\n\n#### No3: About\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `HomeAboutSection`（Server Component） |\n| セクション見出し | `About`（`data-ja="To You Designについて"`） |\n| データ取得 | `fetchProfile()` → `/api/profiles` |\n| 表示要素 | プロフィール画像、氏名（阿部 舜平）、本文、趣味、資格、SNS リンク |\n| プロフィール画像 | `/images/myphoto.png`。SP では `sizes="100vw"` で全幅表示 |\n| 本文 | `html-react-parser` で HTML を描画 |\n| SNS リンク | `ProfileSnsLinks`。GitHub / X / Zenn 等を外部リンク（`target="_blank"`）で表示 |\n| SP レイアウト | 画像 → テキストの順に縦積み。左右に 20px 相当の余白（`.max_width` 内） |\n| 演出 | `ScrollComponent` によりスクロール時フェードイン |\n\n#### No4: Portfolio\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `HomePortfolioSlide`（Server）+ `HomePortfolioSlideClient`（Client） |\n| セクション見出し | `Portfolio`（`data-ja="ポートフォリオ"`） |\n| データ取得 | `fetchPortfoliosFront()` → `/api/portfolios`。失敗時または 0 件時は `public/mock/api/portfolios/index.json` を使用 |\n| 並び順 | 制作日（`date`）の降順 |\n| スライダー | Swiper を使用。SP（0px 以上）は `slidesPerView: 1.5`、768px 以上は `3.5` |\n| カード要素 | サムネイル画像、日付、タイトル、タグ（`#tag` 形式） |\n| カード操作 | カードクリックで `TransitionLink` により `/portfolios/[id]` へ遷移 |\n| 前後ボタン | 制作物が 5 件以上の場合のみ左右ナビ（`ChevronLeft` / `ChevronRight`）を表示 |\n| CTA | `LinkButton`「ポートフォリオをさらに見る」→ `/portfolios`。GTM: `home_portfolio` / `click_more_portfolio` |\n| SP レイアウト | 1.5 枚表示により次カードの一部が見える peep 表示。左右 20px 余白 |\n\n#### No5: History\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `CareerHistoryTimeline`（Server Component） |\n| セクション見出し | `History`（`data-ja="過去の経歴"`） |\n| データ取得 | `fetchHistories()` → `/api/histories` |\n| 表示要素 | 経歴タイムライン（日付、タイトル、本文）を `Timeline` コンポーネントで縦並び表示 |\n| CTA | `LinkButton`「経歴をさらに見る」→ `/about`。GTM: `home_history` / `click_more_history` |\n| SP レイアウト | タイムラインを 1 カラムで表示。CTA はセクション下部に配置 |\n| 演出 | `ScrollComponent` によりスクロール時フェードイン |\n\n#### No6: Skill\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `HomeSkills`（Server Component） |\n| セクション見出し | `Skill`（`data-ja="スキルセット"`） |\n| データ取得 | `Promise.all` で 4 カテゴリを並列取得（`/api/skills/front`, `/back`, `/infra`, `/other`） |\n| カテゴリ | Frontend / Backend / Infra / Other の 4 区分 |\n| 表示要素 | 各カテゴリ見出し（`h3.skill__title`）+ スキルカード（`SkillElement`：アイコン、スキル名） |\n| SP レイアウト | カテゴリごとに縦積み。スキルカードは 1 カラム中心配置 |\n| 演出 | 各カテゴリのスキル一覧に `ScrollComponent` を適用 |\n\n#### No7: Blog\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `HomeBlog`（Server Component）+ `HomeBlogItem` |\n| セクション見出し | `Blog`（`data-ja="ブログ"`） |\n| データ取得 | `fetchZennArticles()` → Zenn API（`https://zenn.dev/api/articles?username=643866`） |\n| 表示件数 | 最新 3 件（`HOME_BLOG_COUNT = 3`） |\n| 記事要素 | 公開日（`time`）、タイトル（`h3`） |\n| 記事操作 | クリックで Zenn 記事ページへ外部リンク（`target="_blank"`） |\n| 条件分岐 | 記事 0 件または取得失敗時は一覧を描画せず `null` を返す（CTA のみ表示） |\n| CTA | `LinkButton`「ブログをさらに見る」→ `/blog`。GTM: `home_blog` / `click_more_blog` |\n| SP レイアウト | 記事を縦並びリスト（ニュース風）で表示 |\n\n#### No8: Contact\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `page.tsx` 内の Contact セクション |\n| セクション見出し | `Contact`（`main__title-white`、`data-ja="お問い合わせ"`） |\n| 背景 | 青背景（`.contact` セクション、`#4284ff` 系） |\n| 表示要素 | CONTACT ボックス（`h3.contact__box-title`）、説明文「お問い合わせ」、CTA ボタン |\n| CTA | `LinkButton`「お問い合せフォームへ」→ `/contact`。GTM: `home_contact` / `click_more_contact` |\n| SP レイアウト | セクション全幅。ボックスは `.max_width` 内に中央配置 |\n| 演出 | `ScrollComponent` によりスクロール時フェードイン |\n\n#### No9: フッター / TopBackButton\n\n| 項目 | 内容 |\n|------|------|\n| フッター | `RootLayout` の `Footer`（全ページ共通） |\n| 戻るボタン | `TopBackButton`（`components/ui/button/top-back-button.tsx`） |\n| 表示条件 | スクロール 150px 超で右下固定ボタン（`ChevronUp` アイコン）を表示 |\n| 操作 | ボタンクリックで `window.scrollTo(0, 0)` によりページ先頭へ戻る |\n| SP レイアウト | フッターは画面下部全幅。TopBackButton は右下に固定表示 |\n\n## 3. データフロー\n\n- プロフィール、ポートフォリオ、経歴、スキル、Zenn 記事を各 Server Component で取得する。\n- ポートフォリオ一覧は API 取得に失敗した場合、`public/mock/api/portfolios/index.json` をフォールバックとして使用する。\n- Zenn 記事が 0 件の場合、Blog セクション内の一覧は表示しない。\n\n**フロー図** (`mermaid/home.mmd`)\n\n```mermaid\nflowchart TD\n  A["ページアクセス (/)"] --> B["RootLayout を描画"]\n  B --> C["Header / AdminHeader / MockProvider を表示"]\n  C --> D["Home ページを静的生成"]\n  D --> E["FV: To You Design と ThreeModel を表示"]\n  D --> F["About: fetchProfile でプロフィール取得"]\n  D --> G["Portfolio: fetchPortfoliosFront で制作実績取得"]\n  G --> H{"制作実績 API 取得成功か"}\n  H -- "成功" --> I["日付降順にソート"]\n  H -- "失敗または0件" --> J["mock portfolios にフォールバック"]\n  J --> I\n  I --> K["HomePortfolioSlideClient に渡す"]\n  K --> L["Swiper でカードと前後ボタンを表示"]\n  D --> M["History: CareerHistoryTimeline を表示"]\n  M --> N["fetchHistories で経歴一覧を取得"]\n  D --> O["Skill: 4カテゴリのスキルを並列取得"]\n  O --> P["Frontend / Backend / Infra / Other を表示"]\n  D --> Q["Blog: fetchZennArticles を実行"]\n  Q --> R{"記事が存在するか"}\n  R -- "あり" --> S["最新3件を表示"]\n  R -- "なし" --> T["Blog一覧を非表示"]\n  D --> U["Contact: お問い合わせ CTA を表示"]\n  L --> V["ユーザーが Portfolio CTA / カードをクリック"]\n  S --> W["ユーザーが Blog CTA をクリック"]\n  U --> X["ユーザーが Contact CTA をクリック"]\n  V --> Y["該当ページへ遷移"]\n  W --> Y\n  X --> Y\n```\n\n## 4. 状態管理・ロジック\n\n- **静的生成**: `dynamic = "force-static"` によりトップページを静的生成する。\n- **FV 3D 表示**: `ThreeModel` はクライアントコンポーネントとして `Canvas`、`useGLTF`、`OrbitControls` を利用し、モデルを上下移動・回転させる。\n- **ポートフォリオスライダー**: `HomePortfolioSlideClient` は Swiper と `useState` で前後ボタンの表示状態を制御する。\n- **データ整形**: ポートフォリオは日付降順に並べ替え、ブログは Zenn 記事の先頭 3 件のみ表示する。\n- **共通導線**: `LinkButton` で `/portfolios`、`/about`、`/blog`、`/contact` へ遷移する。\n\n## 5. ルーティング\n\n- `/`\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/` にアクセス | RootLayout、Header、Home、Footer を表示 | トップページを表示 |\n| 3D モデル操作 | FV の Canvas をドラッグ | `OrbitControls` でモデル視点を操作 | モデルの向きが変化 |\n| スクロール | 各セクションが表示領域に入る | `ScrollComponent` でフェードイン | セクション要素が順次表示 |\n| スライダー操作 | Portfolio の前後ボタンをクリック | Swiper の navigation を実行 | 表示中の制作実績が切り替わる |\n| 制作実績クリック | Portfolio カードをクリック | `TransitionLink` で詳細へ遷移 | `/portfolios/[id]` を表示 |\n| CTA クリック | 各「さらに見る」ボタンをクリック | `LinkButton` で該当ページへ遷移し GTM イベントを付与 | 一覧・詳細導線へ遷移 |\n| トップへ戻る | 右下固定ボタンをクリック | `TopBackButton` のスクロール処理を実行 | ページ先頭へ戻る |\n\n## 7. APIインターフェース (Backend)\n\n| エンドポイント | メソッド | 内容 |\n|----------------|----------|------|\n| `/api/profiles` | GET | トップ About セクション用プロフィールを取得 |\n| `/api/portfolios` | GET | Portfolio スライダー用制作実績を取得 |\n| `/api/histories` | GET | History セクション用経歴を取得 |\n| `/api/skills/front` | GET | Frontend スキル一覧を取得 |\n| `/api/skills/back` | GET | Backend スキル一覧を取得 |\n| `/api/skills/infra` | GET | Infra スキル一覧を取得 |\n| `/api/skills/other` | GET | Other スキル一覧を取得 |\n| `https://zenn.dev/api/articles?username=643866` | GET | Blog セクション用 Zenn 記事一覧を取得 |\n\n## 8. エラーハンドリング\n\n- 共通 fetcher は `response.ok` が false の場合にエラーを投げ、呼び出し元または Next.js の `error.tsx` に委譲する。\n- Portfolio スライダーは API 取得失敗または空配列時にモックデータへフォールバックする。\n- Zenn 記事取得は失敗時に空配列を返し、Blog 一覧を非表示にする。\n\n## 9. その他仕様\n\n- SEO用メタデータ: `title: "To You Design"`、`description: "Next.js / React を中心に開発するフロントエンドエンジニア Abe Shumpei のポートフォリオサイト。制作実績や技術スタックを紹介しています。"`\n- OGP画像: `/images/ogp.png`\n- 画像: プロフィール画像 `/images/myphoto.png`、Three.js モデル `/models/scene.gltf`\n- 計測: production 環境では Google Analytics、Google Tag Manager、Clarity、Vercel Speed Insights を読み込む。\n',
+        },
+        about: {
+          drawioTitle: "画面構成図: drawio/about.drawio",
+          mdTitle: "詳細設計書: about.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 820px;">\n        <div class="wire-cell" style="left: 20px; top: 30px; width: 310px; height: 760px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">About ページ 画面構成 (Desktop / SP)</div>\n        <div class="wire-cell" style="left: 20px; top: 58px; width: 310px; height: 50px; background: #f5f5f5;">No1: ヘッダー<br>ロゴ / ナビ / お問い合わせ</div>\n        <div class="wire-cell" style="left: 35px; top: 120px; width: 200px; height: 30px; background: #ffffff; border-style: none; justify-content: flex-start;">No2: パンくずリスト<br>トップ ＞ About</div>\n        <div class="wire-cell" style="left: 20px; top: 160px; width: 310px; height: 90px; background: #3b82f6; color: #ffffff;">No3: ヒーローエリア (Title)<br>About / プロフィール</div>\n        <div class="wire-cell" style="left: 20px; top: 260px; width: 310px; height: 40px; background: #f8f9fa;">No4: タブメニュー<br>経歴 (History) ｜ 職歴 (Career)</div>\n        <div class="wire-cell" style="left: 35px; top: 310px; width: 280px; height: 280px; background: #ffffff; border-style: dashed;">No5: タイムライン (コンテンツ)<br>日付 / タイトル / 本文<br>(Zustandでタブ動的切替)</div>\n        <div class="wire-cell" style="left: 35px; top: 600px; width: 280px; height: 80px; background: #fdfdfe; border-color: #dee2e6;">No6: 資格セクション<br>取得資格一覧テーブル</div>\n        <div class="wire-cell" style="left: 20px; top: 690px; width: 310px; height: 50px; background: #f5f5f5;">No7: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# About 詳細設計書\n\n## 1. ページ概要\n\n- 開発者の経歴、職歴、および取得資格をユーザーに提示するページ。\n- タブ切り替えにより「経歴(History)」と「職歴(Career)」を動的に切り替えて表示する。\n- 静的生成（`export const dynamic = "force-static"`）されるが、タブ切り替えはクライアントサイトの状態管理（Zustand）で行われる。\n\n### meta\n- `title: "To You Design - About"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- `drawio/about.drawio`\n\n### 画面項目\n\n画面構成は上から下へ 7 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ、グローバルナビ（About / ポートフォリオ / ブログ）、お問い合わせボタン |\n| SP レイアウト | 768px 未満ではハンバーガーメニューに切り替え。ドロワー内にナビリンクを表示 |\n| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止 |\n\n#### No2: パンくずリスト\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → About |\n| 区切り | `ChevronRight` アイコン |\n| 操作 | トップリンククリックで `/` へ遷移。カレントページは `aria-current="page"` |\n| レイアウト | `.max_width` 内に配置 |\n\n#### No3: ヒーローエリア（Title）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |\n| 表示要素 | 日本語タイトル「プロフィール」、英字タイトル（`data-ja="About"`） |\n| 背景 | 青背景（`.lower__bg`、`#3b82f6` 系）の全幅ブロック |\n| セマンティクス | `h1.lower__title` としてページタイトルを表示 |\n\n#### No4: タブメニュー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `AboutTabs`（`app/about/_containers/about-tabs.tsx`） |\n| タブ項目 | 「経歴」（history）/「職歴」（career） |\n| 状態管理 | Zustand `useTabStore`。初期値は `"history"` |\n| 操作 | タブクリックで `changeActiveTab` を呼び出し、表示コンテンツを切り替え |\n| スタイル | アクティブタブに `.active` クラスを付与（青い上線） |\n| アクセシビリティ | `role="tablist"` / `role="tab"` / `role="tabpanel"`、`aria-selected`、`aria-controls` を設定 |\n\n#### No5: タイムライン（コンテンツ）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `CareerHistoryTimeline`（経歴）/ `JobTimeline`（職歴） |\n| データ取得 | 経歴: `fetchHistories()` → `/api/histories`、職歴: `fetchJobs()` → `/api/job` |\n| 表示要素 | 日付（`dt`）、タイトル（`h2`）、本文（`html-react-parser` で HTML 描画） |\n| 条件分岐 | `activeTab === "history"` で経歴、`activeTab === "career"` で職歴を表示 |\n| ローディング | `Suspense` 境界で「読み込み中...」を表示 |\n| 空状態 | データ 0 件時は「データはありません」を表示 |\n| レイアウト | `.tab-content.max_width` 内。青色サークルマーカー付きタイムライン |\n\n#### No6: 資格セクション\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerSubTitle` + `LicenseList`（`components/ui/rsc/license-list.tsx`） |\n| セクション見出し | 「資格」（`LowerSubTitle`） |\n| データ取得 | `fetchLicenses()` → `/api/licenses` |\n| 表示形式 | テーブル（日付 / 資格名の 2 列） |\n| 空状態 | 0 件時は「データはありません」を表示 |\n| ローディング | `Suspense` 境界で「読み込み中...」を表示 |\n| レイアウト | `.license.max_width` セクション内 |\n\n#### No7: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n| 表示要素 | ロゴ、サイトマップリンク、コピーライト |\n\n## 3. データフロー\n\n- MSW (Mock Service Worker) により、経歴、職歴、資格の各エンドポイントからデータを取得。\n- `Suspense` コンポーネントにより、データ取得中はローディング表示（「読み込み中...」）が行われる。\n\n**フロー図** (`mermaid/about.mmd`)\n\n```mermaid\nflowchart TD\n  A["ページアクセス (/about)"] --> B["AboutTabs コンポーネントの初期化"]\n  B --> C{"activeTab の値を確認 (Zustand)"}\n  C -- "history (初期値)" --> D["CareerHistoryTimeline を表示"]\n  C -- "career" --> E["JobTimeline を表示"]\n  B --> F["ユーザーがタブをクリック"]\n  F --> G["changeActiveTab(tabName) を実行"]\n  G --> H["Zustand のステート更新"]\n  H --> C\n  B --> I["資格セクションを表示 (常に表示)"]\n```\n\n## 4. 状態管理・ロジック\n\n- **Zustand (`useTabStore`)**: グローバルなタブ状態 (`activeTab`) を保持し、`changeActiveTab` アクションで切り替えを行う。\n- **AboutTabs**: クライアントコンポーネントであり、`activeTab` の値に基づいて表示する子要素（`CareerHistoryTimeline` or `JobTimeline`）を切り替える。\n- **モバイル対応**: 画面幅が一定以下になると、ヘッダーのナビゲーションがハンバーガーメニューに格納される。\n\n## 5. ルーティング\n\n- `/about`\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/about` にアクセス | 静的HTMLの表示 + コンポーネントのハイドレーション | プロフィールの表示 |\n| タブクリック | 「経歴」または「職歴」をクリック | `changeActiveTab` の呼び出し | ステート更新とコンテンツの切り替え |\n| メニュー開閉 | モバイル時にメニューアイコンをクリック | ナビゲーションの表示フラグ更新 | メニューの開閉 |\n\n## 7. APIインターフェース (Backend)\n\n| エンドポイント | メソッド | 内容 |\n|----------------|----------|------|\n| `/api/histories` | GET | 経歴データ（大学卒業、個人開発開始など）を取得 |\n| `/api/job` | GET | 職歴データ（従事したプロジェクト情報など）を取得 |\n| `/api/licenses` | GET | 取得した資格一覧を取得 |\n\n## 8. エラーハンドリング\n\n- データ取得失敗時は、基本的な `error.tsx` へのフォールバック、または `Suspense` の境界での処理が行われる。\n\n## 9. その他仕様\n\n- SEO用メタデータ: `title: "To You Design - About"`\n- コンポーネント構成: RSC (ページ) + クライアントコンポーネント (タブ) のハイブリッド構成。\n',
+        },
+        portfolio: {
+          drawioTitle: "画面構成図: drawio/portfolio.drawio",
+          mdTitle: "詳細設計書: portfolio.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 1000px;">\n        <div class="wire-cell" style="left: 30px; top: 40px; width: 310px; height: 980px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">Portfolio ページ 画面構成 (SP)</div>\n        <div class="wire-cell" style="left: 30px; top: 68px; width: 310px; height: 56px; background: #f5f5f5;">No1: ヘッダー<br>ハンバーガーナビ</div>\n        <div class="wire-cell" style="left: 50px; top: 145px; width: 270px; height: 46px; background: #ffffff;">No2: パンくず<br>トップ ＞ Portfolio</div>\n        <div class="wire-cell" style="left: 30px; top: 215px; width: 310px; height: 105px; background: #4284ff; color: #ffffff;">No3: 下層タイトル<br>Portfolio / 制作物</div>\n        <div class="wire-cell" style="left: 50px; top: 350px; width: 270px; height: 50px; background: #ffffff;">No4: 見出し / 件数</div>\n        <div class="wire-cell" style="left: 50px; top: 420px; width: 270px; height: 54px; background: #f8f9fa;">No5: 並び替えセレクト</div>\n        <div class="wire-cell" style="left: 50px; top: 505px; width: 270px; height: 330px; background: #f8fbff;">No6: 制作実績カード一覧<br>SP: 縦積み表示</div>\n        <div class="wire-cell" style="left: 75px; top: 545px; width: 220px; height: 230px; background: #ffffff; border-style: dashed;">No7: カード要素<br>画像 / 日付 / タイトル / タグ</div>\n        <div class="wire-cell" style="left: 30px; top: 905px; width: 310px; height: 80px; background: #f5f5f5;">No8: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# Portfolio 詳細設計書\n\n## 1. ページ概要\n\n- ページ: `/portfolios`\n- 目的: 制作実績一覧をカード形式で表示し、ユーザーを各制作物の詳細ページへ遷移させる。\n- 対象ユーザー: サイト訪問者、採用担当者、制作実績を確認したいユーザー。\n- 備考: 依頼パスは `/portfolio` だが、アプリの公開ルートは `/portfolios`。\n\n### meta\n- `title: "To You Design - Portfolio"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- PC: `drawio/pc/portfolio.drawio`\n- SP: `drawio/portfolio.drawio`\n\n### 画面項目（SP）\n\nSP 版の画面構成は上から下へ 8 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |\n| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |\n| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |\n| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |\n\n#### No2: パンくず\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → Portfolio |\n| 区切り | `ChevronRight` アイコン |\n| 操作 | トップリンククリックで `/` へ遷移。カレントページ（Portfolio）は `aria-current="page"` |\n| SP レイアウト | `.max_width` 内に左寄せ。左右 20px 相当の余白 |\n\n#### No3: 下層タイトル\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |\n| 表示要素 | 見出し `Portfolio`（`h1`）、英字補助（`data-ja="制作物"`） |\n| 背景 | 青背景（`.lower__bg`、`#4284ff` 系）の全幅ブロック |\n| SP レイアウト | 画面全幅。テキストは `.max_width` 内に配置 |\n\n#### No4: 見出し / 件数\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerSubTitle`（`components/ui/lower-sub-title.tsx`） |\n| 表示要素 | 「全ての制作物」+ 件数（例: `3件`） |\n| データ | `PortfolioList` に渡された制作実績配列の length |\n| SP レイアウト | `.max_width` 内。件数は `span.lower__subTitle-span` で表示 |\n\n#### No5: 並び替えセレクト\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioList` 内の `select` |\n| 選択肢 | 「並び替え」（デフォルト）/「新しい順」/「古い順」 |\n| 状態管理 | `order` state（`""` / `"new"` / `"old"`） |\n| URL 同期 | 選択値をクエリ `order` と同期。`router.replace()` で URL を更新 |\n| 操作 | セレクト変更で制作実績の表示順を切り替え |\n| SP レイアウト | 横幅 230px 以上。`.portfolio__filter` 内に配置 |\n\n#### No6: 制作実績カード一覧\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioList` + `PortfolioItem` |\n| データ取得 | Server 側で `fetchPortfoliosFront()` → `/api/portfolios` |\n| 並び順 | 初期は日付降順。クライアント側で `order` に応じて再ソート |\n| SP レイアウト | `.portfolio__List` 内でカードを縦積み（1 カラム）表示 |\n| 空状態 | 0 件時は「制作物がありません」を表示 |\n\n#### No7: カード要素\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioItem`（`components/ui/portfolio-item.tsx`） |\n| 表示要素 | サムネイル画像、日付（`time`）、タイトル（`h3`）、タグ（`#tag` 形式） |\n| タイトル | `html-react-parser` で HTML を描画 |\n| 操作 | カード全体が `TransitionLink` により `/portfolios/[id]` へ遷移 |\n| 画像フォールバック | 読み込み失敗時は `/images/dummy-image.jpg` へ差し替え |\n| SP レイアウト | 画像高さは `auto`。`sizes="100vw"` で全幅表示 |\n\n#### No8: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n| SP レイアウト | 画面下部全幅。コピーライト・サイトマップリンクを表示 |\n\n## 3. データフロー\n\n- `app/portfolios/page.tsx` で `fetchPortfoliosFront()` を実行し、`/api/portfolios` から制作実績一覧を取得する。\n- Server Component 側で初期表示用に日付降順へ並び替える。\n- Client Component の `PortfolioList` で URL クエリ `order` を読み取り、「新しい順」「古い順」の再ソートを行う。\n- `PortfolioItem` でサムネイル、日付、タイトル、タグをカード表示する。\n\n**フロー図** (`mermaid/portfolio.mmd`)\n\n```mermaid\nflowchart TD\n  A["ページアクセス (/portfolios)"] --> B["Portfolio page.tsx を実行"]\n  B --> C["metadata.title = To You Design - Portfolio"]\n  B --> D["fetchPortfoliosFront() を実行"]\n  D --> E["/api/portfolios から制作実績一覧を取得"]\n  E --> F["Server Component 側で日付降順にソート"]\n  F --> G{"searchParams.order の値"}\n  G -- "new" --> H["新しい順に再ソート"]\n  G -- "old" --> I["古い順に再ソート"]\n  G -- "未指定" --> J["初期順を維持"]\n  H --> K["PortfolioList に portfolios を渡す"]\n  I --> K\n  J --> K\n  K --> L["useSearchParams で order を同期"]\n  L --> M{"制作実績が存在するか"}\n  M -- "0件" --> N["制作物がありません を表示"]\n  M -- "1件以上" --> O["LowerSubTitle とセレクトを表示"]\n  O --> P["PortfolioItem をカード一覧表示"]\n  P --> Q["ユーザーがセレクトを変更"]\n  Q --> R["setOrder(value)"]\n  R --> S["URLSearchParams を更新"]\n  S --> T["router.replace(pathname + query)"]\n  T --> L\n  P --> U["ユーザーがカードをクリック"]\n  U --> V["TransitionLink で /portfolios/[id] へ遷移"]\n  P --> W{"画像ロード成功か"}\n  W -- "成功" --> X["サムネイルを表示"]\n  W -- "失敗" --> Y["/images/dummy-image.jpg を表示"]\n```\n\n## 4. 状態管理・ロジック\n\n- **静的生成**: `export const dynamic = "force-static"` を指定する。\n- **メタデータ**: `metadata.title` に `To You Design - Portfolio` を設定する。\n- **URLクエリ管理**: `useSearchParams` で `order` を読み取り、`useRouter().replace()` と `usePathname()` でクエリを更新する。\n- **ローカル state**: `PortfolioList` の `order` state で現在の並び替え条件を保持する。\n- **空データ表示**: 制作実績が 0 件の場合は「制作物がありません」を表示する。\n- **画像エラー対応**: `PortfolioItem` の画像読み込み失敗時は `/images/dummy-image.jpg` へ差し替える。\n\n## 5. ルーティング\n\n- 一覧ページ: `/portfolios`\n- 並び替え: `/portfolios?order=new`、`/portfolios?order=old`\n- 詳細ページ: `/portfolios/[id]`\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/portfolios` にアクセス | 制作実績一覧を取得し、日付降順で表示 | Portfolio 一覧が表示される |\n| 並び替え変更 | セレクトで「新しい順」または「古い順」を選択 | `order` state を更新し、`router.replace()` で URL クエリを更新 | 表示順と URL が同期する |\n| 並び替え解除 | セレクトで「並び替え」を選択 | `order` クエリを削除 | 初期順の一覧へ戻る |\n| カードクリック | 制作実績カードをクリック | `TransitionLink` で詳細ページへ遷移 | `/portfolios/[id]` が表示される |\n| 画像読み込み失敗 | サムネイルのロードエラー | `onError` でダミー画像へ差し替え | 画像欠落を防ぐ |\n\n## 7. APIインターフェース (Backend)\n\n| エンドポイント | メソッド | 内容 |\n|----------------|----------|------|\n| `/api/portfolios` | GET | 制作実績一覧を取得 |\n| `/api/portfolios/[id]` | GET | 制作実績詳細ページ用の個別データを取得 |\n\n## 8. エラーハンドリング\n\n- `/api/portfolios` の取得に失敗した場合、共通 fetcher がエラーを投げ、Next.js のエラー境界に委譲する。\n- 取得結果が空の場合は一覧を描画せず、「制作物がありません」を表示する。\n- サムネイル画像の取得に失敗した場合は `/images/dummy-image.jpg` を表示する。\n\n## 9. その他仕様\n\n- 実画面確認: `http://localhost:3000/portfolios`\n- 確認時の表示: `title = "To You Design - Portfolio"`、`h1 = "Portfolio"`、`h2 = "全ての制作物3件"`、カード3件。\n- セレクト項目: 「並び替え」「新しい順」「古い順」。\n- 主要コンポーネント: `Breadcrumb`、`LowerTitle`、`PortfolioList`、`PortfolioItem`。\n',
+        },
+        portfolioArticle: {
+          drawioTitle: "画面構成図: portfolio-article (ワイヤーフレーム)",
+          mdTitle: "詳細設計書: portfolio-article.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 1380px;">\n        <div class="wire-cell" style="left: 20px; top: 30px; width: 310px; height: 1330px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">Portfolio 詳細 画面構成 (SP)</div>\n        <div class="wire-cell" style="left: 20px; top: 58px; width: 310px; height: 50px; background: #f5f5f5;">No1: ヘッダー<br>ロゴ / ハンバーガー</div>\n        <div class="wire-cell" style="left: 35px; top: 120px; width: 280px; height: 40px; background: #ffffff;">No2: パンくず<br>トップ ＞ Portfolio ＞ 制作物</div>\n        <div class="wire-cell" style="left: 35px; top: 175px; width: 280px; height: 70px; background: #f8fbff;">No3: 投稿ヘッダー情報<br>制作日付 / タイトル / タグ</div>\n        <div class="wire-cell" style="left: 35px; top: 260px; width: 280px; height: 80px; background: #ffffff; border-style: dashed;">No4: 目次 (TOC)<br>各セクションへスムーズスクロール</div>\n        <div class="wire-cell" style="left: 35px; top: 355px; width: 280px; height: 130px; background: #eef2ff;">No5: トップ画像 (サムネイル)<br>クリックで拡大モーダル</div>\n        <div class="wire-cell" style="left: 35px; top: 500px; width: 280px; height: 120px; background: #ffffff;">No6: About セクション<br>画像 + 概要テキスト (HTML描画)</div>\n        <div class="wire-cell" style="left: 35px; top: 635px; width: 280px; height: 120px; background: #ffffff;">No7: 機能一覧 セクション<br>画像 + 機能説明テキスト</div>\n        <div class="wire-cell" style="left: 35px; top: 770px; width: 280px; height: 120px; background: #ffffff;">No8: アピール セクション<br>画像 + アピールポイント</div>\n        <div class="wire-cell" style="left: 35px; top: 905px; width: 280px; height: 60px; background: #f8f9fa;">No9: 制作期間<br>期間テキスト</div>\n        <div class="wire-cell" style="left: 35px; top: 980px; width: 280px; height: 100px; background: #f8fbff;">No10: 使用技術<br>Frontend / Backend / Infra</div>\n        <div class="wire-cell" style="left: 35px; top: 1095px; width: 280px; height: 50px; background: #ffffff;">No11: 外部リンク<br>WebサイトURL / GitHub</div>\n        <div class="wire-cell" style="left: 35px; top: 1160px; width: 280px; height: 50px; background: #f8f9fa;">No12: 記事ナビゲーション<br>前の記事 ｜ 次の記事</div>\n        <div class="wire-cell" style="left: 20px; top: 1225px; width: 310px; height: 60px; background: #f5f5f5;">No13: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# Portfolio 詳細ページ 詳細設計書\n\n## 1. ページ概要\n\n- ページ: `/portfolios/[id]`\n- 目的: 各制作実績の詳細情報（概要、機能一覧、アピールポイント、制作期間、使用技術、外部リンクなど）を詳細に表示し、制作者のスキルや制作実績を深く理解させる。\n- 対象ユーザー: 採用担当者、サイト訪問者、技術スタックや実績に関心があるユーザー。\n- 関連ページ: 制作実績一覧ページ（`/portfolios`）\n\n### meta\n- `title: "To You Design - 記事タイトル"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n`drawio/portfolio-article.drawio`\n\n### 画面項目\n\n画面構成は上から下へ 13 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |\n| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |\n| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |\n| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |\n\n#### No2: パンくず\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → Portfolio → [制作物名] |\n| 区切り | `ChevronRight` アイコン |\n| 操作 | トップリンククリックで `/` へ遷移、Portfolioクリックで `/portfolios` へ遷移。カレントページ（制作実績名）はリンクなし |\n| SP レイアウト | `.max_width` 内に左寄せ。左右 20px 相当の余白 |\n\n#### No3: 投稿ヘッダー情報\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` (`app/portfolios/[id]/portfolio-detail.tsx`) 内 |\n| 表示要素 | 制作日付（`portfolio.date`）、タイトル（`portfolio.name`）、タグリスト（`portfolio.tag`） |\n| フォーマット | 日付は `formatDate(portfolio.date)` により `YYYY.MM` 形式に整形して表示。タグは `#` プレフィックスを付与 |\n| SP レイアウト | `.portfolioDetail` コンテナ内に配置、タイトルは `h2` 要素 |\n\n#### No4: 目次 (TOC)\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` 内の目次ブロック |\n| 表示要素 | "目次" 見出しと各セクションリンク（About、機能一覧、アピール、制作期間・使用技術、リンク） |\n| 操作 | 各目次ボタンクリック時に `scrollToSection(id)` が走り、対象要素へスムーズスクロール（`scrollIntoView({ behavior: "smooth" })`） |\n| SP レイアウト | 縦並びのリンクボタン形式で表示 |\n\n#### No5: トップ画像 (サムネイル)\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Next/Image` + `CommonModal` |\n| 表示要素 | `portfolio.topImg` |\n| 操作 | 画像クリック時に拡大モーダル（`CommonModal`）を開く（`isOpen` state） |\n| SP レイアウト | 横幅全幅表示、高さはアスペクト比を維持 |\n\n#### No6: About セクション\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` 内 |\n| 表示要素 | "About" 見出し（`h3`）、`portfolio.aboutImg`、`portfolio.about` テキスト |\n| 画像モーダル | 画像クリック時に拡大モーダルを開く（`isOpen2` state） |\n| テキストパース | HTML記述に対応するため、`html-react-parser`（`parse`）を使用して描画し、サニタイズを行う |\n\n#### No7: 機能一覧 セクション\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` 内 |\n| 表示要素 | "機能一覧" 見出し（`h3`）、`portfolio.functionImg`、`portfolio.function` テキスト |\n| 画像モーダル | 画像クリック時に拡大モーダルを開く（`isOpen3` state） |\n| テキストパース | `html-react-parser` を使用して描画し、サニタイズを行う |\n\n#### No8: アピール セクション\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` 内 |\n| 表示要素 | "アピール" 見出し（`h3`）、`portfolio.appealImg`、`portfolio.appeal` テキスト |\n| 画像モーダル | 画像クリック時に拡大モーダルを開く（`isOpen4` state） |\n| テキストパース | `html-react-parser` を使用して描画し、サニタイズを行う |\n\n#### No9: 制作期間\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` 内 |\n| 表示要素 | "制作期間" 見出し（`h3`）、期間テキスト（`portfolio.time`） |\n\n#### No10: 使用技術\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PortfolioDetail` 内 |\n| カテゴリ | フロントエンド（`portfolio.front_skill`）、バックエンド（`portfolio.back_skill`）、インフラ（`portfolio.infra_skill`） |\n| 表示ロジック | フロントエンド、バックエンド、インフラのスキルが存在しない場合は各ブロックを非表示にする |\n| 装飾 | カテゴリごとにSVGアイコンを表示。各スキル名はタグ形式のリストで出力 |\n\n#### No11: 外部リンク (URL / GitHub)\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Next/Link` |\n| リンク対象 | フロントエンドURL (`front_url`)、フロントエンドGitHub (`front_github`)、バックエンドURL (`back_url`)、バックエンドGitHub (`back_github`) |\n| 表示ロジック | 各データが存在する場合のみ表示 |\n| 操作 | `target="_blank"` で別タブ遷移。`SquareArrowOutUpRight` アイコンを付与 |\n\n#### No12: 記事ナビゲーション\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `PostNavigation`（`components/ui/post-navigation.tsx`） |\n| 表示要素 | 「前の記事」へのリンク（`prev_title`）、「次の記事」へのリンク（`next_title`） |\n| 遷移先 | クリックで `/portfolios/[prev_article_id]` または `/portfolios/[next_article_id]` へ遷移 |\n\n#### No13: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n| 表示要素 | コピーライト、サイトマップリンク等 |\n\n## 3. データフロー\n\n- 静的生成時（ビルド時）、`app/portfolios/[id]/page.tsx` の `generateStaticParams()` が呼び出され、`fetchPortfoliosFront()` から全実績の ID を取得してルートを確定する。\n- ページアクセス時、非同期関数 `fetchPortfolio(id)` で `/api/portfolios/[id]` または該当データストアから個別の制作実績データを取得する。\n- 取得したデータを `PortfolioDetail` コンポーネントに Props として引き渡し、画面描画を行う。\n- `html-react-parser` を用いて、リッチテキスト（HTMLタグ含む説明文）を安全に描画する。\n\n**フロー図** (`mermaid/portfolio-article.mmd`)\n\n```mermaid\nflowchart TD\n  A["ページアクセス (/portfolios/[id])"] --> B["PortfolioPage page.tsx を実行"]\n  B --> C["fetchPortfolio(id) を実行"]\n  C --> D{"データが存在するか / 404以外か"}\n  D -- "No (エラー or 404)" --> E["notFound() で404ページへ遷移"]\n  D -- "Yes" --> F["PortfolioDetail に portfolio データを渡す"]\n  F --> G["画面要素を描画 (Breadcrumb, TOC, タイトル, タグ)"]\n  G --> H["About, 機能一覧, アピール, 制作期間, 使用技術, リンク等のレンダリング"]\n  H --> I["モーダル表示管理 (isOpen, isOpen2, isOpen3, isOpen4)"]\n  I --> J["画像クリック時に OpenModal で拡大表示"]\n  H --> K["目次 (TOC) ボタンクリック時に scrollToSection でアンカーへスクロール"]\n  H --> L["PostNavigation で前後のポートフォリオ詳細へ遷移可能"]\n```\n\n## 4. 状態管理・ロジック\n\n- **静的生成設定**: `export const dynamic = "force-static"` および `export const dynamicParams = false` を指定し、定義されていないIDへのアクセスは自動的に404エラー（`notFound()`）とする。\n- **データ存在検証**: `portfolio.data` が存在しない、もしくはレスポンスステータスが `404` の場合は `notFound()` を呼び出す。\n- **モーダル表示管理**: 各セクションの画像（トップ、About、機能一覧、アピール）ごとに、独立した boolean state (`isOpen`〜`isOpen4`) を定義し、モーダルの開閉を制御する。\n- **スムーススクロール**: TOCから各見出しへの移動は `scrollIntoView` メソッドを用い、スムーズなアニメーションスクロールを行う。\n\n## 5. ルーティング\n\n- パス: `/portfolios/[id]` (例: `/portfolios/1`)\n- 未定義ID: 404 ページにリダイレクト\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/portfolios/[id]` にアクセス | `fetchPortfolio(id)` で詳細データをロード | 画面項目が描画される |\n| TOC項目クリック | 目次内のボタンを押下 | `scrollToSection(id)` を実行 | 対象のアンカー位置までスムーズスクロールする |\n| 画像クリック | サムネイル等の画像をクック | `OpenModal(setIsOpenX)` を実行 | 対象画像が `CommonModal` 内で全画面表示される |\n| モーダル閉じる | モーダル背景や閉じるボタンを押下 | `CloseModal(setIsOpenX)` を実行 | モーダルが閉じる |\n| 前後リンククリック | 前後のナビゲーションリンクを押下 | 対象の個別実績ページへ遷移 | `/portfolios/[new_id]` に画面が切り替わる |\n\n## 7. APIインターフェース (Backend)\n\n| エンドポイント | メソッド | リクエスト | レスポンス例 |\n|----------------|----------|------------|--------------|\n| `/api/portfolios/[id]` | GET | パスパラメータ: `id` | `{ "status": "SUCCESS", "data": { "id": 1, "name": "Portfolio Name", ... } }` |\n\n## 8. エラーハンドリング\n\n- `fetchPortfolio(id)` で例外が発生、または返却データが空、ステータスが404の場合は `notFound()` が実行され、Next.js の 404 画面を表示する。\n- ローカル画像や外部画像の読み込みに失敗した場合のフォールバック動作は、Next.js `Image` またはレイアウト側のエラー処理に準拠する。\n\n## 9. その他仕様\n\n- **使用モジュール**: `html-react-parser`, `lucide-react` (SquareArrowOutUpRight)\n- **主要コンポーネント**: `Breadcrumb`, `CommonModal`, `PostNavigation`\n',
+        },
+        blog: {
+          drawioTitle: "画面構成図: drawio/blog.drawio",
+          mdTitle: "詳細設計書: blog.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 960px;">\n        <div class="wire-cell" style="left: 20px; top: 30px; width: 310px; height: 910px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">Blog ページ 画面構成 (SP)</div>\n        <div class="wire-cell" style="left: 20px; top: 58px; width: 310px; height: 56px; background: #f5f5f5;">No1: ヘッダー<br>ハンバーガーナビ</div>\n        <div class="wire-cell" style="left: 35px; top: 130px; width: 280px; height: 46px; background: #ffffff;">No2: パンくず<br>トップ ＞ Blog</div>\n        <div class="wire-cell" style="left: 20px; top: 190px; width: 310px; height: 95px; background: #4284ff; color: #ffffff;">No3: 下層タイトル<br>Blog / ブログ</div>\n        <div class="wire-cell" style="left: 35px; top: 300px; width: 280px; height: 45px; background: #ffffff;">No4: 見出し / 件数<br>Zenn + 全記事件数</div>\n        <div class="wire-cell" style="left: 35px; top: 360px; width: 280px; height: 320px; background: #f8fbff;">No5: 記事カード一覧<br>SP: 1カラム縦積み (9件/ページ)</div>\n        <div class="wire-cell" style="left: 55px; top: 400px; width: 240px; height: 160px; background: #ffffff; border-style: dashed;">No6: カード要素<br>絵文字 / 日付 / タイトル / タグ / ♡</div>\n        <div class="wire-cell" style="left: 35px; top: 700px; width: 280px; height: 50px; background: #f8f9fa;">No7: ページネーション<br>前へ / ページ番号 / 次へ</div>\n        <div class="wire-cell" style="left: 35px; top: 765px; width: 280px; height: 75px; background: #fff; border-color: #e2e8f0;">サイドバー (SPは下部)<br>おすすめ記事 (ランダム4件)</div>\n        <div class="wire-cell" style="left: 20px; top: 855px; width: 310px; height: 60px; background: #f5f5f5;">No8: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# Blogページ 詳細設計書\n\n## 1. ページ概要\n\n- ページ: `/blog`\n- 目的: 外部（Zenn）から取得したブログ記事の一覧をページネーション付きで表示し、サイドバーにおすすめ記事を表示する。\n- 対象ユーザー: サイト訪問者、技術情報や活動内容に関心があるユーザー。\n- 関連ページ: トップページ、各制作実績詳細ページ。\n\n### meta\n- `title: "To You Design - Blog"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- PC: `drawio/blog.drawio`\n- SP: `drawio/blog.drawio`\n\n### 画面項目\n\n画面構成は上から下へ 8 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |\n| SP レイアウト | 768px 未満ではグローバルナビを非表示とし、ハンバーガーメニューで代替する |\n| ドロワーメニュー | About / ポートフォリオ / ブログ へのリンクを縦並びで表示 |\n| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止する |\n\n#### No2: パンくず\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → Blog |\n| 区切り | `ChevronRight` アイコン |\n| 操作 | トップリンククリックで `/` へ遷移。カレントページ（Blog）は `aria-current="page"`（リンクなし） |\n| SP レイアウト | `.max_width` 内に左寄せ。左右 20px 相当の余白 |\n\n#### No3: 下層タイトル\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |\n| 表示要素 | 見出し `Blog`（`h1`）、英字補助（`data-ja="ブログ"`） |\n| 背景 | 青背景（`.lower__bg`、`#4284ff` 系）の全幅ブロック |\n| SP レイアウト | 画面全幅。テキストは `.max_width` 内に配置 |\n\n#### No4: 見出し / 件数\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerSubTitle`（`components/ui/lower-sub-title.tsx`） |\n| 表示要素 | 「Zenn」+ 件数（例: `15件`） |\n| データ | 取得されたZenn記事配列全体の length |\n| SP レイアウト | `.max_width` 内。件数は `span.lower__subTitle-span` で表示 |\n\n#### No5: 記事一覧\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `ZennArticleItem` (`app/blog/_containers/zenn-article-item.tsx`) |\n| 表示要素 | 絵文字（`emoji`）、公開日付（`published_at`）、タイトル（`title`）、記事タイプ（`article_type`）、いいね数（`liked_count`） |\n| 操作 | 記事全体が外部リンク `https://zenn.dev${path}` へ `target="_blank"` で遷移 |\n| SP レイアウト | 1カラムの縦積み。カード形式で表示 |\n\n#### No6: ページネーション\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `BlogPagination` (`app/blog/_containers/blog-pagination.tsx`) |\n| 表示要素 | 「前へ」ボタン、各ページ番号へのリンク、「次へ」ボタン |\n| 制御ロジック | 1ページあたり9件表示。全1ページ以下の場合は非表示。現在のページは非活性かつ `aria-current="page"` を付与 |\n| 操作 | リンククリックで `/blog?page=[num]` へ遷移 |\n\n#### No7: サイドバー（おすすめ記事）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `ZennAsideArticleItem` (`app/blog/_containers/zenn-aside-article-item.tsx`) |\n| 表示要素 | 公開日付、タイトル、いいね数 |\n| 制御ロジック | 取得した全記事からリロード（リクエスト）ごとにランダムに4件抽出して表示 |\n| 操作 | 外部リンク `https://zenn.dev${path}` へ `target="_blank"` で遷移 |\n| レイアウト | PC版は右側サイドバー、SP版はメイン一覧の下部へ縦並びで表示 |\n\n#### No8: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n| SP レイアウト | 画面下部全幅。コピーライト・サイトマップリンクを表示 |\n\n## 3. データフロー\n\n- ページアクセス時、Server Component の `Blog` が `fetchZennArticles({ cache: "no-store" })` を実行し、Zennの公開記事データを取得する。\n- 取得した記事データから `pickRandomArticles` でランダムに4件を抽出し、サイドバーのおすすめ記事とする。\n- URLクエリパラメータの `page` を読み取り、現在の表示対象となるページ（最大ページ数を超えないようクランプ）を算出し、9件分スライスして `ZennArticleItem` に渡す。\n- メイン一覧下部に `BlogPagination` を配置し、ページネーションコントロールを描画する。\n\n**フロー図** (`mermaid/blog.mmd`)\n\n```mermaid\nflowchart TD\n  A["ページアクセス (/blog)"] --> B["Blog page.tsx を実行 (force-dynamic / no-store)"]\n  B --> C["fetchZennArticles() を呼び出し Zenn 記事一覧を取得"]\n  B --> D["pickRandomArticles() でおすすめ記事をランダムに4件抽出"]\n  C --> E["URLクエリ page から現在のページ番号 (currentPage) を取得"]\n  E --> F["totalPages を計算し、現在のページを範囲内 (1 〜 totalPages) にクランプ"]\n  F --> G["articles を 1ページあたり9件 (ARTICLES_PER_PAGE) にスライス"]\n  G --> H["ZennArticleItem でメイン記事一覧を描画 (計9件以内)"]\n  H --> I["BlogPagination で前へ/次へと各ページ番号のナビゲーションを描画"]\n  D --> J["ZennAsideArticleItem でサイドバーのおすすめ記事 (4件) を描画"]\n  H --> K["ユーザーが記事カードをクリック"]\n  K --> L["外部リンク (https://zenn.dev + path) へ別タブで遷移"]\n  J --> M["ユーザーがおすすめ記事をクリック"]\n  M --> L\n```\n\n## 4. 状態管理・ロジック\n\n- **動的レンダリング**: ページアクセス（リロード）ごとにおすすめ記事のランダムな抽選を反映させるため、`export const dynamic = "force-dynamic"` を指定し、`noStore()` を実行する。\n- **ページネーション制御**: \n  - 1ページあたりの表示数: `9` 件 (`ARTICLES_PER_PAGE`)\n  - クランプ処理: クエリから取得した `page` が総ページ数を超える場合は、最大ページ番号に強制補正する。\n\n## 5. ルーティング\n\n- パス: `/blog`\n- パラメータ: `/blog?page=[ページ番号]` （2ページ目以降）\n- 記事の遷移先: `https://zenn.dev${path}` （外部サイト・新規タブ）\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/blog` へのアクセス | Zenn記事の一覧データを取得し、ページ割り当てとおすすめ記事のランダム抽出を行う | Blogページ及び初期ページの記事が表示される |\n| 記事カードクリック | 記事一覧またはおすすめ記事のカードを押下 | 外部リンクを別タブで開く | 新しいタブで `https://zenn.dev/...` の記事が開く |\n| ページ番号クリック | ページネーションリンクを押下 | URLクエリの `page` を変更してリダイレクト | 指定されたページの該当記事リストが表示される |\n\n## 7. APIインターフェース (Backend / 外部通信)\n\n| エンドポイント / 参照先 | メソッド | 内容 |\n|-------------------------|----------|------|\n| `fetchZennArticles` 経由の通信 | GET | Zenn APIまたはプロキシから記事一覧を取得 |\n\n## 8. エラーハンドリング\n\n- Zennからの記事データ取得に失敗した場合は、エラーログの出力及び取得関数のエラーバブリングにより、Next.jsの共通エラー境界に処理が委譲される。\n- 取得できた記事が 0 件の場合は、空データ用の表示処理を行う。\n\n## 9. その他仕様\n\n- 実画面確認: `http://localhost:3000/blog`\n- 主要コンポーネント: `Breadcrumb`, `LowerTitle`, `LowerSubTitle`, `ZennArticleItem`, `ZennAsideArticleItem`, `BlogPagination`\n',
+        },
+        contact: {
+          drawioTitle: "画面構成図: contact (ワイヤーフレーム)",
+          mdTitle: "詳細設計書: contact.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 920px;">\n        <div class="wire-cell" style="left: 20px; top: 30px; width: 310px; height: 870px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">Contact ページ 画面構成 (SP)</div>\n        <div class="wire-cell" style="left: 20px; top: 58px; width: 310px; height: 56px; background: #f5f5f5;">No1: ヘッダー<br>ロゴ / ハンバーガー</div>\n        <div class="wire-cell" style="left: 35px; top: 130px; width: 280px; height: 46px; background: #ffffff;">No2: パンくず<br>トップ ＞ Contact</div>\n        <div class="wire-cell" style="left: 20px; top: 190px; width: 310px; height: 95px; background: #4284ff; color: #ffffff;">No3: 下層タイトル<br>お問い合わせ / Contact</div>\n        <div class="wire-cell" style="left: 35px; top: 300px; width: 280px; height: 260px; background: #ffffff;">No4: 入力フォーム画面 (通常時)<br>お名前 (input)<br>メールアドレス (input)<br>メッセージ (textarea)<br>「確認画面へ」ボタン</div>\n        <div class="wire-cell" style="left: 35px; top: 575px; width: 280px; height: 180px; background: #f8fbff; border-style: dashed;">No5: 確認画面 (isConfirming=true)<br>入力内容プレビュー<br>「戻る」/「送信する」(EmailJS)</div>\n        <div class="wire-cell" style="left: 20px; top: 780px; width: 310px; height: 60px; background: #f5f5f5;">No6: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# お問い合わせ ページ詳細設計書\n\n## 1. ページ概要\n\n- ページ: `/contact`\n- 目的: ユーザーからの問い合わせを受け付け、名前、メールアドレス、メッセージを入力させ、確認画面を経由してメール送信（EmailJS経由）を行う。\n- 対象ユーザー: サイト訪問者、仕事の依頼や質問を行いたいユーザー。\n- 関連ページ: トップページ。\n\n### meta\n- `title: "To You Design - Contact"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- PC: `drawio/contact.drawio`\n- SP: `drawio/contact.drawio`\n\n### 画面項目\n\n画面構成は状態（入力画面 / 確認画面）に応じて変化する。上から下へ 5 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |\n\n#### No2: パンくず\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → Contact |\n| 操作 | トップリンククリックで `/` へ遷移。カレントページ（Contact）は `aria-current="page"`（リンクなし） |\n\n#### No3: 下層タイトル\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |\n| 表示要素 | 見出し `お問い合わせ`（`h1`）、英字補助（`data-ja="contact"`） |\n| 背景 | 青背景（`.lower__bg`）の全幅ブロック |\n\n#### No4: 入力フォーム画面（`isConfirming = false` 時）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `ContactForm` (`app/contact/_containers/contact-form.tsx`) |\n| 入力要素 | 名前（`input[type="text"]`）、メールアドレス（`input[type="email"]`）、メッセージ（`textarea`） |\n| バリデーション | Zodスキーマ (`PostContactSchema`) と `react-hook-form` を用いたクライアントバリデーション。エラー時は対象入力欄の下部に赤字でエラー文言を表示し、枠線を赤くする |\n| 操作 | 「確認画面へ」ボタン押下で、バリデーションが通れば確認画面へ遷移（`isConfirming` stateを `true` に） |\n\n#### No5: 確認画面（`isConfirming = true` 時）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `ContactForm` (`app/contact/_containers/contact-form.tsx`) |\n| 表示要素 | 入力された名前、メールアドレス、メッセージをプレビュー表示 |\n| 操作 | ・「戻る」ボタン：入力画面に戻る（`isConfirming` stateを `false` に。入力値は保持される）<br/>・「送信する」ボタン：メール送信（`sendMail`）を実行。送信中はボタンが非活性化される |\n\n#### No6: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n\n## 3. データフロー\n\n- ユーザーがフォームに入力し、「確認画面へ」ボタンを押すと、`zodResolver(PostContactSchema)` によるバリデーションチェックが行われる。\n- バリデーションに成功すると、一時 state（`name`, `email`, `message`）に入力内容が保存され、確認画面（`isConfirming = true`）に切り替わる。\n- 確認画面で「送信する」ボタンを押すと、`sendMail` メソッドが呼ばれ、EmailJS SDK を用いて `emailjsConfig.serviceId` および `emailjsConfig.templateId` 宛てにメールデータを送信する。\n- メール送信が完了すると成功アラートを表示し、トップページ（`/`）に `router.push(\'/\')` でリダイレクトする。失敗した場合はエラーアラートを表示して確認画面にとどまる。\n\n**フロー図** (`mermaid/contact-flow.mmd`)\n\n```mermaid\n%% Contact 画面遷移（同一URL内のステート遷移 + 送信後）\n\nflowchart TD\n  A["Contact ページ<br/>/contact"] --> B["入力フォーム<br/>isConfirming = false"]\n  B -->|"バリデーションOK<br/>確認画面へ"| C["確認画面<br/>isConfirming = true"]\n  C -->|"戻る"| B\n  C -->|"送信する<br/>EmailJS"| D{"送信結果"}\n  D -->|"成功"| E["アラート表示"]\n  E --> F["トップページへ<br/>router.push(\'/\')"]\n  D -->|"失敗"| G["エラーアラート"]\n  G --> C\n```\n\n## 4. 状態管理・ロジック\n\n- **フォーム管理とバリデーション**: `react-hook-form` を用い、`schema.ts` で定義した `PostContactSchema` によって制御。\n  - 名前: 入力必須（1文字以上、50文字以内）\n  - メールアドレス: 形式チェック（正しいメールアドレス形式）\n  - メッセージ: 5文字以上必須\n- **ローカル state**:\n  - `name`, `email`, `message`: 送信データの一時保持\n  - `isConfirming`: 確認画面フラグ\n  - `isSubmitting`: 送信中の二重送信防止用フラグ\n\n## 5. ルーティング\n\n- パス: `/contact`\n- 送信完了後リダイレクト先: `/` (トップページ)\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| フォーム送信（確認画面へ） | 入力画面で「確認画面へ」ボタンを押下 | バリデーションチェックを実行 | エラーがなければ確認画面を表示。エラー時は各フィールドにエラー文言を表示 |\n| 戻る | 確認画面で「戻る」ボタンを押下 | `isConfirming` を `false` に変更 | 入力フォームに戻る（値は保持される） |\n| メール送信（送信する） | 確認画面で「送信する」ボタンを押下 | EmailJSの `send` 関数を呼び出し | 送信成功でアラートを出してトップへ遷移。失敗時はエラーアラートを表示して二重送信を防止 |\n\n## 7. APIインターフェース (外部サービス連携)\n\n- **EmailJS SDK**:\n  - 呼び出し関数: `send(serviceId, templateId, template_param)`\n  - パラメータ例:\n    ```json\n    {\n      "to_name": "入力された名前",\n      "from_email": "入力されたメールアドレス",\n      "message": "入力されたメッセージ"\n    }\n    ```\n\n## 8. エラーハンドリング\n\n- クライアントバリデーションエラー：リアルタイムまたはサブミット時に `react-hook-form` 経由で各インプット要素に適用。\n- 送信時エラー：EmailJSのAPI送信エラーを `catch` し、「お問い合わせを送信失敗しました。」というエラーアラートを表示し、`isSubmitting` を解除して確認画面を維持する。\n- 二重送信防止：送信処理実行中は `isSubmitting` を `true` にし、連続クリックを受け付けない。\n\n## 9. その他仕様\n\n- 実画面確認: `http://localhost:3000/contact`\n- 主要コンポーネント: `Breadcrumb`, `LowerTitle`, `CommonLabel`, `ActionButton`, `ContactForm`\n',
+        },
+        admin: {
+          drawioTitle: "画面構成図: admin (ワイヤーフレーム)",
+          mdTitle: "詳細設計書: admin.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 720px;">\n        <div class="wire-cell" style="left: 20px; top: 30px; width: 310px; height: 670px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">Admin ページ 画面構成 (SP)</div>\n        <div class="wire-cell" style="left: 20px; top: 58px; width: 310px; height: 56px; background: #f5f5f5;">No1: ヘッダー<br>ロゴ / ハンバーガー</div>\n        <div class="wire-cell" style="left: 35px; top: 130px; width: 280px; height: 46px; background: #ffffff;">No2: パンくず<br>トップ ＞ Admin</div>\n        <div class="wire-cell" style="left: 20px; top: 190px; width: 310px; height: 95px; background: #4284ff; color: #ffffff;">No3: 下層タイトル<br>Admin / 認証</div>\n        <div class="wire-cell" style="left: 35px; top: 305px; width: 280px; height: 230px; background: #ffffff;">No4: ログインフォーム<br>ステータス（認証済み/未認証）<br>メールアドレス (input)<br>パスワード (input)<br>ログインボタン (Server Action)</div>\n        <div class="wire-cell" style="left: 20px; top: 560px; width: 310px; height: 60px; background: #f5f5f5;">No5: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# Adminページ（ログイン） 詳細設計書\n\n## 1. ページ概要\n\n- ページ: `/admin`\n- 目的: 管理者画面（ダッシュボード）へアクセスするための認証（ログイン）を行う。\n- 対象ユーザー: 管理者\n- 関連ページ: 管理画面ダッシュボード（`/admin/dashboard`）\n\n### meta\n- `title: "To You Design - Admin"`\n\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- `drawio/admin.drawio`\n\n### 画面項目\n\n画面構成は上から下へ 5 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | ロゴ（`/images/common/logo.svg`）、ハンバーガーボタン |\n\n#### No2: パンくず\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → Admin |\n| 操作 | トップリンククリックで `/` へ遷移。カレントページ（Admin）は `aria-current="page"`（リンクなし） |\n\n#### No3: 下層タイトル\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |\n| 表示要素 | 見出し `Admin`（`h1`）、英字補助（`data-ja="認証"`） |\n| 背景 | 青背景（`.lower__bg`）の全幅ブロック |\n\n#### No4: ログインフォーム\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `AdminForm` (`app/(auth)/admin/admin-form.tsx`) |\n| 入力要素 | ・メールアドレス：`input[type="email"]`（必須）<br/>・パスワード：`input[type="password"]`（必須） |\n| 認証状態表示 | 現在の Cookie 状態から `auth` があれば「認証済み」、なければ「未認証」を表示（クラス `is-auth` / `is-unauth` 切り替え） |\n| 送信ボタン | `type="submit"`。送信処理中（`loading = true`）はボタンを非活性化（disabled）にし、「認証中...」とテキストを変更 |\n| エラー表示 | 認証エラー発生時、フォーム下部に赤字でエラーメッセージを表示 |\n| 操作 | サブミット時にクライアント側の `onSubmit` を経由して Server Action `authenticate` を呼び出す |\n\n#### No5: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n\n## 3. データフロー\n\n- ユーザーがフォームを入力して送信ボタンを押すと、クライアント側で `loading = true` に設定し、Server Action である `authenticate(formData)` を呼び出す。\n- `authenticate` は、環境変数 `BASE_API_URL` からバックエンドのログインAPI `/api/v1/auth/login` へ POST 送信する。\n\n- **ログイン成功時**: \n  - APIからレスポンス { token: "eyJhbGci...", user: { ... } } を取得。\n  - レスポンスに含まれる JWTトークン文字列そのもの を Cookie auth_token に保存する。\n  - httpOnly: true（JavaScriptからの不正読み取り防止）\n  - secure: true（HTTPS通信のみ送信）\n  - sameSite: "lax"（CSRF対策）\n  - maxAge: 60 * 60 * 24（24時間有効）\n  - `/admin/dashboard` へのパス再検証（revalidatePath）を実行。\n  - `redirect("/admin/dashboard")` を使ってダッシュボードへ遷移させる。\n- **ログイン失敗時**:\n  - バックエンドから 401 Unauthorized 等が返却された場合、Cookieは設定せず、エラーオブジェクト `{ ok: false, error: "メールアドレスまたはパスワードが正しくありません" }` を返却。\n  - クライアント側でローディングを解除し、エラーメッセージを表示。\n\n  proxy.js\n  - **初期アクセス**: \n  - サーバーサイドで Cookie から auth_token を取得。\n  - トークンが存在する場合、バックエンドの GET /api/v1/auth/validate にリクエストしてトークンの有効性を検証。\n  - トークンがない/無効な場合: ログインフォームを表示。\n- ログイン後の各ページでも、同様に認証チェックを行い、認証されていない（トークンがない/無効）場合は /admin へリダイレクトする。\n\n### ログイン処理フロー\n\n**フロー図** (`mermaid/admin.mmd`)\n\n```mermaid\nflowchart TD\n  A["ユーザー（フォーム送信）"] --> B["onSubmit (Client Component)"]\n  B --> C["authenticate (Server Action)"]\n  C --> D["バックエンドAPI (/api/v1/auth/login)"]\n  D -- 成功 --> E["Cookieセット (auth=true)"]\n  E --> F["リダイレクト (/admin/dashboard)"]\n  D -- 失敗 --> G["エラーメッセージ返却"]\n  G --> H["画面にエラー表示"]\n```\n\n### 管理画面 画面遷移図（要認証）\n\n**画面遷移図** (`mermaid/admin-navigation.mmd`)\n\n```mermaid\n%% 管理画面 画面遷移図（要認証）\n\nflowchart TB\n  ADMIN_LOGIN["Admin ログイン<br/>/admin"]\n  DASHBOARD["ダッシュボード<br/>/admin/dashboard"]\n\n  EDIT_PF_LIST["ポートフォリオ一覧<br/>/admin/edit/portfolio"]\n  EDIT_PF_DETAIL["ポートフォリオ編集<br/>/admin/edit/portfolio/:id"]\n\n  EDIT_SKILL["スキル一覧<br/>/admin/edit/skill"]\n  EDIT_SKILL_FRONT["フロント編集<br/>/admin/edit/skill/front/:id"]\n  EDIT_SKILL_BACK["バック編集<br/>/admin/edit/skill/back/:id"]\n  EDIT_SKILL_INFRA["インフラ編集<br/>/admin/edit/skill/infra/:id"]\n  EDIT_SKILL_OTHER["その他編集<br/>/admin/edit/skill/other/:id"]\n\n  EDIT_HISTORY_LIST["経歴一覧<br/>/admin/edit/history"]\n  EDIT_HISTORY_DETAIL["経歴編集<br/>/admin/edit/history/:id"]\n\n  EDIT_JOB_LIST["職歴一覧<br/>/admin/edit/job"]\n  EDIT_JOB_DETAIL["職歴編集<br/>/admin/edit/job/:id"]\n\n  EDIT_LICENSE_LIST["資格一覧<br/>/admin/edit/license"]\n  EDIT_LICENSE_DETAIL["資格編集<br/>/admin/edit/license/:id"]\n\n  ADMIN_LOGIN -->|"認証成功<br/>Cookie: auth=true"| DASHBOARD\n  ADMIN_LOGIN -->|"認証失敗"| ADMIN_LOGIN\n\n  DASHBOARD --> EDIT_PF_LIST\n  DASHBOARD --> EDIT_SKILL\n  DASHBOARD --> EDIT_HISTORY_LIST\n  DASHBOARD --> EDIT_JOB_LIST\n  DASHBOARD --> EDIT_LICENSE_LIST\n\n  EDIT_PF_LIST --> EDIT_PF_DETAIL\n  EDIT_PF_DETAIL --> EDIT_PF_LIST\n\n  EDIT_SKILL --> EDIT_SKILL_FRONT\n  EDIT_SKILL --> EDIT_SKILL_BACK\n  EDIT_SKILL --> EDIT_SKILL_INFRA\n  EDIT_SKILL --> EDIT_SKILL_OTHER\n  EDIT_SKILL_FRONT --> EDIT_SKILL\n  EDIT_SKILL_BACK --> EDIT_SKILL\n  EDIT_SKILL_INFRA --> EDIT_SKILL\n  EDIT_SKILL_OTHER --> EDIT_SKILL\n\n  EDIT_HISTORY_LIST --> EDIT_HISTORY_DETAIL\n  EDIT_HISTORY_DETAIL --> EDIT_HISTORY_LIST\n\n  EDIT_JOB_LIST --> EDIT_JOB_DETAIL\n  EDIT_JOB_DETAIL --> EDIT_JOB_LIST\n\n  EDIT_LICENSE_LIST --> EDIT_LICENSE_DETAIL\n  EDIT_LICENSE_DETAIL --> EDIT_LICENSE_LIST\n```\n\n## 4. 状態管理・ロジック\n\n- **ローカル state (React)**:\n  - `loading`: サーバーでの認証処理実行中のローディング表示制御。\n  - `error`: バックエンド認証失敗時のエラー文言保持。\n- **Cookieによるセッション管理**:\n  - Cookie名: auth_token\n  - 値: バックエンドが発行した JWTアクセストークン\n  - 有効期限: 24時間 (maxAge: 60 * 60 * 24)\n  - セキュリティ設定:\n    - httpOnly: true (XSS対策)\n    - secure: process.env.NODE_NODE_ENV === "production" (盗聴対策)\n    - sameSite: "lax" (CSRF対策)\n    - path: "/"\n\n## 5. ルーティング\n\n- ログインページ: `/admin`\n- 成功時の遷移先: `/admin/dashboard`\n- Next.js Proxy (`proxy.js`):\n  - `/admin/dashboard` 以下のリクエストに対し、auth_token Cookieの存在を判定。\n  - トークンが存在しない場合は即座に /admin へリダイレクト。\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/admin` にアクセス | クッキーから `auth` の有無をチェック | `auth` の状態に応じて「認証済み/未認証」の表示を切り替えてフォームを描画 |\n| フォーム送信 | フォームの送信ボタンを押下 | `onSubmit` から Server Action `authenticate` を呼び出し | 認証中表示に変更し、API通信を行う |\n| 認証成功 | APIから `200 OK` が返却 | クッキーをセットし、キャッシュを再検証 | `/admin/dashboard` にリダイレクトする |\n| 認証失敗 | APIから非成功ステータスが返却 | クライアントへエラーメッセージを返却 | ローディング表示を解除し、エラーメッセージを画面に表示する |\n\n## 7. APIインターフェース (Backend)\n\n| エンドポイント | メソッド | リクエスト | レスクッキー / レスポンス例 |\n|----------------|----------|------------|----------------------------|\n| `${process.env.BASE_API_URL}api/v1/auth/login` | POST | `{ "email": "...", "password": "..." }` | 成功: `200 OK` (Cookie用データを返却)<br/>失敗: 非成功レスポンス (例: `401 Unauthorized`) |\n\n## 8. エラーハンドリング\n\n- クライアントバリデーション：ブラウザ標準の `required` / `type="email"` による必須入力・簡易フォーマットチェック。\n- API通信エラー・認証失敗：APIが `!res.ok` の場合、共通の「メールまたはパスワードが違います」をエラーメッセージとして返し、画面に明示する。\n- ローディング制御と連動して送信ボタンを無効化し、多重送信を防ぐ。\n\n## 9. その他仕様\n\n- 実画面確認: `http://localhost:3000/admin`\n- 主要コンポーネント: `Breadcrumb`, `LowerTitle`, `CommonLabel`, `AdminForm`\n- 主要サーバーアクション: `authenticate` (`app/(auth)/admin/actions.ts`)\n',
+        },
+        privacyPolicy: {
+          drawioTitle: "画面構成図: drawio/privacy-policy.drawio",
+          mdTitle: "詳細設計書: privacy-policy.md",
+          drawioHtml:
+            '\n      <div class="wire-stage" style="width: 350px; height: 820px;">\n        <div class="wire-cell" style="left: 20px; top: 30px; width: 310px; height: 760px; background: #fff; justify-content: flex-start; align-items: flex-start; padding: 10px; font-weight: bold;">プライバシーポリシー 画面構成 (Desktop / SP)</div>\n        <div class="wire-cell" style="left: 20px; top: 58px; width: 310px; height: 50px; background: #f5f5f5;">No1: ヘッダー<br>ロゴ / ナビ / お問い合わせ</div>\n        <div class="wire-cell" style="left: 35px; top: 120px; width: 200px; height: 30px; background: #ffffff; border-style: none; justify-content: flex-start;">No2: パンくずリスト<br>トップ ＞ Privacy Policy</div>\n        <div class="wire-cell" style="left: 20px; top: 160px; width: 310px; height: 90px; background: #3b82f6; color: #ffffff;">No3: ヒーローエリア (Title)<br>プライバシーポリシー / Privacy Policy</div>\n        <div class="wire-cell" style="left: 35px; top: 270px; width: 280px; height: 380px; background: #ffffff; border-style: dashed;">No4/No5: メインコンテンツ<br>・個人情報の利用目的<br>・Google Analytics について<br>・Microsoft Clarity について<br>・外部リンク (利用規約等)</div>\n        <div class="wire-cell" style="left: 20px; top: 670px; width: 310px; height: 50px; background: #f5f5f5;">No6: フッター</div>\n      </div>\n    ',
+          mdContent:
+            '# Privacy Policy 詳細設計書\n\n## 1. ページ概要\n\n- ユーザーに対して個人情報の取り扱い、アクセス解析ツール（Google Analytics, Microsoft Clarity）の使用等について明示するページ。\n- 静的生成（`export const dynamic = "force-static"`）される。\n\n### meta\n- `title: "To You Design - Privacy Policy"`\n\n## 2. 画面仕様\n\n### 画面構成図\n\n- `drawio/privacy-policy.drawio`\n\n### 画面項目\n\n画面構成は上から下へ 6 ブロックで構成する。各項目の詳細は以下のとおり。\n\n#### No1: ヘッダー\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Header`（`components/layout/header.tsx`） |\n| 表示要素 | サイトロゴ、グローバルナビ（About / ポートフォリオ / ブログ）、お問い合わせボタン |\n| SP レイアウト | 768px 未満ではハンバーガーメニューに切り替え |\n| 操作 | ハンバーガーボタンクリックでメニュー開閉。開閉時は `body` のスクロールを禁止 |\n\n#### No2: パンくずリスト\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `Breadcrumb`（`components/ui/breadcrumb.tsx`） |\n| 表示階層 | トップ → Privacy Policy |\n| 区切り | `ChevronRight` アイコン |\n| 操作 | トップリンククリックで `/` へ遷移。ホバー時にアンダーライン表示 |\n| レイアウト | `.max_width` 内に配置 |\n\n#### No3: ヒーローエリア（Title）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `LowerTitle`（`components/ui/lower-title.tsx`） |\n| 表示要素 | 日本語タイトル「プライバシーポリシー」、英字タイトル（`data-ja="Privacy Policy"`） |\n| 背景 | 青背景（`.lower__bg`、`#3b82f6` 系）の全幅ブロック |\n| セマンティクス | `h1.lower__title` としてページタイトルを表示 |\n\n#### No4: メインコンテンツ（本文）\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `page.tsx` 内の `.privacy-policy__content` |\n| レイアウト | `.max_width` 内に中央寄せ |\n| セクション1 | 「個人情報の利用目的」— お問い合わせ時の個人情報取り扱いについて |\n| セクション2 | 「アクセス解析ツールについて」— Google Analytics の Cookie 利用と匿名収集の説明 |\n| セクション3 | 「Microsoft Clarityについて」— ヒートマップ・セッションレコーディング等の匿名収集の説明 |\n| スタイル | 見出し: `h2.privacy-policy__heading`（太字）、本文: `p.privacy-policy__text` |\n\n#### No5: 外部リンク\n\n| 項目 | 内容 |\n|------|------|\n| 表示位置 | 各セクション本文内に配置 |\n| リンク先 | Google アナリティクス利用規約、Google ポリシーと規約、Microsoft Clarity 利用規約、Microsoft プライバシーステートメント |\n| 属性 | `target="_blank"`、`rel="noopener noreferrer"` |\n| スタイル | `a.privacy-policy__link` — 常時アンダーライン付きの青色テキスト |\n| 操作 | クリックで外部ポリシーサイトを別タブで表示 |\n\n#### No6: フッター\n\n| 項目 | 内容 |\n|------|------|\n| コンポーネント | `RootLayout` の `Footer`（全ページ共通） |\n| 表示要素 | ロゴ、サイトマップリンク、コピーライト |\n| レイアウト | ヘッダーと同様のリンク構成を画面下部に表示 |\n\n## 3. データフロー\n\n**フロー図** (`mermaid/privacy-policy.mmd`)\n\n```mermaid\nflowchart TD\n  A["ユーザーが /privacy-policy にアクセス"] --> B["静的HTMLを表示"]\n  B --> C["外部計測ツール（Google/MS）のCookie設定確認"]\n  C -- "Cookie有効時" --> D["Google Analytics / Microsoft Clarity データ収集"]\n  B --> F["ユーザーが外部リンクをクリック"]\n  F -- "target=\'_blank\'" --> G["外部利用規約サイトを別タブで表示"]\n```\n\n- 静的なコンテンツであり、外部データの動的取得はない。\n- Google Analytics および Microsoft Clarity によるクライアントサイドのデータ収集（匿名）が行われる。\n\n## 4. 状態管理・ロジック\n\n- クライアント側で Cookie を無効にされた場合、アクセス解析ツールのデータ収集は制限される（ブラウザ設定依存）。\n- モバイル表示時、ヘッダーナビゲーションはハンバーガーメニュー内に格納される。\n\n## 5. ルーティング\n\n- `/privacy-policy`\n\n## 6. イベント・アクション仕様\n\n| イベント | 発火条件 | 処理内容 | 結果 |\n|----------|----------|----------|------|\n| ページアクセス | `/privacy-policy` にアクセス | 静的HTMLのロード | プライバシーポリシーの表示 |\n| 外部リンククリック | 利用規約等のリンクをクリック | `_blank` によるリンク遷移 | 外部ポリシーサイトを別タブで表示（noopener/noreferrer付与） |\n| ハンバーガーメニュー操作 | モバイル時にメニューアイコンをクリック | ナビゲーションの開閉 | メニュー項目の表示/非表示 |\n\n## 7. APIインターフェース (Backend)\n\n- なし\n\n## 8. エラーハンドリング\n\n- 特になし。\n\n## 9. その他仕様\n\n- SEO用メタデータ: `title: "To You Design - プライバシーポリシー"`\n- コンポーネント構成: React Server Component。\n',
+        },
+      }
+
+      if (window.mermaid) {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: "default",
+          securityLevel: "loose",
+          flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true,
+            curve: "basis",
+          },
+        })
+      }
+
+      // ===== Mermaid 描画 =====
+      let mermaidSeq = 0
+      async function renderMermaidBlocks(root) {
+        if (!window.mermaid) {
+          root.querySelectorAll("pre code.language-mermaid").forEach((codeEl) => {
+            const box = document.createElement("div")
+            box.className = "mermaid-error"
+            box.textContent =
+              "Mermaid ライブラリを読み込めませんでした（ネットワーク接続を確認してください）。"
+            codeEl.parentElement.replaceWith(box)
+          })
+          return
+        }
+        const blocks = Array.from(root.querySelectorAll("pre code.language-mermaid"))
+        for (const codeEl of blocks) {
+          const preEl = codeEl.parentElement
+          const code = codeEl.textContent
+          try {
+            const { svg } = await mermaid.render("mmd-" + ++mermaidSeq, code)
+            const div = document.createElement("div")
+            div.className = "mermaid"
+            div.title = "クリックで拡大"
+            div.innerHTML = svg
+            div.dataset.zoomable = "1"
+            preEl.replaceWith(div)
+          } catch (err) {
+            console.error("Mermaid render error:", err)
+            document.getElementById("dmmd-" + mermaidSeq)?.remove()
+            const box = document.createElement("div")
+            box.className = "mermaid-error"
+            box.innerHTML = "<strong>Mermaid の描画に失敗しました</strong><div></div><pre></pre>"
+            box.querySelector("div").textContent = String(
+              (err && (err.message || err.str)) || err,
+            ).split("\n")[0]
+            box.querySelector("pre").textContent = code
+            preEl.replaceWith(box)
+          }
+        }
+      }
+
+      // ===== Mermaid 拡大ビューア（ホイールズーム / ドラッグ移動） =====
+      const mz = {
+        overlay: document.getElementById("mz-overlay"),
+        stage: document.getElementById("mz-stage"),
+        canvas: document.getElementById("mz-canvas"),
+        label: document.getElementById("mz-zoom"),
+        scale: 1,
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+        fitScale: 1,
+        MIN: 0.1,
+        MAX: 8,
+      }
+      function mzApply() {
+        mz.canvas.style.transform = `translate(${mz.x}px, ${mz.y}px) scale(${mz.scale})`
+        mz.label.textContent = Math.round(mz.scale * 100) + "%"
+      }
+      function mzZoomAt(newScale, cx, cy) {
+        newScale = Math.min(mz.MAX, Math.max(mz.MIN, newScale))
+        const k = newScale / mz.scale
+        mz.x = cx - (cx - mz.x) * k
+        mz.y = cy - (cy - mz.y) * k
+        mz.scale = newScale
+        mzApply()
+      }
+      function mzFit() {
+        const vw = mz.stage.clientWidth,
+          vh = mz.stage.clientHeight
+        const cw = mz.canvas.offsetWidth,
+          ch = mz.canvas.offsetHeight
+        mz.fitScale = Math.min((vw * 0.94) / cw, (vh * 0.88) / ch)
+        mz.scale = Math.min(mz.MAX, Math.max(mz.MIN, mz.fitScale))
+        mz.x = (vw - cw * mz.scale) / 2
+        mz.y = (vh - ch * mz.scale) / 2 + 20
+        mzApply()
+      }
+      function mzOpen(srcDiv) {
+        const svg = srcDiv.querySelector("svg")
+        if (!svg) return
+        const clone = svg.cloneNode(true)
+        // 元の描画サイズ（viewBox）を等倍サイズとして採用
+        const vb = (clone.getAttribute("viewBox") || "").split(/[\s,]+/).map(Number)
+        const w = vb.length === 4 && vb[2] ? vb[2] : svg.getBoundingClientRect().width
+        const h = vb.length === 4 && vb[3] ? vb[3] : svg.getBoundingClientRect().height
+        clone.removeAttribute("style")
+        clone.setAttribute("width", w)
+        clone.setAttribute("height", h)
+        mz.canvas.innerHTML = ""
+        mz.canvas.appendChild(clone)
+        mz.overlay.classList.add("open")
+        document.body.style.overflow = "hidden"
+        mzFit()
+      }
+      function mzClose() {
+        mz.overlay.classList.remove("open")
+        mz.canvas.innerHTML = ""
+        document.body.style.overflow = ""
+      }
+      // 図クリック → 拡大
+      document.addEventListener("click", (e) => {
+        const box = e.target.closest(".mermaid[data-zoomable]")
+        if (box && !mz.overlay.contains(e.target)) mzOpen(box)
+      })
+      // ボタン
+      document.getElementById("mz-close").addEventListener("click", mzClose)
+      document
+        .getElementById("mz-in")
+        .addEventListener("click", () =>
+          mzZoomAt(mz.scale * 1.25, mz.stage.clientWidth / 2, mz.stage.clientHeight / 2),
+        )
+      document
+        .getElementById("mz-out")
+        .addEventListener("click", () =>
+          mzZoomAt(mz.scale / 1.25, mz.stage.clientWidth / 2, mz.stage.clientHeight / 2),
+        )
+      document.getElementById("mz-fit").addEventListener("click", mzFit)
+      document.getElementById("mz-100").addEventListener("click", () => {
+        const vw = mz.stage.clientWidth,
+          vh = mz.stage.clientHeight
+        mz.scale = 1
+        mz.x = (vw - mz.canvas.offsetWidth) / 2
+        mz.y = (vh - mz.canvas.offsetHeight) / 2
+        mzApply()
+      })
+      // 背景クリックで閉じる（ドラッグ時は除く）
+      let mzDown = null,
+        mzMoved = false
+      mz.stage.addEventListener("pointerdown", (e) => {
+        mzDown = { px: e.clientX, py: e.clientY, x: mz.x, y: mz.y }
+        mzMoved = false
+        mz.stage.setPointerCapture(e.pointerId)
+        mz.stage.classList.add("grabbing")
+      })
+      mz.stage.addEventListener("pointermove", (e) => {
+        if (!mzDown) return
+        const dx = e.clientX - mzDown.px,
+          dy = e.clientY - mzDown.py
+        if (Math.abs(dx) + Math.abs(dy) > 3) mzMoved = true
+        mz.x = mzDown.x + dx
+        mz.y = mzDown.y + dy
+        mzApply()
+      })
+      mz.stage.addEventListener("pointerup", (e) => {
+        mz.stage.classList.remove("grabbing")
+        if (mzDown && !mzMoved && !mz.canvas.contains(e.target)) mzClose()
+        mzDown = null
+      })
+      // ホイールズーム（カーソル位置中心）
+      mz.stage.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault()
+          const factor = Math.exp(-e.deltaY * 0.0015)
+          mzZoomAt(mz.scale * factor, e.clientX, e.clientY)
+        },
+        { passive: false },
+      )
+      // ダブルクリック: フィット ⇔ 等倍(2x相当) 切替
+      mz.stage.addEventListener("dblclick", (e) => {
+        if (Math.abs(mz.scale - mz.fitScale) < 0.02)
+          mzZoomAt(Math.max(1, mz.fitScale * 2), e.clientX, e.clientY)
+        else mzFit()
+      })
+      // キーボード
+      document.addEventListener("keydown", (e) => {
+        if (!mz.overlay.classList.contains("open")) return
+        const cx = mz.stage.clientWidth / 2,
+          cy = mz.stage.clientHeight / 2
+        if (e.key === "Escape") mzClose()
+        else if (e.key === "+" || e.key === "=") mzZoomAt(mz.scale * 1.25, cx, cy)
+        else if (e.key === "-") mzZoomAt(mz.scale / 1.25, cx, cy)
+        else if (e.key === "0") mzFit()
+        else if (e.key === "1") document.getElementById("mz-100").click()
+      })
+      window.addEventListener("resize", () => {
+        if (mz.overlay.classList.contains("open")) mzFit()
+      })
+
+      async function renderView(key) {
+        const item = data[key]
+        if (!item) return
+        document.getElementById("drawio-title").textContent = item.drawioTitle
+        document.getElementById("md-title").textContent = item.mdTitle
+        document.getElementById("drawio-container").innerHTML = item.drawioHtml
+
+        const mdContainer = document.getElementById("md-container")
+        mdContainer.innerHTML = marked.parse(item.mdContent)
+
+        // Mermaid ダイアグラムの自動レンダリング（ブロックごとに独立して描画）
+        await renderMermaidBlocks(mdContainer)
+
+        // スクロール位置を一番上へリセット
+        document.getElementById("drawio-container").scrollTop = 0
+        document.getElementById("md-container").scrollTop = 0
+      }
+
+      // タブ切り替え関数
+      function switchToTab(key) {
+        if (!data[key]) return
+        const targetTab = document.querySelector(`.ss-tab[data-target="${key}"]`)
+        if (targetTab) {
+          document.querySelectorAll(".ss-tab").forEach((t) => t.classList.remove("active"))
+          targetTab.classList.add("active")
+          renderView(key)
+          targetTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" })
+        }
+      }
+
+      // タブバークリック処理
+      document.querySelectorAll(".ss-tab").forEach((tab) => {
+        tab.addEventListener("click", (e) => {
+          switchToTab(e.currentTarget.dataset.target)
+        })
+      })
+
+      // 画面内リンク（Markdownや構成図の [data-tab]）クリック時のタブ切り替え処理
+      document.addEventListener("click", (e) => {
+        const trigger = e.target.closest("[data-tab]")
+        if (trigger && !trigger.classList.contains("ss-tab")) {
+          e.preventDefault()
+          const target = trigger.getAttribute("data-tab")
+          if (target && data[target]) {
+            switchToTab(target)
+          }
+        }
+      })
+
+      // 初期表示 (最初にREADMEタブを表示)
+      renderView("readme")
+
+      // 左右ペインのリサイズ用スプリッター機能
+      const splitter = document.getElementById("splitter")
+      const paneLeft = document.getElementById("pane-left")
+      const previewContainer = document.getElementById("preview-container")
+      let isDragging = false
+
+      splitter.addEventListener("mousedown", (e) => {
+        isDragging = true
+        splitter.classList.add("dragging")
+        e.preventDefault()
+      })
+
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return
+        const containerRect = previewContainer.getBoundingClientRect()
+        const offsetX = e.clientX - containerRect.left
+        const totalWidth = containerRect.width
+
+        let percentage = (offsetX / totalWidth) * 100
+        if (percentage < 15) percentage = 15
+        if (percentage > 85) percentage = 85
+
+        paneLeft.style.width = percentage + "%"
+      })
+
+      window.addEventListener("mouseup", () => {
+        if (isDragging) {
+          isDragging = false
+          splitter.classList.remove("dragging")
+        }
+      })
+
+      // 全画面表示切り替え
+      const fsBtn = document.getElementById("fs-btn")
+      fsBtn.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch((err) => {
+            alert("全画面表示のエラー: " + err.message)
+          })
+          fsBtn.textContent = "全画面解除"
+        } else {
+          document.exitFullscreen()
+          fsBtn.textContent = "全画面表示"
+        }
+      })
+    </script>
+  </body>
+</html>

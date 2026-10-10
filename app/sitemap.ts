@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { PATH } from "utils/path"
+import { PATH } from "@/utils/path"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

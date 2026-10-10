@@ -68,6 +68,7 @@ const renderPortfolioList = (search = "") => {
     back: vi.fn(),
     forward: vi.fn(),
     refresh: vi.fn(),
+    bfcacheId: "1234567890",
   } as ReturnType<typeof useRouter>)
 
   render(<PortfolioList portfolios={portfolios} />)

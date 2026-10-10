@@ -1,4 +1,4 @@
-import type { History } from "types"
+import type { History } from "@/types"
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { PATH } from "@/utils/path"
 import HistoryItem from "./HistoryItem"

@@ -1,10 +1,10 @@
 "use client"
 
 import { HistoryBackButton } from "@/components/ui/button/history-back-button"
-import { Breadcrumb, CommonLabel, LowerTitle } from "components/ui"
+import { Breadcrumb, CommonLabel, LowerTitle } from "@/components/ui"
 import { useState } from "react"
-import { PortfolioType } from "types"
-import { PATH } from "utils/path"
+import { PortfolioType } from "@/types"
+import { PATH } from "@/utils/path"
 import { editPortfolio } from "./actions"
 
 const EditDetail = ({ portfolio }: { portfolio: PortfolioType }) => {

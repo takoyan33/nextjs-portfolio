@@ -1,5 +1,5 @@
 import { logger } from "@/utils/logger"
-import { fetchLicenses } from "hooks/fetch"
+import { fetchLicenses } from "@/hooks/fetch"
 
 /**
  * 資格のタイムライン
