@@ -1,16 +1,19 @@
+import { loadNewRelicAgent } from "./newrelic-agent"
+
 export async function register() {
-  // Edge では絶対に動かさない
-  if (process.env.NEXT_RUNTIME === "edge") {
+  // The New Relic Hybrid Agent instruments Node.js only, never Edge.
+  if (process.env.NEXT_RUNTIME !== "nodejs") {
     return
   }
 
-  // MSW Initialization for Server Components
+  // Load New Relic before application modules in the production runtime.
+  if (process.env.VERCEL_ENV === "production") {
+    await loadNewRelicAgent()
+  }
+
+  // MSW initialization for Server Components in local development.
   if (process.env.NEXT_PUBLIC_USE_MOCK === "true") {
     const { server } = await import("@/mocks/server")
     server.listen()
-  }
-
-  if (process.env.VERCEL_ENV === "production") {
-    await import("newrelic")
   }
 }
