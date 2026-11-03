@@ -1,6 +1,6 @@
 import { ProfileSnsLinks } from "@/components/parts/profile/profile-sns-links"
 import { fetchProfile } from "@/hooks/fetch"
-import ScrollComponent from "hooks/use-fadeIn"
+import ScrollComponent from "@/hooks/use-fadeIn"
 import parse from "html-react-parser"
 import Image from "next/image"
 

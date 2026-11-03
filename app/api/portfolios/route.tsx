@@ -1,7 +1,7 @@
 import { messages } from "@/app/types/social"
 import { NextResponse } from "next/server"
 
-import type { ResponsePortfolio } from "types"
+import type { ResponsePortfolio } from "@/types"
 
 export const dynamic = "force-dynamic"
 

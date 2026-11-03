@@ -24,7 +24,12 @@ const config: NextConfig = {
     ]
   },
 
-  serverExternalPackages: ["pino"],
+  // Keep all dynamically loaded New Relic agent modules in Vercel's server trace.
+  outputFileTracingIncludes: {
+    "/*": ["./node_modules/newrelic/**/*"],
+  },
+
+  serverExternalPackages: ["pino", "newrelic"],
 }
 
 export default config

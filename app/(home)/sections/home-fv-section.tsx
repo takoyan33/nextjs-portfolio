@@ -1,4 +1,4 @@
-import ThreeModel from "components/parts/three-model"
+import ThreeModel from "@/components/parts/three-model"
 
 export const HomeFvSection = () => {
   return (

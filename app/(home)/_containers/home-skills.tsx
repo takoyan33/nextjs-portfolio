@@ -5,7 +5,7 @@ import {
   fetchInfraSkills,
   fetchOtherSkills,
 } from "@/hooks/fetch"
-import ScrollComponent from "hooks/use-fadeIn"
+import ScrollComponent from "@/hooks/use-fadeIn"
 
 import { logger } from "@/utils/logger"
 

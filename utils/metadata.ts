@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { PATH } from "utils/path"
+import { PATH } from "@/utils/path"
 
 export const siteConfig = {
   title: "To You Design",

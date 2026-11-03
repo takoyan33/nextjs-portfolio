@@ -3,7 +3,7 @@
 import "@/styles/page/_adminTable.scss"
 import Image from "next/image"
 import Link from "next/link"
-import type { PortfolioType } from "types"
+import type { PortfolioType } from "@/types"
 
 interface Props {
   portfolio: PortfolioType
