@@ -32,8 +32,19 @@ Vercel Dashboard の **Project Settings > Environment Variables** で、以下�
 | `NEW_RELIC_INSTRUMENTATION_NEXT_ENABLED` | `false` | 非公開 |
 | `NEW_RELIC_INSTRUMENTATION_HTTP_ENABLED` | `false` | 非公開 |
 | `NEW_RELIC_INSTRUMENTATION_UNDICI_ENABLED` | `false` | 非公開 |
+| `NEW_RELIC_LOG` | `stdout` | 非公開 |
+| `NEW_RELIC_LOG_LEVEL` | `warn`（調査時は `info`） | 非公開 |
+| `NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED` | `true` | 非公開 |
 
-`NEW_RELIC_LICENSE_KEY` は絶対に `NEXT_PUBLIC_` 付きの変数名にせず、リポジトリや `.env.example` にも実値を記録しない。
+`NEW_RELIC_LOG=stdout` は必須である。Vercel の実行環境はファイルシステムが読み取り専用のため、未設定だとエージェントが `/var/task/newrelic_agent.log` を開けず `EROFS` エラーになる。
+
+## ログ
+
+アプリケーションのログ（pino）は、エージェントが自動で New Relic に転送し、トレースと紐づけて表示する。New Relic の **Logs**、または Distributed tracing の該当トレースから参照できる。
+
+- Vercel は関数の標準出力を常に収集するため、Vercel の Logs にも同じログが出る。これは止められない。
+- サーバーレスでは関数の停止前に送信が間に合わず、New Relic に届かないログがありうる。取りこぼしの確認には Vercel の Logs を使う。
+- ログ転送は取り込み量に応じて課金対象になる。不要な `info` ログを増やさない。
 
 ## 確認手順
 
@@ -49,5 +60,6 @@ Preview / Development 環境ではエージェントを起動しない。これ�
 - New Relic Hybrid Agent は Node.js runtime 専用で、Edge runtime は監視しない。
 - Next.js の `fetch` は独自の span を生成する。`undici` 計測も有効にすると重複するため無効化している。
 - 新規の migration や依存更新後は、Production deploy 後にエラー率と外部 API 呼び出しを確認する。
+- ログの取り込み量は New Relic の **Usage** 画面で定期的に確認する。
 
 詳細は [New Relic: Next.js instrumentation with the Hybrid Agent](https://docs.newrelic.com/docs/apm/agents/nodejs-agent/extend-your-instrumentation/nextjs-instrumentation/) を参照する。

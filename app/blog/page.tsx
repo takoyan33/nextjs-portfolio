@@ -4,6 +4,7 @@ import ZennAsideArticleItem from "@/app/blog/_containers/zenn-aside-article-item
 import { Breadcrumb, LowerTitle } from "@/components/ui"
 import { LowerSubTitle } from "@/components/ui/lower-sub-title"
 import "@/styles/page/_blog.scss"
+import { logger } from "@/utils/logger"
 import { PATH } from "@/utils/path"
 import { fetchZennArticles, pickRandomArticles } from "@/utils/zenn"
 import type { Metadata } from "next"
@@ -39,6 +40,17 @@ const Blog = async ({ searchParams }: BlogPageProps) => {
   const paginatedArticles = articles.slice(
     (validPage - 1) * ARTICLES_PER_PAGE,
     validPage * ARTICLES_PER_PAGE,
+  )
+
+  logger.info(
+    {
+      requestedPage: currentPage,
+      validPage,
+      totalPages,
+      totalArticles: articles.length,
+      recommendedIds: recommendedArticles.map((article) => article.id),
+    },
+    "/blog rendered",
   )
 
   return (
