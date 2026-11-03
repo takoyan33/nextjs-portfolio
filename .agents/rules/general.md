@@ -17,6 +17,13 @@ alwaysApply: true
 - pnpm dev:mockでローカル環境を立ち上げる
 - スキルセット項目のsvgアイコンは、https://svgl.app/ のSVG画像を利用しています。
 
+### GitHub Actions
+
+- `uses: actions/checkout@v7` のような major タグだけの指定はしない
+- Workflow の Action は完全なセマンティックバージョン（例: `actions/checkout@v7.0.1`）を書き、コミット SHA は `.github/workflows/actions.lock` に固定する
+- Action の追加・変更後は `gh actions-lock` を実行する（`actions.lock` の手編集は禁止）
+- 浮動タグを最新コミットへ進める場合は `gh actions-lock --relock` を使う
+
 ---
 
 ## コーディング規約
